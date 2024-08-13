@@ -74,7 +74,7 @@ const getPizzas = () => {
           "auth-token": localStorage.lsToken,
         },
         body: JSON.stringify({
-          task: state.value.newTask,
+          title: state.value.newTask,
           description: state.value.newTodoDescription,
           time: state.value.newTodoTime,
           status: state.value.newTodoStatus,
@@ -150,7 +150,7 @@ const getPizzas = () => {
           "auth-token": localStorage.lsToken,
         },
         body: JSON.stringify({
-          task: state.value.newTask,
+          title: state.value.newTask,
           description: state.value.newTodoDescription,
           time: state.value.newTodoTime,
           status: state.value.newTodoStatus,

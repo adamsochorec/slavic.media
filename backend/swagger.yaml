@@ -21,7 +21,7 @@ components:
       properties:
         id:
           type: string
-        task:
+        title:
           type: string
         description:
           type: string
