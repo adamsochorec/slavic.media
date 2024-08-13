@@ -5,9 +5,7 @@ const getTodosInClass = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await fetch(
-        "https://dwp-backend.adamsochorec.com/pizzas"
-      ); // Send a GET request to the specified URL and store the response
+      const response = await fetch("https://api.slavic.media/pizzas"); // Send a GET request to the specified URL and store the response
 
       if (!response.ok) {
         throw new Error("Something went wrong"); // Throw an error if the response is not successful

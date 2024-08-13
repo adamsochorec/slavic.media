@@ -31,10 +31,7 @@ const getPizzas = () => {
           password: "12345678",
         }),
       };
-      await fetch(
-        "https://dwp-backend.adamsochorec.com/api/user/login",
-        requestOptions
-      )
+      await fetch("https://api.slavic.media/api/user/login", requestOptions)
         .then((res) => res.json())
         .then((data) => {
           localStorage.setItem("lsToken", data.data.token); // Store the token in local storage
@@ -49,9 +46,7 @@ const getPizzas = () => {
   // Fetches all pizzas items from the server.
   const GetAllPizzas = async () => {
     try {
-      const response = await fetch(
-        "https://dwp-backend.adamsochorec.com/api/pizzas/"
-      );
+      const response = await fetch("https://api.slavic.media/api/pizzas/");
       const data = await response.json();
       state.value.pizzas = data; // Update the pizzas state with the fetched data
       console.log(data);
@@ -89,7 +84,7 @@ const getPizzas = () => {
 
       // Make the HTTP request
       const response = await fetch(
-        "https://dwp-backend.adamsochorec.com/api/pizzas/",
+        "https://api.slavic.media/api/pizzas/",
         requestOptions
       );
 
@@ -118,7 +113,7 @@ const getPizzas = () => {
         },
       };
       const response = await fetch(
-        `https://dwp-backend.adamsochorec.com/api/pizzas/${pizza.id}`,
+        `https://api.slavic.media/api/pizzas/${pizza.id}`,
         requestOptions
       );
 
@@ -162,8 +157,7 @@ const getPizzas = () => {
         }),
       };
 
-      const url =
-        "https://dwp-backend.adamsochorec.com/api/pizzas/" + pizzaID.value;
+      const url = "https://api.slavic.media/api/pizzas/" + pizzaID.value;
       const response = await fetch(url, requestOptions);
 
       if (!response.ok) {
@@ -183,7 +177,7 @@ const getPizzas = () => {
       console.log("Fetching pizza with ID:", pizzaID); // Debugging log
 
       const response = await fetch(
-        `https://dwp-backend.adamsochorec.com/api/pizzas/${pizzaID}`
+        `https://api.slavic.media/api/pizzas/${pizzaID}`
       );
 
       if (!response.ok) {
