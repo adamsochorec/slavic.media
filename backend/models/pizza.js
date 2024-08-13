@@ -10,17 +10,16 @@ const Schema = mongoose.Schema;
 // Define the pizza schema with fields for task, description, status, and time
 let pizzaSchema = new Schema({
   // The 'task' field represents the name of the task
-  title: { type: String },
+  task: { type: String },
 
   // The 'description' field provides more details about the task
-  author: { type: String },
+  description: { type: String },
 
   // The 'status' field indicates the current status of the task
-  date: { type: String },
+  status: { type: String },
 
   // The 'time' field represents the time taken to complete the task
-  content: { type: String },
-  thumbnail: { type: String },
+  time: { type: Number },
 });
 
 // Create a model named 'pizza' based on the defined schema
