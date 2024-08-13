@@ -1,0 +1,192 @@
+openapi: 3.0.0
+info:
+  title: MEN REST API
+  description: MongoDB ExpressJS NodeJS REST API
+  version: 1.0.0
+servers:
+  - url: http://localhost:4000/api/
+    description: Localhost development server
+  - url: https://dwp-backend.adamsochorec.com/api/
+    description: Render.com
+components:
+  securitySchemes:
+    ApiKeyAuth: # arbitrary name for the security scheme
+      type: apiKey
+      in: header # can be "header", "query" or "cookie"
+      name: auth-token
+
+  schemas:
+    pizza:
+      type: object
+      properties:
+        id:
+          type: string
+        task:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+        time:
+          type: number
+
+    User:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        date:
+          type: string
+
+paths:
+  /user/register:
+    post:
+      summary: Register a new User
+      description: Register a new User in the database
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        201:
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  _id:
+                    type: string
+
+  /user/login:
+    post:
+      summary: Login a User
+      description: Login a User to get a JWT token (auth-token)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        200:
+          description: User logged in successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  data:
+                    type: string
+
+  /pizzas:
+    get:
+      summary: Retrieves a list of pizzas
+      description: Retrieves a list of pizzas as JSON objects
+      security:
+        - ApiKeyAuth: []
+      responses:
+        200:
+          description: A list of pizza JSON objects in an array
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/pizza"
+    post:
+      summary: Create a new pizza
+      description: Create a new pizza
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/pizza"
+      responses:
+        201:
+          description: Pizza created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/pizza"
+
+  /pizzas/{id}:
+    get:
+      summary: Retrieve a specific pizza
+      description: Retrieves a specific pizza based on its id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: MongoDB id
+          schema:
+            type: string
+      responses:
+        200:
+          description: A pizza in the format of a JSON object
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/pizza"
+    put:
+      summary: Update a specific pizza
+      description: Updates a specific pizza based on its id
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: MongoDB id
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/pizza"
+      responses:
+        200:
+          description: Pizza updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/pizza"
+    delete:
+      summary: Delete a specific pizza
+      description: Deletes a specific pizza based on its id
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: MongoDB id
+          schema:
+            type: string
+      responses:
+        200:
+          description: Pizza deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/pizza"

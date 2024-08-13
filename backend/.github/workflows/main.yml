@@ -1,0 +1,63 @@
+# This YAML file defines a GitHub Actions workflow for continuous integration and deployment of a Node.js application.
+
+# The name of the workflow
+name: Node.JS CI/CD
+
+# This workflow gets triggered on every push to the main branch
+on:
+  push:
+    branches: [main]
+
+# The jobs that this workflow will run
+jobs:
+  # The first job is to test the application
+  test:
+    name: Test
+    runs-on: ubuntu-latest # The type of machine to run the job on
+
+    # This strategy runs the job on multiple versions of Node.js
+    strategy:
+      matrix:
+        node-version: [20.x] # The versions of Node.js to test against
+
+    # The steps that the job will run
+    steps:
+      # This step checks out a copy of your repository
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # This step sets up Node.js on the runner
+      - name: Use Node.JS ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # This step installs dependencies, builds the application, and runs tests
+      - name: NPM install, build and test
+        run: |
+          npm install
+          npm test
+        env:
+          # Environment variables for the test script
+          DBHOST: ${{ secrets.DBHOST }}
+          TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
+          JWT_EXPIRES_IN: ${{ secrets.JWT_EXPIRES_IN }}
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          SERVICE_ID: ${{ secrets.SERVICE_ID }}
+
+  # The second job is to deploy the application
+  deploy:
+    name: Deploy
+    needs: [test] # This job depends on the 'test' job
+    runs-on: ubuntu-latest # The type of machine to run the job on
+
+    # The steps that the job will run
+    steps:
+      # This step deploys the application to production
+      - name: Deploy to production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.SERVICE_ID }} # The ID of the service to deploy to
+          api-key: ${{ secrets.RENDER_API_KEY }} # The API key for the Render service
