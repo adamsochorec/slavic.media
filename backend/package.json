@@ -1,5 +1,5 @@
 {
-  "name": "men-restful-api",
+  "name": "slavicmedia",
   "version": "1.0.0",
   "description": "MongoDB-ExpressJS-NodeJS Restful API",
   "main": "server.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "men-restful-api"
+    "url": "slavicmedia"
   },
   "keywords": [
     "mongodb",
