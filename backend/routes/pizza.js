@@ -136,7 +136,7 @@ function mapArray(inputArray) {
 function mapData(element) {
   let outputObj = {
     id: element.id,
-    task: element.task,
+    title: element.title,
     description: element.description,
     status: element.status,
     time: element.time,

@@ -11,7 +11,7 @@
       }"
     >
       <p>
-        <u> {{ pizza.task }}</u>
+        <u> {{ pizza.title }}</u>
       </p>
       <p>{{ pizza.description }}</p>
       <p>
