@@ -46,7 +46,7 @@ const getPizzas = () => {
   // Fetches all pizzas items from the server.
   const GetAllPizzas = async () => {
     try {
-      const response = await fetch("http://localhost:4000/api/pizzas/");
+      const response = await fetch("http://localhost:4000/blog/articles/");
       const data = await response.json();
       state.value.pizzas = data; // Update the pizzas state with the fetched data
       console.log(data);
@@ -84,7 +84,7 @@ const getPizzas = () => {
 
       // Make the HTTP request
       const response = await fetch(
-        "http://localhost:4000/api/pizzas/",
+        "http://localhost:4000/blog/articles/",
         requestOptions
       );
 
@@ -113,7 +113,7 @@ const getPizzas = () => {
         },
       };
       const response = await fetch(
-        `http://localhost:4000/api/pizzas/${pizza.id}`,
+        `http://localhost:4000/blog/articles/${pizza.id}`,
         requestOptions
       );
 
@@ -157,7 +157,7 @@ const getPizzas = () => {
         }),
       };
 
-      const url = "http://localhost:4000/api/pizzas/" + pizzaID.value;
+      const url = "http://localhost:4000/blog/articles/" + pizzaID.value;
       const response = await fetch(url, requestOptions);
 
       if (!response.ok) {
@@ -177,7 +177,7 @@ const getPizzas = () => {
       console.log("Fetching pizza with ID:", pizzaID); // Debugging log
 
       const response = await fetch(
-        `http://localhost:4000/api/pizzas/${pizzaID}`
+        `http://localhost:4000/blog/articles/${pizzaID}`
       );
 
       if (!response.ok) {

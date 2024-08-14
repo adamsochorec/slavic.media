@@ -54,7 +54,7 @@ describe("Pizza workflow tests", () => {
             // Make a POST request to create a new pizza
             chai
               .request(server)
-              .post("/api/pizzas")
+              .post("/blog/articles")
               .set({ "auth-token": token })
               .send(Pizza)
               .end((err, res) => {
@@ -72,7 +72,7 @@ describe("Pizza workflow tests", () => {
                 // Make a GET request to verify the pizza in the database
                 chai
                   .request(server)
-                  .get("/api/pizzas/")
+                  .get("/blog/articles/")
                   .end((err, res) => {
                     // Assert that the response status is 200, the response body is an array with one element
                     expect(res.status).to.be.equal(200);
@@ -131,7 +131,7 @@ describe("Pizza workflow tests", () => {
             // Make a POST request to create a new pizza
             chai
               .request(server)
-              .post("/api/pizzas")
+              .post("/blog/articles")
               .set({ "auth-token": token })
               .send(Pizza)
               .end((err, res) => {
@@ -149,7 +149,7 @@ describe("Pizza workflow tests", () => {
                 // Make a DELETE request to delete the pizza
                 chai
                   .request(server)
-                  .delete("/api/pizzas/" + savedPizza._id)
+                  .delete("/blog/articles/" + savedPizza._id)
                   .set({ "auth-token": token })
                   .end((err, res) => {
                     // Assert that the response status is 200 and the pizza was successfully deleted

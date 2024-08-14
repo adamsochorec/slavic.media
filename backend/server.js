@@ -75,7 +75,7 @@ app.get("/api/welcome", (req, res) => {
 });
 
 // Define routes for CRUD operations on pizzas
-app.use("/api/pizzas", pizzaRoutes);
+app.use("/blog/articles", pizzaRoutes);
 
 // Define routes for user authentication
 app.use("/api/user", authRoutes);
