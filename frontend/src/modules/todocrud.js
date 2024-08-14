@@ -164,7 +164,7 @@ const getPizzas = () => {
         throw new Error("Failed to edit pizzas");
       }
 
-      router.push("/pizzas"); // Redirect to the pizzas page after successful edit
+      router.push("/blog"); // Redirect after successful edit
     } catch (error) {
       console.log("Error editing pizzas:", error);
     }

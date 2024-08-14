@@ -11,8 +11,8 @@ const router = createRouter({
     },
 
     {
-      path: "/pizzas",
-      name: "pizzas",
+      path: "/blog",
+      name: "blog",
       component: () =>
         import(/* webpackChunkName: "about" */ "../views/TodosView.vue"),
       meta: {
@@ -20,8 +20,8 @@ const router = createRouter({
       },
     },
     {
-      path: "/pizzas/:id",
-      name: "pizzas single",
+      path: "/blog/:id",
+      name: "blog single",
       component: () =>
         import(/* webpackChunkName: "about" */ "../views/TodoDetail.vue"),
       meta: {

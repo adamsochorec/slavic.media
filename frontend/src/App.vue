@@ -7,7 +7,7 @@ provideAuth();
 
 <template>
   <header>
-    <RouterLink to="/pizzas">
+    <RouterLink to="/">
       <div class="logo-container">
         <span>Aba</span>
       </div></RouterLink
