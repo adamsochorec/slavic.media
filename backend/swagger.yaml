@@ -6,7 +6,7 @@ info:
 servers:
   - url: http://localhost:4000/api/
     description: Localhost development server
-  - url: https://api.slavic.media/api/
+  - url: http://localhost:4000/api/
     description: Render.com
 components:
   securitySchemes:
