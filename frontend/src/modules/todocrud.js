@@ -10,10 +10,11 @@ const getPizzas = () => {
   console.log("pizzaID: ", pizzaID.value);
 
   const state = ref({
-    newTask: "",
-    newTodoTime: "",
-    newTodoDescription: "",
-    newTodoStatus: "",
+    newTitle: "",
+    newContent: "",
+    newDate: "",
+    newAuthor: "",
+    newThumbnail: "",
     pizzas: {},
   });
 
@@ -58,10 +59,11 @@ const getPizzas = () => {
   // Creates a new pizzas item and sends it to the server for storage.
   const newTask = async () => {
     if (
-      !state.value.newTask ||
-      !state.value.newTodoDescription ||
-      !state.value.newTodoTime ||
-      !state.value.newTodoStatus
+      !state.value.newTitle ||
+      !state.value.newContent ||
+      !state.value.newDate ||
+      !state.value.newTodoAuthor ||
+      !state.value.newThumbnail
     ) {
       console.error("All fields must be filled out");
       return;
@@ -74,10 +76,11 @@ const getPizzas = () => {
           "auth-token": localStorage.lsToken,
         },
         body: JSON.stringify({
-          title: state.value.newTask,
-          description: state.value.newTodoDescription,
-          time: state.value.newTodoTime,
-          status: state.value.newTodoStatus,
+          title: state.value.newTitle,
+          content: state.value.newContent,
+          date: state.value.newDate,
+          author: state.value.newAuthor,
+          thumbnail: state.value.newThumbnail,
           id: state.value.pizzaID,
         }),
       };
@@ -134,10 +137,11 @@ const getPizzas = () => {
         throw new Error("No pizzas ID provided");
       }
       if (
-        !state.value.newTask ||
-        !state.value.newTodoDescription ||
-        !state.value.newTodoTime ||
-        !state.value.newTodoStatus
+        !state.value.newTitle ||
+        !state.value.newContent ||
+        !state.value.newDate ||
+        !state.value.newAuthor ||
+        !state.value.newThumbnail
       ) {
         console.error("All fields must be filled out");
         return;
@@ -150,10 +154,11 @@ const getPizzas = () => {
           "auth-token": localStorage.lsToken,
         },
         body: JSON.stringify({
-          title: state.value.newTask,
-          description: state.value.newTodoDescription,
-          time: state.value.newTodoTime,
-          status: state.value.newTodoStatus,
+          title: state.value.newTitle,
+          content: state.value.newContent,
+          date: state.value.newDate,
+          author: state.value.newAuthor,
+          thumbnail: state.value.newThumbnail,
         }),
       };
 

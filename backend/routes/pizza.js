@@ -137,9 +137,10 @@ function mapData(element) {
   let outputObj = {
     id: element.id,
     title: element.title,
-    description: element.description,
-    status: element.status,
-    time: element.time,
+    content: element.content,
+    thumbnail: element.thumbnail,
+    author: element.author,
+    date: element.date,
   };
   return outputObj;
 }
