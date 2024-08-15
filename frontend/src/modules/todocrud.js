@@ -32,7 +32,7 @@ const getPizzas = () => {
           password: "12345678",
         }),
       };
-      await fetch("http://localhost:4000/api/user/login", requestOptions)
+      await fetch("https://api.slavic.media/login", requestOptions)
         .then((res) => res.json())
         .then((data) => {
           localStorage.setItem("lsToken", data.data.token); // Store the token in local storage
@@ -47,7 +47,7 @@ const getPizzas = () => {
   // Fetches all pizzas items from the server.
   const GetAllPizzas = async () => {
     try {
-      const response = await fetch("http://localhost:4000/blog/articles/");
+      const response = await fetch("https://api.slavic.media/blog/articles/");
       const data = await response.json();
       state.value.pizzas = data; // Update the pizzas state with the fetched data
       console.log(data);
@@ -87,19 +87,19 @@ const getPizzas = () => {
 
       // Make the HTTP request
       const response = await fetch(
-        "http://localhost:4000/blog/articles/",
+        "https://api.slavic.media/blog/articles/",
         requestOptions
       );
 
       // Check if the request was successful
       if (!response.ok) {
-        throw new Error("Failed to add new pizza");
+        throw new Error("Failed to add new item");
       }
 
       // Refresh pizzas after successfully adding a new one
       await GetAllPizzas();
     } catch (error) {
-      console.error("Error adding new pizzas:", error);
+      console.error("Error adding new item:", error);
       // Handle the error as appropriate (e.g., show an error message to the user)
     }
   };
@@ -116,17 +116,17 @@ const getPizzas = () => {
         },
       };
       const response = await fetch(
-        `http://localhost:4000/blog/articles/${pizza.id}`,
+        `https://api.slavic.media/blog/articles/${pizza.id}`,
         requestOptions
       );
 
       if (!response.ok) {
-        throw new Error("Failed to delete pizza");
+        throw new Error("Failed to delete");
       }
 
       await GetAllPizzas();
     } catch (error) {
-      console.log("Error deleting pizzas:", error);
+      console.log("Error deleting:", error);
     }
   };
 
@@ -134,7 +134,7 @@ const getPizzas = () => {
   const editPizza = async () => {
     try {
       if (!pizzaID.value) {
-        throw new Error("No pizzas ID provided");
+        throw new Error("No ID provided");
       }
       if (
         !state.value.newTitle ||
@@ -162,16 +162,16 @@ const getPizzas = () => {
         }),
       };
 
-      const url = "http://localhost:4000/blog/articles/" + pizzaID.value;
+      const url = "https://api.slavic.media/blog/articles/" + pizzaID.value;
       const response = await fetch(url, requestOptions);
 
       if (!response.ok) {
-        throw new Error("Failed to edit pizzas");
+        throw new Error("Failed to edit");
       }
 
       router.push("/blog"); // Redirect after successful edit
     } catch (error) {
-      console.log("Error editing pizzas:", error);
+      console.log("Error pizzas:", error);
     }
   };
 
@@ -179,14 +179,14 @@ const getPizzas = () => {
   const pizza = ref({});
   const GetSpecificPizza = async (pizzaID) => {
     try {
-      console.log("Fetching pizza with ID:", pizzaID); // Debugging log
+      console.log("Fetching with ID:", pizzaID); // Debugging log
 
       const response = await fetch(
-        `http://localhost:4000/blog/articles/${pizzaID}`
+        `https://api.slavic.media/blog/articles/${pizzaID}`
       );
 
       if (!response.ok) {
-        throw new Error(`Failed to fetch specific pizza with ID: ${pizzaID}`);
+        throw new Error(`Failed to fetch specific with ID: ${pizzaID}`);
       }
       const data = await response.json();
       pizza.value = data; // Update the pizza ref with the fetched data
