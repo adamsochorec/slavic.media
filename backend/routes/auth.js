@@ -6,7 +6,7 @@ const { registerValidation, loginValidation } = require("../validation"); // Val
 const jwt = require("jsonwebtoken"); // jsonwebtoken to create authentication tokens
 
 // User registration endpoint
-router.post("/user/register", async (req, res) => {
+router.post("/register", async (req, res) => {
   try {
     // Validate the user input (name, email, password)
     // If the validation fails, return an error message
@@ -45,7 +45,7 @@ router.post("/user/register", async (req, res) => {
 });
 
 // User login endpoint
-router.post("/user/login", async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     // Validate user login info
     // If the validation fails, return an error message

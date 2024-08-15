@@ -70,16 +70,16 @@ mongoose.connection.once("open", () =>
 );
 
 // Define a welcome route
-app.get("/welcome", (req, res) => {
+app.get("/", (req, res) => {
   // Send a welcome message with a 200 OK status
-  res.status(200).send({ message: "Welcome to the MEN RESTFUL API" });
+  res.status(200).send({ message: "Welcome to the backend" });
 });
 
 // Define routes for CRUD operations on pizzas
 app.use("/blog/articles", pizzaRoutes);
 
 // Define routes for user authentication
-app.use("/user", authRoutes);
+app.use("/api/user", authRoutes);
 
 // Serve static files from the 'dist' directory
 app.use(express.static(path.join(__dirname, "dist")));
