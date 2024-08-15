@@ -18,7 +18,7 @@ jobs:
     # This strategy runs the job on multiple versions of Node.js
     strategy:
       matrix:
-        node-version: [21.x] # The versions of Node.js to test against
+        node-version: [20.x] # The versions of Node.js to test against
 
     # The steps that the job will run
     steps:
