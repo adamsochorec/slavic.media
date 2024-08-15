@@ -57,7 +57,9 @@ jobs:
     steps:
       # This step deploys the application to production
       - name: Deploy to production
-        uses: johnbeynon/render-deploy-action@v0.0.8
+        run: git subtree push --prefix frontend heroku-frontend master
+      - name: Deploy to Heroku
+        uses: actions/checkout@v2
         with:
           service-id: ${{ secrets.SERVICE_ID }} # The ID of the service to deploy to
           api-key: ${{ secrets.RENDER_API_KEY }} # The API key for the Render service
