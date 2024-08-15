@@ -14,6 +14,7 @@ const swaggerUi = require("swagger-ui-express");
 const yaml = require("yamljs");
 // Import CORS to enable Cross-Origin Resource Sharing
 const cors = require("cors");
+const path = require("path");
 
 // Load environment variables from .env files using dotenv-flow
 require("dotenv-flow").config();
@@ -79,6 +80,14 @@ app.use("/blog/articles", pizzaRoutes);
 
 // Define routes for user authentication
 app.use("/user", authRoutes);
+
+// Serve static files from the 'dist' directory
+app.use(express.static(path.join(__dirname, "dist")));
+
+// Catch-all route to serve 'index.html' for any unmatched routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
 
 // Define the port number the server will listen on
 const PORT = process.env.PORT || 4000;
