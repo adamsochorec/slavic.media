@@ -42,7 +42,7 @@ app.use(bodyParser.json());
 
 // Setup Swagger documentation
 const swaggerDefinition = yaml.load("./swagger.yaml");
-app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition));
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition));
 
 // Import routes for pizzas and authentication
 const pizzaRoutes = require("./routes/pizza");
@@ -69,7 +69,7 @@ mongoose.connection.once("open", () =>
 );
 
 // Define a welcome route
-app.get("/api/welcome", (req, res) => {
+app.get("/welcome", (req, res) => {
   // Send a welcome message with a 200 OK status
   res.status(200).send({ message: "Welcome to the MEN RESTFUL API" });
 });
@@ -78,7 +78,7 @@ app.get("/api/welcome", (req, res) => {
 app.use("/blog/articles", pizzaRoutes);
 
 // Define routes for user authentication
-app.use("/api/user", authRoutes);
+app.use("/user", authRoutes);
 
 // Define the port number the server will listen on
 const PORT = process.env.PORT || 4000;

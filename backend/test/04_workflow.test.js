@@ -21,7 +21,7 @@ describe("Pizza workflow tests", () => {
     // Make a POST request to register the new user
     chai
       .request(server)
-      .post("/api/user/register")
+      .post("/user/register")
       .send(user)
       .end((err, res) => {
         // Assert that the response status is 200 and the response body is an object with no errors
@@ -32,7 +32,7 @@ describe("Pizza workflow tests", () => {
         // Make a POST request to login the user
         chai
           .request(server)
-          .post("/api/user/login")
+          .post("/user/login")
           .send({
             email: "mail@gabor.dk",
             password: "123456",
@@ -98,7 +98,7 @@ describe("Pizza workflow tests", () => {
     // Make a POST request to register the new user
     chai
       .request(server)
-      .post("/api/user/register")
+      .post("/user/register")
       .send(user)
       .end((err, res) => {
         // Assert that the response status is 200 and the response body is an object with no errors
@@ -109,7 +109,7 @@ describe("Pizza workflow tests", () => {
         // Make a POST request to login the user
         chai
           .request(server)
-          .post("/api/user/login")
+          .post("/user/login")
           .send({
             email: "mail@gabor.dk",
             password: "123456",
@@ -177,7 +177,7 @@ describe("Pizza workflow tests", () => {
     // Make a POST request to register the new user
     chai
       .request(server)
-      .post("/api/user/register")
+      .post("/user/register")
       .send(user)
       .end((err, res) => {
         // Assert that the response status is 400 and the response body is an object

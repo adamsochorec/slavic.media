@@ -32,7 +32,7 @@ const getPizzas = () => {
           password: "12345678",
         }),
       };
-      await fetch("https://api.slavic.media/login", requestOptions)
+      await fetch("https://api.slavic.media/user/login", requestOptions)
         .then((res) => res.json())
         .then((data) => {
           localStorage.setItem("lsToken", data.data.token); // Store the token in local storage
