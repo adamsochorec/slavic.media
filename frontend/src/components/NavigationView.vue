@@ -1,19 +1,13 @@
 <script setup>
 import { RouterLink } from "vue-router";
 import { useAuth } from "../modules/users";
-
 const auth = useAuth();
-
 // import useUsers from '../modules/users'
-
 // const { isAuthenticated, logIn, logOut } = useUsers()
 </script>
 <template>
   <nav>
-    <!--     <RouterLink to="/about">About</RouterLink>
- -->
     <RouterLink to="/blog">Blog</RouterLink>
-    <!-- changed path -->
   </nav>
 
   <div v-if="!auth.isAuthenticated.value">
@@ -38,6 +32,6 @@ const auth = useAuth();
       &nbsp; Log out
     </button>
   </div>
-  <!--   <p>{{ auth.isAuthenticated }}</p>
- -->
+  <p>{{ auth.isAuthenticated }}</p>
+  -->
 </template>
