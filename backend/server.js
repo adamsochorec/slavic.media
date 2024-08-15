@@ -79,7 +79,7 @@ app.get("/", (req, res) => {
 app.use("/blog/articles", pizzaRoutes);
 
 // Define routes for user authentication
-app.use("/api/user", authRoutes);
+app.use("/user", authRoutes);
 
 // Serve static files from the 'dist' directory
 app.use(express.static(path.join(__dirname, "dist")));
