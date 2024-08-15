@@ -8,7 +8,7 @@ const { type } = require("os");
 const Schema = mongoose.Schema;
 
 // Define the pizza schema with fields for task, description, status, and time
-let pizzaSchema = new Schema({
+let articleSchema = new Schema({
   title: { type: String },
   content: { type: String },
   author: { type: String },
@@ -16,7 +16,5 @@ let pizzaSchema = new Schema({
   thumbnail: { type: String },
 });
 
-// Create a model named 'pizza' based on the defined schema
-// This model provides methods to query and update the 'pizza' collection in MongoDB
 // Export the model so it can be used in other parts of the application
-module.exports = mongoose.model("pizza", pizzaSchema);
+module.exports = mongoose.model("pizza", articleSchema);

@@ -2,11 +2,11 @@ import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 const getPizzas = () => {
-  // Route and router are used to grab the pizzaID from the URL and then stored in computed so we can use it in the rest of the code
-  const route = useRoute(); // Used to grab the pizzaID from the URL and then stored in computed so we can use it in the rest of the code
+  // Route and router are used to grab the document's ID from the URL and then stored in computed so we can use it in the rest of the code
+  const route = useRoute(); // Used to grab the document's ID from the URL and then stored in computed so we can use it in the rest of the code
   const router = useRouter();
 
-  const pizzaID = computed(() => route.params.id); // Compute the pizzaID from the route params
+  const pizzaID = computed(() => route.params.id); // Compute the ID from the route params
   console.log("pizzaID: ", pizzaID.value);
 
   const state = ref({
@@ -44,19 +44,19 @@ const getPizzas = () => {
     }
   };
 
-  // Fetches all pizzas items from the server.
+  // Fetches all documents from the server.
   const GetAllPizzas = async () => {
     try {
       const response = await fetch("https://api.slavic.media/blog/articles/");
       const data = await response.json();
-      state.value.pizzas = data; // Update the pizzas state with the fetched data
+      state.value.pizzas = data; // Update the document's state with the fetched data
       console.log(data);
     } catch (error) {
       console.error(error);
     }
   };
 
-  // Creates a new pizzas item and sends it to the server for storage.
+  // Creates a new document and sends it to the server for storage.
   const newTask = async () => {
     if (
       !state.value.newTitle ||
@@ -93,18 +93,18 @@ const getPizzas = () => {
 
       // Check if the request was successful
       if (!response.ok) {
-        throw new Error("Failed to add new item");
+        throw new Error("Failed to add new document");
       }
 
-      // Refresh pizzas after successfully adding a new one
+      // Refresh documents after successfully adding a new one
       await GetAllPizzas();
     } catch (error) {
-      console.error("Error adding new item:", error);
+      console.error("Error adding new document:", error);
       // Handle the error as appropriate (e.g., show an error message to the user)
     }
   };
 
-  // Deletes a pizzas item from the server.
+  // Deletes a documents item from the server.
   const deletePizza = async (pizza) => {
     console.log("delete id from vue: ", pizza.id);
     try {
