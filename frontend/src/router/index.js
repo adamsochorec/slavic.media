@@ -14,7 +14,7 @@ const router = createRouter({
       path: "/blog",
       name: "blog",
       component: () =>
-        import(/* webpackChunkName: "about" */ "../views/blog.vue"),
+        import(/* webpackChunkName: "about" */ "../views/blogView.vue"),
       meta: {
         requiresAuth: true,
       },
