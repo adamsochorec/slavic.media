@@ -18,7 +18,7 @@ jobs:
     # This strategy runs the job on multiple versions of Node.js
     strategy:
       matrix:
-        node-version: [20.x] # The versions of Node.js to test against
+        node-version: [21.x] # The versions of Node.js to test against
 
     # The steps that the job will run
     steps:
@@ -57,9 +57,7 @@ jobs:
     steps:
       # This step deploys the application to production
       - name: Deploy to production
-        run: git subtree push --prefix frontend heroku-frontend master
-      - name: Deploy to Heroku
-        uses: actions/checkout@v2
+        uses: johnbeynon/render-deploy-action@v0.0.8
         with:
           service-id: ${{ secrets.SERVICE_ID }} # The ID of the service to deploy to
           api-key: ${{ secrets.RENDER_API_KEY }} # The API key for the Render service
