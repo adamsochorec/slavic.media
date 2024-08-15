@@ -7,7 +7,7 @@ const { type } = require("os");
 // Create a Schema constructor from mongoose
 const Schema = mongoose.Schema;
 
-// Define the pizza schema with fields for task, description, status, and time
+// Define the document schema with fields for task, description, status, and time
 let articleSchema = new Schema({
   title: { type: String },
   content: { type: String },
@@ -17,4 +17,4 @@ let articleSchema = new Schema({
 });
 
 // Export the model so it can be used in other parts of the application.
-module.exports = mongoose.model("pizza", articleSchema);
+module.exports = mongoose.model("test", articleSchema);

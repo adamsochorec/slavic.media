@@ -95,8 +95,12 @@ nav a {
   padding: 20px;
   border-radius: 10px;
   width: 300px;
+  height: fit-content;
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+.pizza-item img {
+  width: 100%;
 }
 .cta.delete-btn {
   margin-left: 26px;

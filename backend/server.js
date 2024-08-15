@@ -45,8 +45,8 @@ app.use(bodyParser.json());
 const swaggerDefinition = yaml.load("./swagger.yaml");
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition));
 
-// Import routes for pizzas and authentication
-const pizzaRoutes = require("./routes/pizza");
+// Import routes for documents and authentication
+const documentRoutes = require("./routes/article");
 const authRoutes = require("./routes/auth");
 
 // Load environment variables (again, for good measure)
@@ -75,8 +75,8 @@ app.get("/", (req, res) => {
   res.status(200).send({ message: "Welcome to the backend" });
 });
 
-// Define routes for CRUD operations on pizzas
-app.use("/blog/articles", pizzaRoutes);
+// Define routes for CRUD operations on documents
+app.use("/blog/articles", documentRoutes);
 
 // Define routes for user authentication
 app.use("/user", authRoutes);

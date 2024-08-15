@@ -1,11 +1,11 @@
 <template lang="">
   <article class="wrapper-standard">
     <form @submit.prevent="submitForm" class="totodetail">
-      <h1>{{ pizza.title }}</h1>
-      <img :src="pizza.thumbnail" />
-      <h6>{{ pizza.date }}, {{ pizza.author }}</h6>
+      <h1>{{ article.title }}</h1>
+      <img :src="article.thumbnail" />
+      <h6>{{ article.date }}, {{ article.author }}</h6>
       <hr />
-      <p>{{ pizza.content }}</p>
+      <p>{{ article.content }}</p>
       <hr />
     </form>
   </article>
@@ -15,18 +15,19 @@ import todocrud from "../modules/todocrud";
 import { onMounted } from "vue";
 export default {
   setup() {
-    const { editPizza, state, GetSpecificPizza, pizza, pizzaID } = todocrud();
+    const { editDocument, state, getSpecificDocument, article, documentID } =
+      todocrud();
 
     onMounted(() => {
-      GetSpecificPizza(pizzaID.value);
+      getSpecificDocument(documentID.value);
     });
 
     return {
-      pizza,
-      pizzaID,
-      GetSpecificPizza,
+      article,
+      documentID,
+      getSpecificDocument,
       state,
-      editPizza,
+      editDocument,
     };
   },
 };

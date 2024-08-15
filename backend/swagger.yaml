@@ -143,13 +143,13 @@ paths:
             type: string
       responses:
         200:
-          description: A document in the format of a JSON object
+          description: A test in the format of a JSON object
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/article"
     put:
-      summary: Update a specific document
+      summary: Update a specific test
       description: Updates a specific document based on its ID
       security:
         - ApiKeyAuth: []

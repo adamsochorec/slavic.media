@@ -44,7 +44,7 @@ describe("Document workflow tests", () => {
             let token = res.body.data.token;
 
             // Define a new document
-            let Pizza = {
+            let document = {
               title: "Title",
               content:
                 "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam dolore possimus repellendus ipsa dolor, ea expedita quidem minus voluptatibus officiis nisi veniam fuga! Officiis maiores velit ab, nam perferendis laborum.",
@@ -59,19 +59,19 @@ describe("Document workflow tests", () => {
               .request(server)
               .post("/blog/articles")
               .set({ "auth-token": token })
-              .send(Pizza)
+              .send(document)
               .end((err, res) => {
                 // Assert that the response status is 201, the response body is an array with one element, and the saved document matches the input
                 expect(res.status).to.be.equal(201);
                 expect(res.body).to.be.a("array");
                 expect(res.body.length).to.be.eql(1);
 
-                let savedPizza = res.body[0];
-                expect(savedPizza.title).to.be.equal(Pizza.title);
-                expect(savedPizza.content).to.be.equal(Pizza.content);
-                expect(savedPizza.author).to.be.equal(Pizza.author);
-                expect(savedPizza.date).to.be.equal(Pizza.date);
-                expect(savedPizza.thumbnail).to.be.equal(Pizza.thumbnail);
+                let savedDocument = res.body[0];
+                expect(savedDocument.title).to.be.equal(document.title);
+                expect(savedDocument.content).to.be.equal(document.content);
+                expect(savedDocument.author).to.be.equal(document.author);
+                expect(savedDocument.date).to.be.equal(document.date);
+                expect(savedDocument.thumbnail).to.be.equal(document.thumbnail);
 
                 // Make a GET request to verify the document in the database
                 chai
@@ -125,7 +125,7 @@ describe("Document workflow tests", () => {
             let token = res.body.data.token;
 
             // Define a new document
-            let Pizza = {
+            let document = {
               title: "Title",
               content:
                 "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam dolore possimus repellendus ipsa dolor, ea expedita quidem minus voluptatibus officiis nisi veniam fuga! Officiis maiores velit ab, nam perferendis laborum.",
@@ -140,23 +140,25 @@ describe("Document workflow tests", () => {
               .request(server)
               .post("/blog/articles")
               .set({ "auth-token": token })
-              .send(Pizza)
+              .send(document)
               .end((err, res) => {
                 // Assert that the response status is 201, the response body is an array with one element, and the saved document matches the input
                 expect(res.status).to.be.equal(201);
                 expect(res.body).to.be.a("array");
                 expect(res.body.length).to.be.eql(1);
 
-                let savedPizza = res.body[0];
-                expect(savedPizza.task).to.be.equal(Pizza.task);
-                expect(savedPizza.description).to.be.equal(Pizza.description);
-                expect(savedPizza.status).to.be.equal(Pizza.status);
-                expect(savedPizza.time).to.be.equal(Pizza.time);
+                let savedDocument = res.body[0];
+                expect(savedDocument.task).to.be.equal(document.task);
+                expect(savedDocument.description).to.be.equal(
+                  document.description
+                );
+                expect(savedDocument.status).to.be.equal(document.status);
+                expect(savedDocument.time).to.be.equal(document.time);
 
                 // Make a DELETE request to delete the document
                 chai
                   .request(server)
-                  .delete("/blog/articles/" + savedPizza._id)
+                  .delete("/blog/articles/" + savedDocument._id)
                   .set({ "auth-token": token })
                   .end((err, res) => {
                     // Assert that the response status is 200 and the document was successfully deleted
