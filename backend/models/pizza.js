@@ -16,5 +16,5 @@ let articleSchema = new Schema({
   thumbnail: { type: String },
 });
 
-// Export the model so it can be used in other parts of the application
+// Export the model so it can be used in other parts of the application.
 module.exports = mongoose.model("pizza", articleSchema);
