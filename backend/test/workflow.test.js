@@ -49,7 +49,7 @@ describe("Document workflow tests", () => {
               content:
                 "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam dolore possimus repellendus ipsa dolor, ea expedita quidem minus voluptatibus officiis nisi veniam fuga! Officiis maiores velit ab, nam perferendis laborum.",
               author: "Slovan S.",
-              date: "20240101",
+              date: 20240101,
               thumbnail:
                 "https://img.delicious.com.au/WqbvXLhs/del/2016/06/more-the-merrier-31380-2.jpg",
             };
@@ -130,7 +130,7 @@ describe("Document workflow tests", () => {
               content:
                 "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam dolore possimus repellendus ipsa dolor, ea expedita quidem minus voluptatibus officiis nisi veniam fuga! Officiis maiores velit ab, nam perferendis laborum.",
               author: "Slovan S.",
-              date: "20240101",
+              date: 20240101,
               thumbnail:
                 "https://img.delicious.com.au/WqbvXLhs/del/2016/06/more-the-merrier-31380-2.jpg",
             };

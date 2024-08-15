@@ -114,7 +114,7 @@ router.delete(
               ". Maybe pizza was not found!",
           });
         } else {
-          res.send({ message: "Pizza was successfully deleted." });
+          res.send({ message: "Document was successfully deleted." });
         }
       })
       .catch((err) => {

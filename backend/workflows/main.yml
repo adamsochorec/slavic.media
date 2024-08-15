@@ -24,13 +24,16 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Change to backend directory
+      # Navigate to the backend directory where the package.json is located
+      - name: Change Directory to Backend
         run: cd backend
 
+      # Run npm install and npm test inside the backend directory
       - name: NPM install, build and test
         run: |
           npm install
           npm test
+        working-directory: ./backend
         env:
           DBHOST: ${{ secrets.DBHOST }}
           TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
