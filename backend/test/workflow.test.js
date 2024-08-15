@@ -8,13 +8,13 @@ const server = require("../server");
 chai.use(chaiHttp);
 
 // Describe the group of tests
-describe("Pizza workflow tests", () => {
-  // Test for creating a pizza
-  it("should register + login a user, create Pizza and verify 1 in DB", (done) => {
+describe("Document workflow tests", () => {
+  // Test for creating a document
+  it("should register + login a user, create document and verify 1 in DB", (done) => {
     // Define a new user
     let user = {
-      name: "Gabor Gabor",
-      email: "mail@gabor.dk",
+      name: "Slovan",
+      email: "test@example.com",
       password: "123456",
     };
 
@@ -34,7 +34,7 @@ describe("Pizza workflow tests", () => {
           .request(server)
           .post("/user/login")
           .send({
-            email: "mail@gabor.dk",
+            email: "test@example.com",
             password: "123456",
           })
           .end((err, res) => {
@@ -43,33 +43,37 @@ describe("Pizza workflow tests", () => {
             expect(res.body.error).to.be.equal(null);
             let token = res.body.data.token;
 
-            // Define a new pizza
+            // Define a new document
             let Pizza = {
-              task: "Test",
-              description: "test, test...",
-              status: "Doing",
-              time: 40,
+              title: "Title",
+              content:
+                "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam dolore possimus repellendus ipsa dolor, ea expedita quidem minus voluptatibus officiis nisi veniam fuga! Officiis maiores velit ab, nam perferendis laborum.",
+              author: "Slovan S.",
+              date: "20240101",
+              thumbnail:
+                "https://img.delicious.com.au/WqbvXLhs/del/2016/06/more-the-merrier-31380-2.jpg",
             };
 
-            // Make a POST request to create a new pizza
+            // Make a POST request to create a new document
             chai
               .request(server)
               .post("/blog/articles")
               .set({ "auth-token": token })
               .send(Pizza)
               .end((err, res) => {
-                // Assert that the response status is 201, the response body is an array with one element, and the saved pizza matches the input
+                // Assert that the response status is 201, the response body is an array with one element, and the saved document matches the input
                 expect(res.status).to.be.equal(201);
                 expect(res.body).to.be.a("array");
                 expect(res.body.length).to.be.eql(1);
 
                 let savedPizza = res.body[0];
-                expect(savedPizza.task).to.be.equal(Pizza.task);
-                expect(savedPizza.description).to.be.equal(Pizza.description);
-                expect(savedPizza.status).to.be.equal(Pizza.status);
-                expect(savedPizza.time).to.be.equal(Pizza.time);
+                expect(savedPizza.title).to.be.equal(Pizza.title);
+                expect(savedPizza.content).to.be.equal(Pizza.content);
+                expect(savedPizza.author).to.be.equal(Pizza.author);
+                expect(savedPizza.date).to.be.equal(Pizza.date);
+                expect(savedPizza.thumbnail).to.be.equal(Pizza.thumbnail);
 
-                // Make a GET request to verify the pizza in the database
+                // Make a GET request to verify the document in the database
                 chai
                   .request(server)
                   .get("/blog/articles/")
@@ -86,12 +90,12 @@ describe("Pizza workflow tests", () => {
       });
   });
 
-  // Test for deleting a pizza
-  it("should register + login a user, create Pizza and delete it from DB", (done) => {
+  // Test for deleting a document
+  it("should register + login a user, create document and delete it from DB", (done) => {
     // Define a new user
     let user = {
-      name: "Gabor Gabor",
-      email: "mail@gabor.dk",
+      name: "Slovan",
+      email: "test@example.com",
       password: "123456",
     };
 
@@ -111,7 +115,7 @@ describe("Pizza workflow tests", () => {
           .request(server)
           .post("/user/login")
           .send({
-            email: "mail@gabor.dk",
+            email: "test@example.com",
             password: "123456",
           })
           .end((err, res) => {
@@ -120,22 +124,25 @@ describe("Pizza workflow tests", () => {
             expect(res.body.error).to.be.equal(null);
             let token = res.body.data.token;
 
-            // Define a new pizza
+            // Define a new document
             let Pizza = {
-              task: "Test Test",
-              description: "test, test...",
-              status: "Done",
-              time: 20,
+              title: "Title",
+              content:
+                "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam dolore possimus repellendus ipsa dolor, ea expedita quidem minus voluptatibus officiis nisi veniam fuga! Officiis maiores velit ab, nam perferendis laborum.",
+              author: "Slovan S.",
+              date: "20240101",
+              thumbnail:
+                "https://img.delicious.com.au/WqbvXLhs/del/2016/06/more-the-merrier-31380-2.jpg",
             };
 
-            // Make a POST request to create a new pizza
+            // Make a POST request to create a new document
             chai
               .request(server)
               .post("/blog/articles")
               .set({ "auth-token": token })
               .send(Pizza)
               .end((err, res) => {
-                // Assert that the response status is 201, the response body is an array with one element, and the saved pizza matches the input
+                // Assert that the response status is 201, the response body is an array with one element, and the saved document matches the input
                 expect(res.status).to.be.equal(201);
                 expect(res.body).to.be.a("array");
                 expect(res.body.length).to.be.eql(1);
@@ -146,17 +153,17 @@ describe("Pizza workflow tests", () => {
                 expect(savedPizza.status).to.be.equal(Pizza.status);
                 expect(savedPizza.time).to.be.equal(Pizza.time);
 
-                // Make a DELETE request to delete the pizza
+                // Make a DELETE request to delete the document
                 chai
                   .request(server)
                   .delete("/blog/articles/" + savedPizza._id)
                   .set({ "auth-token": token })
                   .end((err, res) => {
-                    // Assert that the response status is 200 and the pizza was successfully deleted
+                    // Assert that the response status is 200 and the document was successfully deleted
                     expect(res.status).to.be.equal(200);
                     const actualVal = res.body.message;
                     expect(actualVal).to.be.equal(
-                      "Pizza was successfully deleted."
+                      "Document was successfully deleted."
                     );
                     done();
                   });
@@ -166,11 +173,11 @@ describe("Pizza workflow tests", () => {
   });
 
   // Test for invalid user input
-  it("invalid user input test", (done) => {
+  it("Invalid user input test", (done) => {
     // Define a new user with invalid input
     let user = {
-      name: "Gabor Gabor",
-      email: "mail@gabor.dk",
+      name: "Slovan",
+      email: "test@example.com",
       password: "123", //Faulty password - Joi/validation should catch this...
     };
 
