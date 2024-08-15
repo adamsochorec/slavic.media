@@ -37,6 +37,7 @@ jobs:
       # This step installs dependencies, builds the application, and runs tests
       - name: NPM install, build and test
         run: |
+          cd backend
           npm install
           npm test
         env:
