@@ -1,32 +1,32 @@
 // Import the Express framework for creating web servers
-const express = require("express");
+import express, { Request, Response } from "express";
 // Import Mongoose for MongoDB object modeling
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 // Import body-parser to parse incoming request bodies
-const bodyParser = require("body-parser");
+import bodyParser from "body-parser";
 // Initialize an Express application
 const app = express();
 // Import a custom token verification middleware function
-const { verifyToken } = require("./validation");
+import { verifyToken } from "./validation";
 
 // Swagger dependencies for API documentation
-const swaggerUi = require("swagger-ui-express");
-const yaml = require("yamljs");
+import swaggerUi from "swagger-ui-express";
+import yaml from "yamljs";
 // Import CORS to enable Cross-Origin Resource Sharing
-const cors = require("cors");
-const path = require("path");
+import cors from "cors";
+import path from "path";
 
 // Load environment variables from .env files using dotenv-flow
 require("dotenv-flow").config();
 
 // Setup CORS middleware to handle CORS preflight requests and responses
-app.use(function (req, res, next) {
+app.use((req: Request, res: Response, next: Function) => {
   // Allow requests from any origin
   res.header("Access-Control-Allow-Origin", "*");
   // Allow specific headers in requests
   res.header(
     "Access-Control-Allow-Headers",
-    "auth-token, Origin, X-Requested-Width, Content-Type, Accept"
+    "auth-token, Origin, X-Requested-With, Content-Type, Accept"
   );
   // Allow specific HTTP methods
   res.header(
@@ -46,8 +46,8 @@ const swaggerDefinition = yaml.load("./swagger.yaml");
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition));
 
 // Import routes for documents and authentication
-const documentRoutes = require("./routes/article");
-const authRoutes = require("./routes/auth");
+import documentRoutes from "./routes/article";
+import authRoutes from "./routes/auth";
 
 // Load environment variables (again, for good measure)
 require("dotenv-flow").config();
@@ -56,12 +56,10 @@ require("dotenv-flow").config();
 app.use(bodyParser.json());
 
 // Connect to MongoDB using Mongoose
+// Connect to MongoDB using Mongoose
 mongoose.set("strictQuery", false);
 mongoose
-  .connect(process.env.DBHOST, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  })
+  .connect(process.env.DBHOST as string)
   .catch((error) => console.log("Error connecting to MongoDB:" + error));
 
 // Log a message once connected to MongoDB
@@ -70,7 +68,7 @@ mongoose.connection.once("open", () =>
 );
 
 // Define a welcome route
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
   // Send a welcome message with a 200 OK status
   res.status(200).send({ message: "Welcome to the backend" });
 });
@@ -85,7 +83,7 @@ app.use("/user", authRoutes);
 app.use(express.static(path.join(__dirname, "dist")));
 
 // Catch-all route to serve 'index.html' for any unmatched routes
-app.get("*", (req, res) => {
+app.get("*", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
@@ -93,9 +91,9 @@ app.get("*", (req, res) => {
 const PORT = process.env.PORT || 4000;
 
 // Start the server and listen on the defined port
-app.listen(PORT, function () {
+app.listen(PORT, () => {
   console.log("Server is running on port: " + PORT);
 });
 
 // Export the app module for testing or other uses
-module.exports = app;
+export default app;
