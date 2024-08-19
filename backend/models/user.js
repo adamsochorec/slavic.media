@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 // Define the user schema with fields for name, email, password, and date
 let userSchema = new Schema({
   // The 'name' field represents the user's name
-  // It is required, and its length must be between 6 and 255 characters
+  // It is required, and its length must be between 6 and 255 characters.
   name: {
     type: String,
     required: true,
