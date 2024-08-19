@@ -6,25 +6,22 @@ const { verifyToken } = require("../validation"); // Validation function to veri
 // CRUD operations
 
 // Create test - POST
-router.post(
-  "/",
-  /* verifyToken,  */ (req, res) => {
-    // Extract data from the request body
-    const data = req.body;
+router.post("/", verifyToken, (req, res) => {
+  // Extract data from the request body
+  const data = req.body;
 
-    // Insert new test data into the database
-    // If the insertion is successful, return the inserted data with a 201 status code
-    // If there is an error, return the error message with a 500 status code
-    test
-      .insertMany(data)
-      .then((data) => {
-        res.status(201).send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({ message: err.message });
-      });
-  }
-);
+  // Insert new test data into the database
+  // If the insertion is successful, return the inserted data with a 201 status code
+  // If there is an error, return the error message with a 500 status code
+  test
+    .insertMany(data)
+    .then((data) => {
+      res.status(201).send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+});
 
 // Read all documents - GET
 router.get(
@@ -63,70 +60,64 @@ router.get(
 );
 
 // Update specific test by ID - PUT
-router.put(
-  "/:id",
-  /* verifyToken,  */ (req, res) => {
-    // Extract test ID from the request parameters
-    const id = req.params.id;
+router.put("/:id", verifyToken, (req, res) => {
+  // Extract test ID from the request parameters
+  const id = req.params.id;
 
-    // Update the test with the provided ID using the request body data
-    // If the update is successful, return a success message
-    // If the test is not found, return a not found message with a 404 status code
-    // If there is an error, return the error message with a 500 status code
-    test
-      .findByIdAndUpdate(id, req.body)
-      .then((data) => {
-        if (!data) {
-          res.status(404).send({
-            message:
-              "Cannot update document with id=" +
-              id +
-              ". Maybe document was not found!",
-          });
-        } else {
-          res.send({ message: "document was successfully updated." });
-        }
-      })
-      .catch((err) => {
-        res
-          .status(500)
-          .send({ message: "Error updating document with id=" + id });
-      });
-  }
-);
+  // Update the test with the provided ID using the request body data
+  // If the update is successful, return a success message
+  // If the test is not found, return a not found message with a 404 status code
+  // If there is an error, return the error message with a 500 status code
+  test
+    .findByIdAndUpdate(id, req.body)
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({
+          message:
+            "Cannot update document with id=" +
+            id +
+            ". Maybe document was not found!",
+        });
+      } else {
+        res.send({ message: "document was successfully updated." });
+      }
+    })
+    .catch((err) => {
+      res
+        .status(500)
+        .send({ message: "Error updating document with id=" + id });
+    });
+});
 
 // Delete specific document by ID - DELETE
-router.delete(
-  "/:id",
-  /* verifyToken,  */ (req, res) => {
-    const id = req.params.id;
+router.delete("/:id", verifyToken, (req, res) => {
+  const id = req.params.id;
 
-    // Delete the document with the provided ID
-    // If the deletion is successful, return a success message
-    // If the document is not found, return a not found message with a 404 status code
-    // If there is an error, return the error message with a 500 status code
-    test
-      .findByIdAndDelete(id)
-      .then((data) => {
-        if (!data) {
-          res.status(404).send({
-            message:
-              "Cannot delete document with id=" +
-              id +
-              ". Maybe document was not found!",
-          });
-        } else {
-          res.send({ message: "Document was successfully deleted." });
-        }
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message: "Error deleting document with id=" + id,
-          error: err,
+  // Delete the document with the provided ID
+  // If the deletion is successful, return a success message
+  // If the document is not found, return a not found message with a 404 status code
+  // If there is an error, return the error message with a 500 status code
+  test
+    .findByIdAndDelete(id)
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({
+          message:
+            "Cannot delete document with id=" +
+            id +
+            ". Maybe document was not found!",
         });
+      } else {
+        res.send({ message: "Document was successfully deleted." });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "Error deleting document with id=" + id,
+        error: err,
       });
-  }
-);
+    });
+});
 
 // Function to map an array of documents to a new format
 function mapArray(inputArray) {
