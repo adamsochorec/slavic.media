@@ -56,6 +56,12 @@ jobs:
 
     # The steps that the job will run
     steps:
+      # This step checks out a copy of your repository
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       # This step deploys the application to production
       - name: Deploy to production
         uses: johnbeynon/render-deploy-action@v0.0.8
