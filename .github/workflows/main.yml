@@ -28,16 +28,6 @@ jobs:
         run: |
           cd backend
           npm install
-        env:
-          DBHOST: ${{ secrets.DBHOST }}
-          TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
-          JWT_EXPIRES_IN: ${{ secrets.JWT_EXPIRES_IN }}
-          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
-          SERVICE_ID: ${{ secrets.SERVICE_ID }}
-
-      - name: Log MongoDB URI
-        run: |
-          echo "MongoDB URI: $DBHOST"
 
       - name: Build TypeScript
         run: |
@@ -48,7 +38,8 @@ jobs:
         run: |
           cd backend
           npm test
-
+        env:
+          DBHOST: ${{ secrets.DBHOST }}
   deploy:
     name: Deploy
     needs: [test]

@@ -56,7 +56,6 @@ require("dotenv-flow").config();
 app.use(bodyParser.json());
 
 // Connect to MongoDB using Mongoose
-// Connect to MongoDB using Mongoose
 mongoose.set("strictQuery", false);
 mongoose
   .connect(process.env.DBHOST as string)

@@ -40,7 +40,6 @@ require("dotenv-flow").config();
 // Middleware to parse requests of content-type JSON
 app.use(body_parser_1.default.json());
 // Connect to MongoDB using Mongoose
-// Connect to MongoDB using Mongoose
 mongoose_1.default.set("strictQuery", false);
 mongoose_1.default
     .connect(process.env.DBHOST)
