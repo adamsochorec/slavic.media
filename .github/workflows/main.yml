@@ -29,11 +29,15 @@ jobs:
           cd backend
           npm install
         env:
-          DBHOST: DBHOST=mongodb+srv://admin:xanTu8-zuvrat-tofvyq@cluster.nmh4a1k.mongodb.net/Database-test?retryWrites=true&w=majority
+          DBHOST: ${{ secrets.DBHOST }}
           TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
           JWT_EXPIRES_IN: ${{ secrets.JWT_EXPIRES_IN }}
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
           SERVICE_ID: ${{ secrets.SERVICE_ID }}
+
+      - name: Log MongoDB URI
+        run: |
+          echo "MongoDB URI: $DBHOST"
 
       - name: Build TypeScript
         run: |
@@ -43,7 +47,7 @@ jobs:
       - name: Run tests
         run: |
           cd backend
-          npx mocha --config .mocharc.json
+          npm test
 
   deploy:
     name: Deploy
