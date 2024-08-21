@@ -3,7 +3,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// Import the Express framework for creating web servers
 const express_1 = __importDefault(require("express"));
 // Import Mongoose for MongoDB object modeling
 const mongoose_1 = __importDefault(require("mongoose"));
@@ -31,7 +30,7 @@ app.use((req, res, next) => {
 // Middleware to parse JSON request bodies
 app.use(body_parser_1.default.json());
 // Setup Swagger documentation
-const swaggerDefinition = yamljs_1.default.load("./swagger.yaml");
+const swaggerDefinition = yamljs_1.default.load(path_1.default.join("backend", "..", "swagger.yaml"));
 app.use("/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDefinition));
 // Import routes for documents and authentication
 const article_1 = __importDefault(require("./routes/article"));

@@ -1,4 +1,3 @@
-// Import the Express framework for creating web servers
 import express, { Request, Response } from "express";
 // Import Mongoose for MongoDB object modeling
 import mongoose from "mongoose";
@@ -12,6 +11,7 @@ import { verifyToken } from "./validation";
 // Swagger dependencies for API documentation
 import swaggerUi from "swagger-ui-express";
 import yaml from "yamljs";
+
 // Import CORS to enable Cross-Origin Resource Sharing
 import cors from "cors";
 import path from "path";
@@ -42,7 +42,7 @@ app.use((req: Request, res: Response, next: Function) => {
 app.use(bodyParser.json());
 
 // Setup Swagger documentation
-const swaggerDefinition = yaml.load("./swagger.yaml");
+const swaggerDefinition = yaml.load(path.join("backend", "..", "swagger.yaml"));
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition));
 
 // Import routes for documents and authentication

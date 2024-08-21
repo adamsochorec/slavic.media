@@ -8,7 +8,7 @@
     "start": "node dist/server.js",
     "dev": "tsc --watch",
     "start-dev": "cross-env NODE_ENV=development ts-node src/server.ts",
-    "test": "cross-env NODE_ENV=test mocha --recursive --exit",
+    "test": "cross-env NODE_ENV=test mocha --require ts-node/register",
     "start-gendoc": "node swagger.js"
   },
   "repository": {

@@ -1,12 +1,14 @@
 {
   "diff": true,
-  "extension": ["js"],
+  "extension": ["ts"],
   "ignore": ["test/ignore/**"],
   "package": "./package.json",
   "reporter": "spec",
   "slow": 75,
   "timeout": 5000,
   "ui": "bdd",
-  "watch-files": ["lib/**/*.js", "test/**/*.js"],
+  "spec": "src/test/**/*.test.ts",
+  "require": "ts-node/register",
+  "watch-files": ["src/lib/**/*.ts", "src/test/**/*.ts"],
   "watch-ignore": ["lib/vendor"]
 }

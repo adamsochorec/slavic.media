@@ -1,76 +1,40 @@
-/* color palette from <https://github.com/vuejs/theme> */
 :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #ffffff;
-  --vt-c-white-mute: #ffffff;
-
-  --vt-c-black: #696565;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
-
-  --vt-c-indigo: #2c3e50;
-
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
-
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(255, 255, 255, 1);
-
-  --primary-green: 65, 184, 131;
+  --primary-color: 199, 30, 30;
+  --secondary-color: 17, 69, 126;
+  --grey-color: 40, 40, 40;
+  --dark-grey-color: 26, 26, 26;
+  --dark-grey-color-full: #0000004d;
+  --white-color: 255, 255, 255;
+  --fontsize-note: 0.7em;
+  --logo-font: Raleway Semibold;
+  --content-font: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  --paragraph-weight: 350;
+  --article-weight: 340;
+  --heading-weight: 600;
+  --border-radius-1: 10px;
+  --border-radius-2: 50px;
+  --transition-1: all.1s ease-in-out;
+  --transition-2: background 0.3s,
+    -webkit-transform 0.5s cubic-bezier(0.694, 0.048, 0.335, 1);
+  --nav-bar-top-position: 50px;
+  --box-shadow-1: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  --homepage-padding: 50px;
+  --blur-1: blur(35px);
+  --cta-margin: 20px 0 0 0;
+  --grid-gap-1: 10px;
+  --grid-gap-2: 15px;
+  --grid-gap-3: 30px;
+  --dimension-1: 80vh;
+  --dimension-2: 200px;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: url(https://slavic.media/assets/SF-Pro-Display-Light.ttf)
+    format("truetype");
 }
 
-/* semantic color variables for this project */
-:root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
-
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
-
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
-
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
-  }
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  font-weight: normal;
-}
-
-body {
-  min-height: 100vh;
-  color: var(--color-text);
-  background: var(--color-background);
-  transition: color 0.5s, background-color 0.5s;
-  line-height: 1.6;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  font-size: 15px;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: Raleway Semibold;
+  src: url(https://slavic.media/assets/Raleway-SemiBold.ttf) format("truetype");
 }

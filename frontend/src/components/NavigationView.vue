@@ -1,7 +1,8 @@
 <script setup>
 import { RouterLink } from "vue-router";
 import { useAuth } from "../modules/users";
-
+//import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+//import { byPrefixAndName } from "@awesome.me/kit-KIT_CODE/icons";
 const auth = useAuth();
 
 // import useUsers from '../modules/users'

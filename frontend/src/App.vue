@@ -6,6 +6,8 @@ provideAuth();
 </script>
 
 <template>
+  <h1 class="text-3xl font-bold underline">Hello world!</h1>
+
   <header>
     <RouterLink to="/">
       <div class="logo-container">
