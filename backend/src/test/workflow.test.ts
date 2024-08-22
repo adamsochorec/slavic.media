@@ -8,6 +8,7 @@ chai.use(chaiHttp);
 
 // Describe the group of tests
 describe("Document workflow tests", () => {
+  let token: string;
   // Test for creating a document
   it("should register + login a user, create document and verify 1 in DB", (done) => {
     // Define a new user
@@ -41,6 +42,7 @@ describe("Document workflow tests", () => {
             expect(res.status).to.be.equal(200);
             expect(res.body.error).to.be.a("object");
             expect(res.body.token).to.exist;
+            token = res.body.data.token;
 
             // Define a new document
             const document = {
