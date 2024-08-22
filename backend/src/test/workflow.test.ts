@@ -1,8 +1,7 @@
 // Import necessary libraries
-const chai = require("chai");
-const expect = chai.expect;
-const chaiHttp = require("chai-http");
-const server = require("../server");
+import chai, { expect } from "chai";
+import chaiHttp from "chai-http";
+import server from "../server";
 
 // Use chaiHttp for making HTTP requests in tests
 chai.use(chaiHttp);
@@ -12,7 +11,7 @@ describe("Document workflow tests", () => {
   // Test for creating a document
   it("should register + login a user, create document and verify 1 in DB", (done) => {
     // Define a new user
-    let user = {
+    const user = {
       name: "Slovan",
       email: "test@example.com",
       password: "123456",
@@ -41,10 +40,10 @@ describe("Document workflow tests", () => {
             // Assert that the response status is 200 and the response body has no errors
             expect(res.status).to.be.equal(200);
             expect(res.body.error).to.be.equal(null);
-            let token = res.body.data.token;
+            const token = res.body.data.token;
 
             // Define a new document
-            let document = {
+            const document = {
               title: "Title",
               content:
                 "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam dolore possimus repellendus ipsa dolor, ea expedita quidem minus voluptatibus officiis nisi veniam fuga! Officiis maiores velit ab, nam perferendis laborum.",
@@ -66,7 +65,7 @@ describe("Document workflow tests", () => {
                 expect(res.body).to.be.a("array");
                 expect(res.body.length).to.be.eql(1);
 
-                let savedDocument = res.body[0];
+                const savedDocument = res.body[0];
                 expect(savedDocument.title).to.be.equal(document.title);
                 expect(savedDocument.content).to.be.equal(document.content);
                 expect(savedDocument.author).to.be.equal(document.author);
@@ -93,7 +92,7 @@ describe("Document workflow tests", () => {
   // Test for deleting a document
   it("should register + login a user, create document and delete it from DB", (done) => {
     // Define a new user
-    let user = {
+    const user = {
       name: "Slovan",
       email: "test@example.com",
       password: "123456",
@@ -122,10 +121,10 @@ describe("Document workflow tests", () => {
             // Assert that the response status is 200 and the response body has no errors
             expect(res.status).to.be.equal(200);
             expect(res.body.error).to.be.equal(null);
-            let token = res.body.data.token;
+            const token = res.body.data.token;
 
             // Define a new document
-            let document = {
+            const document = {
               title: "Title",
               content:
                 "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam dolore possimus repellendus ipsa dolor, ea expedita quidem minus voluptatibus officiis nisi veniam fuga! Officiis maiores velit ab, nam perferendis laborum.",
@@ -147,13 +146,12 @@ describe("Document workflow tests", () => {
                 expect(res.body).to.be.a("array");
                 expect(res.body.length).to.be.eql(1);
 
-                let savedDocument = res.body[0];
-                expect(savedDocument.task).to.be.equal(document.task);
-                expect(savedDocument.description).to.be.equal(
-                  document.description
-                );
-                expect(savedDocument.status).to.be.equal(document.status);
-                expect(savedDocument.time).to.be.equal(document.time);
+                const savedDocument = res.body[0];
+                expect(savedDocument.title).to.be.equal(document.title);
+                expect(savedDocument.content).to.be.equal(document.content);
+                expect(savedDocument.author).to.be.equal(document.author);
+                expect(savedDocument.date).to.be.equal(document.date);
+                expect(savedDocument.thumbnail).to.be.equal(document.thumbnail);
 
                 // Make a DELETE request to delete the document
                 chai
@@ -177,10 +175,10 @@ describe("Document workflow tests", () => {
   // Test for invalid user input
   it("Invalid user input test", (done) => {
     // Define a new user with invalid input
-    let user = {
+    const user = {
       name: "Slovan",
       email: "test@example.com",
-      password: "123", //Faulty password - Joi/validation should catch this...
+      password: "123", // Faulty password - Joi/validation should catch this...
     };
 
     // Make a POST request to register the new user
@@ -190,11 +188,10 @@ describe("Document workflow tests", () => {
       .send(user)
       .end((err, res) => {
         // Assert that the response status is 400 and the response body is an object
-        expect(res.status).to.be.equal(400); //normal expect with no custom output message
-        //expect(res.status,"Status is not 400 (NOT FOUND)").to.be.equal(400); //custom output message at fail
+        expect(res.status).to.be.equal(400); // normal expect with no custom output message
 
         expect(res.body).to.be.a("object");
-        //expect(res.body.error.message).to.be.equal("\"password\" length must be at least 6 characters long");
+        // expect(res.body.error.message).to.be.equal("\"password\" length must be at least 6 characters long");
         done();
       });
   });

@@ -1,20 +1,27 @@
 // Import the mongoose module to interact with MongoDB
-const mongoose = require("mongoose");
+import mongoose, { Schema } from "mongoose";
 
 // Import the 'os' module to use its 'type' function
-const { type } = require("os");
+import { type } from "os";
 
-// Create a Schema constructor from mongoose
-const Schema = mongoose.Schema;
+// Interface representing a document in MongoDB.
+interface IArticle extends Document {
+  title: string;
+  content: string;
+  author: string;
+  date: number;
+  thumnail: string;
+}
 
-// Define the document schema with fields for task, description, status, and time
-let articleSchema = new Schema({
-  title: { type: String },
-  content: { type: String },
-  author: { type: String },
-  date: { type: Number },
-  thumbnail: { type: String },
+// Schema corresponding to the document interface.
+const articleSchema: Schema = new Schema({
+  title: { type: String, required: true },
+  content: { type: String, required: true },
+  author: { type: String, required: true },
+  date: { type: Number, required: true },
+  thumbnail: { type: String, required: true },
 });
 
-// Export the model so it can be used in other parts of the application.
-module.exports = mongoose.model("test", articleSchema);
+// Create a Model
+const Article = mongoose.model<IArticle>("Article", articleSchema);
+export default Article;

@@ -6,8 +6,6 @@ provideAuth();
 </script>
 
 <template>
-  <h1 className="text-3xl font-bold text-yellow-300 underline">App.vue</h1>
-
   <header>
     <RouterLink to="/">
       <div class="logo-container">
