@@ -1,15 +1,12 @@
 // Import the necessary modules
-import { Router, Request, Response } from "express";
-import User from "../models/user"; // User model to interact with the database
-import bcrypt from "bcrypt"; // bcrypt to hash passwords
-import { registerValidation, loginValidation } from "../validation"; // Validation functions
-import jwt from "jsonwebtoken"; // jsonwebtoken to create authentication tokens
-
-// Express router to define the routes
-const router = Router();
+const router = require("express").Router(); // Express router to define the routes
+const User = require("../models/user"); // User model to interact with the database
+const bcrypt = require("bcrypt"); // bcrypt to hash passwords
+const { registerValidation, loginValidation } = require("../validation"); // Validation functions
+const jwt = require("jsonwebtoken"); // jsonwebtoken to create authentication tokens
 
 // User registration endpoint
-router.post("/register", async (req: Request, res: Response) => {
+router.post("/register", async (req, res) => {
   try {
     // Validate the user input (name, email, password)
     // If the validation fails, return an error message
@@ -28,13 +25,13 @@ router.post("/register", async (req: Request, res: Response) => {
     // Hash the password using bcrypt
     // The salt is a random value that is used to create the hash
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    const password = await bcrypt.hash(req.body.password, salt);
 
     // Create a new user object and save it to the database
     const userObject = new User({
       name: req.body.name,
       email: req.body.email,
-      password: hashedPassword,
+      password,
     });
 
     // Save the user object to the database
@@ -48,7 +45,7 @@ router.post("/register", async (req: Request, res: Response) => {
 });
 
 // User login endpoint
-router.post("/login", async (req: Request, res: Response) => {
+router.post("/login", async (req, res) => {
   try {
     // Validate user login info
     // If the validation fails, return an error message
@@ -86,7 +83,7 @@ router.post("/login", async (req: Request, res: Response) => {
       },
       process.env.TOKEN_SECRET || "your_default_secret",
       {
-        expiresIn: process.env.JWT_EXPIRES_IN || "1h",
+        expiresIn: process.env.JWR_EXPIRES_IN || "1h",
       }
     );
 
@@ -102,4 +99,4 @@ router.post("/login", async (req: Request, res: Response) => {
 });
 
 // Export the router to be used in other parts of the application
-export default router;
+module.exports = router;

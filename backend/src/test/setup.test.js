@@ -4,8 +4,8 @@ process.env.NODE_ENV = "test";
 
 // Import the necessary models
 // These models are used to interact with the database
-import Product from "../models/article";
-import User from "../models/user";
+const Product = require("../models/article");
+const User = require("../models/user");
 
 // Before each test, clean up the database
 // This ensures that each test starts with a clean slate
