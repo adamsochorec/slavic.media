@@ -1,42 +1,56 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 // Import the mongoose module to interact with MongoDB
-const mongoose = require("mongoose");
-// Create a Schema constructor from mongoose
-const Schema = mongoose.Schema;
-// Define the user schema with fields for name, email, password, and date
-let userSchema = new Schema({
-    // The 'name' field represents the user's name
-    // It is required, and its length must be between 6 and 255 characters.
+const mongoose_1 = __importStar(require("mongoose"));
+// Schema corresponding to the document interface.
+const userSchema = new mongoose_1.Schema({
     name: {
         type: String,
         required: true,
         minlength: 6,
         maxlength: 255,
     },
-    // The 'email' field represents the user's email
-    // It is required, and its length must be between 6 and 255 characters
     email: {
         type: String,
         required: true,
         minlength: 6,
         maxlength: 255,
     },
-    // The 'password' field represents the user's password
-    // It is required, and its length must be between 6 and 255 characters
     password: {
         type: String,
         required: true,
         minlength: 6,
         maxlength: 255,
     },
-    // The 'date' field represents the date when the user was created
-    // By default, it is set to the current date and time
     date: {
         type: Date,
         default: Date.now,
     },
 });
-// Create a model named 'User' based on the defined schema
-// This model provides methods to query and update the 'User' collection in MongoDB
-// Export the model so it can be used in other parts of the application
-module.exports = mongoose.model("User", userSchema);
+// Create a Model
+const User = mongoose_1.default.model("User", userSchema);
+//Export the model
+exports.default = User;

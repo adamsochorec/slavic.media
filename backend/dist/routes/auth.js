@@ -8,36 +8,42 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 // Import the necessary modules
-const router = require("express").Router(); // Express router to define the routes
-const User = require("../models/user"); // User model to interact with the database
-const bcrypt = require("bcrypt"); // bcrypt to hash passwords
-const { registerValidation, loginValidation } = require("../validation"); // Validation functions
-const jwt = require("jsonwebtoken"); // jsonwebtoken to create authentication tokens
+const express_1 = require("express");
+const user_1 = __importDefault(require("../models/user")); // User model to interact with the database
+const bcrypt_1 = __importDefault(require("bcrypt")); // bcrypt to hash passwords
+const validation_1 = require("../validation"); // Validation functions
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken")); // jsonwebtoken to create authentication tokens
+// Express router to define the routes
+const router = (0, express_1.Router)();
 // User registration endpoint
 router.post("/register", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Validate the user input (name, email, password)
         // If the validation fails, return an error message
-        const { error } = registerValidation(req.body);
+        const { error } = (0, validation_1.registerValidation)(req.body);
         if (error) {
             return res.status(400).json({ error: error.details[0].message });
         }
         // Check if the email is already registered
         // If the email is already registered, return an error message
-        const emailExist = yield User.findOne({ email: req.body.email });
+        const emailExist = yield user_1.default.findOne({ email: req.body.email });
         if (emailExist) {
             return res.status(400).json({ error: "Email already exists" });
         }
         // Hash the password using bcrypt
         // The salt is a random value that is used to create the hash
-        const salt = yield bcrypt.genSalt(10);
-        const password = yield bcrypt.hash(req.body.password, salt);
+        const salt = yield bcrypt_1.default.genSalt(10);
+        const hashedPassword = yield bcrypt_1.default.hash(req.body.password, salt);
         // Create a new user object and save it to the database
-        const userObject = new User({
+        const userObject = new user_1.default({
             name: req.body.name,
             email: req.body.email,
-            password,
+            password: hashedPassword,
         });
         // Save the user object to the database
         // If the save is successful, return the user's id
@@ -54,31 +60,31 @@ router.post("/login", (req, res) => __awaiter(void 0, void 0, void 0, function* 
     try {
         // Validate user login info
         // If the validation fails, return an error message
-        const { error } = loginValidation(req.body);
+        const { error } = (0, validation_1.loginValidation)(req.body);
         if (error) {
             return res.status(400).json({
                 error: error.details[0].message,
             });
         }
         // If login info is valid, find the user in the database
-        const user = yield User.findOne({ email: req.body.email });
+        const user = yield user_1.default.findOne({ email: req.body.email });
         // If the user does not exist, return an error message
         if (!user) {
             return res.status(400).json({ error: "Invalid credentials" });
         }
         // If the user exists, check if the password is correct
         // If the password is incorrect, return an error message
-        const validPassword = yield bcrypt.compare(req.body.password, user.password);
+        const validPassword = yield bcrypt_1.default.compare(req.body.password, user.password);
         if (!validPassword) {
             return res.status(400).json({ error: "Invalid credentials" });
         }
         // If the password is correct, create an authentication token
         // The token includes the user's name and id
-        const token = jwt.sign({
+        const token = jsonwebtoken_1.default.sign({
             name: user.name,
             id: user._id,
         }, process.env.TOKEN_SECRET || "your_default_secret", {
-            expiresIn: process.env.JWR_EXPIRES_IN || "1h",
+            expiresIn: process.env.JWT_EXPIRES_IN || "1h",
         });
         // Attach the authentication token to the header and return it in the response
         res.header("auth-token", token).json({
@@ -92,4 +98,4 @@ router.post("/login", (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 }));
 // Export the router to be used in other parts of the application
-module.exports = router;
+exports.default = router;
