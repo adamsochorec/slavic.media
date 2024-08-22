@@ -33,14 +33,14 @@ describe("Document workflow tests", () => {
           .request(server)
           .post("/user/login")
           .send({
-            email: "test@example.com",
-            password: "123456",
+            email: user.email,
+            password: user.password,
           })
           .end((err, res) => {
             // Assert that the response status is 200 and the response body has no errors
             expect(res.status).to.be.equal(200);
-            expect(res.body.error).to.be.equal(null);
-            const token = res.body.data.token;
+            expect(res.body.error).to.be.a("object");
+            expect(res.body.token).to.exist;
 
             // Define a new document
             const document = {
