@@ -17,6 +17,9 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "chai": "^5.1.0",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.0.4",
+    "tailwindcss-primeui": "^0.3.4",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
   },
