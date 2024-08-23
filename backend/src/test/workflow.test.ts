@@ -1,33 +1,34 @@
+// Import necessary libraries
 import chai, { expect } from "chai";
 import chaiHttp from "chai-http";
 import server from "../server";
 
+// Use chaiHttp for making HTTP requests in tests
 chai.use(chaiHttp);
 
+// Describe the group of tests
 describe("Document workflow tests", () => {
-  let token: string; // Declare the token at the top level
-
+  // Test for creating a document
   it("should register + login a user, create document and verify 1 in DB", (done) => {
+    // Define a new user
     const user = {
       name: "Slovan",
       email: "test@example.com",
       password: "123456",
     };
 
-    // Register the user
+    // Make a POST request to register the new user
     chai
       .request(server)
       .post("/user/register")
       .send(user)
       .end((err, res) => {
-        if (err) {
-          console.error("Registration error:", err);
-          return done(err);
-        }
-        expect(res.status).to.equal(200);
+        // Assert that the response status is 200 and the response body is an object with no errors
+        expect(res.status).to.be.equal(200);
+        expect(res.body).to.be.a("object");
         expect(res.body.error).to.be.equal(null);
 
-        // Login the user
+        // Make a POST request to login the user
         chai
           .request(server)
           .post("/user/login")
@@ -36,14 +37,12 @@ describe("Document workflow tests", () => {
             password: "123456",
           })
           .end((err, res) => {
-            if (err) {
-              console.error("Login error:", err);
-              return done(err);
-            }
-            console.log("Login response:", res.body); // Log the login response
-            token = res.body.data.token;
-            expect(token).to.exist; // Ensure the token exists
+            // Assert that the response status is 200 and the response body has no errors
+            expect(res.status).to.be.equal(200);
+            expect(res.body.error).to.be.equal(null);
+            const token = res.body.data.token;
 
+            // Define a new document
             const document = {
               title: "Title",
               content:
@@ -54,20 +53,16 @@ describe("Document workflow tests", () => {
                 "https://img.delicious.com.au/WqbvXLhs/del/2016/06/more-the-merrier-31380-2.jpg",
             };
 
-            // Create the document
+            // Make a POST request to create a new document
             chai
               .request(server)
               .post("/blog/articles")
               .set({ "auth-token": token })
               .send(document)
               .end((err, res) => {
-                if (err) {
-                  console.error("Document creation error:", err);
-                  return done(err);
-                }
-                console.log("Document creation response:", res.body); // Log the document creation response
-                expect(res.status).to.equal(201);
-                expect(res.body).to.be.an("array");
+                // Assert that the response status is 201, the response body is an array with one element, and the saved document matches the input
+                expect(res.status).to.be.equal(201);
+                expect(res.body).to.be.a("array");
                 expect(res.body.length).to.be.eql(1);
 
                 const savedDocument = res.body[0];
@@ -77,15 +72,12 @@ describe("Document workflow tests", () => {
                 expect(savedDocument.date).to.be.equal(document.date);
                 expect(savedDocument.thumbnail).to.be.equal(document.thumbnail);
 
-                // Verify the document in the database
+                // Make a GET request to verify the document in the database
                 chai
                   .request(server)
                   .get("/blog/articles/")
                   .end((err, res) => {
-                    if (err) {
-                      console.error("Document verification error:", err);
-                      return done(err);
-                    }
+                    // Assert that the response status is 200, the response body is an array with one element
                     expect(res.status).to.be.equal(200);
                     expect(res.body).to.be.a("array");
                     expect(res.body.length).to.be.eql(1);
@@ -97,27 +89,27 @@ describe("Document workflow tests", () => {
       });
   });
 
+  // Test for deleting a document
   it("should register + login a user, create document and delete it from DB", (done) => {
+    // Define a new user
     const user = {
       name: "Slovan",
       email: "test@example.com",
       password: "123456",
     };
 
-    // Register the user
+    // Make a POST request to register the new user
     chai
       .request(server)
       .post("/user/register")
       .send(user)
       .end((err, res) => {
-        if (err) {
-          console.error("Registration error:", err);
-          return done(err);
-        }
-        expect(res.status).to.equal(200);
+        // Assert that the response status is 200 and the response body is an object with no errors
+        expect(res.status).to.be.equal(200);
+        expect(res.body).to.be.a("object");
         expect(res.body.error).to.be.equal(null);
 
-        // Login the user
+        // Make a POST request to login the user
         chai
           .request(server)
           .post("/user/login")
@@ -126,14 +118,12 @@ describe("Document workflow tests", () => {
             password: "123456",
           })
           .end((err, res) => {
-            if (err) {
-              console.error("Login error:", err);
-              return done(err);
-            }
-            console.log("Login response:", res.body); // Log the login response
-            token = res.body.data.token;
-            expect(token).to.exist; // Ensure the token exists
+            // Assert that the response status is 200 and the response body has no errors
+            expect(res.status).to.be.equal(200);
+            expect(res.body.error).to.be.equal(null);
+            const token = res.body.data.token;
 
+            // Define a new document
             const document = {
               title: "Title",
               content:
@@ -144,20 +134,16 @@ describe("Document workflow tests", () => {
                 "https://img.delicious.com.au/WqbvXLhs/del/2016/06/more-the-merrier-31380-2.jpg",
             };
 
-            // Create the document
+            // Make a POST request to create a new document
             chai
               .request(server)
               .post("/blog/articles")
               .set({ "auth-token": token })
               .send(document)
               .end((err, res) => {
-                if (err) {
-                  console.error("Document creation error:", err);
-                  return done(err);
-                }
-                console.log("Document creation response:", res.body); // Log the document creation response
-                expect(res.status).to.equal(201);
-                expect(res.body).to.be.an("array");
+                // Assert that the response status is 201, the response body is an array with one element, and the saved document matches the input
+                expect(res.status).to.be.equal(201);
+                expect(res.body).to.be.a("array");
                 expect(res.body.length).to.be.eql(1);
 
                 const savedDocument = res.body[0];
@@ -167,16 +153,13 @@ describe("Document workflow tests", () => {
                 expect(savedDocument.date).to.be.equal(document.date);
                 expect(savedDocument.thumbnail).to.be.equal(document.thumbnail);
 
-                // Delete the document
+                // Make a DELETE request to delete the document
                 chai
                   .request(server)
                   .delete("/blog/articles/" + savedDocument._id)
                   .set({ "auth-token": token })
                   .end((err, res) => {
-                    if (err) {
-                      console.error("Document deletion error:", err);
-                      return done(err);
-                    }
+                    // Assert that the response status is 200 and the document was successfully deleted
                     expect(res.status).to.be.equal(200);
                     const actualVal = res.body.message;
                     expect(actualVal).to.be.equal(
@@ -189,24 +172,26 @@ describe("Document workflow tests", () => {
       });
   });
 
+  // Test for invalid user input
   it("Invalid user input test", (done) => {
+    // Define a new user with invalid input
     const user = {
       name: "Slovan",
       email: "test@example.com",
       password: "123", // Faulty password - Joi/validation should catch this...
     };
 
+    // Make a POST request to register the new user
     chai
       .request(server)
       .post("/user/register")
       .send(user)
       .end((err, res) => {
-        if (err) {
-          console.error("Invalid user input error:", err);
-          return done(err);
-        }
-        expect(res.status).to.be.equal(400);
+        // Assert that the response status is 400 and the response body is an object
+        expect(res.status).to.be.equal(400); // normal expect with no custom output message
+
         expect(res.body).to.be.a("object");
+        // expect(res.body.error.message).to.be.equal("\"password\" length must be at least 6 characters long");
         done();
       });
   });
