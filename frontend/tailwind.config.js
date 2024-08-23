@@ -3,7 +3,7 @@ import tailwindcssPrimeui from "tailwindcss-primeui";
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./src/presets/**/*.{js,vue,ts}",
+    "./src/presets/**/**/*.{js,vue,ts}",
     "./index.html",
     "./src/assets/**/*.{vue,js,ts,jsx,tsx}",
   ],
