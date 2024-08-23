@@ -8,6 +8,7 @@
     "start": "npm run build && node dist/server.js",
     "dev": "tsc --watch",
     "start-dev": "cross-env NODE_ENV=development ts-node src/server.ts",
+    "test": "cross-env NODE_ENV=test mocha 'src/test/**/*.test.ts' --recursive --exit",
     "start-gendoc": "node swagger.js"
   },
   "repository": {
