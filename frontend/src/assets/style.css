@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --primary-color: 255, 255, 255;
   --secondary-color: 0, 94, 184;
   --homepage-padding: 20px;
@@ -198,3 +198,4 @@ button {
     border-radius: 5px;
   }
 }
+ */

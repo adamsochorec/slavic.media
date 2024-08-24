@@ -10,6 +10,7 @@ export default defineConfig({
     },
   },
   css: {
+    postcss: "./postcss.config.js",
     preprocessorOptions: {
       css: {
         additionalData: `@import "./src/assets/style.css";`,
