@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // Import necessary modules
 const express_1 = require("express");
-const article_1 = __importDefault(require("../models/article")); // Document model to interact with the database
+const img_1 = __importDefault(require("../models/img")); // Document model to interact with the database
 const validation_1 = require("../validation"); // Validation function to verify the token
 // Express router to define the routes
 const router = (0, express_1.Router)();
@@ -17,7 +17,7 @@ router.post("/", validation_1.verifyToken, (req, res) => {
     // Insert new document data into the database
     // If the insertion is successful, return the inserted data with a 201 status code
     // If there is an error, return the error message with a 500 status code
-    article_1.default.insertMany(data)
+    img_1.default.insertMany(data)
         .then((insertedData) => {
         res.status(201).send(insertedData);
     })
@@ -31,7 +31,7 @@ router.get("/",
     // Retrieve all documents from the database
     // If the retrieval is successful, return the retrieved data
     // If there is an error, return the error message with a 500 status code
-    article_1.default.find()
+    img_1.default.find()
         .then((data) => {
         res.send(mapArray(data));
     })
@@ -45,7 +45,7 @@ router.get("/:id",
     // Retrieve a specific document by its ID
     // If the retrieval is successful, return the retrieved data
     // If there is an error, return the error message with a 500 status code
-    article_1.default.findById(req.params.id)
+    img_1.default.findById(req.params.id)
         .then((data) => {
         res.send(data);
     })
@@ -61,7 +61,7 @@ router.put("/:id", validation_1.verifyToken, (req, res) => {
     // If the update is successful, return a success message
     // If the document is not found, return a not found message with a 404 status code
     // If there is an error, return the error message with a 500 status code
-    article_1.default.findByIdAndUpdate(id, req.body, { new: true })
+    img_1.default.findByIdAndUpdate(id, req.body, { new: true })
         .then((data) => {
         if (!data) {
             res.status(404).send({
@@ -87,7 +87,7 @@ router.delete("/:id", validation_1.verifyToken, (req, res) => {
     // If the deletion is successful, return a success message
     // If the document is not found, return a not found message with a 404 status code
     // If there is an error, return the error message with a 500 status code
-    article_1.default.findByIdAndDelete(id)
+    img_1.default.findByIdAndDelete(id)
         .then((data) => {
         if (!data) {
             res.status(404).send({

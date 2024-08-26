@@ -1,18 +1,116 @@
 <script setup>
 import { RouterLink } from "vue-router";
-import { useAuth } from "../modules/users";
-const auth = useAuth();
+//import { useAuth } from "../modules/users";
+//const auth = useAuth();
 
 // import useUsers from '../modules/users'
 
 // const { isAuthenticated, logIn, logOut } = useUsers()
+import { ref } from "vue";
+
+const items = ref([
+  {
+    label: "Services",
+    icon: "pi pi-box",
+    items: [
+      [
+        {
+          label: "Photography",
+          items: [
+            { label: "Headshot", route: "/services/photography/headshots" },
+            {
+              label: "Behind the Scenes",
+              route: "/services/photography/behind-the-scenes",
+            },
+            {
+              label: "Real Estate",
+              route: "/services/photography/real-estate",
+            },
+            { label: "Wedding", route: "/services/photography/wedding" },
+          ],
+        },
+      ],
+      [
+        {
+          label: "Videography",
+          items: [
+            { label: "Portrait", route: "/services/videography/portrait" },
+            { label: "Showreel", route: "/services/videography/showreel" },
+          ],
+        },
+      ],
+      [
+        {
+          label: "Post Production",
+          items: [
+            {
+              label: "Video Editing",
+              route: "/services/post-production/video-editing",
+            },
+            {
+              label: "Graphic Design",
+              route: "/services/post-production/graphic-design",
+            },
+            {
+              label: "Sound Design",
+              route: "/services/post-production/sound-design",
+            },
+          ],
+        },
+      ],
+    ],
+  },
+  {
+    label: "Store",
+    icon: "pi pi-mobile",
+    items: [
+      [
+        {
+          label: "Lightroom Presets",
+          items: [
+            { label: "Cinestill", route: "/store/lightroom-presets/cinestill" },
+            {
+              label: "Film Emulation",
+              route: "/store/lightroom-presets/film-emulation",
+            },
+          ],
+        },
+      ],
+    ],
+  },
+  {
+    label: "About",
+    icon: "pi pi-clock",
+    items: [
+      [
+        {
+          items: [
+            { label: "Our Team", route: "/about/our-team" },
+            { label: "Press Materials", route: "/about/press-materials" },
+            { label: "Contact", route: "/about/contact" },
+          ],
+        },
+      ],
+    ],
+  },
+]);
 </script>
 <template>
-  <nav>
-    <RouterLink to="/blog">Blog</RouterLink>
-  </nav>
-
-  <div v-if="!auth.isAuthenticated.value">
+  <div class="card">
+    <MegaMenu :model="items">
+      <template #item="{ item }">
+        <router-link v-if="item.route" :to="item.route" class="menu-item-link">
+          <span :class="item.icon" />
+          <span class="ml-2">{{ item.label }}</span>
+        </router-link>
+        <a v-else :href="item.url" :target="item.target" class="menu-item-link">
+          <span :class="item.icon" />
+          <span class="ml-2">{{ item.label }}</span>
+        </a>
+      </template>
+    </MegaMenu>
+  </div>
+  <!--<p>{{ auth.isAuthenticated }}</p>  <div v-if="!auth.isAuthenticated.value">
     <button class="cta login" @click="auth.logIn()">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="user">
         <path
@@ -31,7 +129,18 @@ const auth = useAuth();
       </svg>
       &nbsp; Log out
     </button>
-  </div>
-
-  <!--<p>{{ auth.isAuthenticated }}</p>-->
+  </div>-->
 </template>
+
+<style scoped>
+.menu-item-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.menu-item-link span {
+  margin-left: 0.5rem;
+}
+</style>

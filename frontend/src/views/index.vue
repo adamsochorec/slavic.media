@@ -1,15 +1,6 @@
-<script setup>
-import { ref } from "vue";
-import Checkbox from "primevue/checkbox";
-const checked = ref(false);
-</script>
+<script setup></script>
 <template>
-  <div class="home">
-    <div class="card flex justify-center">
-      <Checkbox v-model="checked" :binary="true" />
-    </div>
-    <h1 class="text-3xl font-bold text-green-300 underline">index.vue</h1>
-  </div>
+  <div class="home"></div>
 </template>
 
 <script>
@@ -17,7 +8,7 @@ const checked = ref(false);
 
 export default {
   name: "HomeComponent",
-  components: { Checkbox },
+  components: {},
 };
 </script>
 <style lang="scss" scoped></style>

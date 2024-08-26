@@ -40,7 +40,6 @@ require("dotenv-flow").config();
 // Middleware to parse requests of content-type JSON
 app.use(body_parser_1.default.json());
 // Connect to MongoDB using Mongoose
-// Connect to MongoDB using Mongoose
 mongoose_1.default.set("strictQuery", false);
 mongoose_1.default
     .connect(process.env.DBHOST)
@@ -54,7 +53,7 @@ app.get("/", (req, res) => {
 });
 // Define routes for CRUD operations on documents
 app.use("/blog/articles", article_1.default);
-// Define routes for user authentication
+app.use("/img", article_1.default);
 app.use("/user", auth_1.default);
 // Serve static files from the 'dist' directory
 app.use(express_1.default.static(path_1.default.join(__dirname, "dist")));

@@ -6,15 +6,19 @@ import App from "./App.vue";
 import PrimeVue from "primevue/config";
 import Lara from "./presets/lara";
 import "./assets/style.css";
+import MegaMenu from "primevue/megamenu";
+import "primeicons/primeicons.css";
 // STYLING END
 
 const app = createApp(App);
 
-// Use PrimeVue with configuration options
+// PrimeVue components
 app.use(PrimeVue, {
   unstyled: true,
   pt: Lara,
 });
+// Global components
+app.component("MegaMenu", MegaMenu);
 
 // Use the router
 app.use(router);

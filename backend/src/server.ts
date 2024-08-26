@@ -46,7 +46,8 @@ const swaggerDefinition = yaml.load(path.join("backend", "..", "swagger.yaml"));
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition));
 
 // Import routes for documents and authentication
-import documentRoutes from "./routes/article";
+import articleRoutes from "./routes/article";
+import imgRoutes from "./routes/img";
 import authRoutes from "./routes/auth";
 
 // Load environment variables (again, for good measure)
@@ -55,7 +56,6 @@ require("dotenv-flow").config();
 // Middleware to parse requests of content-type JSON
 app.use(bodyParser.json());
 
-// Connect to MongoDB using Mongoose
 // Connect to MongoDB using Mongoose
 mongoose.set("strictQuery", false);
 mongoose
@@ -74,9 +74,8 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 // Define routes for CRUD operations on documents
-app.use("/blog/articles", documentRoutes);
-
-// Define routes for user authentication
+app.use("/blog/articles", articleRoutes);
+app.use("/img", articleRoutes);
 app.use("/user", authRoutes);
 
 // Serve static files from the 'dist' directory

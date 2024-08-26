@@ -1,4 +1,3 @@
-/*
 :root {
   --primary-color: 199, 30, 30;
   --secondary-color: 17, 69, 126;
@@ -39,7 +38,7 @@
   font-family: Raleway Semibold;
   src: url(https://slavic.media/assets/Raleway-SemiBold.ttf) format("truetype");
 }
-*/
+
 /* Primary and Surface Palettes */
 :root {
   --p-primary-50: var(--p-surface-50);
