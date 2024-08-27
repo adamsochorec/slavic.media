@@ -1,231 +1,40 @@
-<template>
-  <div class="pizzas-container">
-    <router-link
-      :to="`/blog/${article.id}`"
-      class="pizza-link"
-      v-for="article in state.articles"
-      :key="article._id"
-      :class="{
-        'pizza-item': true,
-      }"
-    >
-      <h3>
-        {{ article.title }}
-      </h3>
-      <img :src="article.thumbnail" />
-
-      <br />
-    </router-link>
-  </div>
-</template>
-
-<script>
-import todocrud from "../modules/todocrud";
+<script setup>
 import { onMounted } from "vue";
-export default {
-  setup() {
-    const {
-      state,
-      getAllDocuments,
-      newDocument,
-      deleteDocument,
-      editDocument,
-    } = todocrud();
+import todocrud from "../modules/todocrud";
+import ArticleCard from "../components/ArticleCard.vue";
+import Breadcrumb from "../components/BreadcrumbComponent.vue";
 
-    onMounted(() => {
-      getAllDocuments();
-    });
+const { state, getAllDocuments } = todocrud();
 
-    return {
-      state,
-      getAllDocuments,
-      newDocument,
-      deleteDocument,
-      editDocument,
-    };
-  },
-};
+onMounted(() => {
+  getAllDocuments();
+});
 </script>
 
+<template>
+  <article>
+    <Breadcrumb />
+    <hr class="semi" role="separator" />
+
+    <div class="article-container wrapper-wide">
+      <router-link
+        v-for="article in state.articles"
+        :key="article._id"
+        :to="`/blog/${article.id}`"
+        class="pizza-link"
+        :class="{ 'article-item': true }"
+      >
+        <ArticleCard :article="article" />
+      </router-link>
+    </div>
+  </article>
+</template>
+
 <style lang="scss" scoped>
-body p,
-h1,
-h2,
-label,
-input {
-  color: rgb(var(--primary-color));
-}
-header {
-  background-color: rgba(var(--primary-color), 1);
-  padding: var(--homepage-padding);
-}
-#logo {
-  fill: rgb(var(--primary-color));
-  height: 28px;
-}
-#user {
-  height: 20px;
-  width: auto;
-  fill: rgb(var(--secondary-color));
-}
-.home {
-  font-family: var(--logo-font);
-  width: 600px;
-}
-.logo-container span {
-  font-family: var(--logo-font);
-  font-size: 36px;
-  color: rgb(var(--secondary-color));
-}
-#app {
+.article-container {
   display: grid;
-  font-family: var(--content-font);
-  overflow: hidden;
-  margin-top: 6rem;
-  padding: 0 var(--homepage-padding) var(--homepage-padding);
-  grid-template-columns: 1fr 1fr;
-  justify-items: end;
-}
-#buttons,
-.fifty-fifty {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-#saveChanges {
-  background-color: rgb(var(--primary-color));
-}
-.fifty-fifty {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-a {
-  text-decoration: none;
-}
-.fifty-fifty input {
-  width: 350px;
-}
-nav a {
-  text-decoration: none;
-  color: var(--primary-color);
-  padding: 10px;
-  border-radius: 5px;
-  font-weight: bold;
-  color: rgb(var(--secondary-color));
-}
-
-.edit-btn svg,
-.delete-btn svg {
-  height: 20px;
-  fill: rgb(var(--secondary-color));
-}
-
-.pizza-item {
-  background-color: rgb(var(--primary-color));
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  height: fit-content;
-  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-}
-.pizza-item img {
-  width: 100%;
-}
-.cta.delete-btn {
-  margin-left: 26px;
-}
-#cancel {
-  outline: solid 2px rgb(var(--primary-color));
-  color: rgb(var(--primary-color));
-  background-color: transparent;
-}
-#cancel:hover {
-  outline: rgb(var(--primary-color));
-  color: rgb(var(--secondary-color));
-  background-color: rgb(var(--primary-color));
-}
-.pizzas-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-}
-
-.totodetail {
-  width: 500px;
-}
-input {
-  width: 100%;
-  color: black;
-}
-input,
-.cta {
-  padding: 10px 5px;
-  border-radius: 5px;
-  outline: none;
-  border: none;
-  margin: 5px 0;
-  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-  cursor: pointer !important;
-}
-.status input {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  width: unset;
-  margin-right: 10px;
-}
-.status {
-  display: block;
-}
-button.login {
-  padding: 5px 10px;
-  -webkit-box-shadow: transparent;
-  box-shadow: transparent;
-  margin: 0 10px;
-  background-color: rgb(var(--primary-color));
-  outline: 2px solid rgb(var(--secondary-color));
-  color: rgb(var(--secondary-color));
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  font-weight: bold;
-  color: rgb(var(--secondary-color));
-}
-
-button.login:hover {
-  background-color: rgb(var(--secondary-color));
-  color: rgb(var(--primary-color));
-}
-button.login:hover #user {
-  fill: rgb(var(--primary-color));
-}
-button:hover {
-  opacity: 90%;
-}
-button {
-  font-weight: bold;
-  color: rgb(var(--secondary-color));
-}
-.pizza-item button {
-  background-color: rgb(var(--primary-color));
-  width: 45%;
-}
-@media (hover: hover) {
-  nav a:hover {
-    background-color: rgba(var(--secondary-color), 1);
-    color: rgb(var(--primary-color));
-    border-radius: 5px;
-  }
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: var(--grid-gap-1);
+  margin-bottom: 4rem;
 }
 </style>

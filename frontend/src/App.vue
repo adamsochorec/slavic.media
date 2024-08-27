@@ -17,19 +17,27 @@ import NavigationView from "./components/NavigationView.vue";
             class="logo"
             alt="Logo Slavic Media"
             title="Logo Slavic Media"
-            src=""
+            src="../Primary-1.png"
           /></div
       ></RouterLink>
       <NavigationView />
     </header>
-    <RouterView />
+    <div class="main">
+      <RouterView />
+    </div>
+    <hr class="semi bodyxfooter" role="separator" />
 
     <footer>
-      <hr class="semi bodyxfooter" role="separator" />
-
       <FooterView />
     </footer>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.main {
+  font-family: var(--content-font);
+  color: #1a1a1a;
+  margin-top: 118.4px;
+  padding: 0 var(--homepage-padding) 0 var(--homepage-padding);
+}
+</style>

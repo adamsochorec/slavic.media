@@ -23,6 +23,7 @@
 body {
   background-color: rgb(var(--grey-color));
 }
+
 .loader-container,
 header:not(#homepage header),
 #gallery-press .grid-item .blur,
@@ -37,21 +38,6 @@ header:not(#homepage header),
   -o-backdrop-filter: var(--blur-1) !important; /* Older versions of Opera */
 }
 
-main {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  font-family: var(--content-font);
-  overflow: hidden;
-  color: #1a1a1a;
-}
 /* LOADER START */
 .loader-container {
   position: fixed;
@@ -303,9 +289,7 @@ footer a.footer-nav:hover {
 .pathname-current {
   font-size: var(--fontsize-note);
 }
-.pathname-container:not(.pathname-container:nth-child(3)) {
-  margin-top: 118.4px;
-}
+
 .pathname-container {
   text-transform: lowercase;
 }
