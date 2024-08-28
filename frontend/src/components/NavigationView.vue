@@ -139,7 +139,9 @@ const items = ref([
   text-decoration: none;
   color: inherit;
 }
-
+.card {
+  width: fit-content;
+}
 .menu-item-link span {
   margin-left: 0.5rem;
 }

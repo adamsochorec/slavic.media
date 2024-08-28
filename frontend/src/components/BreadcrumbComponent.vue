@@ -5,7 +5,7 @@ import Breadcrumb from "primevue/breadcrumb";
 
 const home = ref({
   icon: "pi pi-home",
-  route: "/introduction",
+  route: "/",
 });
 const items = ref([]);
 

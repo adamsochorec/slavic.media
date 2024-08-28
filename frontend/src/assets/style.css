@@ -179,39 +179,39 @@ h6 {
   position: relative;
 }
 h1 {
-  font-size: clamp(2em, 5vw, 3em);
+  font-size: var(--font-size-1);
 }
 
 h2,
 .banner #counter span {
-  font-size: clamp(1.5em, 4vw, 2.5em);
+  font-size: var(--font-size-2);
 }
 h3,
 .grid-container h1 {
-  font-size: clamp(1.25em, 3vw, 2em);
+  font-size: var(--font-size-3);
 }
 h4,
 #gallery-features.gallery h3,
 .noindex h1,
 #privacy h2,
 #privacy h3 {
-  font-size: clamp(1em, 2.5vw, 1.5em);
+  font-size: var(--font-size-4);
 }
 h5 {
-  font-size: clamp(0.9em, 2vw, 1.25em);
+  font-size: var(--font-size-5);
 }
 h6,
 #services table th,
 #gallery-features.gallery h3,
 .banner legend {
-  font-size: clamp(0.8em, 1.5vw, 1em);
+  font-size: var(--font-size-6);
 }
 p {
-  font-size: clamp(0.8em, 1.5vw, 1em);
+  font-size: var(--font-size-7);
 }
 footer,
 span.date {
-  font-size: clamp(0.8em, 1.5vw, 0.8em);
+  font-size: var(--font-size-8);
 }
 .pathname-current:before,
 h1:before,
@@ -287,7 +287,7 @@ footer a.footer-nav:hover {
 }
 .pathname,
 .pathname-current {
-  font-size: var(--fontsize-note);
+  font-size: var(--font-size-8);
 }
 
 .pathname-container {
@@ -356,7 +356,7 @@ footer a.footer-nav:hover {
   border-radius: var(--border-radius-2);
 }
 .switcher label {
-  font-size: var(--fontsize-note);
+  font-size: var(--font-size-8);
   position: relative;
   margin: 0 var(--grid-gap-1);
   color: rgba(var(--white-color));
@@ -1070,7 +1070,7 @@ footer .language-container {
   text-decoration: underline;
 }
 .gallery .gallery-item p {
-  font-size: var(--fontsize-note);
+  font-size: var(--font-size-8);
   padding: 12px 0;
   opacity: 0;
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
@@ -1455,7 +1455,7 @@ button::-moz-focus-inner {
 }
 .mfp-title,
 .mfp-counter {
-  font-size: var(--fontsize-note);
+  font-size: var(--font-size-8);
 }
 .mfp-counter {
   position: absolute;
@@ -1582,7 +1582,7 @@ img.mfp-img {
 }
 .mfp-figure small {
   display: block;
-  font-size: var(--fontsize-note);
+  font-size: var(--font-size-8);
   line-height: 14px;
 }
 .mfp-figure figure {
@@ -1623,7 +1623,7 @@ img.mfp-img {
   background-color: rgb(var(--dark-grey-color));
 }
 .tab-panels .undernote {
-  font-size: var(--fontsize-note);
+  font-size: var(--font-size-8);
   text-align: left !important;
 }
 .tab-panels th:not(.left-align),
@@ -1921,7 +1921,7 @@ ul.languages-legend {
   list-style-type: disc;
 }
 ul.languages-legend li {
-  font-size: var(--fontsize-note);
+  font-size: var(--font-size-8);
 }
 ul.languages-legend li::marker {
   list-style-type: square;
@@ -1997,7 +1997,7 @@ ul.languages-legend li::marker {
 /* NO INDEX PAGES START */
 
 .note {
-  font-size: var(--fontsize-note);
+  font-size: var(--font-size-8);
   position: absolute;
   text-decoration: none;
   z-index: 8;
@@ -2024,7 +2024,7 @@ ul.languages-legend li::marker {
 }
 .swiper-reviews p {
   padding: 0;
-  font-size: var(--fontsize-note);
+  font-size: var(--font-size-8);
 }
 .swiper-reviews .quotes {
   font-size: 32px;
@@ -2051,7 +2051,7 @@ ul.languages-legend li::marker {
 }
 .swiper-reviews .stars {
   display: inline-block;
-  font-size: var(--fontsize-note);
+  font-size: var(--font-size-8);
   color: gold;
 }
 /* REVIEWS END */
@@ -2101,7 +2101,7 @@ ul.languages-legend li::marker {
   .tabset > label,
   .cta,
   button.submit-btn {
-    font-size: var(--fontsize-note);
+    font-size: var(--font-size-8);
   }
 }
 @media only screen and (min-width: 415px) {
@@ -2110,7 +2110,7 @@ ul.languages-legend li::marker {
     margin: var(--cta-margin);
   }
   .tab-panels table p {
-    font-size: var(--fontsize-note);
+    font-size: var(--font-size-8);
   }
 }
 @media only screen and (max-width: 415px) {
@@ -2173,7 +2173,7 @@ ul.languages-legend li::marker {
     flex-direction: column;
   }
   #ourteam p {
-    font-size: var(--fontsize-note);
+    font-size: var(--font-size-8);
   }
   #gallery-features.gallery {
     grid-gap: var(--grid-gap-2);
@@ -2231,7 +2231,7 @@ ul.languages-legend li::marker {
     clear: both;
   }
   .gallery .gallery-item span {
-    font-size: var(--fontsize-note);
+    font-size: var(--font-size-8);
   }
   #gallery-press {
     display: -webkit-box;
@@ -2353,7 +2353,7 @@ ul.languages-legend li::marker {
     height: 100vh;
   }
   footer {
-    font-size: var(--fontsize-note);
+    font-size: var(--font-size-8);
   }
   footer .footer-container:last-of-type {
     display: block;

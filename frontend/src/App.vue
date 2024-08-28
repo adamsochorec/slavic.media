@@ -40,4 +40,9 @@ import NavigationView from "./components/NavigationView.vue";
   margin-top: 118.4px;
   padding: 0 var(--homepage-padding) 0 var(--homepage-padding);
 }
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--homepage-padding) 0 var(--homepage-padding);
+}
 </style>
