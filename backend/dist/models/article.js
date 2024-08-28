@@ -26,13 +26,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
 // Schema corresponding to the document interface.
 const articleSchema = new mongoose_1.Schema({
-    title: { type: String, required: true },
-    content: { type: String, required: true },
     author: { type: String, required: true },
     authorThumbnail: { type: String, required: true },
-    keywords: { type: String, required: true },
+    content: { type: String, required: true },
     date: { type: Date, required: true },
+    keywords: { type: String, required: true },
     thumbnail: { type: String, required: true },
+    title: { type: String, required: true },
 });
 // Create a Model
 const Article = mongoose_1.default.model("Article", articleSchema);
