@@ -17,7 +17,6 @@ import NavigationView from "./components/NavigationView.vue";
             class="logo"
             alt="Logo Slavic Media"
             title="Logo Slavic Media"
-            src="../Primary-1.png"
           /></div
       ></RouterLink>
       <NavigationView />
