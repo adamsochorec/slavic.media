@@ -23,7 +23,7 @@ const articleSchema: Schema = new Schema({
   author: { type: String, required: true },
   authorThumbnail: { type: String, required: true },
   keywords: { type: String, required: true },
-  date: { type: date, required: true },
+  date: { type: Date, required: true },
   thumbnail: { type: String, required: true },
 });
 

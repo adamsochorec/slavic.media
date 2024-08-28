@@ -23,8 +23,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// Import the mongoose module to interact with MongoDB
-const joi_1 = require("joi");
 const mongoose_1 = __importStar(require("mongoose"));
 // Schema corresponding to the document interface.
 const articleSchema = new mongoose_1.Schema({
@@ -33,7 +31,7 @@ const articleSchema = new mongoose_1.Schema({
     author: { type: String, required: true },
     authorThumbnail: { type: String, required: true },
     keywords: { type: String, required: true },
-    date: { type: joi_1.date, required: true },
+    date: { type: Date, required: true },
     thumbnail: { type: String, required: true },
 });
 // Create a Model
