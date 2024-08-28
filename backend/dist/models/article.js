@@ -29,8 +29,8 @@ const articleSchema = new mongoose_1.Schema({
     author: { type: String, required: true },
     authorThumbnail: { type: String, required: true },
     content: { type: String, required: true },
-    date: { type: Date, required: true },
-    keywords: { type: String, required: true },
+    date: { type: String, required: true },
+    keywords: { type: [String], required: true },
     thumbnail: { type: String, required: true },
     title: { type: String, required: true },
 });

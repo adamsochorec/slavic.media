@@ -10,8 +10,8 @@ interface IArticle extends Document {
   author: string;
   authorThumbnail: string;
   content: string;
-  date: Date;
-  keywords: string;
+  date: String;
+  keywords: string[];
   thumbnail: string;
   title: string;
 }
@@ -21,8 +21,8 @@ const articleSchema: Schema = new Schema({
   author: { type: String, required: true },
   authorThumbnail: { type: String, required: true },
   content: { type: String, required: true },
-  date: { type: Date, required: true },
-  keywords: { type: String, required: true },
+  date: { type: String, required: true },
+  keywords: { type: [String], required: true },
   thumbnail: { type: String, required: true },
   title: { type: String, required: true },
 });
