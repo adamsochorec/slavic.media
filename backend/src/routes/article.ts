@@ -130,7 +130,9 @@ function mapData(element: any): any {
     content: element.content,
     thumbnail: element.thumbnail,
     author: element.author,
+    authorThumbnail: element.authorThumbnail,
     date: element.date,
+    keywords: element.keywords,
   };
 }
 

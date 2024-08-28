@@ -53,7 +53,6 @@ app.get("/", (req, res) => {
 });
 // Define routes for CRUD operations on documents
 app.use("/blog/articles", article_1.default);
-app.use("/img", article_1.default);
 app.use("/user", auth_1.default);
 // Serve static files from the 'dist' directory
 app.use(express_1.default.static(path_1.default.join(__dirname, "dist")));

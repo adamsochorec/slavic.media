@@ -119,7 +119,9 @@ function mapData(element) {
         content: element.content,
         thumbnail: element.thumbnail,
         author: element.author,
+        authorThumbnail: element.authorThumbnail,
         date: element.date,
+        keywords: element.keywords,
     };
 }
 // Export the router for use in other files
