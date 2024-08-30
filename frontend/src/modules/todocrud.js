@@ -189,7 +189,9 @@ const getDocuments = () => {
         throw new Error(`Failed to fetch specific with ID: ${documentID}`);
       }
       const data = await response.json();
+      console.log("Fetched data:", data); // Log fetched data
       article.value = data; // Update the document ref with the fetched data
+      console.log("Updated article:", article.value); // Log updated article
     } catch (error) {
       console.error(error);
     }

@@ -125,11 +125,11 @@ function mapArray(inputArray: any[]): any[] {
 // Function to map a single document to a new format
 function mapData(element: any): any {
   return {
-    author: element.author,
+    id: element.id,
+    test: element.test,
     authorThumbnail: element.authorThumbnail,
     content: element.content,
     date: element.date,
-    id: element.id,
     keywords: element.keywords,
     thumbnail: element.thumbnail,
     title: element.title,

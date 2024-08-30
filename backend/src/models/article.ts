@@ -7,7 +7,7 @@ import { type } from "os";
 
 // Interface representing a document in MongoDB.
 interface IArticle extends Document {
-  author: string;
+  test: string[];
   authorThumbnail: string;
   content: string;
   date: String;
@@ -18,7 +18,7 @@ interface IArticle extends Document {
 
 // Schema corresponding to the document interface.
 const articleSchema: Schema = new Schema({
-  author: { type: String, required: true },
+  test: { type: [String], required: true },
   authorThumbnail: { type: String, required: true },
   content: { type: String, required: true },
   date: { type: String, required: true },

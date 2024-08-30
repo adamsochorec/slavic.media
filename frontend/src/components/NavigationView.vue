@@ -17,6 +17,8 @@ const items = ref([
         {
           label: "Photography",
           items: [
+            { label: "BLOG", route: "/blog" },
+
             { label: "Headshot", route: "/services/photography/headshots" },
             {
               label: "Behind the Scenes",

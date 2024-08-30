@@ -16,7 +16,7 @@ const router = createRouter({
       component: () =>
         import(/* webpackChunkName: "about" */ "../views/blog.vue"),
       meta: {
-        requiresAuth: true,
+        requiresAuth: false,
       },
     },
     {
@@ -25,7 +25,7 @@ const router = createRouter({
       component: () =>
         import(/* webpackChunkName: "about" */ "../views/article.vue"),
       meta: {
-        requiresAuth: true,
+        requiresAuth: false,
       },
     },
     /*   {

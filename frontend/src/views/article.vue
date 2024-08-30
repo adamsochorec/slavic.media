@@ -4,12 +4,16 @@ import todocrud from "../modules/todocrud";
 import Chip from "primevue/chip";
 import Divider from "primevue/divider";
 import Breadcrumb from "primevue/breadcrumb";
+import Skeleton from "primevue/skeleton";
 
 // Destructure methods and state from todocrud
 const { getSpecificDocument, article, documentID } = todocrud();
 
-onMounted(() => {
-  getSpecificDocument(documentID.value);
+const isDataLoaded = ref(false);
+
+onMounted(async () => {
+  await getSpecificDocument(documentID.value);
+  isDataLoaded.value = true;
 });
 
 const home = ref({
@@ -28,50 +32,60 @@ watch(
 
 <template>
   <article class="wrapper-standard">
-    <h1>{{ article.title }}</h1>
-    <Breadcrumb :home="home" :model="items">
-      <template #item="{ item, props }">
-        <router-link
-          v-if="item.route"
-          v-slot="{ href, navigate }"
-          :to="item.route"
-          custom
-        >
-          <a :href="href" v-bind="props.action" @click="navigate">
-            <span :class="[item.icon]" />
-            <span class="text-primary font-semibold">{{ item.label }}</span>
+    <div v-if="isDataLoaded">
+      <Breadcrumb :home="home" :model="items">
+        <template v-slot:default>
+          <a>
+            <span class="text-surface-700 dark:text-surface-0">{{
+              item.label
+            }}</span>
           </a>
-        </router-link>
-        <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-          <span class="text-surface-700 dark:text-surface-0">{{
-            item.label
-          }}</span>
-        </a>
-      </template>
-    </Breadcrumb>
+        </template>
+      </Breadcrumb>
 
-    <img
-      :src="article.thumbnail"
-      style="
-        aspect-ratio: 4/3;
-        object-fit: cover;
-        border-radius: var(--border-radius-1);
-      "
-    />
-    <Chip
-      v-for="(keyword, index) in article.keywords"
-      :key="index"
-      :label="keyword"
-    />
-    <Chip :label="article.author" :image="article.authorThumbnail" />
-    <Divider align="center" type="solid">
-      <span
-        style="color: rgb(var(--white-color)); font-size: var(--font-size-8)"
-        >Date posted: {{ article.date }}</span
-      >
-    </Divider>
+      <img
+        :src="article.thumbnail"
+        style="
+          aspect-ratio: 4/3;
+          object-fit: cover;
+          border-radius: var(--border-radius-1);
+        "
+      />
+      <Chip
+        v-for="(keyword, index) in article.keywords"
+        :key="index"
+        :label="keyword"
+      />
 
-    <p>{{ article.content }}</p>
+      <Chip :label="article.test[1]" :image="article.authorThumbnail" />
+      <Divider align="center" type="solid">
+        <span
+          style="color: rgb(var(--white-color)); font-size: var(--font-size-8)"
+          >Date posted: {{ article.date }}</span
+        >
+      </Divider>
+
+      <p>{{ article.content }}</p>
+    </div>
+    <div
+      v-else
+      class="rounded-lg border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-800 shadow-lg mb-4 p-8"
+    >
+      <div class="flex mb-4">
+        <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+        <div>
+          <Skeleton width="10rem" class="mb-2"></Skeleton>
+          <Skeleton width="5rem" class="mb-2"></Skeleton>
+          <Skeleton height=".5rem"></Skeleton>
+        </div>
+      </div>
+      <Skeleton width="100%" height="150px"></Skeleton>
+      <div class="flex justify-between mt-4">
+        <Skeleton width="4rem" height="2rem"></Skeleton>
+        <Skeleton width="4rem" height="2rem"></Skeleton>
+      </div>
+    </div>
   </article>
 </template>
+
 <style lang="scss" scoped></style>
