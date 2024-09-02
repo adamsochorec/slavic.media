@@ -42,9 +42,9 @@ watch(
           </a>
         </template>
       </Breadcrumb>
-
+      <h1>{{ article.title }}</h1>
       <img
-        :src="article.thumbnail"
+        :src="article.metadata.thumbnail"
         style="
           aspect-ratio: 4/3;
           object-fit: cover;
@@ -52,20 +52,18 @@ watch(
         "
       />
       <Chip
-        v-for="(keyword, index) in article.keywords"
+        v-for="(keyword, index) in article.metadata.keywords"
         :key="index"
         :label="keyword"
       />
 
-      <Chip :label="article.test[1]" :image="article.authorThumbnail" />
+      <Chip :label="article.author.name" :image="article.author.thumbnail" />
       <Divider align="center" type="solid">
         <span
           style="color: rgb(var(--white-color)); font-size: var(--font-size-8)"
           >Date posted: {{ article.date }}</span
         >
       </Divider>
-
-      <p>{{ article.content }}</p>
     </div>
     <div
       v-else

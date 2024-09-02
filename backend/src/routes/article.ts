@@ -125,16 +125,22 @@ function mapArray(inputArray: any[]): any[] {
 // Function to map a single document to a new format
 function mapData(element: any): any {
   return {
-    id: element.id,
-    test: element.test,
-    authorThumbnail: element.authorThumbnail,
-    content: element.content,
-    date: element.date,
-    keywords: element.keywords,
-    thumbnail: element.thumbnail,
+    id: element._id,
+    author: {
+      thumbnail: element.author.thumbnail,
+      name: element.author.name,
+    },
+    metadata: {
+      date: element.metadata.date,
+      keywords: element.metadata.keywords,
+      thumbnail: element.metadata.thumbnail,
+    },
+    content: {
+      text: element.content.text,
+      img: element.content.img,
+    },
     title: element.title,
   };
 }
-
 // Export the router for use in other files
 export default router;

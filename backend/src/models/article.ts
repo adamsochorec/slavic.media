@@ -7,23 +7,37 @@ import { type } from "os";
 
 // Interface representing a document in MongoDB.
 interface IArticle extends Document {
-  test: string[];
-  authorThumbnail: string;
-  content: string;
-  date: String;
-  keywords: string[];
-  thumbnail: string;
+  author: {
+    thumbnail: string;
+    name: string;
+  };
+  metadata: {
+    date: string;
+    keywords: string[];
+    thumbnail: string;
+  };
+  content: {
+    text: string[];
+    img: string[];
+  };
   title: string;
 }
 
 // Schema corresponding to the document interface.
 const articleSchema: Schema = new Schema({
-  test: { type: [String], required: true },
-  authorThumbnail: { type: String, required: true },
-  content: { type: String, required: true },
-  date: { type: String, required: true },
-  keywords: { type: [String], required: true },
-  thumbnail: { type: String, required: true },
+  author: {
+    thumbnail: { type: String, required: true },
+    name: { type: String, required: true },
+  },
+  metadata: {
+    date: { type: String, required: true },
+    keywords: { type: [String], required: true },
+    thumbnail: { type: String, required: true },
+  },
+  content: {
+    text: { type: [String], required: true },
+    img: { type: [String], required: true },
+  },
   title: { type: String, required: true },
 });
 
