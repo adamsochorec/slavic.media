@@ -4,7 +4,9 @@ import todocrud from "../modules/todocrud";
 import Card from "primevue/card";
 import Breadcrumb from "../components/BreadcrumbComponent.vue";
 import Skeleton from "primevue/skeleton";
-
+import Toast from "primevue/toast";
+import Panel from "primevue/panel";
+import Avatar from "primevue/avatar";
 const { state, getAllDocuments } = todocrud();
 
 const isDataLoaded = ref(false);
@@ -16,12 +18,20 @@ onMounted(async () => {
 </script>
 
 <template>
-  <article class="wrapper-standard">
+  <article class="wrapper-wide">
     <div v-if="isDataLoaded">
       <Breadcrumb />
       <hr class="semi" role="separator" />
 
-      <div class="article-container wrapper-wide">
+      <div
+        class="wrapper-wide"
+        style="
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-gap: var(--grid-gap-3);
+          margin-bottom: 4rem;
+        "
+      >
         <router-link
           v-for="article in state.articles"
           :key="article._id"
@@ -33,7 +43,28 @@ onMounted(async () => {
               <img :alt="article.title" :src="article.metadata.thumbnail" />
             </template>
             <template #title>
-              <h6>{{ article.title }}</h6>
+              <span class="p-0">{{ article.title }}</span>
+            </template>
+            <template #content>
+              <div class="flex items-center gap-2">
+                <Avatar
+                  :image="article.author.thumbnail"
+                  size="large"
+                  shape="circle"
+                />
+                <div>
+                  <a :href="article.author.url" class="font-bold">{{
+                    article.author.name
+                  }}</a
+                  ><br />
+                  <span style="font-size: var(--font-size-7)">
+                    {{ article.metadata.date }}&nbsp;⋅&nbsp;{{
+                      article.metadata.lenght
+                    }}
+                    min read</span
+                  >
+                </div>
+              </div>
             </template>
           </Card>
         </router-link>
@@ -46,17 +77,16 @@ onMounted(async () => {
 </template>
 
 <style lang="scss" scoped>
-.article-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: var(--grid-gap-1);
-  margin-bottom: 4rem;
-}
 .card {
   border-radius: var(--border-radius-1);
-  width: var(--dimension-2);
+  width: 100%;
   overflow: hidden;
   height: auto;
   box-shadow: var(--box-shadow-1);
+}
+.card img {
+  aspect-ratio: 3/4;
+  height: 200px;
+  object-fit: cover;
 }
 </style>

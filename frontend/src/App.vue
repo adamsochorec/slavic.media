@@ -26,9 +26,7 @@ import NavigationView from "./components/NavigationView.vue";
     </div>
     <hr class="semi bodyxfooter" role="separator" />
 
-    <footer>
-      <FooterView />
-    </footer>
+    <FooterView />
   </div>
 </template>
 

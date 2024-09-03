@@ -22,7 +22,7 @@ const generateBreadcrumbItems = () => {
 watch(route, generateBreadcrumbItems, { immediate: true });
 </script>
 <template>
-  <Breadcrumb :home="home" :model="items">
+  <Breadcrumb class="dark:bg-surface-800" :home="home" :model="items">
     <template #item="{ item, props }">
       <router-link
         v-if="item.route"

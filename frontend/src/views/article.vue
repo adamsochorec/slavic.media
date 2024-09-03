@@ -1,11 +1,19 @@
 <script setup>
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted } from "vue";
 import todocrud from "../modules/todocrud";
-import Chip from "primevue/chip";
-import Divider from "primevue/divider";
-import Breadcrumb from "primevue/breadcrumb";
+import Button from "primevue/button";
 import Skeleton from "primevue/skeleton";
+import Toast from "primevue/toast";
+import Panel from "primevue/panel";
+import Avatar from "primevue/avatar";
+const loading = ref(false);
 
+const load = () => {
+  loading.value = true;
+  setTimeout(() => {
+    loading.value = false;
+  }, 2000);
+};
 // Destructure methods and state from todocrud
 const { getSpecificDocument, article, documentID } = todocrud();
 
@@ -15,34 +23,11 @@ onMounted(async () => {
   await getSpecificDocument(documentID.value);
   isDataLoaded.value = true;
 });
-
-const home = ref({
-  icon: "pi pi-home",
-  route: "/",
-});
-const items = ref([{ label: article.value.title }]);
-
-watch(
-  () => article.value.title,
-  (newTitle) => {
-    items.value = [{ label: "Blog", route: "./" }, { label: newTitle }];
-  }
-);
 </script>
 
 <template>
   <article class="wrapper-standard">
     <div v-if="isDataLoaded">
-      <Breadcrumb :home="home" :model="items">
-        <template v-slot:default>
-          <a>
-            <span class="text-surface-700 dark:text-surface-0">{{
-              item.label
-            }}</span>
-          </a>
-        </template>
-      </Breadcrumb>
-      <h1>{{ article.title }}</h1>
       <img
         :src="article.metadata.thumbnail"
         style="
@@ -51,19 +36,51 @@ watch(
           border-radius: var(--border-radius-1);
         "
       />
-      <Chip
-        v-for="(keyword, index) in article.metadata.keywords"
-        :key="index"
-        :label="keyword"
-      />
+      <h1>{{ article.title }}</h1>
 
-      <Chip :label="article.author.name" :image="article.author.thumbnail" />
-      <Divider align="center" type="solid">
-        <span
-          style="color: rgb(var(--white-color)); font-size: var(--font-size-8)"
-          >Date posted: {{ article.date }}</span
-        >
-      </Divider>
+      <div class="card">
+        <Toast />
+        <Panel>
+          <template #header>
+            <div class="flex items-center gap-2">
+              <Avatar
+                :image="article.author.thumbnail"
+                size="large"
+                shape="circle"
+              />
+              <a :href="article.author.url" class="font-bold">{{
+                article.author.name
+              }}</a>
+            </div>
+
+            <div class="card flex justify-center">
+              <Button
+                type="button"
+                label="Share"
+                icon="pi pi-share-alt"
+                :loading="loading"
+                @click="shareContent"
+              />
+            </div>
+          </template>
+          <template #icons> </template>
+          <p class="m-0">
+            <i class="pi pi-calendar"></i>
+            {{ article.metadata.date }}&nbsp;&nbsp;&nbsp;<i
+              class="pi pi-clock"
+            ></i
+            >&nbsp;{{ article.metadata.lenght }} min read
+          </p>
+        </Panel>
+      </div>
+
+      <p class="article">{{ article.content.text[0] }}</p>
+      <img :src="article.content.img[0]" />
+      <p class="img-desc">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia ipsam
+        nulla laborum repellat cum et illo corrupti rerum tenetur excepturi,
+        ipsa omnis iusto dicta sunt minus assumenda explicabo quae est!
+      </p>
     </div>
     <div
       v-else
@@ -86,4 +103,16 @@ watch(
   </article>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+p.article {
+  margin: var(--grid-gap-3) 0;
+}
+p.img-desc {
+  font-size: var(--font-size-8);
+  text-align: center;
+  margin: var(--grid-gap-1) 0;
+}
+img {
+  border-radius: var(--border-radius-1);
+}
+</style>

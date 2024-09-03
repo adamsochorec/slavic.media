@@ -29,11 +29,13 @@ const articleSchema = new mongoose_1.Schema({
     author: {
         thumbnail: { type: String, required: true },
         name: { type: String, required: true },
+        url: { type: String, required: true },
     },
     metadata: {
         date: { type: String, required: true },
         keywords: { type: [String], required: true },
         thumbnail: { type: String, required: true },
+        lenght: { type: Number, required: true },
     },
     content: {
         text: { type: [String], required: true },

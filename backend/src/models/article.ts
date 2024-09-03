@@ -10,11 +10,13 @@ interface IArticle extends Document {
   author: {
     thumbnail: string;
     name: string;
+    url: string;
   };
   metadata: {
     date: string;
     keywords: string[];
     thumbnail: string;
+    lenght: number;
   };
   content: {
     text: string[];
@@ -28,11 +30,13 @@ const articleSchema: Schema = new Schema({
   author: {
     thumbnail: { type: String, required: true },
     name: { type: String, required: true },
+    url: { type: String, required: true },
   },
   metadata: {
     date: { type: String, required: true },
     keywords: { type: [String], required: true },
     thumbnail: { type: String, required: true },
+    lenght: { type: Number, required: true },
   },
   content: {
     text: { type: [String], required: true },

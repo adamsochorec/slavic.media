@@ -129,11 +129,13 @@ function mapData(element: any): any {
     author: {
       thumbnail: element.author.thumbnail,
       name: element.author.name,
+      url: element.author.url,
     },
     metadata: {
       date: element.metadata.date,
       keywords: element.metadata.keywords,
       thumbnail: element.metadata.thumbnail,
+      length: element.metadata.length,
     },
     content: {
       text: element.content.text,
