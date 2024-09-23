@@ -7,6 +7,10 @@ provideAuth();
 import FooterView from "./components/FooterView.vue";
 import NavigationView from "./components/NavigationView.vue";
 
+function toggleDarkMode() {
+  document.documentElement.classList.toggle("dark-mode");
+}
+
 // CONTENT REVEAL START
 // Function to reveal elements as the user scrolls
 function reveal() {
@@ -39,6 +43,11 @@ reveal();
             title="Logo Slavic Media"
           /></div
       ></RouterLink>
+      <button
+        label="Toggle Dark mode"
+        @click="toggleDarkMode"
+        class="pi pi-sun"
+      ></button>
       <NavigationView />
     </header>
     <div class="main">
@@ -61,5 +70,7 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 0 var(--homepage-padding) 0 var(--homepage-padding);
+  background-color: #c71e1ecc;
 }
 </style>
+dakr grey 0000004d prima c71e1e sec 11457e
