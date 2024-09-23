@@ -7,31 +7,28 @@ import Button from "primevue/button";
 const products = [
   {
     id: 1,
-    name: "Product 1",
-    image: "product1.jpg",
-    price: 29.99,
-    inventoryStatus: "INSTOCK",
+    name: "Photo Services",
+    image: "https://slavic.media/img/cover-photo.jpg",
   },
   {
     id: 2,
-    name: "Product 2",
-    image: "product2.jpg",
-    price: 19.99,
-    inventoryStatus: "LOWSTOCK",
+    name: "Video Services",
+    image: "https://slavic.media/img/cover-video.jpg",
   },
   {
     id: 3,
-    name: "Product 3",
-    image: "product3.jpg",
-    price: 39.99,
-    inventoryStatus: "OUTOFSTOCK",
+    name: "Drone Services",
+    image: "https://slavic.media/img/cover-drone.jpg",
   },
   {
     id: 4,
-    name: "Product 4",
-    image: "product4.jpg",
-    price: 49.99,
-    inventoryStatus: "INSTOCK",
+    name: "Real Estate",
+    image: "https://slavic.media/img/cover-realestate.jpg",
+  },
+  {
+    id: 5,
+    name: "Graphic Design",
+    image: "https://slavic.media/img/cover-realestate.jpg",
   },
 ];
 
@@ -52,23 +49,10 @@ const responsiveOptions = [
     numScroll: 1,
   },
 ];
-
-const getSeverity = (status) => {
-  switch (status) {
-    case "INSTOCK":
-      return "success";
-    case "LOWSTOCK":
-      return "warning";
-    case "OUTOFSTOCK":
-      return "danger";
-    default:
-      return null;
-  }
-};
 </script>
 <script setup></script>
 <template>
-  <div class="home">
+  <div class="wrapper-standard">
     <Carousel
       :value="products"
       :numVisible="3"
@@ -78,9 +62,7 @@ const getSeverity = (status) => {
       :autoplayInterval="3000"
     >
       <template #item="slotProps">
-        <div
-          class="border border-surface-200 dark:border-surface-700 rounded m-2 p-4"
-        >
+        <div class="border border-surface-200 dark:border-surface-700 rounded">
           <div class="mb-4">
             <div class="relative mx-auto">
               <img
@@ -91,27 +73,22 @@ const getSeverity = (status) => {
                 :alt="slotProps.data.name"
                 class="w-full rounded"
               />
-              <Tag
-                :value="slotProps.data.inventoryStatus"
-                :severity="getSeverity(slotProps.data.inventoryStatus)"
-                class="absolute"
-                style="left: 5px; top: 5px"
-              />
             </div>
           </div>
-          <div class="mb-4 font-medium">{{ slotProps.data.name }}</div>
-          <div class="flex justify-between items-center">
-            <div class="mt-0 font-semibold text-xl">
-              ${{ slotProps.data.price }}
-            </div>
-            <span>
-              <Button icon="pi pi-heart" severity="secondary" outlined />
-              <Button icon="pi pi-shopping-cart" class="ml-2" />
-            </span>
+          <div class="mb-4 font-medium">
+            <h4>{{ slotProps.data.name }}</h4>
           </div>
         </div>
       </template>
     </Carousel>
+    <router-link
+      class="flex-center"
+      to="/"
+      role="link"
+      aria-label="Return to the homepage"
+    >
+      <Button class="cta" type="button" label="Request a proposal"
+    /></router-link>
   </div>
 </template>
 

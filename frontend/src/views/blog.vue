@@ -4,8 +4,6 @@ import todocrud from "../modules/todocrud";
 import Card from "primevue/card";
 import Breadcrumb from "../components/BreadcrumbComponent.vue";
 import Skeleton from "primevue/skeleton";
-import Toast from "primevue/toast";
-import Panel from "primevue/panel";
 import Avatar from "primevue/avatar";
 const { state, getAllDocuments } = todocrud();
 
@@ -15,12 +13,28 @@ onMounted(async () => {
   await getAllDocuments();
   isDataLoaded.value = true;
 });
+
+const home = ref({
+  icon: "pi pi-home",
+});
+const items = ref([
+  { label: "Electronics" },
+  { label: "Computer" },
+  { label: "Accessories" },
+  { label: "Keyboard" },
+  { label: "Wireless" },
+]);
 </script>
 
 <template>
   <article class="wrapper-wide">
     <div v-if="isDataLoaded">
-      <Breadcrumb />
+      <template>
+        <div class="card flex justify-center">
+          <Breadcrumb :home="home" :model="items" />
+        </div>
+      </template>
+
       <hr class="semi" role="separator" />
 
       <div

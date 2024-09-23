@@ -3,17 +3,10 @@ import { ref, onMounted } from "vue";
 import todocrud from "../modules/todocrud";
 import Button from "primevue/button";
 import Skeleton from "primevue/skeleton";
-import Toast from "primevue/toast";
-import Panel from "primevue/panel";
 import Avatar from "primevue/avatar";
+import Card from "primevue/card";
 const loading = ref(false);
 
-const load = () => {
-  loading.value = true;
-  setTimeout(() => {
-    loading.value = false;
-  }, 2000);
-};
 // Destructure methods and state from todocrud
 const { getSpecificDocument, article, documentID } = todocrud();
 
@@ -37,42 +30,40 @@ onMounted(async () => {
         "
       />
       <h1>{{ article.title }}</h1>
-
-      <div class="card">
-        <Toast />
-        <Panel>
-          <template #header>
+      <Card class="card" role="region">
+        <template #content>
+          <div class="flex items-center justify-between gap-2">
             <div class="flex items-center gap-2">
               <Avatar
                 :image="article.author.thumbnail"
                 size="large"
                 shape="circle"
               />
-              <a :href="article.author.url" class="font-bold">{{
-                article.author.name
-              }}</a>
+              <div>
+                <a :href="article.author.url" class="font-bold">{{
+                  article.author.name
+                }}</a
+                ><br />
+                <span style="font-size: var(--font-size-7)">
+                  {{ article.metadata.date }}&nbsp;⋅&nbsp;{{
+                    article.metadata.lenght
+                  }}
+                  min read</span
+                >
+              </div>
             </div>
-
-            <div class="card flex justify-center">
+            <div class="flex items-center gap-3">
+              <a class="pi pi-linkedin"></a> <a class="pi pi-facebook"></a>
               <Button
+                class="cta"
                 type="button"
                 label="Share"
                 icon="pi pi-share-alt"
-                :loading="loading"
-                @click="shareContent"
               />
             </div>
-          </template>
-          <template #icons> </template>
-          <p class="m-0">
-            <i class="pi pi-calendar"></i>
-            {{ article.metadata.date }}&nbsp;&nbsp;&nbsp;<i
-              class="pi pi-clock"
-            ></i
-            >&nbsp;{{ article.metadata.lenght }} min read
-          </p>
-        </Panel>
-      </div>
+          </div>
+        </template>
+      </Card>
 
       <p class="article">{{ article.content.text[0] }}</p>
       <img :src="article.content.img[0]" />
