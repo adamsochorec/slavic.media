@@ -1,8 +1,4 @@
 <script setup>
-import Carousel from "primevue/carousel";
-import Tag from "primevue/tag";
-import Button from "primevue/button";
-
 // CAROUSEL
 const products = [
   {

@@ -1,7 +1,4 @@
-<script setup>
-import { ref } from "vue";
-import Button from "primevue/button";
-</script>
+<script setup></script>
 <template>
   <div class="not-found">
     <article

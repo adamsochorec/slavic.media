@@ -14,14 +14,15 @@ const app = createApp(App);
 
 // PrimeVue components
 app.use(PrimeVue, {
-  unstyled: true,
-  pt: Lara,
+  theme: {
+    preset: Lara,
+    options: {
+      prefix: "p",
+      darkModeSelector: "system",
+      cssLayer: false,
+    },
+  },
 });
-// Global components
-import MegaMenu from "primevue/megamenu";
-import Skeleton from "primevue/skeleton";
-app.component("MegaMenu", MegaMenu);
-app.component("SkeleTon", Skeleton);
 
 // Use the router
 app.use(router);

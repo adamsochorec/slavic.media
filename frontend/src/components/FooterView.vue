@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-container">
       <div
         class="social-icons"
@@ -7,7 +7,7 @@
         aria-label="Social media links"
       >
         <a
-          title="Phone"
+          title="Email"
           href="tel:+4550104776"
           aria-label="Tel: +4550104776"
           role="link"
@@ -35,16 +35,15 @@
           aria-label="Slavic Media Vimeo"
           role="link"
         >
-          <i title="Vimeo" class="pi pi-vimeo"></i>
-        </a>
-        <a
+          <i title="Vimeo" class="pi pi-vimeo"></i> </a
+        ><a
           href="https://www.linkedin.com/company/slavicmedia/"
           target="_blank"
           rel="noopener noreferrer nofollow"
           aria-label="Slavic Media LinkedIn"
           role="link"
         >
-          <i title="LinkedIn" class="pi pi-linkedin"></i>
+          <i title="LinedIn" class="pi pi-linkedin"></i>
         </a>
         <a
           target="_blank"
@@ -56,7 +55,7 @@
           <i title="YouTube" class="pi pi-youtube"></i>
         </a>
         <a
-          href="https://www.instagram.com/slavicmedia/"
+          href="https://www.instagram.com/slavic.media/"
           target="_blank"
           rel="noopener noreferrer nofollow"
           aria-label="Slavic Media Instagram"
@@ -68,30 +67,29 @@
     </div>
     <hr role="separator" />
     <div class="footer-container">
-      <nav class="grid-item" role="navigation" aria-label="Footer Navigation">
+      <div class="grid-item" role="navigation" aria-label="Footer Navigation">
         <a
           class="footer-nav"
           href="https://slavic.media/legal/cookie-policy"
           title="Cookie Policy"
         >
-          Cookie&nbsp;Policy
-        </a>
+          Cookie&nbsp;Policy</a
+        >
         <span>&nbsp;|&nbsp;</span>
         <a
           href="https://slavic.media/legal/terms-of-sale"
           class="footer-nav"
-          title="Terms of Sale"
+          title="Privacy Policy "
+          >Terms of Sale</a
         >
-          Terms of Sale
-        </a>
         <span>&nbsp;|&nbsp;</span>
         <a
           href="https://slavic.media/legal/digital-image-license"
           class="footer-nav"
-          title="Digital Image License"
+          title="Privacy Policy "
+          >Digital Image License</a
         >
-          Digital Image License
-        </a>
+
         <span class="separator-hide">&nbsp;|&nbsp;</span>
         <a
           class="footer-nav"
@@ -103,9 +101,9 @@
         >
           CVR:&nbsp;44081512
         </a>
-      </nav>
+      </div>
       <p class="grid-item">
-        ©&nbsp;<span>{{ currentYear }}</span> Slavic Media I/S.<br
+        ©&nbsp;<span id="current-year"></span> Slavic Media I/S.<br
           class="footerBreak"
         />
         Registered Company in Denmark

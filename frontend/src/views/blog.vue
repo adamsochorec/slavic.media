@@ -1,10 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import todocrud from "../modules/todocrud";
-import Card from "primevue/card";
-import Breadcrumb from "../components/BreadcrumbComponent.vue";
-import Skeleton from "primevue/skeleton";
-import Avatar from "primevue/avatar";
 const { state, getAllDocuments } = todocrud();
 
 const isDataLoaded = ref(false);

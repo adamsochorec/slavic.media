@@ -4,15 +4,9 @@
   --grey-color: 40, 40, 40;
   --dark-grey-color: 26, 26, 26;
   --dark-grey-color-full: #0000004d;
+  --light-grey-color: 152, 152, 152;
   --white-color: 255, 255, 255;
-  --font-size-1: clamp(2em, 5vw, 3em);
-  --font-size-2: clamp(1.5em, 4vw, 2.5em);
-  --font-size-3: clamp(1.25em, 3vw, 2em);
-  --font-size-4: clamp(0.9em, 2vw, 1.25em);
-  --font-size-5: clamp(0.8em, 1.5vw, 1em);
-  --font-size-6: clamp(0.8em, 1.5vw, 1em);
-  --font-size-7: clamp(0.8em, 1.5vw, 0.8em);
-  --font-size-8: 0.7em;
+  --fontsize-note: 0.7em;
   --logo-font: Raleway Semibold;
   --content-font: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica,
     Arial, sans-serif;

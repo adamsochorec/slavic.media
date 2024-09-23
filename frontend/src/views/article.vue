@@ -1,11 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import todocrud from "../modules/todocrud";
-import Button from "primevue/button";
-import Skeleton from "primevue/skeleton";
-import Avatar from "primevue/avatar";
-import Card from "primevue/card";
-const loading = ref(false);
 
 // Destructure methods and state from todocrud
 const { getSpecificDocument, article, documentID } = todocrud();
@@ -65,7 +60,7 @@ onMounted(async () => {
         </template>
       </Card>
 
-      <p class="article">{{ article.content.text[0] }}</p>
+      <p class="article reveal">{{ article.content.text[0] }}</p>
       <img :src="article.content.img[0]" />
       <p class="img-desc">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia ipsam
