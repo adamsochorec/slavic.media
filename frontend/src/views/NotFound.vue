@@ -63,4 +63,10 @@ h1 {
     margin-bottom: 64px;
   }
 }
+@media only screen and (min-height: 700px) {
+  #noindex footer {
+    position: absolute;
+    bottom: 0;
+  }
+}
 </style>

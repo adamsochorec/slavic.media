@@ -123,4 +123,94 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+footer {
+  font-size: clamp(0.8em, 1.5vw, 0.8em);
+}
+footer a.footer-nav {
+  color: rgb(var(--primary-color));
+  text-decoration: underline;
+}
+footer a.footer-nav:hover {
+  opacity: 80%;
+  text-decoration: underline;
+}
+footer {
+  padding: var(--grid-gap-3) var(--homepage-padding);
+  background-color: rgb(var(--dark-grey-color));
+  width: 100%;
+  font-family: var(--content-font);
+}
+footer img {
+  width: 70px;
+  height: 100%;
+  -webkit-animation: none;
+  animation: none;
+}
+footer a.footer-nav {
+  color: white;
+}
+footer .footer-container {
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  line-height: 1.5;
+}
+footer .footer-container .footerBreak {
+  display: none;
+}
+footer .footer-container:last-of-type,
+footer hr {
+  opacity: 30%;
+}
+footer p,
+footer a,
+footer span {
+  font-weight: var(--paragraph-weight);
+  text-shadow: none;
+  color: rgb(var(--white-color));
+  font-family: var(--content-font);
+}
+footer hr {
+  margin: var(--grid-gap-2) 0 !important;
+}
+
+/* SOCIAL ICONS START */
+footer .social-icons,
+footer .language-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-decoration: none;
+}
+.social-icons a:not(.social-icons a:nth-last-child(1)) {
+  margin-right: var(--grid-gap-1);
+}
+.social-icons a:nth-child(5) {
+  margin-right: 0;
+}
+@media only screen and (max-width: 850px) {
+  footer {
+    font-size: var(--fontsize-note);
+  }
+  footer .footer-container:last-of-type {
+    display: block;
+    text-align: center;
+  }
+  footer .footer-container .footerBreak {
+    display: block;
+  }
+}
+@media only screen and (min-height: 700px) and (min-width: 1500px) {
+  #press footer {
+    position: absolute;
+    bottom: 0;
+  }
+}
+</style>

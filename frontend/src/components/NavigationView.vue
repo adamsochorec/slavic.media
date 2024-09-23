@@ -134,17 +134,4 @@ const items = ref([
   </div>-->
 </template>
 
-<style scoped>
-.menu-item-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-}
-.card {
-  width: fit-content;
-}
-.menu-item-link span {
-  margin-left: 0.5rem;
-}
-</style>
+<style scoped></style>
