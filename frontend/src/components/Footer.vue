@@ -20,7 +20,7 @@
           aria-label="Email: contact@slavic.media"
           role="link"
         >
-          <i class="pi pi-envelope"></i>
+          <i class="pi pi-envelope" rounded outlined></i>
         </a>
       </div>
       <div
