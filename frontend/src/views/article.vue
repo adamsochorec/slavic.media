@@ -18,13 +18,11 @@ onMounted(async () => {
     <div v-if="isDataLoaded">
       <img
         :src="article.metadata.thumbnail"
-        style="
-          aspect-ratio: 4/3;
-          object-fit: cover;
-          border-radius: var(--border-radius-1);
-        "
+        style="aspect-ratio: 4/3; object-fit: cover"
       />
-      <h1>{{ article.title }}</h1>
+      <h1 style="font-size: var(--font-size-1)" class="mt-5 mb-5">
+        {{ article.title }}
+      </h1>
       <Card class="card" role="region">
         <template #content>
           <div class="flex items-center justify-between gap-2">
@@ -61,7 +59,7 @@ onMounted(async () => {
         </template>
       </Card>
 
-      <p class="article reveal">{{ article.content.text[0] }}</p>
+      <p class="mt-5 mb-5 reveal">{{ article.content.text[0] }}</p>
       <img :src="article.content.img[0]" />
       <p class="img-desc">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -89,9 +87,6 @@ onMounted(async () => {
 </template>
 
 <style lang="scss" scoped>
-p.article {
-  margin: var(--grid-gap-3) 0;
-}
 p.img-desc {
   font-size: var(--font-size-8);
   text-align: center;

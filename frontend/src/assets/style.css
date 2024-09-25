@@ -39,3 +39,15 @@
   width: 336px;
 }
 /* WRAPPER END */
+
+.pi:hover:not(header .pi:hover) {
+  color: var(--p-button-primary-background);
+}
+.pi,
+.pi:hover {
+  transition: background var(--p-button-transition-duration),
+    color var(--p-button-transition-duration),
+    border-color var(--p-button-transition-duration),
+    outline-color var(--p-button-transition-duration),
+    box-shadow var(--p-button-transition-duration);
+}

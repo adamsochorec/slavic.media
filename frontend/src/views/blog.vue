@@ -13,6 +13,7 @@ onMounted(async () => {
 
 <template>
   <article class="wrapper-wide">
+    <h1 style="font-size: var(--font-size-1)" class="mb-5">Blog</h1>
     <div v-if="isDataLoaded">
       <div class="container">
         <router-link

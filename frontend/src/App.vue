@@ -72,7 +72,6 @@ reveal();
     <main
       style="
         font-family: var(--content-font);
-        margin-top: 118.4px;
         padding: 0 var(--homepage-padding) 0 var(--homepage-padding);
         align-items: center;
         display: flex;

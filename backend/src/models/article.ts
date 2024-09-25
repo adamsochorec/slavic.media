@@ -15,6 +15,8 @@ interface IArticle extends Document {
   metadata: {
     date: string;
     keywords: string[];
+    linkedin: string;
+    facebook: string;
     thumbnail: string;
     lenght: number;
   };
@@ -35,6 +37,8 @@ const articleSchema: Schema = new Schema({
   metadata: {
     date: { type: String, required: true },
     keywords: { type: [String], required: true },
+    linkedin: { type: String, required: false },
+    facebook: { type: String, required: false },
     thumbnail: { type: String, required: true },
     lenght: { type: Number, required: true },
   },
