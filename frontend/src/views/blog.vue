@@ -23,14 +23,14 @@ onMounted(async () => {
           :class="{ 'article-item': true }"
         >
           <Card
-            style="box-shadow: var(--box-shadow-1); height: 350px"
+            style="box-shadow: var(--box-shadow-1); height: auto"
             role="region"
             class="card rounded border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900"
           >
             <template #header>
               <img
                 style="
-                  aspect-ratio: 3/4;
+                  aspect-ratio: 9/16;
                   height: 200px;
                   width: 100%;
                   object-fit: cover;
@@ -51,11 +51,15 @@ onMounted(async () => {
                   shape="circle"
                 />
                 <div>
-                  <a :href="article.author.url" class="font-bold">{{
-                    article.author.name
-                  }}</a
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    style="font-size: var(--font-size-8)"
+                    :href="article.author.url"
+                    class="font-bold"
+                    >{{ article.author.name }}</a
                   ><br />
-                  <span style="font-size: var(--font-size-7)">
+                  <span style="font-size: var(--font-size-8)">
                     {{ article.metadata.date }}&nbsp;⋅&nbsp;{{
                       article.metadata.lenght
                     }}

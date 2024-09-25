@@ -14,12 +14,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <article class="wrapper-standard">
+  <article class="wrapper-standard mb-10 mt-10">
     <div v-if="isDataLoaded">
-      <img
-        :src="article.metadata.thumbnail"
-        style="aspect-ratio: 4/3; object-fit: cover"
-      />
+      <img :src="article.metadata.thumbnail" />
       <h1 style="font-size: var(--font-size-1)" class="mt-5 mb-5">
         {{ article.title }}
       </h1>
@@ -33,9 +30,12 @@ onMounted(async () => {
                 shape="circle"
               />
               <div>
-                <a :href="article.author.url" class="font-bold">{{
-                  article.author.name
-                }}</a
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  :href="article.author.url"
+                  class="font-bold"
+                  >{{ article.author.name }}</a
                 ><br />
                 <span style="font-size: var(--font-size-7)">
                   {{ article.metadata.date }}&nbsp;⋅&nbsp;{{
@@ -46,8 +46,18 @@ onMounted(async () => {
               </div>
             </div>
             <div class="flex items-center gap-3">
-              <a :href="article.metadata.linkedin" class="pi pi-linkedin"></a>
-              <a href="article.metadata.facebook" class="pi pi-facebook"></a>
+              <a
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                :href="article.metadata.linkedin"
+                class="pi pi-linkedin"
+              ></a>
+              <a
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                :href="article.metadata.facebook"
+                class="pi pi-facebook"
+              ></a>
               <Button
                 class="cta"
                 type="button"
@@ -64,6 +74,15 @@ onMounted(async () => {
       <p class="img-desc">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit.
       </p>
+      <p class="mt-5 mb-5 reveal">{{ article.content.text[1] }}</p>
+      <p class="mt-5 mb-5 reveal">{{ article.content.text[2] }}</p>
+      <img :src="article.content.img[1]" />
+      <p class="img-desc">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+      </p>
+      <p class="mt-5 mb-5 reveal">{{ article.content.text[3] }}</p>
+      <p class="mt-5 mb-5 reveal">{{ article.content.text[4] }}</p>
+      <p class="mt-5 mb-5 reveal">{{ article.content.text[5] }}</p>
     </div>
     <div
       v-else
