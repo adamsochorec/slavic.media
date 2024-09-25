@@ -38,7 +38,15 @@ reveal();
 
 <template>
   <div>
-    <header>
+    <header
+      style="
+        display: flex;
+        justify-content: space-between;
+        padding: 0 var(--homepage-padding) 0 var(--homepage-padding);
+        background-color: rgb(var(--dark-grey-color));
+        backdrop-filter: var(--blur-1);
+      "
+    >
       <RouterLink to="/">
         <div class="logo-container">
           <img
@@ -46,13 +54,14 @@ reveal();
             src="https://slavic.media/img/Primary-1.png"
             alt="Logo Slavic Media"
             title="Logo Slavic Media"
+            style="padding: 8px 0; width: 91px; height: 100%"
           /></div
       ></RouterLink>
       <MenuBar />
       <div style="display: flex; align-items: center">
         <Button
+          class="rounded border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900"
           severity="secondary"
-          rounded
           outlined
           aria-label="Toggle Dark mode"
           @click="toggleDarkMode"
@@ -60,29 +69,19 @@ reveal();
         ></Button>
       </div>
     </header>
-    <div class="main">
+    <main
+      style="
+        font-family: var(--content-font);
+        margin-top: 118.4px;
+        padding: 0 var(--homepage-padding) 0 var(--homepage-padding);
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+      "
+    >
       <RouterView />
-    </div>
-    <hr class="semi bodyxfooter" role="separator" />
+    </main>
     <Footer />
   </div>
 </template>
-<style scoped>
-.main {
-  font-family: var(--content-font);
-  color: #1a1a1a;
-  margin-top: 118.4px;
-  padding: 0 var(--homepage-padding) 0 var(--homepage-padding);
-}
-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 var(--homepage-padding) 0 var(--homepage-padding);
-  background-color: #c71e1ecc;
-}
-header img.logo {
-  padding: 8px 0;
-  width: 91px;
-  height: 100%;
-}
-</style>
+<style scoped></style>

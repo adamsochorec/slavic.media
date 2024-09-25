@@ -24,3 +24,18 @@
   border-top: none !important;
 }
 /* PAYHIP END */
+
+/* WRAPPER START */
+
+.wrapper-standard,
+.wrapper-standard hr {
+  width: 600px !important;
+}
+.wrapper-wide,
+.wrapper-wide hr {
+  width: 880px;
+}
+.wrapper-narrow {
+  width: 336px;
+}
+/* WRAPPER END */

@@ -9,48 +9,35 @@ onMounted(async () => {
   await getAllDocuments();
   isDataLoaded.value = true;
 });
-
-const home = ref({
-  icon: "pi pi-home",
-});
-const items = ref([
-  { label: "Electronics" },
-  { label: "Computer" },
-  { label: "Accessories" },
-  { label: "Keyboard" },
-  { label: "Wireless" },
-]);
 </script>
 
 <template>
   <article class="wrapper-wide">
     <div v-if="isDataLoaded">
-      <template>
-        <div class="card flex justify-center">
-          <Breadcrumb :home="home" :model="items" />
-        </div>
-      </template>
-
-      <hr class="semi" role="separator" />
-
-      <div
-        class="wrapper-wide"
-        style="
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          grid-gap: var(--grid-gap-3);
-          margin-bottom: 4rem;
-        "
-      >
+      <div class="container">
         <router-link
           v-for="article in state.articles"
           :key="article._id"
           :to="`/blog/${article.id}`"
           :class="{ 'article-item': true }"
         >
-          <Card class="card" role="region">
+          <Card
+            style="box-shadow: var(--box-shadow-1); height: 350px"
+            role="region"
+            class="card rounded border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900"
+          >
             <template #header>
-              <img :alt="article.title" :src="article.metadata.thumbnail" />
+              <img
+                style="
+                  aspect-ratio: 3/4;
+                  height: 200px;
+                  width: 100%;
+                  object-fit: cover;
+                "
+                class="rounded"
+                :alt="article.title"
+                :src="article.metadata.thumbnail"
+              />
             </template>
             <template #title>
               <span class="p-0">{{ article.title }}</span>
@@ -80,23 +67,70 @@ const items = ref([
         </router-link>
       </div>
     </div>
-    <div v-else>
-      <Skeleton width="5rem" class="mb-2"></Skeleton>
+    <div class="container" v-else>
+      <div
+        style="box-shadow: var(--box-shadow-1)"
+        class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900"
+      >
+        <div class="flex mb-4">
+          <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+          <div>
+            <Skeleton width="10rem" class="mb-2"></Skeleton>
+            <Skeleton width="5rem" class="mb-2"></Skeleton>
+            <Skeleton height=".5rem"></Skeleton>
+          </div>
+        </div>
+        <Skeleton width="100%" height="150px"></Skeleton>
+        <div class="flex justify-between mt-4">
+          <Skeleton width="4rem" height="2rem"></Skeleton>
+          <Skeleton width="4rem" height="2rem"></Skeleton>
+        </div>
+      </div>
+      <div
+        style="box-shadow: var(--box-shadow-1)"
+        class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900"
+      >
+        <div class="flex mb-4">
+          <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+          <div>
+            <Skeleton width="10rem" class="mb-2"></Skeleton>
+            <Skeleton width="5rem" class="mb-2"></Skeleton>
+            <Skeleton height=".5rem"></Skeleton>
+          </div>
+        </div>
+        <Skeleton width="100%" height="150px"></Skeleton>
+        <div class="flex justify-between mt-4">
+          <Skeleton width="4rem" height="2rem"></Skeleton>
+          <Skeleton width="4rem" height="2rem"></Skeleton>
+        </div>
+      </div>
+      <div
+        style="box-shadow: var(--box-shadow-1)"
+        class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900"
+      >
+        <div class="flex mb-4">
+          <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+          <div>
+            <Skeleton width="10rem" class="mb-2"></Skeleton>
+            <Skeleton width="5rem" class="mb-2"></Skeleton>
+            <Skeleton height=".5rem"></Skeleton>
+          </div>
+        </div>
+        <Skeleton width="100%" height="150px"></Skeleton>
+        <div class="flex justify-between mt-4">
+          <Skeleton width="4rem" height="2rem"></Skeleton>
+          <Skeleton width="4rem" height="2rem"></Skeleton>
+        </div>
+      </div>
     </div>
   </article>
 </template>
 
 <style lang="scss" scoped>
-.card {
-  border-radius: var(--border-radius-1);
-  width: 100%;
-  overflow: hidden;
-  height: auto;
-  box-shadow: var(--box-shadow-1);
-}
-.card img {
-  aspect-ratio: 3/4;
-  height: 200px;
-  object-fit: cover;
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: var(--grid-gap-3);
+  margin-bottom: 4rem;
 }
 </style>

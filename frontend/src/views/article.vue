@@ -48,7 +48,8 @@ onMounted(async () => {
               </div>
             </div>
             <div class="flex items-center gap-3">
-              <a class="pi pi-linkedin"></a> <a class="pi pi-facebook"></a>
+              <a :href="article.metadata.linkedin" class="pi pi-linkedin"></a>
+              <a href="article.metadata.facebook" class="pi pi-facebook"></a>
               <Button
                 class="cta"
                 type="button"
@@ -63,9 +64,7 @@ onMounted(async () => {
       <p class="article reveal">{{ article.content.text[0] }}</p>
       <img :src="article.content.img[0]" />
       <p class="img-desc">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia ipsam
-        nulla laborum repellat cum et illo corrupti rerum tenetur excepturi,
-        ipsa omnis iusto dicta sunt minus assumenda explicabo quae est!
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
       </p>
     </div>
     <div
@@ -97,8 +96,5 @@ p.img-desc {
   font-size: var(--font-size-8);
   text-align: center;
   margin: var(--grid-gap-1) 0;
-}
-img {
-  border-radius: var(--border-radius-1);
 }
 </style>

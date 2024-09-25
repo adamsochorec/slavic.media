@@ -106,8 +106,9 @@ const items = ref([
     items: [
       {
         label: "Lightroom Presets",
-        route: "https://store.slavic.media",
+        url: "https://store.slavic.media",
         icon: "pi pi-microchip",
+        target: "_blank",
       },
     ],
   },
