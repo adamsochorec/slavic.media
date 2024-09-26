@@ -23,6 +23,7 @@ interface IArticle extends Document {
   content: {
     text: string[];
     img: string[];
+    iframe: string[];
   };
   title: string;
 }
@@ -44,7 +45,8 @@ const articleSchema: Schema = new Schema({
   },
   content: {
     text: { type: [String], required: true },
-    img: { type: [String], required: true },
+    img: { type: [String], required: false },
+    iframe: { type: [String], required: false },
   },
   title: { type: String, required: true },
 });
