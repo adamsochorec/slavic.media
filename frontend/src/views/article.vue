@@ -14,7 +14,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <article class="wrapper-standard mb-10 mt-10">
+  <article class="wrapper-standard mb-10 mt-15">
     <div v-if="isDataLoaded">
       <img :src="article.metadata.thumbnail" />
       <h1 style="font-size: var(--font-size-1)" class="mt-5 mb-5">

@@ -65,7 +65,7 @@ const truncateText = (text, maxLength) => {
               <div class="flex items-center gap-3">
                 <Avatar
                   :image="article.author.thumbnail"
-                  size="large"
+                  size="medium"
                   shape="circle"
                 />
                 <div>
