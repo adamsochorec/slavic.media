@@ -17,9 +17,11 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "@primevue/themes": "^4.0.7",
+    "@vimeo/player": "^2.24.0",
     "chai": "^5.1.0",
     "primeicons": "^7.0.0",
     "primevue": "^4.0.5",
+    "swiper": "^11.1.14",
     "tailwindcss-primeui": "^0.3.4",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"

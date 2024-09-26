@@ -13,8 +13,15 @@ const router = createRouter({
     {
       path: "/blog",
       name: "blog",
-      component: () =>
-        import(/* webpackChunkName: "about" */ "../views/blog.vue"),
+      component: () => import("../views/blog.vue"),
+      meta: {
+        requiresAuth: false,
+      },
+    },
+    {
+      path: "/our-team",
+      name: "our team",
+      component: () => import("../views/our-team.vue"),
       meta: {
         requiresAuth: false,
       },
