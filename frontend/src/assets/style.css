@@ -26,7 +26,12 @@
 /* PAYHIP END */
 
 /* WRAPPER START */
-
+.wrapper-narrow,
+.wrapper-standard,
+.wrapper-wide,
+hr {
+  max-width: 100%;
+}
 .wrapper-standard,
 .wrapper-standard hr {
   width: 600px !important;

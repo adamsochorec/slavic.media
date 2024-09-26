@@ -23,7 +23,7 @@ onMounted(async () => {
           :class="{ 'article-item': true }"
         >
           <Card
-            style="box-shadow: var(--box-shadow-1); height: auto"
+            style="box-shadow: var(--box-shadow-1); height: 370px"
             role="region"
             class="card rounded border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900"
           >
@@ -35,7 +35,6 @@ onMounted(async () => {
                   width: 100%;
                   object-fit: cover;
                 "
-                class="rounded"
                 :alt="article.title"
                 :src="article.metadata.thumbnail"
               />

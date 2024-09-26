@@ -34,10 +34,11 @@ onMounted(async () => {
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                   :href="article.author.url"
+                  style="font-size: var(--font-size-8)"
                   class="font-bold"
                   >{{ article.author.name }}</a
                 ><br />
-                <span style="font-size: var(--font-size-7)">
+                <span style="font-size: var(--font-size-8)">
                   {{ article.metadata.date }}&nbsp;⋅&nbsp;{{
                     article.metadata.lenght
                   }}
