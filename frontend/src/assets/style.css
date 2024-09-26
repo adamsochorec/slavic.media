@@ -45,7 +45,7 @@ hr {
 }
 /* WRAPPER END */
 
-.pi:hover:not(header .pi:hover) {
+.pi:hover:not(header .pi:hover, button .pi:hover) {
   color: var(--p-button-primary-background);
 }
 .pi,

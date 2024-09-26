@@ -9,6 +9,14 @@ onMounted(async () => {
   await getAllDocuments();
   isDataLoaded.value = true;
 });
+
+// Method to truncate text
+const truncateText = (text, maxLength) => {
+  if (text.length > maxLength) {
+    return text.substring(0, maxLength) + "...";
+  }
+  return text;
+};
 </script>
 
 <template>
@@ -23,27 +31,38 @@ onMounted(async () => {
           :class="{ 'article-item': true }"
         >
           <Card
-            style="box-shadow: var(--box-shadow-1); height: 370px"
+            style="
+              box-shadow: var(--box-shadow-1);
+              height: auto;
+              min-height: 400px;
+            "
             role="region"
-            class="card rounded border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900"
+            class="rounded border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900"
           >
             <template #header>
               <img
                 style="
-                  aspect-ratio: 9/16;
-                  height: 200px;
+                  height: 170px;
                   width: 100%;
                   object-fit: cover;
+                  border-top-left-radius: var(--p-card-border-radius);
+                  border-top-right-radius: var(--p-card-border-radius);
                 "
                 :alt="article.title"
                 :src="article.metadata.thumbnail"
               />
             </template>
             <template #title>
-              <span class="p-0">{{ article.title }}</span>
+              <span>{{ truncateText(article.title, 80) }}</span>
             </template>
             <template #content>
-              <div class="flex items-center gap-2">
+              <span style="font-size: var(--font-size-7)">{{
+                truncateText(article.content.text[0], 107)
+              }}</span>
+            </template>
+
+            <template #footer>
+              <div class="flex items-center gap-3">
                 <Avatar
                   :image="article.author.thumbnail"
                   size="large"
@@ -133,7 +152,7 @@ onMounted(async () => {
 <style lang="scss" scoped>
 .container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: var(--grid-gap-3);
   margin-bottom: 4rem;
 }
