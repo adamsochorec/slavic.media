@@ -31,6 +31,7 @@
 .wrapper-wide,
 hr {
   max-width: 100%;
+  padding: 0 var(--homepage-padding) 0 var(--homepage-padding);
 }
 .wrapper-standard,
 .wrapper-standard hr {
