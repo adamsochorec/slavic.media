@@ -1,11 +1,9 @@
 <script setup>
-import { onMounted } from "vue";
-import Flags from "@/components/Flags.vue"; // Corrected import path
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.css";
 
 // CAROUSEL
-const products = [
+const employees = [
   {
     id: 1,
     name: "Marcel H.",
@@ -76,9 +74,15 @@ const products = [
         ></video>
       </div>
     </article>
-    <article class="wrapper-standard">
-      <h1 style="font-size: var(--font-size-1)" class="mt-5 mb-5">Our Team</h1>
+    <hr class="semi" />
 
+    <article class="wrapper-standard">
+      <h1 style="font-size: var(--font-size-1)" class="mb-5">Our Team</h1>
+      <p>
+        Creative & Production studio based in Denmark and Czechia. We tell
+        stories with deep eye contact, magnificent shots and clean designs to
+        help your project stand out from the noise.
+      </p>
       <Swiper
         class="mt-10 p-0"
         :slidesPerView="3"
@@ -97,41 +101,40 @@ const products = [
         loop
         autoplay
       >
-        <SwiperSlide v-for="product in products" :key="product.id">
+        <SwiperSlide v-for="employee in employees" :key="employee.id">
           <div class="rounded m-3 p-0">
             <div class="mb-4">
               <div class="relative mx-auto">
                 <img
                   style="box-shadow: var(--box-shadow-1)"
-                  :src="product.image"
-                  :alt="product.name"
+                  :src="employee.image"
+                  :alt="employee.name"
                   class="w-full rounded"
                 />
               </div>
             </div>
             <div style="text-align: center">
-              <section>
-                <h3 style="font-size: var(--font-size-5)">
-                  {{ product.name }}
-                </h3>
-                <h4 style="font-size: var(--font-size-6)">
-                  {{ product.department }}
-                </h4>
-              </section>
+              <h3 style="font-size: var(--font-size-5)" class="mb-1">
+                {{ employee.name }}
+              </h3>
+              <h4 style="font-size: var(--font-size-8)" class="mb-2">
+                {{ employee.department }}
+              </h4>
               <span>
                 <a
-                  v-for="icon in product.icons"
+                  v-for="icon in employee.icons"
                   :key="icon.class"
                   :href="icon.url"
                   :class="icon.class"
                   class="mr-2"
                 ></a>
-                <Flags :flagId="product.flagId" :title="product.flagTitle" />
               </span>
             </div>
           </div>
         </SwiperSlide>
       </Swiper>
+
+      <hr class="semi" />
     </article>
   </div>
 </template>
@@ -153,7 +156,7 @@ const products = [
   top: 0;
   left: 0;
   width: 100%;
-  height: 80%;
+  height: 100%;
   overflow: hidden;
   background-image: url(/img/showreel.png);
   background-position: center;

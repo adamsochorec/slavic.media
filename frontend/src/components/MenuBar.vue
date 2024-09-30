@@ -75,7 +75,7 @@ const items = ref([
     ],
   },
   {
-    label: "Post Production",
+    label: "Services",
     icon: "pi pi-pen-to-square",
     items: [
       {
@@ -84,7 +84,7 @@ const items = ref([
         icon: "pi pi-image",
       },
       {
-        label: "Graphic Design",
+        label: "Colour Grading",
         route: "/services/post-production#graphic-design",
         icon: "pi pi-palette",
       },
@@ -113,7 +113,11 @@ const items = ref([
     items: [
       { label: "Blog", route: "/blog", icon: "pi pi-pencil" },
       { label: "Our Team", route: "/our-team", icon: "pi pi-users" },
-      { label: "Press Materials", route: "/press", icon: "pi pi-print" },
+      {
+        label: "Press Resources",
+        route: "/press-recources",
+        icon: "pi pi-print",
+      },
       { label: "Contact", route: "/contact", icon: "pi pi-comments" },
     ],
   },

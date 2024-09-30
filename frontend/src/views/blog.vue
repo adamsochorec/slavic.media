@@ -20,7 +20,8 @@ const truncateText = (text, maxLength) => {
 </script>
 
 <template>
-  <article class="wrapper-wide mt-10">
+  <article class="wrapper-wide">
+    <hr class="semi" />
     <h1 style="font-size: var(--font-size-1)" class="mb-5">Blog</h1>
     <div v-if="isDataLoaded">
       <div class="container">
@@ -146,6 +147,7 @@ const truncateText = (text, maxLength) => {
         </div>
       </div>
     </div>
+    <hr class="semi" />
   </article>
 </template>
 
@@ -154,6 +156,5 @@ const truncateText = (text, maxLength) => {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: var(--grid-gap-3);
-  margin-bottom: 4rem;
 }
 </style>

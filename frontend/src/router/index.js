@@ -27,6 +27,22 @@ const router = createRouter({
       },
     },
     {
+      path: "/press",
+      name: "press",
+      component: () => import("../views/press-resources.vue"),
+      meta: {
+        requiresAuth: false,
+      },
+    },
+    {
+      path: "/contact",
+      name: "contact",
+      component: () => import("../views/contact.vue"),
+      meta: {
+        requiresAuth: false,
+      },
+    },
+    {
       path: "/blog/:id",
       name: "blog single",
       component: () =>

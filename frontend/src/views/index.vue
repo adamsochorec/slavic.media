@@ -46,7 +46,6 @@ const responsiveOptions = [
   },
 ];
 </script>
-<script setup></script>
 <template>
   <article>
     <Carousel
