@@ -85,6 +85,11 @@ const employees = [
       </p>
       <Swiper
         class="mt-10 p-0"
+        preloadImages="false"
+        :direction="horizontal"
+        :lazyLoading="true"
+        :observer="true"
+        :observeParents="true"
         :slidesPerView="3"
         :spaceBetween="30"
         :breakpoints="{
@@ -98,8 +103,6 @@ const employees = [
             slidesPerView: 3.5,
           },
         }"
-        loop
-        autoplay
       >
         <SwiperSlide v-for="employee in employees" :key="employee.id">
           <div class="rounded m-3 p-0">

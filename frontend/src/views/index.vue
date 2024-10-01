@@ -76,11 +76,7 @@ const responsiveOptions = [
         </div>
       </template>
     </Carousel>
-    <Button
-      label="Request a Proposal"
-      icon="pi pi-chevron-right"
-      iconPos="right"
-    />
+    <ContactDialog />
   </article>
 </template>
 

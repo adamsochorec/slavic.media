@@ -1,5 +1,5 @@
 <template>
-  <Menubar :model="items">
+  <Menubar :model="services">
     <template #item="{ item, props, hasSubmenu }">
       <router-link
         v-if="item.route"
@@ -28,100 +28,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-
-const items = ref([
-  {
-    label: "Photo",
-    icon: "pi pi-camera",
-    items: [
-      {
-        label: "Headshot",
-        route: "/services/photo#headshots",
-        icon: "pi pi-user",
-      },
-      {
-        label: "Behind the Scenes",
-        route: "/services/photo/behind-the-scenes",
-        icon: "pi pi-camera",
-      },
-      {
-        label: "Real Estate",
-        route: "/services/photo#real-estate",
-        icon: "pi pi-home",
-      },
-      {
-        label: "Wedding",
-        route: "/services/photo#wedding",
-        icon: "pi pi-camera",
-      },
-    ],
-  },
-  {
-    label: "Video",
-    icon: "pi pi-video",
-    items: [
-      {
-        label: "Portrait",
-        route: "/services/video#portrait",
-        icon: "pi pi-user",
-      },
-
-      {
-        label: "Showreel",
-        route: "/services/video#showreel",
-        icon: "pi pi-trophy",
-      },
-    ],
-  },
-  {
-    label: "Services",
-    icon: "pi pi-pen-to-square",
-    items: [
-      {
-        label: "Video Editing",
-        route: "/services/post-production#video-editing",
-        icon: "pi pi-image",
-      },
-      {
-        label: "Colour Grading",
-        route: "/services/post-production#graphic-design",
-        icon: "pi pi-palette",
-      },
-      {
-        label: "Sound Design",
-        route: "/services/post-production#sound-design",
-        icon: "pi pi-headphones",
-      },
-    ],
-  },
-  {
-    label: "Store",
-    icon: "pi pi-shopping-bag",
-    items: [
-      {
-        label: "Lightroom Presets",
-        url: "https://store.slavic.media",
-        icon: "pi pi-microchip",
-        target: "_blank",
-      },
-    ],
-  },
-  {
-    label: "About",
-    icon: "pi pi-users",
-    items: [
-      { label: "Blog", route: "/blog", icon: "pi pi-pencil" },
-      { label: "Our Team", route: "/our-team", icon: "pi pi-users" },
-      {
-        label: "Press Resources",
-        route: "/press-recources",
-        icon: "pi pi-print",
-      },
-      { label: "Contact", route: "/contact", icon: "pi pi-comments" },
-    ],
-  },
-]);
+import { services } from "../assets/services.js";
 </script>
 
 <style scoped>

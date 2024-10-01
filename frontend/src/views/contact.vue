@@ -1,6 +1,4 @@
-<script setup>
-import ContactDialog from "../components/ContactDialog.vue";
-</script>
+<script setup></script>
 
 <template>
   <article class="wrapper-standard">
@@ -17,19 +15,8 @@ import ContactDialog from "../components/ContactDialog.vue";
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
-    <hr role="separator" />
+    <hr class="semi" />
 
-    <Card>
-      <template #title>Billing Address</template>
-      <template #content>
-        <p class="m-0">
-          Langelinie 22<br />
-          6000 Kolding<br />Denmark
-        </p>
-        <Tag icon="pi pi-clipboard"></Tag>
-      </template>
-    </Card>
-    <hr role="separator" />
     <ContactDialog />
     <hr class="semi" />
   </article>

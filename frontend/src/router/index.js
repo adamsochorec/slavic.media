@@ -21,15 +21,15 @@ const router = createRouter({
     {
       path: "/our-team",
       name: "our team",
-      component: () => import("../views/our-team.vue"),
+      component: () => import("../views/OurTeam.vue"),
       meta: {
         requiresAuth: false,
       },
     },
     {
-      path: "/press",
-      name: "press",
-      component: () => import("../views/press-resources.vue"),
+      path: "/press-resources",
+      name: "press resources",
+      component: () => import("../views/PressResources.vue"),
       meta: {
         requiresAuth: false,
       },

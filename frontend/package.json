@@ -20,7 +20,7 @@
     "@vimeo/player": "^2.24.0",
     "chai": "^5.1.0",
     "primeicons": "^7.0.0",
-    "primevue": "^4.0.5",
+    "primevue": "^4.0.7",
     "swiper": "^11.1.14",
     "tailwindcss-primeui": "^0.3.4",
     "vue": "^3.4.15",
