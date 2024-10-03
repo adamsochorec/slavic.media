@@ -49,14 +49,15 @@ reveal();
     >
       <RouterLink to="/">
         <div class="logo-container">
-          <img
+          <!--    <img
             class="logo"
             src="https://slavic.media/img/Primary-1.png"
             alt="Logo Slavic Media"
             title="Logo Slavic Media"
             style="padding: 8px 0; width: 91px; height: 100%"
-          /></div
-      ></RouterLink>
+          /> -->
+        </div></RouterLink
+      >
       <MenuBar />
       <div style="display: flex; align-items: center">
         <Button

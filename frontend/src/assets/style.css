@@ -72,3 +72,7 @@ hr {
     outline-color var(--p-button-transition-duration),
     box-shadow var(--p-button-transition-duration);
 }
+
+.highlited {
+  color: rgba(var(--primary-color), 1);
+}

@@ -1,6 +1,7 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.css";
+import CoverVideo from "../components/HeroVideo.vue";
 
 // CAROUSEL
 const employees = [
@@ -57,23 +58,14 @@ const employees = [
 
 <template>
   <div>
-    <article class="showcase">
-      <div class="video-container">
-        <video
-          src="https://slavic.media/img/showreel-ourteam.mp4"
-          loop="true"
-          autoplay="autoplay"
-          muted
-          class="video-offload video-control"
-          preload="auto"
-          aria-label="Intro Video"
-          playsinline
-          role="video"
-          aria-describedby="Hero video"
-          poster="https://slavic.media/img/showreel.png"
-        ></video>
-      </div>
-    </article>
+    <CoverVideo
+      src="https://slavic.media/img/showreel-ourteam.mp4"
+      poster="https://slavic.media/img/showreel-ourteam.png"
+      loop
+      autoplay
+      muted
+      ariaLabel="Behind the scenes"
+    />
     <hr class="semi" />
 
     <article class="wrapper-standard">
@@ -86,7 +78,7 @@ const employees = [
       <Swiper
         class="mt-10 p-0"
         preloadImages="false"
-        :direction="horizontal"
+        :direction="'horizontal'"
         :lazyLoading="true"
         :observer="true"
         :observeParents="true"
@@ -144,50 +136,6 @@ const employees = [
 
 <style lang="scss" scoped>
 /* INTRO VIDEO START */
-.showcase {
-  height: var(--dimension-1);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  text-align: center;
-}
-.video-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-image: url(/img/showreel.png);
-  background-position: center;
-  background-size: cover;
-  z-index: -1;
-}
-.video-container video {
-  min-width: 100%;
-  min-height: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  -o-object-fit: cover;
-  object-fit: cover;
-}
-.video-container:after {
-  content: "";
-  z-index: 1;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0);
-  position: absolute;
-}
 
 /* INTRO VIDEO END */
 </style>

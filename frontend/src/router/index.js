@@ -35,6 +35,22 @@ const router = createRouter({
       },
     },
     {
+      path: "/services/photo",
+      name: "photo",
+      component: () => import("../views/photo.vue"),
+      meta: {
+        requiresAuth: false,
+      },
+    },
+    {
+      path: "/services/video",
+      name: "video",
+      component: () => import("../views/video.vue"),
+      meta: {
+        requiresAuth: false,
+      },
+    },
+    {
       path: "/contact",
       name: "contact",
       component: () => import("../views/contact.vue"),
