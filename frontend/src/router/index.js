@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import index from "../views/index.vue";
-import NotFound from "../views/NotFound.vue"; // Import the NotFound component
+import NotFound from "../views/404.vue"; 
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,7 +21,7 @@ const router = createRouter({
     {
       path: "/our-team",
       name: "our team",
-      component: () => import("../views/OurTeam.vue"),
+      component: () => import("../views/our-team.vue"),
       meta: {
         requiresAuth: false,
       },
@@ -29,7 +29,7 @@ const router = createRouter({
     {
       path: "/press-resources",
       name: "press resources",
-      component: () => import("../views/PressResources.vue"),
+      component: () => import("../views/press-resources.vue"),
       meta: {
         requiresAuth: false,
       },
@@ -37,7 +37,7 @@ const router = createRouter({
     {
       path: "/services/photo",
       name: "photo",
-      component: () => import("../views/Photo.vue"),
+      component: () => import("../views/photo.vue"),
       meta: {
         requiresAuth: false,
       },
@@ -45,7 +45,7 @@ const router = createRouter({
     {
       path: "/services/video",
       name: "video",
-      component: () => import("../views/Video.vue"),
+      component: () => import("../views/video.vue"),
       meta: {
         requiresAuth: false,
       },
@@ -70,7 +70,7 @@ const router = createRouter({
     // Add the NotFound route at the end
     {
       path: "/:pathMatch(.*)*",
-      name: "NotFound",
+      name: "404",
       component: NotFound,
     },
   ],

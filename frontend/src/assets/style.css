@@ -19,11 +19,6 @@
   font-family: Raleway Semibold;
   src: url(/assets/Raleway-SemiBold.ttf) format("truetype");
 }
-/* PAYHIP START */
-.section-wrapper[data-section-key="footer"] .section-background {
-  border-top: none !important;
-}
-/* PAYHIP END */
 
 hr {
   border: 0.1px solid;
@@ -59,8 +54,6 @@ hr {
 .wrapper-narrow {
   width: 336px;
 }
-/* WRAPPER END */
-
 .pi:hover:not(header .pi:hover, button .pi:hover) {
   color: var(--p-button-primary-background);
 }
@@ -72,7 +65,20 @@ hr {
     outline-color var(--p-button-transition-duration),
     box-shadow var(--p-button-transition-duration);
 }
-
 .highlited {
   color: rgba(var(--primary-color), 1);
+}
+/* SWIPER PAGINATION */
+.swiper-pagination-bullet {
+  background: rgb(var(--white-color));
+}
+.swiper-pagination-bullet-active {
+  background-color: rgb(var(--primary-color));
+}
+.swiper-pagination-bullet {
+  opacity: unset !important;
+}
+/* PAYHIP START */
+.section-wrapper[data-section-key="footer"] .section-background {
+  border-top: none !important;
 }

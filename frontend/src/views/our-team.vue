@@ -1,7 +1,7 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.css";
-import CoverVideo from "../components/HeroVideo.vue";
+import CoverVideo from "@/components/HeroVideo.vue";
 
 // CAROUSEL
 const employees = [
@@ -135,7 +135,5 @@ const employees = [
 </template>
 
 <style lang="scss" scoped>
-/* INTRO VIDEO START */
 
-/* INTRO VIDEO END */
 </style>

@@ -5,8 +5,8 @@ import { provideAuth } from "./modules/users";
 provideAuth();
 
 // COMPONENTS
-import Footer from "./components/Footer.vue";
-import MenuBar from "./components/MenuBar.vue";
+import Footer from "@/components/Footer.vue";
+import MenuBar from "@/components/MenuBar.vue";
 
 // Dark Mode State
 const darkMode = ref(false);
