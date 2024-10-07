@@ -2,6 +2,8 @@
 import HeroVideo from "@/components/HeroVideo.vue";
 import ContactDialog from "@/components/ContactDialog.vue";
 import SwiperClients from "@/components/SwiperClients.vue";
+import SwiperServices from "@/components/SwiperServices.vue";
+import SwiperReviews from "@/components/SwiperReviews.vue";
 </script>
 <template>
   <div>
@@ -35,9 +37,43 @@ import SwiperClients from "@/components/SwiperClients.vue";
       <hr />
       <SwiperClients></SwiperClients>
       <hr />
+      <SwiperServices></SwiperServices>
+      <div class="card flex justify-center mt-4">
+        <ContactDialog />
+      </div>
+      <hr />
+      <Fluid>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <h1 style="font-size: var(--font-size-3)">
+              <span class="highlited tuscher">Actions</span>, speak louder
+              <span class="highlited tuscher">than</span> any
+              <span class="highlited tuscher">words</span>
+            </h1>
+          </div>
+          <div>
+            <p>
+              Do you need to fly a drone over the open sea, capture the northern
+              lights in cold weather, bike across the whole country, walk
+              through the desert, or get up close in a way that nobody else has?
+              We are here for you.
+            </p>
+          </div>
+        </div>
+      </Fluid>
+      <hr />
+      <SwiperReviews></SwiperReviews>
+      <div class="card flex justify-center mt-4">
+        <Button
+          as="a"
+          label="Share the experience"
+          href="https://g.page/r/CRTkzopg3plWEB0/review"
+          target="_blank"
+          rel="noopener"
+        />
+      </div>
+      <hr class="semi" />
     </article>
-
-    <ContactDialog />
   </div>
 </template>
 

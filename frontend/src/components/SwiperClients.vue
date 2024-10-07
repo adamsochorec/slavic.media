@@ -22,9 +22,7 @@ const onSlideChange = (e) => {
 <template>
   <swiper-container
     style="height: 120px"
-    :slides-per-view="3"
     :space-between="spaceBetween"
-    :centered-slides="true"
     :loop="true"
     :preload-images="false"
     :lazy-loading="true"
