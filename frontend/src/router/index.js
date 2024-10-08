@@ -74,6 +74,18 @@ const router = createRouter({
       component: NotFound,
     },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: "smooth",
+      };
+    } else if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { top: 0 };
+    }
+  },
 });
 
 // Navigation guard that runs before each route change

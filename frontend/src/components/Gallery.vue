@@ -60,6 +60,7 @@ onUnmounted(() => {
           :src="image.thumbnailURL"
           :title="image.title"
           :alt="image.alt"
+          :srcset="image.srcset"
         />
       </a>
     </div>
