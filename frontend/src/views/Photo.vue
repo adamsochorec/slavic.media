@@ -4,13 +4,12 @@ import Gallery from "@/components/Gallery.vue";
 import usePhotoCrud from "./modules/photoCrud";
 
 // Destructure methods and state from photoCrud
-const { getAllPhotos, photos, getSpecificPhoto, photo, documentID } =
-  usePhotoCrud();
+const { getSpecificPhoto, /* photo, */ documentID } = usePhotoCrud();
 
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
-  await getSpecificPhoto();
+  await getSpecificPhoto(documentID.value);
   isDataLoaded.value = true;
 });
 </script>
