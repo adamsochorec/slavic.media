@@ -17,7 +17,7 @@ const useImgCrud = () => {
     newCategory: "",
     newColumn: 0,
     newClient: "",
-    photos: [],
+    imgs: [],
   });
 
   const getAllImg = async () => {
@@ -26,7 +26,7 @@ const useImgCrud = () => {
       const data = await response.json();
       console.log("Fetched data:", data); // Add this line
 
-      state.value.photos = data;
+      state.value.imgs = data;
     } catch (error) {
       console.error(error);
     }
@@ -74,12 +74,12 @@ const useImgCrud = () => {
       );
 
       if (!response.ok) {
-        throw new Error("Failed to add new photo");
+        throw new Error("Failed to add new document");
       }
 
       await getAllImg();
     } catch (error) {
-      console.error("Error adding new photo:", error);
+      console.error("Error adding new document:", error);
     }
   };
 
@@ -98,12 +98,12 @@ const useImgCrud = () => {
       );
 
       if (!response.ok) {
-        throw new Error("Failed to delete photo");
+        throw new Error("Failed to delete document");
       }
 
       await getAllImg();
     } catch (error) {
-      console.error("Error deleting photo:", error);
+      console.error("Error deleting document:", error);
     }
   };
 
@@ -151,12 +151,12 @@ const useImgCrud = () => {
       const response = await fetch(url, requestOptions);
 
       if (!response.ok) {
-        throw new Error("Failed to edit photo");
+        throw new Error("Failed to edit document");
       }
 
-      router.push("/photos");
+      router.push("/img");
     } catch (error) {
-      console.error("Error editing photo:", error);
+      console.error("Error editing document:", error);
     }
   };
 
@@ -168,7 +168,7 @@ const useImgCrud = () => {
       );
 
       if (!response.ok) {
-        throw new Error(`Failed to fetch photo with ID: ${documentID}`);
+        throw new Error(`Failed to fetch document with ID: ${documentID}`);
       }
       const data = await response.json();
       img.value = data;
