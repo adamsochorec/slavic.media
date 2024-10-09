@@ -1,8 +1,8 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 // Interface representing a document in MongoDB.
-interface IImg extends Document {
-  photo: {
+interface imgInterface extends Document {
+  img: {
     largeURL: string;
     thumbnailURL: string;
     width: number;
@@ -15,7 +15,7 @@ interface IImg extends Document {
     client: string;
   };
 }
-const photoSchema = new Schema({
+const imgSchema = new Schema({
   largeURL: { type: String, required: true },
   thumbnailURL: { type: String, required: false },
   width: { type: Number, required: true },
@@ -29,5 +29,5 @@ const photoSchema = new Schema({
 });
 
 // Create a Model
-const ImgModel = mongoose.model<IImg>("Photo", photoSchema);
-export default ImgModel;
+const imgModel = mongoose.model<imgInterface>("img", imgSchema);
+export default imgModel;

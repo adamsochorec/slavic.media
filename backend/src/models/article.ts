@@ -6,7 +6,7 @@ import mongoose, { Schema } from "mongoose";
 import { type } from "os";
 
 // Interface representing a document in MongoDB.
-interface IArticle extends Document {
+interface imgInterface extends Document {
   author: {
     thumbnail: string;
     name: string;
@@ -52,5 +52,5 @@ const articleSchema: Schema = new Schema({
 });
 
 // Create a Model
-const Article = mongoose.model<IArticle>("Article", articleSchema);
+const Article = mongoose.model<imgInterface>("Article", articleSchema);
 export default Article;

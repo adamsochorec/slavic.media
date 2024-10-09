@@ -34,5 +34,5 @@ const photoServicesSchema = new mongoose_1.Schema({
     column4: { type: [String], required: true },
 });
 // Create a Model
-const IphotoServices = mongoose_1.default.model("photoServices", photoServicesSchema);
-exports.default = IphotoServices;
+const photoServicesInterface = mongoose_1.default.model("photoServices", photoServicesSchema);
+exports.default = photoServicesInterface;

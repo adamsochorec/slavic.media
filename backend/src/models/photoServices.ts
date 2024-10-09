@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 // Interface representing a document in MongoDB.
-interface IphotoServices extends Document {
+interface photoServicesInterface extends Document {
   photoServices: {
     title: string;
     handle: string;
@@ -23,8 +23,8 @@ const photoServicesSchema = new Schema({
 });
 
 // Create a Model
-const IphotoServices = mongoose.model<IphotoServices>(
+const photoServicesInterface = mongoose.model<photoServicesInterface>(
   "photoServices",
   photoServicesSchema
 );
-export default IphotoServices;
+export default photoServicesInterface;

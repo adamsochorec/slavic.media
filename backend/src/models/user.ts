@@ -2,7 +2,7 @@
 import mongoose, { Schema } from "mongoose";
 
 // Interface representing a document in MongoDB.
-interface IUser extends Document {
+interface userInterface extends Document {
   name: string;
   email: string;
   password: string;
@@ -36,6 +36,6 @@ const userSchema: Schema = new Schema({
 });
 
 // Create a Model
-const User = mongoose.model<IUser>("User", userSchema);
+const User = mongoose.model<userInterface>("User", userSchema);
 //Export the model
 export default User;

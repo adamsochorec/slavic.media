@@ -55,5 +55,5 @@ const photoSchema = new mongoose_1.Schema({
   alt: { type: String, required: true },
 });
 // Create a Model
-const ImgModel = mongoose_1.default.model("Photo", photoSchema);
-exports.default = ImgModel;
+const imgModel = mongoose_1.default.model("Photo", photoSchema);
+exports.default = imgModel;
