@@ -48,6 +48,7 @@ app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition));
 // Import routes for documents and authentication
 import articleRoutes from "./routes/article";
 import imgRoutes from "./routes/img";
+import photoServicesRoutes from "./routes/photoServices";
 import authRoutes from "./routes/auth";
 
 // Load environment variables (again, for good measure)
@@ -76,6 +77,7 @@ app.get("/", (req: Request, res: Response) => {
 // Define routes for CRUD operations on documents
 app.use("/blog/articles", articleRoutes);
 app.use("/img", imgRoutes);
+app.use("/services/photo", photoServicesRoutes);
 app.use("/user", authRoutes);
 
 // Serve static files from the 'dist' directory
