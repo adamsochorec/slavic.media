@@ -114,12 +114,14 @@ function mapArray(inputArray) {
 // Function to map a single document to a new format
 function mapData(element) {
     return {
-        id: element.id,
+        id: element._id,
+        largeURL: element.largeURL,
+        thumbnailURL: element.thumbnailURL,
+        width: element.width,
+        height: element.height,
+        flag: element.flag,
         title: element.title,
-        content: element.content,
-        thumbnail: element.thumbnail,
-        author: element.author,
-        date: element.date,
+        alt: element.alt,
     };
 }
 // Export the router for use in other files

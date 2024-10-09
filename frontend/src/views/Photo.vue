@@ -1,15 +1,15 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import Gallery from "@/components/Gallery.vue";
-import usePhotoCrud from "../modules/photoCrud";
+import useImgCrud from "../modules/imgCrud";
 
 // Destructure methods and state from photoCrud
-const { getSpecificPhoto, /* photo, */ documentID } = usePhotoCrud();
+const { getSpecificImg, /* photo, */ documentID } = useImgCrud();
 
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
-  await getSpecificPhoto(documentID.value);
+  await getSpecificImg(documentID.value);
   isDataLoaded.value = true;
 });
 </script>

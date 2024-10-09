@@ -23,14 +23,16 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// Import the mongoose module to interact with MongoDB
 const mongoose_1 = __importStar(require("mongoose"));
-// Schema corresponding to the document interface.
-const imgSchema = new mongoose_1.Schema({
+const photoSchema = new mongoose_1.Schema({
+    largeURL: { type: String, required: true },
+    thumbnailURL: { type: String, required: true },
+    width: { type: Number, required: true },
+    height: { type: Number, required: true },
+    flag: { type: String, required: true },
     title: { type: String, required: true },
     alt: { type: String, required: true },
-    src: { type: String, required: true },
 });
 // Create a Model
-const Img = mongoose_1.default.model("Img", imgSchema);
-exports.default = Img;
+const ImgModel = mongoose_1.default.model("Photo", photoSchema);
+exports.default = ImgModel;

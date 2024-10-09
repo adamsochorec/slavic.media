@@ -1,6 +1,6 @@
 // Import necessary modules
 import { Router, Request, Response } from "express";
-import PhotoModel from "../models/photo"; // Document model to interact with the database
+import ImgModel from "../models/img"; // Document model to interact with the database
 import { verifyToken } from "../validation"; // Validation function to verify the token
 
 // Express router to define the routes
@@ -16,7 +16,7 @@ router.post("/", verifyToken, (req: Request, res: Response) => {
   // Insert new document data into the database
   // If the insertion is successful, return the inserted data with a 201 status code
   // If there is an error, return the error message with a 500 status code
-  PhotoModel.insertMany(data)
+  ImgModel.insertMany(data)
     .then((insertedData) => {
       res.status(201).send(insertedData);
     })
@@ -32,7 +32,7 @@ router.get(
     // Retrieve all documents from the database
     // If the retrieval is successful, return the retrieved data
     // If there is an error, return the error message with a 500 status code
-    PhotoModel.find()
+    ImgModel.find()
       .then((data) => {
         res.send(mapArray(data));
       })
@@ -49,7 +49,7 @@ router.get(
     // Retrieve a specific document by its ID
     // If the retrieval is successful, return the retrieved data
     // If there is an error, return the error message with a 500 status code
-    PhotoModel.findById(req.params.id)
+    ImgModel.findById(req.params.id)
       .then((data) => {
         res.send(data);
       })
@@ -68,7 +68,7 @@ router.put("/:id", verifyToken, (req: Request, res: Response) => {
   // If the update is successful, return a success message
   // If the document is not found, return a not found message with a 404 status code
   // If there is an error, return the error message with a 500 status code
-  PhotoModel.findByIdAndUpdate(id, req.body, { new: true })
+  ImgModel.findByIdAndUpdate(id, req.body, { new: true })
     .then((data) => {
       if (!data) {
         res.status(404).send({
@@ -96,7 +96,7 @@ router.delete("/:id", verifyToken, (req: Request, res: Response) => {
   // If the deletion is successful, return a success message
   // If the document is not found, return a not found message with a 404 status code
   // If there is an error, return the error message with a 500 status code
-  PhotoModel.findByIdAndDelete(id)
+  ImgModel.findByIdAndDelete(id)
     .then((data) => {
       if (!data) {
         res.status(404).send({
