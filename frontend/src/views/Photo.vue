@@ -1,15 +1,15 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import Gallery from "@/components/Gallery.vue";
-import usePhotoCrud from "../modules/imgCrud";
+import useImgCrud from "../modules/imgCrud";
 
 // Destructure methods and state from imgCrud
-const { getSpecificPhoto, state, documentID } = usePhotoCrud();
+const { getAllImg, state } = useImgCrud();
 
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
-  await getSpecificPhoto(documentID.value);
+  await getAllImg();
   isDataLoaded.value = true;
 });
 </script>
@@ -37,7 +37,14 @@ onMounted(async () => {
         </div>
         <hr />
       </Fluid>
-
+      <Fluid>
+        <div class="grid grid-cols-3 gap-4">
+          <div v-for="imgs in state.photos" :key="imgs._id" class="image-item">
+            <img :src="imgs.largeURL" :alt="imgs.alt" class="w-full h-auto" />
+            <p>{{ imgs.title }}</p>
+          </div>
+        </div>
+      </Fluid>
       <!--  <Gallery
           :galleryID="'all-images-gallery'"
           :images="state.value.photos"

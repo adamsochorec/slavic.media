@@ -1,7 +1,7 @@
 import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
-const usePhotoCrud = () => {
+const useImgCrud = () => {
   const route = useRoute();
   const router = useRouter();
 
@@ -17,20 +17,22 @@ const usePhotoCrud = () => {
     newCategory: "",
     newColumn: 0,
     newClient: "",
-    photos: {},
+    photos: [],
   });
 
-  const getAllPhotos = async () => {
+  const getAllImg = async () => {
     try {
-      const response = await fetch("https://api.slavic.media/photo/");
+      const response = await fetch("https://api.slavic.media/img/");
       const data = await response.json();
+      console.log("Fetched data:", data); // Add this line
+
       state.value.photos = data;
     } catch (error) {
       console.error(error);
     }
   };
 
-  const newPhoto = async () => {
+  const newImg = async () => {
     if (
       !state.value.newLargeURL ||
       !state.value.newThumbnailURL ||
@@ -67,7 +69,7 @@ const usePhotoCrud = () => {
       };
 
       const response = await fetch(
-        "https://api.slavic.media/photo/",
+        "https://api.slavic.media/img/",
         requestOptions
       );
 
@@ -75,13 +77,13 @@ const usePhotoCrud = () => {
         throw new Error("Failed to add new photo");
       }
 
-      await getAllPhotos();
+      await getAllImg();
     } catch (error) {
       console.error("Error adding new photo:", error);
     }
   };
 
-  const deletePhoto = async (photoId) => {
+  const deleteImg = async (img) => {
     try {
       const requestOptions = {
         method: "DELETE",
@@ -91,7 +93,7 @@ const usePhotoCrud = () => {
         },
       };
       const response = await fetch(
-        `https://api.slavic.media/photo/${photoId}`,
+        `https://api.slavic.media/img/${img.id}`,
         requestOptions
       );
 
@@ -99,13 +101,13 @@ const usePhotoCrud = () => {
         throw new Error("Failed to delete photo");
       }
 
-      await getAllPhotos();
+      await getAllImg();
     } catch (error) {
       console.error("Error deleting photo:", error);
     }
   };
 
-  const editPhoto = async () => {
+  const editImg = async () => {
     try {
       if (!documentID.value) {
         throw new Error("No ID provided");
@@ -145,7 +147,7 @@ const usePhotoCrud = () => {
         }),
       };
 
-      const url = "https://api.slavic.media/photo/" + documentID.value;
+      const url = "https://api.slavic.media/img/" + documentID.value;
       const response = await fetch(url, requestOptions);
 
       if (!response.ok) {
@@ -158,18 +160,18 @@ const usePhotoCrud = () => {
     }
   };
 
-  const photo = ref({});
-  const getSpecificPhoto = async (documentID) => {
+  const img = ref({});
+  const getSpecificImg = async (documentID) => {
     try {
       const response = await fetch(
-        `https://api.slavic.media/photo/${documentID}`
+        `https://api.slavic.media/img/${documentID}`
       );
 
       if (!response.ok) {
         throw new Error(`Failed to fetch photo with ID: ${documentID}`);
       }
       const data = await response.json();
-      photo.value = data;
+      img.value = data;
     } catch (error) {
       console.error(error);
     }
@@ -177,14 +179,14 @@ const usePhotoCrud = () => {
 
   return {
     state,
-    getAllPhotos,
-    newPhoto,
-    deletePhoto,
-    getSpecificPhoto,
-    photo,
+    getAllImg,
+    newImg,
+    deleteImg,
+    getSpecificImg,
+    img,
     documentID,
-    editPhoto,
+    editImg,
   };
 };
 
-export default usePhotoCrud;
+export default useImgCrud;
