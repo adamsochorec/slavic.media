@@ -54,7 +54,7 @@ onUnmounted(() => {
       v-for="(service, serviceIndex) in columns"
       :key="serviceIndex"
       class="service"
-    ><hr>
+    ><hr :id="props.images[serviceIndex].handle">
       <Fluid>
         <div class="grid grid-cols-2 gap-4">
           <div>
