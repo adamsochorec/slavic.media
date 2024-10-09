@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import Gallery from "@/components/Gallery.vue";
-import usePhotoCrud from "./modules/photoCrud";
+import usePhotoCrud from "../modules/photoCrud";
 
 // Destructure methods and state from photoCrud
 const { getSpecificPhoto, /* photo, */ documentID } = usePhotoCrud();
