@@ -122,7 +122,9 @@ function mapData(element) {
         flag: element.flag,
         title: element.title,
         alt: element.alt,
-        keywords: element.keywords,
+        category: element.category,
+        column: element.column,
+        client: element.client,
     };
 }
 // Export the router for use in other files
