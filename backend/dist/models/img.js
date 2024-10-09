@@ -26,13 +26,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
 const photoSchema = new mongoose_1.Schema({
     largeURL: { type: String, required: true },
-    thumbnailURL: { type: String, required: true },
+    thumbnailURL: { type: String, required: false },
     width: { type: Number, required: true },
     height: { type: Number, required: true },
-    flag: { type: String, required: true },
+    flag: { type: String, required: false },
     title: { type: String, required: true },
     alt: { type: String, required: true },
-    keywords: { type: [String], required: true },
+    category: { type: String, required: true },
+    column: { type: Number, required: false },
+    client: { type: String, required: true },
 });
 // Create a Model
 const ImgModel = mongoose_1.default.model("Photo", photoSchema);

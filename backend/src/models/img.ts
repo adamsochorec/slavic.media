@@ -10,19 +10,22 @@ interface IImg extends Document {
     flag: string;
     title: string;
     alt: string;
-    keywords: string[];
+    category: string;
+    column: number;
+    client: string;
   };
 }
-
 const photoSchema = new Schema({
   largeURL: { type: String, required: true },
-  thumbnailURL: { type: String, required: true },
+  thumbnailURL: { type: String, required: false },
   width: { type: Number, required: true },
   height: { type: Number, required: true },
-  flag: { type: String, required: true },
+  flag: { type: String, required: false },
   title: { type: String, required: true },
   alt: { type: String, required: true },
-  keywords: { type: [String], required: true },
+  category: { type: String, required: true },
+  column: { type: Number, required: false },
+  client: { type: String, required: true },
 });
 
 // Create a Model
