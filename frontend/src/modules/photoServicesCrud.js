@@ -19,7 +19,7 @@ const usePhotoServicesCrud = () => {
 
   const getAllPhotoServices = async () => {
     try {
-      const response = await fetch("https://api.slavic.media/photoServices/");
+      const response = await fetch("https://api.slavic.media/services/photo/");
       const data = await response.json();
       state.value.photoServices = data;
     } catch (error) {
@@ -59,7 +59,7 @@ const usePhotoServicesCrud = () => {
       };
 
       const response = await fetch(
-        "https://api.slavic.media/photoServices/",
+        "https://api.slavic.media/services/photo/",
         requestOptions
       );
 
@@ -73,7 +73,7 @@ const usePhotoServicesCrud = () => {
     }
   };
 
-  const deletePhotoService = async (photoService) => {
+  const deletePhotoService = async (photoServices) => {
     try {
       const requestOptions = {
         method: "DELETE",
@@ -83,7 +83,7 @@ const usePhotoServicesCrud = () => {
         },
       };
       const response = await fetch(
-        `https://api.slavic.media/photoServices/${photoService.id}`,
+        `https://api.slavic.media/services/photo/${photoServices.id}`,
         requestOptions
       );
 
@@ -132,31 +132,31 @@ const usePhotoServicesCrud = () => {
         }),
       };
 
-      const url = "https://api.slavic.media/photoServices/" + documentID.value;
+      const url = "https://api.slavic.media/services/photo/" + documentID.value;
       const response = await fetch(url, requestOptions);
 
       if (!response.ok) {
         throw new Error("Failed to edit photo service");
       }
 
-      router.push("/photoServices");
+      router.push("/services/photo/");
     } catch (error) {
       console.error("Error editing photo service:", error);
     }
   };
 
-  const photoService = ref({});
+  const photoServices = ref({});
   const getSpecificPhotoService = async (documentID) => {
     try {
       const response = await fetch(
-        `https://api.slavic.media/photoServices/${documentID}`
+        `https://api.slavic.media/services/photo/${documentID}`
       );
 
       if (!response.ok) {
         throw new Error(`Failed to fetch photo service with ID: ${documentID}`);
       }
       const data = await response.json();
-      photoService.value = data;
+      photoServices.value = data;
     } catch (error) {
       console.error(error);
     }
@@ -168,7 +168,7 @@ const usePhotoServicesCrud = () => {
     newPhotoService,
     deletePhotoService,
     getSpecificPhotoService,
-    photoService,
+    photoServices,
     documentID,
     editPhotoService,
   };
