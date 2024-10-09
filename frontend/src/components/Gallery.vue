@@ -8,7 +8,6 @@ const props = defineProps({
   images: Array, // Ensure this is an array
 });
 
-const imagesData = ref([]);
 const columns = ref([[], [], [], []]);
 
 // Watch for changes in props.images and restructure data
@@ -17,10 +16,12 @@ watch(
   (newImages) => {
     if (newImages && newImages.length) {
       // Distribute images into columns
-      columns.value = [[], [], [], []];
-      newImages.forEach((image, index) => {
-        columns.value[index % 4].push(image);
-      });
+      columns.value = newImages.map((service) => [
+        service.column1,
+        service.column2,
+        service.column3,
+        service.column4,
+      ]);
     }
   },
   { immediate: true }
@@ -50,26 +51,47 @@ onUnmounted(() => {
 <template>
   <div class="row" :id="'gallery-' + galleryID">
     <div
-      v-for="(column, columnIndex) in columns"
-      :key="columnIndex"
-      class="column"
-    >
-      <a
-        v-for="(image, imageIndex) in column"
-        :key="imageIndex"
-        :href="image.largeURL"
-        :data-pswp-width="image.width"
-        :data-pswp-height="image.height"
-        @click.prevent="handleClick(imageIndex)"
-        :title="image.title"
-      >
-        <img
-          class="mt-3"
-          :src="image.thumbnailURL"
-          :title="image.title"
-          :alt="image.alt"
-        />
-      </a>
+      v-for="(service, serviceIndex) in columns"
+      :key="serviceIndex"
+      class="service"
+    ><hr>
+      <Fluid>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <h2 style="font-size: var(--font-size-2);">{{ props.images[serviceIndex].title }}</h2>
+          </div>
+          <div>
+            <p class="mb-5">
+              <p>{{ props.images[serviceIndex].description }}</p>
+            </p>
+          </div>
+        </div>
+        <hr class="semi" />
+      </Fluid>
+      <div class="columns">
+        <div
+          v-for="(column, columnIndex) in service"
+          :key="columnIndex"
+          class="column"
+        >
+          <a
+            v-for="(image, imageIndex) in column"
+            :key="imageIndex"
+            :href="image.largeURL"
+            :data-pswp-width="image.width"
+            :data-pswp-height="image.height"
+            @click.prevent="handleClick(imageIndex)"
+            :title="image.title"
+          >
+            <img
+              class="mt-3"
+              :src="image.thumbnailURL"
+              :title="image.title"
+              :alt="image.alt"
+            />
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -96,6 +118,13 @@ small a {
   display: -webkit-box;
   display: flex;
   -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+.service {
+  margin-bottom: 2rem;
+}
+.columns {
+  display: flex;
   flex-wrap: wrap;
 }
 .column {

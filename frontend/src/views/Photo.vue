@@ -88,7 +88,27 @@ onMounted(async () => {
     const response = await axios.post("https://api.slavic.media/img/by-ids", {
       ids: imageIds,
     });
-    imagesData.value = response.data;
+
+    // Structure the imagesData into columns and categories
+    const structuredData = photoServices.value.map((service) => {
+      return {
+        ...service,
+        column1: response.data.filter((img) =>
+          service.column1.includes(img.id)
+        ),
+        column2: response.data.filter((img) =>
+          service.column2.includes(img.id)
+        ),
+        column3: response.data.filter((img) =>
+          service.column3.includes(img.id)
+        ),
+        column4: response.data.filter((img) =>
+          service.column4.includes(img.id)
+        ),
+      };
+    });
+
+    imagesData.value = structuredData;
     isDataLoaded.value = true;
   } catch (error) {
     console.error("Error fetching images:", error);
@@ -117,25 +137,10 @@ onMounted(async () => {
             <ContactDialog />
           </div>
         </div>
-        <hr />
       </Fluid>
 
-      <Fluid>
-        <div class="grid grid-cols-2 gap-4">
-          <div>
-            <h1 style="font-size: var(--font-size-2)">
-              {{ photoServices.title }}
-            </h1>
-          </div>
-          <div>
-            <p class="mb-5">
-              {{ photoServices.description }}
-            </p>
-          </div>
-        </div>
-        <hr class="semi" />
-      </Fluid>
       <Gallery :galleryID="'all-images-gallery'" :images="imagesData" />
+      <hr class="semi" />
       <!-- CTA SECTION -->
       <Fluid>
         <div class="grid grid-cols-2 gap-4">
@@ -149,7 +154,6 @@ onMounted(async () => {
         </div>
       </Fluid>
     </div>
-
     <div
       v-else
       class="rounded-lg border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-800 shadow-lg mb-4 p-8"
