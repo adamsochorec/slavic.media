@@ -5,19 +5,15 @@ import "photoswipe/style.css";
 
 const props = defineProps({
   galleryID: String,
-  images: Object, // Ensure this is an object containing nested arrays
+  images: Array, // Ensure this is an array
 });
 
-const imagesData = ref({
-  column1: props.images.column1 || [],
-  column2: props.images.column2 || [],
-  column3: props.images.column3 || [],
-  column4: props.images.column4 || [],
-});
+const imagesData = ref(props.images);
+
 let lightbox = null;
 
 onMounted(() => {
-  console.log("onMounted: Initializing PhotoSwipeLightbox");
+  console.log("Gallery images:", imagesData.value); // Add this line
   if (!lightbox) {
     lightbox = new PhotoSwipeLightbox({
       gallery: "#gallery-" + props.galleryID,
@@ -25,16 +21,13 @@ onMounted(() => {
       pswpModule: () => import("photoswipe"),
     });
     lightbox.init();
-    console.log("PhotoSwipeLightbox initialized");
   }
 });
 
 onUnmounted(() => {
-  console.log("onUnmounted: Destroying PhotoSwipeLightbox");
   if (lightbox) {
     lightbox.destroy();
     lightbox = null;
-    console.log("PhotoSwipeLightbox destroyed");
   }
 });
 </script>
@@ -42,27 +35,38 @@ onUnmounted(() => {
 <template>
   <div class="row" :id="'gallery-' + galleryID">
     <div
-      v-for="(column, columnIndex) in imagesData"
-      :key="columnIndex"
+      v-for="(service, serviceIndex) in imagesData"
+      :key="serviceIndex"
       class="column"
     >
-      <a
-        v-for="(image, imageIndex) in column"
-        :key="imageIndex"
-        :href="image.largeURL"
-        :data-pswp-width="image.width"
-        :data-pswp-height="image.height"
-        @click.prevent="handleClick(imageIndex)"
-        :title="image.title"
+      <h2>{{ service.title }}</h2>
+      <p>{{ service.description }}</p>
+      <div
+        v-for="(column, columnIndex) in [
+          service.column1,
+          service.column2,
+          service.column3,
+          service.column4,
+        ]"
+        :key="columnIndex"
       >
-        <img
-          class="mt-3"
-          :src="image.thumbnailURL"
+        <a
+          v-for="(image, imageIndex) in column"
+          :key="imageIndex"
+          :href="image.largeURL"
+          :data-pswp-width="image.width"
+          :data-pswp-height="image.height"
+          @click.prevent="handleClick(imageIndex)"
           :title="image.title"
-          :alt="image.alt"
-          :srcset="image.srcset"
-        />
-      </a>
+        >
+          <img
+            class="mt-3"
+            :src="image.largeURL"
+            :title="image.title"
+            :alt="image.alt"
+          />
+        </a>
+      </div>
     </div>
   </div>
 </template>

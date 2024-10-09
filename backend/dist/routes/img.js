@@ -1,4 +1,5 @@
 "use strict";
+// img.ts
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -12,11 +13,7 @@ const router = (0, express_1.Router)();
 // CRUD operations
 // Create document - POST
 router.post("/", validation_1.verifyToken, (req, res) => {
-    // Extract data from the request body
     const data = req.body;
-    // Insert new document data into the database
-    // If the insertion is successful, return the inserted data with a 201 status code
-    // If there is an error, return the error message with a 500 status code
     img_1.default
         .insertMany(data)
         .then((insertedData) => {
@@ -27,11 +24,7 @@ router.post("/", validation_1.verifyToken, (req, res) => {
     });
 });
 // Read all documents - GET
-router.get("/", 
-/* verifyToken,  */ (req, res) => {
-    // Retrieve all documents from the database
-    // If the retrieval is successful, return the retrieved data
-    // If there is an error, return the error message with a 500 status code
+router.get("/", (req, res) => {
     img_1.default
         .find()
         .then((data) => {
@@ -42,11 +35,7 @@ router.get("/",
     });
 });
 // Read specific document by ID - GET
-router.get("/:id", 
-/* verifyToken,  */ (req, res) => {
-    // Retrieve a specific document by its ID
-    // If the retrieval is successful, return the retrieved data
-    // If there is an error, return the error message with a 500 status code
+router.get("/:id", (req, res) => {
     img_1.default
         .findById(req.params.id)
         .then((data) => {
@@ -56,14 +45,21 @@ router.get("/:id",
         res.status(500).send({ message: err.message });
     });
 });
+// Read multiple documents by IDs - POST
+router.post("/by-ids", (req, res) => {
+    const ids = req.body.ids;
+    img_1.default
+        .find({ _id: { $in: ids } })
+        .then((data) => {
+        res.send(mapArray(data));
+    })
+        .catch((err) => {
+        res.status(500).send({ message: err.message });
+    });
+});
 // Update specific document by ID - PUT
 router.put("/:id", validation_1.verifyToken, (req, res) => {
-    // Extract document ID from the request parameters
     const id = req.params.id;
-    // Update the document with the provided ID using the request body data
-    // If the update is successful, return a success message
-    // If the document is not found, return a not found message with a 404 status code
-    // If there is an error, return the error message with a 500 status code
     img_1.default
         .findByIdAndUpdate(id, req.body, { new: true })
         .then((data) => {
@@ -87,10 +83,6 @@ router.put("/:id", validation_1.verifyToken, (req, res) => {
 // Delete specific document by ID - DELETE
 router.delete("/:id", validation_1.verifyToken, (req, res) => {
     const id = req.params.id;
-    // Delete the document with the provided ID
-    // If the deletion is successful, return a success message
-    // If the document is not found, return a not found message with a 404 status code
-    // If there is an error, return the error message with a 500 status code
     img_1.default
         .findByIdAndDelete(id)
         .then((data) => {
@@ -106,10 +98,9 @@ router.delete("/:id", validation_1.verifyToken, (req, res) => {
         }
     })
         .catch((err) => {
-        res.status(500).send({
-            message: "Error deleting document with id=" + id,
-            error: err,
-        });
+        res
+            .status(500)
+            .send({ message: "Error deleting document with id=" + id, error: err });
     });
 });
 // Function to map an array of documents to a new format

@@ -1,3 +1,5 @@
+// img.ts
+
 // Import necessary modules
 import { Router, Request, Response } from "express";
 import imgModel from "../models/img"; // Document model to interact with the database
@@ -10,12 +12,7 @@ const router = Router();
 
 // Create document - POST
 router.post("/", verifyToken, (req: Request, res: Response) => {
-  // Extract data from the request body
   const data = req.body;
-
-  // Insert new document data into the database
-  // If the insertion is successful, return the inserted data with a 201 status code
-  // If there is an error, return the error message with a 500 status code
   imgModel
     .insertMany(data)
     .then((insertedData) => {
@@ -27,50 +24,45 @@ router.post("/", verifyToken, (req: Request, res: Response) => {
 });
 
 // Read all documents - GET
-router.get(
-  "/",
-  /* verifyToken,  */ (req: Request, res: Response) => {
-    // Retrieve all documents from the database
-    // If the retrieval is successful, return the retrieved data
-    // If there is an error, return the error message with a 500 status code
-    imgModel
-      .find()
-      .then((data) => {
-        res.send(mapArray(data));
-      })
-      .catch((err) => {
-        res.status(500).send({ message: err.message });
-      });
-  }
-);
+router.get("/", (req: Request, res: Response) => {
+  imgModel
+    .find()
+    .then((data) => {
+      res.send(mapArray(data));
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+});
 
 // Read specific document by ID - GET
-router.get(
-  "/:id",
-  /* verifyToken,  */ (req: Request, res: Response) => {
-    // Retrieve a specific document by its ID
-    // If the retrieval is successful, return the retrieved data
-    // If there is an error, return the error message with a 500 status code
-    imgModel
-      .findById(req.params.id)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({ message: err.message });
-      });
-  }
-);
+router.get("/:id", (req: Request, res: Response) => {
+  imgModel
+    .findById(req.params.id)
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+});
+
+// Read multiple documents by IDs - POST
+router.post("/by-ids", (req: Request, res: Response) => {
+  const ids = req.body.ids;
+  imgModel
+    .find({ _id: { $in: ids } })
+    .then((data) => {
+      res.send(mapArray(data));
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+});
 
 // Update specific document by ID - PUT
 router.put("/:id", verifyToken, (req: Request, res: Response) => {
-  // Extract document ID from the request parameters
   const id = req.params.id;
-
-  // Update the document with the provided ID using the request body data
-  // If the update is successful, return a success message
-  // If the document is not found, return a not found message with a 404 status code
-  // If there is an error, return the error message with a 500 status code
   imgModel
     .findByIdAndUpdate(id, req.body, { new: true })
     .then((data) => {
@@ -95,11 +87,6 @@ router.put("/:id", verifyToken, (req: Request, res: Response) => {
 // Delete specific document by ID - DELETE
 router.delete("/:id", verifyToken, (req: Request, res: Response) => {
   const id = req.params.id;
-
-  // Delete the document with the provided ID
-  // If the deletion is successful, return a success message
-  // If the document is not found, return a not found message with a 404 status code
-  // If there is an error, return the error message with a 500 status code
   imgModel
     .findByIdAndDelete(id)
     .then((data) => {
@@ -115,10 +102,9 @@ router.delete("/:id", verifyToken, (req: Request, res: Response) => {
       }
     })
     .catch((err) => {
-      res.status(500).send({
-        message: "Error deleting document with id=" + id,
-        error: err,
-      });
+      res
+        .status(500)
+        .send({ message: "Error deleting document with id=" + id, error: err });
     });
 });
 
@@ -141,5 +127,6 @@ function mapData(element: any): any {
     client: element.client,
   };
 }
+
 // Export the router for use in other files
 export default router;

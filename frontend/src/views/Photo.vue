@@ -1,14 +1,98 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import Gallery from "@/components/Gallery.vue";
-import useImgCrud from "../modules/imgCrud";
+import axios from "axios";
 
-const { getPhotoServicesImg, state } = useImgCrud();
+const photoServices = ref([
+  {
+    title: "Colorful Portrait",
+    handle: "portrait",
+    description:
+      "Through bold colors and deep eye contact, each portrait captures the true essence of who you are—moments that feel real and connect on a personal level.",
+    column1: ["6706d60884261508ac6b1d24", "6706d60884261508ac6b1d25"],
+    column2: [
+      "6706d60884261508ac6b1d26",
+      "6706d60884261508ac6b1d27",
+      "6706d60884261508ac6b1d28",
+    ],
+    column3: [
+      "6706d60884261508ac6b1d29",
+      "6706d60884261508ac6b1d2a",
+      "6706d60884261508ac6b1d2b",
+    ],
+    column4: ["6706d60884261508ac6b1d2c", "6706d60884261508ac6b1d2d"],
+  },
+  {
+    title: "Immersive Outdoor",
+    handle: "outdoor",
+    description:
+      "From the tundra to the desert, we specialize in capturing the raw beauty of nature. Our outdoor photography brings wild, untamed landscapes to life.",
+    column1: [
+      "6706d60884261508ac6b1d2e",
+      "6706d60884261508ac6b1d2f",
+      "6706d60884261508ac6b1d30",
+    ],
+    column2: [
+      "6706d60884261508ac6b1d31",
+      "6706d60884261508ac6b1d32",
+      "6706d60884261508ac6b1d33",
+      "6706d60884261508ac6b1d34",
+    ],
+    column3: [
+      "6706d60884261508ac6b1d35",
+      "6706d60884261508ac6b1d36",
+      "6706d60884261508ac6b1d37",
+    ],
+    column4: [
+      "6706d60884261508ac6b1d38",
+      "6706d60884261508ac6b1d39",
+      "6706d60884261508ac6b1d3a",
+    ],
+  },
+  {
+    title: "Timeless Still",
+    handle: "still",
+    description:
+      "Magnificent moments from concerts, theatre, and live performances—capturing raw emotions and deep eye contact that bring every gesture and glance to life.",
+    column1: ["6706d60884261508ac6b1d3b", "6706d60884261508ac6b1d3c"],
+    column2: [
+      "6706d60884261508ac6b1d3d",
+      "6706d60884261508ac6b1d3e",
+      "6706d60884261508ac6b1d3f",
+    ],
+    column3: [
+      "6706d60884261508ac6b1d40",
+      "6706d60884261508ac6b1d41",
+      "6706d60884261508ac6b1d42",
+    ],
+    column4: [
+      "6706d60884261508ac6b1d43",
+      "6706d60884261508ac6b1d44",
+      "6706d60884261508ac6b1d45",
+    ],
+  },
+]);
+
 const isDataLoaded = ref(false);
+const imagesData = ref([]);
 
 onMounted(async () => {
-  await getPhotoServicesImg();
-  isDataLoaded.value = true;
+  const imageIds = photoServices.value.flatMap((service) => [
+    ...service.column1,
+    ...service.column2,
+    ...service.column3,
+    ...service.column4,
+  ]);
+
+  try {
+    const response = await axios.post("https://api.slavic.media/img/by-ids", {
+      ids: imageIds,
+    });
+    imagesData.value = response.data;
+    isDataLoaded.value = true;
+  } catch (error) {
+    console.error("Error fetching images:", error);
+  }
 });
 </script>
 
@@ -36,10 +120,7 @@ onMounted(async () => {
         <hr />
       </Fluid>
       <Fluid>
-        <Gallery
-          :galleryID="'all-images-gallery'"
-          :images="state.value.photoServices"
-        />
+        <Gallery :galleryID="'all-images-gallery'" :images="imagesData" />
       </Fluid>
       <!-- CTA SECTION -->
       <Fluid>
