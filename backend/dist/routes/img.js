@@ -122,6 +122,7 @@ function mapData(element) {
         flag: element.flag,
         title: element.title,
         alt: element.alt,
+        keywords: element.keywords,
     };
 }
 // Export the router for use in other files

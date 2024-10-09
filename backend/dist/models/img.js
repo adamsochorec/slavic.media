@@ -32,6 +32,7 @@ const photoSchema = new mongoose_1.Schema({
     flag: { type: String, required: true },
     title: { type: String, required: true },
     alt: { type: String, required: true },
+    keywords: { type: [String], required: true },
 });
 // Create a Model
 const ImgModel = mongoose_1.default.model("Photo", photoSchema);

@@ -10,6 +10,7 @@ interface IImg extends Document {
     flag: string;
     title: string;
     alt: string;
+    keywords: string[];
   };
 }
 
@@ -21,6 +22,7 @@ const photoSchema = new Schema({
   flag: { type: String, required: true },
   title: { type: String, required: true },
   alt: { type: String, required: true },
+  keywords: { type: [String], required: true },
 });
 
 // Create a Model

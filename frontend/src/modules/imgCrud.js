@@ -14,6 +14,7 @@ const usePhotoCrud = () => {
     newFlag: "",
     newTitle: "",
     newAlt: "",
+    newKeywords: "",
     photos: {},
   });
 
@@ -35,7 +36,8 @@ const usePhotoCrud = () => {
       !state.value.newHeight ||
       !state.value.newFlag ||
       !state.value.newTitle ||
-      !state.value.newAlt
+      !state.value.newAlt ||
+      !state.value.newKeywords
     ) {
       console.error("All fields must be filled out");
       return;
@@ -55,6 +57,7 @@ const usePhotoCrud = () => {
           flag: state.value.newFlag,
           title: state.value.newTitle,
           alt: state.value.newAlt,
+          keywords: state.value.newKeywords,
         }),
       };
 
@@ -109,7 +112,8 @@ const usePhotoCrud = () => {
         !state.value.newHeight ||
         !state.value.newFlag ||
         !state.value.newTitle ||
-        !state.value.newAlt
+        !state.value.newAlt ||
+        !state.value.newKeywords
       ) {
         console.error("All fields must be filled out");
         return;
@@ -129,6 +133,7 @@ const usePhotoCrud = () => {
           flag: state.value.newFlag,
           title: state.value.newTitle,
           alt: state.value.newAlt,
+          keywords: state.value.newKeywords,
         }),
       };
 
