@@ -14,8 +14,6 @@ const useImgCrud = () => {
     newFlag: "",
     newTitle: "",
     newAlt: "",
-    newCategory: "",
-    newColumn: 0,
     newClient: "",
     img: [],
   });
@@ -29,6 +27,18 @@ const useImgCrud = () => {
       state.value.imgs = data;
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  const getPhotoServicesImg = async () => {
+    try {
+      const response = await fetch(
+        "https://api.slavic.media/services/photo/img/"
+      );
+      const data = await response.json();
+      state.value.photoServices = data;
+    } catch (error) {
+      console.error("Error fetching documents:", error);
     }
   };
 
@@ -180,6 +190,7 @@ const useImgCrud = () => {
     img,
     documentID,
     editImg,
+    getPhotoServicesImg,
   };
 };
 

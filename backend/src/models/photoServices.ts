@@ -2,15 +2,13 @@ import mongoose, { Schema, Document } from "mongoose";
 
 // Interface representing a document in MongoDB.
 interface photoServicesInterface extends Document {
-  photoServices: {
-    title: string;
-    handle: string;
-    description: string;
-    column1: string[];
-    column2: string[];
-    column3: string[];
-    column4: string[];
-  };
+  title: string;
+  handle: string;
+  description: string;
+  column1: string[];
+  column2: string[];
+  column3: string[];
+  column4: string[];
 }
 const photoServicesSchema = new Schema({
   title: { type: String, required: true },

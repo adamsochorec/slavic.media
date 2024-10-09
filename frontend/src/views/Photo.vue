@@ -3,13 +3,11 @@ import { ref, onMounted } from "vue";
 import Gallery from "@/components/Gallery.vue";
 import useImgCrud from "../modules/imgCrud";
 
-// Destructure methods and state from imgCrud
-const { getAllImg, state } = useImgCrud();
-
+const { getPhotoServicesImg, state } = useImgCrud();
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
-  await getAllImg();
+  await getPhotoServicesImg();
   isDataLoaded.value = true;
 });
 </script>
@@ -38,17 +36,11 @@ onMounted(async () => {
         <hr />
       </Fluid>
       <Fluid>
-        <div class="grid grid-cols-3 gap-4">
-          <div v-for="img in state.imgs" :key="img._id" class="image-item">
-            <img :src="img.largeURL" :alt="img.alt" class="w-full h-auto" />
-            <p>{{ img.title }}</p>
-          </div>
-        </div>
-      </Fluid>
-      <!--  <Gallery
+        <Gallery
           :galleryID="'all-images-gallery'"
-          :images="state.value.photos"
-        /> -->
+          :images="state.value.photoServices"
+        />
+      </Fluid>
       <!-- CTA SECTION -->
       <Fluid>
         <div class="grid grid-cols-2 gap-4">
