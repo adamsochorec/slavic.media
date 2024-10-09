@@ -119,9 +119,23 @@ onMounted(async () => {
         </div>
         <hr />
       </Fluid>
+
       <Fluid>
-        <Gallery :galleryID="'all-images-gallery'" :images="imagesData" />
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <h1 style="font-size: var(--font-size-2)">
+              {{ photoServices.title }}
+            </h1>
+          </div>
+          <div>
+            <p class="mb-5">
+              {{ photoServices.description }}
+            </p>
+          </div>
+        </div>
+        <hr class="semi" />
       </Fluid>
+      <Gallery :galleryID="'all-images-gallery'" :images="imagesData" />
       <!-- CTA SECTION -->
       <Fluid>
         <div class="grid grid-cols-2 gap-4">

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, watch } from "vue";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 
@@ -8,12 +8,27 @@ const props = defineProps({
   images: Array, // Ensure this is an array
 });
 
-const imagesData = ref(props.images);
+const imagesData = ref([]);
+const columns = ref([[], [], [], []]);
+
+// Watch for changes in props.images and restructure data
+watch(
+  () => props.images,
+  (newImages) => {
+    if (newImages && newImages.length) {
+      // Distribute images into columns
+      columns.value = [[], [], [], []];
+      newImages.forEach((image, index) => {
+        columns.value[index % 4].push(image);
+      });
+    }
+  },
+  { immediate: true }
+);
 
 let lightbox = null;
 
 onMounted(() => {
-  console.log("Gallery images:", imagesData.value); // Add this line
   if (!lightbox) {
     lightbox = new PhotoSwipeLightbox({
       gallery: "#gallery-" + props.galleryID,
@@ -35,38 +50,26 @@ onUnmounted(() => {
 <template>
   <div class="row" :id="'gallery-' + galleryID">
     <div
-      v-for="(service, serviceIndex) in imagesData"
-      :key="serviceIndex"
+      v-for="(column, columnIndex) in columns"
+      :key="columnIndex"
       class="column"
     >
-      <h2>{{ service.title }}</h2>
-      <p>{{ service.description }}</p>
-      <div
-        v-for="(column, columnIndex) in [
-          service.column1,
-          service.column2,
-          service.column3,
-          service.column4,
-        ]"
-        :key="columnIndex"
+      <a
+        v-for="(image, imageIndex) in column"
+        :key="imageIndex"
+        :href="image.largeURL"
+        :data-pswp-width="image.width"
+        :data-pswp-height="image.height"
+        @click.prevent="handleClick(imageIndex)"
+        :title="image.title"
       >
-        <a
-          v-for="(image, imageIndex) in column"
-          :key="imageIndex"
-          :href="image.largeURL"
-          :data-pswp-width="image.width"
-          :data-pswp-height="image.height"
-          @click.prevent="handleClick(imageIndex)"
+        <img
+          class="mt-3"
+          :src="image.thumbnailURL"
           :title="image.title"
-        >
-          <img
-            class="mt-3"
-            :src="image.largeURL"
-            :title="image.title"
-            :alt="image.alt"
-          />
-        </a>
-      </div>
+          :alt="image.alt"
+        />
+      </a>
     </div>
   </div>
 </template>
