@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { RouterView } from "vue-router";
 import { provideAuth } from "./modules/users";
+
 provideAuth();
 
 // COMPONENTS

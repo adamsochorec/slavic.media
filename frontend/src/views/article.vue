@@ -1,14 +1,14 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import todocrud from "../modules/todocrud";
+import useArticleCrud from "../modules/articleCrud";
 
-// Destructure methods and state from todocrud
-const { getSpecificDocument, article, documentID } = todocrud();
+// Destructure methods and state from articleCrud
+const { getSpecificArticle, article, documentID } = useArticleCrud();
 
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
-  await getSpecificDocument(documentID.value);
+  await getSpecificArticle(documentID.value);
   isDataLoaded.value = true;
 });
 </script>

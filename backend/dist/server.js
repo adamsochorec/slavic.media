@@ -34,6 +34,7 @@ const swaggerDefinition = yamljs_1.default.load(path_1.default.join("backend", "
 app.use("/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDefinition));
 // Import routes for documents and authentication
 const article_1 = __importDefault(require("./routes/article"));
+const photos_1 = __importDefault(require("./routes/photos"));
 const auth_1 = __importDefault(require("./routes/auth"));
 // Load environment variables (again, for good measure)
 require("dotenv-flow").config();
@@ -53,6 +54,7 @@ app.get("/", (req, res) => {
 });
 // Define routes for CRUD operations on documents
 app.use("/blog/articles", article_1.default);
+app.use("/photos", photos_1.default);
 app.use("/user", auth_1.default);
 // Serve static files from the 'dist' directory
 app.use(express_1.default.static(path_1.default.join(__dirname, "dist")));
