@@ -21,6 +21,8 @@ const usePhotoServicesCrud = () => {
     try {
       const response = await fetch("https://api.slavic.media/services/photo/");
       const data = await response.json();
+      console.log("API Response:", data);
+
       state.value.photoServices = data;
     } catch (error) {
       console.error("Error fetching photo services:", error);

@@ -131,13 +131,13 @@ function mapArray(inputArray: any[]): any[] {
 function mapData(element: any): any {
   return {
     id: element._id,
-    title: element.photoServices.title,
-    handle: element.photoServices.handle,
-    description: element.photoServices.description,
-    column1: element.photoServices.column1,
-    column2: element.photoServices.column2,
-    column3: element.photoServices.column3,
-    column4: element.photoServices.column4,
+    title: element.title,
+    handle: element.handle,
+    description: element.description,
+    column1: element.column1,
+    column2: element.column2,
+    column3: element.column3,
+    column4: element.column4,
   };
 }
 // Export the router for use in other files
