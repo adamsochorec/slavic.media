@@ -1,12 +1,12 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import todocrud from "../modules/todocrud";
-const { state, getAllDocuments } = todocrud();
+import articleCrud from "../modules/articleCrud";
+const { state, getAllArticles } = articleCrud();
 
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
-  await getAllDocuments();
+  await getAllArticles();
   isDataLoaded.value = true;
 });
 
