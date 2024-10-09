@@ -19,7 +19,7 @@ const usePhotoCrud = () => {
 
   const getAllPhotos = async () => {
     try {
-      const response = await fetch("https://api.slavic.media/photos/");
+      const response = await fetch("https://api.slavic.media/photo/");
       const data = await response.json();
       state.value.photos = data;
     } catch (error) {
@@ -59,7 +59,7 @@ const usePhotoCrud = () => {
       };
 
       const response = await fetch(
-        "https://api.slavic.media/photos/",
+        "https://api.slavic.media/photo/",
         requestOptions
       );
 
@@ -83,7 +83,7 @@ const usePhotoCrud = () => {
         },
       };
       const response = await fetch(
-        `https://api.slavic.media/photos/${photoId}`,
+        `https://api.slavic.media/photo/${photoId}`,
         requestOptions
       );
 
@@ -132,7 +132,7 @@ const usePhotoCrud = () => {
         }),
       };
 
-      const url = "https://api.slavic.media/photos/" + documentID.value;
+      const url = "https://api.slavic.media/photo/" + documentID.value;
       const response = await fetch(url, requestOptions);
 
       if (!response.ok) {
@@ -149,7 +149,7 @@ const usePhotoCrud = () => {
   const getSpecificPhoto = async (documentID) => {
     try {
       const response = await fetch(
-        `https://api.slavic.media/photos/${documentID}`
+        `https://api.slavic.media/photo/${documentID}`
       );
 
       if (!response.ok) {
