@@ -17,7 +17,7 @@ const useImgCrud = () => {
     newCategory: "",
     newColumn: 0,
     newClient: "",
-    imgs: [],
+    img: [],
   });
 
   const getAllImg = async () => {
@@ -41,7 +41,6 @@ const useImgCrud = () => {
       !state.value.newFlag ||
       !state.value.newTitle ||
       !state.value.newAlt ||
-      !state.value.newCategory ||
       !state.value.newClient
     ) {
       console.error("All fields must be filled out");
@@ -62,8 +61,6 @@ const useImgCrud = () => {
           flag: state.value.newFlag,
           title: state.value.newTitle,
           alt: state.value.newAlt,
-          category: state.value.newCategory,
-          column: state.value.newColumn,
           client: state.value.newClient,
         }),
       };
@@ -120,7 +117,6 @@ const useImgCrud = () => {
         !state.value.newFlag ||
         !state.value.newTitle ||
         !state.value.newAlt ||
-        !state.value.newCategory ||
         !state.value.newClient
       ) {
         console.error("All fields must be filled out");
@@ -141,8 +137,6 @@ const useImgCrud = () => {
           flag: state.value.newFlag,
           title: state.value.newTitle,
           alt: state.value.newAlt,
-          category: state.value.newCategory,
-          column: state.value.newColumn,
           client: state.value.newClient,
         }),
       };

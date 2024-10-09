@@ -32,8 +32,6 @@ const imgSchema = new mongoose_1.Schema({
     flag: { type: String, required: false },
     title: { type: String, required: true },
     alt: { type: String, required: true },
-    category: { type: String, required: true },
-    column: { type: Number, required: false },
     client: { type: String, required: true },
 });
 // Create a Model

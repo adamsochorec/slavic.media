@@ -39,9 +39,9 @@ onMounted(async () => {
       </Fluid>
       <Fluid>
         <div class="grid grid-cols-3 gap-4">
-          <div v-for="imgs in state.photos" :key="imgs._id" class="image-item">
-            <img :src="imgs.largeURL" :alt="imgs.alt" class="w-full h-auto" />
-            <p>{{ imgs.title }}</p>
+          <div v-for="img in state.imgs" :key="img._id" class="image-item">
+            <img :src="img.largeURL" :alt="img.alt" class="w-full h-auto" />
+            <p>{{ img.title }}</p>
           </div>
         </div>
       </Fluid>

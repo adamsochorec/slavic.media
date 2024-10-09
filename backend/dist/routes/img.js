@@ -127,8 +127,6 @@ function mapData(element) {
         flag: element.flag,
         title: element.title,
         alt: element.alt,
-        category: element.category,
-        column: element.column,
         client: element.client,
     };
 }

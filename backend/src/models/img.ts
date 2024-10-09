@@ -10,8 +10,6 @@ interface imgInterface extends Document {
     flag: string;
     title: string;
     alt: string;
-    category: string;
-    column: number;
     client: string;
   };
 }
@@ -23,8 +21,6 @@ const imgSchema = new Schema({
   flag: { type: String, required: false },
   title: { type: String, required: true },
   alt: { type: String, required: true },
-  category: { type: String, required: true },
-  column: { type: Number, required: false },
   client: { type: String, required: true },
 });
 

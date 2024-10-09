@@ -138,8 +138,6 @@ function mapData(element: any): any {
     flag: element.flag,
     title: element.title,
     alt: element.alt,
-    category: element.category,
-    column: element.column,
     client: element.client,
   };
 }
