@@ -1,80 +1,64 @@
 import express, { Request, Response } from "express";
-// Import Mongoose for MongoDB object modeling
 import mongoose from "mongoose";
-// Import body-parser to parse incoming request bodies
 import bodyParser from "body-parser";
-// Initialize an Express application
-const app = express();
-// Import a custom token verification middleware function
 import { verifyToken } from "./validation";
-
-// Swagger dependencies for API documentation
 import swaggerUi from "swagger-ui-express";
 import yaml from "yamljs";
-
-// Import CORS to enable Cross-Origin Resource Sharing
 import cors from "cors";
 import path from "path";
 
-// Load environment variables from .env files using dotenv-flow
 require("dotenv-flow").config();
 
-// Setup CORS middleware to handle CORS preflight requests and responses
+const app = express();
+
+// Middleware to set CORS headers
 app.use((req: Request, res: Response, next: Function) => {
-  // Allow requests from any origin
   res.header("Access-Control-Allow-Origin", "*");
-  // Allow specific headers in requests
   res.header(
     "Access-Control-Allow-Headers",
     "auth-token, Origin, X-Requested-With, Content-Type, Accept"
   );
-  // Allow specific HTTP methods
   res.header(
     "Access-Control-Allow-Methods",
     "GET,HEAD,OPTIONS,POST,PUT,DELETE"
   );
-
-  // Move to the next middleware function
   next();
 });
 
-// Middleware to parse JSON request bodies
+// Middleware to parse JSON bodies
 app.use(bodyParser.json());
 
-// Setup Swagger documentation
+// Load and serve Swagger documentation
 const swaggerDefinition = yaml.load(path.join("backend", "..", "swagger.yaml"));
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition));
 
-// Import routes for documents and authentication
 import articleRoutes from "./routes/article";
 import imgRoutes from "./routes/img";
 import photoServicesRoutes from "./routes/photoServices";
 import authRoutes from "./routes/auth";
 
-// Load environment variables (again, for good measure)
 require("dotenv-flow").config();
 
-// Middleware to parse requests of content-type JSON
+// Middleware to parse JSON bodies (duplicate, can be removed)
 app.use(bodyParser.json());
 
-// Connect to MongoDB using Mongoose
+// Connect to MongoDB
 mongoose.set("strictQuery", false);
 mongoose
   .connect(process.env.DBHOST as string)
   .catch((error) => console.log("Error connecting to MongoDB:" + error));
 
-// Log a message once connected to MongoDB
+// Log successful MongoDB connection
 mongoose.connection.once("open", () =>
   console.log("Connected successfully to MongoDB")
 );
 
-// Define a welcome route
+// Root route
 app.get("/", (req: Request, res: Response) => {
-  // Send a welcome message with a 200 OK status
   res.status(200).send({ message: "Welcome to the backend" });
 });
 
-// Define routes for CRUD operations on documents
+// Route handlers
 app.use("/blog/articles", articleRoutes);
 app.use("/img", imgRoutes);
 app.use("/services/photo", photoServicesRoutes);
@@ -88,13 +72,10 @@ app.get("*", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
-// Define the port number the server will listen on
+// Start the server
 const PORT = process.env.PORT || 4000;
-
-// Start the server and listen on the defined port
 app.listen(PORT, () => {
   console.log("Server is running on port: " + PORT);
 });
 
-// Export the app module for testing or other uses
 export default app;

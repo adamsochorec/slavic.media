@@ -42,7 +42,12 @@ import SwiperReviews from "@/components/SwiperReviews.vue";
         <ContactDialog />
       </div>
       <hr />
-      <Fluid>
+      <Fluid
+        v-animateonscroll="{
+          enterClass: 'animate-fadein',
+          leaveClass: 'animate-fadeout',
+        }"
+      >
         <div class="grid grid-cols-2 gap-4">
           <div>
             <h1 style="font-size: var(--font-size-3)">

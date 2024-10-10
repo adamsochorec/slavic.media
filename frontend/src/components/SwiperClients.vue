@@ -1,5 +1,4 @@
 <script setup>
-import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.css";
 import "swiper/element/css/pagination";
 import "swiper/element/css/virtual";
@@ -9,14 +8,8 @@ import { register } from "swiper/element/bundle";
 register();
 
 const spaceBetween = 10;
-const onProgress = (e) => {
-  const [swiper, progress] = e.detail;
-  console.log(progress);
-};
-
-const onSlideChange = (e) => {
-  console.log("slide changed");
-};
+const onProgress = (e) => {};
+const onSlideChange = (e) => {};
 </script>
 
 <template>
@@ -1077,14 +1070,12 @@ const onSlideChange = (e) => {
 svg {
   height: 70px;
   aspect-ratio: 1/1;
-} /* SWIPER PAGINATION */
-.swiper-pagination-bullet {
+}
+::v-deep .swiper-pagination-bullet {
   background: rgb(var(--white-color));
-}
-.swiper-pagination-bullet-active {
-  background-color: rgb(var(--primary-color));
-}
-.swiper-pagination-bullet {
   opacity: unset !important;
+}
+::v-deep .swiper-pagination-bullet-active {
+  background-color: rgb(var(--primary-color));
 }
 </style>

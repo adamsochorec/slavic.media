@@ -4,56 +4,44 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-// Import Mongoose for MongoDB object modeling
 const mongoose_1 = __importDefault(require("mongoose"));
-// Import body-parser to parse incoming request bodies
 const body_parser_1 = __importDefault(require("body-parser"));
-// Initialize an Express application
-const app = (0, express_1.default)();
-// Swagger dependencies for API documentation
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const yamljs_1 = __importDefault(require("yamljs"));
 const path_1 = __importDefault(require("path"));
-// Load environment variables from .env files using dotenv-flow
 require("dotenv-flow").config();
-// Setup CORS middleware to handle CORS preflight requests and responses
+const app = (0, express_1.default)();
+// Middleware to set CORS headers
 app.use((req, res, next) => {
-    // Allow requests from any origin
     res.header("Access-Control-Allow-Origin", "*");
-    // Allow specific headers in requests
     res.header("Access-Control-Allow-Headers", "auth-token, Origin, X-Requested-With, Content-Type, Accept");
-    // Allow specific HTTP methods
     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
-    // Move to the next middleware function
     next();
 });
-// Middleware to parse JSON request bodies
+// Middleware to parse JSON bodies
 app.use(body_parser_1.default.json());
-// Setup Swagger documentation
+// Load and serve Swagger documentation
 const swaggerDefinition = yamljs_1.default.load(path_1.default.join("backend", "..", "swagger.yaml"));
 app.use("/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDefinition));
-// Import routes for documents and authentication
 const article_1 = __importDefault(require("./routes/article"));
 const img_1 = __importDefault(require("./routes/img"));
 const photoServices_1 = __importDefault(require("./routes/photoServices"));
 const auth_1 = __importDefault(require("./routes/auth"));
-// Load environment variables (again, for good measure)
 require("dotenv-flow").config();
-// Middleware to parse requests of content-type JSON
+// Middleware to parse JSON bodies (duplicate, can be removed)
 app.use(body_parser_1.default.json());
-// Connect to MongoDB using Mongoose
+// Connect to MongoDB
 mongoose_1.default.set("strictQuery", false);
 mongoose_1.default
     .connect(process.env.DBHOST)
     .catch((error) => console.log("Error connecting to MongoDB:" + error));
-// Log a message once connected to MongoDB
+// Log successful MongoDB connection
 mongoose_1.default.connection.once("open", () => console.log("Connected successfully to MongoDB"));
-// Define a welcome route
+// Root route
 app.get("/", (req, res) => {
-    // Send a welcome message with a 200 OK status
     res.status(200).send({ message: "Welcome to the backend" });
 });
-// Define routes for CRUD operations on documents
+// Route handlers
 app.use("/blog/articles", article_1.default);
 app.use("/img", img_1.default);
 app.use("/services/photo", photoServices_1.default);
@@ -64,11 +52,9 @@ app.use(express_1.default.static(path_1.default.join(__dirname, "dist")));
 app.get("*", (req, res) => {
     res.sendFile(path_1.default.join(__dirname, "dist", "index.html"));
 });
-// Define the port number the server will listen on
+// Start the server
 const PORT = process.env.PORT || 4000;
-// Start the server and listen on the defined port
 app.listen(PORT, () => {
     console.log("Server is running on port: " + PORT);
 });
-// Export the app module for testing or other uses
 exports.default = app;
