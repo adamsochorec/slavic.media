@@ -21,15 +21,26 @@ const useArticleCrud = () => {
     try {
       const response = await fetch("https://api.slavic.media/blog/articles/");
       const data = await response.json();
+
+      // Function to convert date string to a format that can be parsed by Date object
+      const parseDate = (dateStr) => {
+        // Remove ordinal suffixes
+        const cleanedDateStr = dateStr.replace(/(\d+)(st|nd|rd|th)/, "$1");
+        return new Date(cleanedDateStr);
+      };
+
       // Sort articles by date in descending order
-      state.value.articles = data.sort(
-        (a, b) => new Date(b.metadata.date) - new Date(a.metadata.date)
-      );
+      state.value.articles = data.sort((a, b) => {
+        const dateA = parseDate(a.metadata.date);
+        const dateB = parseDate(b.metadata.date);
+        return dateB - dateA;
+      });
+
+      // Log the sorted articles
     } catch (error) {
-      console.error(error);
+      console.error("Error fetching articles:", error);
     }
   };
-
   const newArticle = async () => {
     if (
       !state.value.newTitle ||
