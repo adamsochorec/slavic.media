@@ -20,7 +20,10 @@ const useArticleCrud = () => {
     try {
       const response = await fetch("https://api.slavic.media/blog/articles/");
       const data = await response.json();
-      state.value.articles = data;
+      // Sort articles by date in descending order
+      state.value.articles = data.sort(
+        (a, b) => new Date(b.metadata.date) - new Date(a.metadata.date)
+      );
     } catch (error) {
       console.error(error);
     }
