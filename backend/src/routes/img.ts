@@ -1,11 +1,7 @@
-// img.ts
-
-// Import necessary modules
 import { Router, Request, Response } from "express";
 import imgModel from "../models/img"; // Document model to interact with the database
 import { verifyToken } from "../validation"; // Validation function to verify the token
 
-// Express router to define the routes
 const router = Router();
 
 // CRUD operations
@@ -116,7 +112,7 @@ function mapArray(inputArray: any[]): any[] {
 // Function to map a single document to a new format
 function mapData(element: any): any {
   return {
-    id: element._id,
+    id: element._id, // Use _id for custom string ID
     largeURL: element.largeURL,
     thumbnailURL: element.thumbnailURL,
     width: element.width,
@@ -128,5 +124,4 @@ function mapData(element: any): any {
   };
 }
 
-// Export the router for use in other files
 export default router;

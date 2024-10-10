@@ -1,14 +1,11 @@
 "use strict";
-// img.ts
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// Import necessary modules
 const express_1 = require("express");
 const img_1 = __importDefault(require("../models/img")); // Document model to interact with the database
 const validation_1 = require("../validation"); // Validation function to verify the token
-// Express router to define the routes
 const router = (0, express_1.Router)();
 // CRUD operations
 // Create document - POST
@@ -110,7 +107,7 @@ function mapArray(inputArray) {
 // Function to map a single document to a new format
 function mapData(element) {
     return {
-        id: element._id,
+        id: element._id, // Use _id for custom string ID
         largeURL: element.largeURL,
         thumbnailURL: element.thumbnailURL,
         width: element.width,
@@ -121,5 +118,4 @@ function mapData(element) {
         client: element.client,
     };
 }
-// Export the router for use in other files
 exports.default = router;
