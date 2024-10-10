@@ -12,7 +12,7 @@ const router = (0, express_1.Router)();
 router.post("/", validation_1.verifyToken, (req, res) => {
     const data = req.body;
     img_1.default
-        .insertMany(data)
+        .create(data)
         .then((insertedData) => {
         res.status(201).send(insertedData);
     })
@@ -107,7 +107,7 @@ function mapArray(inputArray) {
 // Function to map a single document to a new format
 function mapData(element) {
     return {
-        id: element._id, // Use _id for custom string ID
+        id: element._id,
         largeURL: element.largeURL,
         thumbnailURL: element.thumbnailURL,
         width: element.width,

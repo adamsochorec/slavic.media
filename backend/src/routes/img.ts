@@ -10,7 +10,7 @@ const router = Router();
 router.post("/", verifyToken, (req: Request, res: Response) => {
   const data = req.body;
   imgModel
-    .insertMany(data)
+    .create(data)
     .then((insertedData) => {
       res.status(201).send(insertedData);
     })
@@ -112,7 +112,7 @@ function mapArray(inputArray: any[]): any[] {
 // Function to map a single document to a new format
 function mapData(element: any): any {
   return {
-    id: element._id, // Use _id for custom string ID
+    id: element._id,
     largeURL: element.largeURL,
     thumbnailURL: element.thumbnailURL,
     width: element.width,
