@@ -54,7 +54,7 @@ reveal();
         display: flex;
         justify-content: space-between;
         padding: 0 var(--homepage-padding) 0 var(--homepage-padding);
-        background-color: var(--p-menubar-background);
+        background-color: var(--dark-grey-color-full);
         backdrop-filter: var(--blur-1);
       "
     >

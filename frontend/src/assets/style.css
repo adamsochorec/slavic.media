@@ -82,3 +82,21 @@ hr {
 .section-wrapper[data-section-key="footer"] .section-background {
   border-top: none !important;
 }
+/* REVEAL START */
+.reveal {
+  opacity: 0;
+  position: relative;
+  -ms-transform: translateY(80px);
+  transform: translateY(80px);
+  -webkit-transform: translateY(80px);
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
+.reveal.active {
+  opacity: 1;
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+}
+/* REVEAL END */

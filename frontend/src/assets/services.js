@@ -69,15 +69,9 @@ export const services = ref([
   },
   {
     label: "Store",
+    url: "https://store.slavic.media",
     icon: "pi pi-shopping-bag",
-    items: [
-      {
-        label: "Lightroom Presets",
-        url: "https://store.slavic.media",
-        icon: "pi pi-microchip",
-        target: "_blank",
-      },
-    ],
+    target: "_blank",
   },
   {
     label: "About",

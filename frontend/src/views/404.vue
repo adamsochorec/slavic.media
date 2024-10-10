@@ -24,6 +24,8 @@
       <div class="card flex justify-center">
         <router-link to="/" role="link" aria-label="Return to the homepage">
           <Button
+            rounded
+            iconPos="right"
             class="cta"
             type="button"
             label="Return to the homepage"

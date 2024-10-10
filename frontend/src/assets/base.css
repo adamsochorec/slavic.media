@@ -21,6 +21,7 @@
   --font-size-6: clamp(0.8em, 1.5vw, 1em);
   --font-size-7: clamp(0.8em, 1.5vw, 1em);
   --font-size-8: clamp(0.8em, 1.5vw, 0.8em);
+  --font-size-9: 0.7em;
   --border-radius-1: 10px;
   --border-radius-2: 50px;
   --transition-1: all.1s ease-in-out;

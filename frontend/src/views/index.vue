@@ -17,7 +17,7 @@ import SwiperReviews from "@/components/SwiperReviews.vue";
     />
     <article class="wrapper-standard">
       <Fluid>
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-2 gap-4 reveal">
           <div>
             <h1 style="font-size: var(--font-size-3)">
               Strategy, <span class="highlited tuscher">experience</span>,
@@ -26,29 +26,23 @@ import SwiperReviews from "@/components/SwiperReviews.vue";
             </h1>
           </div>
           <div>
-            <p>
+            <p class="mb-6">
               We are creative storytellers who believe in good set designs, deep
               eye contact, and the right light that can raise your message above
               the noise.
             </p>
+            <ContactDialog />
           </div>
         </div>
       </Fluid>
-      <hr />
-      <SwiperClients></SwiperClients>
-      <hr />
+      <hr class="reveal" role="separator" />
+      <SwiperClients class="reveal"></SwiperClients>
+      <hr class="reveal" role="separator" />
       <SwiperServices></SwiperServices>
-      <div class="card flex justify-center mt-4">
-        <ContactDialog />
-      </div>
-      <hr />
-      <Fluid
-        v-animateonscroll="{
-          enterClass: 'animate-fadein',
-          leaveClass: 'animate-fadeout',
-        }"
-      >
-        <div class="grid grid-cols-2 gap-4">
+
+      <hr class="reveal" role="separator" />
+      <Fluid>
+        <div class="grid grid-cols-2 gap-4 reveal">
           <div>
             <h1 style="font-size: var(--font-size-3)">
               <span class="highlited tuscher">Actions</span>, speak louder
@@ -66,10 +60,11 @@ import SwiperReviews from "@/components/SwiperReviews.vue";
           </div>
         </div>
       </Fluid>
-      <hr />
+      <hr class="reveal" role="separator" />
       <SwiperReviews></SwiperReviews>
       <div class="card flex justify-center mt-4">
         <Button
+          rounded
           as="a"
           label="Share the experience"
           href="https://g.page/r/CRTkzopg3plWEB0/review"

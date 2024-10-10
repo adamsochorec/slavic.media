@@ -1,5 +1,5 @@
 <template>
-  <Menubar :model="services">
+  <Menubar style="background-color: transparent" :model="services">
     <template #item="{ item, props, hasSubmenu }">
       <router-link
         v-if="item.route"

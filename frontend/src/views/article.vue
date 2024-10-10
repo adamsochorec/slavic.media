@@ -11,7 +11,7 @@ const isDataLoaded = ref(false);
 
 onMounted(async () => {
   await getSpecificArticleBySlug(route.params.slug);
-  console.log("Loaded article:", route.params.slug);
+  console.log("Loaded article:", state.article); // Log the loaded article
   isDataLoaded.value = true;
 });
 </script>

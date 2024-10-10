@@ -14,17 +14,12 @@ const onSlideChange = (e) => {};
 
 <template>
   <swiper-container
-    style="height: 120px"
     :space-between="spaceBetween"
     :loop="true"
     :preload-images="false"
     :lazy-loading="true"
     :speed="600"
     :autoplay="{ delay: 1000, pauseOnMouseEnter: true }"
-    :pagination="{
-      hideOnClick: true,
-      dynamicBullets: true,
-    }"
     :observer="true"
     :observe-parents="true"
     :breakpoints="{

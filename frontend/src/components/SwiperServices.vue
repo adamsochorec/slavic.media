@@ -16,7 +16,7 @@ const services = [
     path: "services/video",
     description:
       "From inspiring stories to cinematic visuals, each video project is crafted to captivate, impress, and showcase your vision with creative precision.",
-    img: "https://dam.production.vlm.nmheagle.sk/api/image/1366x910/f14/f14604dd-ec15-41ce-9fc4-2fe3bfe598e0.webp",
+    img: "https://slavic.media/img/cover-video.jpg",
     icon: "pi pi-camera",
   },
   {
@@ -25,7 +25,7 @@ const services = [
     path: "services/photo",
     description:
       "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
-    img: "https://dam.production.vlm.nmheagle.sk/api/image/1366x910/f14/f14604dd-ec15-41ce-9fc4-2fe3bfe598e0.webp",
+    img: "https://slavic.media/img/cover-photo.jpg",
     icon: "pi pi-video",
   },
   {
@@ -34,7 +34,7 @@ const services = [
     path: "services/services",
     description:
       "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
-    img: "https://dam.production.vlm.nmheagle.sk/api/image/1366x910/f14/f14604dd-ec15-41ce-9fc4-2fe3bfe598e0.webp",
+    img: "https://slavic.media/img/cover-drone.jpg",
   },
 ];
 
@@ -88,12 +88,6 @@ const onSlideChange = (e) => {
             />
           </template>
           <template #title>{{ service.title }}</template>
-
-          <template #footer>
-            <div class="flex gap-4 mt-1">
-              <Button label="Learn more" class="w-full" />
-            </div>
-          </template>
         </Card>
       </router-link>
     </swiper-slide>
