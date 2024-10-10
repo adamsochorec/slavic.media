@@ -9,67 +9,35 @@ const photoServices = ref([
     handle: "portrait",
     description:
       "Through bold colors and deep eye contact, each portrait captures the true essence of who you are—moments that feel real and connect on a personal level.",
-    column1: ["6706d60884261508ac6b1d24", "6706d60884261508ac6b1d25"],
-    column2: [
-      "6706d60884261508ac6b1d26",
-      "6706d60884261508ac6b1d27",
-      "6706d60884261508ac6b1d28",
-    ],
-    column3: [
-      "6706d60884261508ac6b1d29",
-      "6706d60884261508ac6b1d2a",
-      "6706d60884261508ac6b1d2b",
-    ],
-    column4: ["6706d60884261508ac6b1d2c", "6706d60884261508ac6b1d2d"],
+    column1: ["2021-11-13-02059", "hvalp"],
+    column2: ["2021-08-24-01615", "2021-09-05-01666"],
+    column3: ["2021-04-25-00693", "2021-05-28-01020", "2023-11-13-00267"],
+    column4: ["2021-06-24-01233-2", "2023-04-03-08707"],
   },
   {
     title: "Immersive Outdoor",
     handle: "outdoor",
     description:
       "From the tundra to the desert, we specialize in capturing the raw beauty of nature. Our outdoor photography brings wild, untamed landscapes to life.",
-    column1: [
-      "6706d60884261508ac6b1d2e",
-      "6706d60884261508ac6b1d2f",
-      "6706d60884261508ac6b1d30",
-    ],
+    column1: ["2022-12-03-000465", "2024-03-10-00620", "2023-12-02-00459"],
     column2: [
-      "6706d60884261508ac6b1d31",
-      "6706d60884261508ac6b1d32",
-      "6706d60884261508ac6b1d33",
-      "6706d60884261508ac6b1d34",
+      "2023-11-30-00006",
+      "2023-12-01-00250",
+      "2024-03-10-00496",
+      "2023-12-01-00064",
     ],
-    column3: [
-      "6706d60884261508ac6b1d35",
-      "6706d60884261508ac6b1d36",
-      "6706d60884261508ac6b1d37",
-    ],
-    column4: [
-      "6706d60884261508ac6b1d38",
-      "6706d60884261508ac6b1d39",
-      "6706d60884261508ac6b1d3a",
-    ],
+    column3: ["2024-03-10-00238", "2022-10-15-00970", "2024-05-11-00184"],
+    column4: ["2023-08-29-01113", "2023-08-29-01096", "2023-08-29-01059"],
   },
   {
     title: "Timeless Still",
     handle: "still",
     description:
       "Magnificent moments from concerts, theatre, and live performances—capturing raw emotions and deep eye contact that bring every gesture and glance to life.",
-    column1: ["6706d60884261508ac6b1d3b", "6706d60884261508ac6b1d3c"],
-    column2: [
-      "6706d60884261508ac6b1d3d",
-      "6706d60884261508ac6b1d3e",
-      "6706d60884261508ac6b1d3f",
-    ],
-    column3: [
-      "6706d60884261508ac6b1d40",
-      "6706d60884261508ac6b1d41",
-      "6706d60884261508ac6b1d42",
-    ],
-    column4: [
-      "6706d60884261508ac6b1d43",
-      "6706d60884261508ac6b1d44",
-      "6706d60884261508ac6b1d45",
-    ],
+    column1: ["2023-09-09-10507", "2021-06-24-01208"],
+    column2: ["2023-09-01-00086", "2023-09-09-10524", "2023-09-29-00163"],
+    column3: ["2023-06-22-00033", "2022-06-28-00708", "2023-05-12-08965"],
+    column4: ["2023-05-27-00025", "2023-09-22-00026", "2023-05-12-08969"],
   },
 ]);
 
