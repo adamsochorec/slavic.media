@@ -23,7 +23,7 @@ const logoImage = ref(null);
 const { getSpecificImg, img } = useImgCrud();
 
 onMounted(async () => {
-  await getSpecificImg("2021-11-13-02059");
+  await getSpecificImg("Primary-1");
   logoImage.value = img.value;
 });
 
@@ -63,7 +63,7 @@ reveal();
           <img
             v-if="logoImage"
             class="logo"
-            :src="logoImage.thumbnailURL"
+            :src="logoImage.largeURL"
             :alt="logoImage.alt"
             :title="logoImage.title"
             style="padding: 8px 0; width: 91px; height: 100%"

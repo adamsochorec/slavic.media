@@ -59,17 +59,17 @@ const employees = [
 <template>
   <div>
     <CoverVideo
-      src="https://slavic.media/img/showreel-ourteam.mp4"
-      poster="https://slavic.media/img/showreel-ourteam.png"
+      src="https://slavic.media/img/bts.mp4"
+      poster="https://slavic.media/img/bts.png"
       loop
       autoplay
       muted
       ariaLabel="Behind the scenes"
     />
-    <hr class="semi" />
 
     <article class="wrapper-standard">
-      <h1 style="font-size: var(--font-size-1)" class="mb-5">Our Team</h1>
+      <hr class="semi" />
+      <h1 style="font-size: var(--font-size-1)">Our Team</h1>
       <p>
         Creative & Production studio based in Denmark and Czechia. We tell
         stories with deep eye contact, magnificent shots and clean designs to
@@ -128,12 +128,9 @@ const employees = [
           </div>
         </SwiperSlide>
       </Swiper>
-
       <hr class="semi" />
     </article>
   </div>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

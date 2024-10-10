@@ -101,7 +101,7 @@
       </a>
       <!-- PRESS KIT END -->
     </div>
-    <!-- PRESS MATERIALS GRID END -->
+    <hr class="semi" />
   </article>
 </template>
 <style lang="scss" scoped>
