@@ -1,22 +1,17 @@
-// Import necessary modules
+// ARTICLE.TS-1 CONTEXT
 import { Router, Request, Response } from "express";
-import ArticleModel from "../models/article"; // Document model to interact with the database
-import { verifyToken } from "../validation"; // Validation function to verify the token
+import ArticleModel from "../models/article";
+import { verifyToken } from "../validation";
 
-// Express router to define the routes
 const router = Router();
 
 // CRUD operations
 
 // Create document - POST
 router.post("/", verifyToken, (req: Request, res: Response) => {
-  // Extract data from the request body
   const data = req.body;
 
-  // Insert new document data into the database
-  // If the insertion is successful, return the inserted data with a 201 status code
-  // If there is an error, return the error message with a 500 status code
-  ArticleModel.insertMany(data)
+  ArticleModel.create(data)
     .then((insertedData) => {
       res.status(201).send(insertedData);
     })
@@ -26,56 +21,36 @@ router.post("/", verifyToken, (req: Request, res: Response) => {
 });
 
 // Read all documents - GET
-router.get(
-  "/",
-  /* verifyToken,  */ (req: Request, res: Response) => {
-    // Retrieve all documents from the database
-    // If the retrieval is successful, return the retrieved data
-    // If there is an error, return the error message with a 500 status code
-    ArticleModel.find()
-      .then((data) => {
-        res.send(mapArray(data));
-      })
-      .catch((err) => {
-        res.status(500).send({ message: err.message });
-      });
-  }
-);
+router.get("/", (req: Request, res: Response) => {
+  ArticleModel.find()
+    .then((data) => {
+      res.send(mapArray(data));
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+});
 
-// Read specific document by ID - GET
-router.get(
-  "/:id",
-  /* verifyToken,  */ (req: Request, res: Response) => {
-    // Retrieve a specific document by its ID
-    // If the retrieval is successful, return the retrieved data
-    // If there is an error, return the error message with a 500 status code
-    ArticleModel.findById(req.params.id)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({ message: err.message });
-      });
-  }
-);
+// Read specific document by slug - GET
+router.get("/:slug", (req: Request, res: Response) => {
+  ArticleModel.findOne({ slug: req.params.slug })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+});
 
-// Update specific document by ID - PUT
-router.put("/:id", verifyToken, (req: Request, res: Response) => {
-  // Extract document ID from the request parameters
-  const id = req.params.id;
+// Update specific document by slug - PUT
+router.put("/:slug", verifyToken, (req: Request, res: Response) => {
+  const slug = req.params.slug;
 
-  // Update the document with the provided ID using the request body data
-  // If the update is successful, return a success message
-  // If the document is not found, return a not found message with a 404 status code
-  // If there is an error, return the error message with a 500 status code
-  ArticleModel.findByIdAndUpdate(id, req.body, { new: true })
+  ArticleModel.findOneAndUpdate({ slug }, req.body, { new: true })
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message:
-            "Cannot update document with id=" +
-            id +
-            ". Maybe document was not found!",
+          message: `Cannot update document with slug=${slug}. Maybe document was not found!`,
         });
       } else {
         res.send({ message: "Document was successfully updated." });
@@ -84,26 +59,19 @@ router.put("/:id", verifyToken, (req: Request, res: Response) => {
     .catch((err) => {
       res
         .status(500)
-        .send({ message: "Error updating document with id=" + id });
+        .send({ message: `Error updating document with slug=${slug}` });
     });
 });
 
-// Delete specific document by ID - DELETE
-router.delete("/:id", verifyToken, (req: Request, res: Response) => {
-  const id = req.params.id;
+// Delete specific document by slug - DELETE
+router.delete("/:slug", verifyToken, (req: Request, res: Response) => {
+  const slug = req.params.slug;
 
-  // Delete the document with the provided ID
-  // If the deletion is successful, return a success message
-  // If the document is not found, return a not found message with a 404 status code
-  // If there is an error, return the error message with a 500 status code
-  ArticleModel.findByIdAndDelete(id)
+  ArticleModel.findOneAndDelete({ slug })
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message:
-            "Cannot delete document with id=" +
-            id +
-            ". Maybe document was not found!",
+          message: `Cannot delete document with slug=${slug}. Maybe document was not found!`,
         });
       } else {
         res.send({ message: "Document was successfully deleted." });
@@ -111,7 +79,7 @@ router.delete("/:id", verifyToken, (req: Request, res: Response) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error deleting document with id=" + id,
+        message: `Error deleting document with slug=${slug}`,
         error: err,
       });
     });
@@ -142,7 +110,8 @@ function mapData(element: any): any {
       img: element.content.img,
     },
     title: element.title,
+    slug: element.slug,
   };
 }
-// Export the router for use in other files
+
 export default router;

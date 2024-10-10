@@ -3,21 +3,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// Import necessary modules
+// ARTICLE.TS-1 CONTEXT
 const express_1 = require("express");
-const article_1 = __importDefault(require("../models/article")); // Document model to interact with the database
-const validation_1 = require("../validation"); // Validation function to verify the token
-// Express router to define the routes
+const article_1 = __importDefault(require("../models/article"));
+const validation_1 = require("../validation");
 const router = (0, express_1.Router)();
 // CRUD operations
 // Create document - POST
 router.post("/", validation_1.verifyToken, (req, res) => {
-    // Extract data from the request body
     const data = req.body;
-    // Insert new document data into the database
-    // If the insertion is successful, return the inserted data with a 201 status code
-    // If there is an error, return the error message with a 500 status code
-    article_1.default.insertMany(data)
+    article_1.default.create(data)
         .then((insertedData) => {
         res.status(201).send(insertedData);
     })
@@ -26,11 +21,7 @@ router.post("/", validation_1.verifyToken, (req, res) => {
     });
 });
 // Read all documents - GET
-router.get("/", 
-/* verifyToken,  */ (req, res) => {
-    // Retrieve all documents from the database
-    // If the retrieval is successful, return the retrieved data
-    // If there is an error, return the error message with a 500 status code
+router.get("/", (req, res) => {
     article_1.default.find()
         .then((data) => {
         res.send(mapArray(data));
@@ -39,13 +30,9 @@ router.get("/",
         res.status(500).send({ message: err.message });
     });
 });
-// Read specific document by ID - GET
-router.get("/:id", 
-/* verifyToken,  */ (req, res) => {
-    // Retrieve a specific document by its ID
-    // If the retrieval is successful, return the retrieved data
-    // If there is an error, return the error message with a 500 status code
-    article_1.default.findById(req.params.id)
+// Read specific document by slug - GET
+router.get("/:slug", (req, res) => {
+    article_1.default.findOne({ slug: req.params.slug })
         .then((data) => {
         res.send(data);
     })
@@ -53,21 +40,14 @@ router.get("/:id",
         res.status(500).send({ message: err.message });
     });
 });
-// Update specific document by ID - PUT
-router.put("/:id", validation_1.verifyToken, (req, res) => {
-    // Extract document ID from the request parameters
-    const id = req.params.id;
-    // Update the document with the provided ID using the request body data
-    // If the update is successful, return a success message
-    // If the document is not found, return a not found message with a 404 status code
-    // If there is an error, return the error message with a 500 status code
-    article_1.default.findByIdAndUpdate(id, req.body, { new: true })
+// Update specific document by slug - PUT
+router.put("/:slug", validation_1.verifyToken, (req, res) => {
+    const slug = req.params.slug;
+    article_1.default.findOneAndUpdate({ slug }, req.body, { new: true })
         .then((data) => {
         if (!data) {
             res.status(404).send({
-                message: "Cannot update document with id=" +
-                    id +
-                    ". Maybe document was not found!",
+                message: `Cannot update document with slug=${slug}. Maybe document was not found!`,
             });
         }
         else {
@@ -77,23 +57,17 @@ router.put("/:id", validation_1.verifyToken, (req, res) => {
         .catch((err) => {
         res
             .status(500)
-            .send({ message: "Error updating document with id=" + id });
+            .send({ message: `Error updating document with slug=${slug}` });
     });
 });
-// Delete specific document by ID - DELETE
-router.delete("/:id", validation_1.verifyToken, (req, res) => {
-    const id = req.params.id;
-    // Delete the document with the provided ID
-    // If the deletion is successful, return a success message
-    // If the document is not found, return a not found message with a 404 status code
-    // If there is an error, return the error message with a 500 status code
-    article_1.default.findByIdAndDelete(id)
+// Delete specific document by slug - DELETE
+router.delete("/:slug", validation_1.verifyToken, (req, res) => {
+    const slug = req.params.slug;
+    article_1.default.findOneAndDelete({ slug })
         .then((data) => {
         if (!data) {
             res.status(404).send({
-                message: "Cannot delete document with id=" +
-                    id +
-                    ". Maybe document was not found!",
+                message: `Cannot delete document with slug=${slug}. Maybe document was not found!`,
             });
         }
         else {
@@ -102,7 +76,7 @@ router.delete("/:id", validation_1.verifyToken, (req, res) => {
     })
         .catch((err) => {
         res.status(500).send({
-            message: "Error deleting document with id=" + id,
+            message: `Error deleting document with slug=${slug}`,
             error: err,
         });
     });
@@ -131,7 +105,7 @@ function mapData(element) {
             img: element.content.img,
         },
         title: element.title,
+        slug: element.slug,
     };
 }
-// Export the router for use in other files
 exports.default = router;

@@ -45,6 +45,17 @@ const articleSchema = new mongoose_1.Schema({
         iframe: { type: [String], required: false },
     },
     title: { type: String, required: true },
+    slug: { type: String, required: true, unique: true },
+});
+// Middleware to generate slug before saving
+articleSchema.pre("save", function (next) {
+    if (this.isModified("title")) {
+        this.slug = this.title
+            .toLowerCase()
+            .replace(/ /g, "-")
+            .replace(/[^\w-]+/g, "");
+    }
+    next();
 });
 // Create a Model
 const Article = mongoose_1.default.model("Article", articleSchema);

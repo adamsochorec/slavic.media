@@ -1,14 +1,16 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import useArticleCrud from "../modules/articleCrud";
+import { useRoute } from "vue-router";
 
 // Destructure methods and state from articleCrud
-const { getSpecificArticle, article, documentID } = useArticleCrud();
+const { getSpecificArticleBySlug, article } = useArticleCrud();
+const route = useRoute();
 
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
-  await getSpecificArticle(documentID.value);
+  await getSpecificArticleBySlug(route.params.slug);
   isDataLoaded.value = true;
 });
 </script>

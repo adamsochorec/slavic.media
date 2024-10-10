@@ -27,8 +27,8 @@ const truncateText = (text, maxLength) => {
       <div class="container">
         <router-link
           v-for="article in state.articles"
-          :key="article._id"
-          :to="`/blog/${article.id}`"
+          :key="article.slug"
+          :to="`/blog/${article.slug}`"
           :class="{ 'article-item': true }"
         >
           <Card

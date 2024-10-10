@@ -26,6 +26,7 @@ interface imgInterface extends Document {
     iframe: string[];
   };
   title: string;
+  slug: string;
 }
 
 // Schema corresponding to the document interface.
@@ -49,8 +50,18 @@ const articleSchema: Schema = new Schema({
     iframe: { type: [String], required: false },
   },
   title: { type: String, required: true },
+  slug: { type: String, required: true, unique: true },
 });
-
+// Middleware to generate slug before saving
+articleSchema.pre("save", function (next) {
+  if (this.isModified("title")) {
+    this.slug = this.title
+      .toLowerCase()
+      .replace(/ /g, "-")
+      .replace(/[^\w-]+/g, "");
+  }
+  next();
+});
 // Create a Model
 const Article = mongoose.model<imgInterface>("Article", articleSchema);
 export default Article;

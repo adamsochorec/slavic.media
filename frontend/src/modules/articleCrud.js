@@ -1,5 +1,6 @@
 import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import axios from "axios";
 
 const useArticleCrud = () => {
   const route = useRoute();
@@ -151,7 +152,16 @@ const useArticleCrud = () => {
       console.error(error);
     }
   };
-
+  const getSpecificArticleBySlug = async (slug) => {
+    try {
+      const response = await axios.get(
+        `https://api.slavic.media/blog/articles/${slug}`
+      );
+      state.value.article = response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return {
     state,
     getAllArticles,
@@ -161,6 +171,7 @@ const useArticleCrud = () => {
     article,
     documentID,
     editArticle,
+    getSpecificArticleBySlug,
   };
 };
 

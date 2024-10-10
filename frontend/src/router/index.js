@@ -19,6 +19,15 @@ const router = createRouter({
       },
     },
     {
+      path: "/blog/:slug",
+      name: "blog Article",
+      component: () =>
+        import(/* webpackChunkName: "about" */ "../views/article.vue"),
+      meta: {
+        requiresAuth: false,
+      },
+    },
+    {
       path: "/our-team",
       name: "our team",
       component: () => import("../views/our-team.vue"),
@@ -54,15 +63,6 @@ const router = createRouter({
       path: "/contact",
       name: "contact",
       component: () => import("../views/contact.vue"),
-      meta: {
-        requiresAuth: false,
-      },
-    },
-    {
-      path: "/blog/:id",
-      name: "blog single",
-      component: () =>
-        import(/* webpackChunkName: "about" */ "../views/article.vue"),
       meta: {
         requiresAuth: false,
       },
