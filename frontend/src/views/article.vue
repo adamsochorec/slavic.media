@@ -4,13 +4,14 @@ import useArticleCrud from "../modules/articleCrud";
 import { useRoute } from "vue-router";
 
 // Destructure methods and state from articleCrud
-const { getSpecificArticleBySlug, article } = useArticleCrud();
+const { getSpecificArticleBySlug, state } = useArticleCrud();
 const route = useRoute();
 
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
   await getSpecificArticleBySlug(route.params.slug);
+  console.log("Loaded article:", route.params.slug);
   isDataLoaded.value = true;
 });
 </script>
@@ -20,16 +21,16 @@ onMounted(async () => {
     <hr class="semi" />
 
     <div v-if="isDataLoaded">
-      <img :src="article.metadata.thumbnail" />
+      <img :src="state.article.metadata.thumbnail" />
       <h1 style="font-size: var(--font-size-1)" class="mt-5 mb-5">
-        {{ article.title }}
+        {{ state.article.title }}
       </h1>
       <Card class="card" role="region">
         <template #content>
           <div class="flex items-center justify-between gap-2">
             <div class="flex items-center gap-2">
               <Avatar
-                :image="article.author.thumbnail"
+                :image="state.article.author.thumbnail"
                 size="large"
                 shape="circle"
               />
@@ -37,14 +38,14 @@ onMounted(async () => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  :href="article.author.url"
+                  :href="state.article.author.url"
                   style="font-size: var(--font-size-8)"
                   class="font-bold"
-                  >{{ article.author.name }}</a
+                  >{{ state.article.author.name }}</a
                 ><br />
                 <span style="font-size: var(--font-size-8)">
-                  {{ article.metadata.date }}&nbsp;⋅&nbsp;{{
-                    article.metadata.lenght
+                  {{ state.article.metadata.date }}&nbsp;⋅&nbsp;{{
+                    state.article.metadata.lenght
                   }}
                   min read</span
                 >
@@ -54,13 +55,13 @@ onMounted(async () => {
               <a
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                :href="article.metadata.linkedin"
+                :href="state.article.metadata.linkedin"
                 class="pi pi-linkedin"
               ></a>
               <a
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                :href="article.metadata.facebook"
+                :href="state.article.metadata.facebook"
                 class="pi pi-facebook"
               ></a>
               <Button
@@ -74,20 +75,20 @@ onMounted(async () => {
         </template>
       </Card>
 
-      <p class="mt-5 mb-5 reveal">{{ article.content.text[0] }}</p>
-      <img :src="article.content.img[0]" />
+      <p class="mt-5 mb-5 reveal">{{ state.article.content.text[0] }}</p>
+      <img :src="state.article.content.img[0]" />
       <p class="img-desc">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit.
       </p>
-      <p class="mt-5 mb-5 reveal">{{ article.content.text[1] }}</p>
-      <p class="mt-5 mb-5 reveal">{{ article.content.text[2] }}</p>
-      <img :src="article.content.img[1]" />
+      <p class="mt-5 mb-5 reveal">{{ state.article.content.text[1] }}</p>
+      <p class="mt-5 mb-5 reveal">{{ state.article.content.text[2] }}</p>
+      <img :src="state.article.content.img[1]" />
       <p class="img-desc">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit.
       </p>
-      <p class="mt-5 mb-5 reveal">{{ article.content.text[3] }}</p>
-      <p class="mt-5 mb-5 reveal">{{ article.content.text[4] }}</p>
-      <p class="mt-5 mb-5 reveal">{{ article.content.text[5] }}</p>
+      <p class="mt-5 mb-5 reveal">{{ state.article.content.text[3] }}</p>
+      <p class="mt-5 mb-5 reveal">{{ state.article.content.text[4] }}</p>
+      <p class="mt-5 mb-5 reveal">{{ state.article.content.text[5] }}</p>
     </div>
     <div
       v-else

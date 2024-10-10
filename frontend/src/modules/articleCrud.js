@@ -14,6 +14,7 @@ const useArticleCrud = () => {
     newAuthor: "",
     newThumbnail: "",
     articles: {},
+    article: {},
   });
 
   const getAllArticles = async () => {
@@ -171,7 +172,7 @@ const useArticleCrud = () => {
     newArticle,
     deleteArticle,
     getSpecificArticle,
-    article,
+    article: state.value.article,
     documentID,
     editArticle,
     getSpecificArticleBySlug,

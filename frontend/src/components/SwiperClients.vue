@@ -1056,7 +1056,7 @@ const onSlideChange = (e) => {
   </swiper-container>
 </template>
 
-<style>
+<style scoped>
 .clients path {
   fill: rgb(var(--white-color));
 }

@@ -6,6 +6,7 @@ const { state, getAllArticles } = articleCrud();
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
+  console.log("Fetching all articles");
   await getAllArticles();
   isDataLoaded.value = true;
 });
