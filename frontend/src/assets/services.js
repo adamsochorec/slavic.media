@@ -90,7 +90,6 @@ export const services = ref([
         route: "/press-resources",
         icon: "pi pi-print",
       },
-      { label: "Contact", route: "/contact", icon: "pi pi-comments" },
     ],
   },
 ]);

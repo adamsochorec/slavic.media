@@ -59,14 +59,6 @@ const router = createRouter({
         requiresAuth: false,
       },
     },
-    {
-      path: "/contact",
-      name: "contact",
-      component: () => import("../views/contact.vue"),
-      meta: {
-        requiresAuth: false,
-      },
-    },
     // Add the NotFound route at the end
     {
       path: "/:pathMatch(.*)*",

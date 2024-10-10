@@ -16,7 +16,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <article class="wrapper-standard mb-10 mt-10">
+  <article class="wrapper-standard">
+    <hr class="semi" />
+
     <div v-if="isDataLoaded">
       <img :src="article.metadata.thumbnail" />
       <h1 style="font-size: var(--font-size-1)" class="mt-5 mb-5">
@@ -105,6 +107,7 @@ onMounted(async () => {
         <Skeleton width="4rem" height="2rem"></Skeleton>
       </div>
     </div>
+    <hr class="semi" />
   </article>
 </template>
 
