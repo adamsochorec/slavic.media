@@ -2,7 +2,12 @@
 import { ref, onMounted } from "vue";
 import Gallery from "@/components/Gallery.vue";
 import axios from "axios";
+import useImgCrud from "@/modules/imgCrud";
 
+// Destructure getSpecificImg and img from useImgCrud
+const { getSpecificImg, img } = useImgCrud();
+
+const logoImage = ref(null);
 const photoServices = ref([
   {
     title: "Colorful Portrait",
@@ -45,6 +50,10 @@ const isDataLoaded = ref(false);
 const imagesData = ref([]);
 
 onMounted(async () => {
+  // Fetch specific image with ID "Primary-1"
+  await getSpecificImg("Primary-1");
+  logoImage.value = img.value;
+
   const imageIds = photoServices.value.flatMap((service) => [
     ...service.column1,
     ...service.column2,

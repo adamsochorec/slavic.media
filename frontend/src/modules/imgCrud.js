@@ -7,6 +7,7 @@ const useImgCrud = () => {
 
   const documentID = computed(() => route.params.id);
   const state = ref({
+    newId: "",
     newLargeURL: "",
     newThumbnailURL: "",
     newWidth: 0,
@@ -44,6 +45,7 @@ const useImgCrud = () => {
 
   const newImg = async () => {
     if (
+      !state.value.newId ||
       !state.value.newLargeURL ||
       !state.value.newThumbnailURL ||
       !state.value.newWidth ||
@@ -64,6 +66,7 @@ const useImgCrud = () => {
           "auth-token": localStorage.lsToken,
         },
         body: JSON.stringify({
+          id: state.value.newId,
           largeURL: state.value.newLargeURL,
           thumbnailURL: state.value.newThumbnailURL,
           width: state.value.newWidth,
@@ -120,6 +123,7 @@ const useImgCrud = () => {
         throw new Error("No ID provided");
       }
       if (
+        !state.value.newId ||
         !state.value.newLargeURL ||
         !state.value.newThumbnailURL ||
         !state.value.newWidth ||
@@ -140,6 +144,7 @@ const useImgCrud = () => {
           "auth-token": localStorage.lsToken,
         },
         body: JSON.stringify({
+          id: state.value.newId,
           largeURL: state.value.newLargeURL,
           thumbnailURL: state.value.newThumbnailURL,
           width: state.value.newWidth,
