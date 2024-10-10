@@ -48,8 +48,8 @@ const articleSchema = new mongoose_1.Schema({
     slug: { type: String, required: true, unique: true },
 });
 // Middleware to generate slug before saving
-articleSchema.pre("save", function (next) {
-    if (this.isModified("title")) {
+articleSchema.pre("validate", function (next) {
+    if (!this.slug && this.title) {
         this.slug = this.title
             .toLowerCase()
             .replace(/ /g, "-")
