@@ -50,6 +50,54 @@ components:
         date:
           type: string
 
+    img:
+      type: object
+      properties:
+        _id:
+          type: string
+        largeURL:
+          type: string
+        thumbnailURL:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+        flag:
+          type: string
+        title:
+          type: string
+        alt:
+          type: string
+        client:
+          type: string
+
+    photoService:
+      type: object
+      properties:
+        title:
+          type: string
+        handle:
+          type: string
+        description:
+          type: string
+        column1:
+          type: array
+          items:
+            type: string
+        column2:
+          type: array
+          items:
+            type: string
+        column3:
+          type: array
+          items:
+            type: string
+        column4:
+          type: array
+          items:
+            type: string
+
 paths:
   /user/register:
     post:
@@ -136,15 +184,15 @@ paths:
               schema:
                 $ref: "#/components/schemas/article"
 
-  /blog/{ID}:
+  /blog/{slug}:
     get:
       summary: Retrieve a specific document
-      description: Retrieves a specific document based on its ID
+      description: Retrieves a specific document based on its slug
       parameters:
         - in: path
-          name: ID
+          name: slug
           required: true
-          description: MongoDB ID
+          description: Document slug
           schema:
             type: string
       responses:
@@ -156,14 +204,14 @@ paths:
                 $ref: "#/components/schemas/article"
     put:
       summary: Update a specific document
-      description: Updates a specific document based on its ID
+      description: Updates a specific document based on its slug
       security:
         - ApiKeyAuth: []
       parameters:
         - in: path
-          name: ID
+          name: slug
           required: true
-          description: MongoDB ID
+          description: Document slug
           schema:
             type: string
       requestBody:
@@ -180,15 +228,15 @@ paths:
               schema:
                 $ref: "#/components/schemas/article"
     delete:
-      summary: Delete a specific ID
-      description: Deletes a specific document based on its ID
+      summary: Delete a specific document
+      description: Deletes a specific document based on its slug
       security:
         - ApiKeyAuth: []
       parameters:
         - in: path
-          name: ID
+          name: slug
           required: true
-          description: MongoDB ID
+          description: Document slug
           schema:
             type: string
       responses:
@@ -198,3 +246,193 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/article"
+
+  /img:
+    post:
+      summary: Create a new image document
+      description: Creates a new image document and sends it to the server for storage.
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/img"
+      responses:
+        201:
+          description: Image document created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/img"
+    get:
+      summary: Fetches all image documents from the server
+      description: Retrieves a list of image documents as JSON objects
+      responses:
+        200:
+          description: A list of JSON objects in an array
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/img"
+
+  /img/{id}:
+    get:
+      summary: Retrieve a specific image document
+      description: Retrieves a specific image document based on its ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Image document ID
+          schema:
+            type: string
+      responses:
+        200:
+          description: An image document in the format of a JSON object
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/img"
+    put:
+      summary: Update a specific image document
+      description: Updates a specific image document based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Image document ID
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/img"
+      responses:
+        200:
+          description: Successfully updated!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/img"
+    delete:
+      summary: Delete a specific image document
+      description: Deletes a specific image document based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Image document ID
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/img"
+
+  /photoServices:
+    post:
+      summary: Create a new photo service document
+      description: Creates a new photo service document and sends it to the server for storage.
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/photoService"
+      responses:
+        201:
+          description: Photo service document created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/photoService"
+    get:
+      summary: Fetches all photo service documents from the server
+      description: Retrieves a list of photo service documents as JSON objects
+      responses:
+        200:
+          description: A list of JSON objects in an array
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/photoService"
+
+  /photoServices/{id}:
+    get:
+      summary: Retrieve a specific photo service document
+      description: Retrieves a specific photo service document based on its ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Photo service document ID
+          schema:
+            type: string
+      responses:
+        200:
+          description: A photo service document in the format of a JSON object
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/photoService"
+    put:
+      summary: Update a specific photo service document
+      description: Updates a specific photo service document based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Photo service document ID
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/photoService"
+      responses:
+        200:
+          description: Successfully updated!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/photoService"
+    delete:
+      summary: Delete a specific photo service document
+      description: Deletes a specific photo service document based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Photo service document ID
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/photoService"
