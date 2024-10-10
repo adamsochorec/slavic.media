@@ -22,7 +22,7 @@ const imgSchema = new Schema({
   flag: { type: String, required: false },
   title: { type: String, required: true },
   alt: { type: String, required: true },
-  client: { type: String, required: true },
+  client: { type: String, required: false },
 });
 
 // Create a Model

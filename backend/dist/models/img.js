@@ -33,7 +33,7 @@ const imgSchema = new mongoose_1.Schema({
     flag: { type: String, required: false },
     title: { type: String, required: true },
     alt: { type: String, required: true },
-    client: { type: String, required: true },
+    client: { type: String, required: false },
 });
 // Create a Model
 const imgModel = mongoose_1.default.model("img", imgSchema);
