@@ -81,7 +81,7 @@ const truncateText = (text, maxLength) => {
                   ><br />
                   <span style="font-size: var(--font-size-8)">
                     {{ article.metadata.date }}&nbsp;⋅&nbsp;{{
-                      article.metadata.lenght
+                      article.metadata.length
                     }}
                     min read</span
                   >

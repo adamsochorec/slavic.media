@@ -18,7 +18,7 @@ interface imgInterface extends Document {
     linkedin: string;
     facebook: string;
     thumbnail: string;
-    lenght: number;
+    length: number;
   };
   content: {
     text: string[];
@@ -42,7 +42,7 @@ const articleSchema: Schema = new Schema({
     linkedin: { type: String, required: false },
     facebook: { type: String, required: false },
     thumbnail: { type: String, required: true },
-    lenght: { type: Number, required: true },
+    length: { type: Number, required: true },
   },
   content: {
     text: { type: [String], required: true },

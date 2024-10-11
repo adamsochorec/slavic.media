@@ -22,10 +22,10 @@ onMounted(async () => {
 
     <div v-if="isDataLoaded">
       <img :src="state.article.metadata.thumbnail" />
-      <h1 style="font-size: var(--font-size-1)" class="mt-5 mb-5">
+      <h1 style="font-size: var(--font-size-1)" class="mt-5 mb-5 reveal">
         {{ state.article.title }}
       </h1>
-      <Card class="card" role="region">
+      <Card class="card reveal" role="region">
         <template #content>
           <div class="flex items-center justify-between gap-2">
             <div class="flex items-center gap-2">
@@ -45,7 +45,7 @@ onMounted(async () => {
                 ><br />
                 <span style="font-size: var(--font-size-8)">
                   {{ state.article.metadata.date }}&nbsp;⋅&nbsp;{{
-                    state.article.metadata.lenght
+                    state.article.metadata.length
                   }}
                   min read</span
                 >
@@ -64,12 +64,6 @@ onMounted(async () => {
                 :href="state.article.metadata.facebook"
                 class="pi pi-facebook"
               ></a>
-              <Button
-                class="cta"
-                type="button"
-                label="Share"
-                icon="pi pi-share-alt"
-              />
             </div>
           </div>
         </template>
@@ -77,15 +71,10 @@ onMounted(async () => {
 
       <p class="mt-5 mb-5 reveal">{{ state.article.content.text[0] }}</p>
       <img :src="state.article.content.img[0]" />
-      <p class="img-desc">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-      </p>
+
       <p class="mt-5 mb-5 reveal">{{ state.article.content.text[1] }}</p>
       <p class="mt-5 mb-5 reveal">{{ state.article.content.text[2] }}</p>
       <img :src="state.article.content.img[1]" />
-      <p class="img-desc">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-      </p>
       <p class="mt-5 mb-5 reveal">{{ state.article.content.text[3] }}</p>
       <p class="mt-5 mb-5 reveal">{{ state.article.content.text[4] }}</p>
       <p class="mt-5 mb-5 reveal">{{ state.article.content.text[5] }}</p>

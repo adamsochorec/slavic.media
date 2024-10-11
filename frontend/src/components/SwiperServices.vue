@@ -6,6 +6,7 @@ import "swiper/element/css/virtual";
 import "swiper/element/css/autoplay";
 import { register } from "swiper/element/bundle";
 import { RouterLink } from "vue-router";
+import useImgCrud from "@/modules/imgCrud";
 
 register();
 
