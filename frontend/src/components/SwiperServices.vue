@@ -82,6 +82,7 @@ const onSlideChange = (e) => {
         <Card style="width: 100%; overflow: hidden">
           <template #header>
             <img
+              style="object-fit: cover; height: 200px; width: 100%"
               :src="service.img"
               :title="service.title"
               :alt="service.title"
