@@ -32,7 +32,7 @@ app.use(PrimeVue, {
     preset: slavicmedia,
     options: {
       prefix: "p",
-      darkModeSelector: "system",
+      darkModeSelector: ".dark-mode",
       cssLayer: false,
     },
   },
