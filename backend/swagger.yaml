@@ -150,7 +150,7 @@ paths:
                   data:
                     type: string
 
-  /blog:
+  /blog/articles/:
     get:
       summary: Fetches all documents from the server
       description: Retrieves a list of documents as JSON objects
@@ -184,7 +184,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/article"
 
-  /blog/{slug}:
+  /blog/articles/{slug}:
     get:
       summary: Retrieve a specific document
       description: Retrieves a specific document based on its slug
@@ -342,7 +342,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/img"
 
-  /photoServices:
+  /services/photo/:
     post:
       summary: Create a new photo service document
       description: Creates a new photo service document and sends it to the server for storage.
@@ -374,7 +374,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/photoService"
 
-  /photoServices/{id}:
+  /services/photo/{id}:
     get:
       summary: Retrieve a specific photo service document
       description: Retrieves a specific photo service document based on its ID
