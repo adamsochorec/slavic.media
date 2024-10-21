@@ -9,7 +9,7 @@ interface userInterface extends Document {
   date: Date;
 }
 
-// Schema corresponding to the document interface.
+// Schema corresponding to the document interface
 const userSchema: Schema = new Schema({
   name: {
     type: String,
