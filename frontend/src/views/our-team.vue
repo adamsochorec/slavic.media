@@ -1,7 +1,7 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.css";
-import CoverVideo from "@/components/HeroVideo.vue";
+import heroVideo from "@/components/hero-video.vue";
 
 // CAROUSEL
 const employees = [
@@ -58,7 +58,7 @@ const employees = [
 
 <template>
   <div>
-    <CoverVideo
+    <heroVideo
       src="https://slavic.media/img/bts.mp4"
       poster="https://slavic.media/img/bts.png"
       loop

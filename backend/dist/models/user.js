@@ -25,7 +25,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // Import the mongoose module to interact with MongoDB
 const mongoose_1 = __importStar(require("mongoose"));
-// Schema corresponding to the document interface.
+// Schema corresponding to the document interface
 const userSchema = new mongoose_1.Schema({
     name: {
         type: String,

@@ -46,7 +46,7 @@ const router = createRouter({
     {
       path: "/services/photo",
       name: "photo",
-      component: () => import("../views/Photo.vue"),
+      component: () => import("../views/photo.vue"),
       meta: {
         requiresAuth: false,
       },
@@ -54,7 +54,7 @@ const router = createRouter({
     {
       path: "/services/video",
       name: "video",
-      component: () => import("../views/Video.vue"),
+      component: () => import("../views/video.vue"),
       meta: {
         requiresAuth: false,
       },

@@ -129,4 +129,52 @@ onMounted(() => {
   transform: translate(-50%, -50%);
   object-fit: cover;
 }
+
+/* ORIGINAL INTRO VIDEO START 
+.showcase {
+  height: var(--dimension-1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  overflow: hidden;
+  background-image: url(/img/showreel.png);
+  background-position: center;
+  background-size: cover;
+}
+.video-container video {
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.video-container:after {
+  content: "";
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0);
+  position: absolute;
+}
+
+/* INTRO VIDEO END */
 </style>

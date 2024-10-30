@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import Gallery from "@/components/Gallery.vue";
+import gallery from "@/components/gallery.vue";
+import contactForm from "@/components/contact-form.vue";
+
 import axios from "axios";
 import useImgCrud from "@/modules/imgCrud";
 
@@ -94,10 +96,10 @@ onMounted(async () => {
 </script>
 
 <template>
-  <article class="wrapper-wide">
-    <hr class="semi" />
-
+  <article class="wrapper-wide main" style="margin-top: 120px">
     <div v-if="isDataLoaded">
+      <contactForm></contactForm>
+
       <Fluid>
         <div class="grid grid-cols-2 gap-4">
           <div>
@@ -111,23 +113,39 @@ onMounted(async () => {
               vast outdoors, our photography captures authentic moments, rich in
               detail and emotion, that tell your story.
             </p>
-            <ContactDialog />
+            <router-link
+              class="popup-with-form reveal"
+              href="#request-a-proposal"
+            >
+              <div class="cta">
+                Request a Proposal<i class="pi pi-arrow-right"></i>
+              </div>
+            </router-link>
           </div>
         </div>
       </Fluid>
 
-      <Gallery :galleryID="'all-images-gallery'" :images="imagesData" />
+      <gallery :galleryID="'all-images-gallery'" :images="imagesData" />
       <hr class="semi" />
       <!-- CTA SECTION -->
       <Fluid>
         <div class="grid grid-cols-2 gap-4">
-          <ContactDialog />
-          <Button
-            as="a"
-            label="Our Lightroom Presets"
-            href="https://store.slavic.media"
-            rounded
-          />
+          <router-link
+            class="popup-with-form reveal"
+            href="#request-a-proposal"
+          >
+            <div class="cta">
+              Request a Proposal<i class="pi pi-arrow-right"></i>
+            </div>
+          </router-link>
+          <router-link class="reveal active" href="https://store.slavic.media/">
+            <div class="cta-secondary cta">
+              Our Lightroom Presets<i
+                class="fa-solid fa-arrow-right"
+                aria-hidden="true"
+              ></i>
+            </div>
+          </router-link>
         </div>
       </Fluid>
     </div>
@@ -149,7 +167,6 @@ onMounted(async () => {
         <Skeleton width="4rem" height="2rem"></Skeleton>
       </div>
     </div>
-    <hr class="semi" />
   </article>
 </template>
 

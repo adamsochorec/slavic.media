@@ -7,8 +7,8 @@ import useImgCrud from "@/modules/imgCrud";
 provideAuth();
 
 // COMPONENTS
-import Footer from "@/components/Footer.vue";
-import MenuBar from "@/components/MenuBar.vue";
+import Footer from "@/components/footer.vue";
+import navBar from "@/components/nav-bar.vue";
 
 // Dark Mode State
 const darkMode = ref(false);
@@ -49,6 +49,7 @@ reveal();
 
 <template>
   <div>
+    <!-- HEADER START -->
     <header
       style="
         display: flex;
@@ -70,7 +71,8 @@ reveal();
           />
         </div>
       </RouterLink>
-      <MenuBar />
+      <navBar />
+
       <div style="display: flex; align-items: center">
         <Button
           class="rounded border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900"
@@ -82,17 +84,13 @@ reveal();
         ></Button>
       </div>
     </header>
-    <main
-      style="
-        font-family: var(--content-font);
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-      "
-    >
+    <!-- HEADER END -->
+    <main>
       <RouterView />
     </main>
-    <Footer />
+    <hr class="semi bodyxfooter" role="separator" />
+
+    <Footer></Footer>
   </div>
 </template>
 <style scoped></style>

@@ -20,7 +20,7 @@
           aria-label="Email: contact@slavic.media"
           role="link"
         >
-          <i class="pi pi-envelope" rounded outlined></i>
+          <i class="pi pi-envelope"></i>
         </a>
       </div>
       <div
@@ -61,7 +61,7 @@
           aria-label="Slavic Media Instagram"
           role="link"
         >
-          <i title="Instagram" class="pi pi-instagram"></i>
+          <i title="Instagram" class="pi pi-instagram fa-xl"></i>
         </a>
       </div>
     </div>
@@ -124,17 +124,7 @@ export default {
 </script>
 
 <style scoped>
-footer {
-  font-size: clamp(0.8em, 1.5vw, 0.8em);
-}
-footer a.footer-nav {
-  color: rgb(var(--primary-color));
-  text-decoration: underline;
-}
-footer a.footer-nav:hover {
-  opacity: 80%;
-  text-decoration: underline;
-}
+/* FOOTER START */
 footer {
   padding: var(--grid-gap-3) var(--homepage-padding);
   background-color: rgb(var(--dark-grey-color));
@@ -151,9 +141,9 @@ footer a.footer-nav {
   color: white;
 }
 footer .footer-container {
-  display: flex;
   display: -webkit-box;
   display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -195,22 +185,6 @@ footer .language-container {
 .social-icons a:nth-child(5) {
   margin-right: 0;
 }
-@media only screen and (max-width: 850px) {
-  footer {
-    font-size: var(--fontsize-note);
-  }
-  footer .footer-container:last-of-type {
-    display: block;
-    text-align: center;
-  }
-  footer .footer-container .footerBreak {
-    display: block;
-  }
-}
-@media only screen and (min-height: 700px) and (min-width: 1500px) {
-  #press footer {
-    position: absolute;
-    bottom: 0;
-  }
-}
+/* SOCIAL ICONS END */
+/* FOOTER END */
 </style>
