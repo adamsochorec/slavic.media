@@ -46,7 +46,7 @@ const router = createRouter({
     {
       path: "/services/photo",
       name: "photo",
-      component: () => import("../views/photo.vue"),
+      component: () => import("../views/Photo.vue"),
       meta: {
         requiresAuth: false,
       },
