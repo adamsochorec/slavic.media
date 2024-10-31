@@ -35,6 +35,7 @@ const router = createRouter({
         requiresAuth: false,
       },
     },
+    // PRESS RESOURCES
     {
       path: "/press-resources",
       name: "press resources",
@@ -43,6 +44,8 @@ const router = createRouter({
         requiresAuth: false,
       },
     },
+
+    // SERVICES
     {
       path: "/services/photo",
       name: "photo",
@@ -59,6 +62,7 @@ const router = createRouter({
         requiresAuth: false,
       },
     },
+    // LEGAL
     {
       path: "/legal/cookie-policy",
       name: "cookie policy",

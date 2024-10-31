@@ -1,4 +1,35 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+// Define the press items in an array
+const pressItems = ref([
+  {
+    href: "/press-resources/brand-guide.pdf",
+    img: "https://slavic.media/img/cover-brandguide.png",
+    title: "Brand Guide",
+    description:
+      "Sets the visual and stylistic standards for the brand, ensuring consistency in logos, colours, fonts, and design.",
+    ariaLabel: "Link to Brand Guide",
+  },
+  {
+    href: "/press-resources/credit-guide.pdf",
+    img: "https://slavic.media/img/cover-creditguide.png",
+    title: "Credit Guide",
+    description:
+      "Outlines how to tag and credit work across digital as well as printed media.",
+    ariaLabel: "Link to Credit Guide",
+  },
+  {
+    href: "/press-resources/press-kit.zip",
+    img: "https://slavic.media/img/cover-presskit.jpg",
+    title: "Press Kit",
+    description:
+      "Package of vectorised logos, fonts and other essential branding materials.",
+    ariaLabel: "Link to Press Kit",
+  },
+]);
+</script>
+
 <template>
   <div class="main" style="margin-top: 120px">
     <article class="wrapper-wide">
@@ -13,9 +44,9 @@
         class="reveal"
         role="heading"
         aria-level="1"
-        aria-label="Page Title: For Press"
+        aria-label="Page Title: Press Resources"
       >
-        For Press
+        Press Resources
       </h1>
       <div
         class="pathname-container reveal"
@@ -27,7 +58,7 @@
           <span class="pathname"
             ><a href="/" aria-label="Home"></a> &#8250;
           </span>
-          <span class="pathname" aria-label="press">For Press</span>
+          <span class="pathname" aria-label="press">Press Resources</span>
         </p>
       </div>
       <hr class="reveal" role="separator" aria-label="Separator" />
@@ -38,71 +69,37 @@
         role="grid"
         aria-label="Press Materials Grid"
       >
-        <!-- BRAND GUIDE START -->
         <a
+          v-for="(item, index) in pressItems"
+          :key="index"
           class="gallery-item"
-          href="/assets/brand-guide.pdf"
-          rel="noopener noreferrer nofollow"
+          :href="item.href"
           target="_blank"
-          aria-label="Link to Brand Guide"
+          :aria-label="item.ariaLabel"
         >
-          <h2 id="brandGuideHeading" aria-label="Brand Guide Title">
-            Brand Guide
+          <h2
+            :id="`${item.title.replace(/\s+/g, '')}Heading`"
+            :aria-label="`${item.title} Title`"
+          >
+            {{ item.title }}
           </h2>
 
-          <div class="grid-item" id="brand-guide" role="gridcell"></div>
-          <p
-            aria-label="Sets the visual and stylistic standards for the brand, ensuring consistency in logos, colours, fonts, and design."
-          >
-            Sets the visual and stylistic standards for the brand, ensuring
-            consistency in logos, colours, fonts, and design.
+          <div
+            class="grid-item"
+            :id="item.title.replace(/\s+/g, '-').toLowerCase()"
+            role="gridcell"
+            :style="{ backgroundImage: `url(${item.img})` }"
+          ></div>
+          <p :aria-label="item.description">
+            {{ item.description }}
           </p>
         </a>
-        <!-- BRAND GUIDE END -->
-        <!-- CREDIT GUIDE START -->
-        <a
-          class="gallery-item"
-          href="/assets/credit-guide.pdf"
-          rel="noopener noreferrer nofollow"
-          target="_blank"
-          aria-label="Link to Credit Guide"
-        >
-          <h2 id="creditGuideHeading" aria-label="Credit Guide Title">
-            Credit Guide
-          </h2>
-
-          <div class="grid-item" id="credit-guide" role="gridcell"></div>
-          <p
-            aria-label="Outlines how to tag and credit work across digital as well as printed media."
-          >
-            Outlines how to tag and credit work across digital as well as
-            printed media.
-          </p>
-        </a>
-        <!-- CREDIT GUIDE END -->
-        <!-- PRESS KIT START -->
-        <a
-          class="gallery-item"
-          href="/assets/press-kit.zip"
-          target="_blank"
-          aria-label="Link to Press Kit"
-        >
-          <h2 id="pressKitHeading" aria-label="Press Kit Title">Press Kit</h2>
-
-          <div class="grid-item" id="press-kit" role="gridcell"></div>
-          <p
-            aria-label="Package of vectorised logos, fonts and other essential branding materials."
-          >
-            Package of vectorised logos, fonts and other essential branding
-            materials.
-          </p>
-        </a>
-        <!-- PRESS KIT END -->
       </div>
       <!-- PRESS MATERIALS GRID END -->
     </article>
   </div>
 </template>
+
 <style lang="scss" scoped>
 /* GALLERY PRESS START */
 #gallery-press {
@@ -118,18 +115,6 @@
   -webkit-transform: unset;
   -ms-transform: unset;
   transform: unset;
-}
-#gallery-press #brand-guide {
-  background-image: url(https://slavic.media/img/cover-brandguide.png);
-}
-#gallery-press #credit-guide {
-  background-image: url(https://slavic.media/img/cover-creditguide.png);
-}
-#gallery-press #press-kit {
-  background-image: url(https://slavic.media/img/cover-presskit.jpg);
-}
-#gallery-press i:hover {
-  color: rgb(var(--white-color));
 }
 #gallery-press .grid-item {
   height: var(--dimension-2);

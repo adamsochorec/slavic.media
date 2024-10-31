@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import $ from "jquery";
 import swiperReels from "@/components/swiper-reels.vue";
 
@@ -29,6 +29,56 @@ onMounted(() => {
     });
   });
 });
+
+const showreel = ref([
+  {
+    src: "https://slavic.media/img/cover-norwegianfjords.jpg",
+    alt: "Timetravels.",
+    iconClass: "pi pi-play-circle bubble",
+    flagTitle: "Flag of Norway",
+    flagHref: "#flag-norway",
+    title: "Norwegian Fjords",
+    year: "2024",
+    client: "timetravels.com",
+    videoLink: "https://vimeo.com/950575511",
+  },
+  {
+    src: "https://slavic.media/img/cover-finnishlapland.jpg",
+    alt: "Timetravels.",
+    iconClass: "pi pi-play-circle bubble",
+    flagTitle: "Flag of Finland",
+    flagHref: "#flag-finland",
+    title: "Finnish Lapland",
+    year: "2024",
+    client: "timetravels.com",
+    videoLink: "https://vimeo.com/950575512",
+  },
+]);
+
+const narrative = ref([
+  {
+    src: "https://slavic.media/img/cover-narrative1.jpg",
+    alt: "Narrative 1.",
+    iconClass: "pi pi-play-circle bubble",
+    flagTitle: "Flag of Sweden",
+    flagHref: "#flag-sweden",
+    title: "Swedish Story",
+    year: "2023",
+    client: "narrative.com",
+    videoLink: "https://vimeo.com/950575513",
+  },
+  {
+    src: "https://slavic.media/img/cover-narrative2.jpg",
+    alt: "Narrative 2.",
+    iconClass: "pi pi-play-circle bubble",
+    flagTitle: "Flag of Denmark",
+    flagHref: "#flag-denmark",
+    title: "Danish Tale",
+    year: "2023",
+    client: "narrative.com",
+    videoLink: "https://vimeo.com/950575514",
+  },
+]);
 </script>
 <template>
   <div class="main">
@@ -85,101 +135,38 @@ onMounted(() => {
         </div>
         <hr class="semi" role="separator" />
       </article>
-      <!-- GALLERY ITEM 1.1 -->
+      <!-- GALLERY 1.1 -->
       <article
         class="wrapper-wide gallery"
         id="gallery-video"
         aria-label="Video Gallery"
       >
-        <div class="gallery-item reveal">
-          <img
-            src="https://slavic.media/img/cover-fynutzu.jpg"
-            alt="Fynutzu Music"
-          />
+        <div
+          v-for="(item, index) in showreel"
+          :key="index"
+          class="gallery-item reveal"
+        >
+          <img :src="item.src" :alt="item.alt" />
           <div class="gallery-item-caption">
-            <i class="pi pi-play-circle bubble"> </i>
-            <svg class="flag note" title="Flag of Denmark">
-              <use href="#flag-denmark"></use>
+            <i :class="item.iconClass"></i>
+            <svg class="flag note" :title="item.flagTitle">
+              <use :href="item.flagHref"></use>
             </svg>
-
-            <h4>Tech the Night</h4>
+            <h4>{{ item.title }}</h4>
             <p>
-              2024&nbsp;|&nbsp;<span>fynutzumusic.com</span
-              ><i class="pi pi-arrow-right"></i>
+              {{ item.year }}&nbsp;|&nbsp;<span>{{ item.client }}</span>
+              <i class="pi pi-arrow-right"></i>
             </p>
-            <a href="https://vimeo.com/994873542"></a>
-          </div>
-        </div>
-        <!-- GALLERY ITEM 1.2 -->
-        <div class="gallery-item reveal">
-          <img
-            src="https://slavic.media/img/cover-norwegianfjords.jpg"
-            alt="Timetravels."
-          />
-          <div class="gallery-item-caption">
-            <i class="pi pi-play-circle bubble"> </i>
-            <svg class="flag note" title="Flag of Norway">
-              <use href="#flag-norway"></use>
-            </svg>
-
-            <h4>Norwegian Fjords</h4>
-            <p>
-              2024&nbsp;|&nbsp;<span>timetravels.com</span
-              ><i class="pi pi-arrow-right"></i>
-            </p>
-            <a href="https://vimeo.com/950575511"></a>
-          </div>
-        </div>
-        <!-- GALLERY ITEM 1.3 -->
-        <div class="gallery-item reveal">
-          <img
-            src="https://slavic.media/img/cover-finnishlapland.jpg"
-            alt="Timetravels."
-          />
-          <div class="gallery-item-caption">
-            <i class="pi pi-play-circle bubble"> </i>
-            <svg
-              class="flag note"
-              title="Flag of Finland"
-              viewBox="0 0 16 16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <use href="#flag-finland"></use>
-            </svg>
-            <h4>Finnish Lapland</h4>
-            <p>
-              2024&nbsp;|&nbsp;<span>timetravels.com</span
-              ><i class="pi pi-arrow-right"></i>
-            </p>
-            <a href="https://vimeo.com/950479131"></a>
-          </div>
-        </div>
-        <!-- GALLERY ITEM 1.4 -->
-        <div class="gallery-item reveal">
-          <img
-            src="https://slavic.media/img/cover-swedishlapland.jpg"
-            alt="Timetravels."
-          />
-          <div class="gallery-item-caption">
-            <i class="pi pi-play-circle bubble"> </i>
-            <svg
-              class="flag note"
-              title="Flag of Sweden"
-              viewBox="0 0 16 16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <use href="#flag-sweden"></use>
-            </svg>
-            <h4>Swedish Lapland</h4>
-            <p>
-              2024&nbsp;|&nbsp;<span>timetravels.com</span
-              ><i class="pi pi-arrow-right"></i>
-            </p>
-            <a href="https://vimeo.com/942145699"></a>
+            <a
+              :href="item.videoLink"
+              target="_blank"
+              rel="noopener noreferrer"
+            ></a>
           </div>
         </div>
         <div id="content"></div>
       </article>
+
       <hr role="separator" />
 
       <!-- SWIPER GALLERY -->
@@ -224,58 +211,36 @@ onMounted(() => {
       </div>
       <hr class="semi" role="separator" />
     </article>
-    <!-- GALLERY ITEM 2.1 -->
+    <!-- GALLERY 2.1 -->
     <article
       class="wrapper-wide gallery"
       id="gallery-video"
       aria-label="Video Gallery"
     >
-      <div class="gallery-item reveal">
-        <img
-          src="https://slavic.media/img/cover-huskyfarm.jpg"
-          alt="Timetravels."
-        />
+      <div
+        v-for="(item, index) in narrative"
+        :key="index"
+        class="gallery-item reveal"
+      >
+        <img :src="item.src" :alt="item.alt" />
         <div class="gallery-item-caption">
-          <i class="pi pi-play-circle bubble"> </i>
-          <svg class="flag note" title="Flag of Finland">
-            <use href="#flag-finland"></use>
+          <i :class="item.iconClass"></i>
+          <svg class="flag note" :title="item.flagTitle">
+            <use :href="item.flagHref"></use>
           </svg>
-          <h4>Husky Farm Veskoniemi</h4>
+          <h4>{{ item.title }}</h4>
           <p>
-            2024&nbsp;|&nbsp;<span>timetravels.com</span
-            ><i class="pi pi-arrow-right"></i>
-          </p>
-          <a href="https://vimeo.com/956644060"></a>
-        </div>
-      </div>
-      <!-- GALLERY ITEM 2.2 -->
-      <div class="gallery-item reveal" aria-label="Huset Fundament 2023">
-        <img
-          src="https://slavic.media/img/cover-husetfundament.jpg"
-          alt="Showreel of a cultural volunteer organisation.."
-        />
-        <div class="gallery-item-caption">
-          <i class="pi pi-play-circle bubble"></i>
-
-          <svg
-            class="flag note"
-            title="Flag of Denmark"
-            viewBox="0 0 16 16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <use href="#flag-denmark"></use>
-          </svg>
-          <h4>Huset Fundament</h4>
-          <p>
-            2023&nbsp;|&nbsp;<span>husetfundament.dk</span
-            ><i class="pi pi-arrow-right"></i>
+            {{ item.year }}&nbsp;|&nbsp;<span>{{ item.client }}</span>
+            <i class="pi pi-arrow-right"></i>
           </p>
           <a
-            aria-label="Open video popup for Huset Fundament"
-            href="https://vimeo.com/942148434"
+            :href="item.videoLink"
+            target="_blank"
+            rel="noopener noreferrer"
           ></a>
         </div>
       </div>
+      <!-- NARRATIVE ITEMS END -->
     </article>
     <section class="flex-center">
       <router-link class="popup-with-form reveal" href="#request-a-proposal">

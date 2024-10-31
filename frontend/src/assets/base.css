@@ -40,11 +40,10 @@
 }
 @font-face {
   font-family: "SF Pro Display";
-  src: url(https://slavic.media/assets/SF-Pro-Display-Light.ttf)
-    format("truetype");
+  src: url(../../public/fonts/SF-Pro-Display-Light.ttf) format("truetype");
 }
 
 @font-face {
   font-family: Raleway Semibold;
-  src: url(https://slavic.media/assets/Raleway-SemiBold.ttf) format("truetype");
+  src: url(../../public/fonts/Raleway-SemiBold.ttf) format("truetype");
 }

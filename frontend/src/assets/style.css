@@ -11,15 +11,6 @@
   scroll-behavior: smooth;
 }
 
-@font-face {
-  font-family: "SF Pro Display";
-  src: url(/assets/SFProDisplay-Light.ttf) format("truetype");
-}
-@font-face {
-  font-family: Raleway Semibold;
-  src: url(/assets/Raleway-SemiBold.ttf) format("truetype");
-}
-
 /* GLOBAL START */
 body {
   background-color: rgb(var(--grey-color));

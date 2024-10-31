@@ -1,9 +1,31 @@
 <script setup>
+import { ref } from "vue";
 import heroVideo from "@/components/hero-video.vue";
 import contactForm from "@/components/contact-form.vue";
 import swiperClients from "@/components/swiper-clients.vue";
 import swiperReviews from "@/components/swiper-reviews.vue";
+
+// GALLERY START
+const galleryItems = ref([
+  {
+    to: "/services/video",
+    img: "https://slavic.media/img/cover-video.jpg",
+    iconClass: "pi pi-video bubble",
+    title: "Video",
+    description:
+      "From inspiring stories to cinematic visuals, each video project is crafted to captivate, impress, and showcase your vision with creative precision.",
+  },
+  {
+    to: "/services/photo",
+    img: "https://slavic.media/img/cover-photo.jpg",
+    iconClass: "pi pi-camera bubble",
+    title: "Photo",
+    description:
+      "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
+  },
+]); // GALLERY END
 </script>
+
 <template>
   <div class="main">
     <!-- INTRO VIDEO START -->
@@ -45,45 +67,24 @@ import swiperReviews from "@/components/swiper-reviews.vue";
       <swiperClients></swiperClients>
       <hr style="margin-top: 30px" role="separator" />
 
-      <!-- FEATURES START -->
-      <article id="visual" class="gallery" aria-label="Services">
-        <router-link to="/video" class="gallery-item reveal">
-          <img
-            src="https://slavic.media/img/cover-video.jpg"
-            title="Video services cover."
-            alt="Video services cover."
-          />
-          <div class="gallery-item-caption">
-            <i class="pi pi-video bubble"></i>
-            <h3>Video</h3>
-            <p>
-              From inspiring stories to cinematic visuals, each video project is
-              crafted to captivate, impress, and showcase your vision with
-              creative precision.
-            </p>
-          </div>
-        </router-link>
+      <!-- GALLERY START -->
+      <article class="gallery" aria-label="Services">
         <router-link
-          to="photo"
+          v-for="(item, index) in galleryItems"
+          :key="index"
+          :to="item.to"
           class="gallery-item reveal"
-          aria-label="Huset Fundament 2023"
         >
-          <img
-            src="https://slavic.media//img/cover-photo.jpg"
-            alt="Photo services cover."
-            title="Photo services cover."
-          />
+          <img :src="item.img" :title="item.title" :alt="item.title" />
           <div class="gallery-item-caption">
-            <i class="pi pi-camera bubble"></i>
-            <h3>Photo</h3>
-            <p>
-              Whether it’s a dynamic performance, a powerful portrait, or the
-              vast outdoors, our photography captures authentic moments, rich in
-              colour and emotion, that tell your story.
-            </p>
+            <i :class="item.iconClass"></i>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
           </div>
         </router-link>
       </article>
+      <!-- GALLERY END -->
+
       <contactForm></contactForm>
 
       <section class="flex-center">
@@ -93,7 +94,6 @@ import swiperReviews from "@/components/swiper-reviews.vue";
           </div>
         </a>
       </section>
-      <!-- FEATURES END -->
       <hr class="reveal" role="separator" />
 
       <div class="grid-container caption-container" id="reviews-caption">
@@ -140,4 +140,8 @@ import swiperReviews from "@/components/swiper-reviews.vue";
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+h1 {
+  font-size: var(--font-size-3);
+}
+</style>
