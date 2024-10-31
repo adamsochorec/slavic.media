@@ -286,4 +286,97 @@ onMounted(() => {
     </section>
   </div>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: var(--grid-gap-2);
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.gallery .gallery-item {
+  position: relative;
+  max-width: calc(100vw - var(--homepage-padding) * 2);
+  height: var(--dimension-2);
+  border-radius: var(--border-radius-1);
+  background: #000;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-box-shadow: var(--box-shadow-1);
+  box-shadow: var(--box-shadow-1);
+}
+.gallery .gallery-item:hover {
+  background: var(--dark-grey-color-full);
+}
+.gallery .gallery-item img {
+  position: relative;
+  display: block;
+  opacity: 0.5;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -webkit-transition: all 350ms ease-in-out;
+  -o-transition: all 350ms ease-in-out;
+  transition: all 350ms ease-in-out;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.gallery .gallery-item .gallery-item-caption {
+  padding: var(--grid-gap-2);
+}
+.gallery .gallery-item .gallery-item-caption,
+.gallery .gallery-item .gallery-item-caption > a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.gallery .gallery-item p {
+  position: relative;
+  margin: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.gallery .gallery-item span {
+  text-decoration: underline;
+}
+.gallery .gallery-item p {
+  font-size: var(--fontsize-note);
+  padding: 12px 0;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transform: translate3d(10%, 0, 0);
+  transform: translate3d(10%, 0, 0);
+}
+.gallery .gallery-item:hover img {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-filter: var(--blur-1);
+  filter: var(--blur-1);
+}
+.gallery .gallery-item .gallery-item-caption {
+  text-align: left;
+}
+.gallery .gallery-item:hover h3::after {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.gallery .gallery-item:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.gallery .gallery-item #videoplay {
+  fill: #ffffff;
+  vertical-align: baseline;
+  height: var(--grid-gap-2);
+}
+</style>

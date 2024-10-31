@@ -34,7 +34,26 @@ const copyHref = (href) => {
       <hr class="semi" />
 
       <div v-if="isDataLoaded">
-        <img :src="state.article.metadata.thumbnail" />
+        <!-- BREADCRUMB MENU -->
+        <div class="pathname-container reveal">
+          <p>
+            <span class="pathname"
+              ><a href="/" aria-label="Home"></a> &#8250;
+            </span>
+            <span class="pathname" aria-label="Blog">blog &#8250; </span>
+
+            <button
+              @click="
+                copyHref(`https://slavic.media/blog/${state.article.slug}`)
+              "
+            >
+              <span class="pathname" aria-label="Article "
+                >{{ state.article.title }}
+              </span>
+            </button>
+          </p>
+        </div>
+        <img :src="state.article.metadata.thumbnail" class="reveal" />
         <h1 style="font-size: var(--font-size-1)" class="mt-5 mb-5 reveal">
           {{ state.article.title }}
         </h1>

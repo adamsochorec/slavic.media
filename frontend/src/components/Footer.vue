@@ -68,26 +68,26 @@
     <hr role="separator" />
     <div class="footer-container">
       <div class="grid-item" role="navigation" aria-label="Footer Navigation">
-        <a
+        <router-link
           class="footer-nav"
-          href="https://slavic.media/legal/cookie-policy"
+          to="/legal/cookie-policy"
           title="Cookie Policy"
         >
-          Cookie&nbsp;Policy</a
+          Cookie&nbsp;Policy</router-link
         >
         <span>&nbsp;|&nbsp;</span>
-        <a
-          href="https://slavic.media/legal/terms-of-sale"
+        <router-link
+          to="/legal/terms-of-sale"
           class="footer-nav"
           title="Privacy Policy "
-          >Terms of Sale</a
+          >Terms of Sale</router-link
         >
         <span>&nbsp;|&nbsp;</span>
-        <a
-          href="https://slavic.media/legal/digital-image-license"
+        <router-link
+          to="/legal/digital-image-license"
           class="footer-nav"
           title="Privacy Policy "
-          >Digital Image License</a
+          >Digital Image License</router-link
         >
 
         <span class="separator-hide">&nbsp;|&nbsp;</span>
@@ -186,5 +186,41 @@ footer .language-container {
   margin-right: 0;
 }
 /* SOCIAL ICONS END */
-/* FOOTER END */
+@media only screen and (max-width: 850px) {
+  header ul {
+    clear: both;
+  }
+  header a {
+    padding: 0;
+  }
+  .hamburger {
+    padding: 11px 0px 0px 16px;
+  }
+
+  .menu-left a {
+    padding: var(--grid-gap-2) var(--grid-gap-2) var(--grid-gap-2) 0;
+  }
+  .menu-left a:hover {
+    background-color: transparent;
+  }
+  #services .grid-container {
+    margin-bottom: 50px;
+  }
+  .video-container {
+    height: 100%;
+  }
+  .showcase {
+    height: 100vh;
+  }
+  footer {
+    font-size: var(--fontsize-note);
+  }
+  footer .footer-container:last-of-type {
+    display: block;
+    text-align: center;
+  }
+  footer .footer-container .footerBreak {
+    display: block;
+  }
+}
 </style>

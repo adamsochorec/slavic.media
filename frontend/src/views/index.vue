@@ -47,7 +47,7 @@ import swiperReviews from "@/components/swiper-reviews.vue";
 
       <!-- FEATURES START -->
       <article id="visual" class="gallery" aria-label="Services">
-        <a href="/video" class="gallery-item reveal">
+        <router-link href="/video" class="gallery-item reveal">
           <img
             src="https://slavic.media/img/cover-video.jpg"
             title="Video services cover."
@@ -62,9 +62,9 @@ import swiperReviews from "@/components/swiper-reviews.vue";
               creative precision.
             </p>
           </div>
-        </a>
-        <a
-          href="/photo"
+        </router-link>
+        <router-link
+          href="photo"
           class="gallery-item reveal"
           aria-label="Huset Fundament 2023"
         >
@@ -82,7 +82,7 @@ import swiperReviews from "@/components/swiper-reviews.vue";
               colour and emotion, that tell your story.
             </p>
           </div>
-        </a>
+        </router-link>
       </article>
       <contactForm></contactForm>
 
@@ -137,52 +137,6 @@ import swiperReviews from "@/components/swiper-reviews.vue";
     </article>
     <!-- REVIEWS END -->
     <hr class="semi" id="ourteam" />
-    <!-- OUR TEAM START -->
-    <article
-      class="team-container intro-section reveal"
-      id="ourteam"
-      role="region"
-      aria-label="Our Team"
-    >
-      <video
-        id="heroVideo"
-        src="https://slavic.media/img/bts.mp4"
-        loop="true"
-        autoplay="autoplay"
-        muted
-        preload="auto"
-        playsinline
-        class="video-offload filter"
-        aria-label="Our Team Video"
-        role="video"
-        aria-describedby="Our Team cover video"
-        poster="https://slavic.media/img/bts.png"
-      ></video>
-      <article class="wrapper-standard">
-        <h2 class="reveal">Our Team</h2>
-        <button id="playPauseButton" class="play" aria-controls="heroVideo">
-          <i
-            id="playControl"
-            title="Play"
-            class="fa-regular fa-circle-play fa-xl"
-            aria-hidden="true"
-          ></i>
-          <i
-            id="pauseControl"
-            title="Pause"
-            class="fa-regular fa-circle-pause fa-xl"
-            aria-hidden="true"
-          ></i>
-        </button>
-        <p class="profile-info reveal">
-          Creative & Production studio based in Denmark and Czechia.<br /><br />
-          We tell stories with deep eye contact, magnificent shots and clean
-          designs to help your project stand out from the noise.
-        </p>
-      </article>
-    </article>
-    <article class="wrapper-wide"></article>
-    <!-- OUR TEAM END -->
   </div>
 </template>
 

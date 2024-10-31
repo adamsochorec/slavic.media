@@ -46,7 +46,7 @@ const router = createRouter({
     {
       path: "/services/photo",
       name: "photo",
-      component: () => import("../views/photo.vue"),
+      component: () => import("../views/Photo.vue"),
       meta: {
         requiresAuth: false,
       },
@@ -54,7 +54,31 @@ const router = createRouter({
     {
       path: "/services/video",
       name: "video",
-      component: () => import("../views/video.vue"),
+      component: () => import("../views/Video.vue"),
+      meta: {
+        requiresAuth: false,
+      },
+    },
+    {
+      path: "/legal/cookie-policy",
+      name: "cookie policy",
+      component: () => import("../views/cookie-policy.vue"),
+      meta: {
+        requiresAuth: false,
+      },
+    },
+    {
+      path: "/legal/digital-image-license",
+      name: "digital image license",
+      component: () => import("../views/digital-image-license.vue"),
+      meta: {
+        requiresAuth: false,
+      },
+    },
+    {
+      path: "/legal/terms-of-sale",
+      name: "terms of sale",
+      component: () => import("../views/terms-of-sale.vue"),
       meta: {
         requiresAuth: false,
       },

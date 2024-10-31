@@ -2,8 +2,9 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.css";
 import heroVideo from "@/components/hero-video.vue";
+import swiperOurteam from "@/components/swiper-ourteam.vue";
 
-// CAROUSEL
+/* // CAROUSEL
 const employees = [
   {
     id: 1,
@@ -53,11 +54,11 @@ const employees = [
     flagId: "flag-slovakia",
     flagTitle: "Flag of Slovakia",
   },
-];
+]; */
 </script>
 
 <template>
-  <div>
+  <div class="main">
     <heroVideo
       src="https://slavic.media/img/bts.mp4"
       poster="https://slavic.media/img/bts.png"
@@ -75,59 +76,9 @@ const employees = [
         stories with deep eye contact, magnificent shots and clean designs to
         help your project stand out from the noise.
       </p>
-      <Swiper
-        class="mt-10 p-0"
-        preloadImages="false"
-        :direction="'horizontal'"
-        :lazyLoading="true"
-        :observer="true"
-        :observeParents="true"
-        :slidesPerView="3"
-        :spaceBetween="30"
-        :breakpoints="{
-          0: {
-            slidesPerView: 2.3,
-          },
-          375: {
-            slidesPerView: 3.3,
-          },
-          620: {
-            slidesPerView: 3.5,
-          },
-        }"
-      >
-        <SwiperSlide v-for="employee in employees" :key="employee.id">
-          <div class="rounded m-3 p-0">
-            <div class="mb-4">
-              <div class="relative mx-auto">
-                <img
-                  style="box-shadow: var(--box-shadow-1)"
-                  :src="employee.image"
-                  :alt="employee.name"
-                  class="w-full rounded"
-                />
-              </div>
-            </div>
-            <div style="text-align: center">
-              <h3 style="font-size: var(--font-size-5)" class="mb-1">
-                {{ employee.name }}
-              </h3>
-              <h4 style="font-size: var(--font-size-8)" class="mb-2">
-                {{ employee.department }}
-              </h4>
-              <span>
-                <a
-                  v-for="icon in employee.icons"
-                  :key="icon.class"
-                  :href="icon.url"
-                  :class="icon.class"
-                  class="mr-2"
-                ></a>
-              </span>
-            </div>
-          </div>
-        </SwiperSlide>
-      </Swiper>
+      <hr class="semi" />
+
+      <swiperOurteam></swiperOurteam>
       <hr class="semi" />
     </article>
   </div>

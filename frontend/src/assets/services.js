@@ -44,7 +44,7 @@ export const services = ref([
       {
         label: "Narrative",
         route: "/services/video#narrative",
-        icon: "pi pi-trophy",
+        icon: "pi pi-microphone",
         value: "Narrative",
       },
     ],

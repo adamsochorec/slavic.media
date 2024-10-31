@@ -1,108 +1,107 @@
 <script setup></script>
 <template>
-  <article class="wrapper-wide">
-    <hr class="semi" />
-    <div
-      class="pathname-container"
-      role="region"
-      aria-labelledby="pagePathHeading"
-      aria-hidden="false"
-    ></div>
-    <h1
-      style="font-size: var(--font-size-1)"
-      id="pagePathHeading"
-      class="reveal"
-      role="heading"
-      aria-level="1"
-      aria-label="Page Title: For Press"
-    >
-      Press Resources
-    </h1>
-    <hr class="reveal" role="separator" aria-label="Separator" />
-    <!-- PRESS MATERIALS GRID START -->
-    <div
-      class="reveal"
-      id="gallery-press"
-      role="grid"
-      aria-label="Press Materials Grid"
-    >
-      <!-- BRAND GUIDE START -->
-      <a
-        class="gallery-item"
-        href="https://slavic.media/press-resources/brand-guide.pdf"
-        rel="noopener noreferrer nofollow"
-        target="_blank"
-        aria-label="Link to Brand Guide"
+  <div class="main" style="margin-top: 120px">
+    <article class="wrapper-wide">
+      <div
+        class="pathname-container"
+        role="region"
+        aria-labelledby="pagePathHeading"
+        aria-hidden="false"
+      ></div>
+      <h1
+        id="pagePathHeading"
+        class="reveal"
+        role="heading"
+        aria-level="1"
+        aria-label="Page Title: For Press"
       >
-        <h2
-          style="font-size: var(--font-size-2)"
-          id="brandGuideHeading"
-          aria-label="Brand Guide Title"
-        >
-          Brand Guide
-        </h2>
-
-        <div class="grid-item" id="brand-guide" role="gridcell"></div>
-        <p
-          aria-label="Sets the visual and stylistic standards for the brand, ensuring consistency in logos, colours, fonts, and design."
-        >
-          Sets the visual and stylistic standards for the brand, ensuring
-          consistency in logos, colours, fonts, and design.
-        </p>
-      </a>
-      <!-- BRAND GUIDE END -->
-      <!-- CREDIT GUIDE START -->
-      <a
-        class="gallery-item"
-        href="https://slavic.media/press-resources/credit-guide.pdf"
-        rel="noopener noreferrer nofollow"
-        target="_blank"
-        aria-label="Link to Credit Guide"
+        For Press
+      </h1>
+      <div
+        class="pathname-container reveal"
+        role="navigation"
+        aria-labelledby="breadcrumbsHeading"
+        aria-hidden="false"
       >
-        <h2
-          style="font-size: var(--font-size-2)"
-          id="creditGuideHeading"
-          aria-label="Credit Guide Title"
-        >
-          Credit Guide
-        </h2>
-
-        <div class="grid-item" id="credit-guide" role="gridcell"></div>
-        <p
-          aria-label="Outlines how to tag and credit work across digital as well as printed media."
-        >
-          Outlines how to tag and credit work across digital as well as printed
-          media.
+        <p>
+          <span class="pathname"
+            ><a href="/" aria-label="Home"></a> &#8250;
+          </span>
+          <span class="pathname" aria-label="press">For Press</span>
         </p>
-      </a>
-      <!-- CREDIT GUIDE END -->
-      <!-- PRESS KIT START -->
-      <a
-        class="gallery-item"
-        href="https://slavic.media/press-resources/press-kit.zip"
-        target="_blank"
-        aria-label="Link to Press Kit"
+      </div>
+      <hr class="reveal" role="separator" aria-label="Separator" />
+      <!-- PRESS MATERIALS GRID START -->
+      <div
+        class="reveal"
+        id="gallery-press"
+        role="grid"
+        aria-label="Press Materials Grid"
       >
-        <h2
-          style="font-size: var(--font-size-2)"
-          id="pressKitHeading"
-          aria-label="Press Kit Title"
+        <!-- BRAND GUIDE START -->
+        <a
+          class="gallery-item"
+          href="/assets/brand-guide.pdf"
+          rel="noopener noreferrer nofollow"
+          target="_blank"
+          aria-label="Link to Brand Guide"
         >
-          Press Kit
-        </h2>
+          <h2 id="brandGuideHeading" aria-label="Brand Guide Title">
+            Brand Guide
+          </h2>
 
-        <div class="grid-item" id="press-kit" role="gridcell"></div>
-        <p
-          aria-label="Package of vectorised logos, fonts and other essential branding materials."
+          <div class="grid-item" id="brand-guide" role="gridcell"></div>
+          <p
+            aria-label="Sets the visual and stylistic standards for the brand, ensuring consistency in logos, colours, fonts, and design."
+          >
+            Sets the visual and stylistic standards for the brand, ensuring
+            consistency in logos, colours, fonts, and design.
+          </p>
+        </a>
+        <!-- BRAND GUIDE END -->
+        <!-- CREDIT GUIDE START -->
+        <a
+          class="gallery-item"
+          href="/assets/credit-guide.pdf"
+          rel="noopener noreferrer nofollow"
+          target="_blank"
+          aria-label="Link to Credit Guide"
         >
-          Package of vectorised logos, fonts and other essential branding
-          materials.
-        </p>
-      </a>
-      <!-- PRESS KIT END -->
-    </div>
-    <hr class="semi" />
-  </article>
+          <h2 id="creditGuideHeading" aria-label="Credit Guide Title">
+            Credit Guide
+          </h2>
+
+          <div class="grid-item" id="credit-guide" role="gridcell"></div>
+          <p
+            aria-label="Outlines how to tag and credit work across digital as well as printed media."
+          >
+            Outlines how to tag and credit work across digital as well as
+            printed media.
+          </p>
+        </a>
+        <!-- CREDIT GUIDE END -->
+        <!-- PRESS KIT START -->
+        <a
+          class="gallery-item"
+          href="/assets/press-kit.zip"
+          target="_blank"
+          aria-label="Link to Press Kit"
+        >
+          <h2 id="pressKitHeading" aria-label="Press Kit Title">Press Kit</h2>
+
+          <div class="grid-item" id="press-kit" role="gridcell"></div>
+          <p
+            aria-label="Package of vectorised logos, fonts and other essential branding materials."
+          >
+            Package of vectorised logos, fonts and other essential branding
+            materials.
+          </p>
+        </a>
+        <!-- PRESS KIT END -->
+      </div>
+      <!-- PRESS MATERIALS GRID END -->
+    </article>
+  </div>
 </template>
 <style lang="scss" scoped>
 /* GALLERY PRESS START */
@@ -205,6 +204,24 @@
   -ms-transform-origin: center;
   transform-origin: center;
 }
-
-/* GALLERY PRESS END */
+@media only screen and (max-width: 667px) {
+  .gallery .gallery-item span {
+    font-size: var(--fontsize-note);
+  }
+  #gallery-press {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+@media only screen and (min-height: 700px) and (min-width: 1500px) {
+  footer {
+    position: absolute;
+    bottom: 0;
+  }
+}
 </style>

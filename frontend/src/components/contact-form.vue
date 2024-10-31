@@ -243,4 +243,19 @@ textarea {
   resize: none;
   height: var(--dimension-2);
 }
+@media only screen and (max-width: 500px) {
+  .contact-form-section .contact-form .grid-item:nth-child(even),
+  .contact-form-section .contact-form .grid-item:nth-child(odd) {
+    margin: 0;
+  }
+  .grid-container.contact-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
 </style>

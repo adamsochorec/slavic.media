@@ -129,8 +129,49 @@ onMounted(() => {
   transform: translate(-50%, -50%);
   object-fit: cover;
 }
-
-/* ORIGINAL INTRO VIDEO START 
+.intro-section {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  resize: both;
+  scroll-snap-align: start;
+  height: calc(100vh - var(--nav-bar-top-position));
+  width: 100%;
+}
+.intro-section h2,
+.intro-section h3 {
+  text-align: center;
+}
+.intro-section {
+  height: var(--dimension-1);
+  background-color: var(--dark-grey-color-full);
+}
+.intro-section {
+  width: 100vw;
+}
+@media only screen and (max-width: 415px) {
+  .intro-section {
+    border-radius: 0 !important;
+    width: 100vw;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+}
+@media only screen and (max-width: 667px) {
+  .intro-section {
+    height: 300px !important;
+  }
+}
+/* ORIGINAL INTRO VIDEO START
 .showcase {
   height: var(--dimension-1);
   display: -webkit-box;
@@ -175,6 +216,5 @@ onMounted(() => {
   background: rgba(0, 0, 0, 0);
   position: absolute;
 }
-
 /* INTRO VIDEO END */
 </style>

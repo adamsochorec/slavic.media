@@ -236,50 +236,26 @@ const reelsSwiper = new Swiper(".swiper-reels", {
 </template>
 
 <style scoped>
-.swiper-reviews .swiper-slide {
-  padding: var(--grid-gap-2);
-  height: auto !important;
-  max-height: 256px;
+.swiper-reels video {
+  height: auto;
   width: var(--dimension-2);
   border-radius: var(--border-radius-1);
   background-color: rgb(var(--dark-grey-color));
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
+  -webkit-animation: skeleton-loading 1s linear infinite alternate;
+  animation: skeleton-loading 1s linear infinite alternate;
 }
-.swiper-reviews {
-  border-radius: var(--border-radius-1);
-  height: 300px;
+.swiper-reels {
+  height: 400px;
 }
-.swiper-reviews p {
-  padding: 0;
-  font-size: var(--fontsize-note);
-}
-.swiper-reviews .quotes {
-  font-size: 32px;
-  color: white;
-  padding: 0;
-  margin: 0;
-}
-.swiper-reviews img {
-  height: 55px;
-  width: 55px;
-  -o-object-fit: cover;
-  object-fit: cover;
-  border-radius: var(--border-radius-2);
-  -webkit-box-shadow: var(--box-shadow-1);
-  box-shadow: var(--box-shadow-1);
-}
-.swiper-reviews .grid-container {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: var(--grid-gap-1);
-}
-.swiper-reviews .rewiews-message {
-  margin: var(--grid-gap-1) 0;
-}
-.swiper-reviews .stars {
-  display: inline-block;
-  font-size: var(--fontsize-note);
-  color: gold;
+@media only screen and (max-width: 667px) {
+  .swiper-reels video {
+    height: var(--dimension-2);
+    width: auto;
+  }
+  .swiper-reels {
+    height: 240px;
+  }
 }
 </style>

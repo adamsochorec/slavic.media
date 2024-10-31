@@ -23,7 +23,6 @@ const truncateText = (text, maxLength) => {
 <template>
   <div class="main" style="margin-top: 120px">
     <article class="wrapper-wide">
-      <hr class="semi" />
       <h1 style="font-size: var(--font-size-1)" class="mb-5">Blog</h1>
       <div v-if="isDataLoaded">
         <div class="container">
@@ -60,7 +59,7 @@ const truncateText = (text, maxLength) => {
               </template>
               <template #content>
                 <span style="font-size: var(--font-size-7)">{{
-                  truncateText(article.content.text[0], 95)
+                  truncateText(article.content.text[0], 65)
                 }}</span>
               </template>
 

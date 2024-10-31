@@ -37,23 +37,31 @@ import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 </template>
 
 <style scoped>
+DotLottieVue {
+  height: 176px;
+  z-index: 0;
+}
 h1 {
   font-size: var(--font-size-4);
   font-weight: var(--paragraph-weight);
   text-transform: unset;
   text-align: center;
 }
-.lottie {
-  height: 176px;
-  z-index: 0;
-}
 @media only screen and (min-width: 310px) {
-  .lottie {
+  DotLottieVue {
     margin-bottom: 64px;
   }
 }
+@media only screen and (max-width: 560px) {
+  .noindex .pathname-container {
+    margin-top: 64px;
+  }
+  .intro-section {
+    background-attachment: scroll;
+  }
+}
 @media only screen and (min-height: 700px) {
-  #noindex footer {
+  footer {
     position: absolute;
     bottom: 0;
   }
