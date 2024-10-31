@@ -47,7 +47,7 @@ import swiperReviews from "@/components/swiper-reviews.vue";
 
       <!-- FEATURES START -->
       <article id="visual" class="gallery" aria-label="Services">
-        <router-link href="/video" class="gallery-item reveal">
+        <router-link to="/video" class="gallery-item reveal">
           <img
             src="https://slavic.media/img/cover-video.jpg"
             title="Video services cover."
@@ -64,7 +64,7 @@ import swiperReviews from "@/components/swiper-reviews.vue";
           </div>
         </router-link>
         <router-link
-          href="photo"
+          to="photo"
           class="gallery-item reveal"
           aria-label="Huset Fundament 2023"
         >
