@@ -16,7 +16,6 @@ interface imgInterface extends Document {
     date: string;
     keywords: string[];
     linkedin: string;
-    facebook: string;
     thumbnail: string;
     length: number;
   };
@@ -40,7 +39,6 @@ const articleSchema: Schema = new Schema({
     date: { type: String, required: true },
     keywords: { type: [String], required: true },
     linkedin: { type: String, required: false },
-    facebook: { type: String, required: false },
     thumbnail: { type: String, required: true },
     length: { type: Number, required: true },
   },

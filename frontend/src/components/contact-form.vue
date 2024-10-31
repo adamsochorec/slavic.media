@@ -114,7 +114,7 @@ onMounted(() => {
               role="button"
               aria-labelledby="submitBtn"
             >
-              Submit<i class="fa-solid fa-arrow-right"></i>
+              Submit<i class="pi pi-arrow-right"></i>
             </button>
             <input
               type="hidden"

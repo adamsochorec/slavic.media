@@ -97,6 +97,7 @@ function mapData(element) {
         metadata: {
             date: element.metadata.date,
             keywords: element.metadata.keywords,
+            linkedin: element.metadata.linkedin,
             thumbnail: element.metadata.thumbnail,
             length: element.metadata.length,
         },

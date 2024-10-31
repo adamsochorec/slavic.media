@@ -176,6 +176,18 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@lottiefiles/dotlottie-vue@^0.4.17":
+  version "0.4.17"
+  resolved "https://registry.npmjs.org/@lottiefiles/dotlottie-vue/-/dotlottie-vue-0.4.17.tgz"
+  integrity sha512-6S+0387HVltiFPZB3wfer3e+oKj5C1e7UGHZr2Q9UcEx/Dep+SUMB5gAvfGnclnhFXpOFwckQUlB49oXmC2HwA==
+  dependencies:
+    "@lottiefiles/dotlottie-web" "0.36.0"
+
+"@lottiefiles/dotlottie-web@0.36.0":
+  version "0.36.0"
+  resolved "https://registry.npmjs.org/@lottiefiles/dotlottie-web/-/dotlottie-web-0.36.0.tgz"
+  integrity sha512-FVGlQnhT95+aKrf4OiyC4/fP6ESZa8YwYDyvfuAeWktHFdAT/7Gbt76ZmCZU/Bwera6FB7UgJuoAtK/duTFCZQ==
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz"
@@ -1148,6 +1160,11 @@ keyv@^4.5.3:
   dependencies:
     json-buffer "3.0.1"
 
+klona@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.npmjs.org/klona/-/klona-2.0.6.tgz"
+  integrity sha512-dhG34DXATL5hSxJbIexCft8FChFXtmskoZYnoPWjXQuebWYCNkVeV3KkGegCK9CP1oswI/vQibS2GY7Em/sJJA==
+
 levn@^0.4.1:
   version "0.4.1"
   resolved "https://registry.npmjs.org/levn/-/levn-0.4.1.tgz"
@@ -1195,6 +1212,11 @@ lodash@^4.17.21:
   version "4.17.21"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
+lottie-web@5.12.2:
+  version "5.12.2"
+  resolved "https://registry.npmjs.org/lottie-web/-/lottie-web-5.12.2.tgz"
+  integrity sha512-uvhvYPC8kGPjXT3MyKMrL3JitEAmDMp30lVkuq/590Mw9ok6pWcFCwXJveo0t5uqYw1UREQHofD+jVpdjBv8wg==
 
 loupe@^3.1.0:
   version "3.1.1"
@@ -1899,7 +1921,7 @@ vue-router@^4.2.5:
   dependencies:
     "@vue/devtools-api" "^6.6.3"
 
-vue@^3.0.0, vue@^3.2.0, vue@^3.2.25, vue@^3.4.15, "vue@>= 3.0.0 < 4", "vue@2 || 3", vue@3.4.38:
+vue@^3.0.0, vue@^3.2, vue@^3.2.0, vue@^3.2.25, vue@^3.3.4, vue@^3.4.15, "vue@>= 3.0.0 < 4", "vue@2 || 3", vue@3.4.38:
   version "3.4.38"
   resolved "https://registry.npmjs.org/vue/-/vue-3.4.38.tgz"
   integrity sha512-f0ZgN+mZ5KFgVv9wz0f4OgVKukoXtS3nwET4c2vLBGQR50aI8G0cqbFtLlX9Yiyg3LFGBitruPHt2PxwTduJEw==
@@ -1909,6 +1931,15 @@ vue@^3.0.0, vue@^3.2.0, vue@^3.2.25, vue@^3.4.15, "vue@>= 3.0.0 < 4", "vue@2 || 
     "@vue/runtime-dom" "3.4.38"
     "@vue/server-renderer" "3.4.38"
     "@vue/shared" "3.4.38"
+
+vue3-lottie@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.npmjs.org/vue3-lottie/-/vue3-lottie-3.3.1.tgz"
+  integrity sha512-60uQmx4eefi3FdPjAxWnblrgJJjnVTXUA6e4BAI3jGzgOSR76pyzL1rrWDiyPmMFo4mTw4wGTW6Gbkg3HR1mYw==
+  dependencies:
+    fast-deep-equal "^3.1.3"
+    klona "^2.0.6"
+    lottie-web "5.12.2"
 
 weakmap-polyfill@2.0.4:
   version "2.0.4"

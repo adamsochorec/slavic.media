@@ -14,8 +14,8 @@ export const services = ref([
       {
         label: "Outdoor",
         route: "/services/photo#outdoor",
-        icon: "pi pi-camera",
-        value: "Behind the Scenes",
+        icon: "pi pi-map",
+        value: "Outdoor",
       },
       {
         label: "Still",
@@ -30,16 +30,22 @@ export const services = ref([
     icon: "pi pi-video",
     items: [
       {
-        label: "Portrait",
-        route: "/services/video#portrait",
-        icon: "pi pi-user",
-        value: "Portrait",
-      },
-      {
         label: "Showreel",
         route: "/services/video#showreel",
         icon: "pi pi-trophy",
         value: "Showreel",
+      },
+      {
+        label: "Content",
+        route: "/services/video#content",
+        icon: "pi pi-user",
+        value: "Portrait",
+      },
+      {
+        label: "Narrative",
+        route: "/services/video#narrative",
+        icon: "pi pi-trophy",
+        value: "Narrative",
       },
     ],
   },

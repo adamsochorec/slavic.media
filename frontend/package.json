@@ -16,6 +16,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
+    "@lottiefiles/dotlottie-vue": "^0.4.17",
     "@primevue/themes": "^4.0.7",
     "@vimeo/player": "^2.24.0",
     "axios": "^1.7.7",
@@ -28,7 +29,8 @@
     "swiper": "^11.1.14",
     "tailwindcss-primeui": "^0.3.4",
     "vue": "^3.4.15",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "vue3-lottie": "^3.3.1"
   },
   "devDependencies": {
     "@primevue/auto-import-resolver": "^4.0.7",

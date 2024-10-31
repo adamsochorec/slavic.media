@@ -66,9 +66,122 @@ onMounted(() => {
             </div>
           </a>
         </div>
-        <div id="content"></div>
+        <div id="showreel"></div>
       </div>
+      <!-- GALLERY 1 -->
+      <article class="wrapper-wide" id="video">
+        <hr class="reveal" role="separator" />
+        <div class="grid-container caption-container">
+          <div class="grid-item reveal">
+            <h2>Brand <span class="highlited">Showreel</span></h2>
+          </div>
+          <div class="grid-item">
+            <p class="reveal">
+              Deep eye contact and powerful visuals that connect—each frame
+              crafted to showcase your product in a way that inspires and leaves
+              a lasting impression.
+            </p>
+          </div>
+        </div>
+        <hr class="semi" role="separator" />
+      </article>
+      <!-- GALLERY ITEM 1.1 -->
+      <article
+        class="wrapper-wide gallery"
+        id="gallery-video"
+        aria-label="Video Gallery"
+      >
+        <div class="gallery-item reveal">
+          <img
+            src="https://slavic.media/img/cover-fynutzu.jpg"
+            alt="Fynutzu Music"
+          />
+          <div class="gallery-item-caption">
+            <i class="pi pi-play-circle bubble"> </i>
+            <svg class="flag note" title="Flag of Denmark">
+              <use href="#flag-denmark"></use>
+            </svg>
+
+            <h4>Tech the Night</h4>
+            <p>
+              2024&nbsp;|&nbsp;<span>fynutzumusic.com</span
+              ><i class="pi pi-arrow-right"></i>
+            </p>
+            <a href="https://vimeo.com/994873542"></a>
+          </div>
+        </div>
+        <!-- GALLERY ITEM 1.2 -->
+        <div class="gallery-item reveal">
+          <img
+            src="https://slavic.media/img/cover-norwegianfjords.jpg"
+            alt="Timetravels."
+          />
+          <div class="gallery-item-caption">
+            <i class="pi pi-play-circle bubble"> </i>
+            <svg class="flag note" title="Flag of Norway">
+              <use href="#flag-norway"></use>
+            </svg>
+
+            <h4>Norwegian Fjords</h4>
+            <p>
+              2024&nbsp;|&nbsp;<span>timetravels.com</span
+              ><i class="pi pi-arrow-right"></i>
+            </p>
+            <a href="https://vimeo.com/950575511"></a>
+          </div>
+        </div>
+        <!-- GALLERY ITEM 1.3 -->
+        <div class="gallery-item reveal">
+          <img
+            src="https://slavic.media/img/cover-finnishlapland.jpg"
+            alt="Timetravels."
+          />
+          <div class="gallery-item-caption">
+            <i class="pi pi-play-circle bubble"> </i>
+            <svg
+              class="flag note"
+              title="Flag of Finland"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use href="#flag-finland"></use>
+            </svg>
+            <h4>Finnish Lapland</h4>
+            <p>
+              2024&nbsp;|&nbsp;<span>timetravels.com</span
+              ><i class="pi pi-arrow-right"></i>
+            </p>
+            <a href="https://vimeo.com/950479131"></a>
+          </div>
+        </div>
+        <!-- GALLERY ITEM 1.4 -->
+        <div class="gallery-item reveal">
+          <img
+            src="https://slavic.media/img/cover-swedishlapland.jpg"
+            alt="Timetravels."
+          />
+          <div class="gallery-item-caption">
+            <i class="pi pi-play-circle bubble"> </i>
+            <svg
+              class="flag note"
+              title="Flag of Sweden"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use href="#flag-sweden"></use>
+            </svg>
+            <h4>Swedish Lapland</h4>
+            <p>
+              2024&nbsp;|&nbsp;<span>timetravels.com</span
+              ><i class="pi pi-arrow-right"></i>
+            </p>
+            <a href="https://vimeo.com/942145699"></a>
+          </div>
+        </div>
+        <div id="content"></div>
+      </article>
       <hr role="separator" />
+
       <!-- SWIPER GALLERY -->
       <div class="grid-container caption-container">
         <div class="grid-item reveal">
@@ -82,6 +195,7 @@ onMounted(() => {
             genuine, and designed to resonate with your audience.
           </p>
         </div>
+        <div id="content"></div>
       </div>
     </article>
 
@@ -90,120 +204,9 @@ onMounted(() => {
     <article class="wrapper-wide" id="reels">
       <swiperReels></swiperReels>
 
-      <div id="showreel"></div>
-    </article>
-    <!-- GALLERY 1 -->
-    <article class="wrapper-wide" id="video">
-      <hr class="reveal" role="separator" />
-      <div class="grid-container caption-container">
-        <div class="grid-item reveal">
-          <h2>Brand <span class="highlited">Showreel</span></h2>
-        </div>
-        <div class="grid-item">
-          <p class="reveal">
-            Deep eye contact and powerful visuals that connect—each frame
-            crafted to showcase your product in a way that inspires and leaves a
-            lasting impression.
-          </p>
-        </div>
-      </div>
-      <hr class="semi" role="separator" />
-    </article>
-    <!-- GALLERY ITEM 1.1 -->
-    <article
-      class="wrapper-wide gallery"
-      id="gallery-video"
-      aria-label="Video Gallery"
-    >
-      <div class="gallery-item reveal">
-        <img
-          src="https://slavic.media/img/cover-fynutzu.jpg"
-          alt="Fynutzu Music"
-        />
-        <div class="gallery-item-caption">
-          <i class="pi pi-play-circle bubble"> </i>
-          <svg class="flag note" title="Flag of Denmark">
-            <use href="#flag-denmark"></use>
-          </svg>
-
-          <h4>Tech the Night</h4>
-          <p>
-            2024&nbsp;|&nbsp;<span>fynutzumusic.com</span
-            ><i class="pi pi-arrow-right"></i>
-          </p>
-          <a href="https://vimeo.com/994873542"></a>
-        </div>
-      </div>
-      <!-- GALLERY ITEM 1.2 -->
-      <div class="gallery-item reveal">
-        <img
-          src="https://slavic.media/img/cover-norwegianfjords.jpg"
-          alt="Timetravels."
-        />
-        <div class="gallery-item-caption">
-          <i class="pi pi-play-circle bubble"> </i>
-          <svg class="flag note" title="Flag of Norway">
-            <use href="#flag-norway"></use>
-          </svg>
-
-          <h4>Norwegian Fjords</h4>
-          <p>
-            2024&nbsp;|&nbsp;<span>timetravels.com</span
-            ><i class="pi pi-arrow-right"></i>
-          </p>
-          <a href="https://vimeo.com/950575511"></a>
-        </div>
-      </div>
-      <!-- GALLERY ITEM 1.3 -->
-      <div class="gallery-item reveal">
-        <img
-          src="https://slavic.media/img/cover-finnishlapland.jpg"
-          alt="Timetravels."
-        />
-        <div class="gallery-item-caption">
-          <i class="pi pi-play-circle bubble"> </i>
-          <svg
-            class="flag note"
-            title="Flag of Finland"
-            viewBox="0 0 16 16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <use href="#flag-finland"></use>
-          </svg>
-          <h4>Finnish Lapland</h4>
-          <p>
-            2024&nbsp;|&nbsp;<span>timetravels.com</span
-            ><i class="pi pi-arrow-right"></i>
-          </p>
-          <a href="https://vimeo.com/950479131"></a>
-        </div>
-      </div>
-      <!-- GALLERY ITEM 1.4 -->
-      <div class="gallery-item reveal">
-        <img
-          src="https://slavic.media/img/cover-swedishlapland.jpg"
-          alt="Timetravels."
-        />
-        <div class="gallery-item-caption">
-          <i class="pi pi-play-circle bubble"> </i>
-          <svg
-            class="flag note"
-            title="Flag of Sweden"
-            viewBox="0 0 16 16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <use href="#flag-sweden"></use>
-          </svg>
-          <h4>Swedish Lapland</h4>
-          <p>
-            2024&nbsp;|&nbsp;<span>timetravels.com</span
-            ><i class="pi pi-arrow-right"></i>
-          </p>
-          <a href="https://vimeo.com/942145699"></a>
-        </div>
-      </div>
       <div id="narrative"></div>
     </article>
+
     <!-- GALLERY 2 -->
     <article class="wrapper-wide" id="video">
       <hr class="reveal" role="separator" />
