@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import gallery from "@/components/gallery.vue";
+import gallery from "@/components/Gallery.vue";
 import contactForm from "@/components/contact-form.vue";
 
 import axios from "axios";
