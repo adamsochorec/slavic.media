@@ -7,7 +7,7 @@ import useImgCrud from "@/modules/imgCrud";
 provideAuth();
 
 // COMPONENTS
-import Footer from "@/components/footer.vue";
+import Footer from "@/components/Footer.vue";
 import navBar from "@/components/nav-bar.vue";
 
 // Dark Mode State
