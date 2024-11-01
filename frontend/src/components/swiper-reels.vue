@@ -95,7 +95,7 @@ onMounted(() => {
           :href="`https://instagram.com/reel/${reel.id}`"
           class="pi pi-instagram bubble"
         ></a>
-        <video
+        <video class="video-offload"
           loop="true"
           autoplay="autoplay"
           muted

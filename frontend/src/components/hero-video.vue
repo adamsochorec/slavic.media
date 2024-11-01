@@ -86,7 +86,7 @@ onMounted(() => {
         :loop="loop"
         :autoplay="autoplay"
         :muted="muted"
-        class="video-offload video-control"
+        class="video-offload"
         preload="auto"
         :aria-label="ariaLabel"
         aria-describedby="video"
@@ -144,7 +144,7 @@ onMounted(() => {
   justify-content: center;
   resize: both;
   scroll-snap-align: start;
-  height: calc(100vh - var(--nav-bar-top-position));
+  height: calc(var(--dimension-1) - var(--nav-bar-top-position));
   width: 100%;
 }
 .intro-section h2,

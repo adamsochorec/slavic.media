@@ -40,7 +40,7 @@ const galleryItems = ref([
     <!-- INTRO VIDEO END -->
 
     <article class="wrapper-wide" id="company-intro">
-      <br />
+      <hr class="semi" role="separator" />
 
       <!-- SERVICES START -->
       <div

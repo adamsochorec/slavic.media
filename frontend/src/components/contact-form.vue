@@ -128,7 +128,6 @@ onMounted(() => {
     </article>
   </div>
 </template>
-
 <style scoped>
 .contact-form-section .contact-form .grid-item:nth-child(odd) {
   margin: 0 var(--grid-gap-2) 0 0;

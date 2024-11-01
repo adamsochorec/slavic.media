@@ -38,6 +38,13 @@
     "@babel/helper-validator-identifier" "^7.24.7"
     to-fast-properties "^2.0.0"
 
+"@display-studio/vue-player@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.npmjs.org/@display-studio/vue-player/-/vue-player-0.0.6.tgz"
+  integrity sha512-u6ERh4026zvXl+zECnDtGNwp1pUbxM+TwwM37a7xpP6sFFzNGTq1jwpFSQaWQ8W6eZnHnYMBFbNHAVliI6pS9A==
+  dependencies:
+    vue "^3.4.35"
+
 "@esbuild/darwin-arm64@0.21.5":
   version "0.21.5"
   resolved "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.21.5.tgz"
@@ -1921,7 +1928,7 @@ vue-router@^4.2.5:
   dependencies:
     "@vue/devtools-api" "^6.6.3"
 
-vue@^3.0.0, vue@^3.2, vue@^3.2.0, vue@^3.2.25, vue@^3.3.4, vue@^3.4.15, "vue@>= 3.0.0 < 4", "vue@2 || 3", vue@3.4.38:
+vue@^3.0.0, vue@^3.2, vue@^3.2.0, vue@^3.2.25, vue@^3.3.4, vue@^3.4.15, vue@^3.4.35, "vue@>= 3.0.0 < 4", "vue@2 || 3", vue@3.4.38:
   version "3.4.38"
   resolved "https://registry.npmjs.org/vue/-/vue-3.4.38.tgz"
   integrity sha512-f0ZgN+mZ5KFgVv9wz0f4OgVKukoXtS3nwET4c2vLBGQR50aI8G0cqbFtLlX9Yiyg3LFGBitruPHt2PxwTduJEw==

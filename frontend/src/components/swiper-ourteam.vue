@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 
@@ -10,6 +10,47 @@ const gridGap2 = getComputedStyle(document.documentElement).getPropertyValue(
 const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
   "--grid-gap-3"
 );
+
+const teamMembers = ref([
+  {
+    id: "marcel",
+    name: "Marcel H.",
+    role: "Director of Photography",
+    img: "https://slavic.media/img/marcel.jpg",
+    flag: "flag-slovakia",
+    email: "marcel@slavic.media",
+    linkedin: "https://www.linkedin.com/in/marcelhajik",
+  },
+  {
+    id: "adam",
+    name: "Adam S.",
+    role: "Sales & Communication",
+    img: "https://slavic.media/img/adam.jpg",
+    flag: "flag-czechia",
+    email: "adam@slavic.media",
+    linkedin: "https://www.linkedin.com/in/adamsochorec",
+    github: "https://github.com/adamsochorec"
+  },
+  {
+    id: "dominik",
+    name: "Dominik T.",
+    role: "Graphic Designer",
+    img: "https://slavic.media/img/dominik.jpg",
+    flag: "flag-slovakia",
+    email: "dominik@slavic.media",
+    linkedin: "https://www.linkedin.com/in/dominik-tószegi-07872a248/",
+  },
+  {
+    id: "ferdinand",
+    name: "Ferdinand P.",
+    role: "Sound Engineer",
+    img: "https://slavic.media/img/ferdinand.jpg",
+    flag: "flag-czechia",
+    email: "ferda.petrs@gmail.com",
+    linkedin: "",
+  },
+]);
+
 onMounted(() => {
   const ourteamSwiper = new Swiper(".swiper-ourteam", {
     preloadImages: false,
@@ -36,22 +77,23 @@ onMounted(() => {
   });
 });
 </script>
+
 <template>
   <section class="swiper swiper-ourteam reveal">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper skills-section">
-      <!-- MARCEL SECTION START -->
+      <!-- Team Member Slide -->
       <div
+        v-for="member in teamMembers"
+        :key="member.id"
         class="swiper-slide"
-        id="marcel"
+        :id="member.id"
         role="region"
-        aria-label="Marcel H."
+        :aria-label="member.name"
       >
-        <!-- MARCEL SECTION START -->
-
         <div class="reveal">
           <svg
-            title="Flag of Slovakia"
+            :title="'Flag of ' + member.flag.split('-')[1]"
             class="note flag"
             id="Layer_1"
             x="0px"
@@ -60,192 +102,55 @@ onMounted(() => {
             style="enable-background: new 0 0 1093 1092"
             xml:space="preserve"
           >
-            <use href="#flag-slovakia"></use>
+            <use :href="'#' + member.flag"></use>
           </svg>
-
           <img
-            src="https://slavic.media/img/marcel.jpg"
-            alt="Portrait of Marcel H."
-            title="Marcel H."
+            :src="member.img"
+            :alt="'Portrait of ' + member.name"
+            :title="member.name"
             class="reveal"
-            aria-label="Marcel's Portrait"
+            :aria-label="'Portrait of ' + member.name"
           />
         </div>
         <section class="profile">
-          <h4 class="reveal">Marcel H.</h4>
-          <h6 class="reveal">
-            Director <br class="hide-cta-max" />of<br class="hide-cta-max" />
-            Photography
-          </h6>
-
+          <h4 class="reveal">{{ member.name }}</h4>
+        
           <div class="social-icons reveal">
             <a
-              href="mailto:marcel@slavic.media"
-              aria-label="Email: marcel@slavic.media"
+              :href="'mailto:' + member.email"
+              :aria-label="'Email: ' + member.email"
             >
               <i title="Email" class="pi pi-envelope"></i>
+
             </a>
             <a
-              href="https://www.linkedin.com/in/marcelhajik"
+              v-if="member.linkedin"
+              :href="member.linkedin"
               target="_blank"
               rel="noopener noreferrer nofollow"
             >
               <i title="LinkedIn" class="pi pi-linkedin"></i>
             </a>
+            <a
+              v-if="member.github"
+              :href="member.github"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              <i title="GitHub" class="pi pi-github"></i>
+            </a>
           </div>
+          <h6 class="reveal">
+            {{member.role}}
+          </h6>
         </section>
       </div>
-      <!-- MARCEL SECTION END -->
-      <!-- ADAM SECTION START -->
-      <div class="swiper-slide" id="adam" role="region" aria-label="Adam S">
-        <div class="reveal">
-          <svg class="flag note" title="Flag of Czechia">
-            <use href="#flag-czechia"></use>
-          </svg>
-
-          <img
-            src="https://slavic.media/img/adam.jpg"
-            alt="Portrait of Adam S."
-            title="Adam S."
-            class="reveal"
-            role="img"
-            aria-label="Portrait of Adam S."
-          />
-        </div>
-
-        <div class="profile">
-          <h4 class="reveal" role="heading" aria-level="4">Adam S.</h4>
-          <h6 class="reveal">
-            Sales<br class="hide-cta-max" />
-            & <br class="hide-cta-max" />Communication
-          </h6>
-          <div class="social-icons reveal">
-            <a
-              href="mailto:adam@slavic.media"
-              aria-label="Email: adam@slavic.media"
-            >
-              <i title="Email" class="pi pi-envelope"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/adamsochorec"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-            >
-              <i title="LinkedIn" class="pi pi-linkedin"></i>
-            </a>
-          </div>
-        </div>
-        <!-- ADAM SKILLS END -->
-      </div>
-      <!-- ADAM SECTION END -->
-      <!-- DOMINIK SECTION START -->
-      <div
-        class="swiper-slide"
-        id="dominik"
-        role="region"
-        aria-label="Dominik T."
-      >
-        <div class="reveal">
-          <svg
-            title="Flag of Slovakia"
-            class="note flag"
-            id="Layer_1"
-            x="0px"
-            y="0px"
-            viewBox="0 0 1093 1092"
-            style="enable-background: new 0 0 1093 1092"
-            xml:space="preserve"
-          >
-            <use href="#flag-slovakia"></use>
-          </svg>
-          <img
-            src="https://slavic.media/img/dominik.jpg"
-            alt="Portrait of Dominik T."
-            title="Dominik T."
-            class="reveal"
-            role="img"
-            aria-label="Portrait of Dominik T."
-          />
-        </div>
-        <div class="profile">
-          <h4 class="reveal" role="heading" aria-level="4">Dominik T.</h4>
-          <h6 class="reveal">
-            Graphic<br class="hide-cta-max" />
-            Designer
-          </h6>
-          <br class="hide-cta-max" />
-          <div class="social-icons reveal">
-            <a
-              href="mailto:dominik@slavic.media"
-              aria-label="Email: dominik@slavic.media"
-            >
-              <i title="Email" class="pi pi-envelope"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/dominik-tószegi-07872a248/"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-            >
-              <i title="LinkedIn" class="pi pi-linkedin"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- DOMINIK SECTION END -->
-      <!-- FERDINAND SECTION START -->
-      <div
-        class="swiper-slide"
-        id="ferdinand"
-        role="region"
-        aria-label="Ferdinand P."
-      >
-        <div class="reveal">
-          <svg class="flag note" title="Flag of Czechia">
-            <use href="#flag-czechia"></use>
-          </svg>
-          <img
-            src="https://slavic.media/img/ferdinand.jpg"
-            alt="Portrait of Ferdinand P."
-            title="Ferdiannd P."
-            class="reveal"
-            role="img"
-            aria-label="Portrait of Ferdiannd P."
-          />
-        </div>
-        <div class="profile">
-          <h4 class="reveal" role="heading" aria-level="4">Ferdinand P.</h4>
-          <h6 class="reveal">
-            Sound<br class="hide-cta-max" />
-            Engineer
-          </h6>
-          <br class="hide-cta-max" />
-          <div class="social-icons reveal">
-            <a
-              href="mailto:ferda.petrs@gmail.com"
-              aria-label="Email: ferda.petrs@gmail.com"
-            >
-              <i title="Email" class="pi pi-envelope"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- FERDINAND SECTION END -->
+      <!-- Team Member Slide End -->
     </div>
   </section>
 </template>
-<style scoped>
-#ourteam.intro-section video {
-  -o-object-fit: cover;
-  object-fit: cover;
-  z-index: -1;
-  -webkit-filter: brightness(0.3);
-  filter: brightness(0.3);
-}
 
-#forpress.intro-section .filter {
-  -webkit-backdrop-filter: var(--blur-1);
-  backdrop-filter: var(--blur-1);
-}
+<style scoped>
 .profile h3,
 .profile h4,
 .profile h6,
@@ -264,6 +169,7 @@ onMounted(() => {
   grid-template-columns: repeat(3, 1fr);
   display: grid;
 }
+
 .swiper-ourteam img {
   border-radius: var(--border-radius-1);
   -webkit-box-shadow: var(--box-shadow-1);
@@ -275,82 +181,11 @@ onMounted(() => {
 .profile {
   text-align: center;
 }
-/* OUR TEAM SKILL BAR START */
-.swiper-ourteam .languages {
-  height: 20px;
-  padding-left: 5px;
-  vertical-align: text-top;
-}
-.swiper-ourteam .skill-bar.faded,
-.swiper-ourteam .skill-bar,
-.progress {
-  height: 5px;
-}
-.swiper-ourteam .skill-bar.faded .skill-bar,
-.progress {
-  border-top-left-radius: var(--border-radius-1);
-  border-bottom-left-radius: var(--border-radius-1);
-}
-.swiper-ourteam .skill-bar {
-  margin-top: 10px;
-  padding: 0;
-  position: relative;
-  -webkit-animation: opacity-pulse 1s linear infinite alternate;
-  animation: opacity-pulse 1s linear infinite alternate;
-  background-color: rgb(var(--primary-color));
-  width: 0;
-}
-.swiper-ourteam .skill-bar.faded {
-  background-color: rgb(var(--grey-color));
-  width: 100%;
-  -webkit-animation: none;
-  animation: none;
-  border-radius: var(--border-radius-1);
-}
-.progress {
-  border-radius: var(--border-radius-1);
-  background-color: rgb(var(--grey-color));
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  overflow: hidden;
-}
-ul.languages-legend {
-  list-style-type: disc;
-}
-ul.languages-legend li {
-  font-size: var(--fontsize-note);
-}
-ul.languages-legend li::marker {
-  list-style-type: square;
-}
 
-.languages-legend .responsibility-1::marker,
-.skill-bar.faded .responsibility-1 {
-  background-color: rgba(var(--secondary-color), 1);
-  color: rgba(var(--secondary-color), 1);
-  border-right: 3px solid rgb(var(--grey-color));
+.social-icons > *{
+  margin-right: var(--grid-gap-1);
 }
-.languages-legend .responsibility-2::marker,
-.skill-bar.faded .responsibility-2 {
-  background-color: rgba(var(--primary-color), 1);
-  color: rgba(var(--primary-color), 1);
-  border-right: 3px solid rgb(var(--grey-color));
-}
-.languages-legend .responsibility-3::marker,
-.skill-bar.faded .responsibility-3 {
-  background-color: rgba(var(--white-color), 1);
-  color: rgba(var(--white-color), 1);
-  border-right: 3px solid rgb(var(--grey-color));
-}
-.languages-legend .responsibility-4::marker,
-.skill-bar.faded .responsibility-4 {
-  background-color: rgb(var(--dark-grey-color));
-  color: rgb(var(--dark-grey-color));
-}
-@media only screen and (max-width: 500px) {
-  #ourteam p {
-    font-size: var(--fontsize-note);
-  }
+.social-icons a:nth-last-child() {
+  margin-right: 0;
 }
 </style>

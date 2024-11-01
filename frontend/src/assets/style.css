@@ -202,6 +202,7 @@ h6 {
   color: rgb(var(--white-color));
   font-family: var(--logo-font);
   position: relative;
+  line-height: normal;
 }
 h1 {
   font-size: clamp(2em, 5vw, 3em);

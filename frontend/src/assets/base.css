@@ -35,15 +35,15 @@
   --grid-gap-1: 10px;
   --grid-gap-2: 15px;
   --grid-gap-3: 30px;
-  --dimension-1: 100vh;
+  --dimension-1: 71vh;
   --dimension-2: 200px;
 }
 @font-face {
   font-family: "SF Pro Display";
-  src: url(../../public/fonts/SF-Pro-Display-Light.ttf) format("truetype");
+  src: url(/fonts/SF-Pro-Display-Light.ttf) format("truetype");
 }
 
 @font-face {
   font-family: Raleway Semibold;
-  src: url(../../public/fonts/Raleway-SemiBold.ttf) format("truetype");
+  src: url(/fonts/Raleway-SemiBold.ttf) format("truetype");
 }
