@@ -6,9 +6,12 @@ import heroVideo from "@/components/hero-video.vue";
 import swiperOurteam from "@/components/swiper-ourteam.vue";
 
 const events = ref([
-  { status: '2023', date: 'Company establishment' },
-    { status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800' },
-    { status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B' }
+  { year: 'May 2023', event: 'Company establishment' },
+  { year: 'December 2023', event: 'Swedish Lapland' },
+  { year: 'January 2024', event: 'Dominik joins' },
+  { year: 'March 2024', event: 'Finnish Lapland' },
+  { year: 'June 2024', event: 'Ferdinand joins' },
+  { year: 'October 2024', event: 'Carbon Capture Hamburg' }
 ]);
 </script>
 
@@ -25,14 +28,15 @@ const events = ref([
 
     <article class="wrapper-standard">
       <hr class="semi" />
-      
       <h1 style="font-size: var(--font-size-1)">Slavic Media I/S</h1>
+      <br>
       <Timeline :value="events">
-            <template #opposite="slotProps">
-                <p class="note0">{{slotProps.item.date}}</p>
+         
+            <template #content="slotProps">                <p class="note0">{{slotProps.item.event}}</p>
+
             </template>
-            <template #content="slotProps">
-                <p>{{slotProps.item.status}}</p>
+            <template #opposite="slotProps">                <p>{{slotProps.item.year}}</p>
+
             </template>
         </Timeline>
      <br>
