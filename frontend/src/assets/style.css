@@ -100,6 +100,25 @@ header:not(#homepage header),
     transform: rotate(1turn);
   }
 }
+/* SKELETON ANIMATION START */
+@-webkit-keyframes skeleton-loading {
+  0% {
+    background-color: rgba(var(--light-grey-color), 1);
+  }
+  100% {
+    background-color: rgba(var(--light-grey-color), 0.2);
+  }
+}
+@keyframes skeleton-loading {
+  0% {
+    background-color: rgba(var(--light-grey-color), 1);
+  }
+  100% {
+    background-color: rgba(var(--light-grey-color), 0.2);
+  }
+}
+
+/* SKELETON LOADING ANIMATION END */
 /* LOADER END */
 .flex-center {
   -webkit-box-align: center;

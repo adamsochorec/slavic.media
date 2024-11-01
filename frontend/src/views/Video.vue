@@ -32,51 +32,47 @@ onMounted(() => {
 
 const showreel = ref([
   {
-    src: "https://slavic.media/img/cover-norwegianfjords.jpg",
-    alt: "Timetravels.",
+    img: "https://slavic.media/img/cover-norwegianfjords.jpg",
     iconClass: "pi pi-play-circle bubble",
     flagTitle: "Flag of Norway",
     flagHref: "#flag-norway",
     title: "Norwegian Fjords",
     year: "2024",
     client: "timetravels.com",
-    videoLink: "https://vimeo.com/950575511",
+    video: "https://vimeo.com/950575511",
   },
   {
-    src: "https://slavic.media/img/cover-finnishlapland.jpg",
-    alt: "Timetravels.",
+    img: "https://slavic.media/img/cover-finnishlapland.jpg",
     iconClass: "pi pi-play-circle bubble",
     flagTitle: "Flag of Finland",
     flagHref: "#flag-finland",
     title: "Finnish Lapland",
     year: "2024",
     client: "timetravels.com",
-    videoLink: "https://vimeo.com/950575512",
+    video: "https://vimeo.com/950575512",
   },
 ]);
 
 const narrative = ref([
   {
-    src: "https://slavic.media/img/cover-narrative1.jpg",
-    alt: "Narrative 1.",
+    img: "https://slavic.media/img/cover-huskyfarm.jpg",
     iconClass: "pi pi-play-circle bubble",
-    flagTitle: "Flag of Sweden",
-    flagHref: "#flag-sweden",
-    title: "Swedish Story",
-    year: "2023",
-    client: "narrative.com",
-    videoLink: "https://vimeo.com/950575513",
+    flagTitle: "Flag of FInland",
+    flagHref: "#flag-finland",
+    title: "Husky Farm Veskoniemi",
+    year: "2024",
+    client: "timetravels.com",
+    video: "https://vimeo.com/956644060",
   },
   {
-    src: "https://slavic.media/img/cover-narrative2.jpg",
-    alt: "Narrative 2.",
+    img: "https://slavic.media/img/cover-husetfundament.jpg",
     iconClass: "pi pi-play-circle bubble",
     flagTitle: "Flag of Denmark",
     flagHref: "#flag-denmark",
-    title: "Danish Tale",
+    title: "Huset Fundament",
     year: "2023",
-    client: "narrative.com",
-    videoLink: "https://vimeo.com/950575514",
+    client: "husetfundament.dk",
+    video: "https://vimeo.com/942148434",
   },
 ]);
 </script>
@@ -146,7 +142,7 @@ const narrative = ref([
           :key="index"
           class="gallery-item reveal"
         >
-          <img :src="item.src" :alt="item.alt" />
+          <img :src="item.img" :alt="item.title" />
           <div class="gallery-item-caption">
             <i :class="item.iconClass"></i>
             <svg class="flag note" :title="item.flagTitle">
@@ -157,11 +153,7 @@ const narrative = ref([
               {{ item.year }}&nbsp;|&nbsp;<span>{{ item.client }}</span>
               <i class="pi pi-arrow-right"></i>
             </p>
-            <a
-              :href="item.videoLink"
-              target="_blank"
-              rel="noopener noreferrer"
-            ></a>
+            <a :href="item.video" target="_blank" rel="noopener noreferrer"></a>
           </div>
         </div>
         <div id="content"></div>
@@ -222,7 +214,7 @@ const narrative = ref([
         :key="index"
         class="gallery-item reveal"
       >
-        <img :src="item.src" :alt="item.alt" />
+        <img :src="item.img" :alt="item.alt" />
         <div class="gallery-item-caption">
           <i :class="item.iconClass"></i>
           <svg class="flag note" :title="item.flagTitle">
@@ -233,11 +225,7 @@ const narrative = ref([
             {{ item.year }}&nbsp;|&nbsp;<span>{{ item.client }}</span>
             <i class="pi pi-arrow-right"></i>
           </p>
-          <a
-            :href="item.videoLink"
-            target="_blank"
-            rel="noopener noreferrer"
-          ></a>
+          <a :href="item.video" target="_blank" rel="noopener noreferrer"></a>
         </div>
       </div>
       <!-- NARRATIVE ITEMS END -->
