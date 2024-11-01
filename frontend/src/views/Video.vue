@@ -32,7 +32,7 @@ onMounted(() => {
 
 const showreel = ref([
   {
-    img: "https://slavic.media/img/cover-norwegianfjords.jp",
+    img: "https://slavic.media/img/cover-norwegianfjords.jpg",
     iconClass: "pi pi-play-circle bubble",
     flagTitle: "Flag of Norway",
     flagHref: "#flag-norway",
@@ -77,8 +77,8 @@ const narrative = ref([
 ]);
 </script>
 <template>
-  <div class="main">
-    <article class="wrapper-wide" style="margin-top: 120px">
+  <div class="main" style="margin-top: 120px">
+    <article class="wrapper-wide">
       <contactForm></contactForm>
 
       <!-- PAGE INTRO -->
@@ -113,7 +113,7 @@ const narrative = ref([
           </a>
         </div>
         <div id="showreel"></div>
-      </div>
+      </div></article>
       <!-- GALLERY 1 -->
       <article class="wrapper-wide" id="video">
         <hr class="reveal" role="separator" />
@@ -159,9 +159,10 @@ const narrative = ref([
         <div id="content"></div>
       </article>
 
-      <hr role="separator" />
 
       <!-- SWIPER GALLERY -->
+      <article class="wrapper-wide" id="video">      <hr role="separator" />
+
       <div class="grid-container caption-container">
         <div class="grid-item reveal">
           <h2 class="reveal" aria-label="Engaging Content">
@@ -176,10 +177,9 @@ const narrative = ref([
         </div>
         <div id="content"></div>
       </div>
-    </article>
 
     <hr class="semi" role="separator" />
-
+      </article>
     <article class="wrapper-wide" id="reels">
       <swiperReels></swiperReels>
 

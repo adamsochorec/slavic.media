@@ -84,7 +84,7 @@ export const services = ref([
     icon: "pi pi-users",
     items: [
       { label: "Blog", route: "/blog", icon: "pi pi-pencil" },
-      { label: "Our Team", route: "/our-team", icon: "pi pi-users" },
+      { label: "About", route: "/about", icon: "pi pi-users" },
       {
         label: "Press Resources",
         route: "/press-resources",
