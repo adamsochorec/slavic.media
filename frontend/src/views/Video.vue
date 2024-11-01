@@ -32,7 +32,7 @@ onMounted(() => {
 
 const showreel = ref([
   {
-    img: "https://slavic.media/img/cover-norwegianfjords.jpg",
+    img: "https://slavic.media/img/cover-norwegianfjords.jp",
     iconClass: "pi pi-play-circle bubble",
     flagTitle: "Flag of Norway",
     flagHref: "#flag-norway",
