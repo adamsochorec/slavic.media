@@ -128,8 +128,8 @@ onMounted(() => {
 }
 .pi-instagram {
   position: absolute;
-  bottom: 45px;
-  right: 20px;
+  top: var(--grid-gap-2);
+  left: var(--grid-gap-2);;
 }
 @media only screen and (max-width: 667px) {
   .swiper-reels video {

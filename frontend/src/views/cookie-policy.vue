@@ -30,7 +30,7 @@ import { ref, onMounted } from "vue";
             ><a href="/" aria-label="Home"></a> &#8250;
           </span>
           <span class="pathname" aria-label="press">legal &#8250;</span>
-          <span class="pathname" aria-label="press">Cookie Policy</span>
+          <span class="pathname" aria-label="press"> Cookie Policy</span>
         </p>
       </div>
       <hr class="reveal" role="separator" aria-label="Separator" />
