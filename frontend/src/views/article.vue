@@ -30,35 +30,13 @@ const copyHref = (href) => {
 
 <template>
   <div class="main" style="margin-top: 120px">
-    <article class="wrapper-standard">
-      <hr class="semi" />
-
+    <article class="wrapper-wide">
       <div v-if="isDataLoaded">
-        <!-- BREADCRUMB MENU -->
-        <div class="pathname-container reveal">
-          <p>
-            <span class="pathname"
-              ><a href="/" aria-label="Home"></a> &#8250;
-            </span>
-            <span class="pathname" aria-label="Blog">blog &#8250; </span>
-
-            <button
-              @click="
-                copyHref(`https://slavic.media/blog/${state.article.slug}`)
-              "
-            >
-              <span class="pathname" aria-label="Article "
-                >{{ state.article.title }}
-              </span>
-            </button>
-          </p>
-        </div>
-        <img :src="state.article.metadata.thumbnail" class="reveal" />
-        <h1 style="font-size: var(--font-size-1)" class="mt-5 mb-5 reveal">
+        <h1>
           {{ state.article.title }}
         </h1>
-        <Card class="card reveal" role="region">
-          <template #content>
+        <br>
+        <!-- ARTICLE METADATA START -->        
             <div class="flex items-center justify-between gap-2">
               <div class="flex items-center gap-2">
                 <Avatar
@@ -67,14 +45,14 @@ const copyHref = (href) => {
                   shape="circle"
                 />
                 <div>
-                  <a
+                  <b><a
                     target="_blank"
                     rel="noopener noreferrer nofollow"
                     :href="state.article.author.url"
                     style="font-size: var(--font-size-8)"
-                    class="font-bold"
+                    
                     >{{ state.article.author.name }}</a
-                  ><br />
+                  ></b><br />
                   <span style="font-size: var(--font-size-8)">
                     {{ state.article.metadata.date }}&nbsp;⋅&nbsp;{{
                       state.article.metadata.length
@@ -97,10 +75,9 @@ const copyHref = (href) => {
                   class="pi pi-link"
                 ></button>
               </div>
-            </div>
-          </template>
-        </Card>
-
+            </div>       
+<!-- ARTICLE METADATA END -->    <br>     
+<img :src="state.article.metadata.thumbnail" class="reveal" />
         <p class="mt-5 mb-5 reveal">{{ state.article.content.text[0] }}</p>
         <img :src="state.article.content.img[0]" />
 
@@ -135,9 +112,13 @@ const copyHref = (href) => {
 </template>
 
 <style lang="scss" scoped>
+h1{
+  font-size: var(--font-size-2);
+}
 p.img-desc {
   font-size: var(--font-size-8);
   text-align: center;
   margin: var(--grid-gap-1) 0;
 }
+
 </style>

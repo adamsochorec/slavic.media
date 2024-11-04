@@ -36,7 +36,6 @@ const truncateText = (text, maxLength) => {
               style="
                 box-shadow: var(--box-shadow-1);
                 height: auto;
-                min-height: 400px;
               "
               role="region"
               class="rounded border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900"
@@ -57,11 +56,7 @@ const truncateText = (text, maxLength) => {
               <template #title>
                 <span>{{ truncateText(article.title, 80) }}</span>
               </template>
-              <template #content>
-                <span style="font-size: var(--font-size-7)">{{
-                  truncateText(article.content.text[0], 65)
-                }}</span>
-              </template>
+            
 
               <template #footer>
                 <div class="flex items-center gap-3">

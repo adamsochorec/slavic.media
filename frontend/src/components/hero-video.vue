@@ -27,6 +27,10 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  vimeo: {
+    type: String,
+    default: "",
+  },
 });
 
 // VIDEO OFFLOAD START
@@ -95,10 +99,20 @@ onMounted(() => {
         :poster="poster"
       ></video>
     </div>
+    <a target="_blank" rel="noopener noreferrer nofollow" :href="vimeo">
+      <i class="pi pi-vimeo"></i
+    ></a>
   </article>
 </template>
 
 <style scoped>
+.pi-vimeo {
+  position: absolute;
+  top: calc(var(--dimension-1) - 2.5 * var(--grid-gap-1));
+  right: var(--grid-gap-1);
+  z-index: 99999999;
+  color: rgb(--white-color);
+}
 .showcase {
   height: var(--dimension-1);
   display: -webkit-box;

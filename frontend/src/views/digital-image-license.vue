@@ -4,12 +4,6 @@ import { ref, onMounted } from "vue";
 <template>
   <div class="main" style="margin-top: 120px">
     <article class="wrapper-wide">
-      <div
-        class="pathname-container"
-        role="region"
-        aria-labelledby="pagePathHeading"
-        aria-hidden="false"
-      ></div>
       <h1
         id="pagePathHeading"
         class="reveal"
@@ -19,20 +13,7 @@ import { ref, onMounted } from "vue";
       >
         Digital Image <span class="highlited tuscher">License</span>
       </h1>
-      <div
-        class="pathname-container reveal"
-        role="navigation"
-        aria-labelledby="breadcrumbsHeading"
-        aria-hidden="false"
-      >
-        <p>
-          <span class="pathname"
-            ><a href="/" aria-label="Home"></a> &#8250;
-          </span>
-          <span class="pathname" aria-label="press">legal &#8250;</span>
-          <span class="pathname" aria-label="press"> Digital Image License</span>
-        </p>
-      </div>
+
       <hr class="reveal" role="separator" aria-label="Separator" />
       <!-- LEGAL TEXT START -->
       <h5 class="reveal">Scope of License</h5>

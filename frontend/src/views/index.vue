@@ -35,6 +35,7 @@ const galleryItems = ref([
       loop
       autoplay
       muted
+      vimeo="https://vimeo.com/987964137/870f308e79"
       ariaLabel="Showreel"
     />
     <!-- INTRO VIDEO END -->

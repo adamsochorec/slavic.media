@@ -31,6 +31,16 @@ onMounted(() => {
 });
 
 const showreel = ref([
+{
+    img: "https://slavic.media/img/cover-carboncapture.jpg",
+    iconClass: "pi pi-play-circle bubble",
+    flagTitle: "Flag of Germany",
+    flagHref: "#flag-germany",
+    title: "Carbon Capture",
+    year: "2024",
+    client: "innomoctics.com",
+    video: "https://vimeo.com/1023689566",
+  },
   {
     img: "https://slavic.media/img/cover-norwegianfjords.jpg",
     iconClass: "pi pi-play-circle bubble",
@@ -50,6 +60,16 @@ const showreel = ref([
     year: "2024",
     client: "timetravels.com",
     video: "https://vimeo.com/950575512",
+  },
+  {
+    img: "https://slavic.media/img/cover-swedishlapland.jpg",
+    iconClass: "pi pi-play-circle bubble",
+    flagTitle: "Flag of Sweden",
+    flagHref: "#flag-sweden",
+    title: "Swedish Lapland",
+    year: "2023",
+    client: "timetravels.com",
+    video: "https://vimeo.com/942145699",
   },
 ]);
 
@@ -88,17 +108,6 @@ const narrative = ref([
             <span class="highlited">Video</span>
             Services
           </h1>
-          <!-- BREADCRUMB MENU -->
-          <div class="pathname-container reveal">
-            <p>
-              <span class="pathname"
-                ><a href="/" aria-label="Home"></a> &#8250;
-              </span>
-              <span class="pathname" aria-label="Video">Services &#8250; </span>
-
-              <span class="pathname" aria-label="Video">Video</span>
-            </p>
-          </div>
         </div>
         <div class="grid-item">
           <p class="reveal">

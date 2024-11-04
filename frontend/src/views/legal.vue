@@ -1,9 +1,16 @@
 <script setup>
 import { ref, onMounted } from "vue";
+
 </script>
 <template>
   <div class="main" style="margin-top: 120px">
     <article class="wrapper-wide">
+      <div
+        class="pathname-container"
+        role="region"
+        aria-labelledby="pagePathHeading"
+        aria-hidden="false"
+      ></div>
       <h1
         id="pagePathHeading"
         class="reveal"
@@ -13,7 +20,20 @@ import { ref, onMounted } from "vue";
       >
         <span class="highlited tuscher">Terms</span> of Sale
       </h1>
-
+      <div
+        class="pathname-container reveal"
+        role="navigation"
+        aria-labelledby="breadcrumbsHeading"
+        aria-hidden="false"
+      >
+        <p>
+          <span class="pathname"
+            ><a href="/" aria-label="Home"></a> &#8250;
+          </span>
+          <span class="pathname" aria-label="press">legal &#8250;</span>
+          <span class="pathname" aria-label="press"> Terms of Sale</span>
+        </p>
+      </div>
       <hr class="reveal" role="separator" aria-label="Separator" />
       <!-- LEGAL TEXT START -->
       <h5 class="reveal">Acceptance of Terms</h5>

@@ -37,9 +37,9 @@ const router = createRouter({
     },
     // PRESS RESOURCES
     {
-      path: "/press-resources",
-      name: "press resources",
-      component: () => import("../views/press-resources.vue"),
+      path: "/assets",
+      name: "assets",
+      component: () => import("../views/assets.vue"),
       meta: {
         requiresAuth: false,
       },
@@ -63,6 +63,15 @@ const router = createRouter({
       },
     },
     // LEGAL
+    {
+      path: "/legal/:slug",
+      name: "Legal",
+      component: () =>
+        import("../views/legal.vue"),
+      meta: {
+        requiresAuth: false,
+      },
+    },
     {
       path: "/legal/cookie-policy",
       name: "cookie policy",
