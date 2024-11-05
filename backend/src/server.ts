@@ -59,7 +59,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 // Route handlers
-app.use("/blog/articles", articleRoutes);
+app.use("/blog", articleRoutes);
 app.use("/img", imgRoutes);
 app.use("/services/photo", photoServicesRoutes);
 app.use("/user", authRoutes);

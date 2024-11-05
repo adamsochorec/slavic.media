@@ -42,7 +42,7 @@ app.get("/", (req, res) => {
     res.status(200).send({ message: "Welcome to the backend" });
 });
 // Route handlers
-app.use("/blog/articles", article_1.default);
+app.use("/blog", article_1.default);
 app.use("/img", img_1.default);
 app.use("/services/photo", photoServices_1.default);
 app.use("/user", auth_1.default);

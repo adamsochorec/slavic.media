@@ -249,7 +249,10 @@ main li {
 .highlited {
   color: rgba(var(--primary-color), 1);
 }
-
+main ul {
+  list-style-type: disc;
+  margin-left: var(--grid-gap-3);
+}
 /* LINK START */
 a,
 a:hover {
@@ -1126,6 +1129,10 @@ i.pi-arrow-right:hover {
 }
 .article-content img {
   border-radius: var(--border-radius-1);
+}
+.article-content iframe {
+  border-radius: var(--border-radius-1);
+  height: 400px;
 }
 /* ARTICLE END */
 

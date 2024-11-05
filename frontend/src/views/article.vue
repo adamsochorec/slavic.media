@@ -101,10 +101,12 @@ const copyHref = (href) => {
           </div>
           <div class="flex items-center gap-3">
             <a
+              v-if="state.article.metadata.linkedin"
               target="_blank"
               rel="noopener noreferrer nofollow"
               :href="state.article.metadata.linkedin"
-              ><i class="pi pi-linkedin"></i>
+            >
+              <i class="pi pi-linkedin"></i>
             </a>
             <button
               v-tooltip.bottom="{
