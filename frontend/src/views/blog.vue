@@ -23,7 +23,6 @@ const truncateText = (text, maxLength) => {
 <template>
   <div class="main" style="margin-top: 120px">
     <article class="wrapper-wide">
-      <h1 style="font-size: var(--font-size-1)" class="mb-5">Blog</h1>
       <div v-if="isDataLoaded">
         <div class="grid-container">
           <div
@@ -71,62 +70,152 @@ const truncateText = (text, maxLength) => {
           </div>
         </div>
       </div>
-      <div class="container" v-else>
-        <div
-          style="box-shadow: var(--box-shadow-1)"
-          class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900"
-        >
-          <div class="flex mb-4">
-            <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+      <div v-else>
+        <Skeleton
+          width="60%"
+          height="30px"
+          style="background-color: rgb(var(--dark-grey-color))"
+          class="mb-4"
+        ></Skeleton>
+        <div class="grid-container">
+          <div class="card">
+            <Skeleton
+              style="background-color: rgb(var(--dark-grey-color))"
+              class="p-6"
+              width="100%"
+              height="150px"
+            ></Skeleton>
             <div>
-              <Skeleton width="10rem" class="mb-2"></Skeleton>
-              <Skeleton width="5rem" class="mb-2"></Skeleton>
-              <Skeleton height=".5rem"></Skeleton>
+              <Skeleton
+                width="100%"
+                style="background-color: rgb(var(--dark-grey-color))"
+                class="mt-2"
+              ></Skeleton>
+              <Skeleton
+                width="60%"
+                style="background-color: rgb(var(--dark-grey-color))"
+                class="mt-2"
+              ></Skeleton>
+              <div class="flex mt-4">
+                <Skeleton
+                  style="background-color: rgb(var(--dark-grey-color))"
+                  class="mr-2"
+                  shape="circle"
+                  size="4rem"
+                ></Skeleton>
+                <div>
+                  <Skeleton
+                    width="10rem"
+                    style="background-color: rgb(var(--dark-grey-color))"
+                    class="mb-2"
+                  ></Skeleton>
+                  <Skeleton
+                    width="5rem"
+                    style="background-color: rgb(var(--dark-grey-color))"
+                    class="mb-2"
+                  ></Skeleton>
+                  <Skeleton
+                    style="background-color: rgb(var(--dark-grey-color))"
+                    class=""
+                    height=".5rem"
+                  ></Skeleton>
+                </div>
+              </div>
             </div>
           </div>
-          <Skeleton width="100%" height="150px"></Skeleton>
-          <div class="flex justify-between mt-4">
-            <Skeleton width="4rem" height="2rem"></Skeleton>
-            <Skeleton width="4rem" height="2rem"></Skeleton>
-          </div>
-        </div>
-        <div
-          style="box-shadow: var(--box-shadow-1)"
-          class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900"
-        >
-          <div class="flex mb-4">
-            <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+          <div class="card">
+            <Skeleton
+              style="background-color: rgb(var(--dark-grey-color))"
+              class="p-6"
+              width="100%"
+              height="150px"
+            ></Skeleton>
             <div>
-              <Skeleton width="10rem" class="mb-2"></Skeleton>
-              <Skeleton width="5rem" class="mb-2"></Skeleton>
-              <Skeleton height=".5rem"></Skeleton>
+              <Skeleton
+                width="100%"
+                style="background-color: rgb(var(--dark-grey-color))"
+                class="mt-2"
+              ></Skeleton>
+              <Skeleton
+                width="60%"
+                style="background-color: rgb(var(--dark-grey-color))"
+                class="mt-2"
+              ></Skeleton>
+              <div class="flex mt-4">
+                <Skeleton
+                  style="background-color: rgb(var(--dark-grey-color))"
+                  class="mr-2"
+                  shape="circle"
+                  size="4rem"
+                ></Skeleton>
+                <div>
+                  <Skeleton
+                    width="10rem"
+                    style="background-color: rgb(var(--dark-grey-color))"
+                    class="mb-2"
+                  ></Skeleton>
+                  <Skeleton
+                    width="5rem"
+                    style="background-color: rgb(var(--dark-grey-color))"
+                    class="mb-2"
+                  ></Skeleton>
+                  <Skeleton
+                    style="background-color: rgb(var(--dark-grey-color))"
+                    class=""
+                    height=".5rem"
+                  ></Skeleton>
+                </div>
+              </div>
             </div>
           </div>
-          <Skeleton width="100%" height="150px"></Skeleton>
-          <div class="flex justify-between mt-4">
-            <Skeleton width="4rem" height="2rem"></Skeleton>
-            <Skeleton width="4rem" height="2rem"></Skeleton>
-          </div>
-        </div>
-        <div
-          style="box-shadow: var(--box-shadow-1)"
-          class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900"
-        >
-          <div class="flex mb-4">
-            <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+          <div class="card">
+            <Skeleton
+              style="background-color: rgb(var(--dark-grey-color))"
+              class="p-6"
+              width="100%"
+              height="150px"
+            ></Skeleton>
             <div>
-              <Skeleton width="10rem" class="mb-2"></Skeleton>
-              <Skeleton width="5rem" class="mb-2"></Skeleton>
-              <Skeleton height=".5rem"></Skeleton>
+              <Skeleton
+                width="100%"
+                style="background-color: rgb(var(--dark-grey-color))"
+                class="mt-2"
+              ></Skeleton>
+              <Skeleton
+                width="60%"
+                style="background-color: rgb(var(--dark-grey-color))"
+                class="mt-2"
+              ></Skeleton>
+              <div class="flex mt-4">
+                <Skeleton
+                  style="background-color: rgb(var(--dark-grey-color))"
+                  class="mr-2"
+                  shape="circle"
+                  size="4rem"
+                ></Skeleton>
+                <div>
+                  <Skeleton
+                    width="10rem"
+                    style="background-color: rgb(var(--dark-grey-color))"
+                    class="mb-2"
+                  ></Skeleton>
+                  <Skeleton
+                    width="5rem"
+                    style="background-color: rgb(var(--dark-grey-color))"
+                    class="mb-2"
+                  ></Skeleton>
+                  <Skeleton
+                    style="background-color: rgb(var(--dark-grey-color))"
+                    class=""
+                    height=".5rem"
+                  ></Skeleton>
+                </div>
+              </div>
             </div>
-          </div>
-          <Skeleton width="100%" height="150px"></Skeleton>
-          <div class="flex justify-between mt-4">
-            <Skeleton width="4rem" height="2rem"></Skeleton>
-            <Skeleton width="4rem" height="2rem"></Skeleton>
           </div>
         </div>
       </div>
+
       <hr class="semi" />
     </article>
   </div>
@@ -148,31 +237,32 @@ img {
   grid-template-columns: repeat(1, 1fr);
   display: grid;
   grid-gap: var(--grid-gap-3);
-}
-.metadata {
-  display: flex;
-  align-items: center;
-  line-height: 1;
-  padding: var(--grid-gap-2) 0;
-}
-.card {
   height: auto;
   border-radius: var(--border-radius-1);
   color: white;
 }
+.metadata {
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+  padding: var(--grid-gap-2) 0;
+}
 
+.grid-item:nth-child(2) {
+  font-size: var(--font-size-8);
+}
 @media only screen and (max-width: 900px) {
-  .grid-container {
-    grid-template-columns: repeat(1, 1fr);
-  }
   .card {
     justify-content: space-between;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 2fr;
     grid-gap: var(--grid-gap-2);
   }
   h2 {
-    font-size: var(--font-size-3);
+    font-size: var(--font-size-4);
+  }
+  .grid-item:nth-child(2) {
+    font-size: var(--font-size-9);
   }
 }
 @media only screen and (min-width: 900px) {
