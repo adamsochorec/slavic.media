@@ -42,7 +42,7 @@ const truncateText = (text, maxLength) => {
                 />
                 <h2>{{ truncateText(article.title, 80) }}</h2>
               </router-link>
-              <div class="metadata flex items-center gap-2">
+              <div class="metadata gap-2">
                 <a
                   target="_blank"
                   rel="noopener noreferrer nofollow"
@@ -138,7 +138,7 @@ const truncateText = (text, maxLength) => {
 <style lang="scss" scoped>
 h2 {
   font-size: var(--font-size-5);
-  padding: var(--grid-gap-2);
+  padding: var(--grid-gap-2) 0;
 }
 a.author:hover {
   text-decoration: underline;
@@ -148,7 +148,9 @@ a.author:hover {
   grid-gap: var(--grid-gap-3);
 }
 .metadata {
-  padding: 0 var(--grid-gap-2);
+  display: flex;
+  align-items: center;
+  line-height: 1;
 }
 .card {
   height: 340px;
