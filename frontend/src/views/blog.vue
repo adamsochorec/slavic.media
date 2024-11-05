@@ -25,24 +25,18 @@ const truncateText = (text, maxLength) => {
     <article class="wrapper-wide">
       <h1 style="font-size: var(--font-size-1)" class="mb-5">Blog</h1>
       <div v-if="isDataLoaded">
-        <div class="container">
-          <div v-for="article in state.articles" :key="article.slug">
-            <div class="card" role="region">
-              <router-link :to="`/blog/${article.slug}`">
-                <img
-                  style="
-                    height: 170px;
-                    width: 100%;
-                    object-fit: cover;
-                    border-top-left-radius: var(--p-card-border-radius);
-                    border-top-right-radius: var(--p-card-border-radius);
-                  "
-                  :alt="article.title"
-                  :src="article.metadata.thumbnail"
-                />
-                <h2>{{ truncateText(article.title, 80) }}</h2>
-              </router-link>
-              <div class="metadata gap-2">
+        <div class="grid-container">
+          <div
+            v-for="article in state.articles"
+            :key="article.slug"
+            class="card"
+            role="region"
+          >
+            <router-link :to="`/blog/${article.slug}`">
+              <img :alt="article.title" :src="article.metadata.thumbnail" />
+            </router-link>
+            <div>
+              <div class="metadata gap-3">
                 <a
                   target="_blank"
                   rel="noopener noreferrer nofollow"
@@ -70,6 +64,9 @@ const truncateText = (text, maxLength) => {
                   >
                 </div>
               </div>
+              <router-link class="title" :to="`/blog/${article.slug}`"
+                ><h2>{{ truncateText(article.title, 80) }}</h2></router-link
+              >
             </div>
           </div>
         </div>
@@ -138,12 +135,17 @@ const truncateText = (text, maxLength) => {
 <style lang="scss" scoped>
 h2 {
   font-size: var(--font-size-5);
-  padding: var(--grid-gap-2) 0;
 }
 a.author:hover {
   text-decoration: underline;
 }
-.container {
+img {
+  height: 170px;
+  width: 100%;
+  object-fit: cover;
+}
+.grid-container {
+  grid-template-columns: repeat(1, 1fr);
   display: grid;
   grid-gap: var(--grid-gap-3);
 }
@@ -151,20 +153,30 @@ a.author:hover {
   display: flex;
   align-items: center;
   line-height: 1;
+  padding: var(--grid-gap-2) 0;
 }
 .card {
-  height: 340px;
+  height: auto;
   border-radius: var(--border-radius-1);
   color: white;
 }
 
 @media only screen and (max-width: 900px) {
-  .container {
-    grid-template-columns: repeat(2, 1fr);
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .card {
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: var(--grid-gap-2);
+  }
+  h2 {
+    font-size: var(--font-size-3);
   }
 }
 @media only screen and (min-width: 900px) {
-  .container {
+  .grid-container {
     grid-template-columns: repeat(3, 1fr);
   }
 }
