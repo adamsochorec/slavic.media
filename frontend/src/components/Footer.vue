@@ -124,6 +124,14 @@ export default {
 </script>
 
 <style scoped>
+footer a.footer-nav {
+  color: rgb(var(--primary-color));
+  text-decoration: underline;
+}
+footer a.footer-nav:hover {
+  opacity: 80%;
+  text-decoration: underline;
+}
 footer {
   padding: var(--grid-gap-3) var(--homepage-padding);
   background-color: rgb(var(--dark-grey-color));

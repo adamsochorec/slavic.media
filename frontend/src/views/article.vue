@@ -2,6 +2,7 @@
 import { ref, onMounted } from "vue";
 import useArticleCrud from "../modules/articleCrud";
 import { useRoute } from "vue-router";
+import $ from "jquery";
 
 // Destructure methods and state from articleCrud
 const { getSpecificArticleBySlug, state } = useArticleCrud();
@@ -26,6 +27,47 @@ const copyHref = (href) => {
       console.error("Failed to copy URL: ", err);
     });
 };
+
+// POP UP GALLERY
+$(document).ready(function () {
+  // Initializes Magnific Popup for image-based galleries
+  $(".wrapper-wide").magnificPopup({
+    delegate: "img", // Targets <a> elements directly
+    type: "image",
+    tLoading: '<div class="loading-container"><div class="loader"></div></div>', // Loading spinner HTML
+    mainClass: "mfp-img-mobile",
+    gallery: {
+      enabled: true,
+      fixedContentPos: "false",
+      overflowY: "scroll",
+
+      navigateByImgClick: true,
+      preload: [0, 1], // Preloads adjacent images
+    },
+    zoom: {
+      enabled: true,
+      duration: 300, // Duration of the zoom animation
+    },
+    image: {
+      tError:
+        '<div class="error-container"><i class="fa-solid fa-xl fa-triangle-exclamation"></i><br><br>Error</div>', // Error message HTML
+
+      title: true,
+      src: function (item) {
+        // Gets the URL of the image for the popup
+        return item.el.attr("src");
+      },
+    },
+    callbacks: {
+      elementParse: function (item) {
+        // Function to handle each image source
+        item.src = item.el.attr("src");
+      },
+    },
+    fixedContentPos: "false",
+    overflowY: "scroll",
+  });
+});
 </script>
 
 <template>
@@ -35,9 +77,9 @@ const copyHref = (href) => {
         <h1>
           {{ state.article.title }}
         </h1>
-        <br />
+        <img :src="state.article.metadata.thumbnail" class="reveal" />
         <!-- ARTICLE METADATA START -->
-        <div class="flex items-center justify-between gap-2">
+        <div class="article-metadata flex justify-between">
           <div class="flex items-center gap-2">
             <Avatar
               :image="state.article.author.thumbnail"
@@ -67,19 +109,18 @@ const copyHref = (href) => {
               target="_blank"
               rel="noopener noreferrer nofollow"
               :href="state.article.metadata.linkedin"
-              class="pi pi-linkedin"
-            ></a>
+              ><i class="pi pi-linkedin"></i>
+            </a>
             <button
               @click="
                 copyHref(`https://slavic.media/blog/${state.article.slug}`)
               "
-              class="pi pi-link"
-            ></button>
+            >
+              <i class="pi pi-link"></i>
+            </button>
           </div>
         </div>
         <!-- ARTICLE METADATA END -->
-        <br />
-        <img :src="state.article.metadata.thumbnail" class="reveal" />
         <section
           class="article-content"
           v-for="(content, index) in state.article.content"
@@ -114,5 +155,19 @@ const copyHref = (href) => {
 <style lang="scss" scoped>
 h1 {
   font-size: var(--font-size-2);
+  margin-bottom: var(--grid-gap-2);
+}
+.article-metadata {
+  margin-top: var(--grid-gap-2);
+  color: rgb(var(--white-color));
+  background: rgb(var(--dark-grey-color));
+  padding: var(--grid-gap-2);
+  border-radius: var(--border-radius-1);
+}
+.article-metadata a:hover {
+  text-decoration: underline;
+}
+img {
+  border-radius: var(--border-radius-1);
 }
 </style>

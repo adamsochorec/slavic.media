@@ -264,8 +264,7 @@ h5 a,
 h6 a,
 i a,
 main li a,
-p a,
-footer a.footer-nav {
+p a {
   color: rgb(var(--primary-color));
   text-decoration: underline;
 }
@@ -278,8 +277,7 @@ h6 a:hover,
 i a:hover,
 main li a:hover,
 p a:hover,
-a p:hover,
-footer a.footer-nav:hover {
+a p:hover {
   opacity: 80%;
   text-decoration: underline;
 }
@@ -1103,18 +1101,30 @@ i.pi-arrow-right:hover {
 .article-content p {
   margin: var(--grid-gap-2) 0;
 }
-.article-content p.img-desc {
-  font-size: var(--font-size-8);
+.article-content .img-metadata {
   text-align: center;
-  margin: var(--grid-gap-1) 0;
+}
+.article-content .img-desc,
+.article-content .img-src {
+  color: rgb(var(--white-color));
+  text-align: center;
+}
+.article-content .img-desc {
+  font-size: var(--font-size-8);
+}
+.article-content .img-src::before {
+  content: "Source: ";
+}
+.article-content .img-src::after {
+  content: " | Slavic Media";
+}
+.article-content .img-src {
+  font-size: var(--font-size-9);
 }
 .article-content p {
   margin: var(--grid-gap-2) 0;
 }
 .article-content img {
-  max-width: 100%;
-  height: auto;
-  display: block;
   border-radius: var(--border-radius-1);
 }
 /* ARTICLE END */
