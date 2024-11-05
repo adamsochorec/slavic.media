@@ -131,23 +131,69 @@ const copyHref = (href) => {
           ></section>
         </div>
       </div>
-      <div
-        v-else
-        class="rounded-lg border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-800 shadow-lg mb-4 p-8"
-      >
-        <div class="flex mb-4">
-          <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
-          <div>
-            <Skeleton width="10rem" class="mb-2"></Skeleton>
-            <Skeleton width="5rem" class="mb-2"></Skeleton>
-            <Skeleton height=".5rem"></Skeleton>
-          </div>
-        </div>
-        <Skeleton width="100%" height="150px"></Skeleton>
+      <div v-else class="mb-4 p-8">
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          height="30px"
+          width="100%"
+          class="mb-2"
+        ></Skeleton>
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          height="30px"
+          width="50%"
+          class="mb-4"
+        ></Skeleton>
         <div class="flex justify-between mt-4">
-          <Skeleton width="4rem" height="2rem"></Skeleton>
-          <Skeleton width="4rem" height="2rem"></Skeleton>
+          <div class="flex mb-4">
+            <Skeleton
+              style="background-color: rgb(var(--dark-grey-color))"
+              shape="circle"
+              size="4rem"
+              class="mr-2"
+            ></Skeleton>
+            <div>
+              <Skeleton
+                style="background-color: rgb(var(--dark-grey-color))"
+                width="10rem"
+                class="mb-2"
+              ></Skeleton>
+              <Skeleton
+                style="background-color: rgb(var(--dark-grey-color))"
+                width="5rem"
+                class="mb-2"
+              ></Skeleton>
+              <Skeleton
+                style="background-color: rgb(var(--dark-grey-color))"
+                height=".5rem"
+              ></Skeleton>
+            </div>
+          </div>
+          <Skeleton
+            style="background-color: rgb(var(--dark-grey-color))"
+            shape="circle"
+            width="2rem"
+            height="2rem"
+          ></Skeleton>
         </div>
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          class="mb-4"
+          width="100%"
+          height="250px"
+        ></Skeleton>
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          height="15px"
+          width="100%"
+          class="mb-4"
+        ></Skeleton>
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          height="15px"
+          width="50%"
+          class="mb-4"
+        ></Skeleton>
       </div>
       <hr class="semi" />
     </article>
