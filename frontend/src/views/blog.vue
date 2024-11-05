@@ -251,6 +251,14 @@ img {
 .grid-item:nth-child(2) {
   font-size: var(--font-size-8);
 }
+@media only screen and (max-width: 420px) {
+  .metadata {
+    display: none;
+  }
+  img {
+    height: 90px;
+  }
+}
 @media only screen and (max-width: 900px) {
   .card {
     justify-content: space-between;
