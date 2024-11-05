@@ -19,7 +19,7 @@ const useArticleCrud = () => {
 
   const getAllArticles = async () => {
     try {
-      const response = await fetch("https://api.slavic.media/blog/articles/");
+      const response = await fetch("https://api.slavic.media/blog/");
       const data = await response.json();
 
       // Function to convert date string to a format that can be parsed by Date object
@@ -93,7 +93,7 @@ const useArticleCrud = () => {
         },
       };
       const response = await fetch(
-        `https://api.slavic.media/blog/articles/${article.id}`,
+        `https://api.slavic.media/blog/${article.id}`,
         requestOptions
       );
 
@@ -138,7 +138,7 @@ const useArticleCrud = () => {
         }),
       };
 
-      const url = "https://api.slavic.media/blog/articles/" + documentID.value;
+      const url = "https://api.slavic.media/blog/" + documentID.value;
       const response = await fetch(url, requestOptions);
 
       if (!response.ok) {
@@ -155,7 +155,7 @@ const useArticleCrud = () => {
   const getSpecificArticle = async (documentID) => {
     try {
       const response = await fetch(
-        `https://api.slavic.media/blog/articles/${documentID}`
+        `https://api.slavic.media/blog/${documentID}`
       );
 
       if (!response.ok) {
@@ -169,9 +169,7 @@ const useArticleCrud = () => {
   };
   const getSpecificArticleBySlug = async (slug) => {
     try {
-      const response = await axios.get(
-        `https://api.slavic.media/blog/articles/${slug}`
-      );
+      const response = await axios.get(`https://api.slavic.media/blog/${slug}`);
       state.value.article = response.data;
     } catch (error) {
       console.error(error);
