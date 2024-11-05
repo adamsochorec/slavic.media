@@ -273,7 +273,7 @@ img {
   .card {
     justify-content: space-between;
     display: grid;
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: 40% 60%;
     grid-gap: var(--grid-gap-2);
   }
   h2 {
