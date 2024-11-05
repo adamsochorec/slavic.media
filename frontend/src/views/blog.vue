@@ -26,21 +26,9 @@ const truncateText = (text, maxLength) => {
       <h1 style="font-size: var(--font-size-1)" class="mb-5">Blog</h1>
       <div v-if="isDataLoaded">
         <div class="container">
-          <router-link
-            v-for="article in state.articles"
-            :key="article.slug"
-            :to="`/blog/${article.slug}`"
-            :class="{ 'article-item': true }"
-          >
-            <Card
-              style="
-                box-shadow: var(--box-shadow-1);
-                height: auto;
-              "
-              role="region"
-              class="rounded border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900"
-            >
-              <template #header>
+          <div v-for="article in state.articles" :key="article.slug">
+            <div class="card" role="region">
+              <router-link :to="`/blog/${article.slug}`">
                 <img
                   style="
                     height: 170px;
@@ -52,39 +40,38 @@ const truncateText = (text, maxLength) => {
                   :alt="article.title"
                   :src="article.metadata.thumbnail"
                 />
-              </template>
-              <template #title>
-                <span>{{ truncateText(article.title, 80) }}</span>
-              </template>
-            
-
-              <template #footer>
-                <div class="flex items-center gap-3">
+                <h2>{{ truncateText(article.title, 80) }}</h2>
+              </router-link>
+              <div class="metadata flex items-center gap-2">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  :href="article.author.url"
+                >
                   <Avatar
                     :image="article.author.thumbnail"
                     size="medium"
                     shape="circle"
-                  />
-                  <div>
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer nofollow"
-                      style="font-size: var(--font-size-8)"
-                      :href="article.author.url"
-                      class="font-bold"
-                      >{{ article.author.name }}</a
-                    ><br />
-                    <span style="font-size: var(--font-size-8)">
-                      {{ article.metadata.date }}&nbsp;⋅&nbsp;{{
-                        article.metadata.length
-                      }}
-                      min read</span
-                    >
-                  </div>
+                /></a>
+                <div>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    class="author"
+                    style="font-size: var(--font-size-8)"
+                    :href="article.author.url"
+                    ><b>{{ article.author.name }}</b></a
+                  ><br />
+                  <span style="font-size: var(--font-size-8)">
+                    {{ article.metadata.date }}&nbsp;⋅&nbsp;{{
+                      article.metadata.length
+                    }}
+                    min read</span
+                  >
                 </div>
-              </template>
-            </Card>
-          </router-link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="container" v-else>
@@ -149,9 +136,34 @@ const truncateText = (text, maxLength) => {
 </template>
 
 <style lang="scss" scoped>
+h2 {
+  font-size: var(--font-size-5);
+  padding: var(--grid-gap-2);
+}
+a.author:hover {
+  text-decoration: underline;
+}
 .container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-gap: var(--grid-gap-3);
+}
+.metadata {
+  padding: 0 var(--grid-gap-2);
+}
+.card {
+  height: 340px;
+  border-radius: var(--border-radius-1);
+  color: white;
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (min-width: 900px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 </style>

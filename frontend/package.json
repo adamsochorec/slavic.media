@@ -17,7 +17,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
-    "@lottiefiles/dotlottie-vue": "^0.4.17",
+    "@lottiefiles/dotlottie-vue": "^0.4.18",
     "@primevue/themes": "^4.0.7",
     "@vimeo/player": "^2.24.0",
     "axios": "^1.7.7",

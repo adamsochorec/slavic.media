@@ -2,7 +2,7 @@
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 </script>
 <template>
-  <div class="main" style="margin-top: 120px">
+  <div class="main" style="margin: 120px 0">
     <article
       class="wrapper-narrow flex-center"
       role="article"
@@ -12,11 +12,12 @@ import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
       <div class="lottie" role="img" aria-label="Animation: Page Not Found">
         <DotLottieVue
           background="transparent"
-          speed="0.7"
+          speed="1"
           loop
           autoplay
           aria-label="Page not found animation."
-          src="https://lottie.host/8b1a0c1b-94ec-42a8-b75c-92e88eeb0558/CaBerXe4yy.lottie"
+          style="height: 276px; margin-bottom: -70px"
+          src="https://lottie.host/a6502c3c-0553-41df-96d5-ebccd619e634/Zd9lglu2le.lottie"
         />
       </div>
       <h1 id="error-heading" aria-describedby="error-description">
@@ -37,33 +38,10 @@ import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 </template>
 
 <style scoped>
-DotLottieVue {
-  height: 176px;
-  z-index: 0;
-}
 h1 {
   font-size: var(--font-size-4);
   font-weight: var(--paragraph-weight);
   text-transform: unset;
   text-align: center;
-}
-@media only screen and (min-width: 310px) {
-  DotLottieVue {
-    margin-bottom: 64px;
-  }
-}
-@media only screen and (max-width: 560px) {
-  .noindex .pathname-container {
-    margin-top: 64px;
-  }
-  .intro-section {
-    background-attachment: scroll;
-  }
-}
-@media only screen and (min-height: 700px) {
-  footer {
-    position: absolute;
-    bottom: 0;
-  }
 }
 </style>
