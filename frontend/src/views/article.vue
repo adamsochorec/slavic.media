@@ -31,7 +31,7 @@ const copyHref = (href) => {
 // POP UP GALLERY
 $(document).ready(function () {
   // Initializes Magnific Popup for image-based galleries
-  $(".wrapper-wide").magnificPopup({
+  $(".article-content").magnificPopup({
     delegate: "img", // Targets <a> elements directly
     type: "image",
     tLoading: '<div class="loading-container"><div class="loader"></div></div>', // Loading spinner HTML
@@ -50,7 +50,7 @@ $(document).ready(function () {
     },
     image: {
       tError:
-        '<div class="error-container"><i class="fa-solid fa-xl fa-triangle-exclamation"></i><br><br>Error</div>', // Error message HTML
+        '<div class="error-container"><i class="pi pi-triangle-exclamation"></i><br><br>Error</div>', // Error message HTML
 
       title: true,
       src: function (item) {
@@ -77,7 +77,6 @@ $(document).ready(function () {
         <h1>
           {{ state.article.title }}
         </h1>
-        <img :src="state.article.metadata.thumbnail" class="reveal" />
         <!-- ARTICLE METADATA START -->
         <div class="article-metadata flex justify-between">
           <div class="flex items-center gap-2">
@@ -121,13 +120,15 @@ $(document).ready(function () {
           </div>
         </div>
         <!-- ARTICLE METADATA END -->
-        <section
-          class="article-content"
-          v-for="(content, index) in state.article.content"
-          :key="index"
-          v-html="content"
-          v-add-class
-        ></section>
+        <div class="article-content">
+          <img :src="state.article.metadata.thumbnail" class="reveal" />
+          <section
+            v-for="(content, index) in state.article.content"
+            :key="index"
+            v-html="content"
+            v-add-class
+          ></section>
+        </div>
       </div>
       <div
         v-else
@@ -155,10 +156,9 @@ $(document).ready(function () {
 <style lang="scss" scoped>
 h1 {
   font-size: var(--font-size-2);
-  margin-bottom: var(--grid-gap-2);
 }
 .article-metadata {
-  margin-top: var(--grid-gap-2);
+  margin: var(--grid-gap-2) 0;
   color: rgb(var(--white-color));
   background: rgb(var(--dark-grey-color));
   padding: var(--grid-gap-2);
@@ -166,8 +166,5 @@ h1 {
 }
 .article-metadata a:hover {
   text-decoration: underline;
-}
-img {
-  border-radius: var(--border-radius-1);
 }
 </style>
