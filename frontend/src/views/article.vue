@@ -14,9 +14,46 @@ onMounted(async () => {
   await getSpecificArticleBySlug(route.params.slug);
   console.log("Loaded article:", state.article); // Log the loaded article
   isDataLoaded.value = true;
-});
 
-// COPY LINK
+  // POP UP GALLERY
+  $(document).ready(function () {
+    $(".article-content").magnificPopup({
+      delegate: "img",
+      type: "image",
+      tLoading: "Loading",
+      mainClass: "mfp-img-mobile",
+      gallery: {
+        enabled: true,
+        fixedContentPos: "false",
+        overflowY: "scroll",
+
+        navigateByImgClick: true,
+        preload: [0, 1], // Preloads adjacent images
+      },
+      zoom: {
+        enabled: true,
+        duration: 300, // Duration of the zoom animation
+      },
+      image: {
+        tError: `Error`,
+
+        title: true,
+        src: function (item) {
+          // Gets the URL of the image for the popup
+          return item.el.attr("src");
+        },
+      },
+      callbacks: {
+        elementParse: function (item) {
+          // Function to handle each image source
+          item.src = item.el.attr("src");
+        },
+      },
+      fixedContentPos: "false",
+      overflowY: "scroll",
+    });
+  });
+}); // COPY LINK
 const copyHref = (href) => {
   navigator.clipboard
     .writeText(href)
@@ -27,47 +64,6 @@ const copyHref = (href) => {
       console.error("Failed to copy URL: ", err);
     });
 };
-
-// POP UP GALLERY
-$(document).ready(function () {
-  // Initializes Magnific Popup for image-based galleries
-  $(".article-content").magnificPopup({
-    delegate: "img", // Targets <a> elements directly
-    type: "image",
-    tLoading: '<div class="loading-container"><div class="loader"></div></div>', // Loading spinner HTML
-    mainClass: "mfp-img-mobile",
-    gallery: {
-      enabled: true,
-      fixedContentPos: "false",
-      overflowY: "scroll",
-
-      navigateByImgClick: true,
-      preload: [0, 1], // Preloads adjacent images
-    },
-    zoom: {
-      enabled: true,
-      duration: 300, // Duration of the zoom animation
-    },
-    image: {
-      tError:
-        '<div class="error-container"><i class="pi pi-triangle-exclamation"></i><br><br>Error</div>', // Error message HTML
-
-      title: true,
-      src: function (item) {
-        // Gets the URL of the image for the popup
-        return item.el.attr("src");
-      },
-    },
-    callbacks: {
-      elementParse: function (item) {
-        // Function to handle each image source
-        item.src = item.el.attr("src");
-      },
-    },
-    fixedContentPos: "false",
-    overflowY: "scroll",
-  });
-});
 </script>
 
 <template>
@@ -111,6 +107,10 @@ $(document).ready(function () {
               ><i class="pi pi-linkedin"></i>
             </a>
             <button
+              v-tooltip.bottom="{
+                value: 'Copy link',
+                autoHide: false,
+              }"
               @click="
                 copyHref(`https://slavic.media/blog/${state.article.slug}`)
               "
@@ -121,7 +121,6 @@ $(document).ready(function () {
         </div>
         <!-- ARTICLE METADATA END -->
         <div class="article-content">
-          <img :src="state.article.metadata.thumbnail" class="reveal" />
           <section
             v-for="(content, index) in state.article.content"
             :key="index"

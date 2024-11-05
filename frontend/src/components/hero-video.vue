@@ -104,6 +104,7 @@ onMounted(() => {
       target="_blank"
       rel="noopener noreferrer nofollow"
       :href="vimeo"
+      v-tooltip.left="{ value: 'Watch the video', autoHide: true }"
     >
       <i class="pi pi-vimeo"></i
     ></a>
