@@ -101,10 +101,7 @@ function mapData(element) {
             thumbnail: element.metadata.thumbnail,
             length: element.metadata.length,
         },
-        content: {
-            text: element.content.text,
-            img: element.content.img,
-        },
+        content: element.content,
         title: element.title,
         slug: element.slug,
     };

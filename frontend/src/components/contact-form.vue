@@ -242,6 +242,11 @@ textarea {
   resize: none;
   height: var(--dimension-2);
 }
+@media only screen and (max-width: 375px) {
+  button.submit-btn {
+    font-size: var(--fontsize-note);
+  }
+}
 @media only screen and (max-width: 500px) {
   .contact-form-section .contact-form .grid-item:nth-child(even),
   .contact-form-section .contact-form .grid-item:nth-child(odd) {

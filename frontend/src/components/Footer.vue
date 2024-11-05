@@ -124,7 +124,6 @@ export default {
 </script>
 
 <style scoped>
-/* FOOTER START */
 footer {
   padding: var(--grid-gap-3) var(--homepage-padding);
   background-color: rgb(var(--dark-grey-color));
@@ -186,32 +185,13 @@ footer .language-container {
   margin-right: 0;
 }
 /* SOCIAL ICONS END */
-@media only screen and (max-width: 850px) {
-  header ul {
-    clear: both;
-  }
-  header a {
-    padding: 0;
-  }
-  .hamburger {
-    padding: 11px 0px 0px 16px;
-  }
 
-  .menu-left a {
-    padding: var(--grid-gap-2) var(--grid-gap-2) var(--grid-gap-2) 0;
+@media only screen and (max-width: 415px) {
+  .separator-hide {
+    display: none;
   }
-  .menu-left a:hover {
-    background-color: transparent;
-  }
-  #services .grid-container {
-    margin-bottom: 50px;
-  }
-  .video-container {
-    height: 100%;
-  }
-  .showcase {
-    height: 100vh;
-  }
+}
+@media only screen and (max-width: 850px) {
   footer {
     font-size: var(--fontsize-note);
   }

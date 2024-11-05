@@ -33,12 +33,7 @@ const pressItems = ref([
 <template>
   <div class="main" style="margin-top: 120px">
     <article class="wrapper-wide">
-      <h1
-        id="pagePathHeading"
-        class="reveal"
-        role="heading"
-        aria-level="1"
-      >
+      <h1 id="pagePathHeading" class="reveal" role="heading" aria-level="1">
         Assets
       </h1>
       <hr class="reveal" role="separator" aria-label="Separator" />
@@ -81,7 +76,6 @@ const pressItems = ref([
 </template>
 
 <style lang="scss" scoped>
-/* GALLERY PRESS START */
 #gallery-press {
   display: grid;
   grid-gap: var(--grid-gap-3);

@@ -35,58 +35,58 @@ const copyHref = (href) => {
         <h1>
           {{ state.article.title }}
         </h1>
-        <br>
-        <!-- ARTICLE METADATA START -->        
-            <div class="flex items-center justify-between gap-2">
-              <div class="flex items-center gap-2">
-                <Avatar
-                  :image="state.article.author.thumbnail"
-                  size="large"
-                  shape="circle"
-                />
-                <div>
-                  <b><a
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    :href="state.article.author.url"
-                    style="font-size: var(--font-size-8)"
-                    
-                    >{{ state.article.author.name }}</a
-                  ></b><br />
-                  <span style="font-size: var(--font-size-8)">
-                    {{ state.article.metadata.date }}&nbsp;⋅&nbsp;{{
-                      state.article.metadata.length
-                    }}
-                    min read</span
-                  >
-                </div>
-              </div>
-              <div class="flex items-center gap-3">
-                <a
+        <br />
+        <!-- ARTICLE METADATA START -->
+        <div class="flex items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <Avatar
+              :image="state.article.author.thumbnail"
+              size="large"
+              shape="circle"
+            />
+            <div>
+              <b
+                ><a
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  :href="state.article.metadata.linkedin"
-                  class="pi pi-linkedin"
-                ></a>
-                <button
-                  @click="
-                    copyHref(`https://slavic.media/blog/${state.article.slug}`)
-                  "
-                  class="pi pi-link"
-                ></button>
-              </div>
-            </div>       
-<!-- ARTICLE METADATA END -->    <br>     
-<img :src="state.article.metadata.thumbnail" class="reveal" />
-        <p class="mt-5 mb-5 reveal">{{ state.article.content.text[0] }}</p>
-        <img :src="state.article.content.img[0]" />
-
-        <p class="mt-5 mb-5 reveal">{{ state.article.content.text[1] }}</p>
-        <p class="mt-5 mb-5 reveal">{{ state.article.content.text[2] }}</p>
-        <img :src="state.article.content.img[1]" />
-        <p class="mt-5 mb-5 reveal">{{ state.article.content.text[3] }}</p>
-        <p class="mt-5 mb-5 reveal">{{ state.article.content.text[4] }}</p>
-        <p class="mt-5 mb-5 reveal">{{ state.article.content.text[5] }}</p>
+                  :href="state.article.author.url"
+                  style="font-size: var(--font-size-8)"
+                  >{{ state.article.author.name }}</a
+                ></b
+              ><br />
+              <span style="font-size: var(--font-size-8)">
+                {{ state.article.metadata.date }}&nbsp;⋅&nbsp;{{
+                  state.article.metadata.length
+                }}
+                min read</span
+              >
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <a
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              :href="state.article.metadata.linkedin"
+              class="pi pi-linkedin"
+            ></a>
+            <button
+              @click="
+                copyHref(`https://slavic.media/blog/${state.article.slug}`)
+              "
+              class="pi pi-link"
+            ></button>
+          </div>
+        </div>
+        <!-- ARTICLE METADATA END -->
+        <br />
+        <img :src="state.article.metadata.thumbnail" class="reveal" />
+        <section
+          class="article-content"
+          v-for="(content, index) in state.article.content"
+          :key="index"
+          v-html="content"
+          v-add-class
+        ></section>
       </div>
       <div
         v-else
@@ -112,13 +112,7 @@ const copyHref = (href) => {
 </template>
 
 <style lang="scss" scoped>
-h1{
+h1 {
   font-size: var(--font-size-2);
 }
-p.img-desc {
-  font-size: var(--font-size-8);
-  text-align: center;
-  margin: var(--grid-gap-1) 0;
-}
-
 </style>

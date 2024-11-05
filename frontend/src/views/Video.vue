@@ -31,7 +31,7 @@ onMounted(() => {
 });
 
 const showreel = ref([
-{
+  {
     img: "https://slavic.media/img/cover-carboncapture.jpg",
     iconClass: "pi pi-play-circle bubble",
     flagTitle: "Flag of Germany",
@@ -122,55 +122,55 @@ const narrative = ref([
           </a>
         </div>
         <div id="showreel"></div>
-      </div></article>
-      <!-- GALLERY 1 -->
-      <article class="wrapper-wide" id="video">
-        <hr class="reveal" role="separator" />
-        <div class="grid-container caption-container">
-          <div class="grid-item reveal">
-            <h2>Brand <span class="highlited">Showreel</span></h2>
-          </div>
-          <div class="grid-item">
-            <p class="reveal">
-              Deep eye contact and powerful visuals that connect—each frame
-              crafted to showcase your product in a way that inspires and leaves
-              a lasting impression.
-            </p>
-          </div>
+      </div>
+    </article>
+    <!-- GALLERY 1 -->
+    <article class="wrapper-wide" id="video">
+      <hr class="reveal" role="separator" />
+      <div class="grid-container caption-container">
+        <div class="grid-item reveal">
+          <h2>Brand <span class="highlited">Showreel</span></h2>
         </div>
-        <hr class="semi" role="separator" />
-      </article>
-      <!-- GALLERY 1.1 -->
-      <article
-        class="wrapper-wide gallery"
-        id="gallery-video"
-        aria-label="Video Gallery"
+        <div class="grid-item">
+          <p class="reveal">
+            Deep eye contact and powerful visuals that connect—each frame
+            crafted to showcase your product in a way that inspires and leaves a
+            lasting impression.
+          </p>
+        </div>
+      </div>
+      <hr class="semi" role="separator" />
+    </article>
+    <!-- GALLERY 1.1 -->
+    <article
+      class="wrapper-wide gallery"
+      id="gallery-video"
+      aria-label="Video Gallery"
+    >
+      <div
+        v-for="(item, index) in showreel"
+        :key="index"
+        class="gallery-item reveal"
       >
-        <div
-          v-for="(item, index) in showreel"
-          :key="index"
-          class="gallery-item reveal"
-        >
-          <img :src="item.img" :alt="item.title" />
-          <div class="gallery-item-caption">
-            <i :class="item.iconClass"></i>
-            <svg class="flag note" :title="item.flagTitle">
-              <use :href="item.flagHref"></use>
-            </svg>
-            <h4>{{ item.title }}</h4>
-            <p>
-              {{ item.year }}&nbsp;|&nbsp;<span>{{ item.client }}</span>
-              <i class="pi pi-arrow-right"></i>
-            </p>
-            <a :href="item.video" target="_blank" rel="noopener noreferrer"></a>
-          </div>
+        <img :src="item.img" :alt="item.title" />
+        <div class="gallery-item-caption">
+          <i :class="item.iconClass"></i>
+          <svg class="flag note" :title="item.flagTitle">
+            <use :href="item.flagHref"></use>
+          </svg>
+          <h4>{{ item.title }}</h4>
+          <p>
+            {{ item.year }}&nbsp;|&nbsp;<span>{{ item.client }}</span>
+          </p>
+          <a :href="item.video" target="_blank" rel="noopener noreferrer"></a>
         </div>
-        <div id="content"></div>
-      </article>
+      </div>
+      <div id="content"></div>
+    </article>
 
-
-      <!-- SWIPER GALLERY -->
-      <article class="wrapper-wide" id="video">      <hr role="separator" />
+    <!-- SWIPER GALLERY -->
+    <article class="wrapper-wide" id="video">
+      <hr role="separator" />
 
       <div class="grid-container caption-container">
         <div class="grid-item reveal">
@@ -187,8 +187,8 @@ const narrative = ref([
         <div id="content"></div>
       </div>
 
-    <hr class="semi" role="separator" />
-      </article>
+      <hr class="semi" role="separator" />
+    </article>
     <article class="wrapper-wide" id="reels">
       <swiperReels></swiperReels>
 
@@ -232,7 +232,6 @@ const narrative = ref([
           <h4>{{ item.title }}</h4>
           <p>
             {{ item.year }}&nbsp;|&nbsp;<span>{{ item.client }}</span>
-            <i class="pi pi-arrow-right"></i>
           </p>
           <a :href="item.video" target="_blank" rel="noopener noreferrer"></a>
         </div>
@@ -309,11 +308,22 @@ const narrative = ref([
   font-size: var(--fontsize-note);
   padding: 12px 0;
   opacity: 0;
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s, -webkit-transform 0.35s;
-  -o-transition: opacity 0.35s, transform 0.35s;
-  transition: opacity 0.35s, transform 0.35s;
-  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+  -webkit-transition:
+    opacity 0.35s,
+    -webkit-transform 0.35s;
+  transition:
+    opacity 0.35s,
+    -webkit-transform 0.35s;
+  -o-transition:
+    opacity 0.35s,
+    transform 0.35s;
+  transition:
+    opacity 0.35s,
+    transform 0.35s;
+  transition:
+    opacity 0.35s,
+    transform 0.35s,
+    -webkit-transform 0.35s;
   -webkit-transform: translate3d(10%, 0, 0);
   transform: translate3d(10%, 0, 0);
 }

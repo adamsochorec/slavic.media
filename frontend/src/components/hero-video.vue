@@ -99,19 +99,21 @@ onMounted(() => {
         :poster="poster"
       ></video>
     </div>
-    <a target="_blank" rel="noopener noreferrer nofollow" :href="vimeo">
+    <a
+      class="link"
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      :href="vimeo"
+    >
       <i class="pi pi-vimeo"></i
     ></a>
   </article>
 </template>
 
 <style scoped>
-.pi-vimeo {
+.link {
   position: absolute;
-  top: calc(var(--dimension-1) - 2.5 * var(--grid-gap-1));
   right: var(--grid-gap-1);
-  z-index: 99999999;
-  color: rgb(--white-color);
 }
 .showcase {
   height: var(--dimension-1);
@@ -143,92 +145,21 @@ onMounted(() => {
   transform: translate(-50%, -50%);
   object-fit: cover;
 }
-.intro-section {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  resize: both;
-  scroll-snap-align: start;
-  height: calc(var(--dimension-1) - var(--nav-bar-top-position));
-  width: 100%;
-}
-.intro-section h2,
-.intro-section h3 {
-  text-align: center;
-}
-.intro-section {
-  height: var(--dimension-1);
-  background-color: var(--dark-grey-color-full);
-}
-.intro-section {
-  width: 100vw;
-}
+
 @media only screen and (max-width: 415px) {
-  .intro-section {
-    border-radius: 0 !important;
-    width: 100vw;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+  .video-container,
+  .showcase {
+    height: 100vh;
+  }
+  .link {
+    bottom: 5px;
   }
 }
-@media only screen and (max-width: 667px) {
-  .intro-section {
-    height: 300px !important;
+@media only screen and (min-width: 415px) {
+  .link {
+    position: absolute;
+    top: calc(var(--dimension-1) - 2.7 * var(--grid-gap-1));
+    right: var(--grid-gap-1);
   }
 }
-/* ORIGINAL INTRO VIDEO START
-.showcase {
-  height: var(--dimension-1);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 20px;
-}
-.video-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80%;
-  overflow: hidden;
-  background-image: url(/img/showreel.png);
-  background-position: center;
-  background-size: cover;
-}
-.video-container video {
-  min-width: 100%;
-  min-height: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  -o-object-fit: cover;
-  object-fit: cover;
-}
-.video-container:after {
-  content: "";
-  z-index: 1;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0);
-  position: absolute;
-}
-/* INTRO VIDEO END */
 </style>

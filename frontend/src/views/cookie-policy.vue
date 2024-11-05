@@ -181,7 +181,7 @@ import { ref, onMounted } from "vue";
       <p class="reveal">
         For inquiries or issues related to cookies or privacy, please contact
         Slavic Media at
-        <a href="mailto:contact@slavic.media">contact@slavic.media</a>.
+        <a href="mailto:privacy@slavic.media">privacy@slavic.media</a>.
       </p>
       <!-- LEGAL TEXT END -->
     </article>

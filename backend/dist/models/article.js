@@ -38,11 +38,7 @@ const articleSchema = new mongoose_1.Schema({
         thumbnail: { type: String, required: true },
         length: { type: Number, required: true },
     },
-    content: {
-        text: { type: [String], required: true },
-        img: { type: [String], required: false },
-        iframe: { type: [String], required: false },
-    },
+    content: { type: [String], required: true },
     title: { type: String, required: true },
     slug: { type: String, required: true, unique: true },
 });

@@ -145,4 +145,13 @@ const galleryItems = ref([
 h1 {
   font-size: var(--font-size-3);
 }
+
+@media only screen and (max-width: 415px) {
+  h1 {
+    font-size: var(--font-size-2);
+  }
+  #reviews-caption p {
+    margin-bottom: 0;
+  }
+}
 </style>

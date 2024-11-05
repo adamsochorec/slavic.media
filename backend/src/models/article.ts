@@ -19,11 +19,7 @@ interface imgInterface extends Document {
     thumbnail: string;
     length: number;
   };
-  content: {
-    text: string[];
-    img: string[];
-    iframe: string[];
-  };
+  content: string[];
   title: string;
   slug: string;
 }
@@ -42,11 +38,7 @@ const articleSchema: Schema = new Schema({
     thumbnail: { type: String, required: true },
     length: { type: Number, required: true },
   },
-  content: {
-    text: { type: [String], required: true },
-    img: { type: [String], required: false },
-    iframe: { type: [String], required: false },
-  },
+  content: { type: [String], required: true },
   title: { type: String, required: true },
   slug: { type: String, required: true, unique: true },
 });
