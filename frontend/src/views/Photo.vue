@@ -266,14 +266,14 @@ onMounted(() => {
       <div class="grid-container caption-container">
         <div class="grid-item">
           <h1 class="reveal" aria-label="Video Services">
-            <span class="highlited">Video</span> Services
+            <span class="highlited">Photo</span> Services
           </h1>
         </div>
         <div class="grid-item">
           <p class="reveal">
-            From inspiring stories to cinematic visuals, each video project is
-            crafted to captivate, impress, and showcase your vision with
-            creative precision.
+            Whether it’s a dynamic performance, a powerful portrait, or the vast
+            outdoors, our photography captures authentic moments, rich in detail
+            and emotion, that tell your story.
           </p>
           <a class="popup-with-form reveal" href="#request-a-proposal">
             <div class="cta">
@@ -351,6 +351,11 @@ small a {
   -webkit-box-flex: 100%;
   flex: 100%;
   max-width: 100%;
+}
+.column img {
+  margin-top: var(--grid-gap-1);
+  vertical-align: middle;
+  width: 100%;
 }
 .column:nth-child(2) {
   padding-left: var(--grid-gap-1);
