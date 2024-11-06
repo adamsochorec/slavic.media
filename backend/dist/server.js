@@ -25,7 +25,6 @@ const swaggerDefinition = yamljs_1.default.load(path_1.default.join("backend", "
 app.use("/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDefinition));
 const article_1 = __importDefault(require("./routes/article"));
 const img_1 = __importDefault(require("./routes/img"));
-const photoServices_1 = __importDefault(require("./routes/photoServices"));
 const auth_1 = __importDefault(require("./routes/auth"));
 require("dotenv-flow").config();
 // Middleware to parse JSON bodies (duplicate, can be removed)
@@ -44,7 +43,6 @@ app.get("/", (req, res) => {
 // Route handlers
 app.use("/blog", article_1.default);
 app.use("/img", img_1.default);
-app.use("/services/photo", photoServices_1.default);
 app.use("/user", auth_1.default);
 // Serve static files from the 'dist' directory
 app.use(express_1.default.static(path_1.default.join(__dirname, "dist")));

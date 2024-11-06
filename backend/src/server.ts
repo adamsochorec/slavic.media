@@ -34,7 +34,6 @@ app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition));
 
 import articleRoutes from "./routes/article";
 import imgRoutes from "./routes/img";
-import photoServicesRoutes from "./routes/photoServices";
 import authRoutes from "./routes/auth";
 
 require("dotenv-flow").config();
@@ -61,7 +60,6 @@ app.get("/", (req: Request, res: Response) => {
 // Route handlers
 app.use("/blog", articleRoutes);
 app.use("/img", imgRoutes);
-app.use("/services/photo", photoServicesRoutes);
 app.use("/user", authRoutes);
 
 // Serve static files from the 'dist' directory
