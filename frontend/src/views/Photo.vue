@@ -248,7 +248,7 @@ onMounted(() => {
     callbacks: {
       elementParse: function (item) {
         // Function to handle each image source
-        item.src = item.el.attr("src");
+        item.src = item.el.attr("href");
       },
     },
     fixedContentPos: "false",
