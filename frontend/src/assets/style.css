@@ -705,6 +705,9 @@ button.submit-btn {
 /* GALLERY END */
 
 /* MAGNIFICIENT POP UP START */
+.popup-gallery {
+  padding: 0 var(--homepage-padding) 0 var(--homepage-padding);
+}
 .mfp-bg {
   top: 0;
   left: 0;

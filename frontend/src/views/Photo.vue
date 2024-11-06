@@ -11,7 +11,7 @@ onMounted(() => {
   $(".popup-gallery").magnificPopup({
     delegate: "a", // Targets <a> elements directly
     type: "image",
-    tLoading: '<div class="loading-container"><div class="loader"></div></div>', // Loading spinner HTML
+    tLoading: "Loading", // Loading spinner HTML
     mainClass: "mfp-img-mobile",
     gallery: {
       enabled: true,
@@ -25,8 +25,7 @@ onMounted(() => {
       duration: 300, // Duration of the zoom animation
     },
     image: {
-      tError:
-        '<div class="error-container"><i class="fa-solid fa-xl fa-triangle-exclamation"></i><br><br>Error</div>', // Error message HTML
+      tError: "Error", // Error message HTML
       titleSrc: function (item) {
         // Gets the URL of the image for the popup
         return item.el.attr("title");
