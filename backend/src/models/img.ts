@@ -4,8 +4,8 @@ import mongoose, { Schema, Document } from "mongoose";
 interface imgInterface extends Document {
   _id: string;
   alt: string;
-  title: number;
-  flag: number;
+  title: string;
+  flag: string;
 }
 
 const imgSchema = new Schema({

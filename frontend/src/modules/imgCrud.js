@@ -20,7 +20,7 @@ const useImgCrud = () => {
       const data = await response.json();
       console.log("Fetched data:", data); // Add this line
 
-      state.value.imgs = data;
+      state.value.img = data;
     } catch (error) {
       console.error(error);
     }
