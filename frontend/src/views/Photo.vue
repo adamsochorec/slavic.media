@@ -13,7 +13,7 @@ const img = {
     column1: [
       {
         src: "https://slavic.media/img/2021-11-13-02059.jpg",
-        alt: "Close-up portrait of a man wearing a baseball cap leaning against a wall in Kolding.",
+        alt: "Man wearing a baseball cap leaning against a wall in Kolding.",
         title: "2021 | Kolding, Denmark | art project",
         flag: "denmark",
       },
@@ -23,14 +23,14 @@ const img = {
         title: "2023 | Kolding, Denmark | Hvalp",
         flag: "denmark",
       },
+    ],
+    column2: [
       {
         src: "https://slavic.media/img/2021-08-24-01615.jpg",
         alt: "Close-up of a girl's face with colourful makeup around her eyes, making her look like a butterfly.",
         title: "2021 | Kolding, Denmark | art project",
         flag: "denmark",
       },
-    ],
-    column2: [
       {
         src: "https://slavic.media/img/2021-09-05-01666.jpg",
         alt: "Close-up of a girl's face leaning on a mirror, creating a reflection, with a pink backdrop, photographed in Kolding.",
@@ -39,7 +39,7 @@ const img = {
       },
       {
         src: "https://slavic.media/img/2021-04-25-00693.jpg",
-        alt: "Close-up portrait of Tereza Císařová laying on a table with fries, photographed at Divadlo Na Vinohradech.",
+        alt: "Tereza Císařová laying on a table with fries, photographed at Divadlo Na Vinohradech.",
         title: "2021 | Prague, Czechia | Divadlo na Vinohradech",
         flag: "czechia",
       },
@@ -47,7 +47,7 @@ const img = {
     column3: [
       {
         src: "https://slavic.media/img/2021-05-28-01020.jpg",
-        alt: "Portrait of Zuzana Částková.",
+        alt: "Zuzana Částková holding a violin.",
         title: "2021 | Prague, Czechia | art project",
         flag: "czechia",
       },
@@ -57,19 +57,25 @@ const img = {
         title: "2023 | Copenhagen, Denmark | Sort/Hvid",
         flag: "denmark",
       },
-    ],
-    column4: [
       {
         src: "https://slavic.media/img/2021-04-14-00608.jpg",
         alt: "David Steigerwald unclothed, seated in a cage at Divadlo Na Vinohradech, Prague.",
         title: "2021 | Prague, Czechia | Divadlo na Vinohradech",
         flag: "czechia",
       },
+    ],
+    column4: [
       {
         src: "https://slavic.media/img/2021-06-24-01233-2.jpg",
         alt: "Sára Rychlíková at Divadlo Disk in Prague.",
         title: "2023 | Prague, Czechia | Divadlo Disk",
         flag: "czechia",
+      },
+      {
+        src: "https://slavic.media/img/2023-04-03-08707.jpg",
+        alt: "Girl staring into camera holding old TV.",
+        title: "2023 | Kolding, Denmark | Huset Fundament",
+        flag: "denmark",
       },
     ],
   },
@@ -110,8 +116,6 @@ const img = {
         title: "2023 | Björkliden, Sweden | Timetravels Ltd",
         flag: "sweden",
       },
-    ],
-    column3: [
       {
         src: "https://slavic.media/img/2024-03-10-00496.jpg",
         alt: "Ice skating on frozen Inarijärvi in Finnish Lapland.",
@@ -125,7 +129,7 @@ const img = {
         flag: "sweden",
       },
     ],
-    column4: [
+    column3: [
       {
         src: "https://slavic.media/img/2024-03-10-00238.jpg",
         alt: "Timetravels Reindeer Herder experience in Lapland.",
@@ -134,9 +138,29 @@ const img = {
       },
       {
         src: "https://slavic.media/img/2022-10-15-00970.jpg",
-        alt: "Photo of a hiker standing on the rock in the forest with a hiking pole out of a tree branch.",
+        alt: "Hiker standing on the rock in the forest with a hiking pole out of a tree branch.",
         title: "2022 | Geta, Åland | Expedition Åland",
         flag: "aland",
+      },
+    ],
+    column4: [
+      {
+        src: "https://slavic.media/img/2023-08-29-01113.jpg",
+        alt: "Guide in Judean Derest nearby the Dead Sea.",
+        title: "2023 | Dead Sea, Israel | Tourist Israel",
+        flag: "israel",
+      },
+      {
+        src: "https://slavic.media/img/2023-08-29-01096.jpg",
+        alt: "Girl standing barefoot in the middle of oasis spring in the Judean Desert in Israel.",
+        title: "2023 | Nahal Bokek, Israel | Tourist Israel",
+        flag: "israel",
+      },
+      {
+        src: "https://slavic.media/img/2023-08-29-01059.jpg",
+        alt: "Woman hiking on Masada in Israel",
+        title: "2023 | Masada, Israel | Tourist Israel",
+        flag: "israel",
       },
     ],
   },
@@ -283,9 +307,12 @@ onMounted(() => {
         </div>
       </div>
     </article>
-
     <!-- GALLERIES -->
-    <template v-for="(gallery, galleryKey) in img" :key="galleryKey">
+    <template
+      v-if="isDataLoaded"
+      v-for="(gallery, galleryKey) in img"
+      :key="galleryKey"
+    >
       <article v-if="isDataLoaded" class="wrapper-wide" id="photo">
         <hr class="reveal" role="separator" />
         <div class="grid-container caption-container">
@@ -324,6 +351,59 @@ onMounted(() => {
         </div>
       </article>
     </template>
+    <div class="wrapper-wide" v-else>
+      <div class="flex flex-wrap">
+        <div class="w-full xl:w-6/12 p-4">
+          <Skeleton
+            style="background-color: rgb(var(--dark-grey-color))"
+            height="2rem"
+            class="mb-2"
+          ></Skeleton>
+          <Skeleton
+            style="background-color: rgb(var(--dark-grey-color))"
+            height="2rem"
+            width="10rem"
+            class="mb-2"
+          ></Skeleton>
+        </div>
+        <div class="w-full xl:w-6/12 p-4">
+          <Skeleton
+            style="background-color: rgb(var(--dark-grey-color))"
+            height="4rem"
+            class="mb-2"
+          ></Skeleton>
+
+          <Skeleton
+            style="background-color: rgb(var(--dark-grey-color))"
+            width="10rem"
+            class="mb-10"
+          ></Skeleton>
+          <Skeleton
+            style="background-color: rgb(var(--dark-grey-color))"
+            width="10rem"
+            height="2rem"
+            borderRadius="16px"
+          ></Skeleton>
+        </div>
+      </div>
+      <div class="flex justify-between mt-4">
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          width="48%"
+          height="200px"
+        ></Skeleton>
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          width="24%"
+          height="200px"
+        ></Skeleton>
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          width="24%"
+          height="200px"
+        ></Skeleton>
+      </div>
+    </div>
   </div>
 </template>
 
