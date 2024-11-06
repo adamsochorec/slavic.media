@@ -3,6 +3,28 @@ import { ref, onMounted, onUnmounted, watch } from "vue";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 
+const imgGallery = ref([
+  {
+    id: "2023-11-30-00006",
+    url: "https://lumiere-a.akamaihd.net/v1/images/darth-vader-main_4560aff7.jpeg?region=0%2C67%2C1280%2C720",
+    alt: "test alt",
+    title: "test title",
+    country: "denmark",
+    category: "portrait",
+    width: 100,
+    height: 100,
+  },
+  {
+    id: "2021-09-05-01666",
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX2FY3lBBxkWmaKr58YcZeVZuy8fzZurQz3A&s",
+    alt: "test alt",
+    title: "test title",
+    country: "finland",
+    category: "outdoor",
+    width: 100,
+    height: 100,
+  },
+]);
 const props = defineProps({
   galleryID: String,
   images: Array, // Ensure this is an array
@@ -50,24 +72,23 @@ onUnmounted(() => {
 
 <template>
   <div class="row" :id="'gallery-' + galleryID">
-    <div
-      v-for="(service, serviceIndex) in columns"
-      :key="serviceIndex"
-      class="service"
-    ><hr :id="props.images[serviceIndex].handle">
-      <Fluid>
-        <div class="grid grid-cols-2 gap-4">
-          <div>
-            <h2 style="font-size: var(--font-size-2);">{{ props.images[serviceIndex].title }}</h2>
+    <div v-for="(service, serviceIndex) in columns" :key="serviceIndex">
+      <article class="wrapper-wide">
+        <hr :id="props.images[serviceIndex].handle" />
+
+        <div class="grid-container caption-container">
+          <div class="grid-item reveal">
+            <h2>{{ props.images[serviceIndex].title }}</h2>
           </div>
-          <div>
-            <p class="mb-5">
-              <p>{{ props.images[serviceIndex].description }}</p>
+          <div class="grid-item">
+            <p class="reveal">
+              Deep eye contact and powerful visuals that connect—each frame
+              crafted to showcase your product in a way that inspires and leaves
+              a lasting impression.
             </p>
           </div>
         </div>
-        <hr class="semi" />
-      </Fluid>
+      </article>
       <div class="columns">
         <div
           v-for="(column, columnIndex) in service"
@@ -119,9 +140,6 @@ small a {
   display: flex;
   -ms-flex-wrap: wrap; /* IE10 */
   flex-wrap: wrap;
-}
-.service {
-  margin-bottom: 2rem;
 }
 .columns {
   display: flex;

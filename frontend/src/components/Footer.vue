@@ -32,7 +32,7 @@
           target="_blank"
           rel="noopener noreferrer nofollow"
           href="https://vimeo.com/slavicmedia"
-          aria-label="Slavic Media Vimeo"
+          aria-label="Vimeo"
           role="link"
         >
           <i title="Vimeo" class="pi pi-vimeo"></i> </a
@@ -40,7 +40,7 @@
           href="https://www.linkedin.com/company/slavicmedia/"
           target="_blank"
           rel="noopener noreferrer nofollow"
-          aria-label="Slavic Media LinkedIn"
+          aria-label="LinkedIn"
           role="link"
         >
           <i title="LinedIn" class="pi pi-linkedin"></i>
@@ -49,7 +49,7 @@
           target="_blank"
           rel="noopener noreferrer nofollow"
           href="https://youtube.com/@slavicmedia"
-          aria-label="Slavic Media YouTube"
+          aria-label="YouTube"
           role="link"
         >
           <i title="YouTube" class="pi pi-youtube"></i>
@@ -58,7 +58,7 @@
           href="https://www.instagram.com/slavic.media/"
           target="_blank"
           rel="noopener noreferrer nofollow"
-          aria-label="Slavic Media Instagram"
+          aria-label="nstagram"
           role="link"
         >
           <i title="Instagram" class="pi pi-instagram fa-xl"></i>

@@ -292,6 +292,48 @@
   resolved "https://registry.npmjs.org/@ungap/structured-clone/-/structured-clone-1.2.0.tgz"
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
+"@unhead/dom@^1.7.0", "@unhead/dom@1.11.11":
+  version "1.11.11"
+  resolved "https://registry.npmjs.org/@unhead/dom/-/dom-1.11.11.tgz"
+  integrity sha512-4YwziCH5CmjvUzSGdZ4Klj6BqhLSTNZooA9kt47yDxj4Qw9uHqVnXwWWupYsVdIYPNsw1tR2AkHveg82y1Fn3A==
+  dependencies:
+    "@unhead/schema" "1.11.11"
+    "@unhead/shared" "1.11.11"
+
+"@unhead/schema@^1.7.0", "@unhead/schema@1.11.11":
+  version "1.11.11"
+  resolved "https://registry.npmjs.org/@unhead/schema/-/schema-1.11.11.tgz"
+  integrity sha512-xSGsWHPBYcMV/ckQeImbrVu6ddeRnrdDCgXUKv3xIjGBY+ob/96V80lGX8FKWh8GwdFSwhblISObKlDAt5K9ZQ==
+  dependencies:
+    hookable "^5.5.3"
+    zhead "^2.2.4"
+
+"@unhead/shared@1.11.11":
+  version "1.11.11"
+  resolved "https://registry.npmjs.org/@unhead/shared/-/shared-1.11.11.tgz"
+  integrity sha512-RfdvUskPn90ipO+PmR98jKZ8Lsx1uuzscOenO5xcrMrtWGhlLWaEBIrbvFOvX5PZ/u8/VNMJChTXGDUjEtHmlg==
+  dependencies:
+    "@unhead/schema" "1.11.11"
+
+"@unhead/ssr@^1.7.0":
+  version "1.11.11"
+  resolved "https://registry.npmjs.org/@unhead/ssr/-/ssr-1.11.11.tgz"
+  integrity sha512-NQC8y+4ldwkMr3x8WFwv3+OR6g+Sj7dwL6J/3ST25KnvlwDSub2KGbnm2hF1x8vTpTmXTVxMA3GDRL9MRfLvMg==
+  dependencies:
+    "@unhead/schema" "1.11.11"
+    "@unhead/shared" "1.11.11"
+
+"@unhead/vue@^1.7.0":
+  version "1.11.11"
+  resolved "https://registry.npmjs.org/@unhead/vue/-/vue-1.11.11.tgz"
+  integrity sha512-AxsHHauZ+w0m2irwDHqkc3GdNChMLBtolk8CN3IAZM6vTwH0EbPXlFCFcIk4WwkH0opG+R2GlKTThr5H0HLm7g==
+  dependencies:
+    "@unhead/schema" "1.11.11"
+    "@unhead/shared" "1.11.11"
+    defu "^6.1.4"
+    hookable "^5.5.3"
+    unhead "1.11.11"
+
 "@vimeo/player@^2.24.0":
   version "2.24.0"
   resolved "https://registry.npmjs.org/@vimeo/player/-/player-2.24.0.tgz"
@@ -389,6 +431,16 @@
   version "3.4.38"
   resolved "https://registry.npmjs.org/@vue/shared/-/shared-3.4.38.tgz"
   integrity sha512-q0xCiLkuWWQLzVrecPb0RMsNWyxICOjPrcrwxTUEHb1fsnvni4dcuyG7RT/Ie7VPTvnjzIaWzRMUBsrqNj/hhw==
+
+"@vueuse/head@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/@vueuse/head/-/head-2.0.0.tgz"
+  integrity sha512-ykdOxTGs95xjD4WXE4na/umxZea2Itl0GWBILas+O4oqS7eXIods38INvk3XkJKjqMdWPcpCyLX/DioLQxU1KA==
+  dependencies:
+    "@unhead/dom" "^1.7.0"
+    "@unhead/schema" "^1.7.0"
+    "@unhead/ssr" "^1.7.0"
+    "@unhead/vue" "^1.7.0"
 
 acorn-jsx@^5.3.2:
   version "5.3.2"
@@ -656,6 +708,16 @@ deep-is@^0.1.3:
   version "0.1.4"
   resolved "https://registry.npmjs.org/deep-is/-/deep-is-0.1.4.tgz"
   integrity sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==
+
+deepmerge@^4.2.2:
+  version "4.3.1"
+  resolved "https://registry.npmjs.org/deepmerge/-/deepmerge-4.3.1.tgz"
+  integrity sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==
+
+defu@^6.1.4:
+  version "6.1.4"
+  resolved "https://registry.npmjs.org/defu/-/defu-6.1.4.tgz"
+  integrity sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==
 
 delayed-stream@~1.0.0:
   version "1.0.0"
@@ -1036,6 +1098,11 @@ hasown@^2.0.2:
   integrity sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==
   dependencies:
     function-bind "^1.1.2"
+
+hookable@^5.5.3:
+  version "5.5.3"
+  resolved "https://registry.npmjs.org/hookable/-/hookable-5.5.3.tgz"
+  integrity sha512-Yc+BQe8SvoXH1643Qez1zqLRmbA5rCL+sSmk6TVos0LWVfNIB7PGncdlId77WzLGSIB5KaWgTaNTs2lNVEI6VQ==
 
 ignore@^5.2.0:
   version "5.3.2"
@@ -1853,6 +1920,16 @@ ufo@^1.5.3:
   resolved "https://registry.npmjs.org/ufo/-/ufo-1.5.4.tgz"
   integrity sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==
 
+unhead@1.11.11:
+  version "1.11.11"
+  resolved "https://registry.npmjs.org/unhead/-/unhead-1.11.11.tgz"
+  integrity sha512-98tM2R8OWJhvS6uqTewkfIrsPqFU/VwnKpU2tVZ+jPXSWgWSLmM3K2Y2v5AEM4bZjmC/XH8pLVGzbqB7xzFI/Q==
+  dependencies:
+    "@unhead/dom" "1.11.11"
+    "@unhead/schema" "1.11.11"
+    "@unhead/shared" "1.11.11"
+    hookable "^5.5.3"
+
 unplugin-vue-components@^0.27.4:
   version "0.27.4"
   resolved "https://registry.npmjs.org/unplugin-vue-components/-/unplugin-vue-components-0.27.4.tgz"
@@ -1921,6 +1998,13 @@ vue-eslint-parser@^9.4.3:
     lodash "^4.17.21"
     semver "^7.3.6"
 
+vue-meta@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.npmjs.org/vue-meta/-/vue-meta-2.4.0.tgz"
+  integrity sha512-XEeZUmlVeODclAjCNpWDnjgw+t3WA6gdzs6ENoIAgwO1J1d5p1tezDhtteLUFwcaQaTtayRrsx7GL6oXp/m2Jw==
+  dependencies:
+    deepmerge "^4.2.2"
+
 vue-router@^4.2.5:
   version "4.4.3"
   resolved "https://registry.npmjs.org/vue-router/-/vue-router-4.4.3.tgz"
@@ -1928,7 +2012,7 @@ vue-router@^4.2.5:
   dependencies:
     "@vue/devtools-api" "^6.6.3"
 
-vue@^3.0.0, vue@^3.2, vue@^3.2.0, vue@^3.2.25, vue@^3.3.4, vue@^3.4.15, vue@^3.4.35, "vue@>= 3.0.0 < 4", "vue@2 || 3", vue@3.4.38:
+vue@^3.0.0, vue@^3.2, vue@^3.2.0, vue@^3.2.25, vue@^3.3.4, vue@^3.4.15, vue@^3.4.35, "vue@>= 3.0.0 < 4", "vue@>=2.7 || >=3", "vue@2 || 3", vue@3.4.38:
   version "3.4.38"
   resolved "https://registry.npmjs.org/vue/-/vue-3.4.38.tgz"
   integrity sha512-f0ZgN+mZ5KFgVv9wz0f4OgVKukoXtS3nwET4c2vLBGQR50aI8G0cqbFtLlX9Yiyg3LFGBitruPHt2PxwTduJEw==
@@ -2007,3 +2091,8 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+zhead@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.npmjs.org/zhead/-/zhead-2.2.4.tgz"
+  integrity sha512-8F0OI5dpWIA5IGG5NHUg9staDwz/ZPxZtvGVf01j7vHqSyZ0raHY+78atOVxRqb73AotX22uV1pXt3gYSstGag==
