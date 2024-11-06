@@ -113,14 +113,9 @@ function mapArray(inputArray: any[]): any[] {
 function mapData(element: any): any {
   return {
     id: element._id,
-    largeURL: element.largeURL,
-    thumbnailURL: element.thumbnailURL,
-    width: element.width,
-    height: element.height,
     flag: element.flag,
     title: element.title,
     alt: element.alt,
-    client: element.client,
   };
 }
 

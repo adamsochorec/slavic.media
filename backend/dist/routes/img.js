@@ -108,14 +108,9 @@ function mapArray(inputArray) {
 function mapData(element) {
     return {
         id: element._id,
-        largeURL: element.largeURL,
-        thumbnailURL: element.thumbnailURL,
-        width: element.width,
-        height: element.height,
         flag: element.flag,
         title: element.title,
         alt: element.alt,
-        client: element.client,
     };
 }
 exports.default = router;

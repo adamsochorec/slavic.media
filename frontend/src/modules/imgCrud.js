@@ -8,14 +8,9 @@ const useImgCrud = () => {
   const documentID = computed(() => route.params.id);
   const state = ref({
     newId: "",
-    newLargeURL: "",
-    newThumbnailURL: "",
-    newWidth: 0,
-    newHeight: 0,
     newFlag: "",
     newTitle: "",
     newAlt: "",
-    newClient: "",
     img: [],
   });
 
@@ -31,29 +26,12 @@ const useImgCrud = () => {
     }
   };
 
-  const getPhotoServicesImg = async () => {
-    try {
-      const response = await fetch(
-        "https://api.slavic.media/services/photo/img/"
-      );
-      const data = await response.json();
-      state.value.photoServices = data;
-    } catch (error) {
-      console.error("Error fetching documents:", error);
-    }
-  };
-
   const newImg = async () => {
     if (
       !state.value.newId ||
-      !state.value.newLargeURL ||
-      !state.value.newThumbnailURL ||
-      !state.value.newWidth ||
-      !state.value.newHeight ||
       !state.value.newFlag ||
       !state.value.newTitle ||
-      !state.value.newAlt ||
-      !state.value.newClient
+      !state.value.newAlt
     ) {
       console.error("All fields must be filled out");
       return;
@@ -67,14 +45,9 @@ const useImgCrud = () => {
         },
         body: JSON.stringify({
           id: state.value.newId,
-          largeURL: state.value.newLargeURL,
-          thumbnailURL: state.value.newThumbnailURL,
-          width: state.value.newWidth,
-          height: state.value.newHeight,
           flag: state.value.newFlag,
           title: state.value.newTitle,
           alt: state.value.newAlt,
-          client: state.value.newClient,
         }),
       };
 
@@ -124,14 +97,9 @@ const useImgCrud = () => {
       }
       if (
         !state.value.newId ||
-        !state.value.newLargeURL ||
-        !state.value.newThumbnailURL ||
-        !state.value.newWidth ||
-        !state.value.newHeight ||
         !state.value.newFlag ||
         !state.value.newTitle ||
-        !state.value.newAlt ||
-        !state.value.newClient
+        !state.value.newAlt
       ) {
         console.error("All fields must be filled out");
         return;
@@ -145,14 +113,9 @@ const useImgCrud = () => {
         },
         body: JSON.stringify({
           id: state.value.newId,
-          largeURL: state.value.newLargeURL,
-          thumbnailURL: state.value.newThumbnailURL,
-          width: state.value.newWidth,
-          height: state.value.newHeight,
           flag: state.value.newFlag,
           title: state.value.newTitle,
           alt: state.value.newAlt,
-          client: state.value.newClient,
         }),
       };
 
@@ -195,7 +158,6 @@ const useImgCrud = () => {
     img,
     documentID,
     editImg,
-    getPhotoServicesImg,
   };
 };
 
