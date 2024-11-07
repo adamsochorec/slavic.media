@@ -96,16 +96,14 @@
           target="_blank"
           rel="noopener noreferrer nofollow"
           href="https://datacvr.virk.dk/enhed/virksomhed/44081512?fritekst=slavic%20media&sideIndex=0&size=10"
-          aria-label="CVR Number"
+          aria-label="VAT Number"
           role="link"
         >
-          CVR:&nbsp;44081512
+          VAT:&nbsp;DK44081512
         </a>
       </div>
       <p class="grid-item">
-        ©&nbsp;<span id="current-year"></span> Slavic Media I/S.<br
-          class="footerBreak"
-        />
+        ©&nbsp;{{ currentYear }} Slavic Media I/S.<br class="footerBreak" />
         Registered Company in Denmark
       </p>
     </div>

@@ -96,22 +96,17 @@ watch(isDataLoaded, (loaded) => {
             <p class="reveal">{{ gallery.desc }}</p>
           </div>
         </div>
+        <hr class="semi" role="separator" />
       </article>
 
       <article v-if="isDataLoaded" class="popup-gallery">
         <div class="row">
           <div
-            v-for="(column, index) in Object.keys(gallery).filter((key) =>
-              key.startsWith('column')
-            )"
-            :key="index"
+            v-for="(column, columnIndex) in gallery.columns"
+            :key="columnIndex"
             class="column"
           >
-            <div
-              v-for="image in gallery[column]"
-              :key="image._id"
-              class="reveal"
-            >
+            <div v-for="image in column" :key="image._id" class="reveal">
               <a
                 :href="`https://slavic.media/img/${image._id}.jpg`"
                 :title="image.title"
