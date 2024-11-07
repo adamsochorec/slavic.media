@@ -260,4 +260,31 @@ router.delete(
   }
 );
 
+// Read specific column by index - GET
+router.get("/:galleryId/:columnIndex", (req: Request, res: Response) => {
+  const { galleryId, columnIndex } = req.params;
+
+  galleryModel
+    .findById(galleryId)
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot find gallery with id=${galleryId}.`,
+        });
+      } else {
+        const column = data.columns[columnIndex];
+        if (!column) {
+          res.status(404).send({
+            message: `Cannot find column ${columnIndex} in gallery with id=${galleryId}.`,
+          });
+        } else {
+          res.send(column);
+        }
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+});
+
 export default router;

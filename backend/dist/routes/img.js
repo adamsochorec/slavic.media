@@ -201,4 +201,31 @@ router.delete("/:galleryId/:columnIndex/:imgId", validation_1.verifyToken, (req,
         res.status(500).send({ message: err.message });
     });
 });
+// Read specific column by index - GET
+router.get("/:galleryId/:columnIndex", (req, res) => {
+    const { galleryId, columnIndex } = req.params;
+    img_1.default
+        .findById(galleryId)
+        .then((data) => {
+        if (!data) {
+            res.status(404).send({
+                message: `Cannot find gallery with id=${galleryId}.`,
+            });
+        }
+        else {
+            const column = data.columns[columnIndex];
+            if (!column) {
+                res.status(404).send({
+                    message: `Cannot find column ${columnIndex} in gallery with id=${galleryId}.`,
+                });
+            }
+            else {
+                res.send(column);
+            }
+        }
+    })
+        .catch((err) => {
+        res.status(500).send({ message: err.message });
+    });
+});
 exports.default = router;
