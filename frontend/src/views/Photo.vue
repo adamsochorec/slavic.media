@@ -5,7 +5,245 @@ import $ from "jquery";
 import "magnific-popup";
 
 const isDataLoaded = ref(true);
-
+const img = {
+  portrait: {
+    desc: "Through bold colors and deep eye contact, each portrait captures the true essence of who you are—moments that feel real and connect on a personal level.",
+    handle: "portrait",
+    title: "Colorful Portrait",
+    column1: [
+      {
+        id: "2021-11-13-02059",
+        alt: "Man wearing a baseball cap leaning against a wall in Kolding.",
+        title: "2021 | Kolding, Denmark | art project",
+        flag: "denmark",
+      },
+      {
+        id: "hvalp",
+        alt: "Band HVALP album cover.",
+        title: "2023 | Kolding, Denmark | Hvalp",
+        flag: "denmark",
+      },
+    ],
+    column2: [
+      {
+        id: "2021-08-24-01615",
+        alt: "Close-up of a girl's face with colourful makeup around her eyes, making her look like a butterfly.",
+        title: "2021 | Kolding, Denmark | art project",
+        flag: "denmark",
+      },
+      {
+        id: "2021-09-05-01666",
+        alt: "Close-up of a girl's face leaning on a mirror, creating a reflection, with a pink backdrop, photographed in Kolding.",
+        title: "2021 | Kolding, Denmark | art project",
+        flag: "denmark",
+      },
+      {
+        id: "2021-04-25-00693",
+        alt: "Tereza Císařová laying on a table with fries, photographed at Divadlo Na Vinohradech.",
+        title: "2021 | Prague, Czechia | Divadlo na Vinohradech",
+        flag: "czechia",
+      },
+    ],
+    column3: [
+      {
+        id: "2021-05-28-01020",
+        alt: "Zuzana Částková holding a violin.",
+        title: "2021 | Prague, Czechia | art project",
+        flag: "czechia",
+      },
+      {
+        id: "2023-11-13-00267",
+        alt: "Elf lady holding knife on Kim Kim's throat.",
+        title: "2023 | Copenhagen, Denmark | Sort/Hvid",
+        flag: "denmark",
+      },
+      {
+        id: "2021-04-14-00608",
+        alt: "David Steigerwald unclothed, seated in a cage at Divadlo Na Vinohradech, Prague.",
+        title: "2021 | Prague, Czechia | Divadlo na Vinohradech",
+        flag: "czechia",
+      },
+    ],
+    column4: [
+      {
+        id: "2021-06-24-01233-2",
+        alt: "Sára Rychlíková at Divadlo Disk in Prague.",
+        title: "2023 | Prague, Czechia | Divadlo Disk",
+        flag: "czechia",
+      },
+      {
+        id: "2023-04-03-08707",
+        alt: "Girl staring into camera holding old TV.",
+        title: "2023 | Kolding, Denmark | Huset Fundament",
+        flag: "denmark",
+      },
+    ],
+  },
+  outdoor: {
+    desc: "From the tundra to the desert, we specialize in capturing the raw beauty of nature. With a focus on Nordic tundra, taiga, and winter sports, our outdoor photography brings the wild, untamed landscapes to life.",
+    handle: "outdoor",
+    title: "Immersive Outdoor",
+    column1: [
+      {
+        id: "2022-12-03-000465",
+        alt: "Two guys in a survival shelter in tundra.",
+        title: "2023 | Björkliden, Sweden | Timetravels Ltd",
+        flag: "sweden",
+      },
+      {
+        id: "2024-03-10-00620",
+        alt: "Kaunispää in Finnish Saariselkä, Northern Lapland.",
+        title: "2024 | Saariselkä, Finland | Timetravels Ltd",
+        flag: "finland",
+      },
+      {
+        id: "2023-12-02-00459",
+        alt: "Pair of boys petting husky.",
+        title: "2023 | Kiruna, Sweden | Kiruna Sleddog Tours",
+        flag: "sweden",
+      },
+    ],
+    column2: [
+      {
+        id: "2023-11-30-00006",
+        alt: "Two guys with Norwegian fjord in the background.",
+        title: "2023 | Narvik, Norway | Timetravels Ltd",
+        flag: "norway",
+      },
+      {
+        id: "2023-12-01-00250",
+        alt: "Timetravels Herder Experience in Swedish Lapland.",
+        title: "2023 | Björkliden, Sweden | Timetravels Ltd",
+        flag: "sweden",
+      },
+      {
+        id: "2024-03-10-00496",
+        alt: "Ice skating on frozen Inarijärvi in Finnish Lapland.",
+        title: "2024 | Inarijärvi, Finland | Timetravels Ltd",
+        flag: "finland",
+      },
+      {
+        id: "2023-12-01-00064",
+        alt: "Ice fishing on frozen lake in Swedish Lapland.",
+        title: "2023 | Björkliden, Sweden | Timetravels Ltd",
+        flag: "sweden",
+      },
+    ],
+    column3: [
+      {
+        id: "2024-03-10-00238",
+        alt: "Timetravels Reindeer Herder experience in Lapland.",
+        title: "2024 | Inari, Finland | Timetravels Ltd",
+        flag: "finland",
+      },
+      {
+        id: "2022-10-15-00970",
+        alt: "Hiker standing on the rock in the forest with a hiking pole out of a tree branch.",
+        title: "2022 | Geta, Åland | Expedition Åland",
+        flag: "aland",
+      },
+    ],
+    column4: [
+      {
+        id: "2023-08-29-01113",
+        alt: "Guide in Judean Derest nearby the Dead Sea.",
+        title: "2023 | Dead Sea, Israel | Tourist Israel",
+        flag: "israel",
+      },
+      {
+        id: "2023-08-29-01096",
+        alt: "Girl standing barefoot in the middle of oasis spring in the Judean Desert in Israel.",
+        title: "2023 | Nahal Bokek, Israel | Tourist Israel",
+        flag: "israel",
+      },
+      {
+        id: "2023-08-29-01059",
+        alt: "Woman hiking on Masada in Israel",
+        title: "2023 | Masada, Israel | Tourist Israel",
+        flag: "israel",
+      },
+    ],
+  },
+  still: {
+    desc: "Magnificent moments from concerts, theatre, and live performances—capturing raw emotions and deep eye contact that bring every gesture and glance to life.",
+    handle: "still",
+    title: "Timeless Still",
+    column1: [
+      {
+        id: "2023-09-09-10507",
+        alt: "Shirtless Anime Animeaux guitarist starring into a camera.",
+        title: "2023 | Kolding, Denmark | Huset Fundament",
+        flag: "denmark",
+      },
+      {
+        id: "2021-06-24-01208",
+        alt: "Performance 'Hrdina Západu' at Divadlo Disk",
+        title: "2021 | Prague, Czechia | Divadlo Disk",
+        flag: "czechia",
+      },
+    ],
+    column2: [
+      {
+        id: "2023-09-01-00086",
+        alt: "Couple listening to stage performance.",
+        title: "2023 | Kolding, Denmark | Kolding Kulturnat",
+        flag: "denmark",
+      },
+      {
+        id: "2023-09-09-10524",
+        alt: "Anime Animeaux frontman holding a microphone on a stage.",
+        title: "2023 | Kolding, Denmark | Huset Fundament",
+        flag: "denmark",
+      },
+      {
+        id: "2023-09-29-00163",
+        alt: "Stage performance crowd.",
+        title: "2023 | Kolding, Denmark | Huset Fundament",
+        flag: "denmark",
+      },
+    ],
+    column3: [
+      {
+        id: "2023-06-22-00033",
+        alt: "Two ladies mixing liquids in glass cups.",
+        title: "2023 | Kolding, Denmark | Huset Fundament",
+        flag: "denmark",
+      },
+      {
+        id: "2022-06-28-00708",
+        alt: "Roskilde Festival.",
+        title: "2023 | Roskilde, Denmark | Roskilde Festival",
+        flag: "denmark",
+      },
+      {
+        id: "2023-05-12-08965",
+        alt: "Artist lit by light, looking like a Jesus.",
+        title: "2023 | Kolding, Denmark | Huset Fundament",
+        flag: "denmark",
+      },
+    ],
+    column4: [
+      {
+        id: "2023-05-27-00025",
+        alt: "Lady enjoying live performance in Pitstop.",
+        title: "2023 | Kolding, Denmark | Huset Fundament",
+        flag: "denmark",
+      },
+      {
+        id: "2023-09-22-00026",
+        alt: "Singing performer in Pitstop.",
+        title: "2023 | Kolding, Denmark | Huset Fundament",
+        flag: "denmark",
+      },
+      {
+        id: "2023-05-12-08969",
+        alt: "Band playing behind foggy glass.",
+        title: "2023 | Kolding, Denmark | Huset Fundament",
+        flag: "denmark",
+      },
+    ],
+  },
+};
 onMounted(() => {
   // Initializes Magnific Popup for image-based galleries
   $(".popup-gallery").magnificPopup({

@@ -8,9 +8,14 @@ const useImgCrud = () => {
   const documentID = computed(() => route.params.id);
   const state = ref({
     newId: "",
+    newLargeURL: "",
+    newThumbnailURL: "",
+    newWidth: 0,
+    newHeight: 0,
     newFlag: "",
     newTitle: "",
     newAlt: "",
+    newClient: "",
     img: [],
   });
 
@@ -20,7 +25,7 @@ const useImgCrud = () => {
       const data = await response.json();
       console.log("Fetched data:", data); // Add this line
 
-      state.value.img = data;
+      state.value.imgs = data;
     } catch (error) {
       console.error(error);
     }
@@ -29,9 +34,14 @@ const useImgCrud = () => {
   const newImg = async () => {
     if (
       !state.value.newId ||
+      !state.value.newLargeURL ||
+      !state.value.newThumbnailURL ||
+      !state.value.newWidth ||
+      !state.value.newHeight ||
       !state.value.newFlag ||
       !state.value.newTitle ||
-      !state.value.newAlt
+      !state.value.newAlt ||
+      !state.value.newClient
     ) {
       console.error("All fields must be filled out");
       return;
@@ -45,9 +55,14 @@ const useImgCrud = () => {
         },
         body: JSON.stringify({
           id: state.value.newId,
+          largeURL: state.value.newLargeURL,
+          thumbnailURL: state.value.newThumbnailURL,
+          width: state.value.newWidth,
+          height: state.value.newHeight,
           flag: state.value.newFlag,
           title: state.value.newTitle,
           alt: state.value.newAlt,
+          client: state.value.newClient,
         }),
       };
 
@@ -97,9 +112,14 @@ const useImgCrud = () => {
       }
       if (
         !state.value.newId ||
+        !state.value.newLargeURL ||
+        !state.value.newThumbnailURL ||
+        !state.value.newWidth ||
+        !state.value.newHeight ||
         !state.value.newFlag ||
         !state.value.newTitle ||
-        !state.value.newAlt
+        !state.value.newAlt ||
+        !state.value.newClient
       ) {
         console.error("All fields must be filled out");
         return;
@@ -113,9 +133,14 @@ const useImgCrud = () => {
         },
         body: JSON.stringify({
           id: state.value.newId,
+          largeURL: state.value.newLargeURL,
+          thumbnailURL: state.value.newThumbnailURL,
+          width: state.value.newWidth,
+          height: state.value.newHeight,
           flag: state.value.newFlag,
           title: state.value.newTitle,
           alt: state.value.newAlt,
+          client: state.value.newClient,
         }),
       };
 
