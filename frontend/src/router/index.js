@@ -11,6 +11,11 @@ const router = createRouter({
       component: index,
     },
     {
+      path: "/:catchAll(.*)", // Catch-all for undefined routes
+      name: "NotFound",
+      component: NotFound,
+    },
+    {
       path: "/blog",
       name: "blog",
       component: () => import("../views/blog.vue"),
@@ -66,8 +71,7 @@ const router = createRouter({
     {
       path: "/legal/:slug",
       name: "Legal",
-      component: () =>
-        import("../views/legal.vue"),
+      component: () => import("../views/legal.vue"),
       meta: {
         requiresAuth: false,
       },
