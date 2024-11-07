@@ -7,9 +7,9 @@
       <div class="title flex-center">
         <div>
           <span class="punchline gradient"
-            >Like the <span class="">look? </span>
+            >Like the look?
+            <i style="font-size: 1.5rem" class="pi pi-sparkles gradient"></i>
           </span>
-          <i style="font-size: 1.5rem" class="pi pi-sparkles gradient"></i>
           <p>
             Emulate the classic 35mm and 120 film looks with Slavic Media’s
             signature LUTs for Lightroom and Photoshop.
@@ -27,15 +27,24 @@
 <style scoped>
 .banner {
   height: var(--dimension-2);
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   width: 100vw;
   backdrop-filter: var(--blur-1) !important; /* Standard syntax */
   -webkit-backdrop-filter: var(--blur-1) !important; /* Chrome, Safari, Opera */
+  -o-object-fit: cover;
   object-fit: cover;
+  -o-object-position: center;
   object-position: center;
   position: relative;
   background: #000;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
@@ -48,6 +57,20 @@
   font-family: var(--logo-font);
 }
 .gradient {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(rgba(255, 255, 255, 1)),
+    color-stop(35%, rgba(199, 30, 30, 1)),
+    to(rgba(17, 69, 126, 1))
+  );
+  background: -o-linear-gradient(
+    left,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(199, 30, 30, 1) 35%,
+    rgba(17, 69, 126, 1) 100%
+  );
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 1) 0%,
@@ -62,6 +85,8 @@ img {
   display: block;
   opacity: 0.5;
   width: 100%;
+  -webkit-filter: var(--blur-1);
+  filter: var(--blur-1);
   -o-object-fit: cover;
   object-fit: cover;
   -webkit-transition: all 350ms ease-in-out;
@@ -71,14 +96,10 @@ img {
   -ms-transform: scale(1);
   transform: scale(1);
 }
-
-.banner:hover img {
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
-  -webkit-filter: var(--blur-1);
-  filter: var(--blur-1);
+i {
+  cursor: text;
 }
+
 .title {
   position: absolute;
   text-align: center;
@@ -96,7 +117,7 @@ img {
 }
 @media only screen and (min-width: 900px) {
   .title {
-    width: 30%;
+    width: 40%;
   }
 }
 </style>
