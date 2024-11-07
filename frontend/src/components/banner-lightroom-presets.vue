@@ -8,7 +8,10 @@
         <div>
           <span class="punchline gradient"
             >Like the look?
-            <i style="font-size: 1.5rem" class="pi pi-sparkles gradient"></i>
+            <i
+              style="font-size: var(--font-size-5)"
+              class="pi pi-sparkles gradient"
+            ></i>
           </span>
           <p>
             Emulate the classic 35mm and 120 film looks with Slavic Media’s
@@ -49,9 +52,7 @@
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
 }
-.cta:not(.cta:hover) {
-  background-color: transparent;
-}
+
 .punchline {
   font-size: var(--font-size-3);
   font-family: var(--logo-font);
@@ -117,7 +118,7 @@ i {
 }
 @media only screen and (min-width: 900px) {
   .title {
-    width: 40%;
+    width: 30%;
   }
 }
 </style>

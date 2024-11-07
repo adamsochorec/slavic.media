@@ -29,7 +29,7 @@ const teamMembers = ref([
     flag: "flag-czechia",
     email: "adam@slavic.media",
     linkedin: "https://www.linkedin.com/in/adamsochorec",
-    github: "https://github.com/adamsochorec"
+    github: "https://github.com/adamsochorec",
   },
   {
     id: "dominik",
@@ -114,14 +114,13 @@ onMounted(() => {
         </div>
         <section class="profile">
           <h4 class="reveal">{{ member.name }}</h4>
-        
+
           <div class="social-icons reveal">
             <a
               :href="'mailto:' + member.email"
               :aria-label="'Email: ' + member.email"
             >
               <i title="Email" class="pi pi-envelope"></i>
-
             </a>
             <a
               v-if="member.linkedin"
@@ -141,7 +140,7 @@ onMounted(() => {
             </a>
           </div>
           <h6 class="reveal">
-            {{member.role}}
+            {{ member.role }}
           </h6>
         </section>
       </div>
@@ -182,7 +181,7 @@ onMounted(() => {
   text-align: center;
 }
 
-.social-icons > *{
+.social-icons > * {
   margin-right: var(--grid-gap-1);
 }
 .social-icons a:nth-last-child() {

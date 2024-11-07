@@ -11,8 +11,6 @@ onMounted(() => {
       focus: "#name",
       overflowY: "scroll",
       fixedContentPos: "false",
-      // When element is focused, some mobile browsers in some cases zoom in
-      // It looks not nice, so we disable it:
       callbacks: {
         beforeOpen: function () {
           if ($(window).width() < 700) {

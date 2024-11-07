@@ -202,7 +202,10 @@ small a {
   flex-wrap: wrap;
 }
 .columns {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 .column {

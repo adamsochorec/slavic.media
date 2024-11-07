@@ -95,7 +95,8 @@ onMounted(() => {
           :href="`https://instagram.com/reel/${reel.id}`"
           class="pi pi-instagram bubble"
         ></a>
-        <video class="video-offload"
+        <video
+          class="video-offload"
           loop="true"
           autoplay="autoplay"
           muted
@@ -129,7 +130,7 @@ onMounted(() => {
 .pi-instagram {
   position: absolute;
   top: var(--grid-gap-2);
-  left: var(--grid-gap-2);;
+  left: var(--grid-gap-2);
 }
 @media only screen and (max-width: 667px) {
   .swiper-reels video {

@@ -42,8 +42,8 @@ function videoOffload() {
   function handleVideoIntersection(video) {
     // Define the options for the Intersection Observer
     const options = {
-      root: null, // Use the viewport as the root
-      rootMargin: "0px", // No margin
+      root: null, // Use the viewport as the root;
+      rootMargin: "0px", // No margin;
       threshold: 0.1, // 10% of the target element must be visible to trigger
     };
 
@@ -143,7 +143,10 @@ onMounted(() => {
   position: absolute;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  -o-object-fit: cover;
   object-fit: cover;
 }
 

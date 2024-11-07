@@ -141,6 +141,7 @@ a.author:hover {
 img {
   height: 170px;
   width: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 .grid-container {
@@ -152,7 +153,11 @@ img {
   color: white;
 }
 .metadata {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   line-height: 1.2;
   padding: var(--grid-gap-2) 0;
@@ -180,6 +185,8 @@ img {
 }
 @media only screen and (max-width: 900px) {
   .card {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     display: grid;
     grid-template-columns: 38% 60%;
