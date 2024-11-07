@@ -2,11 +2,12 @@ import mongoose, { Schema, Document } from "mongoose";
 
 // Interface representing a document in MongoDB.
 interface Image extends Document {
-  id: string;
+  _id: string;
   alt: string;
   title: string;
   flag: string;
 }
+
 interface Gallery extends Document {
   desc: string;
   handle: string;

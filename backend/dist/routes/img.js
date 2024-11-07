@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const img_1 = __importDefault(require("../models/img")); // Document model to interact with the database
-const validation_1 = require("../validation"); // Validation function to verify the token
+const img_1 = __importDefault(require("../models/img"));
+const validation_1 = require("../validation");
 const router = (0, express_1.Router)();
 // CRUD operations
 // Create document - POST

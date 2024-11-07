@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express";
-import imgModel from "../models/img"; // Document model to interact with the database
-import { verifyToken } from "../validation"; // Validation function to verify the token
+import imgModel from "../models/img";
+import { verifyToken } from "../validation";
 
 const router = Router();
 
