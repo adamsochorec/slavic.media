@@ -35,7 +35,7 @@ async function initializeLightbox() {
     },
     callbacks: {
       elementParse: function (item) {
-        item.src = item.el.attr("href");
+        item.src = item.el.attr("src");
       },
     },
     fixedContentPos: "false",
