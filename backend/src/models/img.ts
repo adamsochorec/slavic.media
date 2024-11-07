@@ -9,6 +9,7 @@ interface Image extends Document {
 }
 
 interface Gallery extends Document {
+  _id: string;
   desc: string;
   handle: string;
   title: string;
@@ -29,6 +30,7 @@ const imageSchema = new Schema({
   flag: { type: String, required: true },
 });
 const gallerySchema = new Schema({
+  _id: { type: String, required: true },
   desc: { type: String, required: true },
   handle: { type: String, required: true },
   title: { type: String, required: true },

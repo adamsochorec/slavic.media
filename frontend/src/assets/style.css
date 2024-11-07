@@ -1197,10 +1197,6 @@ i.pi-arrow-right:hover {
 }
 @media screen and (max-width: 800px) and (orientation: landscape),
   screen and (max-height: 300px) {
-  .mfp-img-mobile .mfp-image-holder {
-    padding-left: 0;
-    padding-right: 0;
-  }
   .mfp-img-mobile img.mfp-img {
     padding: 0;
   }

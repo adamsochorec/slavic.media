@@ -31,6 +31,7 @@ const imageSchema = new mongoose_1.Schema({
     flag: { type: String, required: true },
 });
 const gallerySchema = new mongoose_1.Schema({
+    _id: { type: String, required: true },
     desc: { type: String, required: true },
     handle: { type: String, required: true },
     title: { type: String, required: true },
