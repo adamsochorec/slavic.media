@@ -208,19 +208,28 @@ router.get("/:galleryId/:columnIndex/:imgId", (req: Request, res: Response) => {
   const { galleryId, columnIndex, imgId } = req.params;
 
   galleryModel
-    .findOne(
-      { _id: galleryId, [`columns.${parseInt(columnIndex)}._id`]: imgId },
-      { [`columns.${parseInt(columnIndex)}.$`]: 1 }
-    )
+    .findById(galleryId)
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot find img in column ${columnIndex} with id=${imgId}. Maybe img was not found!`,
+          message: `Cannot find gallery with id=${galleryId}.`,
         });
       } else {
-        res.send(
-          data.columns[parseInt(columnIndex)].find((img) => img._id === imgId)
-        );
+        const column = data.columns[parseInt(columnIndex)];
+        if (!column) {
+          res.status(404).send({
+            message: `Cannot find column ${columnIndex} in gallery with id=${galleryId}.`,
+          });
+        } else {
+          const img = column.find((img) => img._id === imgId);
+          if (!img) {
+            res.status(404).send({
+              message: `Cannot find img with id=${imgId} in column ${columnIndex}.`,
+            });
+          } else {
+            res.send(img);
+          }
+        }
       }
     })
     .catch((err) => {
