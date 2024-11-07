@@ -23,7 +23,7 @@ interface ImgInterface extends Document {
   still: Gallery;
 }
 const imageSchema = new Schema({
-  id: { type: String, required: true },
+  _id: { type: String, required: true },
   alt: { type: String, required: true },
   title: { type: String, required: true },
   flag: { type: String, required: true },
