@@ -126,7 +126,7 @@ router.put(
     galleryModel
       .findOneAndUpdate(
         { _id: galleryId },
-        { $set: { [`columns.${columnIndex}`]: updatedColumn } },
+        { $set: { [`columns.${parseInt(columnIndex)}`]: updatedColumn } },
         { new: true }
       )
       .then((data) => {
@@ -154,7 +154,7 @@ router.delete(
     galleryModel
       .findOneAndUpdate(
         { _id: galleryId },
-        { $unset: { [`columns.${columnIndex}`]: 1 } },
+        { $unset: { [`columns.${parseInt(columnIndex)}`]: 1 } },
         { new: true }
       )
       .then((data) => {
@@ -185,7 +185,7 @@ router.post(
     galleryModel
       .findByIdAndUpdate(
         galleryId,
-        { $push: { [`columns.${columnIndex}`]: newImg } },
+        { $push: { [`columns.${parseInt(columnIndex)}`]: newImg } },
         { new: true }
       )
       .then((data) => {
@@ -213,8 +213,8 @@ router.put(
 
     galleryModel
       .findOneAndUpdate(
-        { _id: galleryId, [`columns.${columnIndex}._id`]: imgId },
-        { $set: { [`columns.${columnIndex}.$`]: updatedImg } },
+        { _id: galleryId, [`columns.${parseInt(columnIndex)}._id`]: imgId },
+        { $set: { [`columns.${parseInt(columnIndex)}.$`]: updatedImg } },
         { new: true }
       )
       .then((data) => {
@@ -241,8 +241,8 @@ router.delete(
 
     galleryModel
       .findOneAndUpdate(
-        { _id: galleryId, [`columns.${columnIndex}._id`]: imgId },
-        { $pull: { [`columns.${columnIndex}`]: { _id: imgId } } },
+        { _id: galleryId, [`columns.${parseInt(columnIndex)}._id`]: imgId },
+        { $pull: { [`columns.${parseInt(columnIndex)}`]: { _id: imgId } } },
         { new: true }
       )
       .then((data) => {
@@ -272,7 +272,7 @@ router.get("/:galleryId/:columnIndex", (req: Request, res: Response) => {
           message: `Cannot find gallery with id=${galleryId}.`,
         });
       } else {
-        const column = data.columns[columnIndex];
+        const column = data.columns[parseInt(columnIndex)];
         if (!column) {
           res.status(404).send({
             message: `Cannot find column ${columnIndex} in gallery with id=${galleryId}.`,

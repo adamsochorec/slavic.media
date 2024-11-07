@@ -107,7 +107,7 @@ router.put("/:galleryId/columns/:columnIndex", validation_1.verifyToken, (req, r
     const { galleryId, columnIndex } = req.params;
     const updatedColumn = req.body;
     img_1.default
-        .findOneAndUpdate({ _id: galleryId }, { $set: { [`columns.${columnIndex}`]: updatedColumn } }, { new: true })
+        .findOneAndUpdate({ _id: galleryId }, { $set: { [`columns.${parseInt(columnIndex)}`]: updatedColumn } }, { new: true })
         .then((data) => {
         if (!data) {
             res.status(404).send({
@@ -126,7 +126,7 @@ router.put("/:galleryId/columns/:columnIndex", validation_1.verifyToken, (req, r
 router.delete("/:galleryId/columns/:columnIndex", validation_1.verifyToken, (req, res) => {
     const { galleryId, columnIndex } = req.params;
     img_1.default
-        .findOneAndUpdate({ _id: galleryId }, { $unset: { [`columns.${columnIndex}`]: 1 } }, { new: true })
+        .findOneAndUpdate({ _id: galleryId }, { $unset: { [`columns.${parseInt(columnIndex)}`]: 1 } }, { new: true })
         .then((data) => {
         if (!data) {
             res.status(404).send({
@@ -147,7 +147,7 @@ router.post("/:galleryId/:columnIndex", validation_1.verifyToken, (req, res) => 
     const { galleryId, columnIndex } = req.params;
     const newImg = req.body;
     img_1.default
-        .findByIdAndUpdate(galleryId, { $push: { [`columns.${columnIndex}`]: newImg } }, { new: true })
+        .findByIdAndUpdate(galleryId, { $push: { [`columns.${parseInt(columnIndex)}`]: newImg } }, { new: true })
         .then((data) => {
         if (!data) {
             res.status(404).send({
@@ -167,7 +167,7 @@ router.put("/:galleryId/:columnIndex/:imgId", validation_1.verifyToken, (req, re
     const { galleryId, columnIndex, imgId } = req.params;
     const updatedImg = req.body;
     img_1.default
-        .findOneAndUpdate({ _id: galleryId, [`columns.${columnIndex}._id`]: imgId }, { $set: { [`columns.${columnIndex}.$`]: updatedImg } }, { new: true })
+        .findOneAndUpdate({ _id: galleryId, [`columns.${parseInt(columnIndex)}._id`]: imgId }, { $set: { [`columns.${parseInt(columnIndex)}.$`]: updatedImg } }, { new: true })
         .then((data) => {
         if (!data) {
             res.status(404).send({
@@ -186,7 +186,7 @@ router.put("/:galleryId/:columnIndex/:imgId", validation_1.verifyToken, (req, re
 router.delete("/:galleryId/:columnIndex/:imgId", validation_1.verifyToken, (req, res) => {
     const { galleryId, columnIndex, imgId } = req.params;
     img_1.default
-        .findOneAndUpdate({ _id: galleryId, [`columns.${columnIndex}._id`]: imgId }, { $pull: { [`columns.${columnIndex}`]: { _id: imgId } } }, { new: true })
+        .findOneAndUpdate({ _id: galleryId, [`columns.${parseInt(columnIndex)}._id`]: imgId }, { $pull: { [`columns.${parseInt(columnIndex)}`]: { _id: imgId } } }, { new: true })
         .then((data) => {
         if (!data) {
             res.status(404).send({
@@ -213,7 +213,7 @@ router.get("/:galleryId/:columnIndex", (req, res) => {
             });
         }
         else {
-            const column = data.columns[columnIndex];
+            const column = data.columns[parseInt(columnIndex)];
             if (!column) {
                 res.status(404).send({
                     message: `Cannot find column ${columnIndex} in gallery with id=${galleryId}.`,
