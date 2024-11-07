@@ -24,7 +24,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
-const imageSchema = new mongoose_1.Schema({
+const imgSchema = new mongoose_1.Schema({
     _id: { type: String, required: true },
     alt: { type: String, required: true },
     title: { type: String, required: true },
@@ -34,13 +34,8 @@ const gallerySchema = new mongoose_1.Schema({
     _id: { type: String, required: true },
     desc: { type: String, required: true },
     title: { type: String, required: true },
-    columns: {
-        column1: { type: [imageSchema], required: true },
-        column2: { type: [imageSchema], required: true },
-        column3: { type: [imageSchema], required: true },
-        column4: { type: [imageSchema], required: true },
-    },
+    columns: { type: [[imgSchema]], required: true },
 });
-// Create a Model
+// Create a Model for galleries
 const galleryModel = mongoose_1.default.model("Gallery", gallerySchema);
 exports.default = galleryModel;

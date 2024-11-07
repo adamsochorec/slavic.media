@@ -25,7 +25,7 @@ const useImgCrud = () => {
     }
   };
 
-  const newImg = async (galleryId, column) => {
+  const newImg = async (galleryId, columnIndex) => {
     if (
       !state.value.newId ||
       !state.value.newAlt ||
@@ -51,21 +51,21 @@ const useImgCrud = () => {
       };
 
       const response = await fetch(
-        `https://api.slavic.media/img/${galleryId}/${column}`,
+        `https://api.slavic.media/img/${galleryId}/${columnIndex}`,
         requestOptions
       );
 
       if (!response.ok) {
-        throw new Error("Failed to add new image");
+        throw new Error("Failed to add new img");
       }
 
       await getAllImg();
     } catch (error) {
-      console.error("Error adding new image:", error);
+      console.error("Error adding new img:", error);
     }
   };
 
-  const deleteImg = async (galleryId, column, imgId) => {
+  const deleteImg = async (galleryId, columnIndex, imgId) => {
     try {
       const requestOptions = {
         method: "DELETE",
@@ -75,21 +75,21 @@ const useImgCrud = () => {
         },
       };
       const response = await fetch(
-        `https://api.slavic.media/img/${galleryId}/${column}/${imgId}`,
+        `https://api.slavic.media/img/${galleryId}/${columnIndex}/${imgId}`,
         requestOptions
       );
 
       if (!response.ok) {
-        throw new Error("Failed to delete image");
+        throw new Error("Failed to delete img");
       }
 
       await getAllImg();
     } catch (error) {
-      console.error("Error deleting image:", error);
+      console.error("Error deleting img:", error);
     }
   };
 
-  const editImg = async (galleryId, column, imgId) => {
+  const editImg = async (galleryId, columnIndex, imgId) => {
     try {
       if (!documentID.value) {
         throw new Error("No ID provided");
@@ -118,16 +118,16 @@ const useImgCrud = () => {
         }),
       };
 
-      const url = `https://api.slavic.media/img/${galleryId}/${column}/${imgId}`;
+      const url = `https://api.slavic.media/img/${galleryId}/${columnIndex}/${imgId}`;
       const response = await fetch(url, requestOptions);
 
       if (!response.ok) {
-        throw new Error("Failed to edit image");
+        throw new Error("Failed to edit img");
       }
 
       router.push("/img");
     } catch (error) {
-      console.error("Error editing image:", error);
+      console.error("Error editing img:", error);
     }
   };
 

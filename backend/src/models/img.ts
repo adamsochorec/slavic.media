@@ -1,39 +1,35 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-// Interface representing a document in MongoDB.
-interface Image extends Document {
+// Interface representing an img document in MongoDB.
+interface Img extends Document {
   _id: string;
   alt: string;
   title: string;
   flag: string;
 }
+
+// Interface representing a gallery document in MongoDB.
 interface Gallery extends Document {
   _id: string;
   desc: string;
   title: string;
-  column1: Image[];
-  column2: Image[];
-  column3: Image[];
-  column4: Image[];
+  columns: Img[][];
 }
-const imageSchema = new Schema({
+
+const imgSchema = new Schema({
   _id: { type: String, required: true },
   alt: { type: String, required: true },
   title: { type: String, required: true },
   flag: { type: String, required: true },
 });
+
 const gallerySchema = new Schema({
   _id: { type: String, required: true },
   desc: { type: String, required: true },
   title: { type: String, required: true },
-  columns: {
-    column1: { type: [imageSchema], required: true },
-    column2: { type: [imageSchema], required: true },
-    column3: { type: [imageSchema], required: true },
-    column4: { type: [imageSchema], required: true },
-  },
+  columns: { type: [[imgSchema]], required: true },
 });
 
-// Create a Model
+// Create a Model for galleries
 const galleryModel = mongoose.model<Gallery>("Gallery", gallerySchema);
 export default galleryModel;
