@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, nextTick, watch } from "vue";
 import contactForm from "@/components/contact-form.vue";
+import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
 import $ from "jquery";
 import "magnific-popup";
 import useImgCrud from "@/modules/imgCrud";
@@ -72,8 +73,8 @@ watch(isDataLoaded, (loaded) => {
             outdoors, our photography captures authentic moments, rich in detail
             and emotion, that tell your story.
           </p>
-          <a class="popup-with-form reveal" href="#request-a-proposal">
-            <div class="cta">
+          <a class="popup-with-form" href="#request-a-proposal">
+            <div class="cta reveal">
               Request a Proposal <i class="pi pi-arrow-right"></i>
             </div>
           </a>
@@ -124,6 +125,9 @@ watch(isDataLoaded, (loaded) => {
         </div>
       </article>
     </template>
+    <article v-if="isDataLoaded">
+      <bannerLightroomPresets></bannerLightroomPresets>
+    </article>
     <div class="wrapper-wide" v-else>
       <div class="flex flex-wrap">
         <div class="w-full xl:w-6/12 p-4">
@@ -187,6 +191,8 @@ small a {
 .row img {
   height: unset;
   width: unset;
+  -webkit-box-shadow: var(--box-shadow-1);
+  box-shadow: var(--box-shadow-1);
 }
 .row {
   display: -ms-flexbox; /* IE10 */

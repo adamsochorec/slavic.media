@@ -1,0 +1,102 @@
+<script setup></script>
+<template>
+  <div>
+    <hr class="semi" />
+    <div class="banner">
+      <img src="https://slavic.media/img/2023-05-12-08969.jpg" />
+      <div class="title flex-center">
+        <div>
+          <span class="punchline gradient"
+            >Like the <span class="">look? </span>
+          </span>
+          <i style="font-size: 1.5rem" class="pi pi-sparkles gradient"></i>
+          <p>
+            Emulate the classic 35mm and 120 film looks with Slavic Media’s
+            signature LUTs for Lightroom and Photoshop.
+          </p>
+        </div>
+        <a href="https://store.slavic.media">
+          <div class="cta">
+            Transform Your Photos <i class="pi pi-arrow-right"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</template>
+<style scoped>
+.banner {
+  height: var(--dimension-2);
+  justify-content: center;
+  width: 100vw;
+  backdrop-filter: var(--blur-1) !important; /* Standard syntax */
+  -webkit-backdrop-filter: var(--blur-1) !important; /* Chrome, Safari, Opera */
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  -webkit-box-shadow: var(--box-shadow-1);
+  box-shadow: var(--box-shadow-1);
+}
+.cta:not(.cta:hover) {
+  background-color: transparent;
+}
+.punchline {
+  font-size: var(--font-size-3);
+  font-family: var(--logo-font);
+}
+.gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(199, 30, 30, 1) 35%,
+    rgba(17, 69, 126, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+img {
+  position: relative;
+  display: block;
+  opacity: 0.5;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -webkit-transition: all 350ms ease-in-out;
+  -o-transition: all 350ms ease-in-out;
+  transition: all 350ms ease-in-out;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.banner:hover img {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-filter: var(--blur-1);
+  filter: var(--blur-1);
+}
+.title {
+  position: absolute;
+  text-align: center;
+  padding: var(--grid-gap-2);
+}
+@media only screen and (max-width: 500px) {
+  p {
+    font-size: var(--font-size-9);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .title {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .title {
+    width: 30%;
+  }
+}
+</style>
