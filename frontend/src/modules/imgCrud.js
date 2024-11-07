@@ -19,13 +19,13 @@ const useImgCrud = () => {
       const response = await fetch("https://api.slavic.media/img/");
       const data = await response.json();
 
-      state.value.img = data[0];
+      state.value.img = data;
     } catch (error) {
       console.error(error);
     }
   };
 
-  const newImg = async (gallery, column) => {
+  const newImg = async (galleryId, column) => {
     if (
       !state.value.newId ||
       !state.value.newAlt ||
@@ -43,7 +43,7 @@ const useImgCrud = () => {
           "auth-token": localStorage.lsToken,
         },
         body: JSON.stringify({
-          id: state.value.newId,
+          _id: state.value.newId,
           alt: state.value.newAlt,
           title: state.value.newTitle,
           flag: state.value.newFlag,
@@ -51,7 +51,7 @@ const useImgCrud = () => {
       };
 
       const response = await fetch(
-        `https://api.slavic.media/img/${gallery}/${column}`,
+        `https://api.slavic.media/img/${galleryId}/${column}`,
         requestOptions
       );
 
@@ -65,7 +65,7 @@ const useImgCrud = () => {
     }
   };
 
-  const deleteImg = async (gallery, column, imgId) => {
+  const deleteImg = async (galleryId, column, imgId) => {
     try {
       const requestOptions = {
         method: "DELETE",
@@ -75,7 +75,7 @@ const useImgCrud = () => {
         },
       };
       const response = await fetch(
-        `https://api.slavic.media/img/${gallery}/${column}/${imgId}`,
+        `https://api.slavic.media/img/${galleryId}/${column}/${imgId}`,
         requestOptions
       );
 
@@ -89,7 +89,7 @@ const useImgCrud = () => {
     }
   };
 
-  const editImg = async (gallery, column, imgId) => {
+  const editImg = async (galleryId, column, imgId) => {
     try {
       if (!documentID.value) {
         throw new Error("No ID provided");
@@ -111,14 +111,14 @@ const useImgCrud = () => {
           "auth-token": localStorage.lsToken,
         },
         body: JSON.stringify({
-          id: state.value.newId,
+          _id: state.value.newId,
           alt: state.value.newAlt,
           title: state.value.newTitle,
           flag: state.value.newFlag,
         }),
       };
 
-      const url = `https://api.slavic.media/img/${gallery}/${column}/${imgId}`;
+      const url = `https://api.slavic.media/img/${galleryId}/${column}/${imgId}`;
       const response = await fetch(url, requestOptions);
 
       if (!response.ok) {
