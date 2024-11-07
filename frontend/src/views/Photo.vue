@@ -1,17 +1,15 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick, watch } from "vue";
 import contactForm from "@/components/contact-form.vue";
 import $ from "jquery";
 import "magnific-popup";
 import useImgCrud from "@/modules/imgCrud";
 
-const isDataLoaded = ref(true);
+const isDataLoaded = ref(false);
 const { state, getAllImg } = useImgCrud();
 
-onMounted(async () => {
-  await getAllImg();
-  isDataLoaded.value = true;
-
+async function initializeLightbox() {
+  await nextTick();
   $(".popup-gallery").magnificPopup({
     delegate: "a", // Targets <a> elements directly
     type: "image",
@@ -44,6 +42,15 @@ onMounted(async () => {
     fixedContentPos: "false",
     overflowY: "scroll",
   });
+}
+
+onMounted(async () => {
+  await getAllImg();
+  isDataLoaded.value = true;
+});
+
+watch(isDataLoaded, (loaded) => {
+  if (loaded) initializeLightbox();
 });
 </script>
 
@@ -103,15 +110,15 @@ onMounted(async () => {
           >
             <div
               v-for="image in gallery[column]"
-              :key="image.id"
+              :key="image._id"
               class="reveal"
             >
               <a
-                :href="`https://slavic.media/img/${image.id}.jpg`"
+                :href="`https://slavic.media/img/${image._id}.jpg`"
                 :title="image.title"
               >
                 <img
-                  :src="`https://slavic.media/img/${image.id}.jpg`"
+                  :src="`https://slavic.media/img/${image._id}.jpg`"
                   :alt="image.alt"
                 />
                 <svg class="flag note" :title="'Flag of ' + image.flag">
