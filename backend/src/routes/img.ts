@@ -4,7 +4,7 @@ import { verifyToken } from "../validation";
 
 const router = Router();
 
-// CRUD operations
+// CRUD operations for galleries
 
 // Create gallery - POST
 router.post("/", verifyToken, (req: Request, res: Response) => {
@@ -42,6 +42,137 @@ router.get("/:id", (req: Request, res: Response) => {
       res.status(500).send({ message: err.message });
     });
 });
+
+// Update gallery - PUT
+router.put("/:id", verifyToken, (req: Request, res: Response) => {
+  const { id } = req.params;
+  const updatedGallery = req.body;
+
+  galleryModel
+    .findByIdAndUpdate(id, updatedGallery, { new: true })
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot update gallery with id=${id}. Maybe gallery was not found!`,
+        });
+      } else {
+        res.send(data);
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+});
+
+// Delete gallery - DELETE
+router.delete("/:id", verifyToken, (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  galleryModel
+    .findByIdAndDelete(id)
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot delete gallery with id=${id}. Maybe gallery was not found!`,
+        });
+      } else {
+        res.send({ message: "Gallery was deleted successfully!" });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+});
+
+// CRUD operations for columns
+
+// Add column to gallery - POST
+router.post(
+  "/:galleryId/columns",
+  verifyToken,
+  (req: Request, res: Response) => {
+    const { galleryId } = req.params;
+    const newColumn = req.body;
+
+    galleryModel
+      .findByIdAndUpdate(
+        galleryId,
+        { $push: { columns: newColumn } },
+        { new: true }
+      )
+      .then((data) => {
+        if (!data) {
+          res.status(404).send({
+            message: `Cannot add column to gallery with id=${galleryId}. Maybe gallery was not found!`,
+          });
+        } else {
+          res.send(data);
+        }
+      })
+      .catch((err) => {
+        res.status(500).send({ message: err.message });
+      });
+  }
+);
+
+// Update specific column in gallery - PUT
+router.put(
+  "/:galleryId/columns/:columnIndex",
+  verifyToken,
+  (req: Request, res: Response) => {
+    const { galleryId, columnIndex } = req.params;
+    const updatedColumn = req.body;
+
+    galleryModel
+      .findOneAndUpdate(
+        { _id: galleryId },
+        { $set: { [`columns.${columnIndex}`]: updatedColumn } },
+        { new: true }
+      )
+      .then((data) => {
+        if (!data) {
+          res.status(404).send({
+            message: `Cannot update column ${columnIndex} in gallery with id=${galleryId}. Maybe column was not found!`,
+          });
+        } else {
+          res.send(data);
+        }
+      })
+      .catch((err) => {
+        res.status(500).send({ message: err.message });
+      });
+  }
+);
+
+// Delete specific column in gallery - DELETE
+router.delete(
+  "/:galleryId/columns/:columnIndex",
+  verifyToken,
+  (req: Request, res: Response) => {
+    const { galleryId, columnIndex } = req.params;
+
+    galleryModel
+      .findOneAndUpdate(
+        { _id: galleryId },
+        { $unset: { [`columns.${columnIndex}`]: 1 } },
+        { new: true }
+      )
+      .then((data) => {
+        if (!data) {
+          res.status(404).send({
+            message: `Cannot delete column ${columnIndex} in gallery with id=${galleryId}. Maybe column was not found!`,
+          });
+        } else {
+          res.send(data);
+        }
+      })
+      .catch((err) => {
+        res.status(500).send({ message: err.message });
+      });
+  }
+);
+
+// CRUD operations for images
 
 // Add img to specific column in gallery - POST
 router.post(
