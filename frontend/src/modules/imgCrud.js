@@ -18,7 +18,6 @@ const useImgCrud = () => {
     try {
       const response = await fetch("https://api.slavic.media/img/");
       const data = await response.json();
-      console.log("Fetched data:", data);
 
       state.value.img = data[0];
     } catch (error) {

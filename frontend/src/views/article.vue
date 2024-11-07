@@ -12,7 +12,6 @@ const isDataLoaded = ref(false);
 
 onMounted(async () => {
   await getSpecificArticleBySlug(route.params.slug);
-  console.log("Loaded article:", state.article); // Log the loaded article
   isDataLoaded.value = true;
 
   // POP UP GALLERY
@@ -55,14 +54,7 @@ onMounted(async () => {
   });
 }); // COPY LINK
 const copyHref = (href) => {
-  navigator.clipboard
-    .writeText(href)
-    .then(() => {
-      console.log("URL copied to clipboard");
-    })
-    .catch((err) => {
-      console.error("Failed to copy URL: ", err);
-    });
+  navigator.clipboard.writeText(href);
 };
 </script>
 

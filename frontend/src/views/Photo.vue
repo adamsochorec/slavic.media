@@ -96,7 +96,6 @@ watch(isDataLoaded, (loaded) => {
             <p class="reveal">{{ gallery.desc }}</p>
           </div>
         </div>
-        <hr class="semi" role="separator" />
       </article>
 
       <article v-if="isDataLoaded" class="popup-gallery">

@@ -124,9 +124,7 @@ const router = createRouter({
 // Navigation guard that runs before each route change
 router.beforeEach(async (to, from, next) => {
   const isAuthenticated = localStorage.getItem("user");
-  console.log("is auth", isAuthenticated);
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
-  console.log("requires auth", requiresAuth);
 
   // If the route requires authentication and the user is not authenticated, redirect to the home page
   if (!isAuthenticated && requiresAuth) {

@@ -44,39 +44,3 @@ export function useAuth() {
   }
   return auth;
 }
-
-// export default function useUsers() {
-
-//   const router = useRouter()
-//   const isAuthenticated = ref(false)
-
-//   const logIn = async () => {
-//     try {
-//       localStorage.setItem('user', 'admin')
-//       isAuthenticated.value = true
-//       console.log("User is logged in")
-//     }
-//     catch(error) {
-//       console.error(error)
-//     }
-//   }
-
-//   const logOut = async () => {
-//     try {
-//       localStorage.removeItem('user')
-//       isAuthenticated.value = false
-//       console.log("User is logged out")
-//       router.push('/')
-//     }
-//     catch(error)
-//     {
-//       console.error(error)
-//     }
-//   }
-
-//   return {
-//     isAuthenticated,
-//     logIn,
-//     logOut
-//   }
-// }
