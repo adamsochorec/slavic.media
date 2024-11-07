@@ -1,8 +1,6 @@
 <script setup>
-import { ref } from "vue";
 import { RouterView } from "vue-router";
 import { provideAuth } from "./modules/users";
-
 provideAuth();
 
 // COMPONENTS
@@ -10,12 +8,6 @@ import Footer from "@/components/Footer.vue";
 import navBar from "@/components/nav-bar.vue";
 
 // Dark Mode State
-const darkMode = ref(false);
-function toggleDarkMode() {
-  darkMode.value = !darkMode.value;
-  document.documentElement.classList.toggle("dark-mode", darkMode.value);
-  console.log("dark mode", darkMode.value);
-}
 
 // CONTENT REVEAL START
 // Function to reveal elements as the user scrolls
@@ -61,17 +53,6 @@ reveal();
         </div>
       </RouterLink>
       <navBar />
-
-      <div style="display: flex; align-items: center">
-        <Button
-          class="rounded border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900"
-          severity="secondary"
-          outlined
-          aria-label="Toggle Dark mode"
-          @click="toggleDarkMode"
-          :icon="['pi', darkMode ? 'pi-sun' : 'pi-moon']"
-        ></Button>
-      </div>
     </header>
     <!-- HEADER END -->
     <main>

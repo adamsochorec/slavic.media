@@ -68,29 +68,19 @@
     <hr role="separator" />
     <div class="footer-container">
       <div class="grid-item" role="navigation" aria-label="Footer Navigation">
-        <router-link
-          class="footer-nav"
-          to="/legal/cookie-policy"
-          title="Cookie Policy"
-        >
-          Cookie&nbsp;Policy</router-link
-        >
+        <router-link to="/assets" class="footer-nav" title="Assets"
+          ><i style="font-size: var(--font-size-8)" class="pi pi-download"></i
+          >&nbsp; <span>Assets</span>
+        </router-link>
         <span>&nbsp;|&nbsp;</span>
-        <router-link
-          to="/legal/terms-of-sale"
-          class="footer-nav"
-          title="Privacy Policy "
-          >Terms of Sale</router-link
-        >
-        <span>&nbsp;|&nbsp;</span>
-        <router-link
-          to="/legal/digital-image-license"
-          class="footer-nav"
-          title="Privacy Policy "
-          >Digital Image License</router-link
+
+        <router-link to="/legal" class="footer-nav" title="Legal"
+          ><i style="font-size: var(--font-size-8)" class="pi pi-briefcase"></i
+          >&nbsp;<span>Legal</span></router-link
         >
 
         <span class="separator-hide">&nbsp;|&nbsp;</span>
+
         <a
           class="footer-nav"
           target="_blank"
@@ -98,8 +88,8 @@
           href="https://datacvr.virk.dk/enhed/virksomhed/44081512?fritekst=slavic%20media&sideIndex=0&size=10"
           aria-label="VAT Number"
           role="link"
-        >
-          VAT:&nbsp;DK44081512
+          ><i style="font-size: var(--font-size-8)" class="pi pi-euro"></i
+          >&nbsp;<span>VAT:&nbsp;DK44081512</span>
         </a>
       </div>
       <p class="grid-item">
@@ -122,13 +112,19 @@ export default {
 </script>
 
 <style scoped>
-footer a.footer-nav {
+.grid-item i:hover {
+  color: unset;
+}
+footer .footer-nav {
   color: rgb(var(--primary-color));
+}
+footer .footer-nav span,
+footer .footer-nav span:hover {
   text-decoration: underline;
 }
-footer a.footer-nav:hover {
+footer .footer-nav:hover,
+.grid-item i:hover {
   opacity: 80%;
-  text-decoration: underline;
 }
 footer {
   padding: var(--grid-gap-3) var(--homepage-padding);

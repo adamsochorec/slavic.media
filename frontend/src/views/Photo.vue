@@ -12,31 +12,29 @@ const { state, getAllImg } = useImgCrud();
 async function initializeLightbox() {
   await nextTick();
   $(".popup-gallery").magnificPopup({
-    delegate: "a", // Targets <a> elements directly
+    delegate: "a",
     type: "image",
-    tLoading: "Loading", // Loading spinner HTML
+    tLoading: "Loading",
     mainClass: "mfp-img-mobile",
     gallery: {
       enabled: true,
       fixedContentPos: "false",
       overflowY: "scroll",
       navigateByImgClick: true,
-      preload: [0, 1], // Preloads adjacent images
+      preload: [0, 1],
     },
     zoom: {
       enabled: true,
-      duration: 300, // Duration of the zoom animation
+      duration: 300,
     },
     image: {
-      tError: "Error", // Error message HTML
+      tError: "Error",
       titleSrc: function (item) {
-        // Gets the URL of the image for the popup
         return item.el.attr("title");
       },
     },
     callbacks: {
       elementParse: function (item) {
-        // Function to handle each image source
         item.src = item.el.attr("href");
       },
     },
@@ -113,7 +111,7 @@ watch(isDataLoaded, (loaded) => {
                 :title="image.title"
               >
                 <img
-                  :src="`https://slavic.media/img/thumbnail/${image._id}.jpg`"
+                  :src="`https://slavic.media/img/hd/${image._id}.jpg`"
                   :alt="image.alt"
                 />
                 <svg class="flag note" :title="'Flag of ' + image.flag">
@@ -166,12 +164,12 @@ watch(isDataLoaded, (loaded) => {
       <div class="flex justify-between mt-4">
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
-          width="48%"
+          width="24%"
           height="200px"
         ></Skeleton>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
-          width="24%"
+          width="48%"
           height="200px"
         ></Skeleton>
         <Skeleton

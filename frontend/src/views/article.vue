@@ -17,7 +17,7 @@ onMounted(async () => {
   // POP UP GALLERY
   $(document).ready(function () {
     $(".article-content").magnificPopup({
-      delegate: "img",
+      delegate: "a",
       type: "image",
       tLoading: "Loading",
       mainClass: "mfp-img-mobile",
@@ -25,26 +25,21 @@ onMounted(async () => {
         enabled: true,
         fixedContentPos: "false",
         overflowY: "scroll",
-
         navigateByImgClick: true,
-        preload: [0, 1], // Preloads adjacent images
+        preload: [0, 1],
       },
       zoom: {
         enabled: true,
-        duration: 300, // Duration of the zoom animation
+        duration: 300,
       },
       image: {
-        tError: `Error`,
-
-        title: true,
-        src: function (item) {
-          // Gets the URL of the image for the popup
-          return item.el.attr("src");
+        tError: "Error",
+        titleSrc: function (item) {
+          return item.el.attr("title");
         },
       },
       callbacks: {
         elementParse: function (item) {
-          // Function to handle each image source
           item.src = item.el.attr("src");
         },
       },
