@@ -1,8 +1,7 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import { RouterView } from "vue-router";
 import { provideAuth } from "./modules/users";
-import useImgCrud from "@/modules/imgCrud";
 
 provideAuth();
 
@@ -17,15 +16,6 @@ function toggleDarkMode() {
   document.documentElement.classList.toggle("dark-mode", darkMode.value);
   console.log("dark mode", darkMode.value);
 }
-
-// Image Data State
-const logoImage = ref(null);
-const { getSpecificImg, img } = useImgCrud();
-
-onMounted(async () => {
-  await getSpecificImg("Primary-1");
-  logoImage.value = img.value;
-});
 
 // CONTENT REVEAL START
 // Function to reveal elements as the user scrolls
@@ -62,11 +52,10 @@ reveal();
       <RouterLink to="/">
         <div class="logo-container">
           <img
-            v-if="logoImage"
             class="logo"
-            :src="logoImage.largeURL"
-            :alt="logoImage.alt"
-            :title="logoImage.title"
+            src="/Primary-1.png"
+            alt=""
+            title=""
             style="padding: 8px 0; width: 91px; height: 100%"
           />
         </div>

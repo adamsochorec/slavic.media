@@ -8,14 +8,9 @@ const useImgCrud = () => {
   const documentID = computed(() => route.params.id);
   const state = ref({
     newId: "",
-    newLargeURL: "",
-    newThumbnailURL: "",
-    newWidth: 0,
-    newHeight: 0,
-    newFlag: "",
-    newTitle: "",
     newAlt: "",
-    newClient: "",
+    newTitle: "",
+    newFlag: "",
     img: [],
   });
 
@@ -25,23 +20,18 @@ const useImgCrud = () => {
       const data = await response.json();
       console.log("Fetched data:", data); // Add this line
 
-      state.value.imgs = data;
+      state.value.img = data;
     } catch (error) {
       console.error(error);
     }
   };
 
-  const newImg = async () => {
+  const newImg = async (gallery, column) => {
     if (
       !state.value.newId ||
-      !state.value.newLargeURL ||
-      !state.value.newThumbnailURL ||
-      !state.value.newWidth ||
-      !state.value.newHeight ||
-      !state.value.newFlag ||
-      !state.value.newTitle ||
       !state.value.newAlt ||
-      !state.value.newClient
+      !state.value.newTitle ||
+      !state.value.newFlag
     ) {
       console.error("All fields must be filled out");
       return;
@@ -55,33 +45,28 @@ const useImgCrud = () => {
         },
         body: JSON.stringify({
           id: state.value.newId,
-          largeURL: state.value.newLargeURL,
-          thumbnailURL: state.value.newThumbnailURL,
-          width: state.value.newWidth,
-          height: state.value.newHeight,
-          flag: state.value.newFlag,
-          title: state.value.newTitle,
           alt: state.value.newAlt,
-          client: state.value.newClient,
+          title: state.value.newTitle,
+          flag: state.value.newFlag,
         }),
       };
 
       const response = await fetch(
-        "https://api.slavic.media/img/",
+        `https://api.slavic.media/img/${gallery}/${column}`,
         requestOptions
       );
 
       if (!response.ok) {
-        throw new Error("Failed to add new document");
+        throw new Error("Failed to add new image");
       }
 
       await getAllImg();
     } catch (error) {
-      console.error("Error adding new document:", error);
+      console.error("Error adding new image:", error);
     }
   };
 
-  const deleteImg = async (img) => {
+  const deleteImg = async (gallery, column, imgId) => {
     try {
       const requestOptions = {
         method: "DELETE",
@@ -91,35 +76,30 @@ const useImgCrud = () => {
         },
       };
       const response = await fetch(
-        `https://api.slavic.media/img/${img.id}`,
+        `https://api.slavic.media/img/${gallery}/${column}/${imgId}`,
         requestOptions
       );
 
       if (!response.ok) {
-        throw new Error("Failed to delete document");
+        throw new Error("Failed to delete image");
       }
 
       await getAllImg();
     } catch (error) {
-      console.error("Error deleting document:", error);
+      console.error("Error deleting image:", error);
     }
   };
 
-  const editImg = async () => {
+  const editImg = async (gallery, column, imgId) => {
     try {
       if (!documentID.value) {
         throw new Error("No ID provided");
       }
       if (
         !state.value.newId ||
-        !state.value.newLargeURL ||
-        !state.value.newThumbnailURL ||
-        !state.value.newWidth ||
-        !state.value.newHeight ||
-        !state.value.newFlag ||
-        !state.value.newTitle ||
         !state.value.newAlt ||
-        !state.value.newClient
+        !state.value.newTitle ||
+        !state.value.newFlag
       ) {
         console.error("All fields must be filled out");
         return;
@@ -133,27 +113,22 @@ const useImgCrud = () => {
         },
         body: JSON.stringify({
           id: state.value.newId,
-          largeURL: state.value.newLargeURL,
-          thumbnailURL: state.value.newThumbnailURL,
-          width: state.value.newWidth,
-          height: state.value.newHeight,
-          flag: state.value.newFlag,
-          title: state.value.newTitle,
           alt: state.value.newAlt,
-          client: state.value.newClient,
+          title: state.value.newTitle,
+          flag: state.value.newFlag,
         }),
       };
 
-      const url = "https://api.slavic.media/img/" + documentID.value;
+      const url = `https://api.slavic.media/img/${gallery}/${column}/${imgId}`;
       const response = await fetch(url, requestOptions);
 
       if (!response.ok) {
-        throw new Error("Failed to edit document");
+        throw new Error("Failed to edit image");
       }
 
       router.push("/img");
     } catch (error) {
-      console.error("Error editing document:", error);
+      console.error("Error editing image:", error);
     }
   };
 

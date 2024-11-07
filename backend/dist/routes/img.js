@@ -25,7 +25,7 @@ router.get("/", (req, res) => {
     img_1.default
         .find()
         .then((data) => {
-        res.send(mapArray(data));
+        res.send(data);
     })
         .catch((err) => {
         res.status(500).send({ message: err.message });
@@ -42,75 +42,63 @@ router.get("/:id", (req, res) => {
         res.status(500).send({ message: err.message });
     });
 });
-// Read multiple documents by IDs - POST
-router.post("/by-ids", (req, res) => {
-    const ids = req.body.ids;
+// Add image to specific column - POST
+router.post("/:gallery/:column", validation_1.verifyToken, (req, res) => {
+    const { gallery, column } = req.params;
+    const newImage = req.body;
     img_1.default
-        .find({ _id: { $in: ids } })
+        .findOneAndUpdate({ [`${gallery}.${column}`]: { $exists: true } }, { $push: { [`${gallery}.${column}`]: newImage } }, { new: true })
         .then((data) => {
-        res.send(mapArray(data));
+        if (!data) {
+            res.status(404).send({
+                message: `Cannot add image to ${gallery}.${column}. Maybe gallery or column was not found!`,
+            });
+        }
+        else {
+            res.send(data);
+        }
     })
         .catch((err) => {
         res.status(500).send({ message: err.message });
     });
 });
-// Update specific document by ID - PUT
-router.put("/:id", validation_1.verifyToken, (req, res) => {
-    const id = req.params.id;
+// Update specific image in column - PUT
+router.put("/:gallery/:column/:imageId", validation_1.verifyToken, (req, res) => {
+    const { gallery, column, imageId } = req.params;
+    const updatedImage = req.body;
     img_1.default
-        .findByIdAndUpdate(id, req.body, { new: true })
+        .findOneAndUpdate({ [`${gallery}.${column}.id`]: imageId }, { $set: { [`${gallery}.${column}.$`]: updatedImage } }, { new: true })
         .then((data) => {
         if (!data) {
             res.status(404).send({
-                message: "Cannot update document with id=" +
-                    id +
-                    ". Maybe document was not found!",
+                message: `Cannot update image in ${gallery}.${column} with id=${imageId}. Maybe image was not found!`,
             });
         }
         else {
-            res.send({ message: "Document was successfully updated." });
+            res.send(data);
         }
     })
         .catch((err) => {
-        res
-            .status(500)
-            .send({ message: "Error updating document with id=" + id });
+        res.status(500).send({ message: err.message });
     });
 });
-// Delete specific document by ID - DELETE
-router.delete("/:id", validation_1.verifyToken, (req, res) => {
-    const id = req.params.id;
+// Delete specific image in column - DELETE
+router.delete("/:gallery/:column/:imageId", validation_1.verifyToken, (req, res) => {
+    const { gallery, column, imageId } = req.params;
     img_1.default
-        .findByIdAndDelete(id)
+        .findOneAndUpdate({ [`${gallery}.${column}.id`]: imageId }, { $pull: { [`${gallery}.${column}`]: { id: imageId } } }, { new: true })
         .then((data) => {
         if (!data) {
             res.status(404).send({
-                message: "Cannot delete document with id=" +
-                    id +
-                    ". Maybe document was not found!",
+                message: `Cannot delete image in ${gallery}.${column} with id=${imageId}. Maybe image was not found!`,
             });
         }
         else {
-            res.send({ message: "Document was successfully deleted." });
+            res.send(data);
         }
     })
         .catch((err) => {
-        res
-            .status(500)
-            .send({ message: "Error deleting document with id=" + id, error: err });
+        res.status(500).send({ message: err.message });
     });
 });
-// Function to map an array of documents to a new format
-function mapArray(inputArray) {
-    return inputArray.map((element) => mapData(element));
-}
-// Function to map a single document to a new format
-function mapData(element) {
-    return {
-        id: element._id,
-        flag: element.flag,
-        title: element.title,
-        alt: element.alt,
-    };
-}
 exports.default = router;

@@ -24,7 +24,7 @@ router.get("/", (req: Request, res: Response) => {
   imgModel
     .find()
     .then((data) => {
-      res.send(mapArray(data));
+      res.send(data);
     })
     .catch((err) => {
       res.status(500).send({ message: err.message });
@@ -43,80 +43,86 @@ router.get("/:id", (req: Request, res: Response) => {
     });
 });
 
-// Read multiple documents by IDs - POST
-router.post("/by-ids", (req: Request, res: Response) => {
-  const ids = req.body.ids;
+// Add image to specific column - POST
+router.post("/:gallery/:column", verifyToken, (req: Request, res: Response) => {
+  const { gallery, column } = req.params;
+  const newImage = req.body;
+
   imgModel
-    .find({ _id: { $in: ids } })
+    .findOneAndUpdate(
+      { [`${gallery}.${column}`]: { $exists: true } },
+      { $push: { [`${gallery}.${column}`]: newImage } },
+      { new: true }
+    )
     .then((data) => {
-      res.send(mapArray(data));
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot add image to ${gallery}.${column}. Maybe gallery or column was not found!`,
+        });
+      } else {
+        res.send(data);
+      }
     })
     .catch((err) => {
       res.status(500).send({ message: err.message });
     });
 });
 
-// Update specific document by ID - PUT
-router.put("/:id", verifyToken, (req: Request, res: Response) => {
-  const id = req.params.id;
-  imgModel
-    .findByIdAndUpdate(id, req.body, { new: true })
-    .then((data) => {
-      if (!data) {
-        res.status(404).send({
-          message:
-            "Cannot update document with id=" +
-            id +
-            ". Maybe document was not found!",
-        });
-      } else {
-        res.send({ message: "Document was successfully updated." });
-      }
-    })
-    .catch((err) => {
-      res
-        .status(500)
-        .send({ message: "Error updating document with id=" + id });
-    });
-});
+// Update specific image in column - PUT
+router.put(
+  "/:gallery/:column/:imageId",
+  verifyToken,
+  (req: Request, res: Response) => {
+    const { gallery, column, imageId } = req.params;
+    const updatedImage = req.body;
 
-// Delete specific document by ID - DELETE
-router.delete("/:id", verifyToken, (req: Request, res: Response) => {
-  const id = req.params.id;
-  imgModel
-    .findByIdAndDelete(id)
-    .then((data) => {
-      if (!data) {
-        res.status(404).send({
-          message:
-            "Cannot delete document with id=" +
-            id +
-            ". Maybe document was not found!",
-        });
-      } else {
-        res.send({ message: "Document was successfully deleted." });
-      }
-    })
-    .catch((err) => {
-      res
-        .status(500)
-        .send({ message: "Error deleting document with id=" + id, error: err });
-    });
-});
+    imgModel
+      .findOneAndUpdate(
+        { [`${gallery}.${column}.id`]: imageId },
+        { $set: { [`${gallery}.${column}.$`]: updatedImage } },
+        { new: true }
+      )
+      .then((data) => {
+        if (!data) {
+          res.status(404).send({
+            message: `Cannot update image in ${gallery}.${column} with id=${imageId}. Maybe image was not found!`,
+          });
+        } else {
+          res.send(data);
+        }
+      })
+      .catch((err) => {
+        res.status(500).send({ message: err.message });
+      });
+  }
+);
 
-// Function to map an array of documents to a new format
-function mapArray(inputArray: any[]): any[] {
-  return inputArray.map((element) => mapData(element));
-}
+// Delete specific image in column - DELETE
+router.delete(
+  "/:gallery/:column/:imageId",
+  verifyToken,
+  (req: Request, res: Response) => {
+    const { gallery, column, imageId } = req.params;
 
-// Function to map a single document to a new format
-function mapData(element: any): any {
-  return {
-    id: element._id,
-    flag: element.flag,
-    title: element.title,
-    alt: element.alt,
-  };
-}
+    imgModel
+      .findOneAndUpdate(
+        { [`${gallery}.${column}.id`]: imageId },
+        { $pull: { [`${gallery}.${column}`]: { id: imageId } } },
+        { new: true }
+      )
+      .then((data) => {
+        if (!data) {
+          res.status(404).send({
+            message: `Cannot delete image in ${gallery}.${column} with id=${imageId}. Maybe image was not found!`,
+          });
+        } else {
+          res.send(data);
+        }
+      })
+      .catch((err) => {
+        res.status(500).send({ message: err.message });
+      });
+  }
+);
 
 export default router;

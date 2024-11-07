@@ -34,10 +34,10 @@ const gallerySchema = new mongoose_1.Schema({
     desc: { type: String, required: true },
     handle: { type: String, required: true },
     title: { type: String, required: true },
-    column1: [imageSchema],
-    column2: [imageSchema],
-    column3: [imageSchema],
-    column4: [imageSchema],
+    column1: { type: [imageSchema], required: true },
+    column2: { type: [imageSchema], required: true },
+    column3: { type: [imageSchema], required: true },
+    column4: { type: [imageSchema], required: true },
 });
 const imgSchema = new mongoose_1.Schema({
     portrait: { type: gallerySchema, required: true },

@@ -426,20 +426,7 @@ header {
   -webkit-transform: translateY(0);
   z-index: 8;
 }
-header img.logo {
-  float: left;
-  padding: 8px 0;
-  width: 91px;
-  height: 100%;
-  border-radius: none;
-  -webkit-animation: none;
-  animation: none;
-}
-header nav .logo:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+
 header nav ul {
   list-style: none;
   padding-left: 0;
