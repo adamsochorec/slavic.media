@@ -11,7 +11,6 @@ interface Image extends Document {
 interface Gallery extends Document {
   _id: string;
   desc: string;
-  handle: string;
   title: string;
   column1: Image[];
   column2: Image[];
@@ -19,6 +18,7 @@ interface Gallery extends Document {
   column4: Image[];
 }
 interface ImgInterface extends Document {
+  _id: string;
   portrait: Gallery;
   outdoor: Gallery;
   still: Gallery;
@@ -32,7 +32,6 @@ const imageSchema = new Schema({
 const gallerySchema = new Schema({
   _id: { type: String, required: true },
   desc: { type: String, required: true },
-  handle: { type: String, required: true },
   title: { type: String, required: true },
   column1: { type: [imageSchema], required: true },
   column2: { type: [imageSchema], required: true },
