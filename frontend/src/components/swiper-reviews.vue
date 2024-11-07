@@ -151,7 +151,8 @@ const reviewItems = ref([
     rating: 5,
     fullReview: "https://maps.app.goo.gl/jkGMy2hSYon4dN28A",
     message: "Amazing service! 🤩",
-  },]);
+  },
+]);
 
 onMounted(() => {
   // Function to display stars based on the rating value
@@ -290,10 +291,12 @@ onMounted(() => {
             <div class="stars" :data-rating="item.rating"></div>
           </div>
         </div>
-        <p class="reviews-message" :data-full-review="item.fullReview">{{ item.message }}</p>
+        <p class="reviews-message" :data-full-review="item.fullReview">
+          {{ item.message }}
+        </p>
       </div>
     </div>
-    
+
     <div class="swiper-pagination"></div>
   </section>
 </template>
@@ -315,7 +318,7 @@ onMounted(() => {
 }
 .swiper-reviews p {
   padding: 0;
-  font-size: var(--fontsize-note);
+  font-size: var(--font-size-9);
 }
 .swiper-reviews .quotes {
   font-size: 32px;
@@ -342,7 +345,7 @@ onMounted(() => {
 }
 .swiper-reviews .stars {
   display: inline-block;
-  font-size: var(--fontsize-note);
+  font-size: var(--font-size-9);
   color: gold;
 }
 </style>

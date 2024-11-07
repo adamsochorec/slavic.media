@@ -112,7 +112,7 @@ watch(isDataLoaded, (loaded) => {
                 :title="image.title"
               >
                 <img
-                  :src="`https://slavic.media/img/${image._id}.jpg`"
+                  :src="`https://slavic.media/img/thumbnail/${image._id}.jpg`"
                   :alt="image.alt"
                 />
                 <svg class="flag note" :title="'Flag of ' + image.flag">

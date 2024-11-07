@@ -643,7 +643,7 @@ button.submit-btn {
   text-decoration: underline;
 }
 .gallery .gallery-item p {
-  font-size: var(--fontsize-note);
+  font-size: var(--font-size-9);
   padding: 12px 0;
   opacity: 0;
   -webkit-transition:
@@ -874,7 +874,7 @@ button::-moz-focus-inner {
 }
 .mfp-title,
 .mfp-counter {
-  font-size: var(--fontsize-note);
+  font-size: var(--font-size-9);
 }
 .mfp-counter {
   position: absolute;
@@ -1001,7 +1001,7 @@ img.mfp-img {
 }
 .mfp-figure small {
   display: block;
-  font-size: var(--fontsize-note);
+  font-size: var(--font-size-9);
   line-height: 14px;
 }
 .mfp-figure figure {
@@ -1070,7 +1070,7 @@ i.pi-arrow-right:hover {
 /* ICONS END */
 
 .note {
-  font-size: var(--fontsize-note);
+  font-size: var(--font-size-9);
   position: absolute;
   text-decoration: none;
   z-index: 8;
@@ -1148,7 +1148,7 @@ i.pi-arrow-right:hover {
     padding: var(--grid-gap-2);
   }
   .cta {
-    font-size: var(--fontsize-note);
+    font-size: var(--font-size-7);
   }
 }
 @media only screen and (max-width: 415px) {
@@ -1192,7 +1192,7 @@ i.pi-arrow-right:hover {
     clear: both;
   }
   .gallery .gallery-item span {
-    font-size: var(--fontsize-note);
+    font-size: var(--font-size-9);
   }
 }
 @media screen and (max-width: 800px) and (orientation: landscape),

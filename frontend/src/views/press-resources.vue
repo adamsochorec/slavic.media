@@ -191,7 +191,7 @@ const pressItems = ref([
 }
 @media only screen and (max-width: 667px) {
   .gallery .gallery-item span {
-    font-size: var(--fontsize-note);
+    font-size: var(--font-size-9);
   }
   #gallery-press {
     display: -webkit-box;

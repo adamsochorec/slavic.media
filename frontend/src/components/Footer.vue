@@ -199,7 +199,7 @@ footer .language-container {
 }
 @media only screen and (max-width: 850px) {
   footer {
-    font-size: var(--fontsize-note);
+    font-size: var(--font-size-9);
   }
   footer .footer-container:last-of-type {
     display: block;
