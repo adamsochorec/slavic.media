@@ -18,7 +18,6 @@ interface Gallery extends Document {
   column4: Image[];
 }
 interface ImgInterface extends Document {
-  _id: string;
   portrait: Gallery;
   outdoor: Gallery;
   still: Gallery;
