@@ -162,6 +162,36 @@ router.post("/:galleryId/:columnIndex", validation_1.verifyToken, (req, res) => 
         res.status(500).send({ message: err.message });
     });
 });
+// Read specific img in column - GET
+router.get("/:galleryId/:columnIndex/:imgId", (req, res) => {
+    const { galleryId, columnIndex, imgId } = req.params;
+    const updatedImg = req.body;
+    img_1.default
+        .findOneAndUpdate({ _id: galleryId, [`columns.${parseInt(columnIndex)}._id`]: imgId }, { $set: { [`columns.${parseInt(columnIndex)}.$`]: updatedImg } }, { new: true })
+        .then((data) => {
+        if (!data) {
+            res.status(404).send({
+                message: `Cannot read img in column ${columnIndex} with id=${imgId}. Maybe img was not found!`,
+            });
+        }
+        else {
+            res.send(data);
+        }
+    })
+        .catch((err) => {
+        res.status(500).send({ message: err.message });
+    });
+});
+router.get("/:id", (req, res) => {
+    img_1.default
+        .findById(req.params.id)
+        .then((data) => {
+        res.send(data);
+    })
+        .catch((err) => {
+        res.status(500).send({ message: err.message });
+    });
+});
 // Update specific img in column - PUT
 router.put("/:galleryId/:columnIndex/:imgId", validation_1.verifyToken, (req, res) => {
     const { galleryId, columnIndex, imgId } = req.params;
