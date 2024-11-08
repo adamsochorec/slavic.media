@@ -106,18 +106,14 @@ watch(isDataLoaded, (loaded) => {
             class="column"
           >
             <div v-for="image in column" :key="image._id" class="reveal">
-              <a
-                :href="`https://slavic.media/img/${image._id}.jpg`"
+              <img
+                :src="`https://slavic.media/img/hd/${image._id}.jpg`"
+                :alt="image.alt"
                 :title="image.title"
-              >
-                <img
-                  :src="`https://slavic.media/img/hd/${image._id}.jpg`"
-                  :alt="image.alt"
-                />
-                <svg class="flag note" :title="'Flag of ' + image.flag">
-                  <use :href="'#flag-' + image.flag"></use>
-                </svg>
-              </a>
+              />
+              <svg class="flag note" :title="'Flag of ' + image.flag">
+                <use :href="'#flag-' + image.flag"></use>
+              </svg>
             </div>
           </div>
         </div>
