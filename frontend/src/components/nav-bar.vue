@@ -3,74 +3,80 @@ import { ref } from "vue";
 
 const nav = ref([
   {
-    label: "Photo",
-    icon: "pi pi-camera",
-    items: [
-      {
-        label: "Portrait",
-        route: "/services/photo#portrait",
-        icon: "pi pi-user",
-        value: "Outdoor",
-      },
-      {
-        label: "Outdoor",
-        route: "/services/photo#outdoor",
-        icon: "pi pi-map",
-        value: "Outdoor",
-      },
-      {
-        label: "Still",
-        route: "/services/photo#still",
-        icon: "pi pi-camera",
-        value: "Still",
-      },
-    ],
-  },
-  {
-    label: "Video",
-    icon: "pi pi-video",
-    items: [
-      {
-        label: "Showreel",
-        route: "/services/video#showreel",
-        icon: "pi pi-trophy",
-        value: "Showreel",
-      },
-      {
-        label: "Content",
-        route: "/services/video#content",
-        icon: "pi pi-user",
-        value: "Portrait",
-      },
-      {
-        label: "Narrative",
-        route: "/services/video#narrative",
-        icon: "pi pi-microphone",
-        value: "Narrative",
-      },
-    ],
-  },
-  {
     label: "Services",
-    icon: "pi pi-pen-to-square",
+    icon: "pi pi-sitemap",
     items: [
       {
-        label: "Video Editing",
-        route: "/services/post-production#video-editing",
+        label: "Photo",
+        icon: "pi pi-camera",
+        items: [
+          {
+            label: "Portrait",
+            route: "/services/photo#portrait",
+            icon: "pi pi-user",
+            value: "Portrait",
+          },
+          {
+            label: "Outdoor",
+            route: "/services/photo#outdoor",
+            icon: "pi pi-map",
+            value: "Outdoor",
+          },
+          {
+            label: "Still",
+            route: "/services/photo#still",
+            icon: "pi pi-camera",
+            value: "Still",
+          },
+        ],
+      },
+      {
+        label: "Video",
+        icon: "pi pi-video",
+        items: [
+          {
+            label: "Showreel",
+            route: "/services/video#showreel",
+            icon: "pi pi-trophy",
+            value: "Showreel",
+          },
+          {
+            label: "Content",
+            route: "/services/video#content",
+            icon: "pi pi-user",
+            value: "Content",
+          },
+          {
+            label: "Narrative",
+            route: "/services/video#narrative",
+            icon: "pi pi-microphone",
+            value: "Narrative",
+          },
+        ],
+      },
+      {
+        label: "Post Production",
         icon: "pi pi-image",
-        value: "Video Editing",
-      },
-      {
-        label: "Colour Grading",
-        route: "/services/post-production#graphic-design",
-        icon: "pi pi-palette",
-        value: "Colour Grading",
-      },
-      {
-        label: "Sound Design",
-        route: "/services/post-production#sound-design",
-        icon: "pi pi-headphones",
-        value: "Sound Design",
+        items: [
+          {
+            label: "Video Editing",
+            route: "/services/post-production#video-editing",
+            icon: "pi pi-image",
+            value: "Video Editing",
+          },
+          {
+            label: "Colour Grading",
+            route: "/services/post-production#graphic-design",
+            icon: "pi pi-palette",
+            value: "Colour Grading",
+          },
+          {
+            label: "Sound Design",
+            route: "/services/post-production#sound-design",
+            icon: "pi pi-headphones",
+            value: "Sound Design",
+          },
+        ],
       },
     ],
   },
@@ -81,12 +87,20 @@ const nav = ref([
     target: "_blank",
   },
   {
+    label: "For Clients",
+    url: "https://clients.slavic.media",
+    icon: "pi pi-server",
+    target: "_blank",
+  },
+  {
+    label: "Blog",
+    route: "/blog",
+    icon: "pi pi-file-edit",
+  },
+  {
     label: "About",
     icon: "pi pi-users",
-    items: [
-      { label: "Blog", route: "/blog", icon: "pi pi-pencil" },
-      { label: "About", route: "/about", icon: "pi pi-users" },
-    ],
+    route: "/about",
   },
 ]);
 </script>

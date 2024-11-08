@@ -127,6 +127,10 @@ onMounted(() => {
   </div>
 </template>
 <style scoped>
+article {
+  overflow: scroll;
+  height: var(--dimension-1);
+}
 .contact-form-section .contact-form .grid-item:nth-child(odd) {
   margin: 0 var(--grid-gap-2) 0 0;
 }
