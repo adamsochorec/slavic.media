@@ -12,7 +12,7 @@ const { state, getAllImg } = useImgCrud();
 async function initializeLightbox() {
   await nextTick();
   $(".popup-gallery").magnificPopup({
-    delegate: "img",
+    delegate: "a",
     type: "image",
     tLoading: "Loading",
     mainClass: "mfp-img-mobile",
@@ -35,7 +35,7 @@ async function initializeLightbox() {
     },
     callbacks: {
       elementParse: function (item) {
-        item.src = item.el.attr("src");
+        item.src = item.el.attr("href");
       },
     },
     fixedContentPos: "false",
@@ -106,14 +106,18 @@ watch(isDataLoaded, (loaded) => {
             class="column"
           >
             <div v-for="image in column" :key="image._id" class="reveal">
-              <img
-                :src="`https://slavic.media/img/hd/${image._id}.jpg`"
-                :alt="image.alt"
+              <a
+                :href="`https://slavic.media/img/hd/${image._id}.jpg`"
                 :title="image.title"
-              />
-              <svg class="flag note" :title="'Flag of ' + image.flag">
-                <use :href="'#flag-' + image.flag"></use>
-              </svg>
+              >
+                <img
+                  :src="`https://slavic.media/img/${image._id}.jpg`"
+                  :alt="image.alt"
+                />
+                <svg class="flag note" :title="'Flag of ' + image.flag">
+                  <use :href="'#flag-' + image.flag"></use>
+                </svg>
+              </a>
             </div>
           </div>
         </div>
