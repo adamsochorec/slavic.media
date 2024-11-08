@@ -12,7 +12,7 @@ const { state, getAllImg } = useImgCrud();
 async function initializeLightbox() {
   await nextTick();
   $(".popup-gallery").magnificPopup({
-    delegate: "a",
+    delegate: "img",
     type: "image",
     tLoading: "Loading",
     mainClass: "mfp-img-mobile",
@@ -35,7 +35,7 @@ async function initializeLightbox() {
     },
     callbacks: {
       elementParse: function (item) {
-        item.src = item.el.attr("href");
+        item.src = item.el.attr("src");
       },
     },
     fixedContentPos: "false",
@@ -128,7 +128,7 @@ watch(isDataLoaded, (loaded) => {
     </article>
     <div class="wrapper-wide" v-else>
       <div class="flex flex-wrap">
-        <div class="w-full xl:w-6/12 p-4">
+        <div class="w-full xl:w-6/12">
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             height="2rem"
@@ -141,7 +141,7 @@ watch(isDataLoaded, (loaded) => {
             class="mb-2"
           ></Skeleton>
         </div>
-        <div class="w-full xl:w-6/12 p-4">
+        <div class="w-full xl:w-6/12 pl-2">
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             height="4rem"
