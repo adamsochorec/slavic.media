@@ -1,12 +1,17 @@
 <template>
-  "<img class="reveal" src="https://slavic.media/img/2023-04-26-08882.jpg" />
-  <div class="img-metadata reveal">
-    <span class="img-desc">Huset Fundament Community</span><br /><span
-      class="img-src"
-      >Adam S.</span
-    >
-  </div>
-  ", "
+  "
+  <a
+    class="reveal"
+    href="https://slavic.media/img/2023-04-26-08882.jpg"
+    title="Huset Fundament Community"
+  >
+    <img
+      title="Huset Fundament Community"
+      alt=""
+      class="reveal"
+      src="https://slavic.media/img/2023-04-26-08882.jpg"
+  /></a>
+
   <p class="reveal">
     At Slavic Media, we love working on projects that have meaning and
     contribute to something good. Our collaboration with
@@ -19,13 +24,16 @@
     Huset Fundament was one of those projects, especially because Slavic Media’s
     beginnings are rooted here.
   </p>
-  ", "<img class="reveal" src="https://slavic.media/img/2023-04-03-08707.jpg" />
-  <div class="img-metadata reveal">
-    <span class="img-desc">Portrait Workshop</span><br /><span class="img-src"
-      >Adam S.</span
-    >
-  </div>
-  ", "
+  <a
+    href="https://slavic.media/img/2023-04-03-08707.jpg"
+    title="Portrait Workshop"
+    class="reveal"
+  >
+    <img
+      title="Portrait Workshop"
+      src="https://slavic.media/img/2023-04-03-08707.jpg"
+      alt=""
+  /></a>
   <p class="reveal">
     Our partnership began in February 2023, and since then, we’ve completed over
     25 photo sessions and two video shoots. We focused on capturing authentic
@@ -34,13 +42,17 @@
     portrait photography. Each time, we faced the challenge of adapting to
     different environments and capturing the true spirit of these events.
   </p>
-  ", "<img class="reveal" src="https://slavic.media/img/2023-06-22-00033.jpg" />
-  <div class="img-metadata reveal">
-    <span class="img-desc">Kombucha Workshop</span><br /><span class="img-src"
-      >Marcel H.</span
-    >
-  </div>
-  ", "
+  <a
+    class="reveal"
+    title="Kombucha Workshop"
+    href="https://slavic.media/img/2023-06-22-00033.jpg"
+  >
+    <img
+      title="Kombucha Workshop"
+      alt=""
+      src="https://slavic.media/img/2023-06-22-00033.jpg"
+    />
+  </a>
   <p class="reveal">
     Our work enhanced the visitor experience by providing them with photos of
     their involvement at Huset Fundament, creating a collection for crowdfunding
@@ -48,13 +60,15 @@
     wasn’t just work, but a real connection with artists, creators, and their
     stories.
   </p>
-  ", "<img class="reveal" src="https://slavic.media/img/2023-05-19-09057.jpg" />
-  <div class="img-metadata reveal">
-    <span class="img-desc">Pistop</span><br /><span class="img-src"
-      >Adam S.</span
-    >
-  </div>
-  ", "
+  <a
+    class="reveal"
+    title="Pistop"
+    href="https://slavic.media/img/2023-05-19-09057.jpg"
+  >
+    <img
+      title="Pistop"
+      <bannerLightroomPresets></bannerLightroomPresets>      src="https://slavic.media/img/2023-05-19-09057.jpg"
+  /></a>
   <p class="reveal">
     Working in the theatre and capturing artistic works, especially
     autobiographical ones, is always a rewarding challenge. We are passionate
@@ -62,11 +76,18 @@
     collaboration was truly inspiring. We look forward to documenting more new
     artistic visions!
   </p>
-  ", "<img class="reveal" src="https://slavic.media/img/2023-09-30-00022.jpg" />
+  <a
+    class="reveal"
+    href="https://slavic.media/img/2023-09-30-00022.jpg"
+    title="Grafisk Marked"
+  >
+    <img
+      title="Grafisk Marked"
+      alt=""
+      src="https://slavic.media/img/2023-09-30-00022.jpg"
+  /></a>
   <div class="img-metadata reveal">
-    <span class="img-desc">Grafisk Marked</span><br /><span class="img-src"
-      >Marcel H.</span
-    >
+    <span class="img-desc"></span><br /><span class="img-src">Marcel H.</span>
   </div>
   "
 </template>

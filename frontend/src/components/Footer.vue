@@ -79,7 +79,7 @@
           >&nbsp;<span>Legal</span></router-link
         >
 
-        <span class="separator-hide">&nbsp;|&nbsp;</span>
+        <span>&nbsp;|&nbsp;</span>
 
         <a
           class="footer-nav"

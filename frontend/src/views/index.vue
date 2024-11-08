@@ -137,7 +137,7 @@ const galleryItems = ref([
       </div>
     </article>
     <!-- REVIEWS END -->
-    <hr class="semi" id="ourteam" />
+    <bannerLightroomPresets></bannerLightroomPresets>
   </div>
 </template>
 
