@@ -1120,7 +1120,7 @@ i.pi-arrow-right:hover {
 }
 .article-content iframe {
   border-radius: var(--border-radius-1);
-  height: 400px;
+  height: var(--dimension-2);
 }
 /* ARTICLE END */
 

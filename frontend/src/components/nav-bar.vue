@@ -9,6 +9,7 @@ const nav = ref([
       {
         label: "Photo",
         icon: "pi pi-camera",
+        route: "/services/photo",
         items: [
           {
             label: "Portrait",
@@ -33,6 +34,7 @@ const nav = ref([
       {
         label: "Video",
         icon: "pi pi-video",
+        route: "/services/video",
         items: [
           {
             label: "Showreel",

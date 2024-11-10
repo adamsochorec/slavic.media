@@ -89,7 +89,7 @@
           aria-label="VAT Number"
           role="link"
           ><i style="font-size: var(--font-size-8)" class="pi pi-euro"></i
-          >&nbsp;<span>VAT:&nbsp;DK44081512</span>
+          >&nbsp;<span>VAT No.&nbsp;DK44081512</span>
         </a>
       </div>
       <p class="grid-item">

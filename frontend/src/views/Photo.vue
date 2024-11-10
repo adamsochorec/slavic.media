@@ -141,7 +141,7 @@ watch(isDataLoaded, (loaded) => {
             class="mb-2"
           ></Skeleton>
         </div>
-        <div class="w-full xl:w-6/12 pl-2">
+        <div class="w-full xl:w-6/12 pl-6">
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             height="4rem"
@@ -150,8 +150,8 @@ watch(isDataLoaded, (loaded) => {
 
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
-            width="10rem"
-            class="mb-10"
+            width="14rem"
+            class="mb-6"
           ></Skeleton>
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
@@ -161,7 +161,7 @@ watch(isDataLoaded, (loaded) => {
           ></Skeleton>
         </div>
       </div>
-      <div class="flex justify-between mt-4">
+      <div class="flex justify-between mt-10">
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
           width="24%"
