@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted } from "vue";
 import { RouterView } from "vue-router";
 import { provideAuth } from "./modules/users";
 
@@ -6,7 +7,7 @@ provideAuth();
 
 // COMPONENTS
 import Footer from "@/components/Footer.vue";
-import navBar from "@/components/nav-bar.vue";
+import NavBar from "@/components/nav-bar.vue";
 
 // Dark Mode State
 
@@ -25,35 +26,17 @@ function reveal() {
     }
   });
 }
-window.addEventListener("scroll", reveal);
-reveal();
-// CONTENT REVEAL END
+onMounted(() => {
+  window.addEventListener("scroll", reveal);
+  reveal();
+});
 </script>
 
 <template>
   <div>
     <!-- HEADER START -->
-    <header
-      style="
-        display: flex;
-        justify-content: space-between;
-        padding: 0 var(--homepage-padding) 0 var(--homepage-padding);
-        background-color: var(--dark-grey-color-full);
-        backdrop-filter: var(--blur-1);
-      "
-    >
-      <RouterLink to="/">
-        <div class="logo-container">
-          <img
-            class="logo"
-            src="/Primary-1.png"
-            alt=""
-            title=""
-            style="padding: 8px 0; width: 91px; height: 100%"
-          />
-        </div>
-      </RouterLink>
-      <navBar />
+    <header>
+      <NavBar></NavBar>
     </header>
     <!-- HEADER END -->
     <main>
@@ -64,4 +47,5 @@ reveal();
     <Footer></Footer>
   </div>
 </template>
+
 <style scoped></style>

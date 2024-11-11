@@ -1,142 +1,202 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
+import TieredMenu from "primevue/tieredmenu";
 
-const nav = ref([
+const menu = ref();
+const router = useRouter();
+
+const items = ref([
   {
-    label: "Services",
-    icon: "pi pi-sitemap",
+    label: "Photo",
+    icon: "pi pi-camera",
     items: [
       {
-        label: "Photo",
+        label: "Portrait",
+        command: () => router.push("/services/photo#portrait"),
+        icon: "pi pi-user",
+        value: "Portrait",
+      },
+      {
+        label: "Outdoor",
+        command: () => router.push("/services/photo#outdoor"),
+        icon: "pi pi-map",
+        value: "Outdoor",
+      },
+      {
+        label: "Still",
+        command: () => router.push("/services/photo#still"),
         icon: "pi pi-camera",
-        route: "/services/photo",
-        items: [
-          {
-            label: "Portrait",
-            route: "/services/photo#portrait",
-            icon: "pi pi-user",
-            value: "Portrait",
-          },
-          {
-            label: "Outdoor",
-            route: "/services/photo#outdoor",
-            icon: "pi pi-map",
-            value: "Outdoor",
-          },
-          {
-            label: "Still",
-            route: "/services/photo#still",
-            icon: "pi pi-camera",
-            value: "Still",
-          },
-        ],
-      },
-      {
-        label: "Video",
-        icon: "pi pi-video",
-        route: "/services/video",
-        items: [
-          {
-            label: "Showreel",
-            route: "/services/video#showreel",
-            icon: "pi pi-trophy",
-            value: "Showreel",
-          },
-          {
-            label: "Content",
-            route: "/services/video#content",
-            icon: "pi pi-user",
-            value: "Content",
-          },
-          {
-            label: "Narrative",
-            route: "/services/video#narrative",
-            icon: "pi pi-microphone",
-            value: "Narrative",
-          },
-        ],
-      },
-      {
-        label: "Post Production",
-        icon: "pi pi-image",
-        items: [
-          {
-            label: "Video Editing",
-            route: "/services/post-production#video-editing",
-            icon: "pi pi-image",
-            value: "Video Editing",
-          },
-          {
-            label: "Colour Grading",
-            route: "/services/post-production#graphic-design",
-            icon: "pi pi-palette",
-            value: "Colour Grading",
-          },
-          {
-            label: "Sound Design",
-            route: "/services/post-production#sound-design",
-            icon: "pi pi-headphones",
-            value: "Sound Design",
-          },
-        ],
+        value: "Still",
       },
     ],
   },
   {
-    label: "Store",
-    url: "https://store.slavic.media",
-    icon: "pi pi-shopping-bag",
-    target: "_blank",
+    label: "Video",
+    icon: "pi pi-video",
+    items: [
+      {
+        label: "Showreel",
+        command: () => router.push("/services/video#showreel"),
+        icon: "pi pi-trophy",
+        value: "Showreel",
+      },
+      {
+        label: "Content",
+        command: () => router.push("/services/video#content"),
+        icon: "pi pi-user",
+        value: "Content",
+      },
+      {
+        label: "Narrative",
+        command: () => router.push("/services/video#narrative"),
+        icon: "pi pi-microphone",
+        value: "Narrative",
+      },
+    ],
   },
   {
-    label: "For Clients",
-    url: "https://clients.slavic.media",
-    icon: "pi pi-server",
-    target: "_blank",
-  },
-  {
-    label: "Blog",
-    route: "/blog",
-    icon: "pi pi-file-edit",
-  },
-  {
-    label: "About",
-    icon: "pi pi-users",
-    route: "/about",
+    label: "Post Production",
+    icon: "pi pi-image",
+    items: [
+      {
+        label: "Video Editing",
+        command: () => router.push("/services/post-production#video-editing"),
+        icon: "pi pi-image",
+        value: "Video Editing",
+      },
+      {
+        label: "Colour Grading",
+        command: () => router.push("/services/post-production#graphic-design"),
+        icon: "pi pi-palette",
+        value: "Colour Grading",
+      },
+      {
+        label: "Sound Design",
+        command: () => router.push("/services/post-production#sound-design"),
+        icon: "pi pi-headphones",
+        value: "Sound Design",
+      },
+    ],
   },
 ]);
+
+const toggle = (event) => {
+  menu.value.toggle(event);
+};
+
+// HEADER START
+// HEADER TOGGLE AND COLLAPSE NAV START
+function header() {
+  let lastScrollTop = 0;
+
+  const hamburger = document.querySelector(".hamburger");
+  const menuLeft = document.querySelector(".menu-left");
+
+  // Toggles hamburger icon and collapses navigation on click
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("open");
+    menuLeft.classList.toggle("collapse");
+  });
+
+  // Removes "open" class from hamburger and collapses navigation on link click
+  const menuLeftLinks = document.querySelectorAll(".menu-left a");
+  menuLeftLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("open");
+      menuLeft.classList.remove("collapse");
+    });
+  });
+
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        hasScrolled();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // Handles header visibility on scroll
+  function hasScrolled() {
+    const st = window.pageYOffset || document.documentElement.scrollTop,
+      header = document.querySelector("header"),
+      navbarHeight = header.offsetHeight,
+      windowHeight = window.innerHeight,
+      delta = 5;
+
+    if (Math.abs(lastScrollTop - st) <= delta) return;
+
+    if (st > lastScrollTop && st > navbarHeight) {
+      header.classList.remove("show-nav");
+      header.classList.add("hide-nav");
+      hamburger.classList.remove("open");
+      menuLeft.classList.remove("collapse");
+    } else if (st + windowHeight < document.documentElement.scrollHeight) {
+      header.classList.remove("hide-nav");
+      header.classList.add("show-nav");
+    }
+    lastScrollTop = st;
+  }
+}
+
+onMounted(() => {
+  header();
+});
 </script>
 <template>
-  <Menubar style="background-color: transparent" :model="nav">
-    <template #item="{ item, props, hasSubmenu }">
-      <router-link
-        v-if="item.route"
-        v-slot="{ href, navigate }"
-        :to="item.route"
-        custom
-      >
-        <a v-ripple :href="href" v-bind="props.action" @click="navigate">
-          <span :class="item.icon" />
-          <span class="ml-2">{{ item.label }}</span>
-        </a>
+  <div class="container">
+    <nav id="navigation" role="navigation" aria-label="Main Navigation">
+      <router-link to="/" aria-label="Home">
+        <img
+          class="logo"
+          alt="Logo Slavic Media"
+          title="Logo Slavic Media"
+          src="/Primary-1.png"
+        />
       </router-link>
-      <a
-        v-else
-        v-ripple
-        :href="item.url"
-        :target="item.target"
-        v-bind="props.action"
+      <button
+        aria-label="Open mobile menu"
+        class="hamburger"
+        role="button"
+        aria-expanded="false"
       >
-        <span :class="item.icon" />
-        <span class="ml-2">{{ item.label }}</span>
-        <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down ml-2" />
-      </a>
-    </template>
-  </Menubar>
-</template>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="menu-left" role="menu">
+        <li role="none">
+          <a @click="toggle"
+            ><span class="pi pi-sitemap"></span>Services
 
-<style scoped>
-.p-menubar {
-  border: none;
-}
-</style>
+            <TieredMenu ref="menu" id="overlay_tmenu" :model="items" popup
+          /></a>
+        </li>
+        <li role="none">
+          <a href="https://store.slavic.media" role="menuitem"
+            ><span class="pi pi-shopping-bag"></span>Store</a
+          >
+        </li>
+        <li role="none">
+          <a target="_blank" href="https://clients.slavic.media" role="menuitem"
+            ><span class="pi pi-server"></span>For clients</a
+          >
+        </li>
+        <li role="none">
+          <router-link to="/blog" role="menuitem"
+            ><span class="pi pi-file-edit"></span>Blog</router-link
+          >
+        </li>
+        <li role="none">
+          <router-link to="/about" role="menuitem"
+            ><span class="pi pi-users"></span>About</router-link
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</template>
+<style scoped></style>

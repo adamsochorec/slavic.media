@@ -27,7 +27,7 @@ const galleryItems = ref([
 </script>
 
 <template>
-  <div class="main">
+  <div class="main homepage">
     <!-- INTRO VIDEO START -->
     <heroVideo
       src="https://slavic.media/img/showreel.mp4"
@@ -145,7 +145,11 @@ const galleryItems = ref([
 h1 {
   font-size: var(--font-size-3);
 }
-
+header {
+  background-color: red;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
 @media only screen and (max-width: 415px) {
   h1 {
     font-size: var(--font-size-2);
