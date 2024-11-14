@@ -50,22 +50,17 @@ const pressItems = ref([
           class="gallery-item"
           :href="item.href"
           target="_blank"
-          :aria-label="item.ariaLabel"
         >
-          <h2
-            :id="`${item.title.replace(/\s+/g, '')}Heading`"
-            :aria-label="`${item.title} Title`"
-          >
+          <h2>
             {{ item.title }}
           </h2>
 
           <div
             class="grid-item"
-            :id="item.title.replace(/\s+/g, '-').toLowerCase()"
             role="gridcell"
             :style="{ backgroundImage: `url(${item.img})` }"
           ></div>
-          <p :aria-label="item.description">
+          <p>
             {{ item.description }}
           </p>
         </a>

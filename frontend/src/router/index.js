@@ -76,27 +76,10 @@ const router = createRouter({
         requiresAuth: false,
       },
     },
-
     {
-      path: "/legal/cookie-policy",
-      name: "cookie policy",
-      component: () => import("../views/cookie-policy.vue"),
-      meta: {
-        requiresAuth: false,
-      },
-    },
-    {
-      path: "/legal/digital-image-license",
-      name: "digital image license",
-      component: () => import("../views/digital-image-license.vue"),
-      meta: {
-        requiresAuth: false,
-      },
-    },
-    {
-      path: "/legal/terms-of-sale",
-      name: "terms of sale",
-      component: () => import("../views/terms-of-sale.vue"),
+      path: "/legal/:id",
+      name: "Legal article",
+      component: () => import("../views/legal-article.vue"),
       meta: {
         requiresAuth: false,
       },

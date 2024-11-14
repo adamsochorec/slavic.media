@@ -1,86 +1,85 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import legal from "../modules/legal";
+const { state, getAllLegal } = legal();
+const isDataLoaded = ref(false);
 
+onMounted(async () => {
+  await getAllLegal();
+  isDataLoaded.value = true;
+});
 </script>
 <template>
   <div class="main" style="margin-top: 120px">
-    <article class="wrapper-wide">
-      <div
-        class="pathname-container"
-        role="region"
-        aria-labelledby="pagePathHeading"
-        aria-hidden="false"
-      ></div>
-      <h1
-        id="pagePathHeading"
-        class="reveal"
-        role="heading"
-        aria-level="1"
-        aria-label="Page Title: Terms of Sale"
-      >
-        <span class="highlited tuscher">Terms</span> of Sale
-      </h1>
-      <div
-        class="pathname-container reveal"
-        role="navigation"
-        aria-labelledby="breadcrumbsHeading"
-        aria-hidden="false"
-      >
-        <p>
-          <span class="pathname"
-            ><a href="/" aria-label="Home"></a> &#8250;
-          </span>
-          <span class="pathname" aria-label="press">legal &#8250;</span>
-          <span class="pathname" aria-label="press"> Terms of Sale</span>
-        </p>
+    <article class="wrapper-standard" v-if="isDataLoaded">
+      <div class="grid-container caption-container">
+        <div class="grid-item">
+          <h1 class="reveal" aria-label="Video Services">
+            <span
+              class="pi pi-briefcase"
+              style="font-size: var(--font-size-6)"
+            ></span
+            >&nbsp;Legal
+          </h1>
+        </div>
+        <div class="grid-item">
+          <p class="reveal">
+            Before using Slavic Media services or digital products, you may
+            review the terms and conditions of end user software license
+            agreements.
+          </p>
+        </div>
       </div>
-      <hr class="reveal" role="separator" aria-label="Separator" />
-      <!-- LEGAL TEXT START -->
-      <h5 class="reveal">Acceptance of Terms</h5>
-      <br />
-      <p class="reveal">
-        By purchasing from Slavic Media I/S, you agree to these Terms of Sale
-        and the accompanying Digital Product License. If you disagree with any
-        part of these terms, please refrain from making any purchases.
-      </p>
-      <br /><br />
-      <h5 class="reveal">General Payment and Refunds</h5>
-      <br />
-      <ol>
-        <li class="reveal">
-          <p>
-            <u>Pricing</u>: Prices for all digital products (photographs,
-            Lightroom presets, courses) are as listed on Slavic Media’s website.
-            Prices are subject to change without prior notice.
-          </p>
-        </li>
-        <li class="reveal">
-          <p>
-            <u>Payment</u>: Payment is due at the time of purchase via the
-            accepted payment methods specified on our website. Transactions must
-            be completed before access to digital products is granted.
-          </p>
-        </li>
 
-        <li class="reveal">
-          <p>
-            <u>Refunds</u>:Refunds are issued only in the event of non-delivery
-            of the purchased digital product. Customers must report the
-            non-delivery within 7 days of the expected delivery date to be
-            eligible for a refund.
-          </p>
-        </li>
-      </ol>
-      <br /><br />
-      <h5 class="reveal">Contact Information</h5>
-      <br />
-      <p class="reveal">
-        For inquiries or issues related to purchases or licensing, please
-        contact Slavic Media at
-        <a href="mailto:contact@slavic.media">contact@slavic.media</a>.
-      </p>
-      <!-- LEGAL TEXT END -->
+      <hr class="reveal" role="separator" />
+
+      <div
+        v-for="legal in state.legals"
+        :key="legal._id"
+        class="swiper-slide"
+        role="region"
+      >
+        <ul>
+          <li class="reveal" style="font-size: var(--font-size-5)">
+            <router-link :to="`/legal/${legal._id}`"
+              >{{ legal.title }} <span class="pi pi-arrow-right"></span
+            ></router-link>
+          </li>
+        </ul>
+      </div>
+      <hr class="reveal" role="separator" />
+    </article>
+    <article class="wrapper-standard" v-else>
+      <div v-for="n in 6" :key="n">
+        <ul style="list-style: none" class="m-0">
+          <li class="mb-3">
+            <div class="flex">
+              <Skeleton
+                shape="circle"
+                size="4rem"
+                class="mr-2"
+                style="background-color: rgb(var(--dark-grey-color))"
+              ></Skeleton>
+              <div class="self-center" style="flex: 1">
+                <Skeleton
+                  style="background-color: rgb(var(--dark-grey-color))"
+                  width="100%"
+                  class="mb-2"
+                ></Skeleton>
+                <Skeleton
+                  style="background-color: rgb(var(--dark-grey-color))"
+                  width="75%"
+                ></Skeleton>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </article>
   </div>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+ol {
+  list-style-type: decimal;
+}
+</style>
