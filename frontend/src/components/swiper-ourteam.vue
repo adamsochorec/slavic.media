@@ -21,7 +21,7 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
 );
 
 onMounted(() => {
-  const ourteamSwiper = new Swiper(".swiper-ourteam", {
+  new Swiper(".swiper-ourteam", {
     preloadImages: false,
     lazyLoading: true,
     observer: true,
@@ -48,71 +48,73 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="swiper swiper-ourteam reveal">
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper skills-section">
-      <div
-        v-for="employee in state.employees"
-        :key="employee._id"
-        class="swiper-slide"
-        role="region"
-      >
-        <!-- Slide start -->
-        <div class="reveal">
-          <svg
-            :title="'Flag of ' + employee.origin"
-            class="note flag"
-            id="Layer_1"
-            x="0px"
-            y="0px"
-            viewBox="0 0 1093 1092"
-            style="enable-background: new 0 0 1093 1092"
-            xml:space="preserve"
-          >
-            <use :href="'#' + employee.origin"></use>
-          </svg>
-          <img
-            :src="`https:/slavic.media/img/${employee._id}.jpg`"
-            :alt="`Portrait of ${employee.name}`"
-            :title="`${employee.name}`"
-            class="reveal"
-          />
-        </div>
-        <section class="profile">
-          <h4 class="reveal">{{ employee.name }}</h4>
-
-          <div class="social-icons reveal">
-            <a
-              :href="'mailto:' + employee.email"
-              :aria-label="'Email: ' + employee.email"
+  <div>
+    <section class="swiper swiper-ourteam reveal">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <div
+          v-for="employee in state.employees"
+          :key="employee._id"
+          class="swiper-slide"
+          role="region"
+        >
+          <!-- Slide start -->
+          <div class="reveal">
+            <svg
+              :title="'Flag of ' + employee.origin"
+              class="note flag"
+              id="Layer_1"
+              x="0px"
+              y="0px"
+              viewBox="0 0 1093 1092"
+              style="enable-background: new 0 0 1093 1092"
+              xml:space="preserve"
             >
-              <i title="Email" class="pi pi-envelope"></i>
-            </a>
-            <a
-              v-if="employee.linkedin"
-              :href="employee.linkedin"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-            >
-              <i title="LinkedIn" class="pi pi-linkedin"></i>
-            </a>
-            <a
-              v-if="employee.github"
-              :href="employee.github"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-            >
-              <i title="GitHub" class="pi pi-github"></i>
-            </a>
+              <use :href="'#' + employee.origin"></use>
+            </svg>
+            <img
+              :src="`https://slavic.media/img/${employee._id}.jpg`"
+              :alt="`Portrait of ${employee.name}`"
+              :title="`${employee.name}`"
+              class="reveal"
+            />
           </div>
-          <h6 class="reveal">
-            {{ employee.department }}
-          </h6>
-        </section>
-        <!-- Slide End -->
+          <section class="profile">
+            <h4 class="reveal">{{ employee.name }}</h4>
+
+            <div class="social-icons reveal">
+              <a
+                :href="'mailto:' + employee.email"
+                :aria-label="'Email: ' + employee.email"
+              >
+                <i title="Email" class="pi pi-envelope"></i>
+              </a>
+              <a
+                v-if="employee.linkedin"
+                :href="employee.linkedin"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+              >
+                <i title="LinkedIn" class="pi pi-linkedin"></i>
+              </a>
+              <a
+                v-if="employee.github"
+                :href="employee.github"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+              >
+                <i title="GitHub" class="pi pi-github"></i>
+              </a>
+            </div>
+            <h6 class="reveal">
+              {{ employee.department }}
+            </h6>
+          </section>
+          <!-- Slide End -->
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <style scoped>
@@ -134,7 +136,6 @@ onMounted(() => {
   grid-template-columns: repeat(3, 1fr);
   display: grid;
 }
-
 .swiper-ourteam img {
   border-radius: var(--border-radius-1);
   -webkit-box-shadow: var(--box-shadow-1);
@@ -146,7 +147,6 @@ onMounted(() => {
 .profile {
   text-align: center;
 }
-
 .social-icons > * {
   margin-right: var(--grid-gap-1);
 }

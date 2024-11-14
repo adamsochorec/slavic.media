@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 // Interface representing an img document in MongoDB.
-interface Img extends Document {
+interface img extends Document {
   _id: string;
   alt: string;
   title: string;
@@ -9,11 +9,11 @@ interface Img extends Document {
 }
 
 // Interface representing a gallery document in MongoDB.
-interface Gallery extends Document {
+interface gallery extends Document {
   _id: string;
   desc: string;
   title: string;
-  columns: Img[][];
+  columns: img[][];
 }
 
 const imgSchema = new Schema({
@@ -30,6 +30,5 @@ const gallerySchema = new Schema({
   columns: { type: [[imgSchema]], required: true },
 });
 
-// Create a Model for galleries
-const galleryModel = mongoose.model<Gallery>("Gallery", gallerySchema);
-export default galleryModel;
+const gallery = mongoose.model<gallery>("Gallery", gallerySchema);
+export default gallery;

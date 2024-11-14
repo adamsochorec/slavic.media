@@ -1,12 +1,8 @@
-// Import the mongoose module to interact with MongoDB
 import { date } from "joi";
 import mongoose, { Schema } from "mongoose";
-
-// Import the 'os' module to use its 'type' function
 import { type } from "os";
 
-// Interface representing a document in MongoDB.
-interface imgInterface extends Document {
+interface img extends Document {
   author: {
     thumbnail: string;
     name: string;
@@ -24,7 +20,6 @@ interface imgInterface extends Document {
   slug: string;
 }
 
-// Schema corresponding to the document interface.
 const articleSchema: Schema = new Schema({
   author: {
     thumbnail: { type: String, required: true },
@@ -52,6 +47,6 @@ articleSchema.pre("validate", function (next) {
   }
   next();
 });
-// Create a Model
-const Article = mongoose.model<imgInterface>("Article", articleSchema);
-export default Article;
+
+const article = mongoose.model<img>("Article", articleSchema);
+export default article;

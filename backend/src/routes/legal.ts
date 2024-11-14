@@ -1,13 +1,13 @@
 import { Router, Request, Response } from "express";
-import legalModel from "../models/legal";
+import employeeModel from "../models/employee";
 import { verifyToken } from "../validation";
 
 const router = Router();
 
-// Create document - POST
+// Create employee - POST
 router.post("/", verifyToken, (req: Request, res: Response) => {
   const data = req.body;
-  legalModel
+  employeeModel
     .create(data)
     .then((insertedData) => {
       res.status(201).send(insertedData);
@@ -17,9 +17,9 @@ router.post("/", verifyToken, (req: Request, res: Response) => {
     });
 });
 
-// Read all documents - GET
+// Read all employees - GET
 router.get("/", (req: Request, res: Response) => {
-  legalModel
+  employeeModel
     .find()
     .then((data) => {
       res.send(data);
@@ -29,9 +29,9 @@ router.get("/", (req: Request, res: Response) => {
     });
 });
 
-// Read specific document by ID - GET
+// Read specific employee by ID - GET
 router.get("/:id", (req: Request, res: Response) => {
-  legalModel
+  employeeModel
     .findById(req.params.id)
     .then((data) => {
       res.send(data);
@@ -41,12 +41,12 @@ router.get("/:id", (req: Request, res: Response) => {
     });
 });
 
-// Update document - PUT
+// Update employee - PUT
 router.put("/:id", verifyToken, (req: Request, res: Response) => {
   const { id } = req.params;
   const updatedEmployee = req.body;
 
-  legalModel
+  employeeModel
     .findByIdAndUpdate(id, updatedEmployee, { new: true })
     .then((data) => {
       if (!data) {
@@ -62,10 +62,10 @@ router.put("/:id", verifyToken, (req: Request, res: Response) => {
     });
 });
 
-// Delete document - DELETE
+// Delete employee - DELETE
 router.delete("/:id", verifyToken, (req: Request, res: Response) => {
   const { id } = req.params;
-  legalModel
+  employeeModel
     .findByIdAndDelete(id)
     .then((data) => {
       if (!data) {

@@ -25,7 +25,7 @@ const router = createRouter({
     },
     {
       path: "/blog/:slug",
-      name: "blog Article",
+      name: "article",
       component: () =>
         import(/* webpackChunkName: "about" */ "../views/article.vue"),
       meta: {
@@ -69,13 +69,14 @@ const router = createRouter({
     },
     // LEGAL
     {
-      path: "/legal/:slug",
+      path: "/legal",
       name: "Legal",
       component: () => import("../views/legal.vue"),
       meta: {
         requiresAuth: false,
       },
     },
+
     {
       path: "/legal/cookie-policy",
       name: "cookie policy",

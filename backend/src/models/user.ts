@@ -1,15 +1,12 @@
-// Import the mongoose module to interact with MongoDB
 import mongoose, { Schema } from "mongoose";
 
-// Interface representing a document in MongoDB.
-interface userInterface extends Document {
+interface user extends Document {
   name: string;
   email: string;
   password: string;
   date: Date;
 }
 
-// Schema corresponding to the document interface
 const userSchema: Schema = new Schema({
   name: {
     type: String,
@@ -35,7 +32,5 @@ const userSchema: Schema = new Schema({
   },
 });
 
-// Create a Model
-const User = mongoose.model<userInterface>("User", userSchema);
-//Export the model
-export default User;
+const user = mongoose.model<user>("User", userSchema);
+export default user;

@@ -36,6 +36,5 @@ const gallerySchema = new mongoose_1.Schema({
     title: { type: String, required: true },
     columns: { type: [[imgSchema]], required: true },
 });
-// Create a Model for galleries
-const galleryModel = mongoose_1.default.model("Gallery", gallerySchema);
-exports.default = galleryModel;
+const gallery = mongoose_1.default.model("Gallery", gallerySchema);
+exports.default = gallery;

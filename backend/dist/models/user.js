@@ -23,9 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// Import the mongoose module to interact with MongoDB
 const mongoose_1 = __importStar(require("mongoose"));
-// Schema corresponding to the document interface
 const userSchema = new mongoose_1.Schema({
     name: {
         type: String,
@@ -50,7 +48,5 @@ const userSchema = new mongoose_1.Schema({
         default: Date.now,
     },
 });
-// Create a Model
-const User = mongoose_1.default.model("User", userSchema);
-//Export the model
-exports.default = User;
+const user = mongoose_1.default.model("User", userSchema);
+exports.default = user;

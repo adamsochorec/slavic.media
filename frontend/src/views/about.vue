@@ -1,7 +1,5 @@
 <script setup>
 import { ref } from "vue";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/swiper-bundle.css";
 import heroVideo from "@/components/hero-video.vue";
 import swiperOurteam from "@/components/swiper-ourteam.vue";
 
@@ -49,15 +47,13 @@ const events = ref([
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
       <br />
-
       <p>
         Creative & Production studio based in Denmark and Czechia. We tell
         stories with deep eye contact, magnificent shots and clean designs to
         help your project stand out from the noise.
       </p>
-      <hr class="semi" />
+      <br />
       <swiperOurteam></swiperOurteam>
-      <hr class="semi" />
     </article>
   </div>
 </template>

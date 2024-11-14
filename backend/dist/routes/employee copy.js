@@ -4,13 +4,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const legal_1 = __importDefault(require("../models/legal"));
+const employee_1 = __importDefault(require("../models/employee"));
 const validation_1 = require("../validation");
 const router = (0, express_1.Router)();
-// Create document - POST
+// Create employee - POST
 router.post("/", validation_1.verifyToken, (req, res) => {
     const data = req.body;
-    legal_1.default
+    employee_1.default
         .create(data)
         .then((insertedData) => {
         res.status(201).send(insertedData);
@@ -19,9 +19,9 @@ router.post("/", validation_1.verifyToken, (req, res) => {
         res.status(500).send({ message: err.message });
     });
 });
-// Read all documents - GET
+// Read all employees - GET
 router.get("/", (req, res) => {
-    legal_1.default
+    employee_1.default
         .find()
         .then((data) => {
         res.send(data);
@@ -30,9 +30,9 @@ router.get("/", (req, res) => {
         res.status(500).send({ message: err.message });
     });
 });
-// Read specific document by ID - GET
+// Read specific employee by ID - GET
 router.get("/:id", (req, res) => {
-    legal_1.default
+    employee_1.default
         .findById(req.params.id)
         .then((data) => {
         res.send(data);
@@ -41,11 +41,11 @@ router.get("/:id", (req, res) => {
         res.status(500).send({ message: err.message });
     });
 });
-// Update document - PUT
+// Update employee - PUT
 router.put("/:id", validation_1.verifyToken, (req, res) => {
     const { id } = req.params;
     const updatedEmployee = req.body;
-    legal_1.default
+    employee_1.default
         .findByIdAndUpdate(id, updatedEmployee, { new: true })
         .then((data) => {
         if (!data) {
@@ -61,10 +61,10 @@ router.put("/:id", validation_1.verifyToken, (req, res) => {
         res.status(500).send({ message: err.message });
     });
 });
-// Delete document - DELETE
+// Delete employee - DELETE
 router.delete("/:id", validation_1.verifyToken, (req, res) => {
     const { id } = req.params;
-    legal_1.default
+    employee_1.default
         .findByIdAndDelete(id)
         .then((data) => {
         if (!data) {
