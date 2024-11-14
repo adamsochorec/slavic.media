@@ -14,17 +14,7 @@ const useImgCrud = () => {
     img: [],
   });
 
-  const getAllImg = async () => {
-    try {
-      const response = await fetch("https://api.slavic.media/img/");
-      const data = await response.json();
-
-      state.value.img = data;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
+  // Create document - POST
   const newImg = async (galleryId, columnIndex) => {
     if (
       !state.value.newId ||
@@ -56,39 +46,46 @@ const useImgCrud = () => {
       );
 
       if (!response.ok) {
-        throw new Error("Failed to add new img");
+        throw new Error("Failed to add new document");
       }
 
       await getAllImg();
     } catch (error) {
-      console.error("Error adding new img:", error);
+      console.error("Error adding new document:", error);
     }
   };
 
-  const deleteImg = async (galleryId, columnIndex, imgId) => {
+  // Read all documents - GET
+  const getAllImg = async () => {
     try {
-      const requestOptions = {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": localStorage.lsToken,
-        },
-      };
+      const response = await fetch("https://api.slavic.media/img/");
+      const data = await response.json();
+
+      state.value.img = data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // Read specific document by ID - GET
+  const img = ref({});
+  const getSpecificImg = async (documentID) => {
+    try {
       const response = await fetch(
-        `https://api.slavic.media/img/${galleryId}/${columnIndex}/${imgId}`,
-        requestOptions
+        `https://api.slavic.media/img/${documentID}`
       );
 
       if (!response.ok) {
-        throw new Error("Failed to delete img");
+        throw new Error(`Failed to fetch document with ID: ${documentID}`);
       }
-
-      await getAllImg();
+      const data = await response.json();
+      img.value = data;
     } catch (error) {
-      console.error("Error deleting img:", error);
+      console.error(error);
     }
   };
 
+  // Update document - PUT
   const editImg = async (galleryId, columnIndex, imgId) => {
     try {
       if (!documentID.value) {
@@ -117,34 +114,37 @@ const useImgCrud = () => {
           flag: state.value.newFlag,
         }),
       };
-
       const url = `https://api.slavic.media/img/${galleryId}/${columnIndex}/${imgId}`;
       const response = await fetch(url, requestOptions);
-
       if (!response.ok) {
-        throw new Error("Failed to edit img");
+        throw new Error("Failed to edit document");
       }
-
       router.push("/img");
     } catch (error) {
-      console.error("Error editing img:", error);
+      console.error("Error editing document:", error);
     }
   };
 
-  const img = ref({});
-  const getSpecificImg = async (documentID) => {
+  // Delete document - DELETE
+  const deleteImg = async (galleryId, columnIndex, imgId) => {
     try {
+      const requestOptions = {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.lsToken,
+        },
+      };
       const response = await fetch(
-        `https://api.slavic.media/img/${documentID}`
+        `https://api.slavic.media/img/${galleryId}/${columnIndex}/${imgId}`,
+        requestOptions
       );
-
       if (!response.ok) {
-        throw new Error(`Failed to fetch document with ID: ${documentID}`);
+        throw new Error("Failed to delete document");
       }
-      const data = await response.json();
-      img.value = data;
+      await getAllImg();
     } catch (error) {
-      console.error(error);
+      console.error("Error deleting document:", error);
     }
   };
 

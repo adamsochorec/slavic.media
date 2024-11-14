@@ -2,6 +2,15 @@
 import { ref, onMounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
+import employeeCrud from "../modules/employeeCrud";
+const { state, getAllEmployees } = employeeCrud();
+
+const isDataLoaded = ref(false);
+
+onMounted(async () => {
+  await getAllEmployees();
+  isDataLoaded.value = true;
+});
 
 // GRID GAP
 const gridGap2 = getComputedStyle(document.documentElement).getPropertyValue(
@@ -10,46 +19,6 @@ const gridGap2 = getComputedStyle(document.documentElement).getPropertyValue(
 const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
   "--grid-gap-3"
 );
-
-const teamMembers = ref([
-  {
-    id: "marcel",
-    name: "Marcel H.",
-    role: "Director of Photography",
-    img: "https://slavic.media/img/marcel.jpg",
-    flag: "flag-slovakia",
-    email: "marcel@slavic.media",
-    linkedin: "https://www.linkedin.com/in/marcelhajik",
-  },
-  {
-    id: "adam",
-    name: "Adam S.",
-    role: "Sales & Communication",
-    img: "https://slavic.media/img/adam.jpg",
-    flag: "flag-czechia",
-    email: "adam@slavic.media",
-    linkedin: "https://www.linkedin.com/in/adamsochorec",
-    github: "https://github.com/adamsochorec",
-  },
-  {
-    id: "dominik",
-    name: "Dominik T.",
-    role: "Graphic Designer",
-    img: "https://slavic.media/img/dominik.jpg",
-    flag: "flag-slovakia",
-    email: "dominik@slavic.media",
-    linkedin: "https://www.linkedin.com/in/dominik-tószegi-07872a248/",
-  },
-  {
-    id: "ferdinand",
-    name: "Ferdinand P.",
-    role: "Sound Engineer",
-    img: "https://slavic.media/img/ferdinand.jpg",
-    flag: "flag-czechia",
-    email: "ferda.petrs@gmail.com",
-    linkedin: "",
-  },
-]);
 
 onMounted(() => {
   const ourteamSwiper = new Swiper(".swiper-ourteam", {
@@ -82,18 +51,16 @@ onMounted(() => {
   <section class="swiper swiper-ourteam reveal">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper skills-section">
-      <!-- Team Member Slide -->
       <div
-        v-for="member in teamMembers"
-        :key="member.id"
+        v-for="employee in state.employees"
+        :key="employee._id"
         class="swiper-slide"
-        :id="member.id"
         role="region"
-        :aria-label="member.name"
       >
+        <!-- Slide start -->
         <div class="reveal">
           <svg
-            :title="'Flag of ' + member.flag.split('-')[1]"
+            :title="'Flag of ' + employee.origin"
             class="note flag"
             id="Layer_1"
             x="0px"
@@ -102,37 +69,36 @@ onMounted(() => {
             style="enable-background: new 0 0 1093 1092"
             xml:space="preserve"
           >
-            <use :href="'#' + member.flag"></use>
+            <use :href="'#' + employee.origin"></use>
           </svg>
           <img
-            :src="member.img"
-            :alt="'Portrait of ' + member.name"
-            :title="member.name"
+            :src="`https:/slavic.media/img/${employee._id}.jpg`"
+            :alt="`Portrait of ${employee.name}`"
+            :title="`${employee.name}`"
             class="reveal"
-            :aria-label="'Portrait of ' + member.name"
           />
         </div>
         <section class="profile">
-          <h4 class="reveal">{{ member.name }}</h4>
+          <h4 class="reveal">{{ employee.name }}</h4>
 
           <div class="social-icons reveal">
             <a
-              :href="'mailto:' + member.email"
-              :aria-label="'Email: ' + member.email"
+              :href="'mailto:' + employee.email"
+              :aria-label="'Email: ' + employee.email"
             >
               <i title="Email" class="pi pi-envelope"></i>
             </a>
             <a
-              v-if="member.linkedin"
-              :href="member.linkedin"
+              v-if="employee.linkedin"
+              :href="employee.linkedin"
               target="_blank"
               rel="noopener noreferrer nofollow"
             >
               <i title="LinkedIn" class="pi pi-linkedin"></i>
             </a>
             <a
-              v-if="member.github"
-              :href="member.github"
+              v-if="employee.github"
+              :href="employee.github"
               target="_blank"
               rel="noopener noreferrer nofollow"
             >
@@ -140,11 +106,11 @@ onMounted(() => {
             </a>
           </div>
           <h6 class="reveal">
-            {{ member.role }}
+            {{ employee.department }}
           </h6>
         </section>
+        <!-- Slide End -->
       </div>
-      <!-- Team Member Slide End -->
     </div>
   </section>
 </template>

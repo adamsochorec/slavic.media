@@ -3,6 +3,7 @@ import mongoose, { Schema, Document } from "mongoose";
 
 interface Employee extends Document {
   _id: string;
+  index: number;
   name: string;
   department: string;
   origin: string;
@@ -14,6 +15,7 @@ interface Employee extends Document {
 
 const employeeSchema = new Schema({
   _id: { type: String, required: true },
+  index: { type: Number, required: true },
   name: { type: String, required: true },
   department: { type: String, required: true },
   origin: { type: String, required: true },

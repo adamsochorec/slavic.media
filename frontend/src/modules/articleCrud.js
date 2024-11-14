@@ -17,30 +17,7 @@ const useArticleCrud = () => {
     article: {},
   });
 
-  const getAllArticles = async () => {
-    try {
-      const response = await fetch("https://api.slavic.media/blog/");
-      const data = await response.json();
-
-      // Function to convert date string to a format that can be parsed by Date object
-      const parseDate = (dateStr) => {
-        // Remove ordinal suffixes
-        const cleanedDateStr = dateStr.replace(/(\d+)(st|nd|rd|th)/, "$1");
-        return new Date(cleanedDateStr);
-      };
-
-      // Sort articles by date in descending order
-      state.value.articles = data.sort((a, b) => {
-        const dateA = parseDate(a.metadata.date);
-        const dateB = parseDate(b.metadata.date);
-        return dateB - dateA;
-      });
-
-      // Log the sorted articles
-    } catch (error) {
-      console.error("Error fetching articles:", error);
-    }
-  };
+  // Create document - POST
   const newArticle = async () => {
     if (
       !state.value.newTitle ||
@@ -67,90 +44,44 @@ const useArticleCrud = () => {
           thumbnail: state.value.newThumbnail,
         }),
       };
-
       const response = await fetch(
         "https://api.slavic.media/blog/articles/",
         requestOptions
       );
-
       if (!response.ok) {
-        throw new Error("Failed to add new article");
+        throw new Error("Failed to add new document");
       }
-
       await getAllArticles();
     } catch (error) {
-      console.error("Error adding new article:", error);
+      console.error("Error adding new document:", error);
     }
   };
 
-  const deleteArticle = async (article) => {
+  // Read all documents - GET
+  const getAllArticles = async () => {
     try {
-      const requestOptions = {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": localStorage.lsToken,
-        },
+      const response = await fetch("https://api.slavic.media/blog/");
+      const data = await response.json();
+
+      // Function to convert date string to a format that can be parsed by Date object
+      const parseDate = (dateStr) => {
+        // Remove ordinal suffixes
+        const cleanedDateStr = dateStr.replace(/(\d+)(st|nd|rd|th)/, "$1");
+        return new Date(cleanedDateStr);
       };
-      const response = await fetch(
-        `https://api.slavic.media/blog/${article.id}`,
-        requestOptions
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to delete article");
-      }
-
-      await getAllArticles();
+      // Sort documents by date in descending order
+      state.value.articles = data.sort((a, b) => {
+        const dateA = parseDate(a.metadata.date);
+        const dateB = parseDate(b.metadata.date);
+        return dateB - dateA;
+      });
+      // Log the sorted documents
     } catch (error) {
-      console.error("Error deleting article:", error);
+      console.error("Error fetching articles:", error);
     }
   };
 
-  const editArticle = async () => {
-    try {
-      if (!documentID.value) {
-        throw new Error("No ID provided");
-      }
-      if (
-        !state.value.newTitle ||
-        !state.value.newContent ||
-        !state.value.newDate ||
-        !state.value.newAuthor ||
-        !state.value.newThumbnail
-      ) {
-        console.error("All fields must be filled out");
-        return;
-      }
-
-      const requestOptions = {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": localStorage.lsToken,
-        },
-        body: JSON.stringify({
-          title: state.value.newTitle,
-          content: state.value.newContent,
-          date: state.value.newDate,
-          author: state.value.newAuthor,
-          thumbnail: state.value.newThumbnail,
-        }),
-      };
-
-      const url = "https://api.slavic.media/blog/" + documentID.value;
-      const response = await fetch(url, requestOptions);
-
-      if (!response.ok) {
-        throw new Error("Failed to edit article");
-      }
-
-      router.push("/blog");
-    } catch (error) {
-      console.error("Error editing article:", error);
-    }
-  };
-
+  // Read specific documents by ID - GET
   const article = ref({});
   const getSpecificArticle = async (documentID) => {
     try {
@@ -159,7 +90,7 @@ const useArticleCrud = () => {
       );
 
       if (!response.ok) {
-        throw new Error(`Failed to fetch article with ID: ${documentID}`);
+        throw new Error(`Failed to fetch document with ID: ${documentID}`);
       }
       const data = await response.json();
       article.value = data;
@@ -175,6 +106,71 @@ const useArticleCrud = () => {
       console.error(error);
     }
   };
+
+  // Update document - PUT
+  const editArticle = async () => {
+    try {
+      if (!documentID.value) {
+        throw new Error("No ID provided");
+      }
+      if (
+        !state.value.newTitle ||
+        !state.value.newContent ||
+        !state.value.newDate ||
+        !state.value.newAuthor ||
+        !state.value.newThumbnail
+      ) {
+        console.error("All fields must be filled out");
+        return;
+      }
+      const requestOptions = {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.lsToken,
+        },
+        body: JSON.stringify({
+          title: state.value.newTitle,
+          content: state.value.newContent,
+          date: state.value.newDate,
+          author: state.value.newAuthor,
+          thumbnail: state.value.newThumbnail,
+        }),
+      };
+      const url = "https://api.slavic.media/blog/" + documentID.value;
+      const response = await fetch(url, requestOptions);
+      if (!response.ok) {
+        throw new Error("Failed to edit document");
+      }
+      router.push("/blog");
+    } catch (error) {
+      console.error("Error editing document:", error);
+    }
+  };
+
+  // Delete article - DELETE
+  const deleteArticle = async (article) => {
+    try {
+      const requestOptions = {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.lsToken,
+        },
+      };
+      const response = await fetch(
+        `https://api.slavic.media/blog/${article.id}`,
+        requestOptions
+      );
+      if (!response.ok) {
+        throw new Error("Failed to delete document");
+      }
+      await getAllArticles();
+    } catch (error) {
+      console.error("Error deleting document:", error);
+    }
+  };
+
   return {
     state,
     getAllArticles,
