@@ -4,13 +4,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const employee_1 = __importDefault(require("../models/employee"));
+const legal_1 = __importDefault(require("../models/legal"));
 const validation_1 = require("../validation");
 const router = (0, express_1.Router)();
 // Create employee - POST
 router.post("/", validation_1.verifyToken, (req, res) => {
     const data = req.body;
-    employee_1.default
+    legal_1.default
         .create(data)
         .then((insertedData) => {
         res.status(201).send(insertedData);
@@ -21,7 +21,7 @@ router.post("/", validation_1.verifyToken, (req, res) => {
 });
 // Read all employees - GET
 router.get("/", (req, res) => {
-    employee_1.default
+    legal_1.default
         .find()
         .then((data) => {
         res.send(data);
@@ -32,7 +32,7 @@ router.get("/", (req, res) => {
 });
 // Read specific employee by ID - GET
 router.get("/:id", (req, res) => {
-    employee_1.default
+    legal_1.default
         .findById(req.params.id)
         .then((data) => {
         res.send(data);
@@ -45,7 +45,7 @@ router.get("/:id", (req, res) => {
 router.put("/:id", validation_1.verifyToken, (req, res) => {
     const { id } = req.params;
     const updatedEmployee = req.body;
-    employee_1.default
+    legal_1.default
         .findByIdAndUpdate(id, updatedEmployee, { new: true })
         .then((data) => {
         if (!data) {
@@ -64,7 +64,7 @@ router.put("/:id", validation_1.verifyToken, (req, res) => {
 // Delete employee - DELETE
 router.delete("/:id", validation_1.verifyToken, (req, res) => {
     const { id } = req.params;
-    employee_1.default
+    legal_1.default
         .findByIdAndDelete(id)
         .then((data) => {
         if (!data) {

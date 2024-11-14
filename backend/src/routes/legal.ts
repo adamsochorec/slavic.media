@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import employeeModel from "../models/employee";
+import employeeModel from "../models/legal";
 import { verifyToken } from "../validation";
 
 const router = Router();
