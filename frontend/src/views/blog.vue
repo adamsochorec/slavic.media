@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import articleCrud from "../modules/articleCrud";
-const { state, getAllArticles } = articleCrud();
+import article from "../modules/article";
+const { state, getAllArticles } = article();
 
 const isDataLoaded = ref(false);
 

@@ -1,7 +1,7 @@
 import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
 
-const useEmployeeCrud = () => {
+const useEmployee = () => {
   const route = useRoute();
 
   const documentID = computed(() => route.params.id);
@@ -22,6 +22,7 @@ const useEmployeeCrud = () => {
     try {
       const response = await fetch("https://api.slavic.media/employee/");
       const data = await response.json();
+      data.sort((a, b) => a.index - b.index);
       state.value.employees = data;
     } catch (error) {
       console.error(error);
@@ -54,4 +55,4 @@ const useEmployeeCrud = () => {
   };
 };
 
-export default useEmployeeCrud;
+export default useEmployee;

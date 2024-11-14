@@ -4,10 +4,10 @@ import contactForm from "@/components/contact-form.vue";
 import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
 import $ from "jquery";
 import "magnific-popup";
-import useImgCrud from "@/modules/imgCrud";
+import useImg from "@/modules/img";
 
 const isDataLoaded = ref(false);
-const { state, getAllImg } = useImgCrud();
+const { state, getAllImg } = useImg();
 
 async function initializeLightbox() {
   await nextTick();

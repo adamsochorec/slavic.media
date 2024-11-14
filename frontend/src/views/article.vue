@@ -1,17 +1,16 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import useArticleCrud from "../modules/articleCrud";
+import useArticle from "../modules/article";
 import { useRoute } from "vue-router";
 import $ from "jquery";
 
-// Destructure methods and state from articleCrud
-const { getSpecificArticleBySlug, state } = useArticleCrud();
+const { getSpecificArticle, state } = useArticle();
 const route = useRoute();
 
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
-  await getSpecificArticleBySlug(route.params.slug);
+  await getSpecificArticle(route.params.slug);
   isDataLoaded.value = true;
 
   // POP UP GALLERY

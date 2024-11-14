@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from "vue";
 import { RouterView } from "vue-router";
-import { provideAuth } from "./modules/users";
+import { provideAuth } from "./modules/logIn-logOut";
 
 provideAuth();
 

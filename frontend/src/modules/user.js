@@ -5,16 +5,7 @@ const useUserCrud = () => {
     users: {},
   });
 
-  const getAllUsers = async () => {
-    try {
-      const response = await fetch("https://api.slavic.media/users/");
-      const data = await response.json();
-      state.value.users = data;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
+  // Create document - POST
   const newUser = async (user) => {
     try {
       const requestOptions = {
@@ -26,43 +17,32 @@ const useUserCrud = () => {
       };
 
       const response = await fetch(
-        "https://api.slavic.media/users/",
+        "https://api.slavic.media/user/",
         requestOptions
       );
 
       if (!response.ok) {
-        throw new Error("Failed to add new user");
+        throw new Error("Failed to add new document");
       }
 
       await getAllUsers();
     } catch (error) {
-      console.error("Error adding new user:", error);
+      console.error("Error adding new document:", error);
     }
   };
 
-  const deleteUser = async (userId) => {
+  // Read all documents - GET
+  const getAllUsers = async () => {
     try {
-      const requestOptions = {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-      const response = await fetch(
-        `https://api.slavic.media/users/${userId}`,
-        requestOptions
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to delete user");
-      }
-
-      await getAllUsers();
+      const response = await fetch("https://api.slavic.media/user/");
+      const data = await response.json();
+      state.value.users = data;
     } catch (error) {
-      console.error("Error deleting user:", error);
+      console.error(error);
     }
   };
 
+  // Update document - PUT
   const editUser = async (userId, user) => {
     try {
       const requestOptions = {
@@ -74,17 +54,41 @@ const useUserCrud = () => {
       };
 
       const response = await fetch(
-        `https://api.slavic.media/users/${userId}`,
+        `https://api.slavic.media/user/${userId}`,
         requestOptions
       );
 
       if (!response.ok) {
-        throw new Error("Failed to edit user");
+        throw new Error("Failed to edit document");
       }
 
       await getAllUsers();
     } catch (error) {
-      console.error("Error editing user:", error);
+      console.error("Error editing document:", error);
+    }
+  };
+
+  // Delete document - DELETE
+  const deleteUser = async (userId) => {
+    try {
+      const requestOptions = {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      const response = await fetch(
+        `https://api.slavic.media/user/${userId}`,
+        requestOptions
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to delete document");
+      }
+
+      await getAllUsers();
+    } catch (error) {
+      console.error("Error deleting document:", error);
     }
   };
 

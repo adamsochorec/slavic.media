@@ -8,6 +8,7 @@ export function provideAuth() {
 
   const router = useRouter();
 
+  // LOG IN
   const logIn = async () => {
     try {
       localStorage.setItem("user", "admin");
@@ -18,6 +19,7 @@ export function provideAuth() {
     }
   };
 
+  // LOG OUT
   const logOut = async () => {
     try {
       localStorage.removeItem("user");

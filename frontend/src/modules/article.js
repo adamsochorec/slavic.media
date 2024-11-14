@@ -1,10 +1,10 @@
 import { ref, computed } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute /* useRouter */ } from "vue-router";
 import axios from "axios";
 
-const useArticleCrud = () => {
+const useArticle = () => {
   const route = useRoute();
-  const router = useRouter();
+  // const router = useRouter();
 
   const documentID = computed(() => route.params.id);
   const state = ref({
@@ -18,7 +18,7 @@ const useArticleCrud = () => {
   });
 
   // Create document - POST
-  const newArticle = async () => {
+  /*  const newArticle = async () => {
     if (
       !state.value.newTitle ||
       !state.value.newContent ||
@@ -56,7 +56,7 @@ const useArticleCrud = () => {
       console.error("Error adding new document:", error);
     }
   };
-
+ */
   // Read all documents - GET
   const getAllArticles = async () => {
     try {
@@ -81,24 +81,8 @@ const useArticleCrud = () => {
     }
   };
 
-  // Read specific documents by ID - GET
-  const article = ref({});
-  const getSpecificArticle = async (documentID) => {
-    try {
-      const response = await fetch(
-        `https://api.slavic.media/blog/${documentID}`
-      );
-
-      if (!response.ok) {
-        throw new Error(`Failed to fetch document with ID: ${documentID}`);
-      }
-      const data = await response.json();
-      article.value = data;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  const getSpecificArticleBySlug = async (slug) => {
+  // Read specific documents by ID (SLUG) - GET
+  const getSpecificArticle = async (slug) => {
     try {
       const response = await axios.get(`https://api.slavic.media/blog/${slug}`);
       state.value.article = response.data;
@@ -108,7 +92,7 @@ const useArticleCrud = () => {
   };
 
   // Update document - PUT
-  const editArticle = async () => {
+  /*  const editArticle = async () => {
     try {
       if (!documentID.value) {
         throw new Error("No ID provided");
@@ -146,10 +130,10 @@ const useArticleCrud = () => {
     } catch (error) {
       console.error("Error editing document:", error);
     }
-  };
+  }; */
 
   // Delete article - DELETE
-  const deleteArticle = async (article) => {
+  /*   const deleteArticle = async (article) => {
     try {
       const requestOptions = {
         method: "DELETE",
@@ -170,18 +154,17 @@ const useArticleCrud = () => {
       console.error("Error deleting document:", error);
     }
   };
-
+ */
   return {
     state,
     getAllArticles,
-    newArticle,
-    deleteArticle,
-    getSpecificArticle,
+    // newArticle,
+    // deleteArticle,
     article: state.value.article,
     documentID,
-    editArticle,
-    getSpecificArticleBySlug,
+    // editArticle,
+    getSpecificArticle,
   };
 };
 
-export default useArticleCrud;
+export default useArticle;

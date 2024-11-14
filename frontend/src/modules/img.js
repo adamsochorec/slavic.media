@@ -1,9 +1,9 @@
 import { ref, computed } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute /* useRouter */ } from "vue-router";
 
-const useImgCrud = () => {
+const useImg = () => {
   const route = useRoute();
-  const router = useRouter();
+  // const router = useRouter();
 
   const documentID = computed(() => route.params.id);
   const state = ref({
@@ -15,7 +15,7 @@ const useImgCrud = () => {
   });
 
   // Create document - POST
-  const newImg = async (galleryId, columnIndex) => {
+  /*  const newImg = async (galleryId, columnIndex) => {
     if (
       !state.value.newId ||
       !state.value.newAlt ||
@@ -54,7 +54,7 @@ const useImgCrud = () => {
       console.error("Error adding new document:", error);
     }
   };
-
+ */
   // Read all documents - GET
   const getAllImg = async () => {
     try {
@@ -68,7 +68,7 @@ const useImgCrud = () => {
   };
 
   // Read specific document by ID - GET
-  const img = ref({});
+  /*   const img = ref({});
   const getSpecificImg = async (documentID) => {
     try {
       const response = await fetch(
@@ -83,10 +83,10 @@ const useImgCrud = () => {
     } catch (error) {
       console.error(error);
     }
-  };
+  }; */
 
   // Update document - PUT
-  const editImg = async (galleryId, columnIndex, imgId) => {
+  /*  const editImg = async (galleryId, columnIndex, imgId) => {
     try {
       if (!documentID.value) {
         throw new Error("No ID provided");
@@ -124,9 +124,9 @@ const useImgCrud = () => {
       console.error("Error editing document:", error);
     }
   };
-
+ */
   // Delete document - DELETE
-  const deleteImg = async (galleryId, columnIndex, imgId) => {
+  /*   const deleteImg = async (galleryId, columnIndex, imgId) => {
     try {
       const requestOptions = {
         method: "DELETE",
@@ -146,18 +146,18 @@ const useImgCrud = () => {
     } catch (error) {
       console.error("Error deleting document:", error);
     }
-  };
+  }; */
 
   return {
     state,
     getAllImg,
-    newImg,
-    deleteImg,
-    getSpecificImg,
-    img,
+    // newImg,
+    //  deleteImg,
+    // getSpecificImg,
+    // img,
     documentID,
-    editImg,
+    //  editImg,
   };
 };
 
-export default useImgCrud;
+export default useImg;
