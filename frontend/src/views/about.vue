@@ -4,12 +4,70 @@ import heroVideo from "@/components/hero-video.vue";
 import swiperOurteam from "@/components/swiper-ourteam.vue";
 
 const events = ref([
-  { year: "May 2023", event: "Company establishment" },
-  { year: "December 2023", event: "Swedish Lapland" },
-  { year: "January 2024", event: "Dominik joins" },
-  { year: "March 2024", event: "Finnish Lapland" },
-  { year: "June 2024", event: "Ferdinand joins" },
-  { year: "October 2024", event: "Carbon Capture Hamburg" },
+  { year: "May 2023", event: "Company establishment", icon: "pi pi-verified" },
+  {
+    year: "Oct 2023",
+    event:
+      "Closing collaboration with Huset Fundament, after 28 projects over the course of eight months of working together.",
+    icon: "pi pi-camera",
+  },
+  {
+    year: "Dec 2023",
+    event: "Shooting 'Friskabte' for Kim Kim in Sort/Hvid scene in Copenhagen",
+    icon: "pi pi-camera",
+  },
+  {
+    year: "Dec 2023",
+    event: "The first project with Timetravels - Swedish Lapland",
+    icon: "pi pi-video",
+  },
+  {
+    year: "Feb 2024",
+    event:
+      "Launching long term video editing collaboration with FranklinCovey Czech",
+    icon: "pi pi-desktop",
+  },
+  {
+    year: "Mar 2024",
+    event:
+      "Finnish Lapland - the second collaboration with Timetravels and our largest project yet",
+    icon: "pi pi-video",
+  },
+  {
+    year: "Apr 2024",
+    event: "Performance & Strategy collaboration with Ján D.",
+    icon: "pi pi-chart-bar",
+  },
+  {
+    year: "Apr 2024",
+    event: "Ferdinand P. starts as a sound engineer & designer",
+    icon: "pi pi-user-plus",
+  },
+  {
+    year: "May 2024",
+    event: "Another successful project with Timetravels - Norwegian Fjords",
+    icon: "pi pi-video",
+  },
+  {
+    year: "Jun 2024",
+    event: "Dominik T. starts as a part time graphic designer & video editor",
+    icon: "pi pi-user-plus",
+  },
+  {
+    year: "Jul 2024",
+    event: "Terrain & topographical 3D scanning for Artmill",
+    icon: "pi pi-video",
+  },
+  {
+    year: "Aug 2024",
+    event: "Filming 'Tech the Night' with Fynutzu",
+    icon: "pi pi-video",
+  },
+  {
+    year: "Oct 2024",
+    event: "Filming Carbon Capture Technology Expo in Hamburg for Innomotics",
+    icon: "pi pi-video",
+  },
 ]);
 </script>
 
@@ -29,17 +87,7 @@ const events = ref([
       <hr class="semi" />
       <h1 style="font-size: var(--font-size-1)">Slavic Media I/S</h1>
       <br />
-      <Timeline :value="events">
-        <template #content="slotProps">
-          <p style="font-size: var(--font-size-8)">
-            {{ slotProps.item.event }}
-          </p>
-        </template>
-        <template #opposite="slotProps">
-          <p>{{ slotProps.item.year }}</p>
-        </template>
-      </Timeline>
-      <br />
+
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2271004.184012724!2d9.418068164227757!3d56.23008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464c9fe2ecbe264d%3A0x5699de608acee414!2sSlavic%20Media!5e0!3m2!1sen!2scz!4v1730480218107!5m2!1sen!2scz"
         allowfullscreen=""
@@ -54,6 +102,27 @@ const events = ref([
       </p>
       <br />
       <swiperOurteam></swiperOurteam>
+      <hr class="reveal" role="separator" />
+
+      <Timeline align="alternate" :value="events">
+        <template #marker="slotProps">
+          <span
+            class="flex w-8 h-8 items-center justify-center text-white rounded-full z-10 shadow-sm"
+            :style="{ backgroundColor: slotProps.item.color }"
+          >
+            <i :class="slotProps.item.icon"></i>
+          </span>
+        </template>
+        <template #content="slotProps">
+          <p>
+            {{ slotProps.item.year }}
+          </p>
+
+          <p style="font-size: var(--font-size-8)">
+            {{ slotProps.item.event }}
+          </p>
+        </template>
+      </Timeline>
     </article>
   </div>
 </template>
