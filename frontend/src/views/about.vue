@@ -107,18 +107,18 @@ const events = ref([
       <Timeline align="alternate" :value="events">
         <template #marker="slotProps">
           <span
-            class="flex w-8 h-8 items-center justify-center text-white rounded-full z-10 shadow-sm"
+            class="flex h-8 items-center justify-center"
             :style="{ backgroundColor: slotProps.item.color }"
           >
-            <i :class="slotProps.item.icon"></i>
+            <span :class="slotProps.item.icon"></span>
           </span>
         </template>
         <template #content="slotProps">
-          <p>
+          <p class="reveal">
             {{ slotProps.item.year }}
           </p>
 
-          <p style="font-size: var(--font-size-8)">
+          <p class="reveal" style="font-size: var(--font-size-8)">
             {{ slotProps.item.event }}
           </p>
         </template>
