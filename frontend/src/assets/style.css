@@ -847,6 +847,9 @@ button.mfp-close {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
 }
+.cookies button.mfp-close {
+  display: none !important;
+}
 button::-moz-focus-inner {
   padding: 0;
   border: 0;

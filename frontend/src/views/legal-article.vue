@@ -20,6 +20,9 @@ onMounted(async () => {
         <h1 class="reveal" role="heading" aria-level="1">
           {{ state.legal.title }}
         </h1>
+        <a class="cta popup-with-cookies reveal" href="#cookies"
+          >Manage Cookie Preferences</a
+        >
         <section class="reveal">
           <span style="font-size: var(--font-size-7)" class="pi pi-replay"
             >&nbsp;</span

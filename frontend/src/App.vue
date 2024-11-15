@@ -8,6 +8,7 @@ provideAuth();
 // COMPONENTS
 import Footer from "@/components/Footer.vue";
 import NavBar from "@/components/nav-bar.vue";
+import Cookies from "@/components/cookies.vue";
 
 // Dark Mode State
 
@@ -38,6 +39,7 @@ onMounted(() => {
     <header>
       <NavBar></NavBar>
     </header>
+    <aside><Cookies></Cookies></aside>
     <!-- HEADER END -->
     <main>
       <RouterView />
