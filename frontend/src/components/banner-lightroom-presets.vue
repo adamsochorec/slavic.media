@@ -108,7 +108,7 @@ i {
 }
 @media only screen and (max-width: 500px) {
   p {
-    font-size: var(--font-size-9);
+    font-size: var(--font-size-8);
   }
 }
 @media only screen and (max-width: 900px) {

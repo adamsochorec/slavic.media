@@ -69,13 +69,13 @@
     <div class="footer-container">
       <div class="grid-item" role="navigation" aria-label="Footer Navigation">
         <router-link to="/assets" class="footer-nav" title="Assets"
-          ><i style="font-size: var(--font-size-8)" class="pi pi-download"></i
+          ><i style="font-size: var(--font-size-7)" class="pi pi-download"></i
           >&nbsp; <span>Assets</span>
         </router-link>
         <span>&nbsp;|&nbsp;</span>
 
         <router-link to="/legal" class="footer-nav" title="Legal"
-          ><i style="font-size: var(--font-size-8)" class="pi pi-briefcase"></i
+          ><i style="font-size: var(--font-size-7)" class="pi pi-briefcase"></i
           >&nbsp;<span>Legal</span></router-link
         >
 
@@ -88,7 +88,7 @@
           href="https://datacvr.virk.dk/enhed/virksomhed/44081512?fritekst=slavic%20media&sideIndex=0&size=10"
           aria-label="VAT Number"
           role="link"
-          ><i style="font-size: var(--font-size-8)" class="pi pi-euro"></i
+          ><i style="font-size: var(--font-size-7)" class="pi pi-euro"></i
           >&nbsp;<span>VAT No.&nbsp;DK44081512</span>
         </a>
       </div>
@@ -195,7 +195,7 @@ footer .language-container {
 }
 @media only screen and (max-width: 850px) {
   footer {
-    font-size: var(--font-size-9);
+    font-size: var(--font-size-8);
   }
   footer .footer-container:last-of-type {
     display: block;

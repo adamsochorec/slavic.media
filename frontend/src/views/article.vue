@@ -73,11 +73,11 @@ const copyHref = (href) => {
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                   :href="state.article.author.url"
-                  style="font-size: var(--font-size-8)"
+                  style="font-size: var(--font-size-7)"
                   >{{ state.article.author.name }}</a
                 ></b
               ><br />
-              <span style="font-size: var(--font-size-8)">
+              <span style="font-size: var(--font-size-7)">
                 {{ state.article.metadata.date }}&nbsp;⋅&nbsp;{{
                   state.article.metadata.length
                 }}

@@ -21,9 +21,9 @@ onMounted(async () => {
           {{ state.legal.title }}
         </h1>
         <section class="reveal">
-          <span style="font-size: var(--font-size-8)" class="pi pi-replay"
+          <span style="font-size: var(--font-size-7)" class="pi pi-replay"
             >&nbsp;</span
-          ><span style="font-size: var(--font-size-8)">{{
+          ><span style="font-size: var(--font-size-7)">{{
             state.legal.modified
           }}</span>
         </section>

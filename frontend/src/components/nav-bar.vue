@@ -176,13 +176,13 @@ onMounted(() => {
           /></a>
         </li>
         <li role="none">
-          <a href="https://store.slavic.media" role="menuitem"
+          <a target="_blank" href="https://store.slavic.media" role="menuitem"
             ><span class="pi pi-shopping-bag"></span>Store</a
           >
         </li>
         <li role="none">
           <a target="_blank" href="https://clients.slavic.media" role="menuitem"
-            ><span class="pi pi-server"></span>For clients</a
+            ><span class="pi pi-cloud-download"></span>For clients</a
           >
         </li>
         <li role="none">

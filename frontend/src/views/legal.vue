@@ -12,41 +12,27 @@ onMounted(async () => {
 <template>
   <div class="main" style="margin-top: 120px">
     <article class="wrapper-standard" v-if="isDataLoaded">
-      <div class="grid-container caption-container">
-        <div class="grid-item">
-          <h1 class="reveal" aria-label="Video Services">
-            <span
-              class="pi pi-briefcase"
-              style="font-size: var(--font-size-6)"
-            ></span
-            >&nbsp;Legal
-          </h1>
-        </div>
-        <div class="grid-item">
-          <p class="reveal">
-            Before using Slavic Media services or digital products, you may
-            review the terms and conditions of end user software license
-            agreements.
-          </p>
-        </div>
-      </div>
+      <h1 class="reveal">Legal</h1>
+      <br />
+      <p class="reveal">
+        Before using Slavic Media services or digital products, you may review
+        the terms and conditions of end user software license agreements.
+      </p>
 
       <hr class="reveal" role="separator" />
 
-      <div
-        v-for="legal in state.legals"
-        :key="legal._id"
-        class="swiper-slide"
-        role="region"
-      >
-        <ul>
-          <li class="reveal" style="font-size: var(--font-size-5)">
-            <router-link :to="`/legal/${legal._id}`"
-              >{{ legal.title }} <span class="pi pi-arrow-right"></span
-            ></router-link>
-          </li>
-        </ul>
-      </div>
+      <ol>
+        <li
+          v-for="legal in state.legals"
+          :key="legal._id"
+          class="reveal"
+          style="font-size: var(--font-size-6)"
+        >
+          <router-link :to="`/legal/${legal._id}`"
+            >{{ legal.title }} <span class="pi pi-arrow-right"></span
+          ></router-link>
+        </li>
+      </ol>
       <hr class="reveal" role="separator" />
     </article>
     <article class="wrapper-standard" v-else>
@@ -80,6 +66,6 @@ onMounted(async () => {
 </template>
 <style lang="scss" scoped>
 ol {
-  list-style-type: decimal;
+  list-style: decimal;
 }
 </style>

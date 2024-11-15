@@ -51,11 +51,11 @@ const truncateText = (text, maxLength) => {
                     target="_blank"
                     rel="noopener noreferrer nofollow"
                     class="author"
-                    style="font-size: var(--font-size-8)"
+                    style="font-size: var(--font-size-7)"
                     :href="article.author.url"
                     ><b>{{ article.author.name }}</b></a
                   ><br class="hide" />
-                  <span style="font-size: var(--font-size-8)">
+                  <span style="font-size: var(--font-size-7)">
                     {{ article.metadata.date }}&nbsp;⋅&nbsp;{{
                       article.metadata.length
                     }}
@@ -164,7 +164,7 @@ img {
 }
 
 .grid-item:nth-child(2) {
-  font-size: var(--font-size-8);
+  font-size: var(--font-size-7);
 }
 @media only screen and (max-width: 420px) {
   .author {
@@ -180,7 +180,7 @@ img {
     display: none;
   }
   h2 {
-    font-size: var(--font-size-7);
+    font-size: var(--font-size-6);
   }
 }
 @media only screen and (max-width: 900px) {
@@ -196,7 +196,7 @@ img {
     font-size: var(--font-size-4);
   }
   .grid-item:nth-child(2) {
-    font-size: var(--font-size-9);
+    font-size: var(--font-size-8);
   }
   .metadata {
     padding: 0 0 var(--grid-gap-1) 0;

@@ -246,7 +246,7 @@ textarea {
 }
 @media only screen and (max-width: 375px) {
   button.submit-btn {
-    font-size: var(--font-size-9);
+    font-size: var(--font-size-8);
   }
 }
 @media only screen and (max-width: 500px) {

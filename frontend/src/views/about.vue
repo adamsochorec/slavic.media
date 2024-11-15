@@ -31,7 +31,7 @@ const events = ref([
       <br />
       <Timeline :value="events">
         <template #content="slotProps">
-          <p style="font-size: var(--font-size-9)">
+          <p style="font-size: var(--font-size-8)">
             {{ slotProps.item.event }}
           </p>
         </template>

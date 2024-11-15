@@ -78,7 +78,7 @@ const pressItems = ref([
   width: 100%;
 }
 #gallery-press .gallery-item p {
-  font-size: var(--fontsize-p);
+  font-size: var(--font-size-6);
   padding: unset;
   opacity: 1;
   -webkit-transform: unset;
@@ -160,7 +160,7 @@ const pressItems = ref([
 }
 @media only screen and (max-width: 667px) {
   .gallery .gallery-item span {
-    font-size: var(--font-size-9);
+    font-size: var(--font-size-8);
   }
   #gallery-press {
     display: -webkit-box;

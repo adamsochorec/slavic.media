@@ -318,7 +318,7 @@ onMounted(() => {
 }
 .swiper-reviews p {
   padding: 0;
-  font-size: var(--font-size-9);
+  font-size: var(--font-size-8);
 }
 .swiper-reviews .quotes {
   font-size: 32px;
@@ -345,7 +345,7 @@ onMounted(() => {
 }
 .swiper-reviews .stars {
   display: inline-block;
-  font-size: var(--font-size-9);
+  font-size: var(--font-size-8);
   color: gold;
 }
 </style>

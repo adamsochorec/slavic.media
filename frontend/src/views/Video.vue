@@ -305,7 +305,7 @@ const narrative = ref([
   text-decoration: underline;
 }
 .gallery .gallery-item p {
-  font-size: var(--font-size-9);
+  font-size: var(--font-size-8);
   padding: 12px 0;
   opacity: 0;
   -webkit-transition:
