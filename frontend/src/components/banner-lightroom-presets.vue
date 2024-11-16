@@ -100,6 +100,7 @@ img {
 .gradient::after,
 .gradient::before {
   font-size: var(--font-size-4);
+  text-shadow: var(--box-shadow-1);
 }
 .title {
   position: absolute;
@@ -114,6 +115,11 @@ img {
 @media only screen and (max-width: 900px) {
   .title {
     width: 80%;
+  }
+  .gradient,
+  .gradient::after,
+  .gradient::before {
+    font-size: var(--font-size-1);
   }
 }
 @media only screen and (min-width: 900px) {

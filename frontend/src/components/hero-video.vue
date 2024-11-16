@@ -115,6 +115,7 @@ onMounted(() => {
 .link {
   position: absolute;
   right: var(--grid-gap-1);
+  text-shadow: var(--box-shadow-1);
 }
 .showcase {
   height: var(--dimension-1);
