@@ -39,7 +39,6 @@ async function initializeLightbox() {
       },
     },
     fixedContentPos: "false",
-    overflowY: "scroll",
   });
 }
 
@@ -86,6 +85,8 @@ watch(isDataLoaded, (loaded) => {
       :key="galleryKey"
     >
       <article v-if="isDataLoaded" class="wrapper-wide" id="photo">
+        <div :id="gallery._id"></div>
+
         <hr class="reveal" role="separator" />
         <div class="grid-container caption-container">
           <div class="grid-item reveal">
