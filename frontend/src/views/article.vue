@@ -56,11 +56,11 @@ const copyHref = (href) => {
   <div class="main" style="margin-top: 120px">
     <article class="wrapper-wide">
       <div v-if="isDataLoaded">
-        <h1>
+        <h1 class="reveal">
           {{ state.article.title }}
         </h1>
         <!-- ARTICLE METADATA START -->
-        <div class="article-metadata flex justify-between">
+        <div class="article-metadata flex justify-between reveal">
           <div class="flex items-center gap-2">
             <Avatar
               :image="state.article.author.thumbnail"

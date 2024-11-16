@@ -18,7 +18,7 @@
             signature LUTs for Lightroom and Photoshop.
           </p>
         </div>
-        <a href="https://store.slavic.media">
+        <a target="_blank" href="https://store.slavic.media">
           <div class="cta">
             Transform Your Photos <i class="pi pi-arrow-right"></i>
           </div>

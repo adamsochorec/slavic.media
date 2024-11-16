@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import heroVideo from "@/components/hero-video.vue";
 import contactForm from "@/components/contact-form.vue";
 import swiperClients from "@/components/swiper-clients.vue";
@@ -24,6 +24,27 @@ const galleryItems = ref([
       "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
   },
 ]); // GALLERY END
+
+// Function to reveal elements as the user scrolls
+function reveal() {
+  const reveals = document.querySelectorAll(".reveal"),
+    windowHeight = window.innerHeight;
+
+  reveals.forEach((reveal) => {
+    const revealtop = reveal.getBoundingClientRect().top,
+      revealpoint = 0;
+    if (revealtop < windowHeight - revealpoint) {
+      reveal.classList.add("active");
+    } else {
+      // Optional: Remove "active" class if the element is out of view
+      reveal.classList.remove("active");
+    }
+  });
+}
+onMounted(() => {
+  window.addEventListener("scroll", reveal);
+  reveal();
+});
 </script>
 
 <template>
