@@ -12,6 +12,7 @@ onMounted(() => {
       gallery: {
         enabled: true,
         navigateByImgClick: false,
+        fixedContentPos: "false",
         preload: [0, 1], // Preloads adjacent items
         arrowMarkup:
           '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>',
