@@ -98,7 +98,7 @@ onMounted(() => {
             <textarea
               minlength="10"
               name="project"
-              rows="7"
+              rows="4"
               required
               id="project"
               placeholder=""
@@ -146,30 +146,30 @@ article {
   font-size: 1em;
 }
 .contact-form-section ::-webkit-input-placeholder {
-  color: rgba(var(--white-color), 0.7);
+  color: rgba(var(--white-colour), 0.7);
 }
 .contact-form-section ::-moz-placeholder {
-  color: rgba(var(--white-color), 0.7);
+  color: rgba(var(--white-colour), 0.7);
 }
 .contact-form-section :-ms-input-placeholder {
-  color: rgba(var(--white-color), 0.7);
+  color: rgba(var(--white-colour), 0.7);
 }
 .contact-form-section ::-ms-input-placeholder {
-  color: rgba(var(--white-color), 0.7);
+  color: rgba(var(--white-colour), 0.7);
 }
 .contact-form-section ::placeholder,
 .contact-form-section input,
 .contact-form-section select,
 .contact-form-section textarea {
-  color: rgba(var(--white-color), 0.7);
+  color: rgba(var(--white-colour), 0.7);
 }
 option .default-option {
-  color: rgba(var(--white-color), 0.5);
+  color: rgba(var(--white-colour), 0.5);
 }
 .contact-form-section input,
 .contact-form-section select,
 .contact-form-section textarea {
-  color: rgba(var(--white-color), 1);
+  color: rgba(var(--white-colour), 1);
 }
 .contact-form-section ::-webkit-input-placeholder,
 .contact-form-section ::-moz-placeholder,
@@ -214,7 +214,7 @@ option .default-option {
 .contact-form-section input,
 .contact-form-section select,
 .contact-form-section textarea {
-  background: rgb(var(--dark-grey-color));
+  background: rgb(var(--dark-grey-colour));
   border: none;
 }
 .contact-form-section input,

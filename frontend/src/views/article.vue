@@ -119,13 +119,13 @@ const copyHref = (href) => {
       </div>
       <div v-else class="mb-4 p-8">
         <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
+          style="background-color: rgb(var(--dark-grey-colour))"
           height="30px"
           width="100%"
           class="mb-2"
         ></Skeleton>
         <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
+          style="background-color: rgb(var(--dark-grey-colour))"
           height="30px"
           width="50%"
           class="mb-4"
@@ -133,49 +133,49 @@ const copyHref = (href) => {
         <div class="flex justify-between mt-4">
           <div class="flex mb-4">
             <Skeleton
-              style="background-color: rgb(var(--dark-grey-color))"
+              style="background-color: rgb(var(--dark-grey-colour))"
               shape="circle"
               size="4rem"
               class="mr-2"
             ></Skeleton>
             <div>
               <Skeleton
-                style="background-color: rgb(var(--dark-grey-color))"
+                style="background-color: rgb(var(--dark-grey-colour))"
                 width="10rem"
                 class="mb-2"
               ></Skeleton>
               <Skeleton
-                style="background-color: rgb(var(--dark-grey-color))"
+                style="background-color: rgb(var(--dark-grey-colour))"
                 width="5rem"
                 class="mb-2"
               ></Skeleton>
               <Skeleton
-                style="background-color: rgb(var(--dark-grey-color))"
+                style="background-color: rgb(var(--dark-grey-colour))"
                 height=".5rem"
               ></Skeleton>
             </div>
           </div>
           <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
+            style="background-color: rgb(var(--dark-grey-colour))"
             shape="circle"
             width="2rem"
             height="2rem"
           ></Skeleton>
         </div>
         <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
+          style="background-color: rgb(var(--dark-grey-colour))"
           class="mb-4"
           width="100%"
           height="250px"
         ></Skeleton>
         <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
+          style="background-color: rgb(var(--dark-grey-colour))"
           height="15px"
           width="100%"
           class="mb-4"
         ></Skeleton>
         <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
+          style="background-color: rgb(var(--dark-grey-colour))"
           height="15px"
           width="50%"
           class="mb-4"
@@ -192,8 +192,8 @@ h1 {
 }
 .article-metadata {
   margin: var(--grid-gap-2) 0;
-  color: rgb(var(--white-color));
-  background: rgb(var(--dark-grey-color));
+  color: rgb(var(--white-colour));
+  background: rgb(var(--dark-grey-colour));
   padding: var(--grid-gap-2);
   border-radius: var(--border-radius-1);
 }

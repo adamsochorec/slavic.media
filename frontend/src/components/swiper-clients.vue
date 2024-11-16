@@ -1055,10 +1055,10 @@ onMounted(() => {
   margin: 0 0 0 var(--grid-gap-2);
 }
 .clients path {
-  fill: rgb(var(--white-color));
+  fill: rgb(var(--white-colour));
 }
 .clients:hover path {
-  fill: rgba(var(--primary-color), 1);
+  fill: rgba(var(--primary-colour), 1);
   cursor: pointer;
 }
 .clients:hover path,

@@ -41,41 +41,41 @@ onMounted(async () => {
       <div v-else>
         <div class="flex mb-4">
           <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
+            style="background-color: rgb(var(--dark-grey-colour))"
             shape="circle"
             size="4rem"
             class="mr-2"
           ></Skeleton>
           <div>
             <Skeleton
-              style="background-color: rgb(var(--dark-grey-color))"
+              style="background-color: rgb(var(--dark-grey-colour))"
               width="10rem"
               class="mb-2"
             ></Skeleton>
             <Skeleton
-              style="background-color: rgb(var(--dark-grey-color))"
+              style="background-color: rgb(var(--dark-grey-colour))"
               width="5rem"
               class="mb-2"
             ></Skeleton>
             <Skeleton
-              style="background-color: rgb(var(--dark-grey-color))"
+              style="background-color: rgb(var(--dark-grey-colour))"
               height=".5rem"
             ></Skeleton>
           </div>
         </div>
         <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
+          style="background-color: rgb(var(--dark-grey-colour))"
           width="100%"
           height="150px"
         ></Skeleton>
         <div class="flex justify-between mt-4">
           <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
+            style="background-color: rgb(var(--dark-grey-colour))"
             width="4rem"
             height="2rem"
           ></Skeleton>
           <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
+            style="background-color: rgb(var(--dark-grey-colour))"
             width="4rem"
             height="2rem"
           ></Skeleton>
@@ -89,16 +89,16 @@ onMounted(async () => {
                   shape="circle"
                   size="4rem"
                   class="mr-2"
-                  style="background-color: rgb(var(--dark-grey-color))"
+                  style="background-color: rgb(var(--dark-grey-colour))"
                 ></Skeleton>
                 <div class="self-center" style="flex: 1">
                   <Skeleton
-                    style="background-color: rgb(var(--dark-grey-color))"
+                    style="background-color: rgb(var(--dark-grey-colour))"
                     width="100%"
                     class="mb-2"
                   ></Skeleton>
                   <Skeleton
-                    style="background-color: rgb(var(--dark-grey-color))"
+                    style="background-color: rgb(var(--dark-grey-colour))"
                     width="75%"
                   ></Skeleton>
                 </div>

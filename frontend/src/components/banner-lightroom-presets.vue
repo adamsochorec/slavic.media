@@ -119,7 +119,7 @@ img {
   .gradient,
   .gradient::after,
   .gradient::before {
-    font-size: var(--font-size-1);
+    font-size: var(--font-size-2);
   }
 }
 @media only screen and (min-width: 900px) {
