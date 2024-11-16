@@ -153,7 +153,7 @@ onMounted(() => {
           href="https://g.page/r/CRTkzopg3plWEB0/review"
           aria-label="Share your experience"
         >
-          Share your experience<i class="pi pi-arrow-right"></i>
+          Share Your Experience<i class="pi pi-arrow-right"></i>
         </a>
       </div>
     </article>

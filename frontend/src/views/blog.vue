@@ -175,7 +175,6 @@ img {
   img {
     height: auto;
     aspect-ratio: 1/1;
-    width: 90px;
     border-radius: var(--border-radius-1);
   }
   .metadata {
@@ -194,8 +193,8 @@ img {
     -ms-flex-pack: justify;
     justify-content: space-between;
     display: grid;
-    grid-template-columns: 38% 60%;
-    grid-gap: var(--grid-gap-2);
+    grid-template-columns: 38% 64%;
+    grid-gap: var(--grid-gap-1);
   }
   h2 {
     font-size: var(--font-size-4);
