@@ -40,7 +40,7 @@ onMounted(async () => {
           />
         </div>
       </div>
-      <hr class="reveal" role="separator" />
+      <br />
       <ol>
         <li
           v-for="legal in state.legals"

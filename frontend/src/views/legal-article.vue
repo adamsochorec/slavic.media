@@ -17,24 +17,16 @@ onMounted(async () => {
   <div class="main" style="margin-top: 120px">
     <article class="wrapper-wide">
       <div v-if="isDataLoaded">
-        <div class="grid-container caption-container" role="region">
-          <div class="grid-item">
-            <h1 class="reveal" role="heading" aria-level="1">
-              {{ state.legal.title }}
-            </h1>
+        <h1 class="reveal" role="heading" aria-level="1">
+          {{ state.legal.title }}
+        </h1>
 
-            <span style="font-size: var(--font-size-7)" class="pi pi-replay"
-              >&nbsp;</span
-            ><span style="font-size: var(--font-size-7)">{{
-              state.legal.modified
-            }}</span>
-          </div>
-          <div class="grid-item reveal">
-            <br />
-            <a class="cta popup-with-cookies" href="#cookies">
-              Cookie Preferences</a
-            >
-          </div>
+        <div class="reveal">
+          <span style="font-size: var(--font-size-7)" class="pi pi-replay"
+            >&nbsp;</span
+          ><span style="font-size: var(--font-size-7)">{{
+            state.legal.modified
+          }}</span>
         </div>
         <hr class="reveal" role="separator" />
         <div class="article-content">

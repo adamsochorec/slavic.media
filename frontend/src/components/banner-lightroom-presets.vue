@@ -6,12 +6,10 @@
       <img src="https://slavic.media/img/2023-05-12-08969.jpg" />
       <div class="title flex-center">
         <div>
-          <span class="punchline gradient"
-            >Like the look?
-            <i
-              style="font-size: var(--font-size-5)"
-              class="pi pi-sparkles gradient"
-            ></i>
+          <span
+            style="font-size: var(--font-size-5)"
+            class="pi pi-sparkles gradient"
+          >
           </span>
           <p>
             Emulate the classic 35mm and 120 film looks with Slavic Media’s
@@ -29,7 +27,7 @@
 </template>
 <style scoped>
 .banner {
-  height: var(--dimension-2);
+  height: 240px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -53,10 +51,6 @@
   box-shadow: var(--box-shadow-1);
 }
 
-.punchline {
-  font-size: var(--font-size-3);
-  font-family: var(--logo-font);
-}
 .gradient {
   background: -webkit-gradient(
     linear,
@@ -97,10 +91,16 @@ img {
   -ms-transform: scale(1);
   transform: scale(1);
 }
-i {
-  cursor: text;
-}
 
+.gradient::after {
+  content: " Want the look?";
+  font-family: var(--logo-font);
+}
+.gradient,
+.gradient::after,
+.gradient::before {
+  font-size: var(--font-size-4);
+}
 .title {
   position: absolute;
   text-align: center;

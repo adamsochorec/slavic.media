@@ -241,8 +241,6 @@ select {
   appearance: none;
 }
 textarea {
-  resize: none;
-  height: var(--dimension-2);
 }
 @media only screen and (max-width: 375px) {
   button.submit-btn {
