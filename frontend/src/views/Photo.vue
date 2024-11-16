@@ -208,10 +208,10 @@ small a {
   flex-wrap: wrap;
 }
 .column {
-  -ms-flex: 100%; /* IE10 */
-  -webkit-box-flex: 100%;
-  flex: 100%;
-  max-width: 100%;
+  -ms-flex: 50%;
+  -webkit-box-flex: 50%;
+  flex: 50%;
+  max-width: 50%;
 }
 .column img {
   margin-top: var(--grid-gap-1);
@@ -226,15 +226,8 @@ small a {
   padding-right: var(--grid-gap-1);
   padding-left: calc(var(--grid-gap-1) / 2);
 }
-@media only screen and (min-width: 538px) {
-  .column {
-    -ms-flex: 50%;
-    -webkit-box-flex: 50%;
-    flex: 50%;
-    max-width: 50%;
-  }
-}
-@media only screen and (min-width: 850px) {
+
+@media only screen and (min-width: 600px) {
   .column {
     -ms-flex: 25%;
     -webkit-box-flex: 25%;
