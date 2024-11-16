@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import legal from "../modules/legal";
+import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 const { state, getAllLegal } = legal();
 const isDataLoaded = ref(false);
 
@@ -12,15 +13,34 @@ onMounted(async () => {
 <template>
   <div class="main" style="margin-top: 120px">
     <article class="wrapper-standard" v-if="isDataLoaded">
-      <h1 class="reveal">Legal</h1>
-      <br />
-      <p class="reveal">
-        Before using Slavic Media services or digital products, you may review
-        the terms and conditions of end user software license agreements.
-      </p>
-
+      <div
+        class="grid-container caption-container reveal"
+        role="region"
+        aria-label="Services"
+      >
+        <div class="grid-item">
+          <h1 class="reveal">Legal</h1>
+          <br />
+          <p class="reveal">
+            Before using Slavic Media services or digital products, you may
+            review the terms and conditions of end user software license
+            agreements.
+          </p>
+        </div>
+        <div class="grid-item">
+          <DotLottieVue
+            class="reveal"
+            background="transparent"
+            speed="1"
+            loop
+            autoplay
+            aria-label="Page not found animation."
+            style="height: auto; width: 100%"
+            src="https://lottie.host/19202777-715b-4539-8f9c-b15c7c9fd299/Y2uxrYvdro.lottie"
+          />
+        </div>
+      </div>
       <hr class="reveal" role="separator" />
-
       <ol>
         <li
           v-for="legal in state.legals"

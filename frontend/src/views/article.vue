@@ -181,8 +181,8 @@ const copyHref = (href) => {
           class="mb-4"
         ></Skeleton>
       </div>
-      <hr class="semi" />
     </article>
+    <bannerLightroomPresets></bannerLightroomPresets>
   </div>
 </template>
 

@@ -31,9 +31,13 @@ const truncateText = (text, maxLength) => {
             role="region"
           >
             <router-link :to="`/blog/${article.slug}`">
-              <img :alt="article.title" :src="article.metadata.thumbnail" />
+              <img
+                class="reveal"
+                :alt="article.title"
+                :src="article.metadata.thumbnail"
+              />
             </router-link>
-            <div>
+            <div class="reveal">
               <div class="metadata gap-3">
                 <a
                   target="_blank"
@@ -125,8 +129,6 @@ const truncateText = (text, maxLength) => {
           </div>
         </div>
       </div>
-
-      <hr class="semi" />
     </article>
   </div>
 </template>
