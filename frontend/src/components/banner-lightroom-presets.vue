@@ -111,6 +111,9 @@ img {
   p {
     font-size: var(--font-size-8);
   }
+  .banner {
+    height: var(--dimension-2);
+  }
 }
 @media only screen and (max-width: 900px) {
   .title {

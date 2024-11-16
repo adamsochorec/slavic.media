@@ -43,16 +43,16 @@ onMounted(async () => {
                 shape="circle"
                 size="4rem"
                 class="mr-2"
-                style="background-color: rgb(var(--dark-grey-colour))"
+                style="background-color: rgb(var(--dark-grey-color))"
               ></Skeleton>
               <div class="self-center" style="flex: 1">
                 <Skeleton
-                  style="background-color: rgb(var(--dark-grey-colour))"
+                  style="background-color: rgb(var(--dark-grey-color))"
                   width="100%"
                   class="mb-2"
                 ></Skeleton>
                 <Skeleton
-                  style="background-color: rgb(var(--dark-grey-colour))"
+                  style="background-color: rgb(var(--dark-grey-color))"
                   width="75%"
                 ></Skeleton>
               </div>

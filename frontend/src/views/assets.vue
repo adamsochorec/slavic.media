@@ -137,7 +137,7 @@ const pressItems = ref([
 
 #gallery-press .grid-item span p,
 #gallery-press .grid-item span p i {
-  color: rgb(var(--primary-colour));
+  color: rgb(var(--primary-color));
 }
 #gallery-press .grid-item:focus::after,
 #gallery-press .grid-item:hover::after {

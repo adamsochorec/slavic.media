@@ -116,7 +116,7 @@ export default {
   color: unset;
 }
 footer .footer-nav {
-  color: rgb(var(--primary-colour));
+  color: rgb(var(--primary-color));
 }
 footer .footer-nav span,
 footer .footer-nav span:hover {
@@ -128,7 +128,7 @@ footer .footer-nav:hover,
 }
 footer {
   padding: var(--grid-gap-3) var(--homepage-padding);
-  background-color: rgb(var(--dark-grey-colour));
+  background-color: rgb(var(--dark-grey-color));
   width: 100%;
   font-family: var(--content-font);
 }
@@ -162,7 +162,7 @@ footer a,
 footer span {
   font-weight: var(--paragraph-weight);
   text-shadow: none;
-  color: rgb(var(--white-colour));
+  color: rgb(var(--white-color));
   font-family: var(--content-font);
 }
 footer hr {

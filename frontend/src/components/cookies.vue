@@ -211,7 +211,7 @@ onMounted(() => {
   background-color: transparent;
 }
 #save:hover {
-  background-color: rgba(var(--secondary-colour), 0.8);
+  background-color: rgba(var(--secondary-color), 0.8);
 }
 label {
   font-size: var(--font-size-7);
@@ -249,7 +249,7 @@ input[type="checkbox"].input-switch {
   }
 
   &:checked {
-    background-color: rgb(var(--secondary-colour), 1);
+    background-color: rgb(var(--secondary-color), 1);
 
     &:before {
       transform: translateX(+100%);

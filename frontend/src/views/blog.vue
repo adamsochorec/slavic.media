@@ -78,13 +78,13 @@ const truncateText = (text, maxLength) => {
         <Skeleton
           width="60%"
           height="30px"
-          style="background-color: rgb(var(--dark-grey-colour))"
+          style="background-color: rgb(var(--dark-grey-color))"
           class="mb-4"
         ></Skeleton>
         <div class="grid-container">
           <div v-for="n in 3" :key="n" class="card">
             <Skeleton
-              style="background-color: rgb(var(--dark-grey-colour))"
+              style="background-color: rgb(var(--dark-grey-color))"
               class="p-6"
               width="100%"
               height="150px"
@@ -92,17 +92,17 @@ const truncateText = (text, maxLength) => {
             <div>
               <Skeleton
                 width="100%"
-                style="background-color: rgb(var(--dark-grey-colour))"
+                style="background-color: rgb(var(--dark-grey-color))"
                 class="mt-2"
               ></Skeleton>
               <Skeleton
                 width="60%"
-                style="background-color: rgb(var(--dark-grey-colour))"
+                style="background-color: rgb(var(--dark-grey-color))"
                 class="mt-2"
               ></Skeleton>
               <div class="flex mt-4">
                 <Skeleton
-                  style="background-color: rgb(var(--dark-grey-colour))"
+                  style="background-color: rgb(var(--dark-grey-color))"
                   class="mr-2"
                   shape="circle"
                   size="4rem"
@@ -110,16 +110,16 @@ const truncateText = (text, maxLength) => {
                 <div>
                   <Skeleton
                     width="10rem"
-                    style="background-color: rgb(var(--dark-grey-colour))"
+                    style="background-color: rgb(var(--dark-grey-color))"
                     class="mb-2"
                   ></Skeleton>
                   <Skeleton
                     width="5rem"
-                    style="background-color: rgb(var(--dark-grey-colour))"
+                    style="background-color: rgb(var(--dark-grey-color))"
                     class="mb-2"
                   ></Skeleton>
                   <Skeleton
-                    style="background-color: rgb(var(--dark-grey-colour))"
+                    style="background-color: rgb(var(--dark-grey-color))"
                     class=""
                     height=".5rem"
                   ></Skeleton>

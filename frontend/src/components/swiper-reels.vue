@@ -118,7 +118,7 @@ onMounted(() => {
   height: auto;
   width: var(--dimension-2);
   border-radius: var(--border-radius-1);
-  background-color: rgb(var(--dark-grey-colour));
+  background-color: rgb(var(--dark-grey-color));
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
   -webkit-animation: skeleton-loading 1s linear infinite alternate;

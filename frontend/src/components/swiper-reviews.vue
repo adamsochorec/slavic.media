@@ -308,7 +308,7 @@ onMounted(() => {
   max-height: 256px;
   width: var(--dimension-2);
   border-radius: var(--border-radius-1);
-  background-color: rgb(var(--dark-grey-colour));
+  background-color: rgb(var(--dark-grey-color));
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
 }
@@ -349,7 +349,7 @@ onMounted(() => {
   color: gold;
 }
 
-@media only screen and (max-width: 440px) {
+/* @media only screen and (max-width: 440px) {
   .swiper-reviews .swiper-slide {
     padding: var(--grid-gap-1);
   }
@@ -361,5 +361,5 @@ onMounted(() => {
     height: var(--grid-gap-3);
     width: var(--grid-gap-3);
   }
-}
+} */
 </style>
