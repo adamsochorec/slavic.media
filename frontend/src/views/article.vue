@@ -10,7 +10,7 @@ const route = useRoute();
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
-  await getSpecificArticle(route.params.slug);
+  await getSpecificArticle(route.params._id);
   isDataLoaded.value = true;
 
   // POP UP GALLERY
@@ -100,7 +100,7 @@ const copyHref = (href) => {
                 autoHide: false,
               }"
               @click="
-                copyHref(`https://slavic.media/blog/${state.article.slug}`)
+                copyHref(`https://slavic.media/blog/${state.article._id}`)
               "
             >
               <i class="pi pi-link"></i>

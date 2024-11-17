@@ -17,7 +17,7 @@ interface img extends Document {
   };
   content: string[];
   title: string;
-  slug: string;
+  _id: string;
 }
 
 const articleSchema: Schema = new Schema({
@@ -35,17 +35,7 @@ const articleSchema: Schema = new Schema({
   },
   content: { type: [String], required: true },
   title: { type: String, required: true },
-  slug: { type: String, required: true, unique: true },
-});
-// Middleware to generate slug before saving
-articleSchema.pre("validate", function (next) {
-  if (!this.slug && this.title) {
-    this.slug = this.title
-      .toLowerCase()
-      .replace(/ /g, "-")
-      .replace(/[^\w-]+/g, "");
-  }
-  next();
+  _id: { type: String, required: true, unique: true },
 });
 
 const article = mongoose.model<img>("Article", articleSchema);

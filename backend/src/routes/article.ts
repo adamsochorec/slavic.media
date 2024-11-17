@@ -31,9 +31,9 @@ router.get("/", (req: Request, res: Response) => {
     });
 });
 
-// Read specific document by slug - GET
-router.get("/:slug", (req: Request, res: Response) => {
-  ArticleModel.findOne({ slug: req.params.slug })
+// Read specific document by ID - GET
+router.get("/:id", (req: Request, res: Response) => {
+  ArticleModel.findById(req.params.id)
     .then((data) => {
       res.send(data);
     })
@@ -42,15 +42,16 @@ router.get("/:slug", (req: Request, res: Response) => {
     });
 });
 
-// Update specific document by slug - PUT
-router.put("/:slug", verifyToken, (req: Request, res: Response) => {
-  const slug = req.params.slug;
+// Update specific document by ID - PUT
+router.put("/:id", verifyToken, (req: Request, res: Response) => {
+  const { id } = req.params;
+  const updatedArticle = req.body;
 
-  ArticleModel.findOneAndUpdate({ slug }, req.body, { new: true })
+  ArticleModel.findByIdAndUpdate(id, updatedArticle, { new: true })
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update document with slug=${slug}. Maybe document was not found!`,
+          message: `Cannot update document with id=${id}. Maybe document was not found!`,
         });
       } else {
         res.send({ message: "Document was successfully updated." });
@@ -59,19 +60,19 @@ router.put("/:slug", verifyToken, (req: Request, res: Response) => {
     .catch((err) => {
       res
         .status(500)
-        .send({ message: `Error updating document with slug=${slug}` });
+        .send({ message: `Error updating document with id=${id}` });
     });
 });
 
-// Delete specific document by slug - DELETE
-router.delete("/:slug", verifyToken, (req: Request, res: Response) => {
-  const slug = req.params.slug;
+// Delete specific document by ID - DELETE
+router.delete("/:id", verifyToken, (req: Request, res: Response) => {
+  const id = req.params;
 
-  ArticleModel.findOneAndDelete({ slug })
+  ArticleModel.findOneAndDelete(id)
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot delete document with slug=${slug}. Maybe document was not found!`,
+          message: `Cannot delete document with id=${id}. Maybe document was not found!`,
         });
       } else {
         res.send({ message: "Document was successfully deleted." });
@@ -79,7 +80,7 @@ router.delete("/:slug", verifyToken, (req: Request, res: Response) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: `Error deleting document with slug=${slug}`,
+        message: `Error deleting document with id=${id}`,
         error: err,
       });
     });
@@ -108,7 +109,6 @@ function mapData(element: any): any {
     },
     content: element.content,
     title: element.title,
-    slug: element.slug,
   };
 }
 

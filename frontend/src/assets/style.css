@@ -1158,9 +1158,6 @@ i.pi-arrow-right:hover {
   .gallery .gallery-item .gallery-item-caption {
     padding: var(--grid-gap-2);
   }
-  .cta {
-    font-size: var(--font-size-6);
-  }
 }
 @media only screen and (max-width: 415px) {
   .gallery .grid-item {

@@ -26,11 +26,11 @@ const truncateText = (text, maxLength) => {
         <div class="grid-container">
           <div
             v-for="article in state.articles"
-            :key="article.slug"
+            :key="article._id"
             class="card"
             role="region"
           >
-            <router-link :to="`/blog/${article.slug}`">
+            <router-link :to="`/blog/${article._id}`">
               <img
                 class="reveal"
                 :alt="article.title"
@@ -67,7 +67,7 @@ const truncateText = (text, maxLength) => {
                   >
                 </div>
               </div>
-              <router-link class="title" :to="`/blog/${article.slug}`"
+              <router-link class="title" :to="`/blog/${article._id}`"
                 ><h2>{{ truncateText(article.title, 80) }}</h2></router-link
               >
             </div>
@@ -193,7 +193,7 @@ img {
     -ms-flex-pack: justify;
     justify-content: space-between;
     display: grid;
-    grid-template-columns: 38% 64%;
+    grid-template-columns: 38% 60%;
     grid-gap: var(--grid-gap-1);
   }
   h2 {
