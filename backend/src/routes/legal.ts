@@ -4,7 +4,7 @@ import { verifyToken } from "../validation";
 
 const router = Router();
 
-// Create employee - POST
+// Create document - POST
 router.post("/", verifyToken, (req: Request, res: Response) => {
   const data = req.body;
   employeeModel
@@ -17,7 +17,7 @@ router.post("/", verifyToken, (req: Request, res: Response) => {
     });
 });
 
-// Read all employees - GET
+// Read all document - GET
 router.get("/", (req: Request, res: Response) => {
   employeeModel
     .find()
@@ -29,7 +29,7 @@ router.get("/", (req: Request, res: Response) => {
     });
 });
 
-// Read specific employee by ID - GET
+// Read specific document by ID - GET
 router.get("/:id", (req: Request, res: Response) => {
   employeeModel
     .findById(req.params.id)
@@ -41,7 +41,7 @@ router.get("/:id", (req: Request, res: Response) => {
     });
 });
 
-// Update employee - PUT
+// Update document - PUT
 router.put("/:id", verifyToken, (req: Request, res: Response) => {
   const { id } = req.params;
   const updatedEmployee = req.body;
@@ -62,7 +62,7 @@ router.put("/:id", verifyToken, (req: Request, res: Response) => {
     });
 });
 
-// Delete employee - DELETE
+// Delete document - DELETE
 router.delete("/:id", verifyToken, (req: Request, res: Response) => {
   const { id } = req.params;
   employeeModel

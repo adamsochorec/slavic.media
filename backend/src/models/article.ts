@@ -2,7 +2,7 @@ import { date } from "joi";
 import mongoose, { Schema } from "mongoose";
 import { type } from "os";
 
-interface img extends Document {
+interface article extends Document {
   _id: string;
   author: {
     thumbnail: string;
@@ -38,5 +38,5 @@ const articleSchema: Schema = new Schema({
   title: { type: String, required: true },
 });
 
-const article = mongoose.model<img>("Article", articleSchema);
+const article = mongoose.model<article>("Article", articleSchema);
 export default article;

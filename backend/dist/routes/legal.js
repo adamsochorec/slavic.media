@@ -7,7 +7,7 @@ const express_1 = require("express");
 const legal_1 = __importDefault(require("../models/legal"));
 const validation_1 = require("../validation");
 const router = (0, express_1.Router)();
-// Create employee - POST
+// Create document - POST
 router.post("/", validation_1.verifyToken, (req, res) => {
     const data = req.body;
     legal_1.default
@@ -19,7 +19,7 @@ router.post("/", validation_1.verifyToken, (req, res) => {
         res.status(500).send({ message: err.message });
     });
 });
-// Read all employees - GET
+// Read all document - GET
 router.get("/", (req, res) => {
     legal_1.default
         .find()
@@ -30,7 +30,7 @@ router.get("/", (req, res) => {
         res.status(500).send({ message: err.message });
     });
 });
-// Read specific employee by ID - GET
+// Read specific document by ID - GET
 router.get("/:id", (req, res) => {
     legal_1.default
         .findById(req.params.id)
@@ -41,7 +41,7 @@ router.get("/:id", (req, res) => {
         res.status(500).send({ message: err.message });
     });
 });
-// Update employee - PUT
+// Update document - PUT
 router.put("/:id", validation_1.verifyToken, (req, res) => {
     const { id } = req.params;
     const updatedEmployee = req.body;
@@ -61,7 +61,7 @@ router.put("/:id", validation_1.verifyToken, (req, res) => {
         res.status(500).send({ message: err.message });
     });
 });
-// Delete employee - DELETE
+// Delete document - DELETE
 router.delete("/:id", validation_1.verifyToken, (req, res) => {
     const { id } = req.params;
     legal_1.default
