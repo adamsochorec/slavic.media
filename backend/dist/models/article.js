@@ -39,17 +39,7 @@ const articleSchema = new mongoose_1.Schema({
     },
     content: { type: [String], required: true },
     title: { type: String, required: true },
-    slug: { type: String, required: true, unique: true },
-});
-// Middleware to generate slug before saving
-articleSchema.pre("validate", function (next) {
-    if (!this.slug && this.title) {
-        this.slug = this.title
-            .toLowerCase()
-            .replace(/ /g, "-")
-            .replace(/[^\w-]+/g, "");
-    }
-    next();
+    _id: { type: String, required: true, unique: true },
 });
 const article = mongoose_1.default.model("Article", articleSchema);
 exports.default = article;
