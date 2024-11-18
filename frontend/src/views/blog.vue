@@ -27,11 +27,9 @@ const truncateText = (text, maxLength) => {
           <div
             v-for="article in state.articles"
             :key="article.slug"
-            :key="article.slug"
             class="card"
             role="region"
           >
-            <router-link :to="`/blog/${article.slug}`">
             <router-link :to="`/blog/${article.slug}`">
               <img
                 class="reveal"
