@@ -2,7 +2,8 @@ import { date } from "joi";
 import mongoose, { Schema } from "mongoose";
 import { type } from "os";
 
-interface img extends Document {
+interface article extends Document {
+  _id: string;
   author: {
     thumbnail: string;
     name: string;
@@ -17,10 +18,10 @@ interface img extends Document {
   };
   content: string[];
   title: string;
-  slug: string;
 }
 
 const articleSchema: Schema = new Schema({
+  _id: { type: String, required: true },
   author: {
     thumbnail: { type: String, required: true },
     name: { type: String, required: true },
@@ -35,18 +36,7 @@ const articleSchema: Schema = new Schema({
   },
   content: { type: [String], required: true },
   title: { type: String, required: true },
-  slug: { type: String, required: true, unique: true },
-});
-// Middleware to generate slug before saving
-articleSchema.pre("validate", function (next) {
-  if (!this.slug && this.title) {
-    this.slug = this.title
-      .toLowerCase()
-      .replace(/ /g, "-")
-      .replace(/[^\w-]+/g, "");
-  }
-  next();
 });
 
-const article = mongoose.model<img>("Article", articleSchema);
+const article = mongoose.model<article>("Article", articleSchema);
 export default article;

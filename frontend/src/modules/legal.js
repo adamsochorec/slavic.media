@@ -10,8 +10,8 @@ const useLegal = () => {
     newTitle: "",
     newModified: "",
     newContent: [],
-    legals: [], // Add legals array to the state
-    legal: {}, // Add legal object to the state
+    legals: [],
+    legal: {},
   });
 
   // Read all documents - GET

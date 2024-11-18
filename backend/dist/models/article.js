@@ -25,6 +25,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
 const articleSchema = new mongoose_1.Schema({
+    _id: { type: String, required: true },
     author: {
         thumbnail: { type: String, required: true },
         name: { type: String, required: true },
@@ -39,17 +40,6 @@ const articleSchema = new mongoose_1.Schema({
     },
     content: { type: [String], required: true },
     title: { type: String, required: true },
-    slug: { type: String, required: true, unique: true },
-});
-// Middleware to generate slug before saving
-articleSchema.pre("validate", function (next) {
-    if (!this.slug && this.title) {
-        this.slug = this.title
-            .toLowerCase()
-            .replace(/ /g, "-")
-            .replace(/[^\w-]+/g, "");
-    }
-    next();
 });
 const article = mongoose_1.default.model("Article", articleSchema);
 exports.default = article;
