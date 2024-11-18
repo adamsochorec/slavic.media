@@ -115,8 +115,8 @@ const copyHref = (href) => {
             v-html="content"
           ></section>
         </div>
-        <bannerLightroomPresets></bannerLightroomPresets>
       </div>
+
       <div v-else class="mb-4 p-8">
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
@@ -182,6 +182,9 @@ const copyHref = (href) => {
         ></Skeleton>
       </div>
     </article>
+    <div v-if="isDataLoaded">
+      <bannerLightroomPresets></bannerLightroomPresets>
+    </div>
   </div>
 </template>
 

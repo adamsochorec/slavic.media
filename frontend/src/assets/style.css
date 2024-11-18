@@ -518,6 +518,7 @@ button.submit-btn {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
+  font-size: var(--font-size-7);
   font-family: var(--logo-font);
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
@@ -525,12 +526,13 @@ button.submit-btn {
   border: 2px solid rgba(var(--secondary-color), 1);
   cursor: pointer;
   text-align: center;
+  display: flex;
+  align-items: center;
   z-index: 1;
   text-decoration: none !important;
 }
 button.submit-btn {
   min-width: 150px;
-  font-size: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1157,9 +1159,6 @@ i.pi-arrow-right:hover {
   }
   .gallery .gallery-item .gallery-item-caption {
     padding: var(--grid-gap-2);
-  }
-  .cta {
-    font-size: var(--font-size-6);
   }
 }
 @media only screen and (max-width: 415px) {

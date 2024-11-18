@@ -19,7 +19,7 @@ const useLegal = () => {
     try {
       const response = await fetch("https://api.slavic.media/legal/");
       const data = await response.json();
-      state.value.legals = data; // Correctly assign data to legals
+      state.value.legals = data;
     } catch (error) {
       console.error(error);
     }

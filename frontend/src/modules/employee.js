@@ -50,7 +50,6 @@ const useEmployee = () => {
     state,
     getAllEmployees,
     getSpecificEmployee,
-    employee,
     documentID,
   };
 };
