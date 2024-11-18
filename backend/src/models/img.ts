@@ -11,6 +11,7 @@ interface img extends Document {
 // Interface representing a gallery document in MongoDB.
 interface gallery extends Document {
   _id: string;
+  index: number;
   desc: string;
   title: string;
   columns: img[][];
@@ -25,6 +26,7 @@ const imgSchema = new Schema({
 
 const gallerySchema = new Schema({
   _id: { type: String, required: true },
+  index: { type: Number, required: true, unique: true },
   desc: { type: String, required: true },
   title: { type: String, required: true },
   columns: { type: [[imgSchema]], required: true },

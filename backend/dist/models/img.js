@@ -32,6 +32,7 @@ const imgSchema = new mongoose_1.Schema({
 });
 const gallerySchema = new mongoose_1.Schema({
     _id: { type: String, required: true },
+    index: { type: Number, required: true, unique: true },
     desc: { type: String, required: true },
     title: { type: String, required: true },
     columns: { type: [[imgSchema]], required: true },

@@ -18,6 +18,7 @@ const useImg = () => {
     try {
       const response = await fetch("https://api.slavic.media/img/");
       const data = await response.json();
+      data.sort((a, b) => a.index - b.index);
       state.value.img = data;
     } catch (error) {
       console.error(error);

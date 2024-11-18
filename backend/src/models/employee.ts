@@ -15,7 +15,7 @@ interface Employee extends Document {
 
 const employeeSchema = new Schema({
   _id: { type: String, required: true },
-  index: { type: Number, required: true },
+  index: { type: Number, required: true, unique: true },
   name: { type: String, required: true },
   department: { type: String, required: true },
   origin: { type: String, required: true },
