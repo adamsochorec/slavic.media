@@ -10,43 +10,48 @@ const route = useRoute();
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
-  await getSpecificArticle(route.params._id);
-  isDataLoaded.value = true;
-
-  // POP UP GALLERY
-  $(document).ready(function () {
-    $(".article-content").magnificPopup({
-      delegate: "a",
-      type: "image",
-      tLoading: "Loading",
-      mainClass: "mfp-img-mobile",
-      gallery: {
-        enabled: true,
+  try {
+    await getSpecificArticle(route.params.slug);
+    isDataLoaded.value = true;
+    console.log("isDataLoaded:", isDataLoaded.value);
+    // POP UP GALLERY
+    $(document).ready(function () {
+      $(".article-content").magnificPopup({
+        delegate: "a",
+        type: "image",
+        tLoading: "Loading",
+        mainClass: "mfp-img-mobile",
+        gallery: {
+          enabled: true,
+          fixedContentPos: "false",
+          overflowY: "scroll",
+          navigateByImgClick: true,
+          preload: [0, 1],
+        },
+        zoom: {
+          enabled: true,
+          duration: 300,
+        },
+        image: {
+          tError: "Error",
+          titleSrc: function (item) {
+            return item.el.attr("title");
+          },
+        },
+        callbacks: {
+          elementParse: function (item) {
+            item.src = item.el.attr("href");
+          },
+        },
         fixedContentPos: "false",
         overflowY: "scroll",
-        navigateByImgClick: true,
-        preload: [0, 1],
-      },
-      zoom: {
-        enabled: true,
-        duration: 300,
-      },
-      image: {
-        tError: "Error",
-        titleSrc: function (item) {
-          return item.el.attr("title");
-        },
-      },
-      callbacks: {
-        elementParse: function (item) {
-          item.src = item.el.attr("href");
-        },
-      },
-      fixedContentPos: "false",
-      overflowY: "scroll",
+      });
     });
-  });
-}); // COPY LINK
+  } catch (error) {
+    console.error("Error loading article:", error);
+  }
+});
+
 const copyHref = (href) => {
   navigator.clipboard.writeText(href);
 };
@@ -100,7 +105,7 @@ const copyHref = (href) => {
                 autoHide: false,
               }"
               @click="
-                copyHref(`https://slavic.media/blog/${state.article._id}`)
+                copyHref(`https://slavic.media/blog/${state.article.slug}`)
               "
             >
               <i class="pi pi-link"></i>
@@ -113,9 +118,9 @@ const copyHref = (href) => {
             v-for="(content, index) in state.article.content"
             :key="index"
             v-html="content"
-            v-add-class
           ></section>
         </div>
+        <bannerLightroomPresets></bannerLightroomPresets>
       </div>
       <div v-else class="mb-4 p-8">
         <Skeleton
@@ -182,7 +187,6 @@ const copyHref = (href) => {
         ></Skeleton>
       </div>
     </article>
-    <bannerLightroomPresets></bannerLightroomPresets>
   </div>
 </template>
 

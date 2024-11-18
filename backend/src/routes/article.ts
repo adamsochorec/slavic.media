@@ -1,15 +1,17 @@
 // ARTICLE.TS-1 CONTEXT
 import { Router, Request, Response } from "express";
-import articleModel from "../models/article";
+import ArticleModel from "../models/article";
 import { verifyToken } from "../validation";
 
 const router = Router();
 
+// CRUD operations
+
 // Create document - POST
 router.post("/", verifyToken, (req: Request, res: Response) => {
   const data = req.body;
-  articleModel
-    .create(data)
+
+  ArticleModel.create(data)
     .then((insertedData) => {
       res.status(201).send(insertedData);
     })
@@ -18,10 +20,20 @@ router.post("/", verifyToken, (req: Request, res: Response) => {
     });
 });
 
-// Read all document - GET
+// Read all documents - GET
 router.get("/", (req: Request, res: Response) => {
-  articleModel
-    .find()
+  ArticleModel.find()
+    .then((data) => {
+      res.send(mapArray(data));
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+});
+
+// Read specific document by slug - GET
+router.get("/:slug", (req: Request, res: Response) => {
+  ArticleModel.findOne({ slug: req.params.slug })
     .then((data) => {
       res.send(data);
     })
@@ -30,55 +42,74 @@ router.get("/", (req: Request, res: Response) => {
     });
 });
 
-// Read specific document by ID - GET
-router.get("/:id", (req: Request, res: Response) => {
-  articleModel
-    .findById(req.params.id)
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({ message: err.message });
-    });
-});
+// Update specific document by slug - PUT
+router.put("/:slug", verifyToken, (req: Request, res: Response) => {
+  const slug = req.params.slug;
 
-// Update document - PUT
-router.put("/:id", verifyToken, (req: Request, res: Response) => {
-  const { id } = req.params;
-  const updatedEmployee = req.body;
-
-  articleModel
-    .findByIdAndUpdate(id, updatedEmployee, { new: true })
+  ArticleModel.findOneAndUpdate({ slug }, req.body, { new: true })
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update document with id=${id}. Maybe document was not found!`,
+          message: `Cannot update document with slug=${slug}. Maybe document was not found!`,
         });
       } else {
-        res.send(data);
+        res.send({ message: "Document was successfully updated." });
       }
     })
     .catch((err) => {
-      res.status(500).send({ message: err.message });
+      res
+        .status(500)
+        .send({ message: `Error updating document with slug=${slug}` });
     });
 });
 
-// Delete document - DELETE
-router.delete("/:id", verifyToken, (req: Request, res: Response) => {
-  const { id } = req.params;
-  articleModel
-    .findByIdAndDelete(id)
+// Delete specific document by slug - DELETE
+router.delete("/:slug", verifyToken, (req: Request, res: Response) => {
+  const slug = req.params.slug;
+
+  ArticleModel.findOneAndDelete({ slug })
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update document with id=${id}. Maybe document was not found!`,
+          message: `Cannot delete document with slug=${slug}. Maybe document was not found!`,
         });
       } else {
-        res.send({ message: "Document was deleted successfully!" });
+        res.send({ message: "Document was successfully deleted." });
       }
     })
     .catch((err) => {
-      res.status(500).send({ message: err.message });
+      res.status(500).send({
+        message: `Error deleting document with slug=${slug}`,
+        error: err,
+      });
     });
 });
+
+// Function to map an array of documents to a new format
+function mapArray(inputArray: any[]): any[] {
+  return inputArray.map((element) => mapData(element));
+}
+
+// Function to map a single document to a new format
+function mapData(element: any): any {
+  return {
+    id: element._id,
+    author: {
+      thumbnail: element.author.thumbnail,
+      name: element.author.name,
+      url: element.author.url,
+    },
+    metadata: {
+      date: element.metadata.date,
+      keywords: element.metadata.keywords,
+      linkedin: element.metadata.linkedin,
+      thumbnail: element.metadata.thumbnail,
+      length: element.metadata.length,
+    },
+    content: element.content,
+    title: element.title,
+    slug: element.slug,
+  };
+}
+
 export default router;

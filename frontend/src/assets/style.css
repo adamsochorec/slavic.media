@@ -525,12 +525,12 @@ button.submit-btn {
   border: 2px solid rgba(var(--secondary-color), 1);
   cursor: pointer;
   text-align: center;
-  font-size: var(--font-size-7);
   z-index: 1;
   text-decoration: none !important;
 }
 button.submit-btn {
   min-width: 150px;
+  font-size: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
