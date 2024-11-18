@@ -10,48 +10,43 @@ const route = useRoute();
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
-  try {
-    await getSpecificArticle(route.params.slug);
-    isDataLoaded.value = true;
-    console.log("isDataLoaded:", isDataLoaded.value);
-    // POP UP GALLERY
-    $(document).ready(function () {
-      $(".article-content").magnificPopup({
-        delegate: "a",
-        type: "image",
-        tLoading: "Loading",
-        mainClass: "mfp-img-mobile",
-        gallery: {
-          enabled: true,
-          fixedContentPos: "false",
-          overflowY: "scroll",
-          navigateByImgClick: true,
-          preload: [0, 1],
-        },
-        zoom: {
-          enabled: true,
-          duration: 300,
-        },
-        image: {
-          tError: "Error",
-          titleSrc: function (item) {
-            return item.el.attr("title");
-          },
-        },
-        callbacks: {
-          elementParse: function (item) {
-            item.src = item.el.attr("href");
-          },
-        },
+  await getSpecificArticle(route.params.slug);
+  isDataLoaded.value = true;
+
+  // POP UP GALLERY
+  $(document).ready(function () {
+    $(".article-content").magnificPopup({
+      delegate: "a",
+      type: "image",
+      tLoading: "Loading",
+      mainClass: "mfp-img-mobile",
+      gallery: {
+        enabled: true,
         fixedContentPos: "false",
         overflowY: "scroll",
-      });
+        navigateByImgClick: true,
+        preload: [0, 1],
+      },
+      zoom: {
+        enabled: true,
+        duration: 300,
+      },
+      image: {
+        tError: "Error",
+        titleSrc: function (item) {
+          return item.el.attr("title");
+        },
+      },
+      callbacks: {
+        elementParse: function (item) {
+          item.src = item.el.attr("href");
+        },
+      },
+      fixedContentPos: "false",
+      overflowY: "scroll",
     });
-  } catch (error) {
-    console.error("Error loading article:", error);
-  }
-});
-
+  });
+}); // COPY LINK
 const copyHref = (href) => {
   navigator.clipboard.writeText(href);
 };

@@ -83,14 +83,82 @@ const useArticle = () => {
 
   // Read specific documents by ID (SLUG) - GET
   const getSpecificArticle = async (slug) => {
+  // Read specific documents by ID (SLUG) - GET
+  const getSpecificArticle = async (slug) => {
     try {
       const response = await axios.get(`https://api.slavic.media/blog/${slug}`);
       console.log("API Response:", response.data); // Log the response
+      const response = await axios.get(`https://api.slavic.media/blog/${slug}`);
       state.value.article = response.data;
     } catch (error) {
       console.error("Error fetching specific article:", error);
     }
   };
+
+  // Update document - PUT
+  /*  const editArticle = async () => {
+    try {
+      if (!documentID.value) {
+        throw new Error("No ID provided");
+      }
+      if (
+        !state.value.newTitle ||
+        !state.value.newContent ||
+        !state.value.newDate ||
+        !state.value.newAuthor ||
+        !state.value.newThumbnail
+      ) {
+        console.error("All fields must be filled out");
+        return;
+      }
+      const requestOptions = {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.lsToken,
+        },
+        body: JSON.stringify({
+          title: state.value.newTitle,
+          content: state.value.newContent,
+          date: state.value.newDate,
+          author: state.value.newAuthor,
+          thumbnail: state.value.newThumbnail,
+        }),
+      };
+      const url = "https://api.slavic.media/blog/" + documentID.value;
+      const response = await fetch(url, requestOptions);
+      if (!response.ok) {
+        throw new Error("Failed to edit document");
+      }
+      router.push("/blog");
+    } catch (error) {
+      console.error("Error editing document:", error);
+    }
+  }; */
+
+  // Delete article - DELETE
+  /*   const deleteArticle = async (article) => {
+    try {
+      const requestOptions = {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.lsToken,
+        },
+      };
+      const response = await fetch(
+        `https://api.slavic.media/blog/${article.id}`,
+        requestOptions
+      );
+      if (!response.ok) {
+        throw new Error("Failed to delete document");
+      }
+      await getAllArticles();
+    } catch (error) {
+      console.error("Error deleting document:", error);
+    }
+  };
+ */
 
   // Update document - PUT
   /*  const editArticle = async () => {
