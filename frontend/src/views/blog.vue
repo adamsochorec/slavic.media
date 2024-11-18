@@ -194,8 +194,6 @@ img {
     -ms-flex-pack: justify;
     justify-content: space-between;
     display: grid;
-    grid-template-columns: 38% 60%;
-    grid-gap: var(--grid-gap-2);
     grid-template-columns: 38% 64%;
     grid-gap: var(--grid-gap-1);
   }
