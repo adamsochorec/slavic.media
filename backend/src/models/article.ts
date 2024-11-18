@@ -3,7 +3,6 @@ import mongoose, { Schema } from "mongoose";
 import { type } from "os";
 
 interface article extends Document {
-  _id: string;
   author: {
     thumbnail: string;
     name: string;
@@ -16,6 +15,7 @@ interface article extends Document {
     thumbnail: string;
     length: number;
   };
+  _id: string;
   content: string[];
   title: string;
 }
