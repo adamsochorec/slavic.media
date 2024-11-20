@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, nextTick, watch } from "vue";
+import { ref, onMounted, nextTick, watch, computed } from "vue";
 import requestAProposal from "@/components/request-a-proposal.vue";
 import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
 import $ from "jquery";
@@ -7,6 +7,7 @@ import "magnific-popup";
 import useImg from "@/modules/img";
 
 const isDataLoaded = ref(false);
+const showMore = ref(false);
 const { state, getAllImg } = useImg();
 
 async function initializeLightbox() {
@@ -50,6 +51,8 @@ onMounted(async () => {
 watch(isDataLoaded, (loaded) => {
   if (loaded) initializeLightbox();
 });
+
+const galleryHeight = computed(() => (showMore.value ? "auto" : "70vh"));
 </script>
 
 <template>
@@ -94,7 +97,11 @@ watch(isDataLoaded, (loaded) => {
         <hr class="semi" role="separator" />
       </article>
 
-      <article v-if="isDataLoaded" class="popup-gallery">
+      <article
+        v-if="isDataLoaded"
+        class="popup-gallery"
+        :style="{ height: galleryHeight }"
+      >
         <div class="row">
           <div
             v-for="(column, columnIndex) in gallery.columns"
@@ -117,6 +124,9 @@ watch(isDataLoaded, (loaded) => {
             </div>
           </div>
         </div>
+        <button @click="showMore = !showMore" class="load-more-btn">
+          {{ showMore ? "Show Less" : "Load More" }}
+        </button>
       </article>
     </template>
     <article v-if="isDataLoaded">
@@ -229,5 +239,20 @@ small a {
     flex: 25%;
     max-width: 25%;
   }
+}
+
+.load-more-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.load-more-btn:hover {
+  background-color: #0056b3;
 }
 </style>
