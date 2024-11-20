@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import heroVideo from "@/components/hero-video.vue";
-import contactForm from "@/components/contact-form.vue";
+import requestAProposal from "@/components/request-a-proposal.vue";
 import swiperClients from "@/components/swiper-clients.vue";
 import swiperReviews from "@/components/swiper-reviews.vue";
 
@@ -107,14 +107,8 @@ onMounted(() => {
       </article>
       <!-- GALLERY END -->
 
-      <contactForm></contactForm>
-
       <section class="flex-center">
-        <a class="popup-with-form reveal" href="#request-a-proposal">
-          <div class="cta">
-            Request a Proposal<i class="pi pi-arrow-right"></i>
-          </div>
-        </a>
+        <requestAProposal></requestAProposal>
       </section>
       <hr class="reveal" role="separator" />
 

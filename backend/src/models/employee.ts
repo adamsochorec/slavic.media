@@ -1,7 +1,7 @@
 import { required } from "joi";
 import mongoose, { Schema, Document } from "mongoose";
 
-interface Employee extends Document {
+interface employee extends Document {
   _id: string;
   index: number;
   name: string;
@@ -25,5 +25,5 @@ const employeeSchema = new Schema({
   github: { type: String, required: false },
 });
 
-const employeeModel = mongoose.model<Employee>("Employee", employeeSchema);
+const employeeModel = mongoose.model<employee>("Employee", employeeSchema);
 export default employeeModel;

@@ -34,6 +34,7 @@ app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition));
 
 import articleRoutes from "./routes/article";
 import imgRoutes from "./routes/img";
+import videoRoutes from "./routes/video";
 import authRoutes from "./routes/auth";
 import employeeRoutes from "./routes/employee";
 import legalRoutes from "./routes/legal";
@@ -62,6 +63,7 @@ app.get("/", (req: Request, res: Response) => {
 // Route handlers
 app.use("/blog", articleRoutes);
 app.use("/img", imgRoutes);
+app.use("/video", videoRoutes);
 app.use("/user", authRoutes);
 app.use("/employee", employeeRoutes);
 app.use("/legal", legalRoutes);

@@ -2,6 +2,9 @@
 import { onMounted, ref } from "vue";
 import $ from "jquery";
 import swiperReels from "@/components/swiper-reels.vue";
+import useVideo from "../modules/video";
+
+const { getAllVideo, state } = useVideo();
 
 onMounted(() => {
   // Initialize Magnific Popup
@@ -31,77 +34,92 @@ onMounted(() => {
   });
 });
 
-const showreel = ref([
+const videoGallery = ref([
   {
-    img: "https://slavic.media/img/cover-carboncapture.jpg",
-    iconClass: "pi pi-play-circle bubble",
-    flagTitle: "Flag of Germany",
-    flagHref: "#flag-germany",
-    title: "Carbon Capture",
-    year: "2024",
-    client: "innomoctics.com",
-    video: "https://vimeo.com/1023689566",
+    _id: "showreel",
+    desc: "Deep eye contact and powerful visuals that connect—each frame crafted to showcase your product in a way that inspires and leaves a lasting impression.",
+    title: "Brand Showreel",
+    videos: [
+      {
+        img: "carboncapture",
+        index: 0,
+        flag: "germany",
+        title: "Carbon Capture",
+        year: "2024",
+        client: "innomoctics.com",
+        id: "1023689566",
+      },
+      {
+        img: "norwegianfjords",
+        index: 1,
+        flag: "norway",
+        title: "Norwegian Fjords",
+        year: "2024",
+        client: "timetravels.com",
+        id: "950575511",
+      },
+      {
+        img: "finnishlapland",
+        index: 2,
+        title: "Finnish Lapland",
+        year: "2024",
+        client: "timetravels.com",
+        id: "950575512",
+      },
+      {
+        img: "swedishlapland",
+        index: 3,
+        flag: "sweden",
+        title: "Swedish Lapland",
+        year: "2023",
+        client: "timetravels.com",
+        id: "942145699",
+      },
+    ],
   },
   {
-    img: "https://slavic.media/img/cover-norwegianfjords.jpg",
-    iconClass: "pi pi-play-circle bubble",
-    flagTitle: "Flag of Norway",
-    flagHref: "#flag-norway",
-    title: "Norwegian Fjords",
-    year: "2024",
-    client: "timetravels.com",
-    video: "https://vimeo.com/950575511",
-  },
-  {
-    img: "https://slavic.media/img/cover-finnishlapland.jpg",
-    iconClass: "pi pi-play-circle bubble",
-    flagTitle: "Flag of Finland",
-    flagHref: "#flag-finland",
-    title: "Finnish Lapland",
-    year: "2024",
-    client: "timetravels.com",
-    video: "https://vimeo.com/950575512",
-  },
-  {
-    img: "https://slavic.media/img/cover-swedishlapland.jpg",
-    iconClass: "pi pi-play-circle bubble",
-    flagTitle: "Flag of Sweden",
-    flagHref: "#flag-sweden",
-    title: "Swedish Lapland",
-    year: "2023",
-    client: "timetravels.com",
-    video: "https://vimeo.com/942145699",
+    _id: "narrative",
+    desc: "Narratives, documentaries, and portraits that bring your story to life capturing moments that move, inspire, and leave a lasting imprint.",
+    title: "Cinematic Narrative",
+    videos: [
+      {
+        img: "huskyfarm",
+        index: 0,
+        flag: "finland",
+        title: "Husky Farm Veskoniemi",
+        year: "2024",
+        client: "timetravels.com",
+        id: "956644060",
+      },
+      {
+        img: "husetfundament",
+        index: 1,
+        flag: "denmark",
+        title: "Huset Fundament",
+        year: "2023",
+        client: "husetfundament.dk",
+        id: "942148434",
+      },
+    ],
   },
 ]);
 
-const narrative = ref([
-  {
-    img: "https://slavic.media/img/cover-huskyfarm.jpg",
-    iconClass: "pi pi-play-circle bubble",
-    flagTitle: "Flag of FInland",
-    flagHref: "#flag-finland",
-    title: "Husky Farm Veskoniemi",
-    year: "2024",
-    client: "timetravels.com",
-    video: "https://vimeo.com/956644060",
-  },
-  {
-    img: "https://slavic.media/img/cover-husetfundament.jpg",
-    iconClass: "pi pi-play-circle bubble",
-    flagTitle: "Flag of Denmark",
-    flagHref: "#flag-denmark",
-    title: "Huset Fundament",
-    year: "2023",
-    client: "husetfundament.dk",
-    video: "https://vimeo.com/942148434",
-  },
-]);
+const showreel = ref(null);
+const narrative = ref(null);
+
+onMounted(() => {
+  showreel.value = videoGallery.value.find(
+    (gallery) => gallery._id === "showreel"
+  );
+  narrative.value = videoGallery.value.find(
+    (gallery) => gallery._id === "narrative"
+  );
+});
 </script>
+
 <template>
   <div class="main" style="margin-top: 120px">
     <article class="wrapper-wide">
-      <contactForm></contactForm>
-
       <!-- PAGE INTRO -->
       <div class="grid-container caption-container">
         <div class="grid-item">
@@ -116,57 +134,53 @@ const narrative = ref([
             crafted to captivate, impress, and showcase your vision with
             creative precision.
           </p>
-          <a class="popup-with-form reveal" href="#request-a-proposal">
-            <div class="cta">
-              Request a Proposal<i class="pi pi-arrow-right"></i>
-            </div>
-          </a>
         </div>
         <div id="showreel"></div>
       </div>
     </article>
-    <!-- GALLERY 1 -->
-    <article class="wrapper-wide" id="video">
+
+    <hr class="semi" role="separator" />
+
+    <!-- SHOWREEL GALLERY -->
+    <article class="wrapper-wide" id="showreel" v-if="showreel">
       <hr class="reveal" role="separator" />
       <div class="grid-container caption-container">
         <div class="grid-item reveal">
-          <h2>Brand <span class="highlited">Showreel</span></h2>
+          <h2>{{ showreel.title }}</h2>
         </div>
         <div class="grid-item">
-          <p class="reveal">
-            Deep eye contact and powerful visuals that connect—each frame
-            crafted to showcase your product in a way that inspires and leaves a
-            lasting impression.
-          </p>
+          <p class="reveal">{{ showreel.desc }}</p>
+          <requestAProposal></requestAProposal>
         </div>
       </div>
       <hr class="semi" role="separator" />
-    </article>
-    <!-- GALLERY 1.1 -->
-    <article
-      class="wrapper-wide gallery"
-      id="gallery-video"
-      aria-label="Video Gallery"
-    >
-      <div
-        v-for="(item, index) in showreel"
-        :key="index"
-        class="gallery-item reveal"
-      >
-        <img :src="item.img" :alt="item.title" />
-        <div class="gallery-item-caption">
-          <i :class="item.iconClass"></i>
-          <svg class="flag note" :title="item.flagTitle">
-            <use :href="item.flagHref"></use>
-          </svg>
-          <h4>{{ item.title }}</h4>
-          <p>
-            {{ item.year }}&nbsp;|&nbsp;<span>{{ item.client }}</span>
-          </p>
-          <a :href="item.video" target="_blank" rel="noopener noreferrer"></a>
+      <div class="gallery">
+        <div
+          v-for="(video, index) in showreel.videos"
+          :key="index"
+          class="gallery-item reveal"
+        >
+          <img
+            :src="`https://slavic.media/img/cover-${video.img}.jpg`"
+            :alt="video.title"
+          />
+          <div class="gallery-item-caption">
+            <i class="pi pi-play-circle bubble"></i>
+            <svg class="flag note" :title="'Flag of ' + video.flag">
+              <use :href="`#flag-${video.flag}`"></use>
+            </svg>
+            <h4>{{ video.title }}</h4>
+            <p>
+              {{ video.year }} | <span>{{ video.client }}</span>
+            </p>
+            <a
+              :href="`https://vimeo.com/${video.id}`"
+              target="_blank"
+              rel="noopener noreferrer"
+            ></a>
+          </div>
         </div>
       </div>
-      <div id="content"></div>
     </article>
 
     <!-- SWIPER GALLERY -->
@@ -196,58 +210,50 @@ const narrative = ref([
       <div id="narrative"></div>
     </article>
 
-    <!-- GALLERY 2 -->
-    <article class="wrapper-wide" id="video">
+    <!-- NARRATIVE GALLERY -->
+    <article class="wrapper-wide" id="narrative" v-if="narrative">
       <hr class="reveal" role="separator" />
       <div class="grid-container caption-container">
         <div class="grid-item reveal">
-          <h2>Cinematic <span class="highlited">Narrative</span></h2>
+          <h2>{{ narrative.title }}</h2>
         </div>
         <div class="grid-item">
-          <p class="reveal">
-            Narratives, documentaries, and portraits that bring your story to
-            life capturing moments that move, inspire, and leave a lasting
-            imprint.
-          </p>
+          <p class="reveal">{{ narrative.desc }}</p>
+          <requestAProposal></requestAProposal>
         </div>
       </div>
       <hr class="semi" role="separator" />
-    </article>
-    <!-- GALLERY 2.1 -->
-    <article
-      class="wrapper-wide gallery"
-      id="gallery-video"
-      aria-label="Video Gallery"
-    >
-      <div
-        v-for="(item, index) in narrative"
-        :key="index"
-        class="gallery-item reveal"
-      >
-        <img :src="item.img" :alt="item.alt" />
-        <div class="gallery-item-caption">
-          <i :class="item.iconClass"></i>
-          <svg class="flag note" :title="item.flagTitle">
-            <use :href="item.flagHref"></use>
-          </svg>
-          <h4>{{ item.title }}</h4>
-          <p>
-            {{ item.year }}&nbsp;|&nbsp;<span>{{ item.client }}</span>
-          </p>
-          <a :href="item.video" target="_blank" rel="noopener noreferrer"></a>
+      <div class="gallery">
+        <div
+          v-for="(video, index) in narrative.videos"
+          :key="index"
+          class="gallery-item reveal"
+        >
+          <img
+            :src="`https://slavic.media/img/cover-${video.img}.jpg`"
+            :alt="video.title"
+          />
+          <div class="gallery-item-caption">
+            <i class="pi pi-play-circle bubble"></i>
+            <svg class="flag note" :title="'Flag of ' + video.flag">
+              <use :href="`#flag-${video.flag}`"></use>
+            </svg>
+            <h4>{{ video.title }}</h4>
+            <p>
+              {{ video.year }} | <span>{{ video.client }}</span>
+            </p>
+            <a
+              :href="`https://vimeo.com/${video.id}`"
+              target="_blank"
+              rel="noopener noreferrer"
+            ></a>
+          </div>
         </div>
       </div>
-      <!-- NARRATIVE ITEMS END -->
     </article>
-    <section class="flex-center">
-      <router-link class="popup-with-form reveal" href="#request-a-proposal">
-        <div class="cta">
-          Request a Proposal<i class="pi pi-arrow-right"></i>
-        </div>
-      </router-link>
-    </section>
   </div>
 </template>
+
 <style lang="scss" scoped>
 .gallery {
   display: grid;

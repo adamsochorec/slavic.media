@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, nextTick, watch } from "vue";
-import contactForm from "@/components/contact-form.vue";
+import requestAProposal from "@/components/request-a-proposal.vue";
 import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
 import $ from "jquery";
 import "magnific-popup";
@@ -55,8 +55,6 @@ watch(isDataLoaded, (loaded) => {
 <template>
   <div class="main" style="margin-top: 120px">
     <article v-if="isDataLoaded" class="wrapper-wide">
-      <contactForm />
-
       <!-- PAGE INTRO -->
       <div class="grid-container caption-container">
         <div class="grid-item">
@@ -70,11 +68,6 @@ watch(isDataLoaded, (loaded) => {
             outdoors, our photography captures authentic moments, rich in detail
             and emotion, that tell your story.
           </p>
-          <a class="popup-with-form" href="#request-a-proposal">
-            <div class="cta reveal">
-              Request a Proposal <i class="pi pi-arrow-right"></i>
-            </div>
-          </a>
         </div>
       </div>
     </article>
@@ -94,6 +87,8 @@ watch(isDataLoaded, (loaded) => {
           </div>
           <div class="grid-item">
             <p class="reveal">{{ gallery.desc }}</p>
+
+            <requestAProposal></requestAProposal>
           </div>
         </div>
         <hr class="semi" role="separator" />

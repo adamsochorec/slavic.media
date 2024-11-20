@@ -16,6 +16,7 @@ declare module 'vue' {
     Footer: typeof import('./src/components/Footer.vue')['default']
     HeroVideo: typeof import('./src/components/hero-video.vue')['default']
     NavBar: typeof import('./src/components/nav-bar.vue')['default']
+    RequestAProposal: typeof import('./src/components/request-a-proposal.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Skeleton: typeof import('primevue/skeleton')['default']

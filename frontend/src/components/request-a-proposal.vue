@@ -5,130 +5,122 @@ import "magnific-popup";
 
 onMounted(() => {
   $(document).ready(function () {
-    $(".popup-with-form").magnificPopup({
-      type: "inline",
-      preloader: "false",
-      focus: "#name",
-      overflowY: "scroll",
-      fixedContentPos: "false",
-      callbacks: {
-        beforeOpen: function () {
-          if ($(window).width() < 700) {
-            this.st.focus = false;
-          } else {
-            this.st.focus = "#name";
-          }
+    $("#request-a-proposal-button").on("click", function (e) {
+      e.preventDefault();
+      $.magnificPopup.open({
+        items: {
+          src: "#request-a-proposal",
+          type: "inline",
         },
-      },
+        preloader: "false",
+        focus: "#name",
+        overflowY: "scroll",
+        fixedContentPos: "false",
+        callbacks: {
+          beforeOpen: function () {
+            if ($(window).width() < 700) {
+              this.st.focus = false;
+            } else {
+              this.st.focus = "#name";
+            }
+          },
+        },
+      });
     });
   });
 });
 </script>
 
 <template>
-  <div class="white-popup-block mfp-hide">
-    <article
-      id="request-a-proposal"
-      class="wrapper-standard"
-      role="article"
-      aria-label="Contact Form"
-    >
-      <section
-        class="contact-form-section"
-        role="region"
-        aria-label="Contact Form Section"
+  <div>
+    <!-- Popup Trigger -->
+    <button class="popup-with-form reveal" id="request-a-proposal-button">
+      <div class="cta">Request a Proposal<i class="pi pi-arrow-right"></i></div>
+    </button>
+
+    <!-- Popup Content -->
+    <div id="request-a-proposal" class="white-popup-block mfp-hide">
+      <article
+        class="wrapper-standard"
+        role="article"
+        aria-label="Contact Form"
       >
-        <h3 role="heading" aria-level="3">
-          Request a
-          <span class="highlited tuscher" role="presentation">Proposal</span>
-        </h3>
-        <br />
-        <form
-          id="contactForm"
-          onclick="loading()"
-          action="https://formspree.io/f/mwkgdyez"
-          method="POST"
-          role="form"
-          aria-labelledby="contactFormHeading"
-          aria-describedby="This form is used to request a proposal."
+        <section
+          class="contact-form-section"
+          role="region"
+          aria-label="Contact Form Section"
         >
-          <div
-            class="grid-container contact-form"
-            role="group"
-            aria-labelledby="contactFormGroupLabel"
-            aria-describedby="This group contains the contact form fields."
+          <h3 role="heading" aria-level="3">
+            Request a
+            <span class="highlited tuscher" role="presentation">Proposal</span>
+          </h3>
+          <br />
+          <form
+            id="contactForm"
+            action="https://formspree.io/f/mwkgdyez"
+            method="POST"
+            role="form"
+            aria-labelledby="contactFormHeading"
+            aria-describedby="This form is used to request a proposal."
           >
-            <div class="grid-item" aria-label="Email">
-              <p><label for="email">Email *</label></p>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder=""
-                required
-                autocomplete="email"
-                aria-required="true"
-                aria-labelledby="email"
-                aria-describedby="Your email address."
-              />
-              <br />
-            </div>
-            <div class="grid-item" aria-label="Name">
-              <p>
-                <label for="name">Name *</label>
-              </p>
-              <input
-                type="text"
-                id="name"
-                required
-                name="name"
-                placeholder=""
-                autocomplete="name"
-                aria-required="true"
-                aria-labelledby="name"
-                aria-describedby="Your name."
-              />
-              <br />
-            </div>
-          </div>
-          <div role="group" aria-label="Project Description and Submit Button">
-            <p>
-              <label for="project">Project description *</label>
-            </p>
-            <textarea
-              minlength="10"
-              name="project"
-              rows="4"
-              required
-              id="project"
-              placeholder=""
-              aria-required="true"
-              aria-labelledby="project"
-              aria-describedby="Describe your project here."
-            ></textarea>
-            <button
-              class="submit-btn"
-              aria-label="Submit"
-              role="button"
-              aria-labelledby="submitBtn"
+            <div
+              class="grid-container contact-form"
+              role="group"
+              aria-labelledby="contactFormGroupLabel"
+              aria-describedby="This group contains the contact form fields."
             >
-              Submit<i class="pi pi-arrow-right"></i>
-            </button>
-            <input
-              type="hidden"
-              name="_next"
-              value="https://slavic.media/success"
-              aria-hidden="true"
-            />
-          </div>
-        </form>
-      </section>
-    </article>
+              <div class="grid-item" aria-label="Email">
+                <p><label for="email">Email *</label></p>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  autocomplete="email"
+                />
+                <br />
+              </div>
+              <div class="grid-item" aria-label="Name">
+                <p><label for="name">Name *</label></p>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  name="name"
+                  autocomplete="name"
+                />
+                <br />
+              </div>
+            </div>
+            <div
+              role="group"
+              aria-label="Project Description and Submit Button"
+            >
+              <p><label for="project">Project description *</label></p>
+              <textarea
+                minlength="10"
+                name="project"
+                rows="4"
+                required
+                id="project"
+              ></textarea>
+              <button class="submit-btn" aria-label="Submit" role="button">
+                Submit<i class="pi pi-arrow-right"></i>
+              </button>
+              <input
+                type="hidden"
+                name="_next"
+                value="https://slavic.media/success"
+              />
+            </div>
+          </form>
+        </section>
+      </article>
+    </div>
   </div>
 </template>
 <style scoped>
 article {
-  overflow: scroll;
   height: var(--dimension-1);
 }
 .contact-form-section .contact-form .grid-item:nth-child(odd) {
