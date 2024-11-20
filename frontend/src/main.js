@@ -6,9 +6,11 @@ import Nora from "@primevue/themes/nora";
 import { definePreset } from "@primevue/themes";
 import App from "./App.vue";
 import router from "./router";
+import { createHead } from "@vueuse/head"; // Import @vueuse/head
 import "primeicons/primeicons.css";
 
 const app = createApp(App);
+
 const slavicmedia = definePreset(Nora, {
   semantic: {
     primary: {
@@ -38,8 +40,11 @@ app.use(PrimeVue, {
   },
 });
 
-// Use the router
 app.use(router);
+
+// Add @vueuse/head for meta management
+const head = createHead();
+app.use(head);
 
 // Mount the app to the element with the id 'app'
 app.mount("#app");

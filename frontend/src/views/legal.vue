@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import legal from "../modules/legal";
+import legal from "@/modules/legal";
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 const { state, getAllLegal } = legal();
 const isDataLoaded = ref(false);

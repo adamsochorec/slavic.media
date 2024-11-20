@@ -1,52 +1,83 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import useArticle from "../modules/article";
+import useArticle from "@/modules/article";
 import { useRoute } from "vue-router";
 import $ from "jquery";
+import { useHead } from "@vueuse/head";
 
 const { getSpecificArticle, state } = useArticle();
 const route = useRoute();
-
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
   await getSpecificArticle(route.params.slug);
   isDataLoaded.value = true;
 
-  // POP UP GALLERY
-  $(document).ready(function () {
-    $(".article-content").magnificPopup({
-      delegate: "a",
-      type: "image",
-      tLoading: "Loading",
-      mainClass: "mfp-img-mobile",
-      gallery: {
-        enabled: true,
-        fixedContentPos: "false",
-        overflowY: "scroll",
-        navigateByImgClick: true,
-        preload: [0, 1],
+  // META
+  useHead({
+    meta: [
+      {
+        property: "og:title",
+        content: state.article.title || "Blog | Slavic Media",
       },
-      zoom: {
-        enabled: true,
-        duration: 300,
+      {
+        property: "title",
+        content: state.article.title || "Blog | Slavic Media",
       },
-      image: {
-        tError: "Error",
-        titleSrc: function (item) {
-          return item.el.attr("title");
-        },
+      {
+        property: "og:image",
+        content: state.article.thumbnail,
       },
-      callbacks: {
-        elementParse: function (item) {
-          item.src = item.el.attr("href");
-        },
+      {
+        property: "msapplication-TileImage",
+        content: state.article.thumbnail,
       },
+      {
+        property: "og:keywords",
+        content: state.article.metadata.keywords,
+      },
+      {
+        property: "keywords",
+        content: state.article.metadata.keywords,
+      },
+    ],
+  });
+});
+
+// POP UP GALLERY
+$(document).ready(function () {
+  $(".article-content").magnificPopup({
+    delegate: "a",
+    type: "image",
+    tLoading: "Loading",
+    mainClass: "mfp-img-mobile",
+    gallery: {
+      enabled: true,
       fixedContentPos: "false",
       overflowY: "scroll",
-    });
+      navigateByImgClick: true,
+      preload: [0, 1],
+    },
+    zoom: {
+      enabled: true,
+      duration: 300,
+    },
+    image: {
+      tError: "Error",
+      titleSrc: function (item) {
+        return item.el.attr("title");
+      },
+    },
+    callbacks: {
+      elementParse: function (item) {
+        item.src = item.el.attr("href");
+      },
+    },
+    fixedContentPos: "false",
+    overflowY: "scroll",
   });
-}); // COPY LINK
+});
+// COPY LINK
 const copyHref = (href) => {
   navigator.clipboard.writeText(href);
 };

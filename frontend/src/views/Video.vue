@@ -2,7 +2,7 @@
 import { onMounted, ref } from "vue";
 import $ from "jquery";
 import swiperReels from "@/components/swiper-reels.vue";
-import useVideo from "../modules/video";
+import useVideo from "@/modules/video";
 
 const { getAllVideo, state } = useVideo();
 

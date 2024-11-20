@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import article from "../modules/article";
+import article from "@/modules/article";
 const { state, getAllArticles } = article();
 
 const isDataLoaded = ref(false);

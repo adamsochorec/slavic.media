@@ -2,7 +2,7 @@
 import { ref, onMounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
-import employee from "../modules/employee";
+import employee from "@/modules/employee";
 const { state, getAllEmployees } = employee();
 
 const isDataLoaded = ref(false);
