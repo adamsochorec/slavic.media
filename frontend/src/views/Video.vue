@@ -3,6 +3,8 @@ import { onMounted, ref } from "vue";
 import $ from "jquery";
 import swiperReels from "@/components/swiper-reels.vue";
 import useVideo from "@/modules/video";
+import requestAProposal from "@/components/request-a-proposal.vue";
+
 import "magnific-popup";
 
 const { getAllVideo, state } = useVideo();
