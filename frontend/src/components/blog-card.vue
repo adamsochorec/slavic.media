@@ -70,6 +70,7 @@ defineProps({
 h3 {
   font-size: var(--font-size-5);
 }
+
 img {
   height: 170px;
   width: 100%;

@@ -25,7 +25,9 @@ const truncateText = (text, maxLength) => {
   <div class="main" style="margin-top: 120px">
     <article class="wrapper-wide">
       <div v-if="isDataLoaded">
-        <h1 class="reveal">The Slavic Media Blog</h1>
+        <h1 class="reveal">
+          The <span class="gradient">Slavic Media</span> Blog
+        </h1>
         <hr class="quater reveal" />
         <div class="grid-container">
           <div

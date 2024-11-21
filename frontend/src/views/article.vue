@@ -200,7 +200,9 @@ const copyHref = (href) => {
     <article class="wrapper-standard">
       <div v-if="isDataLoaded">
         <hr class="semi" />
-        <h3>Recomended from Slavic Media</h3>
+        <h3>
+          Recomended from <span class="highlited gradient">Slavic Media</span>
+        </h3>
         <hr class="quater reveal" />
         <div class="grid-container">
           <div

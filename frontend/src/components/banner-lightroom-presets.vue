@@ -51,30 +51,6 @@
   box-shadow: var(--box-shadow-1);
 }
 
-.gradient {
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(rgba(255, 255, 255, 1)),
-    color-stop(35%, rgba(199, 30, 30, 1)),
-    to(rgba(17, 69, 126, 1))
-  );
-  background: -o-linear-gradient(
-    left,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(199, 30, 30, 1) 35%,
-    rgba(17, 69, 126, 1) 100%
-  );
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(199, 30, 30, 1) 35%,
-    rgba(17, 69, 126, 1) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 img {
   position: relative;
   display: block;
