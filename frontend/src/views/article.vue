@@ -2,10 +2,8 @@
 import { ref, onMounted } from "vue";
 import useArticle from "../modules/article";
 import { useRoute } from "vue-router";
-import Swiper from "swiper/bundle";
-import "swiper/swiper-bundle.css";
+import "magnific-popup";
 import blogCard from "@/components/blog-card.vue";
-
 import $ from "jquery";
 
 const { getAllArticles, getSpecificArticle, state } = useArticle();
@@ -192,6 +190,8 @@ const copyHref = (href) => {
     <article class="wrapper-wide">
       <div v-if="isDataLoaded">
         <hr class="semi" />
+        <h3>Recomended</h3>
+        <hr class="reveal" />
         <div class="grid-container">
           <div
             v-for="article in state.furtherReading"
@@ -229,7 +229,11 @@ h1 {
   border-radius: var(--border-radius-1);
   color: white;
 }
-
+@media only screen and (min-width: 400px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 @media only screen and (min-width: 700px) {
   .grid-container {
     grid-template-columns: repeat(3, 1fr);

@@ -101,7 +101,7 @@ const truncateText = (text, maxLength) => {
   border-radius: var(--border-radius-1);
   color: white;
 }
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 400px) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
   }

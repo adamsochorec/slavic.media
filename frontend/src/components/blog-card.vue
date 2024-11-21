@@ -17,9 +17,6 @@ defineProps({
       />
     </router-link>
     <div class="reveal">
-      <router-link class="title" :to="`/blog/${article._id}`">
-        <h2>{{ article.title }}</h2>
-      </router-link>
       <div class="metadata gap-3">
         <a
           target="_blank"
@@ -52,6 +49,9 @@ defineProps({
           </span>
         </div>
       </div>
+      <router-link class="title" :to="`/blog/${article._id}`">
+        <h2>{{ article.title }}</h2>
+      </router-link>
     </div>
   </div>
 </template>
@@ -77,7 +77,6 @@ img {
   object-fit: cover;
   margin-bottom: var(--grid-gap-2);
 }
-
 .metadata {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -86,18 +85,12 @@ img {
   -ms-flex-align: center;
   align-items: center;
   line-height: 1.2;
-  margin-top: var(--grid-gap-2);
+  margin: var(--grid-gap-2) 0;
 }
 .grid-item:nth-child(2) {
   font-size: var(--font-size-7);
 }
 @media only screen and (max-width: 400px) {
-  .author {
-    display: none;
-  }
-  br.hide {
-    display: none;
-  }
   h2 {
     font-size: var(--font-size-4);
   }
@@ -108,28 +101,8 @@ img {
   }
 }
 @media only screen and (max-width: 500px) {
-  img {
-    height: auto;
-    aspect-ratio: 1/1;
-    width: 100%;
-    border-radius: var(--border-radius-1);
-  }
-  .metadata {
-    padding: 0;
-  }
-  h2 {
-    padding-right: var(--homepage-padding);
-  }
   .skeleton-hide {
     display: none;
-  }
-  .card {
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    display: grid;
-    grid-template-columns: 40% 60%;
-    grid-gap: var(--grid-gap-2);
   }
   .grid-item:nth-child(2) {
     font-size: var(--font-size-8);
