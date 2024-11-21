@@ -1,82 +1,56 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import useArticle from "@/modules/article";
+import useArticle from "../modules/article";
 import { useRoute } from "vue-router";
-import $ from "jquery";
-import { useHead } from "@vueuse/head";
+import Swiper from "swiper/bundle";
+import "swiper/swiper-bundle.css";
+import blogCard from "@/components/blog-card.vue";
 
-const { getSpecificArticle, state } = useArticle();
+import $ from "jquery";
+
+const { getAllArticles, getSpecificArticle, state } = useArticle();
 const route = useRoute();
+
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
+  await getAllArticles();
   await getSpecificArticle(route.params.slug);
   isDataLoaded.value = true;
 
-  // META
-  useHead({
-    meta: [
-      {
-        property: "og:title",
-        content: state.article.title || "Blog | Slavic Media",
+  // POP UP GALLERY
+  $(document).ready(function () {
+    $(".article-content").magnificPopup({
+      delegate: "a",
+      type: "image",
+      tLoading: "Loading",
+      mainClass: "mfp-img-mobile",
+      gallery: {
+        enabled: true,
+        fixedContentPos: "false",
+        overflowY: "scroll",
+        navigateByImgClick: true,
+        preload: [0, 1],
       },
-      {
-        property: "title",
-        content: state.article.title || "Blog | Slavic Media",
+      zoom: {
+        enabled: true,
+        duration: 300,
       },
-      {
-        property: "og:image",
-        content: state.article.thumbnail,
+      image: {
+        tError: "Error",
+        titleSrc: function (item) {
+          return item.el.attr("title");
+        },
       },
-      {
-        property: "msapplication-TileImage",
-        content: state.article.thumbnail,
+      callbacks: {
+        elementParse: function (item) {
+          item.src = item.el.attr("href");
+        },
       },
-      {
-        property: "og:keywords",
-        content: state.article.metadata.keywords,
-      },
-      {
-        property: "keywords",
-        content: state.article.metadata.keywords,
-      },
-    ],
+    });
   });
 });
 
-// POP UP GALLERY
-$(document).ready(function () {
-  $(".article-content").magnificPopup({
-    delegate: "a",
-    type: "image",
-    tLoading: "Loading",
-    mainClass: "mfp-img-mobile",
-    gallery: {
-      enabled: true,
-      fixedContentPos: "false",
-      overflowY: "scroll",
-      navigateByImgClick: true,
-      preload: [0, 1],
-    },
-    zoom: {
-      enabled: true,
-      duration: 300,
-    },
-    image: {
-      tError: "Error",
-      titleSrc: function (item) {
-        return item.el.attr("title");
-      },
-    },
-    callbacks: {
-      elementParse: function (item) {
-        item.src = item.el.attr("href");
-      },
-    },
-    fixedContentPos: "false",
-    overflowY: "scroll",
-  });
-});
 // COPY LINK
 const copyHref = (href) => {
   navigator.clipboard.writeText(href);
@@ -109,7 +83,7 @@ const copyHref = (href) => {
                 ></b
               ><br />
               <span style="font-size: var(--font-size-7)">
-                {{ state.article.metadata.date }}&nbsp;⋅&nbsp;{{
+                {{ state.article.metadata.formatedDate }}&nbsp;⋅&nbsp;{{
                   state.article.metadata.length
                 }}
                 min read</span
@@ -147,17 +121,16 @@ const copyHref = (href) => {
           ></section>
         </div>
       </div>
-
-      <div v-else class="mb-4 p-8">
+      <div v-else>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
-          height="30px"
+          height="10px"
           width="100%"
           class="mb-2"
         ></Skeleton>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
-          height="30px"
+          height="10px"
           width="50%"
           class="mb-4"
         ></Skeleton>
@@ -173,11 +146,13 @@ const copyHref = (href) => {
               <Skeleton
                 style="background-color: rgb(var(--dark-grey-color))"
                 width="10rem"
+                height="10px"
                 class="mb-2"
               ></Skeleton>
               <Skeleton
                 style="background-color: rgb(var(--dark-grey-color))"
                 width="5rem"
+                height="10px"
                 class="mb-2"
               ></Skeleton>
               <Skeleton
@@ -190,32 +165,44 @@ const copyHref = (href) => {
             style="background-color: rgb(var(--dark-grey-color))"
             shape="circle"
             width="2rem"
-            height="2rem"
+            height="10px"
           ></Skeleton>
         </div>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
           class="mb-4"
           width="100%"
-          height="250px"
+          height="200px"
         ></Skeleton>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
-          height="15px"
+          height="10px"
           width="100%"
           class="mb-4"
         ></Skeleton>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
-          height="15px"
+          height="10px"
           width="50%"
           class="mb-4"
         ></Skeleton>
       </div>
     </article>
-    <div v-if="isDataLoaded">
-      <bannerLightroomPresets></bannerLightroomPresets>
-    </div>
+    <bannerLightroomPresets v-if="isDataLoaded"></bannerLightroomPresets>
+    <article class="wrapper-wide">
+      <div v-if="isDataLoaded">
+        <hr class="semi" />
+        <div class="grid-container">
+          <div
+            v-for="article in state.furtherReading"
+            :key="article._id"
+            role="region"
+          >
+            <blogCard :article="article"></blogCard>
+          </div>
+        </div>
+      </div>
+    </article>
   </div>
 </template>
 
@@ -232,5 +219,20 @@ h1 {
 }
 .article-metadata a:hover {
   text-decoration: underline;
+}
+
+.grid-container {
+  grid-template-columns: repeat(1, 1fr);
+  display: grid;
+  grid-gap: var(--grid-gap-3);
+  height: auto;
+  border-radius: var(--border-radius-1);
+  color: white;
+}
+
+@media only screen and (min-width: 700px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 </style>

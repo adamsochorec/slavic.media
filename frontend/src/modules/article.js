@@ -9,8 +9,12 @@ const useArticle = () => {
     newTitle: "",
     newContent: "",
     newDate: "",
+    newFormatedDate: "",
     newAuthor: "",
     newThumbnail: "",
+    articles: [],
+    article: null,
+    furtherReading: [],
   });
 
   // Read all documents - GET
@@ -18,6 +22,10 @@ const useArticle = () => {
     try {
       const response = await fetch("https://api.slavic.media/blog/");
       const data = await response.json();
+      data.sort(
+        (a, b) => new Date(b.metadata.date) - new Date(a.metadata.date)
+      );
+
       state.value.articles = data;
     } catch (error) {
       console.error(error);
@@ -35,15 +43,24 @@ const useArticle = () => {
       }
       const data = await response.json();
       state.value.article = data;
+      getFurtherReading(documentID);
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const getFurtherReading = (currentArticleID) => {
+    const filteredArticles = state.value.articles.filter(
+      (article) => article._id !== currentArticleID
+    );
+    state.value.furtherReading = filteredArticles.slice(-3);
   };
 
   return {
     state,
     getAllArticles,
     getSpecificArticle,
+    getFurtherReading,
     documentID,
   };
 };

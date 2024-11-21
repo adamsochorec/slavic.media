@@ -32,7 +32,8 @@ const articleSchema = new mongoose_1.Schema({
         url: { type: String, required: true },
     },
     metadata: {
-        date: { type: String, required: true },
+        date: { type: Date, required: true },
+        formatedDate: { type: String, required: true },
         keywords: { type: [String], required: true },
         linkedin: { type: String, required: false },
         thumbnail: { type: String, required: true },
