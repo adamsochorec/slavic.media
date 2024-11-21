@@ -50,7 +50,7 @@ defineProps({
         </div>
       </div>
       <router-link class="title" :to="`/blog/${article._id}`">
-        <h2>{{ article.title }}</h2>
+        <h3>{{ article.title }}</h3>
       </router-link>
     </div>
   </div>
@@ -67,8 +67,8 @@ defineProps({
 .article-metadata a:hover {
   text-decoration: underline;
 } // FURTHER READING a.author:hover { text-decoration: underline; }
-h2 {
-  font-size: var(--font-size-3);
+h3 {
+  font-size: var(--font-size-5);
 }
 img {
   height: 170px;
@@ -91,25 +91,13 @@ img {
   font-size: var(--font-size-7);
 }
 @media only screen and (max-width: 400px) {
-  h2 {
-    font-size: var(--font-size-4);
-  }
-}
-@media only screen and (min-width: 350px) {
-  h2 {
-    font-size: var(--font-size-3);
-  }
-}
-@media only screen and (max-width: 500px) {
   .skeleton-hide {
     display: none;
   }
   .grid-item:nth-child(2) {
     font-size: var(--font-size-8);
   }
-}
-@media only screen and (min-width: 500px) {
-  h2 {
+  h3 {
     font-size: var(--font-size-4);
   }
 }

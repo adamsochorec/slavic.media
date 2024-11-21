@@ -1,19 +1,20 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import useArticle from "../modules/article";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import "magnific-popup";
 import blogCard from "@/components/blog-card.vue";
 import $ from "jquery";
 
 const { getAllArticles, getSpecificArticle, state } = useArticle();
 const route = useRoute();
+const router = useRouter();
 
 const isDataLoaded = ref(false);
 
-onMounted(async () => {
-  await getAllArticles();
-  await getSpecificArticle(route.params.slug);
+const loadArticle = async (slug) => {
+  isDataLoaded.value = false;
+  await getSpecificArticle(slug);
   isDataLoaded.value = true;
 
   // POP UP GALLERY
@@ -47,6 +48,15 @@ onMounted(async () => {
       },
     });
   });
+};
+
+onMounted(async () => {
+  await getAllArticles();
+  await loadArticle(route.params.slug);
+});
+
+watch(route, async (newRoute) => {
+  await loadArticle(newRoute.params.slug);
 });
 
 // COPY LINK
@@ -187,11 +197,11 @@ const copyHref = (href) => {
       </div>
     </article>
     <bannerLightroomPresets v-if="isDataLoaded"></bannerLightroomPresets>
-    <article class="wrapper-wide">
+    <article class="wrapper-standard">
       <div v-if="isDataLoaded">
         <hr class="semi" />
-        <h3>Recomended</h3>
-        <hr class="reveal" />
+        <h3>Recomended from Slavic Media</h3>
+        <hr class="quater reveal" />
         <div class="grid-container">
           <div
             v-for="article in state.furtherReading"
@@ -229,14 +239,10 @@ h1 {
   border-radius: var(--border-radius-1);
   color: white;
 }
+
 @media only screen and (min-width: 400px) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media only screen and (min-width: 700px) {
-  .grid-container {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 </style>

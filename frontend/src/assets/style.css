@@ -152,6 +152,9 @@ hr {
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
 }
+hr.quater {
+  margin: var(--grid-gap-3) 0 var(--grid-gap-3) 0 !important;
+}
 hr:not(hr.semi) {
   margin: 60px 0;
 }
@@ -425,7 +428,6 @@ header {
   text-transform: capitalize;
   width: 100%;
   background-color: var(--dark-grey-color-full);
-  z-index: 8;
   will-change: transform;
   -webkit-transition: var(--transition-2);
   -o-transition: var(--transition-2);
@@ -433,7 +435,7 @@ header {
   -ms-transform: translateY(0);
   transform: translateY(0);
   -webkit-transform: translateY(0);
-  z-index: 8;
+  z-index: 9;
 }
 header nav ul {
   list-style: none;
@@ -456,7 +458,7 @@ ul.menu-left {
   -webkit-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  z-index: 10;
+  z-index: 9;
   font-weight: var(--paragraph-weight);
 }
 ul.menu-left:before {
@@ -722,7 +724,7 @@ button.submit-btn {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 5;
+  z-index: 10;
   overflow: scroll;
   position: fixed;
   outline: 0 !important;
@@ -760,7 +762,7 @@ button.submit-btn {
   vertical-align: middle;
   margin: 0 auto;
   text-align: left;
-  z-index: 1045;
+  z-index: 10;
   overflow: hidden !important;
 }
 .mfp-ajax-holder .mfp-content,
@@ -803,7 +805,7 @@ button.submit-btn {
   color: rgb(var(--white-color));
   /* top: 45%; */
   /* left: calc(50% - 35px); */
-  z-index: 1044;
+  z-index: 10;
 }
 .mfp-preloader .error-container {
   position: absolute;
@@ -843,7 +845,7 @@ button.mfp-close {
   display: block;
   outline: 0;
   padding: 0;
-  z-index: 1046;
+  z-index: 10;
   -webkit-box-shadow: none;
   box-shadow: none;
   -ms-touch-action: manipulation;
@@ -1113,7 +1115,6 @@ i.pi-arrow-right:hover {
   margin: var(--grid-gap-2) 0;
 }
 .article-content img {
-  border-radius: var(--border-radius-1);
 }
 .article-content iframe {
   border-radius: var(--border-radius-1);
