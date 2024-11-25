@@ -17,7 +17,7 @@ onMounted(async () => {
       lazyLoading: true,
       observer: true,
       observeParents: true,
-      spaceBetween: gridGap3,
+      spaceBetween: gridGap2,
       pagination: {
         el: ".swiper-pagination",
       },
@@ -154,6 +154,9 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
 }
 .profile p {
   margin-bottom: var(--grid-gap-1) !important;
+}
+h6 {
+  font-size: var(--font-size-7);
 }
 #ourteam .grid-container-team {
   grid-template-columns: repeat(3, 1fr);
