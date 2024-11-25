@@ -4,6 +4,33 @@ import $ from "jquery";
 import requestAProposal from "@/components/request-a-proposal.vue";
 import swiperReels from "@/components/swiper-reels.vue";
 
+onMounted(() => {
+  // Initialize Magnific Popup
+  document.querySelectorAll(".gallery").forEach((gallery) => {
+    $(gallery).magnificPopup({
+      delegate: "a", // Targets specific link class for delegation
+      type: "iframe", // Sets the type to iframe for displaying videos
+      gallery: {
+        enabled: true,
+        navigateByImgClick: false,
+        fixedContentPos: "false",
+        preload: [0, 1], // Preloads adjacent items
+        arrowMarkup:
+          '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>',
+        tPrev: "Previous",
+        tNext: "Next",
+      },
+      zoom: {
+        enabled: true,
+        duration: 300, // Duration of the zoom animation
+      },
+      src: function (item) {
+        // Directly returns the href attribute value for iframe src
+        return item.el.getAttribute("href");
+      },
+    });
+  });
+});
 const videoGallery = ref([
   {
     _id: "showreel",
@@ -73,35 +100,6 @@ const videoGallery = ref([
     ],
   },
 ]);
-
-onMounted(() => {
-  // Initialize Magnific Popup
-  document.querySelectorAll(".gallery").forEach((gallery) => {
-    $(gallery).magnificPopup({
-      delegate: "a", // Targets specific link class for delegation
-      type: "iframe", // Sets the type to iframe for displaying videos
-      gallery: {
-        enabled: true,
-        navigateByImgClick: false,
-        fixedContentPos: "false",
-        preload: [0, 1], // Preloads adjacent items
-        arrowMarkup:
-          '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>',
-        tPrev: "Previous",
-        tNext: "Next",
-      },
-      zoom: {
-        enabled: true,
-        duration: 300, // Duration of the zoom animation
-      },
-      src: function (item) {
-        // Directly returns the href attribute value for iframe src
-        return item.el.getAttribute("href");
-      },
-    });
-  });
-});
-
 const showreel = ref([
   {
     img: "https://slavic.media/img/cover-carboncapture.jpg",

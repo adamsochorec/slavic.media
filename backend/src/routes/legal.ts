@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import employeeModel from "../models/legal";
+import legalModel from "../models/legal";
 import { verifyToken } from "../validation";
 
 const router = Router();
@@ -7,7 +7,7 @@ const router = Router();
 // Create document - POST
 router.post("/", verifyToken, (req: Request, res: Response) => {
   const data = req.body;
-  employeeModel
+  legalModel
     .create(data)
     .then((insertedData) => {
       res.status(201).send(insertedData);
@@ -19,7 +19,7 @@ router.post("/", verifyToken, (req: Request, res: Response) => {
 
 // Read all document - GET
 router.get("/", (req: Request, res: Response) => {
-  employeeModel
+  legalModel
     .find()
     .then((data) => {
       res.send(data);
@@ -31,7 +31,7 @@ router.get("/", (req: Request, res: Response) => {
 
 // Read specific document by ID - GET
 router.get("/:id", (req: Request, res: Response) => {
-  employeeModel
+  legalModel
     .findById(req.params.id)
     .then((data) => {
       res.send(data);
@@ -44,10 +44,10 @@ router.get("/:id", (req: Request, res: Response) => {
 // Update document - PUT
 router.put("/:id", verifyToken, (req: Request, res: Response) => {
   const { id } = req.params;
-  const updatedEmployee = req.body;
+  const updatedLegal = req.body;
 
-  employeeModel
-    .findByIdAndUpdate(id, updatedEmployee, { new: true })
+  legalModel
+    .findByIdAndUpdate(id, updatedLegal, { new: true })
     .then((data) => {
       if (!data) {
         res.status(404).send({
@@ -65,7 +65,7 @@ router.put("/:id", verifyToken, (req: Request, res: Response) => {
 // Delete document - DELETE
 router.delete("/:id", verifyToken, (req: Request, res: Response) => {
   const { id } = req.params;
-  employeeModel
+  legalModel
     .findByIdAndDelete(id)
     .then((data) => {
       if (!data) {

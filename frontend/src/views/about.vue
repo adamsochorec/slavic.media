@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import heroVideo from "@/components/hero-video.vue";
-import swiperOurteam from "@/components/swiper-ourteam.vue";
+import swiperEmployees from "@/components/swiper-employees.vue";
 
 const events = ref([
   { year: "May 2023", event: "Company establishment", icon: "pi pi-verified" },
@@ -85,7 +85,7 @@ const events = ref([
 
     <article class="wrapper-standard">
       <hr class="semi" />
-      <h1 class="reveal" style="font-size: var(--font-size-1)">
+      <h1 class="gradient reveal" style="font-size: var(--font-size-1)">
         Slavic Media I/S
       </h1>
       <br />
@@ -104,7 +104,7 @@ const events = ref([
         help your project stand out from the noise.
       </p>
       <br />
-      <swiperOurteam></swiperOurteam>
+      <swiperEmployees></swiperEmployees>
       <hr class="reveal" role="separator" />
 
       <Timeline align="alternate" :value="events">

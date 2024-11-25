@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import employee from "@/modules/employee";
@@ -10,6 +10,33 @@ const isDataLoaded = ref(false);
 onMounted(async () => {
   await getAllEmployees();
   isDataLoaded.value = true;
+
+  // Ensure the DOM is updated before initializing Swiper
+  nextTick(() => {
+    new Swiper(".swiper-ourteam", {
+      preloadImages: false,
+      lazyLoading: true,
+      observer: true,
+      observeParents: true,
+      spaceBetween: gridGap3,
+      pagination: {
+        el: ".swiper-pagination",
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 2.3,
+        },
+        375: {
+          slidesPerView: 3.3,
+        },
+        620: {
+          slidesPerView: 3.5,
+        },
+      },
+      // Optional parameters
+      direction: "horizontal",
+    });
+  });
 });
 
 // GRID GAP
@@ -19,39 +46,13 @@ const gridGap2 = getComputedStyle(document.documentElement).getPropertyValue(
 const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
   "--grid-gap-3"
 );
-
-onMounted(() => {
-  new Swiper(".swiper-ourteam", {
-    preloadImages: false,
-    lazyLoading: true,
-    observer: true,
-    observeParents: true,
-    spaceBetween: gridGap3,
-    pagination: {
-      el: ".swiper-pagination",
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 2.3,
-      },
-      375: {
-        slidesPerView: 3.3,
-      },
-      620: {
-        slidesPerView: 3.5,
-      },
-    },
-    // Optional parameters
-    direction: "horizontal",
-  });
-});
 </script>
 
 <template>
   <div>
     <section class="swiper swiper-ourteam reveal">
       <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
+      <div class="swiper-wrapper" v-if="isDataLoaded">
         <div
           v-for="employee in state.employees"
           :key="employee._id"
@@ -111,6 +112,18 @@ onMounted(() => {
             </h6>
           </section>
           <!-- Slide End -->
+        </div>
+      </div>
+      <div class="swiper-wrapper" v-else>
+        <div class="swiper-slide" v-for="n in 4" :key="n">
+          <Skeleton
+            borderRadius="10px"
+            class="mb-2"
+            width="100%"
+            height="150px"
+          ></Skeleton>
+          <Skeleton width="100%" height="15px" class="mb-2"></Skeleton>
+          <Skeleton width="70%" height="15px" class="mb-2"></Skeleton>
         </div>
       </div>
     </section>

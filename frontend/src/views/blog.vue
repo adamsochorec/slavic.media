@@ -11,24 +11,17 @@ onMounted(async () => {
   await getAllArticles();
   isDataLoaded.value = true;
 });
-
-// Method to truncate text
-const truncateText = (text, maxLength) => {
-  if (text.length > maxLength) {
-    return text.substring(0, maxLength) + "...";
-  }
-  return text;
-};
 </script>
 
 <template>
   <div class="main" style="margin-top: 120px">
     <article class="wrapper-wide">
+      <h1 class="reveal">
+        The <span class="gradient">Slavic Media</span> Blog
+      </h1>
+      <hr class="quater reveal" />
+
       <div v-if="isDataLoaded">
-        <h1 class="reveal">
-          The <span class="gradient">Slavic Media</span> Blog
-        </h1>
-        <hr class="quater reveal" />
         <div class="grid-container">
           <div
             v-for="article in state.articles"
@@ -64,7 +57,7 @@ const truncateText = (text, maxLength) => {
               <div class="flex mt-4">
                 <Skeleton
                   style="background-color: rgb(var(--dark-grey-color))"
-                  class="mr-2 skeleton-hide"
+                  class="mr-2"
                   shape="circle"
                   size="4rem"
                 ></Skeleton>
@@ -104,6 +97,9 @@ const truncateText = (text, maxLength) => {
   height: auto;
   border-radius: var(--border-radius-1);
   color: white;
+}
+h1 {
+  font-size: var(--font-size-2);
 }
 @media only screen and (min-width: 400px) {
   .grid-container {

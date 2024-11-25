@@ -12,16 +12,15 @@ onMounted(async () => {
 </script>
 <template>
   <div class="main" style="margin: 120px 0">
-    <article class="wrapper-standard" v-if="isDataLoaded">
+    <article class="wrapper-standard">
       <h1 class="reveal">Legal</h1>
-
       <br />
       <p class="reveal">
         Before using Slavic Media services or digital products, you may review
         the terms and conditions of end user software license agreements.
       </p>
       <hr class="quater reveal" />
-      <ol>
+      <ol v-if="isDataLoaded">
         <li
           v-for="legal in state.legals"
           :key="legal._id"
@@ -33,9 +32,7 @@ onMounted(async () => {
           ></router-link>
         </li>
       </ol>
-    </article>
-    <article class="wrapper-standard" v-else>
-      <div v-for="n in 6" :key="n">
+      <div v-else v-for="n in 3" :key="n">
         <ul style="list-style: none" class="m-0">
           <li class="mb-3">
             <div class="flex">

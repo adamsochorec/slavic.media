@@ -92,14 +92,15 @@ img {
   font-size: var(--font-size-7);
 }
 @media only screen and (max-width: 400px) {
-  .skeleton-hide {
-    display: none;
-  }
   .grid-item:nth-child(2) {
     font-size: var(--font-size-8);
   }
   h3 {
     font-size: var(--font-size-4);
+  }
+  .card {
+    border-bottom: 1px solid white;
+    padding-bottom: var(--grid-gap-3);
   }
 }
 </style>

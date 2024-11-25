@@ -50,7 +50,6 @@
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
 }
-
 img {
   position: relative;
   display: block;
@@ -67,7 +66,6 @@ img {
   -ms-transform: scale(1);
   transform: scale(1);
 }
-
 .gradient::after {
   content: " Want the look?";
   font-family: var(--logo-font);
@@ -81,6 +79,7 @@ img {
 .title {
   position: absolute;
   text-align: center;
+  margin-bottom: var(--grid-gap-2);
   padding: var(--grid-gap-2);
 }
 @media only screen and (max-width: 500px) {

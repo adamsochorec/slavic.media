@@ -44,9 +44,9 @@ router.get("/:id", (req, res) => {
 // Update document - PUT
 router.put("/:id", validation_1.verifyToken, (req, res) => {
     const { id } = req.params;
-    const updatedEmployee = req.body;
+    const updatedLegal = req.body;
     legal_1.default
-        .findByIdAndUpdate(id, updatedEmployee, { new: true })
+        .findByIdAndUpdate(id, updatedLegal, { new: true })
         .then((data) => {
         if (!data) {
             res.status(404).send({
