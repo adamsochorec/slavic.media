@@ -1,3 +1,4 @@
+// event.js
 import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
 
@@ -12,7 +13,7 @@ const timeline = () => {
   // Read all documents - GET
   const getAllEvents = async () => {
     try {
-      const response = await fetch("http://localhost:4000/event/");
+      const response = await fetch("https://api.slavic.media/event/");
       const data = await response.json();
       data.sort((a, b) => a._id - b._id);
       state.value.events = data;
