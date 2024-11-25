@@ -11,7 +11,6 @@ onMounted(async () => {
   await getAllEmployees();
   isDataLoaded.value = true;
 
-  // Ensure the DOM is updated before initializing Swiper
   nextTick(() => {
     new Swiper(".swiper-ourteam", {
       preloadImages: false,

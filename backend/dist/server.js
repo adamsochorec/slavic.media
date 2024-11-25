@@ -29,6 +29,7 @@ const video_1 = __importDefault(require("./routes/video"));
 const auth_1 = __importDefault(require("./routes/auth"));
 const employee_1 = __importDefault(require("./routes/employee"));
 const legal_1 = __importDefault(require("./routes/legal"));
+const review_1 = __importDefault(require("./routes/review"));
 require("dotenv-flow").config();
 // Middleware to parse JSON bodies (duplicate, can be removed)
 app.use(body_parser_1.default.json());
@@ -50,6 +51,7 @@ app.use("/video", video_1.default);
 app.use("/user", auth_1.default);
 app.use("/employee", employee_1.default);
 app.use("/legal", legal_1.default);
+app.use("/review", review_1.default);
 // Serve static files from the 'dist' directory
 app.use(express_1.default.static(path_1.default.join(__dirname, "dist")));
 // Catch-all route to serve 'index.html' for any unmatched routes

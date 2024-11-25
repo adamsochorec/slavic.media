@@ -1,6 +1,4 @@
-import { date } from "joi";
 import mongoose, { Schema } from "mongoose";
-import { type } from "os";
 
 interface legal extends Document {
   _id: string;
