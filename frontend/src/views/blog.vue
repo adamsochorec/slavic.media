@@ -1,9 +1,9 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import useArticle from "@/modules/article";
+import article from "@/modules/article";
 import blogCard from "@/components/blog-card.vue";
 
-const { state, getAllArticles } = useArticle();
+const { state, getAllArticles } = article();
 
 const isDataLoaded = ref(false);
 

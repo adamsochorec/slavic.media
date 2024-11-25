@@ -1,12 +1,12 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
-import useArticle from "../modules/article";
+import article from "../modules/article";
 import { useRoute, useRouter } from "vue-router";
 import "magnific-popup";
 import blogCard from "@/components/blog-card.vue";
 import $ from "jquery";
 
-const { getAllArticles, getSpecificArticle, state } = useArticle();
+const { getAllArticles, getSpecificArticle, state } = article();
 const route = useRoute();
 const router = useRouter();
 

@@ -1,21 +1,21 @@
 import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
 
-const review = () => {
+const timeline = () => {
   const route = useRoute();
 
   const documentID = computed(() => route.params.id);
   const state = ref({
-    reviews: [],
+    events: [],
   });
 
   // Read all documents - GET
-  const getAllReviews = async () => {
+  const getAllEvents = async () => {
     try {
-      const response = await fetch("https://api.slavic.media/review/");
+      const response = await fetch("http://localhost:4000/event/");
       const data = await response.json();
       data.sort((a, b) => a._id - b._id);
-      state.value.reviews = data;
+      state.value.events = data;
     } catch (error) {
       console.error(error);
     }
@@ -23,9 +23,9 @@ const review = () => {
 
   return {
     state,
-    getAllReviews,
+    getAllEvents,
     documentID,
   };
 };
 
-export default review;
+export default timeline;

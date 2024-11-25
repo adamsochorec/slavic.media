@@ -6,10 +6,10 @@ import eventBus from "@/eventBus";
 import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
 import $ from "jquery";
 import "magnific-popup";
-import useImg from "@/modules/img";
+import img from "@/modules/img";
 
 const isDataLoaded = ref(false);
-const { state, getAllImg } = useImg();
+const { state, getAllImg } = img();
 
 async function initializeLightbox() {
   await nextTick();
@@ -59,7 +59,7 @@ const showRequestAProposal = (data) => {
 
 <template>
   <div class="main" style="margin-top: 120px">
-    <article v-if="isDataLoaded" class="wrapper-wide">
+    <article class="wrapper-wide">
       <!-- PAGE INTRO -->
       <div class="grid-container caption-container">
         <div class="grid-item">
@@ -77,15 +77,11 @@ const showRequestAProposal = (data) => {
       </div>
     </article>
     <!-- GALLERIES -->
-    <template
-      v-if="isDataLoaded"
-      v-for="(gallery, galleryKey) in state.img"
-      :key="galleryKey"
-    >
+    <template v-for="(gallery, galleryKey) in state.img" :key="galleryKey">
       <article v-if="isDataLoaded" class="wrapper-wide" id="photo">
         <div :id="gallery._id"></div>
-
         <hr class="reveal" role="separator" />
+
         <div class="grid-container caption-container">
           <div class="grid-item reveal">
             <h2>{{ gallery.title }}</h2>
@@ -137,6 +133,8 @@ const showRequestAProposal = (data) => {
       <bannerLightroomPresets></bannerLightroomPresets>
     </article>
     <div class="wrapper-wide" v-else>
+      <hr class="reveal" />
+
       <div class="flex flex-wrap">
         <div class="w-full xl:w-6/12">
           <Skeleton

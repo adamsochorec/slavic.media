@@ -1,12 +1,12 @@
 <script setup>
 import { onMounted, ref, nextTick } from "vue";
 import $ from "jquery";
-import useVideo from "@/modules/video";
+import video from "@/modules/video";
 import eventBus from "@/eventBus";
 import requestAProposal from "@/components/request-a-proposal.vue";
 import swiperReels from "@/components/swiper-reels.vue";
 
-const { state, getAllGalleries } = useVideo();
+const { state, getAllGalleries } = video();
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
@@ -45,29 +45,29 @@ const showRequestAProposal = (data) => {
 <template>
   <div class="main" style="margin-top: 120px">
     <article class="wrapper-wide">
-      <div v-if="isDataLoaded">
-        <!-- PAGE INTRO -->
-        <div class="grid-container caption-container">
-          <div class="grid-item">
-            <h1 class="reveal" aria-label="Video Services">
-              <span class="gradient">Video</span>
-              Services
-            </h1>
-          </div>
-          <div class="grid-item">
-            <p class="reveal">
-              From inspiring stories to cinematic visuals, each video project is
-              crafted to captivate, impress, and showcase your vision with
-              creative precision.
-            </p>
-          </div>
+      <!-- PAGE INTRO -->
+      <div class="grid-container caption-container">
+        <div class="grid-item">
+          <h1 class="reveal" aria-label="Video Services">
+            <span class="gradient">Video</span>
+            Services
+          </h1>
         </div>
+        <div class="grid-item">
+          <p class="reveal">
+            From inspiring stories to cinematic visuals, each video project is
+            crafted to captivate, impress, and showcase your vision with
+            creative precision.
+          </p>
+        </div>
+      </div>
+      <hr class="reveal" role="separator" />
 
+      <div v-if="isDataLoaded">
         <!-- GALLERY -->
         <div v-for="gallery in state.galleries" :key="gallery._id">
           <div :id="gallery._id"></div>
 
-          <hr class="reveal" role="separator" />
           <div class="grid-container caption-container">
             <div class="grid-item reveal">
               <h2>

@@ -1,7 +1,7 @@
 import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
 
-const useVideo = () => {
+const video = () => {
   const route = useRoute();
 
   const documentID = computed(() => route.params.id);
@@ -52,4 +52,4 @@ const useVideo = () => {
   };
 };
 
-export default useVideo;
+export default video;

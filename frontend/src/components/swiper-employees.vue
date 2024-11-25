@@ -116,13 +116,24 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
       <div class="swiper-wrapper" v-else>
         <div class="swiper-slide" v-for="n in 4" :key="n">
           <Skeleton
+            style="background-color: rgb(var(--dark-grey-color))"
             borderRadius="10px"
             class="mb-2"
             width="100%"
             height="150px"
           ></Skeleton>
-          <Skeleton width="100%" height="15px" class="mb-2"></Skeleton>
-          <Skeleton width="70%" height="15px" class="mb-2"></Skeleton>
+          <Skeleton
+            style="background-color: rgb(var(--dark-grey-color))"
+            width="100%"
+            height="15px"
+            class="mb-2"
+          ></Skeleton>
+          <Skeleton
+            style="background-color: rgb(var(--dark-grey-color))"
+            width="70%"
+            height="15px"
+            class="mb-2"
+          ></Skeleton>
         </div>
       </div>
     </section>

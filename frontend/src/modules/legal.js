@@ -1,7 +1,7 @@
 import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
 
-const useLegal = () => {
+const legal = () => {
   const route = useRoute();
 
   const documentID = computed(() => route.params.id);
@@ -49,4 +49,4 @@ const useLegal = () => {
   };
 };
 
-export default useLegal;
+export default legal;

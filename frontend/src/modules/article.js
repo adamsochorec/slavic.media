@@ -1,7 +1,7 @@
 import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
 
-const useArticle = () => {
+const article = () => {
   const route = useRoute();
 
   const documentID = computed(() => route.params.id);
@@ -65,4 +65,4 @@ const useArticle = () => {
   };
 };
 
-export default useArticle;
+export default article;

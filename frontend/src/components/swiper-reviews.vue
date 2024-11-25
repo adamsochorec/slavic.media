@@ -2,9 +2,8 @@
 import { ref, onMounted, nextTick } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
-import useReview from "@/modules/review";
-const { state, getAllReviews } = useReview();
-
+import review from "@/modules/review";
+const { state, getAllReviews } = review();
 const isDataLoaded = ref(false);
 
 // GRID GAP
@@ -18,36 +17,6 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
 onMounted(async () => {
   await getAllReviews();
   isDataLoaded.value = true;
-
-  // Function to display stars based on the rating value
-  function showStars(container, rating) {
-    container.innerHTML = ""; // Clear any existing content
-
-    // Create stars based on the rating
-    for (let i = 1; i <= 5; i++) {
-      const star = document.createElement("span");
-      star.className = "stars";
-
-      // Fill the star if it's within the rating
-      if (i <= rating) {
-        star.innerHTML = "★"; // Use a star symbol
-      } else {
-        star.innerHTML = "☆"; // Use an empty star symbol
-      }
-
-      // Append the star to the container
-      container.appendChild(star);
-    }
-  }
-
-  // Get all elements with the "stars" class
-  const starContainers = document.querySelectorAll(".stars");
-
-  // Iterate through each element and display stars based on the data-rating attribute
-  starContainers.forEach(function (starContainer) {
-    const rating = parseInt(starContainer.getAttribute("data-rating"), 10);
-    showStars(starContainer, rating);
-  });
 
   nextTick(() => {
     new Swiper(".swiper-reviews", {
@@ -81,45 +50,73 @@ onMounted(async () => {
       // Optional parameters
       direction: "horizontal",
     });
-  });
+    // Function to display stars based on the rating value
+    function showStars(container, rating) {
+      container.innerHTML = ""; // Clear any existing content
 
-  function truncateText(text, maxLength) {
-    if (text.length > maxLength) {
+      // Create stars based on the rating
+      for (let i = 1; i <= 5; i++) {
+        const star = document.createElement("span");
+        star.className = "stars";
+
+        // Fill the star if it's within the rating
+        if (i <= rating) {
+          star.innerHTML = "★"; // Use a star symbol
+        } else {
+          star.innerHTML = "☆"; // Use an empty star symbol
+        }
+
+        // Append the star to the container
+        container.appendChild(star);
+      }
+    }
+
+    // Get all elements with the "stars" class
+    const starContainers = document.querySelectorAll(".stars");
+
+    // Iterate through each element and display stars based on the data-rating attribute
+    starContainers.forEach(function (starContainer) {
+      const rating = parseInt(starContainer.getAttribute("data-rating"), 10);
+      showStars(starContainer, rating);
+    });
+    function truncateText(text, maxLength) {
+      if (text.length > maxLength) {
+        return {
+          truncated: text.substring(0, maxLength) + "...",
+          full: text,
+        };
+      }
       return {
-        truncated: text.substring(0, maxLength) + "...",
+        truncated: text,
         full: text,
       };
     }
-    return {
-      truncated: text,
-      full: text,
-    };
-  }
 
-  // Apply truncation to review messages in Swiper reviews
-  const reviewMessages = document.querySelectorAll(".reviews-message");
+    // Apply truncation to review messages in Swiper reviews
+    const reviewMessages = document.querySelectorAll(".reviews-message");
 
-  reviewMessages.forEach((message) => {
-    const { truncated, full } = truncateText(message.textContent, 170);
+    reviewMessages.forEach((message) => {
+      const { truncated, full } = truncateText(message.textContent, 170);
 
-    if (full.length > 170) {
-      message.textContent = truncated;
+      if (full.length > 170) {
+        message.textContent = truncated;
 
-      // Create "Read Full Review" link
-      const readMoreLink = document.createElement("a");
-      readMoreLink.href = message.dataset.fullReview;
-      readMoreLink.textContent = "Read Full Review";
-      readMoreLink.classList.add("read-more-link");
-      readMoreLink.target = "_blank";
-      readMoreLink.rel = "noopener noreferrer nofollow";
+        // Create "Read Full Review" link
+        const readMoreLink = document.createElement("a");
+        readMoreLink.href = message.dataset.fullReview;
+        readMoreLink.textContent = "Read Full Review";
+        readMoreLink.classList.add("read-more-link");
+        readMoreLink.target = "_blank";
+        readMoreLink.rel = "noopener noreferrer nofollow";
 
-      // Append a line break and the link to the message
-      const lineBreak = document.createElement("br");
-      message.appendChild(lineBreak);
-      message.appendChild(readMoreLink);
-    } else {
-      message.textContent = full; // No truncation needed
-    }
+        // Append a line break and the link to the message
+        const lineBreak = document.createElement("br");
+        message.appendChild(lineBreak);
+        message.appendChild(readMoreLink);
+      } else {
+        message.textContent = full; // No truncation needed
+      }
+    });
   });
 });
 </script>
@@ -131,7 +128,7 @@ onMounted(async () => {
       <div
         v-for="review in state.reviews"
         :key="review._id"
-        class="swiper-slide"
+        class="swiper-slide card"
       >
         <div class="grid-container">
           <div class="grid-item">
@@ -166,20 +163,31 @@ onMounted(async () => {
     <div class="swiper-wrapper" v-else>
       <div class="swiper-slide" v-for="n in 4" :key="n">
         <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
           borderRadius="10px"
           class="mb-2"
           width="100%"
           height="150px"
         ></Skeleton>
-        <Skeleton width="100%" height="15px" class="mb-2"></Skeleton>
-        <Skeleton width="70%" height="15px" class="mb-2"></Skeleton>
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          width="100%"
+          height="15px"
+          class="mb-2"
+        ></Skeleton>
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          width="70%"
+          height="15px"
+          class="mb-2"
+        ></Skeleton>
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-.swiper-reviews .swiper-slide {
+.swiper-reviews .card {
   padding: var(--grid-gap-2);
   height: var(--dimension-2);
   max-height: 256px;
@@ -225,18 +233,4 @@ onMounted(async () => {
   font-size: var(--font-size-8);
   color: gold;
 }
-
-/* @media only screen and (max-width: 440px) {
-  .swiper-reviews .swiper-slide {
-    padding: var(--grid-gap-1);
-  }
-  .swiper-reviews {
-    border-radius: var(--border-radius-1);
-    height: 240px;
-  }
-  .swiper-reviews img {
-    height: var(--grid-gap-3);
-    width: var(--grid-gap-3);
-  }
-} */
 </style>

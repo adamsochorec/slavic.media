@@ -1,7 +1,7 @@
 import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
 
-const useEmployee = () => {
+const employee = () => {
   const route = useRoute();
 
   const documentID = computed(() => route.params.id);
@@ -54,4 +54,4 @@ const useEmployee = () => {
   };
 };
 
-export default useEmployee;
+export default employee;

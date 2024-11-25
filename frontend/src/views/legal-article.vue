@@ -1,9 +1,9 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import useLegal from "@/modules/legal";
+import legal from "@/modules/legal";
 import { useRoute } from "vue-router";
 
-const { getSpecificLegal, state } = useLegal();
+const { getSpecificLegal, state } = legal();
 const route = useRoute();
 
 const isDataLoaded = ref(false);

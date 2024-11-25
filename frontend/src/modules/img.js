@@ -1,7 +1,7 @@
 import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
 
-const useImg = () => {
+const img = () => {
   const route = useRoute();
 
   const documentID = computed(() => route.params.id);
@@ -50,4 +50,4 @@ const useImg = () => {
   };
 };
 
-export default useImg;
+export default img;

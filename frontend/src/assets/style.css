@@ -22,6 +22,9 @@ header:not(#homepage header) {
   -ms-backdrop-filter: var(--blur-1) !important; /* Edge */
   -o-backdrop-filter: var(--blur-1) !important; /* Older versions of Opera */
 }
+main {
+  min-height: var(--dimension-1);
+}
 .main {
   -webkit-box-align: center;
   -ms-flex-align: center;
