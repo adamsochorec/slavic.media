@@ -158,7 +158,7 @@ onMounted(() => {
       <section role="region">
         <h3 role="heading" aria-level="3">
           You control your
-          <span class="highlited tuscher" role="presentation">data</span>
+          <span class="gradient" role="presentation">data</span>
         </h3>
         <br />
         <p>

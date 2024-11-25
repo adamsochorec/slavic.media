@@ -12,6 +12,7 @@ interface video extends Document {
 }
 interface videoGallery extends Document {
   _id: string;
+  index: number;
   desc: string;
   title: string;
   videos: video[];
@@ -19,15 +20,16 @@ interface videoGallery extends Document {
 const videoSchema = new Schema({
   _id: { type: String, required: true },
   index: { type: Number, required: true, unique: true },
-  img: { type: String, required: true },
+  img: { type: String, required: false },
   flag: { type: String, required: true },
-  title: { type: String, required: true },
+  title: { type: String, required: false },
   year: { type: String, required: true },
-  client: { type: String, required: true },
+  client: { type: String, required: false },
 });
 
 const videoGallerySchema = new Schema({
   _id: { type: String, required: true },
+  index: { type: Number, required: true, unique: true },
   desc: { type: String, required: true },
   title: { type: String, required: true },
   videos: { type: [videoSchema], required: true },

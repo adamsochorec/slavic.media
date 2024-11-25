@@ -18,6 +18,9 @@ const useVideo = () => {
         throw new Error("Failed to fetch video galleries");
       }
       const data = await response.json();
+      data.forEach((gallery) => {
+        gallery.videos.sort((a, b) => a.index - b.index);
+      });
       data.sort((a, b) => a.index - b.index);
       state.value.galleries = data;
     } catch (error) {

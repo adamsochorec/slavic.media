@@ -34,7 +34,7 @@ const pressItems = ref([
   <div class="main" style="margin-top: 120px">
     <article class="wrapper-wide">
       <h1 id="pagePathHeading" class="reveal" role="heading" aria-level="1">
-        Assets
+        The<span class="gradient"> Slavic Media</span> Assets
       </h1>
       <hr class="reveal" role="separator" aria-label="Separator" />
       <!-- PRESS MATERIALS GRID START -->
@@ -71,6 +71,9 @@ const pressItems = ref([
 </template>
 
 <style lang="scss" scoped>
+h1 {
+  font-size: var(--font-size-2);
+}
 #gallery-press {
   display: grid;
   grid-gap: var(--grid-gap-3);

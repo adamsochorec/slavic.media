@@ -1,7 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import legal from "@/modules/legal";
-import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 const { state, getAllLegal } = legal();
 const isDataLoaded = ref(false);
 
@@ -13,7 +12,9 @@ onMounted(async () => {
 <template>
   <div class="main" style="margin: 120px 0">
     <article class="wrapper-standard">
-      <h1 class="reveal">Legal</h1>
+      <h1 class="reveal">
+        The<span class="gradient"> Slavic Media</span> Legal
+      </h1>
       <br />
       <p class="reveal">
         Before using Slavic Media services or digital products, you may review

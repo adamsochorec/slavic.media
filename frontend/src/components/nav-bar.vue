@@ -42,16 +42,16 @@ const items = ref([
         value: "Showreel",
       },
       {
-        label: "Content",
-        command: () => router.push("/services/video#content"),
-        icon: "pi pi-user",
-        value: "Content",
-      },
-      {
         label: "Narrative",
         command: () => router.push("/services/video#narrative"),
         icon: "pi pi-microphone",
         value: "Narrative",
+      },
+      {
+        label: "Content",
+        command: () => router.push("/services/video#content"),
+        icon: "pi pi-user",
+        value: "Content",
       },
     ],
   },

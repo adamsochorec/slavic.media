@@ -72,9 +72,9 @@ onMounted(() => {
       >
         <div class="grid-item">
           <h1>
-            Strategy, <span class="highlited tuscher">experience</span>,
-            precision and hard work<br />at your
-            <span class="highlited tuscher">service</span>
+            Strategy, <span class="gradient">experience</span>, precision and
+            hard work<br />at your
+            <span class="gradient">service</span>
           </h1>
         </div>
         <div class="grid-item">
@@ -115,9 +115,9 @@ onMounted(() => {
       <div class="grid-container caption-container" id="reviews-caption">
         <div class="grid-item">
           <h2 class="reveal">
-            <span class="highlited tuscher">Actions</span> speak louder
-            <span class="highlited tuscher">than</span> any
-            <span class="highlited tuscher"> words</span>
+            <span class="gradient">Actions</span> speak louder
+            <span class="gradient">than</span> any
+            <span class="gradient"> words</span>
           </h2>
         </div>
         <div class="grid-item reveal">

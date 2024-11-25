@@ -27,14 +27,15 @@ const mongoose_1 = __importStar(require("mongoose"));
 const videoSchema = new mongoose_1.Schema({
     _id: { type: String, required: true },
     index: { type: Number, required: true, unique: true },
-    img: { type: String, required: true },
+    img: { type: String, required: false },
     flag: { type: String, required: true },
-    title: { type: String, required: true },
+    title: { type: String, required: false },
     year: { type: String, required: true },
-    client: { type: String, required: true },
+    client: { type: String, required: false },
 });
 const videoGallerySchema = new mongoose_1.Schema({
     _id: { type: String, required: true },
+    index: { type: Number, required: true, unique: true },
     desc: { type: String, required: true },
     title: { type: String, required: true },
     videos: { type: [videoSchema], required: true },

@@ -1,30 +1,32 @@
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, nextTick } from "vue";
 import $ from "jquery";
 import "magnific-popup";
 
 onMounted(() => {
-  $(document).ready(function () {
-    $("#request-a-proposal-button").on("click", function (e) {
-      e.preventDefault();
-      $.magnificPopup.open({
-        items: {
-          src: "#request-a-proposal",
-          type: "inline",
-        },
-        preloader: "false",
-        focus: "#name",
-        overflowY: "scroll",
-        fixedContentPos: "false",
-        callbacks: {
-          beforeOpen: function () {
-            if ($(window).width() < 700) {
-              this.st.focus = false;
-            } else {
-              this.st.focus = "#name";
-            }
+  nextTick(() => {
+    $(document).ready(function () {
+      $("#request-a-proposal-button").on("click", function (e) {
+        e.preventDefault();
+        $.magnificPopup.open({
+          items: {
+            src: "#request-a-proposal",
+            type: "inline",
           },
-        },
+          preloader: "false",
+          focus: "#name",
+          overflowY: "scroll",
+          fixedContentPos: "false",
+          callbacks: {
+            beforeOpen: function () {
+              if ($(window).width() < 700) {
+                this.st.focus = false;
+              } else {
+                this.st.focus = "#name";
+              }
+            },
+          },
+        });
       });
     });
   });
@@ -52,7 +54,7 @@ onMounted(() => {
         >
           <h3 role="heading" aria-level="3">
             Request a
-            <span class="highlited tuscher" role="presentation">Proposal</span>
+            <span class="gradient" role="presentation">Proposal</span>
           </h3>
           <br />
           <form

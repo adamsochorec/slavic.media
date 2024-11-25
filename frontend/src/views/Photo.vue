@@ -153,7 +153,7 @@ watch(isDataLoaded, (loaded) => {
             style="background-color: rgb(var(--dark-grey-color))"
             width="10rem"
             height="2rem"
-            borderRadius="16px"
+            borderRadius="10px"
           ></Skeleton>
         </div>
       </div>
