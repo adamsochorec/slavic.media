@@ -8,7 +8,7 @@ const isDataLoaded = ref(false);
 
 onMounted(async () => {
   await getAllEvents();
-  isDataLoaded.value = false;
+  isDataLoaded.value = true;
 });
 </script>
 
