@@ -1,32 +1,35 @@
 <script setup>
-import { onMounted, nextTick } from "vue";
+import { ref, onMounted, nextTick } from "vue";
+import eventBus from "@/eventBus";
 import $ from "jquery";
 import "magnific-popup";
 
+const isVisible = ref(false);
+const content = ref("");
+
 onMounted(() => {
-  nextTick(() => {
-    $(document).ready(function () {
-      $("#request-a-proposal-button").on("click", function (e) {
-        e.preventDefault();
-        $.magnificPopup.open({
-          items: {
-            src: "#request-a-proposal",
-            type: "inline",
+  eventBus.on("showRequestAProposal", (data) => {
+    content.value = data;
+    isVisible.value = true;
+    nextTick(() => {
+      $.magnificPopup.open({
+        items: {
+          src: "#requestAProposalPopup",
+          type: "inline",
+        },
+        preloader: false,
+        focus: "#name",
+        overflowY: "scroll",
+        fixedContentPos: "false",
+        callbacks: {
+          beforeOpen: function () {
+            if ($(window).width() < 700) {
+              this.st.focus = false;
+            } else {
+              this.st.focus = "#name";
+            }
           },
-          preloader: "false",
-          focus: "#name",
-          overflowY: "scroll",
-          fixedContentPos: "false",
-          callbacks: {
-            beforeOpen: function () {
-              if ($(window).width() < 700) {
-                this.st.focus = false;
-              } else {
-                this.st.focus = "#name";
-              }
-            },
-          },
-        });
+        },
       });
     });
   });
@@ -35,13 +38,8 @@ onMounted(() => {
 
 <template>
   <div>
-    <!-- Popup Trigger -->
-    <button class="popup-with-form reveal" id="request-a-proposal-button">
-      <div class="cta">Request a Proposal<i class="pi pi-arrow-right"></i></div>
-    </button>
-
     <!-- Popup Content -->
-    <div id="request-a-proposal" class="white-popup-block mfp-hide">
+    <div id="requestAProposalPopup" class="white-popup-block mfp-hide">
       <article
         class="wrapper-standard"
         role="article"

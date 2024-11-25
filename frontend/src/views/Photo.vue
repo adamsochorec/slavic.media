@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted, nextTick, watch } from "vue";
 import requestAProposal from "@/components/request-a-proposal.vue";
+import eventBus from "@/eventBus";
+
 import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
 import $ from "jquery";
 import "magnific-popup";
@@ -50,6 +52,9 @@ onMounted(async () => {
 watch(isDataLoaded, (loaded) => {
   if (loaded) initializeLightbox();
 });
+const showRequestAProposal = (data) => {
+  eventBus.emit("showRequestAProposal", data);
+};
 </script>
 
 <template>
@@ -88,7 +93,16 @@ watch(isDataLoaded, (loaded) => {
           <div class="grid-item">
             <p class="reveal">{{ gallery.desc }}</p>
 
-            <requestAProposal></requestAProposal>
+            <requestAProposal />
+            <button
+              @click="showRequestAProposal(gallery)"
+              class="popup-with-form reveal"
+              id="request-a-proposal-button"
+            >
+              <div class="cta">
+                Request a Proposal<i class="pi pi-arrow-right"></i>
+              </div>
+            </button>
           </div>
         </div>
         <hr class="semi" role="separator" />

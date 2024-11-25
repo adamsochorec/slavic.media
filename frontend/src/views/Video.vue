@@ -2,10 +2,11 @@
 import { onMounted, ref, nextTick } from "vue";
 import $ from "jquery";
 import useVideo from "@/modules/video";
-const { state, getAllGalleries } = useVideo();
+import eventBus from "@/eventBus";
 import requestAProposal from "@/components/request-a-proposal.vue";
 import swiperReels from "@/components/swiper-reels.vue";
 
+const { state, getAllGalleries } = useVideo();
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
@@ -15,13 +16,13 @@ onMounted(async () => {
   nextTick(() => {
     document.querySelectorAll(".gallery").forEach((gallery) => {
       $(gallery).magnificPopup({
-        delegate: "a", // Targets specific link class for delegation
-        type: "iframe", // Sets the type to iframe for displaying videos
+        delegate: "a",
+        type: "iframe",
         gallery: {
           enabled: true,
           navigateByImgClick: false,
-          fixedContentPos: "false",
-          preload: [0, 1], // Preloads adjacent items
+          fixedContentPos: false,
+          preload: [0, 1],
           arrowMarkup:
             '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>',
           tPrev: "Previous",
@@ -29,16 +30,16 @@ onMounted(async () => {
         },
         zoom: {
           enabled: true,
-          duration: 300, // Duration of the zoom animation
-        },
-        src: function (item) {
-          // Directly returns the href attribute value for iframe src
-          return item.el.getAttribute("href");
+          duration: 300,
         },
       });
     });
   });
 });
+
+const showRequestAProposal = (data) => {
+  eventBus.emit("showRequestAProposal", data);
+};
 </script>
 
 <template>
@@ -76,7 +77,16 @@ onMounted(async () => {
             </div>
             <div class="grid-item">
               <p class="reveal">{{ gallery.desc }}</p>
-              <requestAProposal></requestAProposal>
+              <requestAProposal />
+              <button
+                @click="showRequestAProposal(gallery)"
+                class="popup-with-form reveal"
+                id="request-a-proposal-button"
+              >
+                <div class="cta">
+                  Request a Proposal<i class="pi pi-arrow-right"></i>
+                </div>
+              </button>
             </div>
           </div>
           <hr class="semi" role="separator" />
@@ -124,7 +134,16 @@ onMounted(async () => {
               Social media reels that capture your brand’s essence—engaging,
               genuine, and designed to resonate with your audience.
             </p>
-            <requestAProposal></requestAProposal>
+            <requestAProposal />
+            <button
+              @click="showRequestAProposal(gallery)"
+              class="popup-with-form reveal"
+              id="request-a-proposal-button"
+            >
+              <div class="cta">
+                Request a Proposal<i class="pi pi-arrow-right"></i>
+              </div>
+            </button>
           </div>
           <div id="content"></div>
         </div>
