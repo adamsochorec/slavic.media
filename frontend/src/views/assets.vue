@@ -1,33 +1,13 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import asset from "@/modules/assets";
+const { state, getAllAssets } = asset();
+const isDataLoaded = ref(false);
 
-// Define the press items in an array
-const pressItems = ref([
-  {
-    href: "assets/brand-guide.pdf",
-    img: "https://slavic.media/img/cover-brandguide.png",
-    title: "Brand Guide",
-    description:
-      "Sets the visual and stylistic standards for the brand, ensuring consistency in logos, colours, fonts, and design.",
-    ariaLabel: "Link to Brand Guide",
-  },
-  {
-    href: "assets/credit-guide.pdf",
-    img: "https://slavic.media/img/cover-creditguide.png",
-    title: "Credit Guide",
-    description:
-      "Outlines how to tag and credit work across digital as well as printed media.",
-    ariaLabel: "Link to Credit Guide",
-  },
-  {
-    href: "assets/press-kit.zip",
-    img: "https://slavic.media/img/cover-presskit.jpg",
-    title: "Press Kit",
-    description:
-      "Package of vectorised logos, fonts and other essential branding materials.",
-    ariaLabel: "Link to Press Kit",
-  },
-]);
+onMounted(async () => {
+  await getAllAssets();
+  isDataLoaded.value = true;
+});
 </script>
 
 <template>
@@ -45,23 +25,25 @@ const pressItems = ref([
         aria-label="Press Materials Grid"
       >
         <a
-          v-for="(item, index) in pressItems"
-          :key="index"
+          v-for="asset in state.assets"
+          :key="asset._id"
           class="gallery-item"
-          :href="item.href"
+          :href="`assets/${asset._id}.${asset.type}`"
           target="_blank"
         >
           <h2>
-            {{ item.title }}
+            {{ asset.title }}
           </h2>
 
           <div
             class="grid-item"
             role="gridcell"
-            :style="{ backgroundImage: `url(${item.img})` }"
+            :style="{
+              backgroundImage: `url(https://slavic.media/img/${asset._id}.png)`,
+            }"
           ></div>
           <p>
-            {{ item.description }}
+            {{ asset.desc }}
           </p>
         </a>
       </div>

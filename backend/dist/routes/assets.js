@@ -4,13 +4,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const review_1 = __importDefault(require("../models/review"));
+const assets_1 = __importDefault(require("../models/assets"));
 const validation_1 = require("../validation");
 const router = (0, express_1.Router)();
 // Create document - POST
 router.post("/", validation_1.verifyToken, (req, res) => {
     const data = req.body;
-    review_1.default
+    assets_1.default
         .create(data)
         .then((insertedData) => {
         res.status(201).send(insertedData);
@@ -21,7 +21,7 @@ router.post("/", validation_1.verifyToken, (req, res) => {
 });
 // Read all document - GET
 router.get("/", (req, res) => {
-    review_1.default
+    assets_1.default
         .find()
         .then((data) => {
         res.send(data);
@@ -32,7 +32,7 @@ router.get("/", (req, res) => {
 });
 // Read specific document by ID - GET
 router.get("/:id", (req, res) => {
-    review_1.default
+    assets_1.default
         .findById(req.params.id)
         .then((data) => {
         res.send(data);
@@ -44,9 +44,9 @@ router.get("/:id", (req, res) => {
 // Update document - PUT
 router.put("/:id", validation_1.verifyToken, (req, res) => {
     const { id } = req.params;
-    const updatedReview = req.body;
-    review_1.default
-        .findByIdAndUpdate(id, updatedReview, { new: true })
+    const updatedAsset = req.body;
+    assets_1.default
+        .findByIdAndUpdate(id, updatedAsset, { new: true })
         .then((data) => {
         if (!data) {
             res.status(404).send({
@@ -64,7 +64,7 @@ router.put("/:id", validation_1.verifyToken, (req, res) => {
 // Delete document - DELETE
 router.delete("/:id", validation_1.verifyToken, (req, res) => {
     const { id } = req.params;
-    review_1.default
+    assets_1.default
         .findByIdAndDelete(id)
         .then((data) => {
         if (!data) {

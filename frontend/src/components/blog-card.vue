@@ -70,13 +70,27 @@ defineProps({
 h3 {
   font-size: var(--font-size-5);
 }
-
 img {
   height: 170px;
   width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
   margin-bottom: var(--grid-gap-2);
+}
+img:focus::after,
+img:hover::after {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
+img,
+img:hover,
+img:focus::after,
+img:hover::after {
+  border-radius: var(--border-radius-1);
+  -webkit-transition: var(--transition-1);
+  -o-transition: var(--transition-1);
+  transition: var(--transition-1);
 }
 .metadata {
   display: -webkit-box;

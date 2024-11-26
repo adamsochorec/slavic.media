@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import reviewModel from "../models/review";
+import assetsModel from "../models/assets";
 import { verifyToken } from "../validation";
 
 const router = Router();
@@ -7,7 +7,7 @@ const router = Router();
 // Create document - POST
 router.post("/", verifyToken, (req: Request, res: Response) => {
   const data = req.body;
-  reviewModel
+  assetsModel
     .create(data)
     .then((insertedData) => {
       res.status(201).send(insertedData);
@@ -19,7 +19,7 @@ router.post("/", verifyToken, (req: Request, res: Response) => {
 
 // Read all document - GET
 router.get("/", (req: Request, res: Response) => {
-  reviewModel
+  assetsModel
     .find()
     .then((data) => {
       res.send(data);
@@ -31,7 +31,7 @@ router.get("/", (req: Request, res: Response) => {
 
 // Read specific document by ID - GET
 router.get("/:id", (req: Request, res: Response) => {
-  reviewModel
+  assetsModel
     .findById(req.params.id)
     .then((data) => {
       res.send(data);
@@ -44,10 +44,10 @@ router.get("/:id", (req: Request, res: Response) => {
 // Update document - PUT
 router.put("/:id", verifyToken, (req: Request, res: Response) => {
   const { id } = req.params;
-  const updatedReview = req.body;
+  const updatedAsset = req.body;
 
-  reviewModel
-    .findByIdAndUpdate(id, updatedReview, { new: true })
+  assetsModel
+    .findByIdAndUpdate(id, updatedAsset, { new: true })
     .then((data) => {
       if (!data) {
         res.status(404).send({
@@ -65,7 +65,7 @@ router.put("/:id", verifyToken, (req: Request, res: Response) => {
 // Delete document - DELETE
 router.delete("/:id", verifyToken, (req: Request, res: Response) => {
   const { id } = req.params;
-  reviewModel
+  assetsModel
     .findByIdAndDelete(id)
     .then((data) => {
       if (!data) {
