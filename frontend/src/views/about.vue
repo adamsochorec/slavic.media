@@ -51,22 +51,14 @@ onMounted(async () => {
         Timeline
       </h2>
       <br />
-      <Timeline align="alternate" :value="state.events">
+      <Timeline v-if="isDataLoaded" align="alternate" :value="state.events">
         <template #marker="slotProps">
           <span class="flex h-8 items-center justify-center">
-            <span
-              v-if="isDataLoaded"
-              :class="`pi ${slotProps.item.icon}`"
-            ></span>
-            <span
-              v-else
-              style="color: rgb(var(--dark-grey-color))"
-              class="pi pi-spin pi-spinner"
-            ></span>
+            <span :class="`pi ${slotProps.item.icon}`"></span>
           </span>
         </template>
         <template #content="slotProps">
-          <div v-if="isDataLoaded">
+          <div>
             <p class="reveal">
               {{ slotProps.item.date }}
             </p>
@@ -74,20 +66,33 @@ onMounted(async () => {
               {{ slotProps.item.event }}
             </p>
           </div>
-          <div v-else>
-            <Skeleton
-              style="background-color: rgb(var(--dark-grey-color))"
-              width="40%"
-              class="mb-2"
-            ></Skeleton
-            ><Skeleton
-              style="background-color: rgb(var(--dark-grey-color))"
-              width="100%"
-              class="mb-2"
-            ></Skeleton>
-          </div>
         </template>
       </Timeline>
+      <div v-else v-for="n in 4" :key="n">
+        <ul style="list-style: none" class="m-0">
+          <li class="mb-3">
+            <div class="flex">
+              <Skeleton
+                shape="circle"
+                size="4rem"
+                class="mr-2"
+                style="background-color: rgb(var(--dark-grey-color))"
+              ></Skeleton>
+              <div class="self-center" style="flex: 1">
+                <Skeleton
+                  style="background-color: rgb(var(--dark-grey-color))"
+                  width="100%"
+                  class="mb-2"
+                ></Skeleton>
+                <Skeleton
+                  style="background-color: rgb(var(--dark-grey-color))"
+                  width="75%"
+                ></Skeleton>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </article>
   </div>
 </template>
