@@ -64,9 +64,10 @@ defineProps({
   padding: var(--grid-gap-2);
   border-radius: var(--border-radius-1);
 }
-.article-metadata a:hover {
+a:hover,
+img:hover h3 {
   text-decoration: underline;
-} // FURTHER READING a.author:hover { text-decoration: underline; }
+}
 h3 {
   font-size: var(--font-size-5);
 }
@@ -77,8 +78,8 @@ img {
   object-fit: cover;
   margin-bottom: var(--grid-gap-2);
 }
-img:focus::after,
-img:hover::after {
+a img:focus::after,
+a img:hover::after {
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
   transform: scale(1.05);

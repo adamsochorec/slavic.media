@@ -23,6 +23,7 @@ onMounted(async () => {
         id="gallery-press"
         role="grid"
         aria-label="Press Materials Grid"
+        v-if="isDataLoaded"
       >
         <a
           v-for="asset in state.assets"
@@ -46,6 +47,57 @@ onMounted(async () => {
             {{ asset.desc }}
           </p>
         </a>
+      </div>
+      <div class="reveal" id="gallery-press" v-else>
+        <div v-for="n in 3" :key="n" class="card">
+          <Skeleton
+            style="background-color: rgb(var(--dark-grey-color))"
+            class="p-6"
+            width="100%"
+            height="130px"
+          ></Skeleton>
+          <div>
+            <Skeleton
+              width="80%"
+              height="10px"
+              style="background-color: rgb(var(--dark-grey-color))"
+              class="mt-2"
+            ></Skeleton>
+            <Skeleton
+              width="60%"
+              style="background-color: rgb(var(--dark-grey-color))"
+              class="mt-2"
+              height="10px"
+            ></Skeleton>
+            <div class="flex mt-4">
+              <Skeleton
+                style="background-color: rgb(var(--dark-grey-color))"
+                class="mr-2"
+                shape="circle"
+                size="4rem"
+              ></Skeleton>
+              <div>
+                <Skeleton
+                  width="10rem"
+                  height="10px"
+                  style="background-color: rgb(var(--dark-grey-color))"
+                  class="mb-2"
+                ></Skeleton>
+                <Skeleton
+                  width="5rem"
+                  style="background-color: rgb(var(--dark-grey-color))"
+                  class="mb-2"
+                  height="10px"
+                ></Skeleton>
+                <Skeleton
+                  style="background-color: rgb(var(--dark-grey-color))"
+                  class=""
+                  height="10px"
+                ></Skeleton>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- PRESS MATERIALS GRID END -->
     </article>
