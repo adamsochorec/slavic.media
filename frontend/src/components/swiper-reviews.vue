@@ -136,7 +136,7 @@ onMounted(async () => {
               class="customer-img"
               alt="Client's Profile Photo"
               :title="review.name"
-              :src="`https://lh3.googleusercontent.com/a-/${review.img}=w120-h120-p-rp-mo-br100`"
+              :src="`https://lh3.googleusercontent.com/${review.img}=w120-h120-p-rp-mo-br100`"
             />
           </div>
           <div class="grid-item">
