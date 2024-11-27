@@ -13,7 +13,9 @@ const timeline = () => {
   // Read all documents - GET
   const getAllEvents = async () => {
     try {
-      const response = await fetch("https://api.slavic.media/event/");
+      const response = await fetch(
+        "https://slavic-media-2-0.onrender.com/event/"
+      );
       const data = await response.json();
       state.value.events = data;
     } catch (error) {
