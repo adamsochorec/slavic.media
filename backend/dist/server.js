@@ -21,8 +21,11 @@ app.use((req, res, next) => {
 // Middleware to parse JSON bodies
 app.use(body_parser_1.default.json());
 // Load and serve Swagger documentation
-const swaggerDefinition = yamljs_1.default.load(path_1.default.join("backend", "..", "swagger.yaml"));
-app.use("/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDefinition));
+const options = {
+    customCss: ".swagger-ui .topbar { display: none !important; }",
+};
+const swaggerDefinition = yamljs_1.default.load(path_1.default.join(__dirname, "..", "swagger.yaml"));
+app.use("/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDefinition, options));
 const article_1 = __importDefault(require("./routes/article"));
 const img_1 = __importDefault(require("./routes/img"));
 const video_1 = __importDefault(require("./routes/video"));

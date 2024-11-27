@@ -29,8 +29,11 @@ app.use((req: Request, res: Response, next: Function) => {
 app.use(bodyParser.json());
 
 // Load and serve Swagger documentation
-const swaggerDefinition = yaml.load(path.join("backend", "..", "swagger.yaml"));
-app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition));
+const options = {
+  customCss: ".swagger-ui .topbar { display: none !important; }",
+};
+const swaggerDefinition = yaml.load(path.join(__dirname, "..", "swagger.yaml"));
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition, options));
 
 import articleRoutes from "./routes/article";
 import imgRoutes from "./routes/img";

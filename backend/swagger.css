@@ -1,0 +1,6 @@
+.swagger-ui .topbar {
+  display: none !important;
+}
+body {
+  background-color: red;
+}

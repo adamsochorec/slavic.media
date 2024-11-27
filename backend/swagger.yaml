@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: slavic.media/blog
+  title: Slavic Media API
   description: MongoDB ExpressJS NodeJS REST API
   version: 1.0.0
 servers:
@@ -16,26 +16,163 @@ servers:
     description: Deployed backend
 components:
   securitySchemes:
-    ApiKeyAuth: # arbitrary name for the security scheme
+    ApiKeyAuth:
       type: apiKey
-      in: header # can be "header", "query" or "cookie"
+      in: header
       name: auth-token
 
   schemas:
-    article:
+    Employee:
       type: object
       properties:
-        ID:
+        _id:
+          type: string
+        index:
+          type: number
+        name:
+          type: string
+        department:
+          type: string
+        origin:
+          type: string
+        email:
+          type: string
+        birthday:
+          type: string
+        linkedin:
+          type: string
+        github:
+          type: string
+
+    Article:
+      type: object
+      properties:
+        _id:
+          type: string
+        author:
+          type: object
+          properties:
+            thumbnail:
+              type: string
+            name:
+              type: string
+            url:
+              type: string
+        metadata:
+          type: object
+          properties:
+            date:
+              type: string
+              format: date-time
+            formatedDate:
+              type: string
+            keywords:
+              type: array
+              items:
+                type: string
+            linkedin:
+              type: string
+            thumbnail:
+              type: string
+            length:
+              type: number
+        content:
+          type: array
+          items:
+            type: string
+        title:
+          type: string
+
+    Review:
+      type: object
+      properties:
+        _id:
+          type: number
+        img:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+        profileLink:
+          type: string
+        rating:
+          type: number
+        fullReview:
+          type: string
+        message:
+          type: string
+
+    Asset:
+      type: object
+      properties:
+        _id:
+          type: string
+        type:
           type: string
         title:
           type: string
+        desc:
+          type: string
+
+    Video:
+      type: object
+      properties:
+        _id:
+          type: string
+        index:
+          type: number
+        flag:
+          type: string
+        title:
+          type: string
+        url:
+          type: string
+        year:
+          type: string
+        client:
+          type: string
+
+    VideoGallery:
+      type: object
+      properties:
+        _id:
+          type: string
+        index:
+          type: number
+        desc:
+          type: string
+        title:
+          type: string
+        videos:
+          type: array
+          items:
+            $ref: "#/components/schemas/Video"
+
+    Legal:
+      type: object
+      properties:
+        _id:
+          type: string
+        title:
+          type: string
+        modified:
+          type: string
         content:
-          type: string
-        author:
-          type: string
+          type: array
+          items:
+            type: string
+
+    Event:
+      type: object
+      properties:
+        _id:
+          type: number
         date:
           type: string
-        thumbnail:
+        event:
+          type: string
+        icon:
           type: string
 
     User:
@@ -50,53 +187,35 @@ components:
         date:
           type: string
 
-    img:
+    Img:
       type: object
       properties:
         _id:
           type: string
-        largeURL:
-          type: string
-        thumbnailURL:
-          type: string
-        width:
-          type: number
-        height:
-          type: number
-        flag:
-          type: string
-        title:
-          type: string
         alt:
           type: string
-        client:
-          type: string
-
-    photoService:
-      type: object
-      properties:
         title:
           type: string
-        handle:
+        flag:
           type: string
-        description:
+
+    ImgGallery:
+      type: object
+      properties:
+        _id:
           type: string
-        column1:
+        index:
+          type: number
+        desc:
+          type: string
+        title:
+          type: string
+        columns:
           type: array
           items:
-            type: string
-        column2:
-          type: array
-          items:
-            type: string
-        column3:
-          type: array
-          items:
-            type: string
-        column4:
-          type: array
-          items:
-            type: string
+            type: array
+            items:
+              $ref: "#/components/schemas/Img"
 
 paths:
   /user/register:
@@ -152,8 +271,8 @@ paths:
 
   /blog/articles/:
     get:
-      summary: Fetches all documents from the server
-      description: Retrieves a list of documents as JSON objects
+      summary: Fetches all articles
+      description: Retrieves a list of articles as JSON objects
       security:
         - ApiKeyAuth: []
       responses:
@@ -164,10 +283,10 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/article"
+                  $ref: "#/components/schemas/Article"
     post:
-      summary: Create a new document
-      description: Creates a new document and sends it to the server for storage.
+      summary: Create a new article
+      description: Creates a new article and sends it to the server for storage.
       security:
         - ApiKeyAuth: []
       requestBody:
@@ -175,43 +294,43 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/article"
+              $ref: "#/components/schemas/Article"
       responses:
         201:
-          description: Document created successfully
+          description: Article created successfully
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/article"
+                $ref: "#/components/schemas/Article"
 
-  /blog/articles/{slug}:
+  /blog/articles/{id}:
     get:
-      summary: Retrieve a specific document
-      description: Retrieves a specific document based on its slug
+      summary: Retrieve a specific article
+      description: Retrieves a specific article based on its ID
       parameters:
         - in: path
-          name: slug
+          name: id
           required: true
-          description: Document slug
+          description: Article ID
           schema:
             type: string
       responses:
         200:
-          description: A document in the format of a JSON object
+          description: An article in the format of a JSON object
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/article"
+                $ref: "#/components/schemas/Article"
     put:
-      summary: Update a specific document
-      description: Updates a specific document based on its slug
+      summary: Update a specific article
+      description: Updates a specific article based on its ID
       security:
         - ApiKeyAuth: []
       parameters:
         - in: path
-          name: slug
+          name: id
           required: true
-          description: Document slug
+          description: Article ID
           schema:
             type: string
       requestBody:
@@ -219,24 +338,24 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/article"
+              $ref: "#/components/schemas/Article"
       responses:
         200:
           description: Successfully updated!
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/article"
+                $ref: "#/components/schemas/Article"
     delete:
-      summary: Delete a specific document
-      description: Deletes a specific document based on its slug
+      summary: Delete a specific article
+      description: Deletes a specific article based on its ID
       security:
         - ApiKeyAuth: []
       parameters:
         - in: path
-          name: slug
+          name: id
           required: true
-          description: Document slug
+          description: Article ID
           schema:
             type: string
       responses:
@@ -245,30 +364,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/article"
+                $ref: "#/components/schemas/Article"
 
-  /img:
-    post:
-      summary: Create a new image document
-      description: Creates a new image document and sends it to the server for storage.
-      security:
-        - ApiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/img"
-      responses:
-        201:
-          description: Image document created successfully
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/img"
+  /employees:
     get:
-      summary: Fetches all image documents from the server
-      description: Retrieves a list of image documents as JSON objects
+      summary: Fetches all employees
+      description: Retrieves a list of employees as JSON objects
       responses:
         200:
           description: A list of JSON objects in an array
@@ -277,162 +378,475 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/img"
+                  $ref: "#/components/schemas/Employee"
+    post:
+      summary: Create a new employee
+      description: Creates a new employee and sends it to the server for storage.
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Employee"
+      responses:
+        201:
+          description: Employee created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Employee"
+
+  /employees/{id}:
+    get:
+      summary: Retrieve a specific employee
+      description: Retrieves a specific employee based on its ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Employee ID
+          schema:
+            type: string
+      responses:
+        200:
+          description: An employee in the format of a JSON object
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Employee"
+    put:
+      summary: Update a specific employee
+      description: Updates a specific employee based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Employee ID
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Employee"
+      responses:
+        200:
+          description: Successfully updated!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Employee"
+    delete:
+      summary: Delete a specific employee
+      description: Deletes a specific employee based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Employee ID
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Employee"
+
+  /reviews:
+    get:
+      summary: Fetches all reviews
+      description: Retrieves a list of reviews as JSON objects
+      responses:
+        200:
+          description: A list of JSON objects in an array
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Review"
+    post:
+      summary: Create a new review
+      description: Creates a new review and sends it to the server for storage.
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Review"
+      responses:
+        201:
+          description: Review created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Review"
+
+  /reviews/{id}:
+    get:
+      summary: Retrieve a specific review
+      description: Retrieves a specific review based on its ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Review ID
+          schema:
+            type: number
+      responses:
+        200:
+          description: A review in the format of a JSON object
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Review"
+    put:
+      summary: Update a specific review
+      description: Updates a specific review based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Review ID
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Review"
+      responses:
+        200:
+          description: Successfully updated!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Review"
+    delete:
+      summary: Delete a specific review
+      description: Deletes a specific review based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Review ID
+          schema:
+            type: number
+      responses:
+        200:
+          description: Successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Review"
+
+  /assets:
+    get:
+      summary: Fetches all assets
+      description: Retrieves a list of assets as JSON objects
+      responses:
+        200:
+          description: A list of JSON objects in an array
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Asset"
+    post:
+      summary: Create a new asset
+      description: Creates a new asset and sends it to the server for storage.
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Asset"
+      responses:
+        201:
+          description: Asset created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Asset"
+
+  /assets/{id}:
+    get:
+      summary: Retrieve a specific asset
+      description: Retrieves a specific asset based on its ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Asset ID
+          schema:
+            type: string
+      responses:
+        200:
+          description: An asset in the format of a JSON object
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Asset"
+    put:
+      summary: Update a specific asset
+      description: Updates a specific asset based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Asset ID
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Asset"
+      responses:
+        200:
+          description: Successfully updated!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Asset"
+    delete:
+      summary: Delete a specific asset
+      description: Deletes a specific asset based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Asset ID
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Asset"
+
+  /videos:
+    get:
+      summary: Fetches all video galleries
+      description: Retrieves a list of video galleries as JSON objects
+      responses:
+        200:
+          description: A list of JSON objects in an array
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/VideoGallery"
+    post:
+      summary: Create a new video gallery
+      description: Creates a new video gallery and sends it to the server for storage.
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VideoGallery"
+      responses:
+        201:
+          description: Video gallery created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VideoGallery"
+
+  /videos/{id}:
+    get:
+      summary: Retrieve a specific video gallery
+      description: Retrieves a specific video gallery based on its ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Video gallery ID
+          schema:
+            type: string
+      responses:
+        200:
+          description: A video gallery in the format of a JSON object
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VideoGallery"
+    put:
+      summary: Update a specific video gallery
+      description: Updates a specific video gallery based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Video gallery ID
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VideoGallery"
+      responses:
+        200:
+          description: Successfully updated!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VideoGallery"
+    delete:
+      summary: Delete a specific video gallery
+      description: Deletes a specific video gallery based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Video gallery ID
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VideoGallery"
+
+  /legal:
+    get:
+      summary: Returns the list of all legal documents
+      tags: [Legal]
+      responses:
+        200:
+          description: The list of the legal documents
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Legal"
+
+  /legal/{id}:
+    get:
+      summary: Get the legal document by id
+      tags: [Legal]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The legal document id
+      responses:
+        200:
+          description: The legal document description by id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Legal"
+        404:
+          description: The legal document was not found
+
+  /img:
+    get:
+      summary: Returns the list of all images
+      tags: [Img]
+      responses:
+        200:
+          description: The list of the images
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Img"
 
   /img/{id}:
     get:
-      summary: Retrieve a specific image document
-      description: Retrieves a specific image document based on its ID
+      summary: Get the image by id
+      tags: [Img]
       parameters:
         - in: path
           name: id
-          required: true
-          description: Image document ID
           schema:
             type: string
+          required: true
+          description: The image id
       responses:
         200:
-          description: An image document in the format of a JSON object
+          description: The image description by id
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/img"
-    put:
-      summary: Update a specific image document
-      description: Updates a specific image document based on its ID
-      security:
-        - ApiKeyAuth: []
-      parameters:
-        - in: path
-          name: id
-          required: true
-          description: Image document ID
-          schema:
-            type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/img"
-      responses:
-        200:
-          description: Successfully updated!
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/img"
-    delete:
-      summary: Delete a specific image document
-      description: Deletes a specific image document based on its ID
-      security:
-        - ApiKeyAuth: []
-      parameters:
-        - in: path
-          name: id
-          required: true
-          description: Image document ID
-          schema:
-            type: string
-      responses:
-        200:
-          description: Successfully deleted
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/img"
+                $ref: "#/components/schemas/Img"
+        404:
+          description: The image was not found
 
-  /services/photo/:
-    post:
-      summary: Create a new photo service document
-      description: Creates a new photo service document and sends it to the server for storage.
-      security:
-        - ApiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/photoService"
-      responses:
-        201:
-          description: Photo service document created successfully
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/photoService"
+  /event:
     get:
-      summary: Fetches all photo service documents from the server
-      description: Retrieves a list of photo service documents as JSON objects
+      summary: Returns the list of all events
+      tags: [Event]
       responses:
         200:
-          description: A list of JSON objects in an array
+          description: The list of the events
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/photoService"
+                  $ref: "#/components/schemas/Event"
 
-  /services/photo/{id}:
+  /event/{id}:
     get:
-      summary: Retrieve a specific photo service document
-      description: Retrieves a specific photo service document based on its ID
+      summary: Get the event by id
+      tags: [Event]
       parameters:
         - in: path
           name: id
-          required: true
-          description: Photo service document ID
           schema:
             type: string
+          required: true
+          description: The event id
       responses:
         200:
-          description: A photo service document in the format of a JSON object
+          description: The event description by id
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/photoService"
-    put:
-      summary: Update a specific photo service document
-      description: Updates a specific photo service document based on its ID
-      security:
-        - ApiKeyAuth: []
-      parameters:
-        - in: path
-          name: id
-          required: true
-          description: Photo service document ID
-          schema:
-            type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/photoService"
-      responses:
-        200:
-          description: Successfully updated!
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/photoService"
-    delete:
-      summary: Delete a specific photo service document
-      description: Deletes a specific photo service document based on its ID
-      security:
-        - ApiKeyAuth: []
-      parameters:
-        - in: path
-          name: id
-          required: true
-          description: Photo service document ID
-          schema:
-            type: string
-      responses:
-        200:
-          description: Successfully deleted
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/photoService"
+                $ref: "#/components/schemas/Event"
+        404:
+          description: The event was not found
