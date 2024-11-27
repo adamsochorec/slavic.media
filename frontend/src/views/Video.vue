@@ -61,12 +61,12 @@ const showRequestAProposal = (data) => {
           </p>
         </div>
       </div>
-      <hr class="reveal" role="separator" />
 
       <div v-if="isDataLoaded">
         <!-- GALLERY -->
         <div v-for="gallery in state.galleries" :key="gallery._id">
           <div :id="gallery._id"></div>
+          <hr class="reveal" role="separator" />
 
           <div class="grid-container caption-container">
             <div class="grid-item reveal">
@@ -88,8 +88,8 @@ const showRequestAProposal = (data) => {
                 </div>
               </button>
             </div>
+            <hr class="reveal semi" role="separator" />
           </div>
-          <hr class="semi" role="separator" />
 
           <!-- GALLERY ITEMS -->
           <div class="gallery" aria-label="Video Gallery">
@@ -99,7 +99,7 @@ const showRequestAProposal = (data) => {
               class="gallery-item reveal"
             >
               <img
-                :src="`https://slavic.media/img/cover-${video.img}.jpg`"
+                :src="`https://slavic.media/img/${video._id}.jpg`"
                 :alt="video.title"
               />
               <div class="gallery-item-caption">
@@ -112,7 +112,7 @@ const showRequestAProposal = (data) => {
                   {{ video.year }}&nbsp;|&nbsp;<span>{{ video.client }}</span>
                 </p>
                 <a
-                  :href="`https://vimeo.com/${video._id}`"
+                  :href="`https://vimeo.com/slavicmedia/${video.url}`"
                   target="_blank"
                   rel="noopener noreferrer"
                 ></a>
@@ -120,7 +120,7 @@ const showRequestAProposal = (data) => {
             </div>
           </div>
         </div>
-        <hr role="separator" />
+        <hr class="reveal" role="separator" />
 
         <!-- SWIPER GALLERY -->
         <div class="grid-container caption-container">
@@ -151,6 +151,8 @@ const showRequestAProposal = (data) => {
         <swiperReels></swiperReels>
       </div>
       <div v-else>
+        <hr class="reveal" role="separator" />
+
         <div class="flex flex-wrap">
           <div class="w-full xl:w-6/12">
             <Skeleton

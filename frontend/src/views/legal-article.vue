@@ -28,7 +28,7 @@ onMounted(async () => {
             state.legal.modified
           }}</span>
         </div>
-        <hr class="reveal" role="separator" />
+        <hr class="quater reveal" role="separator" />
         <div class="article-content">
           <section
             v-for="(content, index) in state.legal.content"

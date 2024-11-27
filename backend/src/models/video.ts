@@ -4,9 +4,9 @@ import mongoose, { Schema, Document } from "mongoose";
 interface video extends Document {
   _id: string;
   index: number;
-  img: string;
   flag: string;
   title: string;
+  url: string;
   year: Date;
   client: string;
 }
@@ -20,9 +20,9 @@ interface videoGallery extends Document {
 const videoSchema = new Schema({
   _id: { type: String, required: true },
   index: { type: Number, required: true, unique: true },
-  img: { type: String, required: false },
   flag: { type: String, required: true },
   title: { type: String, required: false },
+  url: { type: String, required: true },
   year: { type: String, required: true },
   client: { type: String, required: false },
 });
