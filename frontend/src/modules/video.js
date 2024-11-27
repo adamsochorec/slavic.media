@@ -13,7 +13,9 @@ const video = () => {
   // Read all video galleries - GET
   const getAllGalleries = async () => {
     try {
-      const response = await fetch("https://api.slavic.media/video/");
+      const response = await fetch(
+        "https://slavic-media-2-0.onrender.com/video/"
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch video galleries");
       }
