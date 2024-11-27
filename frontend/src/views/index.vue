@@ -48,7 +48,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="main homepage">
+  <article class="main homepage">
     <!-- INTRO VIDEO START -->
     <heroVideo
       src="https://slavic.media/img/showreel.mp4"
@@ -61,7 +61,7 @@ onMounted(() => {
     />
     <!-- INTRO VIDEO END -->
 
-    <article class="wrapper-wide" id="company-intro">
+    <section class="wrapper-wide" id="company-intro">
       <hr class="semi" role="separator" />
 
       <!-- SERVICES START -->
@@ -90,7 +90,7 @@ onMounted(() => {
       <hr style="margin-top: 30px" role="separator" />
 
       <!-- GALLERY START -->
-      <article class="gallery" aria-label="Services">
+      <section class="gallery" aria-label="Services">
         <router-link
           v-for="(item, index) in galleryItems"
           :key="index"
@@ -104,7 +104,7 @@ onMounted(() => {
             <p>{{ item.description }}</p>
           </div>
         </router-link>
-      </article>
+      </section>
       <!-- GALLERY END -->
 
       <section class="flex-center">
@@ -129,9 +129,9 @@ onMounted(() => {
           </p>
         </div>
       </div>
-    </article>
+    </section>
     <!-- REVIEWS START -->
-    <article
+    <section
       class="wrapper-wide"
       id="reviews"
       role="region"
@@ -150,10 +150,10 @@ onMounted(() => {
           Share Your Experience<i class="pi pi-arrow-right"></i>
         </a>
       </div>
-    </article>
+    </section>
     <!-- REVIEWS END -->
     <bannerLightroomPresets></bannerLightroomPresets>
-  </div>
+  </article>
 </template>
 
 <style scoped>

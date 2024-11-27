@@ -13,7 +13,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="main">
+  <article class="main">
     <heroVideo
       src="https://slavic.media/img/bts.mp4"
       poster="https://slavic.media/img/bts.png"
@@ -24,7 +24,7 @@ onMounted(async () => {
       ariaLabel="Behind the scenes"
     />
 
-    <article class="wrapper-standard">
+    <section class="wrapper-standard">
       <hr class="semi" />
       <h1 class="gradient reveal" style="font-size: var(--font-size-1)">
         Slavic Media I/S
@@ -93,8 +93,8 @@ onMounted(async () => {
           </li>
         </ul>
       </div>
-    </article>
-  </div>
+    </section>
+  </article>
 </template>
 
 <style lang="scss" scoped>

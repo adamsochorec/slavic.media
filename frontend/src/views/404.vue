@@ -2,8 +2,8 @@
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 </script>
 <template>
-  <div class="main" style="margin: 120px 0">
-    <article
+  <article class="main" style="margin-top: 120px">
+    <section
       class="wrapper-narrow flex-center"
       role="article"
       aria-labelledby="error-heading"
@@ -33,8 +33,8 @@ import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
       >
         Return to the homepage<i class="pi pi-arrow-right"></i
       ></router-link>
-    </article>
-  </div>
+    </section>
+  </article>
 </template>
 
 <style scoped>

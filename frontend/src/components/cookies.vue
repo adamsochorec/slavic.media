@@ -154,7 +154,7 @@ onMounted(() => {
 
 <template>
   <div class="white-popup-block mfp-hide cookies">
-    <article id="cookies" class="wrapper-standard" role="article">
+    <section id="cookies" class="wrapper-standard" role="article">
       <section role="region">
         <h3 role="heading" aria-level="3">
           You control your
@@ -194,7 +194,7 @@ onMounted(() => {
           <button id="save" class="cta">Save Settings</button>
         </div>
       </section>
-    </article>
+    </section>
   </div>
 </template>
 

@@ -58,8 +58,8 @@ const showRequestAProposal = (data) => {
 </script>
 
 <template>
-  <div class="main" style="margin-top: 120px">
-    <article class="wrapper-wide">
+  <article class="main" style="margin-top: 120px">
+    <section class="wrapper-wide">
       <!-- PAGE INTRO -->
       <div class="grid-container caption-container">
         <div class="grid-item">
@@ -75,10 +75,10 @@ const showRequestAProposal = (data) => {
           </p>
         </div>
       </div>
-    </article>
+    </section>
     <!-- GALLERIES -->
     <template v-for="(gallery, galleryKey) in state.img" :key="galleryKey">
-      <article v-if="isDataLoaded" class="wrapper-wide" id="photo">
+      <section v-if="isDataLoaded" class="wrapper-wide" id="photo">
         <div :id="gallery._id"></div>
         <hr class="reveal" role="separator" />
 
@@ -102,9 +102,9 @@ const showRequestAProposal = (data) => {
           </div>
         </div>
         <hr class="semi" role="separator" />
-      </article>
+      </section>
 
-      <article v-if="isDataLoaded" class="popup-gallery">
+      <section v-if="isDataLoaded" class="popup-gallery">
         <div class="row">
           <div
             v-for="(column, columnIndex) in gallery.columns"
@@ -127,11 +127,11 @@ const showRequestAProposal = (data) => {
             </div>
           </div>
         </div>
-      </article>
+      </section>
     </template>
-    <article v-if="isDataLoaded">
+    <section v-if="isDataLoaded">
       <bannerLightroomPresets></bannerLightroomPresets>
-    </article>
+    </section>
     <div class="wrapper-wide" v-else>
       <hr class="reveal" />
 
@@ -187,7 +187,7 @@ const showRequestAProposal = (data) => {
         ></Skeleton>
       </div>
     </div>
-  </div>
+  </article>
 </template>
 
 <style lang="scss" scoped>

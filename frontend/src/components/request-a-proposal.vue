@@ -40,7 +40,7 @@ onMounted(() => {
   <div>
     <!-- Popup Content -->
     <div id="requestAProposalPopup" class="white-popup-block mfp-hide">
-      <article
+      <section
         class="wrapper-standard"
         role="article"
         aria-label="Contact Form"
@@ -115,7 +115,7 @@ onMounted(() => {
             </div>
           </form>
         </section>
-      </article>
+      </section>
     </div>
   </div>
 </template>

@@ -11,14 +11,14 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="main" style="margin-top: 120px">
-    <article class="wrapper-wide">
+  <article class="main" style="margin-top: 120px">
+    <section class="wrapper-wide">
       <h1 id="pagePathHeading" class="reveal" role="heading" aria-level="1">
         The<span class="gradient"> Slavic Media</span> Assets
       </h1>
       <hr class="reveal" role="separator" aria-label="Separator" />
       <!-- PRESS MATERIALS GRID START -->
-      <article v-if="isDataLoaded" class="gallery" aria-label="Services">
+      <section v-if="isDataLoaded" class="gallery" aria-label="Services">
         <router-link
           v-for="asset in state.assets"
           :key="asset._id"
@@ -32,7 +32,7 @@ onMounted(async () => {
             <p>{{ asset.desc }}</p>
           </div>
         </router-link>
-      </article>
+      </section>
 
       <div class="reveal" id="gallery-press" v-else>
         <div v-for="n in 3" :key="n" class="card">
@@ -86,8 +86,9 @@ onMounted(async () => {
         </div>
       </div>
       <!-- PRESS MATERIALS GRID END -->
-    </article>
-  </div>
+      <hr class="semi" />
+    </section>
+  </article>
 </template>
 
 <style lang="scss" scoped>

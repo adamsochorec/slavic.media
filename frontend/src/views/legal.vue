@@ -10,8 +10,8 @@ onMounted(async () => {
 });
 </script>
 <template>
-  <div class="main" style="margin: 120px 0">
-    <article class="wrapper-standard">
+  <article class="main" style="margin: 120px 0">
+    <section class="wrapper-standard">
       <h1 class="reveal">
         The<span class="gradient"> Slavic Media</span> Legal
       </h1>
@@ -58,8 +58,8 @@ onMounted(async () => {
           </li>
         </ul>
       </div>
-    </article>
-  </div>
+    </section>
+  </article>
 </template>
 <style lang="scss" scoped>
 ol {

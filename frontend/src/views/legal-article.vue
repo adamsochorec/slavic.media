@@ -14,8 +14,8 @@ onMounted(async () => {
 });
 </script>
 <template>
-  <div class="main" style="margin-top: 120px">
-    <article class="wrapper-wide">
+  <article class="main" style="margin-top: 120px">
+    <section class="wrapper-wide">
       <div v-if="isDataLoaded">
         <h1 class="reveal" role="heading" aria-level="1">
           {{ state.legal.title }}
@@ -107,8 +107,8 @@ onMounted(async () => {
           </ul>
         </div>
       </div>
-    </article>
-  </div>
+    </section>
+  </article>
 </template>
 <style lang="scss" scoped>
 .grid-container {

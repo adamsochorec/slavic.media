@@ -43,8 +43,8 @@ const showRequestAProposal = (data) => {
 </script>
 
 <template>
-  <div class="main" style="margin-top: 120px">
-    <article class="wrapper-wide">
+  <article class="main" style="margin-top: 120px">
+    <section class="wrapper-wide">
       <!-- PAGE INTRO -->
       <div class="grid-container caption-container">
         <div class="grid-item">
@@ -205,8 +205,8 @@ const showRequestAProposal = (data) => {
           ></Skeleton>
         </div>
       </div>
-    </article>
-  </div>
+    </section>
+  </article>
 </template>
 
 <style lang="scss" scoped>

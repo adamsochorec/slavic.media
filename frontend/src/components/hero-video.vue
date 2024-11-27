@@ -83,7 +83,7 @@ onMounted(() => {
 });
 </script>
 <template>
-  <article class="showcase">
+  <section class="showcase">
     <div class="video-container">
       <video
         :src="src"
@@ -108,7 +108,7 @@ onMounted(() => {
     >
       <i class="pi pi-vimeo"></i
     ></a>
-  </article>
+  </section>
 </template>
 
 <style scoped>

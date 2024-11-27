@@ -1,14 +1,13 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
 import article from "../modules/article";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 import "magnific-popup";
 import blogCard from "@/components/blog-card.vue";
 import $ from "jquery";
 
 const { getAllArticles, getSpecificArticle, state } = article();
 const route = useRoute();
-const router = useRouter();
 
 const isDataLoaded = ref(false);
 
@@ -66,8 +65,8 @@ const copyHref = (href) => {
 </script>
 
 <template>
-  <div class="main" style="margin-top: 120px">
-    <article class="wrapper-wide">
+  <article class="main" style="margin-top: 120px">
+    <section class="wrapper-wide">
       <div v-if="isDataLoaded">
         <h1 class="reveal">
           {{ state.article.title }}
@@ -195,9 +194,9 @@ const copyHref = (href) => {
           class="mb-4"
         ></Skeleton>
       </div>
-    </article>
+    </section>
     <bannerLightroomPresets v-if="isDataLoaded"></bannerLightroomPresets>
-    <article class="wrapper-standard">
+    <section class="wrapper-standard">
       <div v-if="isDataLoaded">
         <hr class="semi" />
         <h3>More from <span class="gradient">Slavic Media</span> Blog</h3>
@@ -212,8 +211,8 @@ const copyHref = (href) => {
           </div>
         </div>
       </div>
-    </article>
-  </div>
+    </section>
+  </article>
 </template>
 
 <style lang="scss" scoped>
