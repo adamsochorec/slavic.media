@@ -18,7 +18,7 @@ const legal = () => {
   const getAllLegal = async () => {
     try {
       const response = await fetch(
-        "https://slavic-media-2-0.onrender.com/legal/"
+        "https://slavic-media-2-0.onrender.com/legal/?fields=_id,title"
       );
       const data = await response.json();
       state.value.legals = data;

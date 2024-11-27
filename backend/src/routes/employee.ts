@@ -19,8 +19,12 @@ router.post("/", verifyToken, (req: Request, res: Response) => {
 
 // Read all documents - GET
 router.get("/", (req: Request, res: Response) => {
+  const fields =
+    typeof req.query.fields === "string"
+      ? req.query.fields.split(",").join(" ")
+      : "";
   employeeModel
-    .find()
+    .find({}, fields)
     .then((data) => {
       data.sort((a, b) => a.index - b.index);
       res.send(data);
@@ -32,8 +36,12 @@ router.get("/", (req: Request, res: Response) => {
 
 // Read specific document by ID - GET
 router.get("/:id", (req: Request, res: Response) => {
+  const fields =
+    typeof req.query.fields === "string"
+      ? req.query.fields.split(",").join(" ")
+      : "";
   employeeModel
-    .findById(req.params.id)
+    .findById(req.params.id, fields)
     .then((data) => {
       res.send(data);
     })

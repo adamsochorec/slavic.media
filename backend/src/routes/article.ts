@@ -17,17 +17,15 @@ router.post("/", verifyToken, (req: Request, res: Response) => {
     });
 });
 
-// Read all document - GET
+// Read all documents - GET
 router.get("/", (req: Request, res: Response) => {
+  const fields =
+    typeof req.query.fields === "string"
+      ? req.query.fields.split(",").join(" ")
+      : "";
   articleModel
-    .find()
-
+    .find({}, fields)
     .then((data) => {
-      data.sort(
-        (a, b) =>
-          new Date(b.metadata.date).getTime() -
-          new Date(a.metadata.date).getTime()
-      );
       res.send(data);
     })
     .catch((err) => {
@@ -37,8 +35,12 @@ router.get("/", (req: Request, res: Response) => {
 
 // Read specific document by ID - GET
 router.get("/:id", (req: Request, res: Response) => {
+  const fields =
+    typeof req.query.fields === "string"
+      ? req.query.fields.split(",").join(" ")
+      : "";
   articleModel
-    .findById(req.params.id)
+    .findById(req.params.id, fields)
     .then((data) => {
       res.send(data);
     })
@@ -50,10 +52,10 @@ router.get("/:id", (req: Request, res: Response) => {
 // Update document - PUT
 router.put("/:id", verifyToken, (req: Request, res: Response) => {
   const { id } = req.params;
-  const updatedEmployee = req.body;
+  const updatedArticle = req.body;
 
   articleModel
-    .findByIdAndUpdate(id, updatedEmployee, { new: true })
+    .findByIdAndUpdate(id, updatedArticle, { new: true })
     .then((data) => {
       if (!data) {
         res.status(404).send({
@@ -76,7 +78,7 @@ router.delete("/:id", verifyToken, (req: Request, res: Response) => {
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update document with id=${id}. Maybe document was not found!`,
+          message: `Cannot delete document with id=${id}. Maybe document was not found!`,
         });
       } else {
         res.send({ message: "Document was deleted successfully!" });
@@ -86,4 +88,5 @@ router.delete("/:id", verifyToken, (req: Request, res: Response) => {
       res.status(500).send({ message: err.message });
     });
 });
+
 export default router;

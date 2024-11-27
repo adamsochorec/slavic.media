@@ -21,8 +21,11 @@ router.post("/", validation_1.verifyToken, (req, res) => {
 });
 // Read all document - GET
 router.get("/", (req, res) => {
+    const fields = typeof req.query.fields === "string"
+        ? req.query.fields.split(",").join(" ")
+        : "";
     legal_1.default
-        .find()
+        .find({}, fields)
         .then((data) => {
         res.send(data);
     })
@@ -32,8 +35,11 @@ router.get("/", (req, res) => {
 });
 // Read specific document by ID - GET
 router.get("/:id", (req, res) => {
+    const fields = typeof req.query.fields === "string"
+        ? req.query.fields.split(",").join(" ")
+        : "";
     legal_1.default
-        .findById(req.params.id)
+        .findById(req.params.id, fields)
         .then((data) => {
         res.send(data);
     })

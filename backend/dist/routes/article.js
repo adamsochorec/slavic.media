@@ -19,13 +19,14 @@ router.post("/", validation_1.verifyToken, (req, res) => {
         res.status(500).send({ message: err.message });
     });
 });
-// Read all document - GET
+// Read all documents - GET
 router.get("/", (req, res) => {
+    const fields = typeof req.query.fields === "string"
+        ? req.query.fields.split(",").join(" ")
+        : "";
     article_1.default
-        .find()
+        .find({}, fields)
         .then((data) => {
-        data.sort((a, b) => new Date(b.metadata.date).getTime() -
-            new Date(a.metadata.date).getTime());
         res.send(data);
     })
         .catch((err) => {
@@ -34,8 +35,11 @@ router.get("/", (req, res) => {
 });
 // Read specific document by ID - GET
 router.get("/:id", (req, res) => {
+    const fields = typeof req.query.fields === "string"
+        ? req.query.fields.split(",").join(" ")
+        : "";
     article_1.default
-        .findById(req.params.id)
+        .findById(req.params.id, fields)
         .then((data) => {
         res.send(data);
     })
@@ -46,9 +50,9 @@ router.get("/:id", (req, res) => {
 // Update document - PUT
 router.put("/:id", validation_1.verifyToken, (req, res) => {
     const { id } = req.params;
-    const updatedEmployee = req.body;
+    const updatedArticle = req.body;
     article_1.default
-        .findByIdAndUpdate(id, updatedEmployee, { new: true })
+        .findByIdAndUpdate(id, updatedArticle, { new: true })
         .then((data) => {
         if (!data) {
             res.status(404).send({
@@ -71,7 +75,7 @@ router.delete("/:id", validation_1.verifyToken, (req, res) => {
         .then((data) => {
         if (!data) {
             res.status(404).send({
-                message: `Cannot update document with id=${id}. Maybe document was not found!`,
+                message: `Cannot delete document with id=${id}. Maybe document was not found!`,
             });
         }
         else {
