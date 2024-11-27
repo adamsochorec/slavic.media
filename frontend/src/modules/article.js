@@ -22,10 +22,6 @@ const article = () => {
     try {
       const response = await fetch("https://api.slavic.media/blog/");
       const data = await response.json();
-      data.sort(
-        (a, b) => new Date(b.metadata.date) - new Date(a.metadata.date)
-      );
-
       state.value.articles = data;
     } catch (error) {
       console.error(error);

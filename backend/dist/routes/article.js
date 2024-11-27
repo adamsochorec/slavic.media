@@ -24,6 +24,8 @@ router.get("/", (req, res) => {
     article_1.default
         .find()
         .then((data) => {
+        data.sort((a, b) => new Date(b.metadata.date).getTime() -
+            new Date(a.metadata.date).getTime());
         res.send(data);
     })
         .catch((err) => {

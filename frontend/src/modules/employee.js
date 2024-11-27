@@ -22,7 +22,6 @@ const employee = () => {
     try {
       const response = await fetch("https://api.slavic.media/employee/");
       const data = await response.json();
-      data.sort((a, b) => a.index - b.index);
       state.value.employees = data;
     } catch (error) {
       console.error(error);

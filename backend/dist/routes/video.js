@@ -23,6 +23,12 @@ router.post("/", validation_1.verifyToken, (req, res) => {
 router.get("/", (req, res) => {
     video_1.default.find()
         .then((data) => {
+        // Sort videos within each gallery
+        data.forEach((gallery) => {
+            gallery.videos.sort((a, b) => a.index - b.index);
+        });
+        // Sort galleries
+        data.sort((a, b) => a.index - b.index);
         res.send(data);
     })
         .catch((err) => {
@@ -33,6 +39,8 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
     video_1.default.findById(req.params.id)
         .then((data) => {
+        if (data) {
+        }
         res.send(data);
     })
         .catch((err) => {

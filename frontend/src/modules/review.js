@@ -14,7 +14,6 @@ const review = () => {
     try {
       const response = await fetch("https://api.slavic.media/review/");
       const data = await response.json();
-      data.sort((a, b) => a._id - b._id);
       state.value.reviews = data;
     } catch (error) {
       console.error(error);

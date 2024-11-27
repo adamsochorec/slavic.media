@@ -21,7 +21,13 @@ router.post("/", verifyToken, (req: Request, res: Response) => {
 router.get("/", (req: Request, res: Response) => {
   articleModel
     .find()
+
     .then((data) => {
+      data.sort(
+        (a, b) =>
+          new Date(b.metadata.date).getTime() -
+          new Date(a.metadata.date).getTime()
+      );
       res.send(data);
     })
     .catch((err) => {
