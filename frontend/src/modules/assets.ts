@@ -12,9 +12,7 @@ const asset = () => {
   // Read all documents - GET
   const getAllAssets = async () => {
     try {
-      const response = await fetch(
-        "https://api.slavic.media/assets/?fields=_id,title,desc"
-      );
+      const response = await fetch("https://api.slavic.media/assets/");
       const data = await response.json();
       state.value.assets = data;
     } catch (error) {

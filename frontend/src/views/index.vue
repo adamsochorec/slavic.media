@@ -1,12 +1,20 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from "vue";
 import heroVideo from "@/components/hero-video.vue";
 import requestAProposal from "@/components/request-a-proposal.vue";
 import swiperClients from "@/components/swiper-clients.vue";
 import swiperReviews from "@/components/swiper-reviews.vue";
 
+interface GalleryItem {
+  to: string;
+  img: string;
+  iconClass: string;
+  title: string;
+  description: string;
+}
+
 // GALLERY START
-const galleryItems = ref([
+const galleryItems = ref<GalleryItem[]>([
   {
     to: "/services/video",
     img: "https://slavic.media/img/cover-video.jpg",
@@ -26,8 +34,8 @@ const galleryItems = ref([
 ]); // GALLERY END
 
 // Function to reveal elements as the user scrolls
-function reveal() {
-  const reveals = document.querySelectorAll(".reveal"),
+function reveal(): void {
+  const reveals = document.querySelectorAll<HTMLElement>(".reveal"),
     windowHeight = window.innerHeight;
 
   reveals.forEach((reveal) => {
@@ -41,6 +49,7 @@ function reveal() {
     }
   });
 }
+
 onMounted(() => {
   window.addEventListener("scroll", reveal);
   reveal();

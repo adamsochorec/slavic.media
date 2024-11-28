@@ -1,14 +1,14 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, nextTick } from "vue";
 import eventBus from "@/eventBus";
 import $ from "jquery";
 import "magnific-popup";
 
-const isVisible = ref(false);
-const content = ref("");
+const isVisible = ref<boolean>(false);
+const content = ref<string>("");
 
 onMounted(() => {
-  eventBus.on("showRequestAProposal", (data) => {
+  eventBus.on("showRequestAProposal", (data: string) => {
     content.value = data;
     isVisible.value = true;
     nextTick(() => {

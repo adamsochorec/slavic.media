@@ -1,12 +1,20 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import TieredMenu from "primevue/tieredmenu";
 
-const menu = ref();
+interface MenuItem {
+  label: string;
+  icon: string;
+  command?: () => void;
+  value?: string;
+  items?: MenuItem[];
+}
+
+const menu = ref<InstanceType<typeof TieredMenu>>();
 const router = useRouter();
 
-const items = ref([
+const items = ref<MenuItem[]>([
   {
     label: "Photo",
     icon: "pi pi-camera",
@@ -81,8 +89,8 @@ const items = ref([
   },
 ]);
 
-const toggle = (event) => {
-  menu.value.toggle(event);
+const toggle = (event: Event) => {
+  menu.value?.toggle(event);
 };
 
 // HEADER START
@@ -90,8 +98,8 @@ const toggle = (event) => {
 function header() {
   let lastScrollTop = 0;
 
-  const hamburger = document.querySelector(".hamburger");
-  const menuLeft = document.querySelector(".menu-left");
+  const hamburger = document.querySelector(".hamburger") as HTMLElement;
+  const menuLeft = document.querySelector(".menu-left") as HTMLElement;
 
   // Toggles hamburger icon and collapses navigation on click
   hamburger.addEventListener("click", () => {
@@ -122,7 +130,7 @@ function header() {
   // Handles header visibility on scroll
   function hasScrolled() {
     const st = window.pageYOffset || document.documentElement.scrollTop,
-      header = document.querySelector("header"),
+      header = document.querySelector("header") as HTMLElement,
       navbarHeight = header.offsetHeight,
       windowHeight = window.innerHeight,
       delta = 5;
@@ -146,6 +154,7 @@ onMounted(() => {
   header();
 });
 </script>
+
 <template>
   <div class="container">
     <nav id="navigation" role="navigation" aria-label="Main Navigation">
@@ -199,4 +208,5 @@ onMounted(() => {
     </nav>
   </div>
 </template>
+
 <style scoped></style>

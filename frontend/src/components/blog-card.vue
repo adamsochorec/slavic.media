@@ -1,10 +1,28 @@
-<script setup>
-defineProps({
-  article: {
-    type: Object,
-    required: true,
-  },
-});
+<script setup lang="ts">
+import { defineProps } from "vue";
+
+interface Author {
+  name: string;
+  url: string;
+  thumbnail: string;
+}
+
+interface Metadata {
+  formatedDate: string;
+  length: number;
+  thumbnail: string;
+}
+
+interface Article {
+  _id: string;
+  title: string;
+  author: Author;
+  metadata: Metadata;
+}
+
+const props = defineProps<{
+  article: Article;
+}>();
 </script>
 
 <template>

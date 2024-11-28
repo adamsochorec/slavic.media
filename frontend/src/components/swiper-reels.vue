@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
@@ -11,8 +11,13 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
   "--grid-gap-3"
 );
 
+// Define the type for reel objects
+interface Reel {
+  id: string;
+}
+
 // Define the reels data in an array
-const reels = ref([
+const reels = ref<Reel[]>([
   { id: "DBN-8ImodUi" },
   { id: "DBwOfdoKXXH" },
   { id: "DBqXwkhI8nH" },
@@ -32,7 +37,7 @@ onMounted(() => {
   new Swiper(".swiper-reels", {
     loop: true,
     speed: 600,
-    spaceBetween: gridGap2,
+    spaceBetween: parseFloat(gridGap2),
     pagination: {
       el: ".swiper-pagination",
       clickable: true,

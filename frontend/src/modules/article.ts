@@ -1,11 +1,30 @@
 import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
 
+interface Article {
+  _id: string;
+  author: string;
+  metadata: string;
+  title: string;
+}
+
+interface State {
+  newTitle: string;
+  newContent: string;
+  newDate: string;
+  newFormatedDate: string;
+  newAuthor: string;
+  newThumbnail: string;
+  articles: Article[];
+  article: Article | null;
+  furtherReading: Article[];
+}
+
 const article = () => {
   const route = useRoute();
 
-  const documentID = computed(() => route.params.id);
-  const state = ref({
+  const documentID = computed(() => route.params.id as string);
+  const state = ref<State>({
     newTitle: "",
     newContent: "",
     newDate: "",
@@ -18,12 +37,12 @@ const article = () => {
   });
 
   // Read all documents - GET
-  const getAllArticles = async () => {
+  const getAllArticles = async (): Promise<void> => {
     try {
       const response = await fetch(
         "https://api.slavic.media/blog/?fields=author,metadata,_id,title"
       );
-      const data = await response.json();
+      const data: Article[] = await response.json();
       state.value.articles = data;
     } catch (error) {
       console.error(error);
@@ -31,7 +50,7 @@ const article = () => {
   };
 
   // Read specific document by ID - GET
-  const getSpecificArticle = async (documentID) => {
+  const getSpecificArticle = async (documentID: string): Promise<void> => {
     try {
       const response = await fetch(
         `https://api.slavic.media/blog/${documentID}`
@@ -39,7 +58,7 @@ const article = () => {
       if (!response.ok) {
         throw new Error(`Failed to fetch document with ID: ${documentID}`);
       }
-      const data = await response.json();
+      const data: Article = await response.json();
       state.value.article = data;
       getFurtherReading(documentID);
     } catch (error) {
@@ -47,7 +66,7 @@ const article = () => {
     }
   };
 
-  const getFurtherReading = (currentArticleID) => {
+  const getFurtherReading = (currentArticleID: string): void => {
     const filteredArticles = state.value.articles.filter(
       (article) => article._id !== currentArticleID
     );

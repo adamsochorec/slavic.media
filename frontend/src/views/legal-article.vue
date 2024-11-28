@@ -1,37 +1,48 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from "vue";
 import legal from "@/modules/legal";
 import { useRoute } from "vue-router";
 
+interface LegalArticle {
+  title: string;
+  modified: string;
+  content: string[];
+}
+
+interface State {
+  legal: LegalArticle | null;
+}
+
 const { getSpecificLegal, state } = legal();
 const route = useRoute();
 
-const isDataLoaded = ref(false);
+const isDataLoaded = ref<boolean>(false);
 
 onMounted(async () => {
-  await getSpecificLegal(route.params.id);
+  await getSpecificLegal(route.params.id as string);
   isDataLoaded.value = true;
 });
 </script>
+
 <template>
   <article class="main" style="margin-top: 120px">
     <section class="wrapper-wide">
       <div v-if="isDataLoaded">
         <h1 class="reveal" role="heading" aria-level="1">
-          {{ state.legal.title }}
+          {{ state.legal?.title }}
         </h1>
 
         <div class="reveal">
           <span style="font-size: var(--font-size-7)" class="pi pi-replay"
             >&nbsp;</span
           ><span style="font-size: var(--font-size-7)">{{
-            state.legal.modified
+            state.legal?.modified
           }}</span>
         </div>
         <hr class="quater reveal" role="separator" />
         <div class="article-content">
           <section
-            v-for="(content, index) in state.legal.content"
+            v-for="(content, index) in state.legal?.content"
             :key="index"
             v-html="content"
             v-add-class
@@ -110,6 +121,7 @@ onMounted(async () => {
     </section>
   </article>
 </template>
+
 <style lang="scss" scoped>
 .grid-container {
   display: flex;

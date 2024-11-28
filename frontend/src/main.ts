@@ -6,7 +6,7 @@ import Nora from "@primevue/themes/nora";
 import { definePreset } from "@primevue/themes";
 import App from "./App.vue";
 import router from "./router";
-import { createHead } from "@vueuse/head"; // Import @vueuse/head
+import { createHead } from "@vueuse/head";
 import "primeicons/primeicons.css";
 
 const app = createApp(App);

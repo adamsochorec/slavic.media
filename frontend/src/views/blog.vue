@@ -1,11 +1,24 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from "vue";
 import article from "@/modules/article";
 import blogCard from "@/components/blog-card.vue";
 
+interface Article {
+  _id: string;
+  title: string;
+  slug: string;
+  author: string;
+  metadata: string;
+  content: string[];
+}
+
+interface State {
+  articles: Article[];
+}
+
 const { state, getAllArticles } = article();
 
-const isDataLoaded = ref(false);
+const isDataLoaded = ref<boolean>(false);
 
 onMounted(async () => {
   await getAllArticles();

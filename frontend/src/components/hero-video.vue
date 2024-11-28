@@ -1,45 +1,26 @@
-<script setup>
+<script setup lang="ts">
 import { onMounted } from "vue";
 import { defineProps } from "vue";
 
-const props = defineProps({
-  src: {
-    type: String,
-    required: true,
-  },
-  poster: {
-    type: String,
-    default: "",
-  },
-  muted: {
-    type: Boolean,
-    default: false,
-  },
-  autoplay: {
-    type: Boolean,
-    default: false,
-  },
-  loop: {
-    type: Boolean,
-    default: false,
-  },
-  ariaLabel: {
-    type: String,
-    default: "",
-  },
-  vimeo: {
-    type: String,
-    default: "",
-  },
-});
+interface Props {
+  src: string;
+  poster?: string;
+  muted?: boolean;
+  autoplay?: boolean;
+  loop?: boolean;
+  ariaLabel?: string;
+  vimeo?: string;
+}
+
+const props = defineProps<Props>();
 
 // VIDEO OFFLOAD START
 function videoOffload() {
   // Get all video elements with the "video-offload" class
-  const videos = document.querySelectorAll(".video-offload");
+  const videos = document.querySelectorAll<HTMLVideoElement>(".video-offload");
 
   // Function to handle the Intersection Observer for a single video
-  function handleVideoIntersection(video) {
+  function handleVideoIntersection(video: HTMLVideoElement) {
     // Define the options for the Intersection Observer
     const options = {
       root: null, // Use the viewport as the root;
@@ -48,7 +29,10 @@ function videoOffload() {
     };
 
     // Callback function when the video enters or exits the viewport
-    const callback = (entries, observer) => {
+    const callback = (
+      entries: IntersectionObserverEntry[],
+      observer: IntersectionObserver
+    ) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // The video is in the viewport, so play it and show controls
@@ -82,6 +66,7 @@ onMounted(() => {
   videoOffload();
 });
 </script>
+
 <template>
   <section class="showcase">
     <div class="video-container">

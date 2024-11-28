@@ -1,14 +1,25 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from "vue";
 import legal from "@/modules/legal";
+
+interface Legal {
+  _id: string;
+  title: string;
+}
+
+interface State {
+  legals: Legal[];
+}
+
 const { state, getAllLegal } = legal();
-const isDataLoaded = ref(false);
+const isDataLoaded = ref<boolean>(false);
 
 onMounted(async () => {
   await getAllLegal();
   isDataLoaded.value = true;
 });
 </script>
+
 <template>
   <article class="main" style="margin: 120px 0">
     <section class="wrapper-standard">
@@ -61,6 +72,7 @@ onMounted(async () => {
     </section>
   </article>
 </template>
+
 <style lang="scss" scoped>
 ol {
   list-style: decimal;

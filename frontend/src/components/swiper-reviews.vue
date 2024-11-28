@@ -1,18 +1,30 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, nextTick } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import review from "@/modules/review";
+
 const { state, getAllReviews } = review();
 const isDataLoaded = ref(false);
 
 // GRID GAP
-const gridGap2 = getComputedStyle(document.documentElement).getPropertyValue(
-  "--grid-gap-2"
+const gridGap2 = parseFloat(
+  getComputedStyle(document.documentElement).getPropertyValue("--grid-gap-2")
 );
-const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
-  "--grid-gap-3"
+const gridGap3 = parseFloat(
+  getComputedStyle(document.documentElement).getPropertyValue("--grid-gap-3")
 );
+
+interface Review {
+  _id: string;
+  name: string;
+  role: string;
+  img: string;
+  profileLink: string;
+  rating: number;
+  message: string;
+  fullReview: string;
+}
 
 onMounted(async () => {
   await getAllReviews();
@@ -47,39 +59,37 @@ onMounted(async () => {
           slidesPerView: 4,
         },
       },
-      // Optional parameters
       direction: "horizontal",
     });
-    // Function to display stars based on the rating value
-    function showStars(container, rating) {
+
+    function showStars(container: HTMLElement, rating: number) {
       container.innerHTML = ""; // Clear any existing content
 
-      // Create stars based on the rating
       for (let i = 1; i <= 5; i++) {
         const star = document.createElement("span");
         star.className = "stars";
 
-        // Fill the star if it's within the rating
         if (i <= rating) {
           star.innerHTML = "★"; // Use a star symbol
         } else {
           star.innerHTML = "☆"; // Use an empty star symbol
         }
 
-        // Append the star to the container
         container.appendChild(star);
       }
     }
 
-    // Get all elements with the "stars" class
-    const starContainers = document.querySelectorAll(".stars");
+    const starContainers = document.querySelectorAll<HTMLElement>(".stars");
 
-    // Iterate through each element and display stars based on the data-rating attribute
-    starContainers.forEach(function (starContainer) {
-      const rating = parseInt(starContainer.getAttribute("data-rating"), 10);
+    starContainers.forEach((starContainer) => {
+      const rating = parseInt(
+        starContainer.getAttribute("data-rating") || "0",
+        10
+      );
       showStars(starContainer, rating);
     });
-    function truncateText(text, maxLength) {
+
+    function truncateText(text: string, maxLength: number) {
       if (text.length > maxLength) {
         return {
           truncated: text.substring(0, maxLength) + "...",
@@ -92,24 +102,22 @@ onMounted(async () => {
       };
     }
 
-    // Apply truncation to review messages in Swiper reviews
-    const reviewMessages = document.querySelectorAll(".reviews-message");
+    const reviewMessages =
+      document.querySelectorAll<HTMLElement>(".reviews-message");
 
     reviewMessages.forEach((message) => {
-      const { truncated, full } = truncateText(message.textContent, 170);
+      const { truncated, full } = truncateText(message.textContent || "", 170);
 
       if (full.length > 170) {
         message.textContent = truncated;
 
-        // Create "Read Full Review" link
         const readMoreLink = document.createElement("a");
-        readMoreLink.href = message.dataset.fullReview;
+        readMoreLink.href = message.dataset.fullReview || "#";
         readMoreLink.textContent = "Read Full Review";
         readMoreLink.classList.add("read-more-link");
         readMoreLink.target = "_blank";
         readMoreLink.rel = "noopener noreferrer nofollow";
 
-        // Append a line break and the link to the message
         const lineBreak = document.createElement("br");
         message.appendChild(lineBreak);
         message.appendChild(readMoreLink);

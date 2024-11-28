@@ -1,17 +1,31 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, nextTick, watch } from "vue";
 import requestAProposal from "@/components/request-a-proposal.vue";
 import eventBus from "@/eventBus";
-
 import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
 import $ from "jquery";
 import "magnific-popup";
 import img from "@/modules/img";
 
-const isDataLoaded = ref(false);
+interface Image {
+  _id: string;
+  title: string;
+  alt: string;
+  flag: string;
+}
+interface Gallery {
+  _id: string;
+  title: string;
+  desc: string;
+  columns: Image[][];
+}
+interface State {
+  img: Gallery[];
+}
+const isDataLoaded = ref<boolean>(false);
 const { state, getAllImg } = img();
 
-async function initializeLightbox() {
+async function initializeLightbox(): Promise<void> {
   await nextTick();
   $(".popup-gallery").magnificPopup({
     delegate: "a",
@@ -40,7 +54,7 @@ async function initializeLightbox() {
         item.src = item.el.attr("href");
       },
     },
-    fixedContentPos: "false",
+    fixedContentPos: false,
   });
 }
 
@@ -52,7 +66,8 @@ onMounted(async () => {
 watch(isDataLoaded, (loaded) => {
   if (loaded) initializeLightbox();
 });
-const showRequestAProposal = (data) => {
+
+const showRequestAProposal = (data: Gallery): void => {
   eventBus.emit("showRequestAProposal", data);
 };
 </script>

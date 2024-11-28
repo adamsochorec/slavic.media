@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, watch } from "vue";
 import article from "../modules/article";
 import { useRoute } from "vue-router";
@@ -6,12 +6,38 @@ import "magnific-popup";
 import blogCard from "@/components/blog-card.vue";
 import $ from "jquery";
 
+interface Author {
+  name: string;
+  url: string;
+  thumbnail: string;
+}
+
+interface Metadata {
+  formatedDate: string;
+  length: number;
+  linkedin?: string;
+}
+
+interface Article {
+  _id: string;
+  title: string;
+  slug: string;
+  author: Author;
+  metadata: Metadata;
+  content: string[];
+}
+
+interface State {
+  article: Article | null;
+  furtherReading: Article[];
+}
+
 const { getAllArticles, getSpecificArticle, state } = article();
 const route = useRoute();
 
 const isDataLoaded = ref(false);
 
-const loadArticle = async (slug) => {
+const loadArticle = async (slug: string): Promise<void> => {
   isDataLoaded.value = false;
   await getSpecificArticle(slug);
   isDataLoaded.value = true;
@@ -51,15 +77,15 @@ const loadArticle = async (slug) => {
 
 onMounted(async () => {
   await getAllArticles();
-  await loadArticle(route.params.slug);
+  await loadArticle(route.params.slug as string);
 });
 
 watch(route, async (newRoute) => {
-  await loadArticle(newRoute.params.slug);
+  await loadArticle(newRoute.params.slug as string);
 });
 
 // COPY LINK
-const copyHref = (href) => {
+const copyHref = (href: string): void => {
   navigator.clipboard.writeText(href);
 };
 </script>
@@ -69,13 +95,13 @@ const copyHref = (href) => {
     <section class="wrapper-wide">
       <div v-if="isDataLoaded">
         <h1 class="reveal">
-          {{ state.article.title }}
+          {{ state.article?.title }}
         </h1>
         <!-- ARTICLE METADATA START -->
         <div class="article-metadata flex justify-between reveal">
           <div class="flex items-center gap-2">
             <Avatar
-              :image="state.article.author.thumbnail"
+              :image="state.article?.author.thumbnail"
               size="large"
               shape="circle"
             />
@@ -84,14 +110,14 @@ const copyHref = (href) => {
                 ><a
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  :href="state.article.author.url"
+                  :href="state.article?.author.url"
                   style="font-size: var(--font-size-7)"
-                  >{{ state.article.author.name }}</a
+                  >{{ state.article?.author.name }}</a
                 ></b
               ><br />
               <span style="font-size: var(--font-size-7)">
-                {{ state.article.metadata.formatedDate }}&nbsp;⋅&nbsp;{{
-                  state.article.metadata.length
+                {{ state.article?.metadata.formatedDate }}&nbsp;⋅&nbsp;{{
+                  state.article?.metadata.length
                 }}
                 min read</span
               >
@@ -99,10 +125,10 @@ const copyHref = (href) => {
           </div>
           <div class="flex items-center gap-3">
             <a
-              v-if="state.article.metadata.linkedin"
+              v-if="state.article?.metadata.linkedin"
               target="_blank"
               rel="noopener noreferrer nofollow"
-              :href="state.article.metadata.linkedin"
+              :href="state.article?.metadata.linkedin"
             >
               <i class="pi pi-linkedin"></i>
             </a>
@@ -112,7 +138,7 @@ const copyHref = (href) => {
                 autoHide: false,
               }"
               @click="
-                copyHref(`https://slavic.media/blog/${state.article.slug}`)
+                copyHref(`https://slavic.media/blog/${state.article?.slug}`)
               "
             >
               <i class="pi pi-link"></i>
@@ -122,7 +148,7 @@ const copyHref = (href) => {
         <!-- ARTICLE METADATA END -->
         <div class="article-content">
           <section
-            v-for="(content, index) in state.article.content"
+            v-for="(content, index) in state.article?.content"
             :key="index"
             v-html="content"
           ></section>

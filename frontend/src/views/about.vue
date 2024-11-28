@@ -1,10 +1,21 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from "vue";
 import heroVideo from "@/components/hero-video.vue";
 import swiperEmployees from "@/components/swiper-employees.vue";
 import event from "@/modules/event";
+
+interface Event {
+  date: string;
+  event: string;
+  icon: string;
+}
+
+interface State {
+  events: Event[];
+}
+
 const { state, getAllEvents } = event();
-const isDataLoaded = ref(false);
+const isDataLoaded = ref<boolean>(false);
 
 onMounted(async () => {
   await getAllEvents();

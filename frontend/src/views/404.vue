@@ -1,6 +1,7 @@
-<script setup>
+<script setup lang="ts">
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 </script>
+
 <template>
   <article class="main" style="margin-top: 120px">
     <section
@@ -11,7 +12,6 @@ import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
       <DotLottieVue
         class="reveal"
         background="transparent"
-        speed="1"
         loop
         autoplay
         aria-label="Page not found animation."

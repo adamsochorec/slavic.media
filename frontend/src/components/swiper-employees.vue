@@ -1,10 +1,20 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, nextTick } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import employee from "@/modules/employee";
-const { state, getAllEmployees } = employee();
 
+interface Employee {
+  _id: string;
+  name: string;
+  origin: string;
+  email: string;
+  linkedin?: string;
+  github?: string;
+  department: string;
+}
+
+const { state, getAllEmployees } = employee();
 const isDataLoaded = ref(false);
 
 onMounted(async () => {
@@ -17,7 +27,7 @@ onMounted(async () => {
       lazyLoading: true,
       observer: true,
       observeParents: true,
-      spaceBetween: gridGap2,
+      spaceBetween: parseInt(gridGap2),
       pagination: {
         el: ".swiper-pagination",
       },

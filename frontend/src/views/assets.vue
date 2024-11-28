@@ -1,8 +1,20 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from "vue";
 import asset from "@/modules/assets";
+
+interface Asset {
+  _id: string;
+  title: string;
+  desc: string;
+  type: string;
+}
+
+interface State {
+  assets: Asset[];
+}
+
 const { state, getAllAssets } = asset();
-const isDataLoaded = ref(false);
+const isDataLoaded = ref<boolean>(false);
 
 onMounted(async () => {
   await getAllAssets();

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref, nextTick } from "vue";
 import $ from "jquery";
 import video from "@/modules/video";
@@ -6,15 +6,35 @@ import eventBus from "@/eventBus";
 import requestAProposal from "@/components/request-a-proposal.vue";
 import swiperReels from "@/components/swiper-reels.vue";
 
+interface Video {
+  _id: string;
+  title: string;
+  url: string;
+  flag: string;
+  year: string;
+  client: string;
+}
+
+interface Gallery {
+  _id: string;
+  title: string;
+  desc: string;
+  videos: Video[];
+}
+
+interface State {
+  galleries: Gallery[];
+}
+
 const { state, getAllGalleries } = video();
-const isDataLoaded = ref(false);
+const isDataLoaded = ref<boolean>(false);
 
 onMounted(async () => {
   await getAllGalleries();
   isDataLoaded.value = true;
 
   nextTick(() => {
-    document.querySelectorAll(".gallery").forEach((gallery) => {
+    document.querySelectorAll<HTMLElement>(".gallery").forEach((gallery) => {
       $(gallery).magnificPopup({
         delegate: "a",
         type: "iframe",
@@ -37,7 +57,7 @@ onMounted(async () => {
   });
 });
 
-const showRequestAProposal = (data) => {
+const showRequestAProposal = (data: Gallery): void => {
   eventBus.emit("showRequestAProposal", data);
 };
 </script>
