@@ -17,9 +17,7 @@ const legal = () => {
   // Read all documents - GET
   const getAllLegal = async () => {
     try {
-      const response = await fetch(
-        "https://api.slavic.media/legal/?fields=_id,title"
-      );
+      const response = await fetch("/api/legal/?fields=_id,title");
       const data = await response.json();
       state.value.legals = data;
     } catch (error) {
@@ -30,9 +28,7 @@ const legal = () => {
   // Read specific document by ID - GET
   const getSpecificLegal = async (documentID) => {
     try {
-      const response = await fetch(
-        `https://api.slavic.media/legal/${documentID}`
-      );
+      const response = await fetch(`/api/legal/${documentID}`);
       if (!response.ok) {
         throw new Error(`Failed to fetch document with ID: ${documentID}`);
       }
