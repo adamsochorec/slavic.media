@@ -27,8 +27,6 @@ app.use(
       "Content-Type",
       "Accept",
     ],
-    optionsSuccessStatus: 200, // For legacy browser support
-    credentials: true, // Allow credentials
   })
 );
 
@@ -51,6 +49,11 @@ import legalRoutes from "./routes/legal";
 import reviewRoutes from "./routes/review";
 import eventRoutes from "./routes/event";
 import assetsRoutes from "./routes/assets";
+
+require("dotenv-flow").config();
+
+// Middleware to parse JSON bodies (duplicate, can be removed)
+app.use(bodyParser.json());
 
 // Connect to MongoDB
 mongoose.set("strictQuery", false);

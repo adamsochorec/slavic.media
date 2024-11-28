@@ -27,8 +27,6 @@ app.use((0, cors_1.default)({
         "Content-Type",
         "Accept",
     ],
-    optionsSuccessStatus: 200, // For legacy browser support
-    credentials: true, // Allow credentials
 }));
 // Middleware to parse JSON bodies
 app.use(body_parser_1.default.json());
@@ -47,6 +45,9 @@ const legal_1 = __importDefault(require("./routes/legal"));
 const review_1 = __importDefault(require("./routes/review"));
 const event_1 = __importDefault(require("./routes/event"));
 const assets_1 = __importDefault(require("./routes/assets"));
+require("dotenv-flow").config();
+// Middleware to parse JSON bodies (duplicate, can be removed)
+app.use(body_parser_1.default.json());
 // Connect to MongoDB
 mongoose_1.default.set("strictQuery", false);
 mongoose_1.default
