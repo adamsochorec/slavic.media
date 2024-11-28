@@ -12,7 +12,7 @@ servers:
   # Deployed
   - url: https://dev.slavic.media
     description: Deployed frontend
-  - url: https://slavic-media-2-0.onrender.com
+  - url: https://api.slavic.media
     description: Deployed backend
 components:
   securitySchemes:
