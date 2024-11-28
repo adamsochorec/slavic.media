@@ -43,14 +43,6 @@ onMounted(async () => {
           navigateByImgClick: "false",
           fixedContentPos: "false",
           preload: [0, 1],
-          arrowMarkup:
-            '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>',
-          tPrev: "Previous",
-          tNext: "Next",
-        },
-        zoom: {
-          enabled: "true",
-          duration: 300,
         },
       });
     });
