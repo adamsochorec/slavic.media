@@ -11,19 +11,8 @@ require("dotenv-flow").config();
 
 const app = express();
 
-// Middleware to set CORS headers
-app.use((req: Request, res: Response, next: Function) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "auth-token, Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET,HEAD,OPTIONS,POST,PUT,DELETE"
-  );
-  next();
-});
+// Enable CORS using the cors middleware
+app.use(cors());
 
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
@@ -46,9 +35,6 @@ import eventRoutes from "./routes/event";
 import assetsRoutes from "./routes/assets";
 
 require("dotenv-flow").config();
-
-// Middleware to parse JSON bodies (duplicate, can be removed)
-app.use(bodyParser.json());
 
 // Connect to MongoDB
 mongoose.set("strictQuery", false);

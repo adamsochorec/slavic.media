@@ -8,16 +8,12 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const yamljs_1 = __importDefault(require("yamljs"));
+const cors_1 = __importDefault(require("cors"));
 const path_1 = __importDefault(require("path"));
 require("dotenv-flow").config();
 const app = (0, express_1.default)();
-// Middleware to set CORS headers
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "auth-token, Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
-    next();
-});
+// Enable CORS using the cors middleware
+app.use((0, cors_1.default)());
 // Middleware to parse JSON bodies
 app.use(body_parser_1.default.json());
 // Load and serve Swagger documentation
@@ -36,8 +32,6 @@ const review_1 = __importDefault(require("./routes/review"));
 const event_1 = __importDefault(require("./routes/event"));
 const assets_1 = __importDefault(require("./routes/assets"));
 require("dotenv-flow").config();
-// Middleware to parse JSON bodies (duplicate, can be removed)
-app.use(body_parser_1.default.json());
 // Connect to MongoDB
 mongoose_1.default.set("strictQuery", false);
 mongoose_1.default
