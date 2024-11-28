@@ -12,23 +12,18 @@ require("dotenv-flow").config();
 const app = express();
 
 // Middleware to set CORS headers
-app.use(
-  cors({
-    origin: [
-      "https://dev.slavic.media",
-      "https://api.slavic.media",
-      "https://slavic.media",
-    ],
-    methods: ["GET", "HEAD", "OPTIONS", "POST", "PUT", "DELETE"],
-    allowedHeaders: [
-      "auth-token",
-      "Origin",
-      "X-Requested-With",
-      "Content-Type",
-      "Accept",
-    ],
-  })
-);
+app.use((req: Request, res: Response, next: Function) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "auth-token, Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET,HEAD,OPTIONS,POST,PUT,DELETE"
+  );
+  next();
+});
 
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
