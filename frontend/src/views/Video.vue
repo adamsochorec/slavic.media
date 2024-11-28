@@ -19,9 +19,9 @@ onMounted(async () => {
         delegate: "a",
         type: "iframe",
         gallery: {
-          enabled: true,
-          navigateByImgClick: false,
-          fixedContentPos: false,
+          enabled: "true",
+          navigateByImgClick: "false",
+          fixedContentPos: "false",
           preload: [0, 1],
           arrowMarkup:
             '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>',
@@ -29,7 +29,7 @@ onMounted(async () => {
           tNext: "Next",
         },
         zoom: {
-          enabled: true,
+          enabled: "true",
           duration: 300,
         },
       });

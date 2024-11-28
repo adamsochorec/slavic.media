@@ -19,14 +19,14 @@ async function initializeLightbox() {
     tLoading: "Loading",
     mainClass: "mfp-img-mobile",
     gallery: {
-      enabled: true,
+      enabled: "true",
       fixedContentPos: "false",
       overflowY: "scroll",
-      navigateByImgClick: true,
+      navigateByImgClick: "true",
       preload: [0, 1],
     },
     zoom: {
-      enabled: true,
+      enabled: "true",
       duration: 300,
     },
     image: {

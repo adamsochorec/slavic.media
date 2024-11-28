@@ -17,7 +17,7 @@ onMounted(() => {
           src: "#requestAProposalPopup",
           type: "inline",
         },
-        preloader: false,
+        preloader: "false",
         focus: "#name",
         overflowY: "scroll",
         fixedContentPos: "false",
