@@ -8,16 +8,26 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const yamljs_1 = __importDefault(require("yamljs"));
+const cors_1 = __importDefault(require("cors"));
 const path_1 = __importDefault(require("path"));
 require("dotenv-flow").config();
 const app = (0, express_1.default)();
 // Middleware to set CORS headers
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "auth-token, Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
-    next();
-});
+app.use((0, cors_1.default)({
+    origin: [
+        "https://dev.slavic.media",
+        "https://api.slavic.media",
+        "https://slavic.media",
+    ],
+    methods: ["GET", "HEAD", "OPTIONS", "POST", "PUT", "DELETE"],
+    allowedHeaders: [
+        "auth-token",
+        "Origin",
+        "X-Requested-With",
+        "Content-Type",
+        "Accept",
+    ],
+}));
 // Middleware to parse JSON bodies
 app.use(body_parser_1.default.json());
 // Load and serve Swagger documentation
