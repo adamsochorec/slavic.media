@@ -17,7 +17,7 @@ const useUserCrud = () => {
       };
 
       const response = await fetch(
-        "https://slavic-media-2-0.onrender.com/user/",
+        "https://api.slavic.media/user/",
         requestOptions
       );
 
@@ -34,9 +34,7 @@ const useUserCrud = () => {
   // Read all documents - GET
   const getAllUsers = async () => {
     try {
-      const response = await fetch(
-        "https://slavic-media-2-0.onrender.com/user/"
-      );
+      const response = await fetch("https://api.slavic.media/user/");
       const data = await response.json();
       state.value.users = data;
     } catch (error) {
@@ -56,7 +54,7 @@ const useUserCrud = () => {
       };
 
       const response = await fetch(
-        `https://slavic-media-2-0.onrender.com/user/${userId}`,
+        `https://api.slavic.media/user/${userId}`,
         requestOptions
       );
 
@@ -80,7 +78,7 @@ const useUserCrud = () => {
         },
       };
       const response = await fetch(
-        `https://slavic-media-2-0.onrender.com/user/${userId}`,
+        `https://api.slavic.media/user/${userId}`,
         requestOptions
       );
 
