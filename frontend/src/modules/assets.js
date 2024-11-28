@@ -13,7 +13,7 @@ const asset = () => {
   const getAllAssets = async () => {
     try {
       const response = await fetch(
-        "https://api.slavic.media/assets/?fields=_id,title,desc"
+        "https://slavic-media-2-0.onrender.com/assets/?fields=_id,title,desc"
       );
       const data = await response.json();
       state.value.assets = data;
