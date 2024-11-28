@@ -21,7 +21,7 @@ const article = () => {
   const getAllArticles = async () => {
     try {
       const response = await fetch(
-        "/api/blog/?fields=author,metadata,_id,title"
+        "http://localhost:4000/blog/?fields=author,metadata,_id,title"
       );
       const data = await response.json();
       state.value.articles = data;
@@ -29,10 +29,11 @@ const article = () => {
       console.error(error);
     }
   };
+
   // Read specific document by ID - GET
   const getSpecificArticle = async (documentID) => {
     try {
-      const response = await fetch(`/api/blog/${documentID}`);
+      const response = await fetch(`http://localhost:4000/blog/${documentID}`);
       if (!response.ok) {
         throw new Error(`Failed to fetch document with ID: ${documentID}`);
       }
