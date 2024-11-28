@@ -13,7 +13,7 @@ const timeline = () => {
   // Read all documents - GET
   const getAllEvents = async () => {
     try {
-      const response = await fetch("/api/event/");
+      const response = await fetch("https://api.slavic.media/event/");
       const data = await response.json();
       state.value.events = data;
     } catch (error) {

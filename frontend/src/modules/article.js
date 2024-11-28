@@ -21,7 +21,7 @@ const article = () => {
   const getAllArticles = async () => {
     try {
       const response = await fetch(
-        "/api/blog/?fields=author,metadata,_id,title"
+        "https://api.slavic.media/blog/?fields=author,metadata,_id,title"
       );
       const data = await response.json();
       state.value.articles = data;
@@ -33,7 +33,9 @@ const article = () => {
   // Read specific document by ID - GET
   const getSpecificArticle = async (documentID) => {
     try {
-      const response = await fetch(`/api/blog/${documentID}`);
+      const response = await fetch(
+        `https://api.slavic.media/blog/${documentID}`
+      );
       if (!response.ok) {
         throw new Error(`Failed to fetch document with ID: ${documentID}`);
       }
