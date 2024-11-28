@@ -19,7 +19,7 @@ const loadArticle = async (slug) => {
   // POP UP GALLERY
   $(document).ready(function () {
     $(".article-content").magnificPopup({
-      delegate: "a",
+      delegate: "a.reveal",
       type: "image",
       tLoading: "Loading",
       mainClass: "mfp-img-mobile",
