@@ -16,10 +16,7 @@ const useUserCrud = () => {
         body: JSON.stringify(user),
       };
 
-      const response = await fetch(
-        "https://slavic-media-2-0.onrender.com/user/",
-        requestOptions
-      );
+      const response = await fetch("/api/user/", requestOptions);
 
       if (!response.ok) {
         throw new Error("Failed to add new document");
@@ -34,9 +31,7 @@ const useUserCrud = () => {
   // Read all documents - GET
   const getAllUsers = async () => {
     try {
-      const response = await fetch(
-        "https://slavic-media-2-0.onrender.com/user/"
-      );
+      const response = await fetch("/api/user/");
       const data = await response.json();
       state.value.users = data;
     } catch (error) {
@@ -55,10 +50,7 @@ const useUserCrud = () => {
         body: JSON.stringify(user),
       };
 
-      const response = await fetch(
-        `https://slavic-media-2-0.onrender.com/user/${userId}`,
-        requestOptions
-      );
+      const response = await fetch(`/api/user/${userId}`, requestOptions);
 
       if (!response.ok) {
         throw new Error("Failed to edit document");
@@ -79,10 +71,7 @@ const useUserCrud = () => {
           "Content-Type": "application/json",
         },
       };
-      const response = await fetch(
-        `https://slavic-media-2-0.onrender.com/user/${userId}`,
-        requestOptions
-      );
+      const response = await fetch(`/api/user/${userId}`, requestOptions);
 
       if (!response.ok) {
         throw new Error("Failed to delete document");

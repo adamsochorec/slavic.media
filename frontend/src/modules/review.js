@@ -12,9 +12,7 @@ const review = () => {
   // Read all documents - GET
   const getAllReviews = async () => {
     try {
-      const response = await fetch(
-        "https://slavic-media-2-0.onrender.com/review/"
-      );
+      const response = await fetch("/api/review/");
       const data = await response.json();
       state.value.reviews = data;
     } catch (error) {

@@ -20,9 +20,7 @@ const employee = () => {
   // Read all documents - GET
   const getAllEmployees = async () => {
     try {
-      const response = await fetch(
-        "https://slavic-media-2-0.onrender.com/employee/"
-      );
+      const response = await fetch("/api/employee/");
       const data = await response.json();
       state.value.employees = data;
     } catch (error) {
@@ -34,9 +32,7 @@ const employee = () => {
   const employee = ref({});
   const getSpecificEmployee = async (documentID) => {
     try {
-      const response = await fetch(
-        `https://slavic-media-2-0.onrender.com/employee/${documentID}`
-      );
+      const response = await fetch(`/api/employee/${documentID}`);
       if (!response.ok) {
         throw new Error(`Failed to fetch document with ID: ${documentID}`);
       }
