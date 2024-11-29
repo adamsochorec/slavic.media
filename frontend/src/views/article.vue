@@ -50,24 +50,24 @@ const loadArticle = async (slug: string): Promise<void> => {
       tLoading: "Loading",
       mainClass: "mfp-img-mobile",
       gallery: {
-        enabled: true,
-        fixedContentPos: false,
+        enabled: "true",
+        fixedContentPos: "false",
         overflowY: "scroll",
-        navigateByImgClick: true,
+        navigateByImgClick: "true",
         preload: [0, 1],
       },
       zoom: {
-        enabled: true,
+        enabled: "true",
         duration: 300,
       },
       image: {
         tError: "Error",
-        titleSrc: function (item: any) {
+        titleSrc: function (item) {
           return item.el.attr("title");
         },
       },
       callbacks: {
-        elementParse: function (item: any) {
+        elementParse: function (item) {
           item.src = item.el.attr("href");
         },
       },
@@ -79,9 +79,9 @@ const loadArticle = async (slug: string): Promise<void> => {
       delegate: "a.video",
       type: "iframe",
       gallery: {
-        enabled: true,
-        fixedContentPos: false,
-        overflowY: scroll,
+        enabled: "true",
+        fixedContentPos: "false",
+        overflowY: "scroll",
         navigateByImgClick: true,
         preload: [0, 1],
       },
