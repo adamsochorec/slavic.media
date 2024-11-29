@@ -39,9 +39,9 @@ onMounted(async () => {
         delegate: "a",
         type: "iframe",
         gallery: {
-          enabled: "true",
-          navigateByImgClick: "false",
-          fixedContentPos: "false",
+          enabled: true,
+          navigateByImgClick: false,
+          fixedContentPos: false,
           preload: [0, 1],
         },
       });
