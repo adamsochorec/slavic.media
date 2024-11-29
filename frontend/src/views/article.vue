@@ -6,40 +6,14 @@ import "magnific-popup";
 import blogCard from "@/components/blog-card.vue";
 import $ from "jquery";
 
-interface Author {
-  name: string;
-  url: string;
-  thumbnail: string;
-}
-
-interface Metadata {
-  formatedDate: string;
-  length: number;
-  linkedin?: string;
-}
-
-interface Article {
-  _id: string;
-  title: string;
-  slug: string;
-  author: Author;
-  metadata: Metadata;
-  content: string[];
-}
-
-interface State {
-  article: Article | null;
-  furtherReading: Article[];
-}
-
 const { getAllArticles, getSpecificArticle, state } = article();
 const route = useRoute();
 
 const isDataLoaded = ref(false);
 
-const loadArticle = async (slug: string): Promise<void> => {
+const loadArticle = async (_id) => {
   isDataLoaded.value = false;
-  await getSpecificArticle(slug);
+  await getSpecificArticle(_id);
   isDataLoaded.value = true;
 
   // POP UP GALLERY
@@ -62,43 +36,43 @@ const loadArticle = async (slug: string): Promise<void> => {
       },
       image: {
         tError: "Error",
-        titleSrc: function (item: any) {
+        titleSrc: function (item) {
           return item.el.attr("title");
         },
       },
       callbacks: {
-        elementParse: function (item: any) {
+        elementParse: function (item) {
           item.src = item.el.attr("href");
         },
       },
-    }); // VIDEO GALLERY
-    $(document).ready(function () {
-      $(".article-content").magnificPopup({
-        delegate: "a.video",
-        type: "iframe",
-        gallery: {
-          enabled: "true",
-          fixedContentPos: "false",
-          overflowY: "scroll",
-          navigateByImgClick: true,
-          preload: [0, 1],
-        },
-      });
+    });
+  });
+  $(document).ready(function () {
+    $(".gallery").magnificPopup({
+      delegate: "a",
+      type: "iframe",
+      gallery: {
+        enabled: true,
+        fixedContentPos: false,
+        overflowY: "scroll",
+        navigateByImgClick: true,
+        preload: [0, 1],
+      },
     });
   });
 };
 
 onMounted(async () => {
   await getAllArticles();
-  await loadArticle(route.params.slug as string);
+  await loadArticle(route.params.slug);
 });
 
 watch(route, async (newRoute) => {
-  await loadArticle(newRoute.params.slug as string);
+  await loadArticle(newRoute.params.slug);
 });
 
 // COPY LINK
-const copyHref = (href: string): void => {
+const copyHref = (href) => {
   navigator.clipboard.writeText(href);
 };
 </script>
@@ -108,13 +82,13 @@ const copyHref = (href: string): void => {
     <section class="wrapper-wide">
       <div v-if="isDataLoaded">
         <h1 class="reveal">
-          {{ state.article?.title }}
+          {{ state.article.title }}
         </h1>
         <!-- ARTICLE METADATA START -->
         <div class="article-metadata flex justify-between reveal">
           <div class="flex items-center gap-2">
             <Avatar
-              :image="state.article?.author.thumbnail"
+              :image="state.article.author.thumbnail"
               size="large"
               shape="circle"
             />
@@ -123,14 +97,14 @@ const copyHref = (href: string): void => {
                 ><a
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  :href="state.article?.author.url"
+                  :href="state.article.author.url"
                   style="font-size: var(--font-size-7)"
-                  >{{ state.article?.author.name }}</a
+                  >{{ state.article.author.name }}</a
                 ></b
               ><br />
               <span style="font-size: var(--font-size-7)">
-                {{ state.article?.metadata.formatedDate }}&nbsp;⋅&nbsp;{{
-                  state.article?.metadata.length
+                {{ state.article.metadata.formatedDate }}&nbsp;⋅&nbsp;{{
+                  state.article.metadata.length
                 }}
                 min read</span
               >
@@ -151,7 +125,7 @@ const copyHref = (href: string): void => {
                 autoHide: false,
               }"
               @click="
-                copyHref(`https://slavic.media/blog/${state.article?.slug}`)
+                copyHref(`https://slavic.media/blog/${state.article._id}`)
               "
             >
               <i class="pi pi-link"></i>
@@ -159,14 +133,44 @@ const copyHref = (href: string): void => {
           </div>
         </div>
         <!-- ARTICLE METADATA END -->
-        <div class="article-content">
-          <section
-            v-for="(content, index) in state.article?.content"
-            :key="index"
-            v-html="content"
-          ></section>
+        <section
+          class="article-content"
+          v-for="(content, index) in state.article.content"
+          :key="index"
+          v-html="content"
+        ></section>
+        <div v-if="state.article?.videos">
+          <hr class="reveal" />
+          <div class="gallery" aria-label="Video Gallery">
+            <div
+              v-for="video in state.article?.videos"
+              :key="video._id"
+              class="gallery-item reveal"
+            >
+              <img
+                :src="`https://slavic.media/img/${video._id}.jpg`"
+                :alt="video.title"
+              />
+              <div class="gallery-item-caption">
+                <i class="pi pi-play-circle bubble"></i>
+                <svg class="flag note" :title="`Flag of ${video.flag}`">
+                  <use :href="`#flag-${video.flag}`"></use>
+                </svg>
+                <h4>{{ video.title }}</h4>
+                <p>
+                  {{ video.year }}
+                </p>
+                <a
+                  :href="`https://vimeo.com/slavicmedia/${video.url}`"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                ></a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
       <div v-else>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
@@ -277,7 +281,14 @@ h1 {
   border-radius: var(--border-radius-1);
   color: white;
 }
-
+.gallery {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media only screen and (max-width: 667px) {
+  .gallery {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 @media only screen and (min-width: 400px) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);

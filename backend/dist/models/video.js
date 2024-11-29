@@ -28,7 +28,7 @@ const videoSchema = new mongoose_1.Schema({
     _id: { type: String, required: true },
     index: { type: Number, required: true, unique: true },
     flag: { type: String, required: true },
-    title: { type: String, required: false },
+    title: { type: String, required: true },
     url: { type: String, required: true },
     year: { type: String, required: true },
     client: { type: String, required: false },
