@@ -30,7 +30,6 @@ async function initializeLightbox(): Promise<void> {
   $(".popup-gallery").magnificPopup({
     delegate: "a",
     type: "image",
-    tLoading: "Loading",
     mainClass: "mfp-img-mobile",
     gallery: {
       enabled: "true",
