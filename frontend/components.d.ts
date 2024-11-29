@@ -11,6 +11,7 @@ declare module 'vue' {
     BannerLightroomPresets: typeof import('./src/components/banner-lightroom-presets.vue')['default']
     BlogCard: typeof import('./src/components/blog-card.vue')['default']
     Controls: typeof import('./src/components/controls.vue')['default']
+    Cookie: typeof import('./src/components/cookie.vue')['default']
     Cookies: typeof import('./src/components/cookies.vue')['default']
     Flags: typeof import('./src/components/flags.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']

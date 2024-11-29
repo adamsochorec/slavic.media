@@ -1,3 +1,13 @@
+<script setup>
+import eventBus from "@/eventBus";
+
+const currentYear = new Date().getFullYear();
+
+const revokeConsent = () => {
+  eventBus.emit("revoke-consent");
+};
+</script>
+
 <template>
   <footer role="contentinfo">
     <div class="footer-container">
@@ -7,7 +17,7 @@
         aria-label="Social media links"
       >
         <a
-          title="Email"
+          title="Call us"
           href="tel:+4550104776"
           aria-label="Tel: +4550104776"
           role="link"
@@ -15,7 +25,7 @@
           <i class="pi pi-phone"></i>
         </a>
         <a
-          title="Email"
+          title="Email us"
           href="mailto:contact@slavic.media"
           aria-label="Email: contact@slavic.media"
           role="link"
@@ -43,7 +53,7 @@
           aria-label="LinkedIn"
           role="link"
         >
-          <i title="LinedIn" class="pi pi-linkedin"></i>
+          <i title="LinkedIn" class="pi pi-linkedin"></i>
         </a>
         <a
           target="_blank"
@@ -58,7 +68,7 @@
           href="https://www.instagram.com/slavic.media/"
           target="_blank"
           rel="noopener noreferrer nofollow"
-          aria-label="nstagram"
+          aria-label="Instagram"
           role="link"
         >
           <i title="Instagram" class="pi pi-instagram fa-xl"></i>
@@ -68,6 +78,12 @@
     <hr role="separator" />
     <div class="footer-container">
       <div class="grid-item" role="navigation" aria-label="Footer Navigation">
+        <button @click="revokeConsent" class="footer-nav" title="Cookies">
+          <i style="font-size: var(--font-size-7)" class="pi pi-cog"></i>&nbsp;
+          <span>Cookies</span>
+        </button>
+        <span>&nbsp;|&nbsp;</span>
+
         <router-link to="/assets" class="footer-nav" title="Assets"
           ><i style="font-size: var(--font-size-7)" class="pi pi-download"></i
           >&nbsp; <span>Assets</span>
@@ -78,9 +94,7 @@
           ><i style="font-size: var(--font-size-7)" class="pi pi-briefcase"></i
           >&nbsp;<span>Legal</span></router-link
         >
-
         <span>&nbsp;|&nbsp;</span>
-
         <a
           class="footer-nav"
           target="_blank"
@@ -99,17 +113,6 @@
     </div>
   </footer>
 </template>
-
-<script>
-export default {
-  name: "FooterView",
-  data() {
-    return {
-      currentYear: new Date().getFullYear(),
-    };
-  },
-};
-</script>
 
 <style scoped>
 .grid-item i:hover {

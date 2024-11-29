@@ -1,263 +1,192 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import $ from "jquery";
-import "magnific-popup";
+import eventBus from "@/eventBus";
 
-// Configuration for third-party scripts
-const cookieScripts = {
-  necessary: [
-    {
-      id: "chatway",
-      src: "https://cdn.chatway.app/widget.js?id=eIN2tIZBFO8j",
-      async: true,
-    },
-  ],
-  analytics: [
-    {
-      id: "google-analytics",
-      src: "https://www.googletagmanager.com/gtag/js?id=G-KGTECW9SN8",
-      async: true,
-      init: () => {
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          window.dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
-        gtag("config", "G-KGTECW9SN8");
-      },
-    },
-  ],
-};
+const showConsent = ref(true);
+const consentGiven = ref(false);
+const consentRejected = ref(false);
 
-// Utility functions for managing cookies
-function setCookie(name, value, days) {
-  const date = new Date();
-  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
-}
-
-function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(";").shift();
-  return null;
-}
-
-function removeCookie(name) {
-  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-}
-
-function loadScripts(category, enabled) {
-  const scripts = cookieScripts[category];
-  if (!scripts) return;
-
-  scripts.forEach((scriptConfig) => {
-    const existingScript = document.getElementById(scriptConfig.id);
-
-    if (enabled) {
-      // Add script if not already loaded
-      if (!existingScript) {
-        const script = document.createElement("script");
-        script.id = scriptConfig.id;
-        script.src = scriptConfig.src;
-        script.async = scriptConfig.async || false;
-        document.head.appendChild(script);
-
-        // Execute initialization logic if defined
-        if (scriptConfig.init) {
-          script.onload = scriptConfig.init;
-        }
-      }
-    } else {
-      // Remove script if loaded
-      if (existingScript) {
-        existingScript.remove();
-      }
-
-      // Additional cleanup for analytics
-      if (category === "analytics") {
-        window.dataLayer = [];
+const checkConsent = () => {
+  const consent = localStorage.getItem("cookieConsent");
+  if (consent) {
+    const consentData = JSON.parse(consent);
+    const now = new Date().getTime();
+    if (now - consentData.timestamp < 24 * 60 * 60 * 1000) {
+      showConsent.value = false;
+      if (consentData.choice === "accept") {
+        consentGiven.value = true;
+        loadAfterConsentScripts();
+      } else {
+        consentRejected.value = true;
       }
     }
-  });
-}
+  } else {
+    // Load analytics if no consent data is found
+    loadAfterConsentScripts();
+  }
+};
 
-// Define cookie settings
-const cookieSettings = ref([
-  {
-    id: "necessary",
-    label: "Necessary",
-    description:
-      "These cookies are essential for our site to be fully functional and therefore cannot be turned off.",
-    disabled: true,
-    checked: true,
-  },
-  {
-    id: "analytics",
-    label: "Analytics",
-    description:
-      "We use these cookies to understand how visitors use the website and products, so we can further improve your experience.",
-    disabled: false,
-    checked: getCookie("analytics") === "true",
-  },
-]);
+const loadScripts = (scripts) => {
+  scripts.forEach((scriptSrc) => {
+    const script = document.createElement("script");
+    script.src = scriptSrc;
+    script.async = true;
+    document.head.appendChild(script);
+  });
+};
+
+const loadAfterConsentScripts = () => {
+  const scripts = ["https://www.googletagmanager.com/gtag/js?id=G-KGTECW9SN8"];
+  loadScripts(scripts);
+
+  // Initialize Google Analytics
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-KGTECW9SN8");
+};
+
+const acceptCookies = () => {
+  localStorage.setItem(
+    "cookieConsent",
+    JSON.stringify({ choice: "accept", timestamp: new Date().getTime() })
+  );
+  consentGiven.value = true;
+  showConsent.value = false;
+  loadAfterConsentScripts();
+};
+
+const rejectCookies = () => {
+  localStorage.setItem(
+    "cookieConsent",
+    JSON.stringify({ choice: "reject", timestamp: new Date().getTime() })
+  );
+  consentRejected.value = true;
+  showConsent.value = false;
+};
+
+const revokeConsent = () => {
+  localStorage.removeItem("cookieConsent");
+  showConsent.value = true;
+  consentGiven.value = false;
+  consentRejected.value = false;
+};
 
 onMounted(() => {
-  // Open modal on page load
-  $(".popup-with-cookies").magnificPopup({
-    type: "inline",
-    preloader: false,
-    closeBtnInside: false,
-    closeOnBgClick: false, // Prevent closing on background click
-    enableEscapeKey: false, // Prevent closing with the escape key
-  });
-
-  $(".popup-with-cookies").magnificPopup("open");
-
-  // Load scripts based on saved preferences
-  loadScripts("necessary", true); // Always load necessary scripts
-  loadScripts(
-    "analytics",
-    cookieSettings.value.find((setting) => setting.id === "analytics").checked
-  );
-
-  // Save button click event
-  $("#save").on("click", function () {
-    cookieSettings.value.forEach((setting) => {
-      if (!setting.disabled) {
-        const userChoice = document.getElementById(setting.id).checked;
-        setCookie(setting.id, userChoice, 1);
-        loadScripts(setting.id, userChoice);
-      }
-    });
-    $.magnificPopup.close();
-  });
-
-  // Accept All button click event
-  $("#accept").on("click", function () {
-    cookieSettings.value.forEach((setting) => {
-      if (!setting.disabled) {
-        setting.checked = true;
-        document.getElementById(setting.id).checked = true;
-        setCookie(setting.id, true, 1);
-        loadScripts(setting.id, true);
-      }
-    });
-
-    // Delay closing the popup by 1 second for better UX
-    setTimeout(() => {
-      $.magnificPopup.close();
-    }, 1000);
-  });
+  checkConsent();
+  eventBus.on("revoke-consent", revokeConsent);
 });
 </script>
 
 <template>
-  <div class="white-popup-block mfp-hide cookies">
-    <section id="cookies" class="wrapper-standard" role="article">
-      <section role="region">
-        <h3 role="heading" aria-level="3">
-          You control your
-          <span class="gradient" role="presentation">data</span>
-        </h3>
-        <br />
-        <p>
-          We use cookies to tailor your experience using our website and
-          products. Click “Accept All” for the best experience. Alternatively,
-          you can modify our Cookie usage by accessing “Cookies Settings”.<br />You
-          can learn more about our policy
-          <router-link to="/legal/cookie-policy">here</router-link>
-        </p>
-        <hr class="semi" />
-        <div
-          class="settings"
-          v-for="setting in cookieSettings"
-          :key="setting.id"
-        >
-          <input
-            type="checkbox"
-            :id="setting.id"
-            :disabled="setting.disabled"
-            :checked="setting.checked"
-            class="input-switch"
-          />
-          <label :for="setting.id">
-            <strong>{{ setting.label }}</strong>
-            <br />
-            {{ setting.description }}
-          </label>
-          <br /><br />
-        </div>
-
-        <div class="buttons">
-          <button id="accept" class="cta">Accept All</button>
-          <button id="save" class="cta">Save Settings</button>
-        </div>
-      </section>
-    </section>
+  <div v-if="showConsent" class="wrapper">
+    <span class="title">
+      <i class="pi pi-cog pi-spin"></i>
+      <span>Cookie Consent</span>
+    </span>
+    <p class="info">
+      This website uses analytical cookies to help you have a superior and more
+      relevant browsing experience on the website. <br />
+      You can learn more about our policy
+      <router-link to="/legal/cookie-policy">here</router-link>.
+    </p>
+    <div class="grid-container">
+      <button
+        class="button cta"
+        :class="{ clicked: consentGiven }"
+        @click="acceptCookies"
+      >
+        Accept all
+      </button>
+      <button
+        class="button cta secondary"
+        :class="{ clicked: consentRejected }"
+        @click="rejectCookies"
+      >
+        Reject non-essential
+      </button>
+    </div>
   </div>
 </template>
 
-<style scoped>
-.buttons {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: var(--grid-gap-3);
+<style lang="scss" scoped>
+.wrapper {
+  position: fixed;
+  bottom: var(--grid-gap-3);
+  max-width: 345px;
+  width: 100%;
+  right: var(--homepage-padding);
+  background-color: var(--dark-grey-color-full);
+  border-radius: var(--border-radius-1);
+  -webkit-backdrop-filter: var(--blur-1);
+  backdrop-filter: var(--blur-1);
+  z-index: 9999999999;
+  padding: var(--grid-gap-2);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: var(--box-shadow-1);
 }
-.buttons button {
-  max-width: 100%;
+.title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  font-size: var(--font-size-4);
+  font-family: var(--logo-font);
+  align-items: center;
+  -webkit-column-gap: var(--grid-gap-2);
+  -moz-column-gap: var(--grid-gap-2);
+  column-gap: var(--grid-gap-2);
 }
-#save {
-  background-color: transparent;
+.title i {
+  font-size: 23px;
 }
-#save:hover {
-  background-color: rgba(var(--secondary-color), 0.8);
+.title i:hover {
+  color: unset;
+  cursor: auto;
 }
-label {
+
+.info {
+  margin: var(--grid-gap-1) 0;
   font-size: var(--font-size-7);
 }
-.settings {
+.grid-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: grid;
-  grid-template-columns: 10% 90%;
-  grid-gap: 0 var(--grid-gap-3);
+  justify-content: space-between;
+  width: 100%;
+  grid-gap: var(--grid-gap-2);
+  grid-template-columns: repeat(2, 1fr);
 }
-
-input[type="checkbox"].input-switch {
-  -webkit-appearance: none;
-  appearance: none;
-  position: relative;
-  width: 60px;
-  height: 34px;
-  border-radius: 34px;
-  background-color: #cccccc;
-  cursor: pointer;
-  -webkit-transition: var(--transition-1);
-  -o-transition: var(--transition-1);
-  transition: var(--transition-1);
-
-  &:before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 26px;
-    height: 26px;
-    margin: 4px;
-    background-color: #ffffff;
-    border-radius: 100%;
-    transition: var(--transition-1);
+.button {
+  width: 100%;
+  min-width: 100%;
+  justify-content: center;
+}
+@media only screen and (max-width: 400px) {
+  button {
+    font-size: var(--font-size-8);
   }
-
-  &:checked {
-    background-color: rgb(var(--secondary-color), 1);
-
-    &:before {
-      transform: translateX(+100%);
-    }
-  }
-
-  &:disabled {
-    cursor: not-allowed;
+}
+@media only screen and (max-width: 667px) {
+  .wrapper {
+    bottom: 0;
+    max-width: 100%;
+    right: 0;
+    background-color: var(--dark-grey-color-full);
+    border-radius: var(--border-radius-1);
+    -webkit-backdrop-filter: var(--blur-1);
+    backdrop-filter: var(--blur-1);
+    padding: var(--grid-gap-2) var(--homepage-padding);
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: var(--box-shadow-1);
   }
 }
 </style>

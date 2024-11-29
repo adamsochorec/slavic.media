@@ -75,8 +75,8 @@ onMounted(() => {
     <header>
       <NavBar></NavBar>
     </header>
-    <!--     <aside><Cookies></Cookies></aside>
- -->
+    <aside><Cookies></Cookies></aside>
+
     <!-- HEADER END -->
     <main>
       <RouterView />
