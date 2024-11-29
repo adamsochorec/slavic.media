@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import { ref, onMounted, watch } from "vue";
 import article from "../modules/article";
 import { useRoute } from "vue-router";
@@ -139,7 +139,7 @@ const copyHref = (href) => {
           :key="index"
           v-html="content"
         ></section>
-        <div v-if="state.article?.videos">
+        <div v-if="state.article?.videos && state.article?.videos.length > 0">
           <hr class="reveal" />
           <div class="gallery" aria-label="Video Gallery">
             <div

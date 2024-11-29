@@ -8,11 +8,6 @@ onMounted(() => {
     loop: true,
     speed: 600,
     autoplay: { delay: 1000, pauseOnMouseEnter: true },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: true,
-    },
     preloadImages: false,
     lazyLoading: true,
     observer: true,
@@ -1034,13 +1029,12 @@ onMounted(() => {
         </svg>
       </a>
     </div>
-    <div class="swiper-pagination"></div>
   </section>
 </template>
 
 <style scoped>
 .swiper-clients {
-  height: 120px;
+  height: auto;
 }
 .swiper-clients .swiper-slide {
   text-align: center;

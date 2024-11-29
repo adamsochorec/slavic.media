@@ -7,7 +7,6 @@ interface Article {
   metadata: string;
   title: string;
 }
-
 interface State {
   newTitle: string;
   newContent: string;
@@ -19,10 +18,8 @@ interface State {
   article: Article | null;
   furtherReading: Article[];
 }
-
 const article = () => {
   const route = useRoute();
-
   const documentID = computed(() => route.params.id as string);
   const state = ref<State>({
     newTitle: "",
@@ -43,7 +40,11 @@ const article = () => {
         "https://api.slavic.media/blog/?fields=author,metadata,_id,title"
       );
       const data: Article[] = await response.json();
-      state.value.articles = data;
+      state.value.articles = data.sort(
+        (a, b) =>
+          new Date(b.metadata.date).getTime() -
+          new Date(a.metadata.date).getTime()
+      );
     } catch (error) {
       console.error(error);
     }

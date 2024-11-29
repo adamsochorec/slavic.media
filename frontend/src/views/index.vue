@@ -94,12 +94,11 @@ onMounted(() => {
           </p>
         </div>
       </div>
-      <hr role="separator" />
+      <hr class="quater reveal" role="separator" />
       <swiperClients></swiperClients>
-      <hr style="margin-top: 30px" role="separator" />
-
+      <hr class="quater" />
       <!-- GALLERY START -->
-      <section class="gallery" aria-label="Services">
+      <section class="gallery reveal" aria-label="Services">
         <router-link
           v-for="(item, index) in galleryItems"
           :key="index"
