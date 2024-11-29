@@ -62,15 +62,28 @@ const loadArticle = async (slug: string): Promise<void> => {
       },
       image: {
         tError: "Error",
-        titleSrc: function (item) {
+        titleSrc: function (item: any) {
           return item.el.attr("title");
         },
       },
       callbacks: {
-        elementParse: function (item) {
+        elementParse: function (item: any) {
           item.src = item.el.attr("href");
         },
       },
+    }); // VIDEO GALLERY
+    $(document).ready(function () {
+      $(".article-content").magnificPopup({
+        delegate: "a.video",
+        type: "iframe",
+        gallery: {
+          enabled: "true",
+          fixedContentPos: "false",
+          overflowY: "scroll",
+          navigateByImgClick: true,
+          preload: [0, 1],
+        },
+      });
     });
   });
 };

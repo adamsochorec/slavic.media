@@ -45,12 +45,12 @@ async function initializeLightbox(): Promise<void> {
     },
     image: {
       tError: "Error",
-      titleSrc: function (item) {
+      titleSrc: function (item: any) {
         return item.el.attr("title");
       },
     },
     callbacks: {
-      elementParse: function (item) {
+      elementParse: function (item: any) {
         item.src = item.el.attr("href");
       },
     },
