@@ -64,11 +64,11 @@ const loadArticle = async (_id) => {
 
 onMounted(async () => {
   await getAllArticles();
-  await loadArticle(route.params.slug);
+  await loadArticle(route.params._id);
 });
 
 watch(route, async (newRoute) => {
-  await loadArticle(newRoute.params.slug);
+  await loadArticle(newRoute.params._id);
 });
 
 // COPY LINK
@@ -88,7 +88,7 @@ const copyHref = (href) => {
         <div class="article-metadata flex justify-between reveal">
           <div class="flex items-center gap-2">
             <Avatar
-              :image="state.article.author.thumbnail"
+              :image="`https://cdn.slavic.media/images/${state.article.author.thumbnail}/height=100,sharpen=100`"
               size="large"
               shape="circle"
             />
@@ -97,7 +97,7 @@ const copyHref = (href) => {
                 ><a
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  :href="state.article.author.url"
+                  :href="`https://www.linkedin.com/in/${state.article.author.url}`"
                   style="font-size: var(--font-size-7)"
                   >{{ state.article.author.name }}</a
                 ></b
@@ -115,7 +115,7 @@ const copyHref = (href) => {
               v-if="state.article?.metadata.linkedin"
               target="_blank"
               rel="noopener noreferrer nofollow"
-              :href="state.article?.metadata.linkedin"
+              :href="`https://www.linkedin.com/posts/${state.article?.metadata.linkedin}`"
             >
               <i class="pi pi-linkedin"></i>
             </a>
@@ -148,7 +148,7 @@ const copyHref = (href) => {
               class="gallery-item reveal"
             >
               <img
-                :src="`https://cdn.slavic.media/${video._id}`"
+                :src="`https://cdn.slavic.media/images/${video._id}`"
                 :alt="video.title"
               />
               <div class="gallery-item-caption">

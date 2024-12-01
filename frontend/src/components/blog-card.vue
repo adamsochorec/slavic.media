@@ -31,7 +31,10 @@ const props = defineProps<{
       <img
         class="reveal"
         :alt="article.title"
-        :src="article.metadata.thumbnail"
+        :srcset="`
+    https://cdn.slavic.media/images/${article.metadata.thumbnail}/fit=contain,width=320   320w,
+    https://cdn.slavic.media/images/${article.metadata.thumbnail}/fit=contain,width=640   640w`"
+        :src="`https://cdn.slavic.media/images/${article.metadata.thumbnail}/fit=contain,width=400,sharpen=100`"
       />
     </router-link>
     <div class="reveal">
@@ -43,7 +46,7 @@ const props = defineProps<{
           class="author"
         >
           <Avatar
-            :image="article.author.thumbnail"
+            :image="`https://cdn.slavic.media/images/${article.author.thumbnail}/height=100,sharpen=100`"
             size="medium"
             shape="circle"
           />
@@ -54,7 +57,7 @@ const props = defineProps<{
             rel="noopener noreferrer nofollow"
             class="author"
             style="font-size: var(--font-size-7)"
-            :href="article.author.url"
+            :href="`https://www.linkedin.com/in/${article.author.url}`"
           >
             <b>{{ article.author.name }}</b>
           </a>

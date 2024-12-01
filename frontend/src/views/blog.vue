@@ -6,7 +6,6 @@ import blogCard from "@/components/blog-card.vue";
 interface Article {
   _id: string;
   title: string;
-  slug: string;
   author: string;
   metadata: string;
   content: string[];

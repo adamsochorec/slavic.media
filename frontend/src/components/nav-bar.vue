@@ -163,7 +163,7 @@ onMounted(() => {
           class="logo"
           alt="Logo Slavic Media"
           title="Logo Slavic Media"
-          src="https://cdn.slavic.media/Primary-1/thumbnail"
+          src="https://cdn.slavic.media/images/Primary-1/thumbnail"
         />
       </router-link>
       <button

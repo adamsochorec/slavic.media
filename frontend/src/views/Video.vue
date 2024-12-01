@@ -6,26 +6,6 @@ import eventBus, { EventBus } from "@/eventBus";
 import requestAProposal from "@/components/request-a-proposal.vue";
 import swiperReels from "@/components/swiper-reels.vue";
 
-interface Video {
-  _id: string;
-  title: string;
-  url: string;
-  flag: string;
-  year: string;
-  client: string;
-}
-
-interface Gallery {
-  _id: string;
-  title: string;
-  desc: string;
-  videos: Video[];
-}
-
-interface State {
-  galleries: Gallery[];
-}
-
 const { state, getAllGalleries } = video();
 const isDataLoaded = ref<boolean>(false);
 
@@ -120,7 +100,7 @@ const showRequestAProposal = (data: Gallery): void => {
               class="gallery-item reveal"
             >
               <img
-                :src="`https://cdn.slavic.media/${video._id}/thumbnail`"
+                :src="`https://cdn.slavic.media/images/${video._id}/height=400,sharpen=100`"
                 :alt="video.title"
               />
               <div class="gallery-item-caption">

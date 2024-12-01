@@ -4,16 +4,6 @@ import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import employee from "@/modules/employee";
 
-interface Employee {
-  _id: string;
-  name: string;
-  origin: string;
-  email: string;
-  linkedin?: string;
-  github?: string;
-  department: string;
-}
-
 const { state, getAllEmployees } = employee();
 const isDataLoaded = ref(false);
 
@@ -83,7 +73,7 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
               <use :href="'#' + employee.origin"></use>
             </svg>
             <img
-              :src="`https://cdn.slavic.media/${employee._id}/thumbnail`"
+              :src="`https://cdn.slavic.media/images/${employee._id}/width=400,sharpen=100`"
               :alt="`Portrait of ${employee.name}`"
               :title="`${employee.name}`"
               class="reveal"

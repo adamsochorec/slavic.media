@@ -38,7 +38,9 @@ onMounted(async () => {
           target="_blank"
           class="gallery-item reveal"
         >
-          <img :src="`https://cdn.slavic.media/${asset._id}/thumbnail`" />
+          <img
+            :src="`https://cdn.slavic.media/images/${asset._id}/height=400,sharpen=100`"
+          />
           <div class="gallery-item-caption">
             <h3>{{ asset.title }}</h3>
             <p>{{ asset.desc }}</p>

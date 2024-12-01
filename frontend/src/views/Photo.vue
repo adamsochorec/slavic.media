@@ -112,11 +112,18 @@ const showRequestAProposal = (data: any) => {
           >
             <div v-for="image in column" :key="image._id" class="reveal">
               <a
-                :href="`https://cdn.slavic.media${image._id}/thumbnail`"
+                :href="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=2560,sharpen=100`"
                 :title="image.title"
               >
                 <img
-                  :src="`https://cdn.slavic.media/${image._id}/public`"
+                  :srcset="`
+    https://cdn.slavic.media/images/${image._id}/fit=contain,width=320   320w,
+    https://cdn.slavic.media/images/${image._id}/fit=contain,width=640   640w,
+    https://cdn.slavic.media/images/${image._id}/fit=contain,width=960   960w,
+    https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280 1280w,
+    https://cdn.slavic.media/images/${image._id}/fit=contain,width=2560 2560w
+  `"
+                  :src="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280,sharpen=100`"
                   :alt="image.alt"
                 />
                 <svg class="flag note" :title="'Flag of ' + image.flag">

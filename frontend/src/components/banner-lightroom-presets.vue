@@ -4,7 +4,7 @@
   <div>
     <hr class="semi" />
     <div class="banner">
-      <img src="https://cdn.slavic.media/2023-05-12-08969/thumbnail" />
+      <img src="https://cdn.slavic.media/images/2023-05-12-08969/height=100" />
       <div class="title flex-center">
         <div>
           <span

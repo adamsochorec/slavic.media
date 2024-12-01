@@ -26,8 +26,8 @@ onMounted(async () => {
 <template>
   <article class="main">
     <heroVideo
-      src="https://slavic.media/img/bts.mp4"
-      poster="https://cdn.slavic.media/behind-the-scenes/thumbnail"
+      src="https://slavic.media/img/behind-the-scenes.mp4"
+      poster="https://cdn.slavic.media/images/behind-the-scenes//height=800,sharpen=100"
       loop
       autoplay
       muted

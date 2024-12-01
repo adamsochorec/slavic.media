@@ -5,33 +5,21 @@ import requestAProposal from "@/components/request-a-proposal.vue";
 import swiperClients from "@/components/swiper-clients.vue";
 import swiperReviews from "@/components/swiper-reviews.vue";
 
-interface GalleryItem {
-  to: string;
-  img: string;
-  iconClass: string;
-  title: string;
-  description: string;
-}
-
 // GALLERY START
-const galleryItems = ref<GalleryItem[]>([
+const galleryItems = [
   {
-    to: "/services/video",
-    img: "https://cdn.slavic.media/video",
-    iconClass: "pi pi-video bubble",
-    title: "Video",
+    icon: "video",
+    _id: "video",
     description:
       "From inspiring stories to cinematic visuals, each video project is crafted to captivate, impress, and showcase your vision with creative precision.",
   },
   {
-    to: "/services/photo",
-    img: "https://cdn.slavic.media/photo",
-    iconClass: "pi pi-camera bubble",
-    title: "Photo",
+    icon: "camera",
+    _id: "photo",
     description:
       "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
   },
-]); // GALLERY END
+]; // GALLERY END
 
 // Function to reveal elements as the user scrolls
 function reveal(): void {
@@ -61,7 +49,7 @@ onMounted(() => {
     <!-- INTRO VIDEO START -->
     <heroVideo
       src="https://slavic.media/img/showreel.mp4"
-      poster="https://cdn.slavic.media/showreel/thumbnail"
+      poster="https://cdn.slavic.media/images/showreel/height=800,sharpen=100"
       loop
       autoplay
       muted
@@ -102,13 +90,17 @@ onMounted(() => {
         <router-link
           v-for="(item, index) in galleryItems"
           :key="index"
-          :to="item.to"
+          :to="`/services/${item._id}`"
           class="gallery-item reveal"
         >
-          <img :src="item.img" :title="item.title" :alt="item.title" />
+          <img
+            :src="`https://cdn.slavic.media/images/${item._id}/height=400,sharpen=100`"
+            :title="`${item._id} services`"
+            :alt="`${item._id} services cover`"
+          />
           <div class="gallery-item-caption">
-            <i :class="item.iconClass"></i>
-            <h3>{{ item.title }}</h3>
+            <i :class="`bubble pi pi-${item.icon}`"></i>
+            <h3>{{ item._id }}</h3>
             <p>{{ item.description }}</p>
           </div>
         </router-link>
@@ -168,10 +160,8 @@ onMounted(() => {
 h1 {
   font-size: var(--font-size-3);
 }
-header {
-  background-color: red;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+h3 {
+  text-transform: capitalize;
 }
 @media only screen and (max-width: 415px) {
   h1 {

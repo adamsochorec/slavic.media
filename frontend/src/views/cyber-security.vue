@@ -5,7 +5,7 @@ const showreel = ref([
   {
     id: "672a34ff4fab7b81aa0707e7",
     author: {
-      thumbnail: "https://cdn.slavic.media/adam",
+      thumbnail: "https://cdn.slavic.media/images/adam",
       name: "Adam Sochorec",
       url: "https://www.linkedin.com/in/adamsochorec/",
     },
@@ -23,7 +23,7 @@ const showreel = ref([
         "Personal Information Protection",
       ],
       linkedin: "",
-      thumbnail: "https://cdn.slavic.media/2022-08-15-00345",
+      thumbnail: "https://cdn.slavic.media/images/2022-08-15-00345",
       length: 15,
     },
     content: [
