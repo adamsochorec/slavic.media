@@ -2,7 +2,6 @@
 import { ref, onMounted, nextTick, watch } from "vue";
 import requestAProposal from "@/components/request-a-proposal.vue";
 import eventBus from "@/eventBus";
-
 import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
 import $ from "jquery";
 import "magnific-popup";
@@ -52,7 +51,7 @@ onMounted(async () => {
 watch(isDataLoaded, (loaded) => {
   if (loaded) initializeLightbox();
 });
-const showRequestAProposal = (data) => {
+const showRequestAProposal = (data: any) => {
   eventBus.emit("showRequestAProposal", data);
 };
 </script>
@@ -113,11 +112,11 @@ const showRequestAProposal = (data) => {
           >
             <div v-for="image in column" :key="image._id" class="reveal">
               <a
-                :href="`https://slavic.media/img/hd/${image._id}.jpg`"
+                :href="`https://cdn.slavic.media${image._id}/thumbnail`"
                 :title="image.title"
               >
                 <img
-                  :src="`https://slavic.media/img/${image._id}.jpg`"
+                  :src="`https://cdn.slavic.media/${image._id}/public`"
                   :alt="image.alt"
                 />
                 <svg class="flag note" :title="'Flag of ' + image.flag">

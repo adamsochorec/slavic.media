@@ -24,14 +24,14 @@ const loadArticle = async (_id) => {
       tLoading: "Loading",
       mainClass: "mfp-img-mobile",
       gallery: {
-        enabled: true,
+        enabled: "true",
         fixedContentPos: "false",
         overflowY: "scroll",
-        navigateByImgClick: true,
+        navigateByImgClick: "true",
         preload: [0, 1],
       },
       zoom: {
-        enabled: true,
+        enabled: "true",
         duration: 300,
       },
       image: {
@@ -148,7 +148,7 @@ const copyHref = (href) => {
               class="gallery-item reveal"
             >
               <img
-                :src="`https://slavic.media/img/${video._id}.jpg`"
+                :src="`https://cdn.slavic.media/${video._id}`"
                 :alt="video.title"
               />
               <div class="gallery-item-caption">
@@ -242,7 +242,13 @@ const copyHref = (href) => {
     <section class="wrapper-standard">
       <div v-if="isDataLoaded">
         <hr class="semi" />
-        <h3>More from <span class="gradient">Slavic Media</span> Blog</h3>
+
+        <h3>
+          More from
+          <router-link to="/blog" class="gradient">Slavic Media </router-link>
+          Blog
+          <span class="pi pi-angle-right"></span>
+        </h3>
         <hr class="quater reveal" />
         <div class="grid-container">
           <div
@@ -272,7 +278,10 @@ h1 {
 .article-metadata a:hover {
   text-decoration: underline;
 }
-
+.pi-angle-right {
+  font-size: var(--font-size-4);
+  vertical-align: sub;
+}
 .grid-container {
   grid-template-columns: repeat(1, 1fr);
   display: grid;

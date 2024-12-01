@@ -83,7 +83,7 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
               <use :href="'#' + employee.origin"></use>
             </svg>
             <img
-              :src="`https://slavic.media/img/${employee._id}.jpg`"
+              :src="`https://cdn.slavic.media/${employee._id}/thumbnail`"
               :alt="`Portrait of ${employee.name}`"
               :title="`${employee.name}`"
               class="reveal"

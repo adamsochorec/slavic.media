@@ -27,11 +27,11 @@ onMounted(async () => {
   <article class="main">
     <heroVideo
       src="https://slavic.media/img/bts.mp4"
-      poster="https://slavic.media/img/bts.png"
+      poster="https://cdn.slavic.media/behind-the-scenes/thumbnail"
       loop
       autoplay
       muted
-      vimeo="https://vimeo.com/1013776851"
+      vimeo="https://vimeo.com/slavicmedia/behind-the-scenes?share=copy"
       ariaLabel="Behind the scenes"
     />
 

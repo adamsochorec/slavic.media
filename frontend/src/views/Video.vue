@@ -2,7 +2,7 @@
 import { onMounted, ref, nextTick } from "vue";
 import $ from "jquery";
 import video from "@/modules/video";
-import eventBus from "@/eventBus";
+import eventBus, { EventBus } from "@/eventBus";
 import requestAProposal from "@/components/request-a-proposal.vue";
 import swiperReels from "@/components/swiper-reels.vue";
 
@@ -42,6 +42,7 @@ onMounted(async () => {
           enabled: "true",
           navigateByImgClick: "false",
           fixedContentPos: "false",
+          overflowY: "scroll",
           preload: [0, 1],
           arrowMarkup:
             '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>',
@@ -58,7 +59,7 @@ onMounted(async () => {
 });
 
 const showRequestAProposal = (data: Gallery): void => {
-  eventBus.emit("showRequestAProposal", data);
+  (eventBus as EventBus).emit("showRequestAProposal", data);
 };
 </script>
 
@@ -119,7 +120,7 @@ const showRequestAProposal = (data: Gallery): void => {
               class="gallery-item reveal"
             >
               <img
-                :src="`https://slavic.media/img/${video._id}.jpg`"
+                :src="`https://cdn.slavic.media/${video._id}/thumbnail`"
                 :alt="video.title"
               />
               <div class="gallery-item-caption">

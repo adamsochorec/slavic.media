@@ -17,7 +17,7 @@ interface GalleryItem {
 const galleryItems = ref<GalleryItem[]>([
   {
     to: "/services/video",
-    img: "https://slavic.media/img/cover-video.jpg",
+    img: "https://cdn.slavic.media/video",
     iconClass: "pi pi-video bubble",
     title: "Video",
     description:
@@ -25,7 +25,7 @@ const galleryItems = ref<GalleryItem[]>([
   },
   {
     to: "/services/photo",
-    img: "https://slavic.media/img/cover-photo.jpg",
+    img: "https://cdn.slavic.media/photo",
     iconClass: "pi pi-camera bubble",
     title: "Photo",
     description:
@@ -61,11 +61,11 @@ onMounted(() => {
     <!-- INTRO VIDEO START -->
     <heroVideo
       src="https://slavic.media/img/showreel.mp4"
-      poster="https://slavic.media/img/showreel.png"
+      poster="https://cdn.slavic.media/showreel/thumbnail"
       loop
       autoplay
       muted
-      vimeo="https://vimeo.com/987964137/870f308e79"
+      vimeo="https://vimeo.com/slavicmedia/showreel?share=copy"
       ariaLabel="Showreel"
     />
     <!-- INTRO VIDEO END -->

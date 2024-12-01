@@ -6,25 +6,25 @@
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
       <image:image>
-        <image:loc>https://slavic.media/img/Primary-1.png</image:loc>
+        <image:loc>https://cdn.slavic.media/Primary-1.png</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/cover-video.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/cover-video.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/cover-photo.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/cover-photo.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/marcel.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/marcel.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/adam.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/adam.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/dominik.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/dominik.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/ferdinand.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/ferdinand.jpg</image:loc>
       </image:image>
   </url>
   <url>
@@ -33,7 +33,7 @@
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
       <image:image>
-        <image:loc>https://slavic.media/img/Primary-1.png</image:loc>
+        <image:loc>https://cdn.slavic.media/Primary-1.png</image:loc>
       </image:image>
   </url>
   <url>
@@ -42,7 +42,7 @@
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
       <image:image>
-        <image:loc>https://slavic.media/img/Primary-1.png</image:loc>
+        <image:loc>https://cdn.slavic.media/Primary-1.png</image:loc>
       </image:image>
   </url>
   <url>
@@ -51,7 +51,7 @@
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
       <image:image>
-        <image:loc>https://slavic.media/img/Primary-1.png</image:loc>
+        <image:loc>https://cdn.slavic.media/Primary-1.png</image:loc>
       </image:image>
   </url>
   <url>
@@ -60,85 +60,85 @@
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
       <image:image>
-        <image:loc>https://slavic.media/img/Primary-1.png</image:loc>
+        <image:loc>https://cdn.slavic.media/Primary-1.png</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2022-12-02-000065.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2022-12-02-000065.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2023-11-30-00006.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2023-11-30-00006.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2023-12-01-00250.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2023-12-01-00250.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2024-03-10-00620.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2024-03-10-00620.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2022-12-03-000465.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2022-12-03-000465.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2023-12-02-00459.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2023-12-02-00459.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2021-06-24-01208.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2021-06-24-01208.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2024-03-10-00496.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2024-03-10-00496.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2022-10-15-00970.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2022-10-15-00970.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2024-03-10-00238.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2024-03-10-00238.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2023-08-29-01113.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2023-08-29-01113.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2023-09-23-00049.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2023-09-23-00049.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2023-09-09-10524.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2023-09-09-10524.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2023-09-09-10507.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2023-09-09-10507.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2023-08-29-01096.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2023-08-29-01096.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2023-08-29-01059.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2023-08-29-01059.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2021-04-25-00693.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2021-04-25-00693.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2021-04-14-00608.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2021-04-14-00608.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2021-09-05-01666.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2021-09-05-01666.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2022-06-28-00708.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2022-06-28-00708.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/hvalp.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/hvalp.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2021-06-24-01233-2.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2021-06-24-01233-2.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2021-11-13-02059.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2021-11-13-02059.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2021-08-24-01615.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2021-08-24-01615.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2023-11-13-00267.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2023-11-13-00267.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/2021-05-28-01020.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/2021-05-28-01020.jpg</image:loc>
       </image:image>
   </url>
   <url>
@@ -147,25 +147,25 @@
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
       <image:image>
-        <image:loc>https://slavic.media/img/Primary-1.png</image:loc>
+        <image:loc>https://cdn.slavic.media/Primary-1.png</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/cover-fynutzu.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/cover-fynutzu.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/cover-norwegianfjords.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/cover-norwegianfjords.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/cover-finnishlapland.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/cover-finnishlapland.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/cover-swedishlapland.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/cover-swedishlapland.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/cover-huskyfarm.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/cover-huskyfarm.jpg</image:loc>
       </image:image>
       <image:image>
-        <image:loc>https://slavic.media/img/cover-husetfundament.jpg</image:loc>
+        <image:loc>https://cdn.slavic.media/cover-husetfundament.jpg</image:loc>
       </image:image>
   </url>
   <url>
@@ -174,7 +174,7 @@
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
       <image:image>
-        <image:loc>https://slavic.media/img/Primary-1.png</image:loc>
+        <image:loc>https://cdn.slavic.media/Primary-1.png</image:loc>
       </image:image>
   </url>
   <url>
