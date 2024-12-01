@@ -9,6 +9,6 @@
   "ui": "bdd",
   "spec": "src/test/**/*.test.ts",
   "require": "ts-node/register",
-  "watch-files": ["src/lib/**/*.ts", "src/test/**/*.ts"],
+  "watch-files": ["src/**/*.ts"],
   "watch-ignore": ["lib/vendor"]
 }

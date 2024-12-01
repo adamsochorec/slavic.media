@@ -4,45 +4,34 @@ process.env.NODE_ENV = "test";
 
 // Import the necessary models
 // These models are used to interact with the database
-import Product from "../models/article";
-import User from "../models/user";
+import article from "../models/article";
+import assets from "../models/assets";
+import employee from "../models/employee";
+import event from "../models/event";
+import img from "../models/img";
+import legal from "../models/review";
+import user from "../models/user";
+import video from "../models/video";
+
+// Import the server to ensure routes are available
+import server from "../server";
+
+// Function to clean up the database
+const cleanDatabase = async () => {
+  const models = [article, assets, employee, event, img, legal, user, video];
+  for (const model of models) {
+    await model.deleteMany({});
+  }
+};
 
 // Before each test, clean up the database
 // This ensures that each test starts with a clean slate
-beforeEach((done) => {
-  // Delete all products
-  // This is done by calling the deleteMany function with an empty filter
-  // The callback function is called when the deletion is complete
-  // If there is an error, it is passed to the callback function
-  Product.deleteMany({}, function (err) {});
-
-  // Delete all users
-  // This is done by calling the deleteMany function with an empty filter
-  // The callback function is called when the deletion is complete
-  // If there is an error, it is passed to the callback function
-  User.deleteMany({}, function (err) {});
-
-  // Call the done function to indicate that the setup is complete
-  // This allows the test to start
-  done();
+beforeEach(async () => {
+  await cleanDatabase();
 });
 
 // After each test, clean up the database
 // This ensures that the changes made by the test do not affect other tests
-afterEach((done) => {
-  // Delete all users
-  // This is done by calling the deleteMany function with an empty filter
-  // The callback function is called when the deletion is complete
-  // If there is an error, it is passed to the callback function
-  User.deleteMany({}, function (err) {});
-
-  // Delete all products
-  // This is done by calling the deleteMany function with an empty filter
-  // The callback function is called when the deletion is complete
-  // If there is an error, it is passed to the callback function
-  Product.deleteMany({}, function (err) {});
-
-  // Call the done function to indicate that the cleanup is complete
-  // This allows the next test to start
-  done();
+afterEach(async () => {
+  await cleanDatabase();
 });
