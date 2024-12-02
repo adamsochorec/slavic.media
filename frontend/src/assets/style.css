@@ -1081,17 +1081,12 @@ i.pi-arrow-right:hover {
     grid-template-columns: 50% 50%;
   }
 }
-
 @media only screen and (max-width: 330px) {
-  .grid-container .grid-item:nth-child(odd) {
+  .gallery .grid-container .grid-item:nth-child(odd) {
     margin: 0;
   }
 }
-
 @media only screen and (max-width: 415px) {
-  .grid-item {
-    height: 80px;
-  }
   .caption-container {
     display: block;
   }

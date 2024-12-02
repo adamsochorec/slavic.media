@@ -51,11 +51,13 @@ onMounted(async () => {
               style="background-color: rgb(var(--dark-grey-color))"
               class="p-6"
               width="100%"
+              borderRadius="10px"
               height="130px"
             ></Skeleton>
             <div>
               <Skeleton
                 width="80%"
+                borderRadius="10px"
                 height="10px"
                 style="background-color: rgb(var(--dark-grey-color))"
                 class="mt-2"
@@ -65,6 +67,7 @@ onMounted(async () => {
                 style="background-color: rgb(var(--dark-grey-color))"
                 class="mt-2"
                 height="10px"
+                borderRadius="10px"
               ></Skeleton>
               <div class="flex mt-4">
                 <Skeleton
@@ -77,6 +80,7 @@ onMounted(async () => {
                   <Skeleton
                     width="10rem"
                     height="10px"
+                    borderRadius="10px"
                     style="background-color: rgb(var(--dark-grey-color))"
                     class="mb-2"
                   ></Skeleton>
@@ -85,10 +89,12 @@ onMounted(async () => {
                     style="background-color: rgb(var(--dark-grey-color))"
                     class="mb-2"
                     height="10px"
+                    borderRadius="10px"
                   ></Skeleton>
                   <Skeleton
                     style="background-color: rgb(var(--dark-grey-color))"
                     class=""
+                    borderRadius="10px"
                     height="10px"
                   ></Skeleton>
                 </div>

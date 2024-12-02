@@ -5,6 +5,7 @@ import { useRoute } from "vue-router";
 import "magnific-popup";
 import blogCard from "@/components/blog-card.vue";
 import $ from "jquery";
+import galleryItem from "@/components/gallery-item.vue";
 
 const { getAllArticles, getSpecificArticle, state } = article();
 const route = useRoute();
@@ -87,15 +88,20 @@ const copyHref = (href) => {
         <!-- ARTICLE METADATA START -->
         <div class="article-metadata flex justify-between reveal">
           <div class="flex items-center gap-2">
-            <Avatar
-              :image="`https://cdn.slavic.media/images/${state.article.author.thumbnail}/height=100,sharpen=100`"
-              size="large"
-              shape="circle"
-            />
+            <a
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              :href="`https://www.linkedin.com/in/${state.article.author.linkedin}`"
+            >
+              <Avatar
+                :image="`https://cdn.slavic.media/images/${state.article.author.thumbnail}/height=100,sharpen=100`"
+                size="large"
+                shape="circle"
+            /></a>
             <div>
               <a
-                target="_blank"
                 class="author"
+                target="_blank"
                 rel="noopener noreferrer nofollow"
                 :href="`https://www.linkedin.com/in/${state.article.author.linkedin}`"
                 style="font-size: var(--font-size-7)"
@@ -141,31 +147,14 @@ const copyHref = (href) => {
         <div v-if="state.article?.videos && state.article?.videos.length > 0">
           <hr class="reveal" />
           <div class="gallery" aria-label="Video Gallery">
-            <div
-              v-for="video in state.article?.videos"
+            <galleryItem
+              v-for="video in state.article.videos"
               :key="video._id"
-              class="gallery-item reveal"
-            >
-              <img
-                :src="`https://cdn.slavic.media/images/${video._id}`"
-                :alt="video.title"
-              />
-              <div class="gallery-item-caption">
-                <i class="pi pi-play-circle bubble"></i>
-                <svg class="flag note" :title="`Flag of ${video.flag}`">
-                  <use :href="`#flag-${video.flag}`"></use>
-                </svg>
-                <h4>{{ video.title }}</h4>
-                <p>
-                  {{ video.year }}
-                </p>
-                <a
-                  :href="`https://vimeo.com/slavicmedia/${video.url}`"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                ></a>
-              </div>
-            </div>
+              :img="video._id"
+              icon="map-marker"
+              :url="`https://vimeo.com/slavicmedia/${video.url}`"
+              :desc="`${video.year}`"
+            />
           </div>
         </div>
       </div>
@@ -173,12 +162,14 @@ const copyHref = (href) => {
       <div v-else>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
+          borderRadius="10px"
           height="10px"
           width="100%"
           class="mb-2"
         ></Skeleton>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
+          borderRadius="10px"
           height="10px"
           width="50%"
           class="mb-4"
@@ -195,6 +186,7 @@ const copyHref = (href) => {
               <Skeleton
                 style="background-color: rgb(var(--dark-grey-color))"
                 width="10rem"
+                borderRadius="10px"
                 height="10px"
                 class="mb-2"
               ></Skeleton>
@@ -206,33 +198,94 @@ const copyHref = (href) => {
               ></Skeleton>
               <Skeleton
                 style="background-color: rgb(var(--dark-grey-color))"
-                height=".5rem"
+                borderRadius="10px"
+                height="10px"
               ></Skeleton>
             </div>
           </div>
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            shape="circle"
-            width="2rem"
-            height="10px"
-          ></Skeleton>
         </div>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
           class="mb-4"
           width="100%"
           height="200px"
+          borderRadius="10px"
+        ></Skeleton>
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          borderRadius="10px"
+          height="10px"
+          width="100%"
+          class="mb-2"
+        ></Skeleton>
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          borderRadius="10px"
+          height="10px"
+          s
+          width="90%"
+          class="mb-2"
+        ></Skeleton>
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          borderRadius="10px"
+          height="10px"
+          width="95%"
+          class="mb-2"
+        ></Skeleton>
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          borderRadius="10px"
+          height="10px"
+          width="90%"
+          class="mb-2"
+        ></Skeleton>
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          borderRadius="10px"
+          height="10px"
+          width="95%"
+          class="mb-4"
+        ></Skeleton>
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          class="mb-4"
+          width="100%"
+          height="200px"
+          borderRadius="10px"
         ></Skeleton>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
           height="10px"
           width="100%"
-          class="mb-4"
+          class="mb-2"
         ></Skeleton>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
+          borderRadius="10px"
           height="10px"
-          width="50%"
+          width="90%"
+          class="mb-2"
+        ></Skeleton>
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          borderRadius="10px"
+          height="10px"
+          width="95%"
+          class="mb-2"
+        ></Skeleton>
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          borderRadius="10px"
+          height="10px"
+          width="90%"
+          class="mb-2"
+        ></Skeleton>
+        <Skeleton
+          style="background-color: rgb(var(--dark-grey-color))"
+          borderRadius="10px"
+          height="10px"
+          width="95%"
           class="mb-4"
         ></Skeleton>
       </div>
@@ -244,9 +297,9 @@ const copyHref = (href) => {
 
         <h3>
           More from
-          <router-link to="/blog" class="gradient">Slavic Media </router-link>
-          Blog
-          <span class="pi pi-angle-right"></span>
+          <router-link to="/blog" class="gradient"
+            >Slavic&nbsp;Media&nbsp;</router-link
+          >Blog&nbsp;<span class="pi pi-angle-right"></span>
         </h3>
         <hr class="quater reveal" />
         <div class="grid-container">

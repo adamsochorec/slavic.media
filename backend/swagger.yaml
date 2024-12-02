@@ -66,6 +66,8 @@ components:
               format: date-time
             formatedDate:
               type: string
+            icon:
+              type: string
             keywords:
               type: array
               items:
@@ -82,7 +84,10 @@ components:
             type: string
         title:
           type: string
-
+        videos:
+          type: array
+          items:
+            $ref: "#components/schemas/Video"
     Review:
       type: object
       properties:
@@ -302,7 +307,21 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Article"
-
+        delete:
+        summary: Delete all articles
+        description: Deletes all articles from the database
+        security:
+          - ApiKeyAuth: []
+        responses:
+          200:
+            description: All articles deleted successfully
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    message:
+                      type: string
   /blog/articles/{id}:
     get:
       summary: Retrieve a specific article
@@ -397,7 +416,22 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Employee"
-
+    /employees:
+      delete:
+        summary: Delete all employees
+        description: Deletes all employees from the database
+        security:
+          - ApiKeyAuth: []
+        responses:
+          200:
+            description: All employees deleted successfully
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    message:
+                      type: string
   /employees/{id}:
     get:
       summary: Retrieve a specific employee
@@ -492,7 +526,21 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Review"
-
+    delete:
+      summary: Delete all reviews
+      description: Deletes all reviews from the database
+      security:
+        - ApiKeyAuth: []
+      responses:
+        200:
+          description: All reviews deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
   /reviews/{id}:
     get:
       summary: Retrieve a specific review
@@ -587,7 +635,21 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Asset"
-
+    delete:
+      summary: Delete all assets
+      description: Deletes all assets from the database
+      security:
+        - ApiKeyAuth: []
+      responses:
+        200:
+          description: All assets deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
   /assets/{id}:
     get:
       summary: Retrieve a specific asset
@@ -682,7 +744,21 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/VideoGallery"
-
+    delete:
+      summary: Delete all video galleries
+      description: Deletes all video galleries from the database
+      security:
+        - ApiKeyAuth: []
+      responses:
+        200:
+          description: All video galleries deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
   /videos/{id}:
     get:
       summary: Retrieve a specific video gallery
@@ -759,7 +835,21 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Legal"
-
+    delete:
+      summary: Delete all legal documents
+      description: Deletes all legal documents from the database
+      security:
+        - ApiKeyAuth: []
+      responses:
+        200:
+          description: All legal documents deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
   /legal/{id}:
     get:
       summary: Get the legal document by id
@@ -794,7 +884,21 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Img"
-
+    delete:
+      summary: Delete all image galleries
+      description: Deletes all image galleries from the database
+      security:
+        - ApiKeyAuth: []
+      responses:
+        200:
+          description: All image galleries deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
   /img/{id}:
     get:
       summary: Get the image by id
@@ -829,7 +933,21 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Event"
-
+    delete:
+      summary: Delete all events
+      description: Deletes all events from the database
+      security:
+        - ApiKeyAuth: []
+      responses:
+        200:
+          description: All events deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
   /event/{id}:
     get:
       summary: Get the event by id

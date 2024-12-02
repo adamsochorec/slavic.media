@@ -93,11 +93,15 @@ onMounted(async () => {
                 <Skeleton
                   style="background-color: rgb(var(--dark-grey-color))"
                   width="100%"
+                  borderRadius="10px"
                   class="mb-2"
+                  height="10px"
                 ></Skeleton>
                 <Skeleton
                   style="background-color: rgb(var(--dark-grey-color))"
                   width="75%"
+                  height="10px"
+                  borderRadius="10px"
                 ></Skeleton>
               </div>
             </div>

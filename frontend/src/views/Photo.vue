@@ -146,12 +146,14 @@ const showRequestAProposal = (data: any) => {
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             height="2rem"
+            borderRadius="10px"
             class="mb-2"
           ></Skeleton>
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             height="2rem"
             width="10rem"
+            borderRadius="10px"
             class="mb-2"
           ></Skeleton>
         </div>
@@ -160,12 +162,14 @@ const showRequestAProposal = (data: any) => {
             style="background-color: rgb(var(--dark-grey-color))"
             height="4rem"
             class="mb-2"
+            borderRadius="10px"
           ></Skeleton>
 
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             width="14rem"
             class="mb-6"
+            borderRadius="10px"
           ></Skeleton>
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
@@ -180,15 +184,18 @@ const showRequestAProposal = (data: any) => {
           style="background-color: rgb(var(--dark-grey-color))"
           width="24%"
           height="200px"
+          borderRadius="10px"
         ></Skeleton>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
           width="48%"
+          borderRadius="10px"
           height="200px"
         ></Skeleton>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
           width="24%"
+          borderRadius="10px"
           height="200px"
         ></Skeleton>
       </div>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import asset from "@/modules/assets";
-import GalleryItem from "@/components/gallery-item.vue";
+import galleryItem from "@/components/gallery-item.vue";
 
 interface Asset {
   _id: string;
@@ -33,13 +33,14 @@ onMounted(async () => {
       <hr class="reveal" role="separator" aria-label="Separator" />
       <!-- PRESS MATERIALS GRID START -->
       <section v-if="isDataLoaded" class="gallery" aria-label="Services">
-        <GalleryItem
+        <galleryItem
           v-for="asset in state.assets"
           :key="asset._id"
           :img="asset._id"
           :url="`assets/${asset._id}.${asset.type}`"
           :title="asset.title"
           :desc="asset.desc"
+          :opacity="0.5"
           :icon="asset.icon"
           targetWindow="_blank"
         />
@@ -52,6 +53,7 @@ onMounted(async () => {
             class="p-6"
             width="100%"
             height="130px"
+            borderRadius="10px"
           ></Skeleton>
           <div>
             <Skeleton
@@ -59,11 +61,13 @@ onMounted(async () => {
               height="10px"
               style="background-color: rgb(var(--dark-grey-color))"
               class="mt-2"
+              borderRadius="10px"
             ></Skeleton>
             <Skeleton
               width="60%"
               style="background-color: rgb(var(--dark-grey-color))"
               class="mt-2"
+              borderRadius="10px"
               height="10px"
             ></Skeleton>
             <div class="flex mt-4">
@@ -79,16 +83,18 @@ onMounted(async () => {
                   height="10px"
                   style="background-color: rgb(var(--dark-grey-color))"
                   class="mb-2"
+                  borderRadius="10px"
                 ></Skeleton>
                 <Skeleton
                   width="5rem"
                   style="background-color: rgb(var(--dark-grey-color))"
                   class="mb-2"
                   height="10px"
+                  borderRadius="10px"
                 ></Skeleton>
                 <Skeleton
                   style="background-color: rgb(var(--dark-grey-color))"
-                  class=""
+                  borderRadius="10px"
                   height="10px"
                 ></Skeleton>
               </div>
@@ -107,6 +113,7 @@ onMounted(async () => {
 .v-else-gallery {
   grid-template-columns: repeat(3, 1fr);
 }
+
 @media only screen and (max-width: 667px) {
   .gallery,
   .v-else-gallery {

@@ -125,14 +125,16 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             width="100%"
-            height="15px"
+            height="10px"
+            borderRadius="10px"
             class="mb-2"
           ></Skeleton>
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             width="70%"
-            height="15px"
+            height="10px"
             class="mb-2"
+            borderRadius="10px"
           ></Skeleton>
         </div>
         <div class="second">
@@ -146,13 +148,15 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             width="100%"
-            height="15px"
+            height="10px"
+            borderRadius="10px"
             class="mb-2"
           ></Skeleton>
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             width="70%"
-            height="15px"
+            borderRadius="10px"
+            height="10px"
             class="mb-2"
           ></Skeleton>
         </div>
@@ -167,14 +171,16 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             width="100%"
-            height="15px"
+            height="10px"
             class="mb-2"
+            borderRadius="10px"
           ></Skeleton>
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             width="70%"
-            height="15px"
+            height="10px"
             class="mb-2"
+            borderRadius="10px"
           ></Skeleton>
         </div>
         <div class="fourth">
@@ -188,13 +194,15 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             width="100%"
-            height="15px"
+            borderRadius="10px"
+            height="10px"
             class="mb-2"
           ></Skeleton>
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             width="70%"
-            height="15px"
+            height="10px"
+            borderRadius="10px"
             class="mb-2"
           ></Skeleton>
         </div>

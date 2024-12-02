@@ -100,6 +100,7 @@ const showRequestAProposal = (data: Gallery): void => {
               :key="video._id"
               :img="video._id"
               icon="video"
+              :opacity="0.5"
               :url="`https://vimeo.com/slavicmedia/${video.url}`"
               :title="video.title"
               :desc="`${video.year} | ${video.client}`"
@@ -145,11 +146,13 @@ const showRequestAProposal = (data: Gallery): void => {
               style="background-color: rgb(var(--dark-grey-color))"
               height="2rem"
               class="mb-2"
+              borderRadius="10px"
             ></Skeleton>
             <Skeleton
               style="background-color: rgb(var(--dark-grey-color))"
               height="2rem"
               width="10rem"
+              borderRadius="10px"
               class="mb-2"
             ></Skeleton>
           </div>
@@ -157,12 +160,14 @@ const showRequestAProposal = (data: Gallery): void => {
             <Skeleton
               style="background-color: rgb(var(--dark-grey-color))"
               height="4rem"
+              borderRadius="10px"
               class="mb-2"
             ></Skeleton>
 
             <Skeleton
               style="background-color: rgb(var(--dark-grey-color))"
               width="14rem"
+              borderRadius="10px"
               class="mb-6"
             ></Skeleton>
             <Skeleton
@@ -177,17 +182,20 @@ const showRequestAProposal = (data: Gallery): void => {
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             width="24%"
+            borderRadius="10px"
             height="200px"
           ></Skeleton>
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             width="48%"
             height="200px"
+            borderRadius="10px"
           ></Skeleton>
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             width="24%"
             height="200px"
+            borderRadius="10px"
           ></Skeleton>
         </div>
       </div>

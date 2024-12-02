@@ -84,6 +84,18 @@ router.delete("/:id", validation_1.verifyToken, (req, res) => {
         res.status(500).send({ message: err.message });
     });
 });
+// Delete all video galleries - DELETE
+router.delete("/", validation_1.verifyToken, (req, res) => {
+    video_1.default.deleteMany({})
+        .then((result) => {
+        res.send({
+            message: `${result.deletedCount} video galleries were deleted successfully!`,
+        });
+    })
+        .catch((err) => {
+        res.status(500).send({ message: err.message });
+    });
+});
 // CRUD operations for videos
 // Add video to gallery - POST
 router.post("/:galleryId", validation_1.verifyToken, (req, res) => {

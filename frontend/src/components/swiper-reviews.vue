@@ -185,13 +185,15 @@ onMounted(async () => {
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
           width="100%"
-          height="15px"
+          borderRadius="10px"
+          height="10px"
           class="mb-2"
         ></Skeleton>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
           width="70%"
-          height="15px"
+          borderRadius="10px"
+          height="10px"
           class="mb-2"
         ></Skeleton>
       </div>
@@ -206,13 +208,15 @@ onMounted(async () => {
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
           width="100%"
-          height="15px"
+          borderRadius="10px"
+          height="10px"
           class="mb-2"
         ></Skeleton>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
           width="70%"
-          height="15px"
+          borderRadius="10px"
+          height="10px"
           class="mb-2"
         ></Skeleton>
       </div>
@@ -227,13 +231,15 @@ onMounted(async () => {
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
           width="100%"
-          height="15px"
+          borderRadius="10px"
+          height="10px"
           class="mb-2"
         ></Skeleton>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
           width="70%"
-          height="15px"
+          borderRadius="10px"
+          height="10px"
           class="mb-2"
         ></Skeleton>
       </div>
@@ -248,13 +254,15 @@ onMounted(async () => {
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
           width="100%"
-          height="15px"
+          borderRadius="10px"
+          height="10px"
           class="mb-2"
         ></Skeleton>
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
           width="70%"
-          height="15px"
+          borderRadius="10px"
+          height="10px"
           class="mb-2"
         ></Skeleton>
       </div>

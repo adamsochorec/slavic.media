@@ -61,16 +61,21 @@ onMounted(async () => {
             <Skeleton
               style="background-color: rgb(var(--dark-grey-color))"
               width="10rem"
+              borderRadius="10px"
+              height="10px"
+              class="mb-2"
+            ></Skeleton>
+            <Skeleton
+              style="background-color: rgb(var(--dark-grey-color))"
+              borderRadius="10px"
+              height="10px"
               class="mb-2"
             ></Skeleton>
             <Skeleton
               style="background-color: rgb(var(--dark-grey-color))"
               width="5rem"
-              class="mb-2"
-            ></Skeleton>
-            <Skeleton
-              style="background-color: rgb(var(--dark-grey-color))"
-              height=".5rem"
+              borderRadius="10px"
+              height="10px"
             ></Skeleton>
           </div>
         </div>
@@ -78,17 +83,20 @@ onMounted(async () => {
           style="background-color: rgb(var(--dark-grey-color))"
           width="100%"
           height="150px"
+          borderRadius="10px"
         ></Skeleton>
         <div class="flex justify-between mt-4">
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             width="4rem"
+            borderRadius="10px"
             height="2rem"
           ></Skeleton>
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             width="4rem"
             height="2rem"
+            borderRadius="10px"
           ></Skeleton>
         </div>
         <hr class="semi" />
@@ -107,10 +115,14 @@ onMounted(async () => {
                     style="background-color: rgb(var(--dark-grey-color))"
                     width="100%"
                     class="mb-2"
+                    borderRadius="10px"
+                    height="10px"
                   ></Skeleton>
                   <Skeleton
                     style="background-color: rgb(var(--dark-grey-color))"
                     width="75%"
+                    borderRadius="10px"
+                    height="10px"
                   ></Skeleton>
                 </div>
               </div>

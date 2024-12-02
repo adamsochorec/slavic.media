@@ -99,7 +99,7 @@ onMounted(() => {
 <style scoped>
 .link {
   position: absolute;
-  right: var(--grid-gap-1);
+  left: var(--grid-gap-1);
   text-shadow: var(--box-shadow-1);
 }
 .showcase {
@@ -149,7 +149,7 @@ onMounted(() => {
   .link {
     position: absolute;
     top: calc(var(--dimension-1) - 2.7 * var(--grid-gap-1));
-    right: var(--grid-gap-1);
+    left: var(--grid-gap-1);
   }
 }
 </style>

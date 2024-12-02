@@ -7,7 +7,7 @@ const props = defineProps<{
   title: string;
   desc: string;
   icon: string;
-  targetWindow: string;
+  opacity: number;
 }>();
 
 function truncateText(text: string, maxLength: number): string {
@@ -20,8 +20,9 @@ function truncateText(text: string, maxLength: number): string {
 </script>
 
 <template>
-  <router-link :target="targetWindow" :to="url" class="gallery-item reveal">
+  <router-link :to="url" class="gallery-item reveal">
     <img
+      :style="`opacity:${opacity}`"
       :src="`https://cdn.slavic.media/images/${img}/fit=contain,width=400,sharpen=100`"
     />
     <div class="gallery-item-caption">
@@ -46,14 +47,19 @@ h3 {
   overflow: hidden;
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
+  -webkit-transition: var(--transition-1);
+  -o-transition: var(--transition-1);
+  transition: var(--transition-1);
 }
 .gallery-item:hover {
   background: var(--dark-grey-color-full);
+  -webkit-transition: var(--transition-1);
+  -o-transition: var(--transition-1);
+  transition: var(--transition-1);
 }
 .gallery-item img {
   position: relative;
   display: block;
-  opacity: 0.5;
   width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
@@ -113,6 +119,17 @@ h3 {
   transform: scale(1.2);
   -webkit-filter: var(--blur-1);
   filter: var(--blur-1);
+  -webkit-transition: var(--transition-1);
+  -o-transition: var(--transition-1);
+  transition: var(--transition-1);
+  -webkit-transform: scale(1);
+}
+.gallery-item img:hover {
+  -webkit-filter: var(--blur-1);
+  filter: var(--blur-1);
+  -webkit-transition: var(--transition-1);
+  -o-transition: var(--transition-1);
+  transition: var(--transition-1);
 }
 .gallery-item .gallery-item-caption {
   text-align: left;
@@ -131,14 +148,18 @@ h3 {
   vertical-align: baseline;
   height: var(--grid-gap-2);
 }
-@media only screen and (max-width: 380px) {
-}
+
 @media only screen and (max-width: 375px) {
   .gallery-item .gallery-item-caption {
     padding: var(--grid-gap-2);
   }
   .gallery-item p {
     display: none;
+  }
+}
+@media only screen and (max-width: 415px) {
+  .gallery .grid-item {
+    height: 80px;
   }
 }
 @media only screen and (max-width: 500px) {

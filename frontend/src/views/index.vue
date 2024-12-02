@@ -90,6 +90,7 @@ onMounted(() => {
           v-for="(item, index) in galleryItems"
           :key="index"
           :img="item._id"
+          :opacity="0.5"
           :url="`/services/${item._id}`"
           :title="item._id"
           :desc="item.desc"
