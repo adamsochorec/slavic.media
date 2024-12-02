@@ -298,7 +298,7 @@ const copyHref = (href) => {
           More from
           <router-link to="/blog" class="gradient"
             >Slavic&nbsp;Media&nbsp;</router-link
-          >Blog&nbsp;<span class="pi pi-angle-right"></span>
+          >Blog
         </h3>
         <hr class="quater reveal" />
         <div class="grid-container">

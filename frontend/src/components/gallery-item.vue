@@ -20,7 +20,7 @@ function truncateText(text: string, maxLength: number): string {
 </script>
 
 <template>
-  <router-link :to="url" class="gallery-item reveal">
+  <a :href="url" class="gallery-item reveal">
     <img
       :style="`opacity:${opacity}`"
       :src="`https://cdn.slavic.media/images/${img}/fit=contain,width=400,sharpen=100`"
@@ -30,7 +30,7 @@ function truncateText(text: string, maxLength: number): string {
       <h3 v-if="title">{{ truncateText(title, 20) }}</h3>
       <p>{{ truncateText(desc, 100) }}</p>
     </div>
-  </router-link>
+  </a>
 </template>
 
 <style scoped>

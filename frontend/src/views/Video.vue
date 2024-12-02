@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { onMounted, ref, nextTick } from "vue";
+import { onMounted, ref, nextTick, onBeforeUnmount } from "vue";
 import $ from "jquery";
 import video from "@/modules/video";
 import eventBus, { EventBus } from "@/eventBus";
 import requestAProposal from "@/components/request-a-proposal.vue";
 import swiperReels from "@/components/swiper-reels.vue";
 import galleryItem from "@/components/gallery-item.vue";
+import { useRouter } from "vue-router";
 
 const { state, getAllGalleries } = video();
 const isDataLoaded = ref<boolean>(false);
+const router = useRouter();
 
 onMounted(async () => {
   await getAllGalleries();
@@ -25,10 +27,6 @@ onMounted(async () => {
           fixedContentPos: "false",
           overflowY: "scroll",
           preload: [0, 1],
-          arrowMarkup:
-            '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>',
-          tPrev: "Previous",
-          tNext: "Next",
         },
         zoom: {
           enabled: "true",
@@ -37,6 +35,13 @@ onMounted(async () => {
       });
     });
   });
+});
+
+router.beforeEach((to, from, next) => {
+  if ($.magnificPopup.instance.isOpen) {
+    $.magnificPopup.close();
+  }
+  next();
 });
 
 const showRequestAProposal = (data: Gallery): void => {

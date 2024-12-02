@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick, watch } from "vue";
+import { useRouter } from "vue-router";
 import requestAProposal from "@/components/request-a-proposal.vue";
 import eventBus from "@/eventBus";
 import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
@@ -9,6 +10,7 @@ import img from "@/modules/img";
 
 const isDataLoaded = ref<boolean>(false);
 const { state, getAllImg } = img();
+const router = useRouter();
 
 async function initializeLightbox(): Promise<void> {
   await nextTick();
@@ -51,9 +53,17 @@ onMounted(async () => {
 watch(isDataLoaded, (loaded) => {
   if (loaded) initializeLightbox();
 });
+
 const showRequestAProposal = (data: any) => {
   eventBus.emit("showRequestAProposal", data);
 };
+
+router.beforeEach((to, from, next) => {
+  if ($.magnificPopup.instance.isOpen) {
+    $.magnificPopup.close();
+  }
+  next();
+});
 </script>
 
 <template>
@@ -112,7 +122,7 @@ const showRequestAProposal = (data: any) => {
           >
             <div v-for="image in column" :key="image._id" class="reveal">
               <a
-                :href="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=2560,sharpen=100`"
+                :href="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280w,sharpen=100`"
                 :title="image.title"
               >
                 <img
@@ -120,8 +130,7 @@ const showRequestAProposal = (data: any) => {
     https://cdn.slavic.media/images/${image._id}/fit=contain,width=320   320w,
     https://cdn.slavic.media/images/${image._id}/fit=contain,width=640   640w,
     https://cdn.slavic.media/images/${image._id}/fit=contain,width=960   960w,
-    https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280 1280w,
-    https://cdn.slavic.media/images/${image._id}/fit=contain,width=2560 2560w
+    https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280 1280w
   `"
                   :src="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280,sharpen=100`"
                   :alt="image.alt"
