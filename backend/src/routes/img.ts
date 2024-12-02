@@ -85,6 +85,20 @@ router.delete("/:id", verifyToken, (req: Request, res: Response) => {
     });
 });
 
+// Delete all galleries - DELETE
+router.delete("/", verifyToken, (req: Request, res: Response) => {
+  galleryModel
+    .deleteMany({})
+    .then((result) => {
+      res.send({
+        message: `${result.deletedCount} galleries were deleted successfully!`,
+      });
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+});
+
 // CRUD operations for columns
 
 // Add column to gallery - POST

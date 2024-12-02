@@ -88,4 +88,19 @@ router.delete("/:id", verifyToken, (req: Request, res: Response) => {
       res.status(500).send({ message: err.message });
     });
 });
+
+// Delete all documents - DELETE
+router.delete("/", verifyToken, (req: Request, res: Response) => {
+  legalModel
+    .deleteMany({})
+    .then((result) => {
+      res.send({
+        message: `${result.deletedCount} documents were deleted successfully!`,
+      });
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+});
+
 export default router;
