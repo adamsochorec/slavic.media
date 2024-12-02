@@ -1,11 +1,10 @@
 <script setup>
 import eventBus from "@/eventBus";
 
-const currentYear = new Date().getFullYear();
-
 const revokeConsent = () => {
   eventBus.emit("revoke-consent");
 };
+const currentYear = new Date().getFullYear();
 </script>
 
 <template>
@@ -78,9 +77,17 @@ const revokeConsent = () => {
     <hr role="separator" />
     <div class="footer-container">
       <div class="grid-item" role="navigation" aria-label="Footer Navigation">
-        <button @click="revokeConsent" class="footer-nav" title="Cookies">
-          <i style="font-size: var(--font-size-7)" class="pi pi-cog"></i>&nbsp;
-          <span>Cookies</span>
+        <button
+          @click="revokeConsent"
+          class="footer-nav cookie-button"
+          title="Cookies"
+        >
+          <img
+            class="cookie"
+            src="https://www.cloudflare.com/img/privacyoptions.svg"
+            alt="privacy options"
+          />
+          &nbsp;&nbsp;<span>Cookies</span>
         </button>
         <span>&nbsp;|&nbsp;</span>
 
@@ -115,35 +122,53 @@ const revokeConsent = () => {
 </template>
 
 <style scoped>
+.cookie-button {
+  display: inline-flex;
+  align-items: center;
+}
+
+.cookie {
+  height: 10px;
+  vertical-align: middle;
+  width: auto;
+}
+
 .grid-item i:hover {
   color: unset;
 }
+
 footer .footer-nav {
   color: rgb(var(--primary-color));
 }
+
 footer .footer-nav span,
 footer .footer-nav span:hover {
   text-decoration: underline;
 }
+
 footer .footer-nav:hover,
 .grid-item i:hover {
   opacity: 80%;
 }
+
 footer {
   padding: var(--grid-gap-3) var(--homepage-padding);
   background-color: rgb(var(--dark-grey-color));
   width: 100%;
   font-family: var(--content-font);
 }
+
 footer img {
   width: 70px;
   height: 100%;
   -webkit-animation: none;
   animation: none;
 }
+
 footer a.footer-nav {
   color: white;
 }
+
 footer .footer-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -153,13 +178,16 @@ footer .footer-container {
   justify-content: space-between;
   line-height: 1.5;
 }
+
 footer .footer-container .footerBreak {
   display: none;
 }
+
 footer .footer-container:last-of-type,
 footer hr {
   opacity: 30%;
 }
+
 footer p,
 footer a,
 footer span {
@@ -168,6 +196,7 @@ footer span {
   color: rgb(var(--white-color));
   font-family: var(--content-font);
 }
+
 footer hr {
   margin: var(--grid-gap-2) 0 !important;
 }
@@ -183,9 +212,11 @@ footer .language-container {
   align-items: center;
   text-decoration: none;
 }
+
 .social-icons a:not(.social-icons a:nth-last-child(1)) {
   margin-right: var(--grid-gap-1);
 }
+
 .social-icons a:nth-child(5) {
   margin-right: 0;
 }
@@ -196,14 +227,17 @@ footer .language-container {
     display: none;
   }
 }
+
 @media only screen and (max-width: 850px) {
   footer {
     font-size: var(--font-size-8);
   }
+
   footer .footer-container:last-of-type {
     display: block;
     text-align: center;
   }
+
   footer .footer-container .footerBreak {
     display: block;
   }
