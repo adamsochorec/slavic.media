@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import asset from "@/modules/assets";
+import GalleryItem from "@/components/gallery-item.vue";
 
 interface Asset {
   _id: string;
   title: string;
   desc: string;
   type: string;
+  icon: string;
 }
 
 interface State {
@@ -31,25 +33,20 @@ onMounted(async () => {
       <hr class="reveal" role="separator" aria-label="Separator" />
       <!-- PRESS MATERIALS GRID START -->
       <section v-if="isDataLoaded" class="gallery" aria-label="Services">
-        <router-link
+        <GalleryItem
           v-for="asset in state.assets"
           :key="asset._id"
-          :to="`assets/${asset._id}.${asset.type}`"
-          target="_blank"
-          class="gallery-item reveal"
-        >
-          <img
-            :src="`https://cdn.slavic.media/images/${asset._id}/height=400,sharpen=100`"
-          />
-          <div class="gallery-item-caption">
-            <h3>{{ asset.title }}</h3>
-            <p>{{ asset.desc }}</p>
-          </div>
-        </router-link>
+          :img="asset._id"
+          :url="`assets/${asset._id}.${asset.type}`"
+          :title="asset.title"
+          :desc="asset.desc"
+          :icon="asset.icon"
+          targetWindow="_blank"
+        />
       </section>
 
-      <div class="reveal" id="gallery-press" v-else>
-        <div v-for="n in 3" :key="n" class="card">
+      <div class="v-else-gallery reveal" v-else>
+        <div v-for="n in 3" :key="n">
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"
             class="p-6"
@@ -106,11 +103,13 @@ onMounted(async () => {
 </template>
 
 <style lang="scss" scoped>
-.gallery {
+.gallery,
+.v-else-gallery {
   grid-template-columns: repeat(3, 1fr);
 }
 @media only screen and (max-width: 667px) {
-  .gallery {
+  .gallery,
+  .v-else-gallery {
     grid-template-columns: repeat(1, 1fr);
   }
 }

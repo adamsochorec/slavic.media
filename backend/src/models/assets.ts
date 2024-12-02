@@ -5,6 +5,7 @@ interface asset extends Document {
   type: string;
   title: string;
   desc: string;
+  icon: string;
 }
 
 const assetSchema = new Schema({
@@ -12,6 +13,7 @@ const assetSchema = new Schema({
   type: { type: String, required: true },
   title: { type: String, required: true },
   desc: { type: String, required: true },
+  icon: { type: String, required: true },
 });
 
 const asset = mongoose.model<asset>("Asset", assetSchema);

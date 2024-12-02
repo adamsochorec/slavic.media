@@ -39,7 +39,7 @@ const articleSchema = new mongoose_1.Schema({
     author: {
         thumbnail: { type: String, required: true },
         name: { type: String, required: true },
-        url: { type: String, required: true },
+        linkedin: { type: String, required: true },
     },
     metadata: {
         date: { type: Date, required: true },
@@ -47,6 +47,8 @@ const articleSchema = new mongoose_1.Schema({
         keywords: { type: [String], required: true },
         linkedin: { type: String, required: false },
         thumbnail: { type: String, required: true },
+        icon: { type: String, required: true },
+        desc: { type: String, required: true },
         length: { type: Number, required: true },
     },
     content: { type: [String], required: true },

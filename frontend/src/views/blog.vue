@@ -113,7 +113,7 @@ onMounted(async () => {
 h1 {
   font-size: var(--font-size-2);
 }
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 500px) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
   }

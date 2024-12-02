@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
+import galleryItem from "@/components/gallery-item.vue";
 
 interface Author {
   name: string;
@@ -11,6 +12,8 @@ interface Metadata {
   formatedDate: string;
   length: number;
   thumbnail: string;
+  desc: string;
+  icon: string;
 }
 
 interface Article {
@@ -27,22 +30,20 @@ const props = defineProps<{
 
 <template>
   <div class="card" role="region">
-    <router-link :to="`/blog/${article._id}`">
-      <img
-        class="reveal"
-        :alt="article.title"
-        :srcset="`
-    https://cdn.slavic.media/images/${article.metadata.thumbnail}/fit=contain,width=320   320w,
-    https://cdn.slavic.media/images/${article.metadata.thumbnail}/fit=contain,width=640   640w`"
-        :src="`https://cdn.slavic.media/images/${article.metadata.thumbnail}/fit=contain,width=400,sharpen=100`"
-      />
-    </router-link>
+    <galleryItem
+      :img="article.metadata.thumbnail"
+      :url="`/blog/${article._id}`"
+      :title="title"
+      :desc="article.metadata.desc"
+      :icon="article.metadata.icon"
+      targetWindow="_self"
+    />
     <div class="reveal">
       <div class="metadata gap-3">
         <a
           target="_blank"
           rel="noopener noreferrer nofollow"
-          :href="article.author.url"
+          :href="`https://www.linkedin.com/in/${article.author.linkedin}`"
           class="author"
         >
           <Avatar
@@ -57,7 +58,7 @@ const props = defineProps<{
             rel="noopener noreferrer nofollow"
             class="author"
             style="font-size: var(--font-size-7)"
-            :href="`https://www.linkedin.com/in/${article.author.url}`"
+            :href="`https://www.linkedin.com/in/${article.author.linkedin}`"
           >
             <b>{{ article.author.name }}</b>
           </a>
@@ -70,7 +71,7 @@ const props = defineProps<{
           </span>
         </div>
       </div>
-      <router-link class="title" :to="`/blog/${article._id}`">
+      <router-link class="title reveal" :to="`/blog/${article._id}`">
         <h3>{{ article.title }}</h3>
       </router-link>
     </div>
@@ -78,41 +79,14 @@ const props = defineProps<{
 </template>
 
 <style lang="scss" scoped>
-.article-metadata {
-  margin: var(--grid-gap-2) 0;
-  color: rgb(var(--white-color));
-  background: rgb(var(--dark-grey-color));
-  padding: var(--grid-gap-2);
-  border-radius: var(--border-radius-1);
-}
-a:hover,
-img:hover h3 {
-  text-decoration: underline;
+.card {
+  display: grid;
 }
 h3 {
   font-size: var(--font-size-5);
 }
 img {
-  height: 170px;
-  width: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
-  margin-bottom: var(--grid-gap-2);
-}
-a img:focus::after,
-a img:hover::after {
-  -webkit-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  transform: scale(1.05);
-}
-img,
-img:hover,
-img:focus::after,
-img:hover::after {
-  border-radius: var(--border-radius-1);
-  -webkit-transition: var(--transition-1);
-  -o-transition: var(--transition-1);
-  transition: var(--transition-1);
+  opacity: 1 !important;
 }
 .metadata {
   display: -webkit-box;

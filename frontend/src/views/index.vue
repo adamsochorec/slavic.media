@@ -4,20 +4,19 @@ import heroVideo from "@/components/hero-video.vue";
 import requestAProposal from "@/components/request-a-proposal.vue";
 import swiperClients from "@/components/swiper-clients.vue";
 import swiperReviews from "@/components/swiper-reviews.vue";
+import galleryItem from "@/components/gallery-item.vue";
 
 // GALLERY START
 const galleryItems = [
   {
     icon: "video",
     _id: "video",
-    description:
-      "From inspiring stories to cinematic visuals, each video project is crafted to captivate, impress, and showcase your vision with creative precision.",
+    desc: "From inspiring stories to cinematic visuals, each video project is crafted to captivate, impress, and showcase your vision with creative precision.",
   },
   {
     icon: "camera",
     _id: "photo",
-    description:
-      "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
+    desc: "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
   },
 ]; // GALLERY END
 
@@ -87,23 +86,15 @@ onMounted(() => {
       <hr class="quater" />
       <!-- GALLERY START -->
       <section class="gallery reveal" aria-label="Services">
-        <router-link
+        <galleryItem
           v-for="(item, index) in galleryItems"
           :key="index"
-          :to="`/services/${item._id}`"
-          class="gallery-item reveal"
-        >
-          <img
-            :src="`https://cdn.slavic.media/images/${item._id}/height=400,sharpen=100`"
-            :title="`${item._id} services`"
-            :alt="`${item._id} services cover`"
-          />
-          <div class="gallery-item-caption">
-            <i :class="`bubble pi pi-${item.icon}`"></i>
-            <h3>{{ item._id }}</h3>
-            <p>{{ item.description }}</p>
-          </div>
-        </router-link>
+          :img="item._id"
+          :url="`/services/${item._id}`"
+          :title="item._id"
+          :desc="item.desc"
+          :icon="item.icon"
+        />
       </section>
       <!-- GALLERY END -->
 

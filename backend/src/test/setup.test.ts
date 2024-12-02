@@ -1,4 +1,4 @@
-// Set the environment variable to "test"
+/* // Set the environment variable to "test"
 // This is important to ensure that the tests do not affect the production database
 process.env.NODE_ENV = "test";
 
@@ -35,3 +35,4 @@ beforeEach(async () => {
 afterEach(async () => {
   await cleanDatabase();
 });
+ */

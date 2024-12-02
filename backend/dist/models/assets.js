@@ -29,6 +29,7 @@ const assetSchema = new mongoose_1.Schema({
     type: { type: String, required: true },
     title: { type: String, required: true },
     desc: { type: String, required: true },
+    icon: { type: String, required: true },
 });
 const asset = mongoose_1.default.model("Asset", assetSchema);
 exports.default = asset;

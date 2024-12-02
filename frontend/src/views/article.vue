@@ -93,14 +93,13 @@ const copyHref = (href) => {
               shape="circle"
             />
             <div>
-              <b
-                ><a
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  :href="`https://www.linkedin.com/in/${state.article.author.url}`"
-                  style="font-size: var(--font-size-7)"
-                  >{{ state.article.author.name }}</a
-                ></b
+              <a
+                target="_blank"
+                class="author"
+                rel="noopener noreferrer nofollow"
+                :href="`https://www.linkedin.com/in/${state.article.author.linkedin}`"
+                style="font-size: var(--font-size-7)"
+                ><b>{{ state.article.author.name }}</b></a
               ><br />
               <span style="font-size: var(--font-size-7)">
                 {{ state.article.metadata.formatedDate }}&nbsp;⋅&nbsp;{{
@@ -280,7 +279,7 @@ h1 {
 }
 .pi-angle-right {
   font-size: var(--font-size-4);
-  vertical-align: sub;
+  vertical-align: middle;
 }
 .grid-container {
   grid-template-columns: repeat(1, 1fr);

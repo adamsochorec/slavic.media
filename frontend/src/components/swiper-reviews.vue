@@ -91,8 +91,13 @@ onMounted(async () => {
 
     function truncateText(text: string, maxLength: number) {
       if (text.length > maxLength) {
+        let truncated = text.substring(0, maxLength);
+        const lastSpaceIndex = truncated.lastIndexOf(" ");
+        if (lastSpaceIndex > 0) {
+          truncated = truncated.substring(0, lastSpaceIndex);
+        }
         return {
-          truncated: text.substring(0, maxLength) + "...",
+          truncated: truncated + "...",
           full: text,
         };
       }

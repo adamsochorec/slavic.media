@@ -114,10 +114,11 @@ onMounted(() => {
 <style lang="scss" scoped>
 .wrapper {
   position: fixed;
-  bottom: var(--grid-gap-3);
+  bottom: var(--grid-gap-2);
+  right: var(--grid-gap-2);
+
   max-width: 345px;
   width: 100%;
-  right: var(--homepage-padding);
   background-color: var(--dark-grey-color-full);
   border-radius: var(--border-radius-1);
   -webkit-backdrop-filter: var(--blur-1);

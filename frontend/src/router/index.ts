@@ -1,6 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import index from "../views/index.vue";
-import NotFound from "../views/404.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,12 +6,12 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: index,
+      component: () => import("../views/index.vue"),
     },
     {
       path: "/:catchAll(.*)", // Catch-all for undefined routes
       name: "NotFound",
-      component: NotFound,
+      component: () => import("../views/404.vue"),
     },
     {
       path: "/blog",
@@ -27,7 +25,7 @@ const router = createRouter({
       path: "/blog/:_id",
       name: "article",
       component: () =>
-        import(/* webpackChunkName: "about" */ "../views/article.vue"),
+        import(/* webpackChunkName: "article" */ "../views/article.vue"),
       meta: {
         requiresAuth: false,
       },
@@ -88,7 +86,7 @@ const router = createRouter({
     {
       path: "/:pathMatch(.*)*",
       name: "404",
-      component: NotFound,
+      component: () => import("../views/404.vue"),
     },
   ],
   scrollBehavior(to, from, savedPosition) {

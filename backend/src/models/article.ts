@@ -18,7 +18,7 @@ interface article extends Document {
   author: {
     thumbnail: string;
     name: string;
-    url: string;
+    linkedin: string;
   };
   metadata: {
     date: Date;
@@ -26,6 +26,8 @@ interface article extends Document {
     keywords: string[];
     linkedin: string;
     thumbnail: string;
+    icon: string;
+    desc: string;
     length: number;
   };
   content: string[];
@@ -48,7 +50,7 @@ const articleSchema: Schema = new Schema({
   author: {
     thumbnail: { type: String, required: true },
     name: { type: String, required: true },
-    url: { type: String, required: true },
+    linkedin: { type: String, required: true },
   },
   metadata: {
     date: { type: Date, required: true },
@@ -56,6 +58,8 @@ const articleSchema: Schema = new Schema({
     keywords: { type: [String], required: true },
     linkedin: { type: String, required: false },
     thumbnail: { type: String, required: true },
+    icon: { type: String, required: true },
+    desc: { type: String, required: true },
     length: { type: Number, required: true },
   },
   content: { type: [String], required: true },

@@ -4,7 +4,9 @@ import { useRoute } from "vue-router";
 interface Article {
   _id: string;
   author: string;
-  metadata: string;
+  metadata: {
+    date: string;
+  };
   title: string;
 }
 interface State {
