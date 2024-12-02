@@ -33,7 +33,6 @@ const props = defineProps<{
     <galleryItem
       :img="article.metadata.thumbnail"
       :url="`/blog/${article._id}`"
-      :title="title"
       :desc="article.metadata.desc"
       :icon="article.metadata.icon"
       targetWindow="_self"
@@ -47,7 +46,7 @@ const props = defineProps<{
           class="author"
         >
           <Avatar
-            :image="`https://cdn.slavic.media/images/${article.author.thumbnail}/height=100,sharpen=100`"
+            :image="`https://cdn.slavic.media/images/${article.author._id}/height=100,sharpen=100`"
             size="medium"
             shape="circle"
           />

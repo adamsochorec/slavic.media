@@ -36,11 +36,7 @@ const videoSchema = new mongoose_1.Schema({
 const articleSchema = new mongoose_1.Schema({
     _id: { type: String, required: true },
     title: { type: String, required: true },
-    author: {
-        thumbnail: { type: String, required: true },
-        name: { type: String, required: true },
-        linkedin: { type: String, required: true },
-    },
+    author: { type: String, ref: "Employee", required: true },
     metadata: {
         date: { type: Date, required: true },
         formatedDate: { type: String, required: true },
@@ -54,5 +50,5 @@ const articleSchema = new mongoose_1.Schema({
     content: { type: [String], required: true },
     videos: { type: [videoSchema], required: false },
 });
-const article = mongoose_1.default.model("Article", articleSchema);
-exports.default = article;
+const articleModel = mongoose_1.default.model("Article", articleSchema);
+exports.default = articleModel;

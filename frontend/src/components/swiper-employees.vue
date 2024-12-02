@@ -91,7 +91,7 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
               </a>
               <a
                 v-if="employee.linkedin"
-                :href="employee.linkedin"
+                :href="`https://linkedin.com/in/${employee.linkedin}`"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
               >
@@ -99,7 +99,7 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
               </a>
               <a
                 v-if="employee.github"
-                :href="employee.github"
+                :href="`https://github.com/${employee.github}`"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
               >

@@ -3,11 +3,20 @@ import { ref, onMounted } from "vue";
 import article from "@/modules/article";
 import blogCard from "@/components/blog-card.vue";
 
+interface Author {
+  _id: string;
+  name: string;
+  linkedin: string;
+  thumbnail: string;
+}
+
 interface Article {
   _id: string;
   title: string;
-  author: string;
-  metadata: string;
+  author: Author;
+  metadata: {
+    date: string;
+  };
   content: string[];
 }
 

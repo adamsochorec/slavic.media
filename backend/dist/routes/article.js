@@ -21,11 +21,34 @@ router.post("/", validation_1.verifyToken, (req, res) => {
 });
 // Read all documents - GET
 router.get("/", (req, res) => {
-    const fields = typeof req.query.fields === "string"
-        ? req.query.fields.split(",").join(" ")
-        : "";
     article_1.default
-        .find({}, fields)
+        .aggregate([
+        {
+            $lookup: {
+                from: "employees",
+                localField: "author",
+                foreignField: "_id",
+                as: "authorDetails",
+            },
+        },
+        {
+            $unwind: "$authorDetails",
+        },
+        {
+            $project: {
+                _id: 1,
+                title: 1,
+                metadata: 1,
+                content: 1,
+                videos: 1,
+                author: {
+                    _id: "$authorDetails._id",
+                    name: "$authorDetails.name",
+                    linkedin: "$authorDetails.linkedin",
+                },
+            },
+        },
+    ])
         .then((data) => {
         res.send(data);
     })
@@ -35,13 +58,38 @@ router.get("/", (req, res) => {
 });
 // Read specific document by ID - GET
 router.get("/:id", (req, res) => {
-    const fields = typeof req.query.fields === "string"
-        ? req.query.fields.split(",").join(" ")
-        : "";
     article_1.default
-        .findById(req.params.id, fields)
+        .aggregate([
+        { $match: { _id: req.params.id } },
+        {
+            $lookup: {
+                from: "employees",
+                localField: "author",
+                foreignField: "_id",
+                as: "authorDetails",
+            },
+        },
+        {
+            $unwind: "$authorDetails",
+        },
+        {
+            $project: {
+                _id: 1,
+                title: 1,
+                metadata: 1,
+                content: 1,
+                videos: 1,
+                author: {
+                    _id: "$authorDetails._id",
+                    name: "$authorDetails.name",
+                    department: "$authorDetails.department",
+                    linkedin: "$authorDetails.linkedin",
+                },
+            },
+        },
+    ])
         .then((data) => {
-        res.send(data);
+        res.send(data[0]);
     })
         .catch((err) => {
         res.status(500).send({ message: err.message });

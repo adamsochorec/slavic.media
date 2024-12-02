@@ -94,19 +94,18 @@ const copyHref = (href) => {
               :href="`https://www.linkedin.com/in/${state.article.author.linkedin}`"
             >
               <Avatar
-                :image="`https://cdn.slavic.media/images/${state.article.author.thumbnail}/height=100,sharpen=100`"
-                size="large"
+                :image="`https://cdn.slavic.media/images/${state.article.author._id}/height=100,sharpen=100`"
+                size="xlarge"
                 shape="circle"
             /></a>
-            <div>
+            <div style="font-size: var(--font-size-7)">
               <a
                 class="author"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 :href="`https://www.linkedin.com/in/${state.article.author.linkedin}`"
-                style="font-size: var(--font-size-7)"
                 ><b>{{ state.article.author.name }}</b></a
-              ><br />
+              ><br />{{ state.article.author.department }}<br />
               <span style="font-size: var(--font-size-7)">
                 {{ state.article.metadata.formatedDate }}&nbsp;⋅&nbsp;{{
                   state.article.metadata.length

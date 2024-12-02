@@ -1,6 +1,4 @@
-import { date } from "joi";
-import mongoose, { Schema } from "mongoose";
-import { type } from "os";
+import mongoose, { Schema, Document } from "mongoose";
 
 interface video extends Document {
   _id: string;
@@ -15,11 +13,7 @@ interface video extends Document {
 interface article extends Document {
   _id: string;
   title: string;
-  author: {
-    thumbnail: string;
-    name: string;
-    linkedin: string;
-  };
+  author: string;
   metadata: {
     date: Date;
     formatedDate: string;
@@ -47,11 +41,7 @@ const videoSchema = new Schema({
 const articleSchema: Schema = new Schema({
   _id: { type: String, required: true },
   title: { type: String, required: true },
-  author: {
-    thumbnail: { type: String, required: true },
-    name: { type: String, required: true },
-    linkedin: { type: String, required: true },
-  },
+  author: { type: String, ref: "Employee", required: true },
   metadata: {
     date: { type: Date, required: true },
     formatedDate: { type: String, required: true },
@@ -66,5 +56,5 @@ const articleSchema: Schema = new Schema({
   videos: { type: [videoSchema], required: false },
 });
 
-const article = mongoose.model<article>("Article", articleSchema);
-export default article;
+const articleModel = mongoose.model<article>("Article", articleSchema);
+export default articleModel;

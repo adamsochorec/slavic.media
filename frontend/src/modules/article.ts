@@ -1,14 +1,22 @@
 import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
 
+interface Author {
+  _id: string;
+  name: string;
+  linkedin: string;
+  thumbnail: string;
+}
+
 interface Article {
   _id: string;
-  author: string;
+  author: Author;
   metadata: {
     date: string;
   };
   title: string;
 }
+
 interface State {
   newTitle: string;
   newContent: string;
@@ -20,6 +28,7 @@ interface State {
   article: Article | null;
   furtherReading: Article[];
 }
+
 const article = () => {
   const route = useRoute();
   const documentID = computed(() => route.params.id as string);
@@ -39,7 +48,7 @@ const article = () => {
   const getAllArticles = async (): Promise<void> => {
     try {
       const response = await fetch(
-        "https://api.slavic.media/blog/?fields=author,metadata,_id,title"
+        "http://localhost:4000/blog/?fields=author,metadata,_id,title"
       );
       const data: Article[] = await response.json();
       state.value.articles = data.sort(
@@ -55,9 +64,7 @@ const article = () => {
   // Read specific document by ID - GET
   const getSpecificArticle = async (documentID: string): Promise<void> => {
     try {
-      const response = await fetch(
-        `https://api.slavic.media/blog/${documentID}`
-      );
+      const response = await fetch(`http://localhost:4000/blog/${documentID}`);
       if (!response.ok) {
         throw new Error(`Failed to fetch document with ID: ${documentID}`);
       }
