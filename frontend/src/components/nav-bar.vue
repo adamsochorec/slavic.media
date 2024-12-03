@@ -64,6 +64,30 @@ const items = ref<MenuItem[]>([
     ],
   },
   {
+    label: "Drone",
+    icon: "pi pi-drone",
+    items: [
+      {
+        label: "Still",
+        command: () => router.push("/services/drone#still"),
+        icon: "pi pi-camera",
+        value: "Still",
+      },
+      {
+        label: "Video",
+        command: () => router.push("/services/drone#video"),
+        icon: "pi pi-video",
+        value: "Video",
+      },
+      {
+        label: "Terrain Maping",
+        command: () => router.push("/services/drone#terrain-maping"),
+        icon: "pi pi-map",
+        value: "Terrain Mapping",
+      },
+    ],
+  },
+  {
     label: "Post Production",
     icon: "pi pi-image",
     items: [

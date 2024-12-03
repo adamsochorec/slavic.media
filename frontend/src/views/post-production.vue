@@ -112,6 +112,7 @@ router.beforeEach((to, from, next) => {
           title="Showreel 2024 | Slavic Media"
         ></iframe>
       </div>
+      <div id="sound-design"></div>
       <hr class="reveal" role="separator" />
       <div class="grid-container caption-container">
         <div class="grid-item">
