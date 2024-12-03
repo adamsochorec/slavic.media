@@ -34,9 +34,9 @@ const showRequestAProposal = (data: Gallery): void => {
         </div>
         <div class="grid-item">
           <p class="reveal">
-            From inspiring stories to cinematic visuals, each video project is
-            crafted to captivate, impress, and showcase your vision with
-            creative precision.
+            With rich colour grading, dynamic editing, and a cinematic style, we
+            transform your footage into a polished masterpiece that tells your
+            story powerfully.
           </p>
         </div>
       </div>
@@ -45,8 +45,7 @@ const showRequestAProposal = (data: Gallery): void => {
       <div class="grid-container caption-container">
         <div class="grid-item">
           <h1 class="reveal" aria-label="Video Services">
-            <span class="gradient">Colour</span>
-            Grade
+            Rich <span class="gradient">Colour Grade</span>
           </h1>
         </div>
         <div class="grid-item">
@@ -74,8 +73,7 @@ const showRequestAProposal = (data: Gallery): void => {
       <div class="grid-container caption-container">
         <div class="grid-item">
           <h1 class="reveal" aria-label="Video Services">
-            <span class="gradient">Video</span>
-            Edit
+            Dynamic <span class="gradient">Video Edit</span>
           </h1>
         </div>
         <div class="grid-item">

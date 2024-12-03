@@ -74,14 +74,12 @@ onMounted(() => {
       550: {
         slidesPerView: 4,
       },
-      667: {
-        slidesPerView: 3,
-      },
+
       750: {
         slidesPerView: 3.5,
       },
       850: {
-        slidesPerView: 4,
+        slidesPerView: 4.5,
       },
     },
   });
@@ -114,7 +112,6 @@ onMounted(() => {
         ></video>
       </div>
     </div>
-    <div class="swiper-pagination"></div>
   </section>
 </template>
 
@@ -129,26 +126,12 @@ onMounted(() => {
   -webkit-animation: skeleton-loading 1s linear infinite alternate;
   animation: skeleton-loading 1s linear infinite alternate;
 }
-.swiper-reels {
-  height: 400px;
+.swiper-pagination {
+  margin-top: 40px;
 }
 .pi-instagram {
   position: absolute;
   top: var(--grid-gap-2);
   left: var(--grid-gap-2);
-}
-@media only screen and (max-width: 667px) {
-  .swiper-reels video {
-    height: var(--dimension-2);
-    width: auto;
-  }
-  .swiper-reels {
-    height: 240px;
-  }
-}
-@media only screen and (min-width: 667px) {
-  .swiper-reels video {
-    height: 356px;
-  }
 }
 </style>

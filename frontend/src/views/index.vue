@@ -21,12 +21,12 @@ const galleryItems = [
   {
     icon: "image",
     _id: "post-production",
-    desc: "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
+    desc: "With rich colour grading, dynamic editing, and a cinematic style, we transform your footage into a polished masterpiece that tells your story powerfully.",
   },
   {
     icon: "image",
     _id: "drone",
-    desc: "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
+    desc: "Experience the cinematic allure of aerial visuals, capturing dynamic perspectives and vivid landscapes with stunning clarity and precision.",
   },
 ]; // GALLERY END
 
