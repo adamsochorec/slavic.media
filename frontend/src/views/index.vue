@@ -18,6 +18,16 @@ const galleryItems = [
     _id: "photo",
     desc: "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
   },
+  {
+    icon: "image",
+    _id: "post-production",
+    desc: "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
+  },
+  {
+    icon: "image",
+    _id: "drone",
+    desc: "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
+  },
 ]; // GALLERY END
 
 // Function to reveal elements as the user scrolls
@@ -69,7 +79,7 @@ onMounted(() => {
         <div class="grid-item">
           <h1>
             Strategy, <span class="gradient">experience</span>, precision and
-            hard work<br />at your
+            hard work at your
             <span class="gradient">service</span>
           </h1>
         </div>
@@ -81,9 +91,7 @@ onMounted(() => {
           </p>
         </div>
       </div>
-      <hr class="quater reveal" role="separator" />
-      <swiperClients></swiperClients>
-      <hr class="quater" />
+      <br />
       <!-- GALLERY START -->
       <section class="gallery reveal" aria-label="Services">
         <galleryItem
@@ -98,6 +106,8 @@ onMounted(() => {
         />
       </section>
       <!-- GALLERY END -->
+      <hr class="reveal" role="separator" />
+      <swiperClients></swiperClients>
 
       <section class="flex-center">
         <requestAProposal></requestAProposal>
@@ -149,18 +159,32 @@ onMounted(() => {
 </template>
 
 <style scoped>
-h1 {
+h1,
+h2 {
   font-size: var(--font-size-3);
 }
 h3 {
   text-transform: capitalize;
 }
+.gallery {
+  grid-template-columns: repeat(4, 1fr);
+}
 @media only screen and (max-width: 415px) {
-  h1 {
+  h1,
+  h2 {
     font-size: var(--font-size-2);
   }
   #reviews-caption p {
     margin-bottom: 0;
+  }
+  .gallery {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media only screen and (max-width: 667px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>

@@ -68,17 +68,18 @@ const items = ref<MenuItem[]>([
     icon: "pi pi-image",
     items: [
       {
-        label: "Video Editing",
-        command: () => router.push("/services/post-production#video-editing"),
-        icon: "pi pi-image",
-        value: "Video Editing",
+        label: "Colour Grading",
+        command: () => router.push("/services/post-production#colour-grade"),
+        icon: "pi pi-palette",
+        value: "Colour Grade",
       },
       {
-        label: "Colour Grading",
-        command: () => router.push("/services/post-production#graphic-design"),
-        icon: "pi pi-palette",
-        value: "Colour Grading",
+        label: "Video Editing",
+        command: () => router.push("/services/post-production#video-edit"),
+        icon: "pi pi-image",
+        value: "Video Edit",
       },
+
       {
         label: "Sound Design",
         command: () => router.push("/services/post-production#sound-design"),

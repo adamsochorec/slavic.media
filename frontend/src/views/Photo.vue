@@ -73,7 +73,7 @@ router.beforeEach((to, from, next) => {
       <div class="grid-container caption-container">
         <div class="grid-item">
           <h1 class="reveal" aria-label="Video Services">
-            <span class="highlited">Photo</span> Services
+            <span class="gradient">Photo</span> Services
           </h1>
         </div>
         <div class="grid-item">
@@ -93,7 +93,10 @@ router.beforeEach((to, from, next) => {
 
         <div class="grid-container caption-container">
           <div class="grid-item reveal">
-            <h2>{{ gallery.title }}</h2>
+            <h2>
+              {{ gallery.title.split(" ")[0] }}
+              <span class="gradient">{{ gallery.title.split(" ")[1] }}</span>
+            </h2>
           </div>
           <div class="grid-item">
             <p class="reveal">{{ gallery.desc }}</p>

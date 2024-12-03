@@ -344,7 +344,7 @@ hr {
 }
 .wrapper-wide,
 .wrapper-wide hr {
-  width: 880px;
+  width: 1000px;
 }
 .btn-area #btn,
 .btn-area #btn:after,
@@ -642,7 +642,9 @@ button.submit-btn {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
+.grid-container .grid-item:nth-child(odd) {
+  margin-right: var(--grid-gap-2);
+}
 /* GALLERY END */
 
 /* MAGNIFICIENT POP UP START */

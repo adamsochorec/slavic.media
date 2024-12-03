@@ -27,14 +27,14 @@ function truncateText(text: string, maxLength: number): string {
     />
     <div class="gallery-item-caption">
       <i :class="`bubble pi pi-${icon}`"></i>
-      <h3 v-if="title">{{ truncateText(title, 20) }}</h3>
+      <h4 v-if="title">{{ truncateText(title, 20) }}</h4>
       <p>{{ truncateText(desc, 100) }}</p>
     </div>
   </a>
 </template>
 
 <style scoped>
-h3 {
+h4 {
   text-transform: capitalize;
 }
 .gallery-item {
