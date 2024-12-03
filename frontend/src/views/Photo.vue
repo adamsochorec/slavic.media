@@ -7,9 +7,11 @@ import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
 import $ from "jquery";
 import "magnific-popup";
 import img from "@/modules/img";
+import services from "@/modules/services";
 
 const isDataLoaded = ref<boolean>(false);
-const { state, getAllImg } = img();
+const { state: imgState, getAllImg } = img;
+const { state: serviceState, getSpecificService } = services();
 const router = useRouter();
 
 async function initializeLightbox(): Promise<void> {
@@ -46,8 +48,10 @@ async function initializeLightbox(): Promise<void> {
 }
 
 onMounted(async () => {
-  await getAllImg();
-  isDataLoaded.value = true;
+  try {
+    await Promise.all([getSpecificService("photo"), getAllImg()]);
+    isDataLoaded.value = true;
+  } catch (error) {}
 });
 
 watch(isDataLoaded, (loaded) => {
@@ -72,21 +76,20 @@ router.beforeEach((to, from, next) => {
       <!-- PAGE INTRO -->
       <div class="grid-container caption-container">
         <div class="grid-item">
-          <h1 class="reveal" aria-label="Video Services">
-            <span class="gradient">Photo</span> Services
+          <h1 class="reveal" aria-label="Photo Services">
+            <span class="gradient"> {{ serviceState.service?._id }} </span>
+            Services
           </h1>
         </div>
         <div class="grid-item">
           <p class="reveal">
-            Whether it’s a dynamic performance, a powerful portrait, or the vast
-            outdoors, our photography captures authentic moments, rich in detail
-            and emotion, that tell your story.
+            {{ serviceState.service?.desc }}
           </p>
         </div>
       </div>
     </section>
     <!-- GALLERIES -->
-    <template v-for="(gallery, galleryKey) in state.img" :key="galleryKey">
+    <template v-for="(gallery, galleryKey) in imgState.img" :key="galleryKey">
       <section v-if="isDataLoaded" class="wrapper-wide" id="photo">
         <div :id="gallery._id"></div>
         <hr class="reveal" role="separator" />

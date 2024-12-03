@@ -235,6 +235,7 @@ h6 {
   font-family: var(--logo-font);
   position: relative;
   line-height: normal;
+  text-transform: capitalize;
 }
 h1 {
   font-size: var(--font-size-1);
@@ -1194,7 +1195,7 @@ i.pi-arrow-right:hover {
     background-color: transparent;
   }
 }
-@media only screen and (max-width: 947px) {
+@media only screen and (max-width: 1020px) {
   :root {
     --nav-bar-top-position: 50px;
     --homepage-padding: var(--grid-gap-2);
@@ -1222,7 +1223,7 @@ i.pi-arrow-right:hover {
     padding-right: 6px;
   }
 }
-@media only screen and (min-width: 947px) {
+@media only screen and (min-width: 1020px) {
   header .container {
     max-width: 100%;
   }

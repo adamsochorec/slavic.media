@@ -2,26 +2,22 @@
 import { ref, onMounted } from "vue";
 import legal from "@/modules/legal";
 import { useRoute } from "vue-router";
-
-interface LegalArticle {
-  title: string;
-  modified: string;
-  content: string[];
-}
-
-interface State {
-  legal: LegalArticle | null;
-}
-
 const { getSpecificLegal, state } = legal();
 const route = useRoute();
-
 const isDataLoaded = ref<boolean>(false);
 
 onMounted(async () => {
   await getSpecificLegal(route.params.id as string);
   isDataLoaded.value = true;
 });
+interface LegalArticle {
+  title: string;
+  modified: string;
+  content: string[];
+}
+interface State {
+  legal: LegalArticle | null;
+}
 </script>
 
 <template>

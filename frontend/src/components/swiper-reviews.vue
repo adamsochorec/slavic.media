@@ -55,7 +55,7 @@ onMounted(async () => {
         670: {
           slidesPerView: 3,
         },
-        1000: {
+        947: {
           slidesPerView: 4,
         },
       },
@@ -300,8 +300,8 @@ onMounted(async () => {
   margin: 0;
 }
 .swiper-reviews img {
-  height: 55px;
-  width: 55px;
+  height: 50px;
+  width: 50px;
   -o-object-fit: cover;
   object-fit: cover;
   border-radius: var(--border-radius-2);

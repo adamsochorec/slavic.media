@@ -6,15 +6,7 @@ const employee = () => {
 
   const documentID = computed(() => route.params.id);
   const state = ref({
-    newId: "",
-    newIndex: "",
-    newName: "",
-    newDepartment: "",
-    newOrigin: "",
-    newEmail: "",
-    newBirthday: "",
-    newLinkedin: "",
-    newGithub: "",
+    employees: [],
   });
 
   // Read all documents - GET
@@ -30,7 +22,7 @@ const employee = () => {
 
   // Read specific document by ID - GET
   const employee = ref({});
-  const getSpecificEmployee = async (documentID) => {
+  const getSpecificEmployee = async (documentID: string) => {
     try {
       const response = await fetch(
         `https://api.slavic.media/employee/${documentID}`

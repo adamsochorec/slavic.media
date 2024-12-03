@@ -33,6 +33,7 @@ import legalRoutes from "./routes/legal";
 import reviewRoutes from "./routes/review";
 import eventRoutes from "./routes/event";
 import assetsRoutes from "./routes/assets";
+import servicesRoutes from "./routes/services";
 
 require("dotenv-flow").config();
 
@@ -62,6 +63,7 @@ app.use("/legal", legalRoutes);
 app.use("/review", reviewRoutes);
 app.use("/event", eventRoutes);
 app.use("/assets", assetsRoutes);
+app.use("/services", servicesRoutes);
 
 // Serve static files from the 'dist' directory
 app.use(express.static(path.join(__dirname, "dist")));

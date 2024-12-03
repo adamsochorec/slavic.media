@@ -3,12 +3,25 @@ import { onMounted, ref } from "vue";
 import $ from "jquery";
 import eventBus, { EventBus } from "@/eventBus";
 import requestAProposal from "@/components/request-a-proposal.vue";
-import galleryItem from "@/components/gallery-item.vue";
 import swiperColourGrading from "@/components/swiper-colour-grading.vue";
-
-import { useRouter } from "vue-router";
+import services from "@/modules/services";
+import video from "@/modules/video";
+import { useRouter, useRoute } from "vue-router";
 
 const router = useRouter();
+const route = useRoute();
+const { getSpecificService, state: serviceState } = services();
+const { getAllGalleries, state: videoState } = video();
+const isDataLoaded = ref<boolean>(false);
+
+const showRequestAProposal = (data: any): void => {
+  (eventBus as EventBus).emit("showRequestAProposal", data);
+};
+
+onMounted(async () => {
+  await Promise.all([getSpecificService("post-production"), getAllGalleries()]);
+  isDataLoaded.value = true;
+});
 
 router.beforeEach((to, from, next) => {
   if ($.magnificPopup.instance.isOpen) {
@@ -16,11 +29,8 @@ router.beforeEach((to, from, next) => {
   }
   next();
 });
-
-const showRequestAProposal = (data: Gallery): void => {
-  (eventBus as EventBus).emit("showRequestAProposal", data);
-};
 </script>
+
 <template>
   <article class="main" style="margin-top: 120px">
     <section class="wrapper-wide">
@@ -28,15 +38,13 @@ const showRequestAProposal = (data: Gallery): void => {
       <div class="grid-container caption-container">
         <div class="grid-item">
           <h1 class="reveal" aria-label="Video Services">
-            <span class="gradient">Post</span>
-            Production
+            <span class="gradient">{{ serviceState.service?._id }}</span>
+            Services
           </h1>
         </div>
         <div class="grid-item">
           <p class="reveal">
-            With rich colour grading, dynamic editing, and a cinematic style, we
-            transform your footage into a polished masterpiece that tells your
-            story powerfully.
+            {{ serviceState.service?.desc }}
           </p>
         </div>
       </div>
@@ -44,9 +52,9 @@ const showRequestAProposal = (data: Gallery): void => {
       <hr class="reveal" role="separator" />
       <div class="grid-container caption-container">
         <div class="grid-item">
-          <h1 class="reveal" aria-label="Video Services">
+          <h2 class="reveal" aria-label="Video Services">
             Rich <span class="gradient">Colour Grade</span>
-          </h1>
+          </h2>
         </div>
         <div class="grid-item">
           <p class="reveal">
@@ -56,7 +64,7 @@ const showRequestAProposal = (data: Gallery): void => {
           </p>
           <requestAProposal />
           <button
-            @click="showRequestAProposal(gallery)"
+            @click="showRequestAProposal(serviceState.service)"
             class="popup-with-form reveal"
             id="request-a-proposal-button"
           >
@@ -72,9 +80,9 @@ const showRequestAProposal = (data: Gallery): void => {
       <hr class="reveal" role="separator" />
       <div class="grid-container caption-container">
         <div class="grid-item">
-          <h1 class="reveal" aria-label="Video Services">
+          <h2 class="reveal" aria-label="Video Services">
             Dynamic <span class="gradient">Video Edit</span>
-          </h1>
+          </h2>
         </div>
         <div class="grid-item">
           <p class="reveal">
@@ -84,7 +92,7 @@ const showRequestAProposal = (data: Gallery): void => {
           </p>
           <requestAProposal />
           <button
-            @click="showRequestAProposal(gallery)"
+            @click="showRequestAProposal(serviceState.service)"
             class="popup-with-form reveal"
             id="request-a-proposal-button"
           >
@@ -104,13 +112,44 @@ const showRequestAProposal = (data: Gallery): void => {
           title="Showreel 2024 | Slavic Media"
         ></iframe>
       </div>
+      <hr class="reveal" role="separator" />
+      <div class="grid-container caption-container">
+        <div class="grid-item">
+          <h2 class="reveal" aria-label="Video Services">
+            Spatial <span class="gradient">Sound Design</span>
+          </h2>
+        </div>
+        <div class="grid-item">
+          <p class="reveal">
+            From inspiring stories to cinematic visuals, each video project is
+            crafted to captivate, impress, and showcase your vision with
+            creative precision.
+          </p>
+          <requestAProposal />
+          <button
+            @click="showRequestAProposal(serviceState.service)"
+            class="popup-with-form reveal"
+            id="request-a-proposal-button"
+          >
+            <div class="cta">
+              Request a Proposal<i class="pi pi-arrow-right"></i>
+            </div>
+          </button>
+        </div>
+      </div>
+      <hr class="semi" role="separator" />
+      <video controls src="https://slavic.media/img/sfx.mp4"></video>
     </section>
   </article>
 </template>
+
 <style lang="scss" scoped>
 iframe {
   border-radius: var(--border-radius-1);
   aspect-ratio: 16/9;
+  width: 100%;
+}
+video {
   width: 100%;
 }
 </style>

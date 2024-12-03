@@ -5,51 +5,14 @@ import requestAProposal from "@/components/request-a-proposal.vue";
 import swiperClients from "@/components/swiper-clients.vue";
 import swiperReviews from "@/components/swiper-reviews.vue";
 import galleryItem from "@/components/gallery-item.vue";
+import services from "@/modules/services";
 
-// GALLERY START
-const galleryItems = [
-  {
-    icon: "video",
-    _id: "video",
-    desc: "From inspiring stories to cinematic visuals, each video project is crafted to captivate, impress, and showcase your vision with creative precision.",
-  },
-  {
-    icon: "camera",
-    _id: "photo",
-    desc: "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
-  },
-  {
-    icon: "image",
-    _id: "post-production",
-    desc: "With rich colour grading, dynamic editing, and a cinematic style, we transform your footage into a polished masterpiece that tells your story powerfully.",
-  },
-  {
-    icon: "image",
-    _id: "drone",
-    desc: "Experience the cinematic allure of aerial visuals, capturing dynamic perspectives and vivid landscapes with stunning clarity and precision.",
-  },
-]; // GALLERY END
+const { state, getAllServices } = services();
+const isDataLoaded = ref<boolean>(false);
 
-// Function to reveal elements as the user scrolls
-function reveal(): void {
-  const reveals = document.querySelectorAll<HTMLElement>(".reveal"),
-    windowHeight = window.innerHeight;
-
-  reveals.forEach((reveal) => {
-    const revealtop = reveal.getBoundingClientRect().top,
-      revealpoint = 0;
-    if (revealtop < windowHeight - revealpoint) {
-      reveal.classList.add("active");
-    } else {
-      // Optional: Remove "active" class if the element is out of view
-      reveal.classList.remove("active");
-    }
-  });
-}
-
-onMounted(() => {
-  window.addEventListener("scroll", reveal);
-  reveal();
+onMounted(async () => {
+  await getAllServices();
+  isDataLoaded.value = true;
 });
 </script>
 
@@ -91,18 +54,18 @@ onMounted(() => {
           </p>
         </div>
       </div>
-      <br />
+      <hr class="semi" />
       <!-- GALLERY START -->
       <section class="gallery reveal" aria-label="Services">
         <galleryItem
-          v-for="(item, index) in galleryItems"
-          :key="index"
-          :img="item._id"
+          v-for="service in state.services"
+          :key="service._id"
+          :img="service._id"
           :opacity="0.5"
-          :url="`/services/${item._id}`"
-          :title="item._id"
-          :desc="item.desc"
-          :icon="item.icon"
+          :url="`/services/${service._id}`"
+          :title="service._id"
+          :desc="service.desc"
+          :icon="service.icon"
         />
       </section>
       <!-- GALLERY END -->

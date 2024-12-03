@@ -1,19 +1,21 @@
 <script setup lang="ts">
-import { onMounted, ref, nextTick, onBeforeUnmount } from "vue";
+import { onMounted, ref, nextTick } from "vue";
 import $ from "jquery";
-import video from "@/modules/video";
 import eventBus, { EventBus } from "@/eventBus";
 import requestAProposal from "@/components/request-a-proposal.vue";
 import swiperReels from "@/components/swiper-reels.vue";
 import galleryItem from "@/components/gallery-item.vue";
+import services from "@/modules/services";
+import video from "@/modules/video";
 import { useRouter } from "vue-router";
 
-const { state, getAllGalleries } = video();
+const { state: serviceState, getSpecificService } = services();
+const { state: videoState, getAllGalleries } = video();
 const isDataLoaded = ref<boolean>(false);
 const router = useRouter();
 
 onMounted(async () => {
-  await getAllGalleries();
+  await Promise.all([getSpecificService("video"), getAllGalleries()]);
   isDataLoaded.value = true;
 
   nextTick(() => {
@@ -62,16 +64,14 @@ const showRequestAProposal = (data: Gallery): void => {
         </div>
         <div class="grid-item">
           <p class="reveal">
-            From inspiring stories to cinematic visuals, each video project is
-            crafted to captivate, impress, and showcase your vision with
-            creative precision.
+            {{ serviceState.service?.desc }}
           </p>
         </div>
       </div>
 
       <div v-if="isDataLoaded">
         <!-- GALLERY -->
-        <div v-for="gallery in state.galleries" :key="gallery._id">
+        <div v-for="gallery in videoState.galleries" :key="gallery._id">
           <div :id="gallery._id"></div>
           <hr class="reveal" role="separator" />
 

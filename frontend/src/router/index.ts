@@ -73,6 +73,14 @@ const router = createRouter({
         requiresAuth: false,
       },
     },
+    {
+      path: "/services/drone",
+      name: "drone",
+      component: () => import("../views/drone.vue"),
+      meta: {
+        requiresAuth: false,
+      },
+    },
     // LEGAL
     {
       path: "/legal",

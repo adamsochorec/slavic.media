@@ -1,43 +1,37 @@
 import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
 
-const legal = () => {
+const service = () => {
   const route = useRoute();
 
   const documentID = computed(() => route.params.id);
   const state = ref({
-    newId: "",
-    newTitle: "",
-    newModified: "",
-    newContent: [],
-    legals: [],
-    legal: {},
+    services: [],
+    service: null,
   });
 
   // Read all documents - GET
-  const getAllLegal = async () => {
+  const getAllServices = async () => {
     try {
-      const response = await fetch(
-        "https://api.slavic.media/legal/?fields=_id,title"
-      );
+      const response = await fetch("http://localhost:4000/services/");
       const data = await response.json();
-      state.value.legals = data;
+      state.value.services = data;
     } catch (error) {
       console.error(error);
     }
   };
 
   // Read specific document by ID - GET
-  const getSpecificLegal = async (documentID: string) => {
+  const getSpecificService = async (documentID: string) => {
     try {
       const response = await fetch(
-        `https://api.slavic.media/legal/${documentID}`
+        `http://localhost:4000/services/${documentID}`
       );
       if (!response.ok) {
         throw new Error(`Failed to fetch document with ID: ${documentID}`);
       }
       const data = await response.json();
-      state.value.legal = data; // Correctly assign data to state.legal
+      state.value.service = data;
     } catch (error) {
       console.error(error);
     }
@@ -45,10 +39,10 @@ const legal = () => {
 
   return {
     state,
-    getAllLegal,
-    getSpecificLegal,
+    getSpecificService,
+    getAllServices,
     documentID,
   };
 };
 
-export default legal;
+export default service;

@@ -31,6 +31,7 @@ const legal_1 = __importDefault(require("./routes/legal"));
 const review_1 = __importDefault(require("./routes/review"));
 const event_1 = __importDefault(require("./routes/event"));
 const assets_1 = __importDefault(require("./routes/assets"));
+const services_1 = __importDefault(require("./routes/services"));
 require("dotenv-flow").config();
 // Connect to MongoDB
 mongoose_1.default.set("strictQuery", false);
@@ -53,6 +54,7 @@ app.use("/legal", legal_1.default);
 app.use("/review", review_1.default);
 app.use("/event", event_1.default);
 app.use("/assets", assets_1.default);
+app.use("/services", services_1.default);
 // Serve static files from the 'dist' directory
 app.use(express_1.default.static(path_1.default.join(__dirname, "dist")));
 // Catch-all route to serve 'index.html' for any unmatched routes
