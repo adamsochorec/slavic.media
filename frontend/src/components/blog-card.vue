@@ -86,6 +86,8 @@ h3 {
 }
 img {
   opacity: 1 !important;
+  -webkit-animation: skeleton-loading 1s linear infinite alternate;
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 .metadata {
   display: -webkit-box;

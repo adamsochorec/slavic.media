@@ -13,7 +13,7 @@ const service = () => {
   // Read all documents - GET
   const getAllServices = async () => {
     try {
-      const response = await fetch("http://localhost:4000/services/");
+      const response = await fetch("https://api.slavic.media/services/");
       const data = await response.json();
       state.value.services = data;
     } catch (error) {
@@ -25,7 +25,7 @@ const service = () => {
   const getSpecificService = async (documentID: string) => {
     try {
       const response = await fetch(
-        `http://localhost:4000/services/${documentID}`
+        `https://api.slavic.media/services/${documentID}`
       );
       if (!response.ok) {
         throw new Error(`Failed to fetch document with ID: ${documentID}`);

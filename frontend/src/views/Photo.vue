@@ -4,6 +4,7 @@ import { useRouter } from "vue-router";
 import requestAProposal from "@/components/request-a-proposal.vue";
 import eventBus from "@/eventBus";
 import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
+import skeletonServices from "@/components/skeleton-services.vue";
 import $ from "jquery";
 import "magnific-popup";
 import img from "@/modules/img";
@@ -74,7 +75,7 @@ router.beforeEach((to, from, next) => {
   <article class="main" style="margin-top: 120px">
     <section class="wrapper-wide">
       <!-- PAGE INTRO -->
-      <div class="grid-container caption-container">
+      <div class="grid-container caption-container" v-if="isDataLoaded">
         <div class="grid-item">
           <h1 class="reveal" aria-label="Photo Services">
             <span class="gradient"> {{ serviceState.service?._id }} </span>
@@ -153,68 +154,7 @@ router.beforeEach((to, from, next) => {
     <section v-if="isDataLoaded">
       <bannerLightroomPresets></bannerLightroomPresets>
     </section>
-    <div class="wrapper-wide" v-else>
-      <hr class="reveal" />
-
-      <div class="flex flex-wrap">
-        <div class="w-full xl:w-6/12">
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            height="2rem"
-            borderRadius="10px"
-            class="mb-2"
-          ></Skeleton>
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            height="2rem"
-            width="10rem"
-            borderRadius="10px"
-            class="mb-2"
-          ></Skeleton>
-        </div>
-        <div class="w-full xl:w-6/12 pl-6">
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            height="4rem"
-            class="mb-2"
-            borderRadius="10px"
-          ></Skeleton>
-
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            width="14rem"
-            class="mb-6"
-            borderRadius="10px"
-          ></Skeleton>
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            width="10rem"
-            height="2rem"
-            borderRadius="10px"
-          ></Skeleton>
-        </div>
-      </div>
-      <div class="flex justify-between mt-10">
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          width="24%"
-          height="200px"
-          borderRadius="10px"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          width="48%"
-          borderRadius="10px"
-          height="200px"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          width="24%"
-          borderRadius="10px"
-          height="200px"
-        ></Skeleton>
-      </div>
-    </div>
+    <div class="wrapper-wide" v-else><skeletonServices></skeletonServices></div>
   </article>
 </template>
 

@@ -91,10 +91,10 @@ const currentYear = new Date().getFullYear();
         </button>
         <span>&nbsp;|&nbsp;</span>
 
-        <router-link to="/assets" class="footer-nav" title="Assets"
+        <a href="/assets/press-kit.zip" class="footer-nav" title="Assets"
           ><i style="font-size: var(--font-size-7)" class="pi pi-download"></i
-          >&nbsp; <span>Assets</span>
-        </router-link>
+          >&nbsp; <span>Press Kit</span>
+        </a>
         <span>&nbsp;|&nbsp;</span>
 
         <router-link to="/legal" class="footer-nav" title="Legal"

@@ -99,18 +99,18 @@ main {
 /* SKELETON ANIMATION START */
 @-webkit-keyframes skeleton-loading {
   0% {
-    background-color: rgba(var(--light-grey-color), 1);
+    background-color: rgba(var(--dark-grey-color), 1);
   }
   100% {
-    background-color: rgba(var(--light-grey-color), 0.2);
+    background-color: rgba(var(--dark-grey-color), 0.2);
   }
 }
 @keyframes skeleton-loading {
   0% {
-    background-color: rgba(var(--light-grey-color), 1);
+    background-color: rgba(var(--dark-grey-color), 1);
   }
   100% {
-    background-color: rgba(var(--light-grey-color), 0.2);
+    background-color: rgba(var(--dark-grey-color), 0.5);
   }
 }
 /* SKELETON LOADING ANIMATION END */

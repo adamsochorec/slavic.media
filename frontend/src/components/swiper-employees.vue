@@ -3,7 +3,7 @@ import { ref, onMounted, nextTick } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import employee from "@/modules/employee";
-
+import skeletonSwiper from "@/components/skeleton-swiper.vue";
 const { state, getAllEmployees } = employee();
 const isDataLoaded = ref(false);
 
@@ -113,100 +113,7 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
           <!-- Slide End -->
         </div>
       </div>
-      <div class="grid-container skeleton" v-else>
-        <div>
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            borderRadius="10px"
-            class="mb-2"
-            width="100%"
-            height="150px"
-          ></Skeleton>
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            width="100%"
-            height="10px"
-            borderRadius="10px"
-            class="mb-2"
-          ></Skeleton>
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            width="70%"
-            height="10px"
-            class="mb-2"
-            borderRadius="10px"
-          ></Skeleton>
-        </div>
-        <div class="second">
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            borderRadius="10px"
-            class="mb-2"
-            width="100%"
-            height="150px"
-          ></Skeleton>
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            width="100%"
-            height="10px"
-            borderRadius="10px"
-            class="mb-2"
-          ></Skeleton>
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            width="70%"
-            borderRadius="10px"
-            height="10px"
-            class="mb-2"
-          ></Skeleton>
-        </div>
-        <div class="third">
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            borderRadius="10px"
-            class="mb-2"
-            width="100%"
-            height="150px"
-          ></Skeleton>
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            width="100%"
-            height="10px"
-            class="mb-2"
-            borderRadius="10px"
-          ></Skeleton>
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            width="70%"
-            height="10px"
-            class="mb-2"
-            borderRadius="10px"
-          ></Skeleton>
-        </div>
-        <div class="fourth">
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            borderRadius="10px"
-            class="mb-2"
-            width="100%"
-            height="150px"
-          ></Skeleton>
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            width="100%"
-            borderRadius="10px"
-            height="10px"
-            class="mb-2"
-          ></Skeleton>
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            width="70%"
-            height="10px"
-            borderRadius="10px"
-            class="mb-2"
-          ></Skeleton>
-        </div>
-      </div>
+      <skeletonSwiper v-else></skeletonSwiper>
     </section>
   </div>
 </template>
@@ -253,30 +160,5 @@ h6 {
 .grid-container.skeleton {
   display: grid;
   grid-gap: var(--grid-gap-2);
-}
-@media only screen and (max-width: 375px) {
-  .grid-container.skeleton {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .grid-container.skeleton .third,
-  .grid-container.skeleton .fourth {
-    display: none;
-  }
-}
-@media only screen and (min-width: 375px) {
-  .grid-container.skeleton {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .grid-container.skeleton .fourth {
-    display: none;
-  }
-}
-@media only screen and (min-width: 947px) {
-  .grid-container.skeleton {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .grid-container.skeleton .fourth {
-    display: block;
-  }
 }
 </style>

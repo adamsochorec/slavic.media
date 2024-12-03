@@ -3,6 +3,7 @@ import { ref, onMounted, nextTick } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import review from "@/modules/review";
+import skeletonSwiper from "@/components/skeleton-swiper.vue";
 
 const { state, getAllReviews } = review();
 const isDataLoaded = ref(false);
@@ -173,100 +174,7 @@ onMounted(async () => {
       </div>
     </div>
     <div class="swiper-pagination" v-if="isDataLoaded"></div>
-    <div class="grid-container skeleton" v-else>
-      <div>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          borderRadius="10px"
-          class="mb-2"
-          width="100%"
-          height="150px"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          width="100%"
-          borderRadius="10px"
-          height="10px"
-          class="mb-2"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          width="70%"
-          borderRadius="10px"
-          height="10px"
-          class="mb-2"
-        ></Skeleton>
-      </div>
-      <div class="second">
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          borderRadius="10px"
-          class="mb-2"
-          width="100%"
-          height="150px"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          width="100%"
-          borderRadius="10px"
-          height="10px"
-          class="mb-2"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          width="70%"
-          borderRadius="10px"
-          height="10px"
-          class="mb-2"
-        ></Skeleton>
-      </div>
-      <div class="third">
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          borderRadius="10px"
-          class="mb-2"
-          width="100%"
-          height="150px"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          width="100%"
-          borderRadius="10px"
-          height="10px"
-          class="mb-2"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          width="70%"
-          borderRadius="10px"
-          height="10px"
-          class="mb-2"
-        ></Skeleton>
-      </div>
-      <div class="fourth">
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          borderRadius="10px"
-          class="mb-2"
-          width="100%"
-          height="150px"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          width="100%"
-          borderRadius="10px"
-          height="10px"
-          class="mb-2"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          width="70%"
-          borderRadius="10px"
-          height="10px"
-          class="mb-2"
-        ></Skeleton>
-      </div>
-    </div>
+    <skeletonSwiper v-else></skeletonSwiper>
   </section>
 </template>
 
@@ -306,6 +214,8 @@ onMounted(async () => {
   object-fit: cover;
   border-radius: var(--border-radius-2);
   -webkit-box-shadow: var(--box-shadow-1);
+  -webkit-animation: skeleton-loading 1s linear infinite alternate;
+  animation: skeleton-loading 1s linear infinite alternate;
   box-shadow: var(--box-shadow-1);
 }
 .swiper-slide .grid-container {

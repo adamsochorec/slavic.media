@@ -23,7 +23,7 @@ function truncateText(text: string, maxLength: number): string {
   <a :href="url" class="gallery-item reveal">
     <img
       :style="`opacity:${opacity}`"
-      :src="`https://cdn.slavic.media/images/${img}/fit=contain,width=400,sharpen=100`"
+      :src="`https://cdn.slavic.media/images/${img}/fit=contain,height=400,sharpen=100`"
     />
     <div class="gallery-item-caption">
       <i :class="`bubble pi pi-${icon}`"></i>
@@ -61,6 +61,8 @@ h4 {
   position: relative;
   display: block;
   width: 100%;
+  -webkit-animation: skeleton-loading 1s linear infinite alternate;
+  animation: skeleton-loading 1s linear infinite alternate;
   -o-object-fit: cover;
   object-fit: cover;
   -webkit-transition: var(--transition-1);

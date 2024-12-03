@@ -6,6 +6,7 @@ import requestAProposal from "@/components/request-a-proposal.vue";
 import swiperReels from "@/components/swiper-reels.vue";
 import galleryItem from "@/components/gallery-item.vue";
 import services from "@/modules/services";
+import skeletonServices from "@/components/skeleton-services.vue";
 import video from "@/modules/video";
 import { useRouter } from "vue-router";
 
@@ -55,10 +56,10 @@ const showRequestAProposal = (data: Gallery): void => {
   <article class="main" style="margin-top: 120px">
     <section class="wrapper-wide">
       <!-- PAGE INTRO -->
-      <div class="grid-container caption-container">
+      <div class="grid-container caption-container" v-if="isDataLoaded">
         <div class="grid-item">
           <h1 class="reveal" aria-label="Video Services">
-            <span class="gradient">Video</span>
+            <span class="gradient"> {{ serviceState.service?._id }} </span>
             Services
           </h1>
         </div>
@@ -143,66 +144,7 @@ const showRequestAProposal = (data: Gallery): void => {
         <swiperReels></swiperReels>
       </div>
       <div v-else>
-        <hr class="reveal" role="separator" />
-
-        <div class="flex flex-wrap">
-          <div class="w-full xl:w-6/12">
-            <Skeleton
-              style="background-color: rgb(var(--dark-grey-color))"
-              height="2rem"
-              class="mb-2"
-              borderRadius="10px"
-            ></Skeleton>
-            <Skeleton
-              style="background-color: rgb(var(--dark-grey-color))"
-              height="2rem"
-              width="10rem"
-              borderRadius="10px"
-              class="mb-2"
-            ></Skeleton>
-          </div>
-          <div class="w-full xl:w-6/12 pl-6">
-            <Skeleton
-              style="background-color: rgb(var(--dark-grey-color))"
-              height="4rem"
-              borderRadius="10px"
-              class="mb-2"
-            ></Skeleton>
-
-            <Skeleton
-              style="background-color: rgb(var(--dark-grey-color))"
-              width="14rem"
-              borderRadius="10px"
-              class="mb-6"
-            ></Skeleton>
-            <Skeleton
-              style="background-color: rgb(var(--dark-grey-color))"
-              width="10rem"
-              height="2rem"
-              borderRadius="10px"
-            ></Skeleton>
-          </div>
-        </div>
-        <div class="flex justify-between mt-10">
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            width="24%"
-            borderRadius="10px"
-            height="200px"
-          ></Skeleton>
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            width="48%"
-            height="200px"
-            borderRadius="10px"
-          ></Skeleton>
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            width="24%"
-            height="200px"
-            borderRadius="10px"
-          ></Skeleton>
-        </div>
+        <skeletonServices></skeletonServices>
       </div>
     </section>
   </article>
