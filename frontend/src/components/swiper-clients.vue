@@ -13,21 +13,75 @@ onMounted(() => {
     observer: true,
     observeParents: true,
     breakpoints: {
-      0: { slidesPerView: 3 },
+      0: { slidesPerView: 4 },
       375: { slidesPerView: 4 },
       620: { slidesPerView: 6 },
-      947: { slidesPerView: 6 },
+      947: { slidesPerView: 7.2 },
     },
     direction: "horizontal",
   });
 });
 </script>
-
+<style scoped>
+.swiper-clients .swiper-slide {
+  text-align: center;
+}
+.swiper-clients img,
+.swiper-clients svg {
+  height: 70px;
+  aspect-ratio: 1/1;
+}
+#clients .grid-container .grid-item:nth-child(even),
+#clients .grid-container.seventy-thirty .grid-item:nth-child(even) {
+  margin: 0 0 0 var(--grid-gap-2);
+}
+.clients path {
+  fill: rgb(var(--white-color));
+}
+.clients:hover path {
+  fill: rgba(var(--primary-color), 1);
+  cursor: pointer;
+}
+.clients:hover path,
+.clients path,
+.clients:hover g,
+.clients g {
+  transition: var(--transition-1);
+  -webkit-transition: var(--transition-1);
+  -moz-transition: var(--transition-1); /* Firefox */
+  -ms-transition: var(--transition-1); /* Edge */
+  -o-transition: var(--transition-1);
+}
+@media only screen and (max-width: 375px) {
+  .swiper-clients img,
+  .swiper-clients svg {
+    height: 50px;
+    aspect-ratio: 1/1;
+  }
+}
+</style>
 <template>
   <section class="swiper swiper-clients reveal">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
+      <a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="https://www.innomotics.com"
+        aria-label="Innomotics"
+        class="swiper-slide clients"
+        ><svg
+          viewBox="0 0 147 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6.25098 31.4763H0.75V0.450717H6.25098V31.4763ZM14.0257 0.450717L17.8397 16.3213V0.450717H22.7539V31.4763H18.0598L13.7323 14.4599V31.4763H8.81811V0.450717H14.0257ZM30.4553 0.450717L34.2693 16.3213V0.450717H39.1835V31.4763H34.4894L30.1619 14.4599V31.4763H25.2477V0.450717H30.4553ZM67.7887 16.5136L70.2824 0.450717H76.5169V31.4763H71.456V11.6727L68.5221 31.4763H66.4684L63.4612 11.6727V31.4763H58.6203V0.450717H65.2949L67.7887 16.5136ZM107.322 0.450717V5.9517H103.508V31.4763H98.0074V5.9517H94.1934V0.450717H107.322ZM114.217 31.4763H108.716V0.450717H114.217V31.4763ZM130.793 6.9052C130.793 3.35724 129.682 0.0839844 124.339 0.0839844H123.165C118.282 0.0839844 116.637 3.36875 116.637 7.12524V24.5817C116.637 28.4633 117.896 31.9163 123.239 31.9163H124.192C129.076 31.9163 130.793 28.4015 130.793 24.7284V17.8338H125.219V26.4154H122.432V5.36493H125.219V12.1861H130.793V6.9052ZM143.07 15.1452L139.898 11.5972C138.521 10.0526 138.201 9.0265 138.201 7.56532V4.8515H140.622V10.3525H145.976V6.17174C145.976 1.99746 144.303 0.0839844 139.962 0.0839844H138.861C134.979 0.0839844 132.554 2.23835 132.554 6.24509V7.93205C132.554 10.9371 133.178 13.3504 135.515 15.8546L138.729 19.4025C140.399 21.1974 140.548 22.0444 140.548 24.215V26.7087H137.761V20.0342H132.26V25.4884C132.26 29.6624 134.352 31.9163 138.568 31.9163H139.668C144.301 31.9163 146.416 28.8901 146.416 24.215V23.1148C146.416 20.4013 145.867 18.3171 143.07 15.1452ZM49.5987 0.0839844H48.3518C43.5516 0.0839844 41.604 3.20551 41.604 8.0054V24.3617C41.604 29.2453 43.969 31.9163 48.3518 31.9163H49.5987C53.7726 31.9163 56.1999 28.9117 56.1999 24.3617V8.0054C56.1999 3.24722 54.482 0.0839844 49.5987 0.0839844ZM50.4055 26.342H47.4717V5.51162H50.4055V26.342ZM86.8587 0.0839844H85.6118C80.8116 0.0839844 78.864 3.20551 78.864 8.0054V24.3617C78.864 29.2453 81.229 31.9163 85.6118 31.9163H86.8587C91.0326 31.9163 93.4599 28.9117 93.4599 24.3617V8.0054C93.4599 3.24722 91.742 0.0839844 86.8587 0.0839844ZM87.6655 26.342H84.7317V5.51162H87.6655V26.342Z"
+            fill="#E1F000"
+          />
+        </svg>
+      </a>
       <a
         class="swiper-slide clients"
         target="_blank"
@@ -1031,38 +1085,3 @@ onMounted(() => {
     </div>
   </section>
 </template>
-
-<style scoped>
-.swiper-clients {
-  height: auto;
-}
-.swiper-clients .swiper-slide {
-  text-align: center;
-}
-.swiper-clients img,
-.swiper-clients svg {
-  height: 70px;
-  aspect-ratio: 1/1;
-}
-#clients .grid-container .grid-item:nth-child(even),
-#clients .grid-container.seventy-thirty .grid-item:nth-child(even) {
-  margin: 0 0 0 var(--grid-gap-2);
-}
-.clients path {
-  fill: rgb(var(--white-color));
-}
-.clients:hover path {
-  fill: rgba(var(--primary-color), 1);
-  cursor: pointer;
-}
-.clients:hover path,
-.clients path,
-.clients:hover g,
-.clients g {
-  transition: var(--transition-1);
-  -webkit-transition: var(--transition-1);
-  -moz-transition: var(--transition-1); /* Firefox */
-  -ms-transition: var(--transition-1); /* Edge */
-  -o-transition: var(--transition-1);
-}
-</style>

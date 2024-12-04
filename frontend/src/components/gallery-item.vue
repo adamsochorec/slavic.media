@@ -152,8 +152,11 @@ h4 {
 }
 
 @media only screen and (max-width: 375px) {
+  .gallery-item {
+    height: 100px;
+  }
   .gallery-item .gallery-item-caption {
-    padding: var(--grid-gap-2);
+    padding: var(--grid-gap-1);
   }
   .gallery-item p {
     display: none;
@@ -166,7 +169,7 @@ h4 {
 }
 @media only screen and (max-width: 500px) {
   .gallery-item .gallery-item-caption {
-    padding: var(--grid-gap-2);
+    padding: var(--grid-gap-1);
   }
 }
 @media only screen and (max-width: 667px) {

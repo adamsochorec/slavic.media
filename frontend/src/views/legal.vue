@@ -36,7 +36,6 @@ onMounted(async () => {
         <li
           v-for="legal in state.legals"
           :key="legal._id"
-          class="reveal"
           style="font-size: var(--font-size-6)"
         >
           <router-link :to="`/legal/${legal._id}`"

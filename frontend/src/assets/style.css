@@ -1069,10 +1069,12 @@ i.pi-arrow-right:hover {
   margin: var(--grid-gap-2) 0;
 }
 .article-content img,
-.article-content iframe {
+.article-content iframe,
+iframe.map {
   border-radius: var(--border-radius-1);
 }
-.article-content iframe {
+.article-content iframe,
+iframe.map {
   height: var(--dimension-2);
 }
 /* ARTICLE END */
@@ -1101,6 +1103,10 @@ i.pi-arrow-right:hover {
   header nav ul li a {
     display: block;
     padding: 6.8px 0;
+  }
+  .article-content iframe,
+  iframe.map {
+    height: var(--dimension-1);
   }
 }
 @media only screen and (max-width: 667px) {

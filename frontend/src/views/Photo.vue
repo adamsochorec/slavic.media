@@ -192,6 +192,8 @@ small a {
   margin-top: var(--grid-gap-1);
   vertical-align: middle;
   width: 100%;
+  background-color: rgb(var(--dark-grey-color));
+  border-radius: var(--border-radius-1);
 }
 .column:nth-child(2) {
   padding-left: var(--grid-gap-1);
