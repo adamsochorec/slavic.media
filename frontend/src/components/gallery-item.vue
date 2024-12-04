@@ -151,17 +151,6 @@ h4 {
   height: var(--grid-gap-2);
 }
 
-@media only screen and (max-width: 375px) {
-  .gallery-item {
-    height: 100px;
-  }
-  .gallery-item .gallery-item-caption {
-    padding: var(--grid-gap-1);
-  }
-  .gallery-item p {
-    display: none;
-  }
-}
 @media only screen and (max-width: 415px) {
   .gallery .grid-item {
     height: 80px;

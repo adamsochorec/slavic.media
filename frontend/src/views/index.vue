@@ -155,4 +155,9 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+@media only screen and (max-width: 375px) {
+  .gallery-item {
+    height: 120px;
+  }
+}
 </style>
