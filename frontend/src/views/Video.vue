@@ -150,10 +150,4 @@ const showRequestAProposal = (data: Gallery): void => {
   </article>
 </template>
 
-<style lang="scss" scoped>
-@media only screen and (max-width: 375px) {
-  .gallery-item {
-    height: 120px;
-  }
-}
-</style>
+<style lang="scss" scoped></style>
