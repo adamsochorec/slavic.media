@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema, Document } from "mongoose";
 
 interface legal extends Document {
   _id: string;
@@ -8,9 +8,9 @@ interface legal extends Document {
 }
 
 const legalSchema = new Schema({
-  _id: { type: String, required: true },
-  title: { type: String, required: true },
-  modified: { type: String, required: true },
+  _id: { type: String, required: true, maxlength: 50 },
+  title: { type: String, required: true, maxlength: 200 },
+  modified: { type: String, required: true, maxlength: 50 },
   content: { type: [String], required: true },
 });
 

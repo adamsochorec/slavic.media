@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema, Document } from "mongoose";
 
 interface service extends Document {
   _id: string;
@@ -8,10 +8,10 @@ interface service extends Document {
 }
 
 const serviceSchema = new Schema({
-  _id: { type: String, required: true, unique: true },
+  _id: { type: String, required: true, maxlength: 50 },
   index: { type: Number, required: true, unique: true },
-  desc: { type: String, required: true },
-  icon: { type: String, required: true },
+  desc: { type: String, required: true, maxlength: 1000 },
+  icon: { type: String, required: true, maxlength: 50 },
 });
 
 const service = mongoose.model<service>("Service", serviceSchema);

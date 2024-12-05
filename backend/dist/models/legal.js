@@ -25,9 +25,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
 const legalSchema = new mongoose_1.Schema({
-    _id: { type: String, required: true },
-    title: { type: String, required: true },
-    modified: { type: String, required: true },
+    _id: { type: String, required: true, maxlength: 50 },
+    title: { type: String, required: true, maxlength: 200 },
+    modified: { type: String, required: true, maxlength: 50 },
     content: { type: [String], required: true },
 });
 const legal = mongoose_1.default.model("Legal", legalSchema);

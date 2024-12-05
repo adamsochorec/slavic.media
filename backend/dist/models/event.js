@@ -26,9 +26,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
 const eventSchema = new mongoose_1.Schema({
     _id: { type: Number, required: true },
-    date: { type: String, required: true },
-    event: { type: String, required: true },
-    icon: { type: String, required: true },
+    date: { type: String, required: true, maxlength: 50 },
+    event: { type: String, required: true, maxlength: 500 },
+    icon: { type: String, required: true, maxlength: 50 },
 });
-const event = mongoose_1.default.model("Event", eventSchema);
-exports.default = event;
+const eventModel = mongoose_1.default.model("Event", eventSchema);
+exports.default = eventModel;

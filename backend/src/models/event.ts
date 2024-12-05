@@ -1,17 +1,18 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema, Document } from "mongoose";
 
 interface event extends Document {
   _id: number;
-  date: Date;
+  date: string;
   event: string;
   icon: string;
 }
+
 const eventSchema = new Schema({
   _id: { type: Number, required: true },
-  date: { type: String, required: true },
-  event: { type: String, required: true },
-  icon: { type: String, required: true },
+  date: { type: String, required: true, maxlength: 50 },
+  event: { type: String, required: true, maxlength: 500 },
+  icon: { type: String, required: true, maxlength: 50 },
 });
 
-const event = mongoose.model<event>("Event", eventSchema);
-export default event;
+const eventModel = mongoose.model<event>("Event", eventSchema);
+export default eventModel;

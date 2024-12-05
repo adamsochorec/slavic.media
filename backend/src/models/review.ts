@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema, Document } from "mongoose";
 
 interface review extends Document {
   _id: number;
@@ -12,14 +12,14 @@ interface review extends Document {
 }
 
 const reviewSchema = new Schema({
-  _id: { type: Number, required: true, unique: true },
-  img: { type: String, required: true },
-  name: { type: String, required: true },
-  role: { type: String, required: true },
-  profileLink: { type: String, required: true },
-  rating: { type: Number, required: true },
-  fullReview: { type: String, required: true },
-  message: { type: String, required: true },
+  _id: { type: Number, required: true },
+  img: { type: String, required: true, maxlength: 100 },
+  name: { type: String, required: true, maxlength: 50 },
+  role: { type: String, required: true, maxlength: 50 },
+  profileLink: { type: String, required: true, maxlength: 100 },
+  rating: { type: Number, required: true, min: 1, max: 5 },
+  fullReview: { type: String, required: true, maxlength: 200 },
+  message: { type: String, required: true, maxlength: 1000 },
 });
 
 const review = mongoose.model<review>("Review", reviewSchema);

@@ -16,19 +16,19 @@ interface imgGallery extends Document {
 }
 
 const imgSchema = new Schema({
-  _id: { type: String, required: true },
-  alt: { type: String, required: true },
-  title: { type: String, required: true },
-  flag: { type: String, required: true },
+  _id: { type: String, required: true, maxlength: 50 },
+  alt: { type: String, required: true, maxlength: 200 },
+  title: { type: String, required: true, maxlength: 200 },
+  flag: { type: String, required: true, maxlength: 50 },
 });
 
 const imgGallerySchema = new Schema({
-  _id: { type: String, required: true },
+  _id: { type: String, required: true, maxlength: 50 },
   index: { type: Number, required: true, unique: true },
-  desc: { type: String, required: true },
-  title: { type: String, required: true },
+  desc: { type: String, required: true, maxlength: 1000 },
+  title: { type: String, required: true, maxlength: 200 },
   columns: { type: [[imgSchema]], required: true },
 });
 
-const imgGallery = mongoose.model<imgGallery>("Img Gallery", imgGallerySchema);
+const imgGallery = mongoose.model<imgGallery>("ImgGallery", imgGallerySchema);
 export default imgGallery;

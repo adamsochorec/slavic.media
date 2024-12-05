@@ -25,10 +25,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
 const serviceSchema = new mongoose_1.Schema({
-    _id: { type: String, required: true, unique: true },
+    _id: { type: String, required: true, maxlength: 50 },
     index: { type: Number, required: true, unique: true },
-    desc: { type: String, required: true },
-    icon: { type: String, required: true },
+    desc: { type: String, required: true, maxlength: 1000 },
+    icon: { type: String, required: true, maxlength: 50 },
 });
 const service = mongoose_1.default.model("Service", serviceSchema);
 exports.default = service;

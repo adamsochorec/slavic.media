@@ -6,14 +6,19 @@ interface video extends Document {
   flag: string;
   title: string;
   url: string;
-  year: Date;
+  year: string;
   client: string;
 }
 
 interface article extends Document {
   _id: string;
   title: string;
-  author: string;
+  author: {
+    _id: string;
+    name: string;
+    department: string;
+    linkedin: string;
+  };
   metadata: {
     date: Date;
     formatedDate: string;
@@ -29,28 +34,33 @@ interface article extends Document {
 }
 
 const videoSchema = new Schema({
-  _id: { type: String, required: true },
+  _id: { type: String, required: true, maxlength: 50 },
   index: { type: Number, required: true, unique: true },
-  flag: { type: String, required: true },
-  title: { type: String, required: true },
-  url: { type: String, required: true },
-  year: { type: String, required: true },
-  client: { type: String, required: false },
+  flag: { type: String, required: true, maxlength: 50 },
+  title: { type: String, required: true, maxlength: 200 },
+  url: { type: String, required: true, maxlength: 100 },
+  year: { type: String, required: true, maxlength: 4 },
+  client: { type: String, maxlength: 100 },
 });
 
 const articleSchema: Schema = new Schema({
-  _id: { type: String, required: true },
-  title: { type: String, required: true },
-  author: { type: String, ref: "Employee", required: true },
+  _id: { type: String, required: true, maxlength: 50 },
+  title: { type: String, required: true, maxlength: 200 },
+  author: {
+    _id: { type: String, required: true, maxlength: 50 },
+    name: { type: String, required: true, maxlength: 100 },
+    department: { type: String, required: true, maxlength: 100 },
+    linkedin: { type: String, maxlength: 100 },
+  },
   metadata: {
     date: { type: Date, required: true },
-    formatedDate: { type: String, required: true },
+    formatedDate: { type: String, required: true, maxlength: 50 },
     keywords: { type: [String], required: true },
-    linkedin: { type: String, required: false },
-    thumbnail: { type: String, required: true },
-    icon: { type: String, required: true },
-    desc: { type: String, required: true },
-    length: { type: Number, required: true },
+    linkedin: { type: String, maxlength: 100 },
+    thumbnail: { type: String, required: true, maxlength: 100 },
+    icon: { type: String, required: true, maxlength: 50 },
+    desc: { type: String, required: true, maxlength: 1000 },
+    length: { type: Number, required: true, min: 1 },
   },
   content: { type: [String], required: true },
   videos: { type: [videoSchema], required: false },
