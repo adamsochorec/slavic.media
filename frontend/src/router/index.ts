@@ -38,16 +38,6 @@ const router = createRouter({
         requiresAuth: false,
       },
     },
-    // PRESS RESOURCES
-    {
-      path: "/assets",
-      name: "assets",
-      component: () => import("../views/assets.vue"),
-      meta: {
-        requiresAuth: false,
-      },
-    },
-
     // SERVICES
     {
       path: "/services/photo",
