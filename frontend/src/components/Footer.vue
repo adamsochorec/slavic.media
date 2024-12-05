@@ -10,47 +10,32 @@ const currentYear = new Date().getFullYear();
 <template>
   <footer role="contentinfo">
     <div class="footer-container">
-      <div
-        class="social-icons"
-        role="navigation"
-        aria-label="Social media links"
-      >
-        <a
-          title="Call us"
-          href="tel:+4550104776"
-          aria-label="Tel: +4550104776"
-          role="link"
-        >
+      <nav class="social-icons" aria-label="Contact links">
+        <a title="Call us" href="tel:+4550104776" aria-label="Tel: +4550104776">
           <i class="pi pi-phone"></i>
         </a>
         <a
           title="Email us"
           href="mailto:contact@slavic.media"
           aria-label="Email: contact@slavic.media"
-          role="link"
         >
           <i class="pi pi-envelope"></i>
         </a>
-      </div>
-      <div
-        class="social-icons"
-        role="navigation"
-        aria-label="Social media links"
-      >
+      </nav>
+      <nav class="social-icons" aria-label="Social media links">
         <a
           target="_blank"
           rel="noopener noreferrer nofollow"
           href="https://vimeo.com/slavicmedia"
           aria-label="Vimeo"
-          role="link"
         >
-          <i title="Vimeo" class="pi pi-vimeo"></i> </a
-        ><a
+          <i title="Vimeo" class="pi pi-vimeo"></i>
+        </a>
+        <a
           href="https://www.linkedin.com/company/slavicmedia/"
           target="_blank"
           rel="noopener noreferrer nofollow"
           aria-label="LinkedIn"
-          role="link"
         >
           <i title="LinkedIn" class="pi pi-linkedin"></i>
         </a>
@@ -59,7 +44,6 @@ const currentYear = new Date().getFullYear();
           rel="noopener noreferrer nofollow"
           href="https://youtube.com/@slavicmedia"
           aria-label="YouTube"
-          role="link"
         >
           <i title="YouTube" class="pi pi-youtube"></i>
         </a>
@@ -68,15 +52,14 @@ const currentYear = new Date().getFullYear();
           target="_blank"
           rel="noopener noreferrer nofollow"
           aria-label="Instagram"
-          role="link"
         >
           <i title="Instagram" class="pi pi-instagram fa-xl"></i>
         </a>
-      </div>
+      </nav>
     </div>
     <hr role="separator" />
     <div class="footer-container">
-      <div class="grid-item" role="navigation" aria-label="Footer Navigation">
+      <nav class="grid-item" aria-label="Footer Navigation">
         <button
           @click="revokeConsent"
           class="footer-nav cookie-button"
@@ -90,17 +73,15 @@ const currentYear = new Date().getFullYear();
           &nbsp;&nbsp;<span>Cookies</span>
         </button>
         <span>&nbsp;|&nbsp;</span>
-
-        <a href="/assets/press-kit.zip" class="footer-nav" title="Assets"
-          ><i style="font-size: var(--font-size-7)" class="pi pi-download"></i
-          >&nbsp; <span>Press Kit</span>
+        <a href="/assets/press-kit.zip" class="footer-nav" title="Assets">
+          <i style="font-size: var(--font-size-7)" class="pi pi-download"></i>
+          &nbsp; <span>Press Kit</span>
         </a>
         <span>&nbsp;|&nbsp;</span>
-
-        <router-link to="/legal" class="footer-nav" title="Legal"
-          ><i style="font-size: var(--font-size-7)" class="pi pi-briefcase"></i
-          >&nbsp;<span>Legal</span></router-link
-        >
+        <router-link to="/legal" class="footer-nav" title="Legal">
+          <i style="font-size: var(--font-size-7)" class="pi pi-briefcase"></i>
+          &nbsp;<span>Legal</span>
+        </router-link>
         <span>&nbsp;|&nbsp;</span>
         <a
           class="footer-nav"
@@ -108,14 +89,13 @@ const currentYear = new Date().getFullYear();
           rel="noopener noreferrer nofollow"
           href="https://datacvr.virk.dk/enhed/virksomhed/44081512?fritekst=slavic%20media&sideIndex=0&size=10"
           aria-label="VAT Number"
-          role="link"
-          ><i style="font-size: var(--font-size-7)" class="pi pi-euro"></i
-          >&nbsp;<span>VAT No.&nbsp;DK44081512</span>
+        >
+          &nbsp;<span>VAT:&nbsp;DK44081512</span>
         </a>
-      </div>
+      </nav>
       <p class="grid-item">
         ©&nbsp;{{ currentYear }} Slavic Media I/S.<br class="footerBreak" />
-        Registered Company in Denmark
+        Registered company in the Kingdom of Denmark
       </p>
     </div>
   </footer>
@@ -123,7 +103,11 @@ const currentYear = new Date().getFullYear();
 
 <style scoped>
 .cookie-button {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 

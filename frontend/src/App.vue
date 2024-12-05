@@ -72,9 +72,7 @@ onMounted(() => {
 <template>
   <div>
     <!-- HEADER START -->
-    <header>
-      <NavBar></NavBar>
-    </header>
+    <NavBar></NavBar>
     <aside><Cookies></Cookies></aside>
 
     <!-- HEADER END -->

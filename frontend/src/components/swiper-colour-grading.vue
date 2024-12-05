@@ -55,24 +55,29 @@ const swiperOptions = {
 
 <template>
   <section class="swiper reveal">
-    <Swiper v-bind="swiperOptions">
+    <Swiper v-bind="swiperOptions" aria-labelledby="image-compare-heading">
+      <h2 id="image-compare-heading" class="visually-hidden">
+        Image Comparison Carousel
+      </h2>
       <template v-for="(slide, index) in slides" :key="index">
         <SwiperSlide>
           <ImageCompare aria-label="Compare Images">
             <template #left>
               <img
                 :src="`https://cdn.slavic.media/images/${slide.original}/public`"
+                alt="Original version of image"
               />
             </template>
             <template #right>
               <img
                 :src="`https://cdn.slavic.media/images/${slide.edited}/public`"
+                alt="Edited version of image"
               />
             </template>
           </ImageCompare>
         </SwiperSlide>
       </template>
-      <div class="swiper-pagination"></div>
+      <div class="swiper-pagination" aria-label="Carousel pagination"></div>
     </Swiper>
   </section>
 </template>
@@ -80,11 +85,14 @@ const swiperOptions = {
 <style scoped>
 .swiper {
   border-radius: var(--border-radius-1);
+  -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
   aspect-ratio: 2.39/1;
 }
 img {
+  -o-object-fit: cover;
   object-fit: cover;
+  -o-object-position: center center;
   object-position: center center;
 }
 </style>

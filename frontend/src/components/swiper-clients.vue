@@ -61,7 +61,11 @@ onMounted(() => {
 }
 </style>
 <template>
-  <section class="swiper swiper-clients reveal">
+  <section
+    class="swiper swiper-clients reveal"
+    aria-labelledby="clients-heading"
+  >
+    <h2 class="visually-hidden" id="clients-heading">Our Clients</h2>
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->

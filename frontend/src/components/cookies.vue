@@ -81,11 +81,17 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-if="showConsent" class="wrapper">
-    <span class="title">
-      <i class="pi pi-cog pi-spin"></i>
-      <span>Cookie Consent</span>
-    </span>
+  <section
+    v-if="showConsent"
+    class="wrapper"
+    aria-labelledby="cookie-consent-title"
+    role="dialog"
+    aria-modal="true"
+  >
+    <header class="title">
+      <i class="pi pi-cog pi-spin" aria-hidden="true"></i>
+      <h2 id="cookie-consent-title">Cookie Consent</h2>
+    </header>
     <p class="info">
       This website uses analytical cookies to help you have a superior and more
       relevant browsing experience on the website. <br />
@@ -97,6 +103,7 @@ onMounted(() => {
         class="button cta"
         :class="{ clicked: consentGiven }"
         @click="acceptCookies"
+        aria-pressed="consentGiven"
       >
         Accept all
       </button>
@@ -104,13 +111,13 @@ onMounted(() => {
         class="button cta secondary"
         :class="{ clicked: consentRejected }"
         @click="rejectCookies"
+        aria-pressed="consentRejected"
       >
         Reject non-essential
       </button>
     </div>
-  </div>
+  </section>
 </template>
-
 <style lang="scss" scoped>
 .wrapper {
   position: fixed;
@@ -128,6 +135,7 @@ onMounted(() => {
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
 }
 .title {
@@ -136,12 +144,17 @@ onMounted(() => {
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
+  align-items: center;
+
+  -webkit-column-gap: var(--grid-gap-2);
+
+  -moz-column-gap: var(--grid-gap-2);
+
+  column-gap: var(--grid-gap-2);
+}
+.title h2 {
   font-size: var(--font-size-4);
   font-family: var(--logo-font);
-  align-items: center;
-  -webkit-column-gap: var(--grid-gap-2);
-  -moz-column-gap: var(--grid-gap-2);
-  column-gap: var(--grid-gap-2);
 }
 .title i {
   font-size: 23px;
@@ -150,15 +163,14 @@ onMounted(() => {
   color: unset;
   cursor: auto;
 }
-
 .info {
   margin: var(--grid-gap-1) 0;
   font-size: var(--font-size-7);
 }
 .grid-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: grid;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   width: 100%;
   grid-gap: var(--grid-gap-2);
@@ -167,6 +179,8 @@ onMounted(() => {
 .button {
   width: 100%;
   min-width: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 @media only screen and (max-width: 400px) {
@@ -187,6 +201,7 @@ onMounted(() => {
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
+    -webkit-box-shadow: var(--box-shadow-1);
     box-shadow: var(--box-shadow-1);
   }
 }

@@ -29,7 +29,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="card" role="region">
+  <article class="card" role="article" aria-labelledby="article-title">
     <galleryItem
       :img="article.metadata.thumbnail"
       :url="`/blog/${article._id}`"
@@ -37,8 +37,8 @@ const props = defineProps<{
       :icon="article.metadata.icon"
       targetWindow="_self"
     />
-    <div class="reveal">
-      <div class="metadata gap-3">
+    <section class="reveal">
+      <header class="metadata gap-3">
         <a
           target="_blank"
           rel="noopener noreferrer nofollow"
@@ -49,6 +49,7 @@ const props = defineProps<{
             :image="`https://cdn.slavic.media/images/${article.author._id}/height=100,sharpen=100`"
             size="medium"
             shape="circle"
+            :alt="`Avatar of ${article.author.name}`"
           />
         </a>
         <div>
@@ -69,12 +70,12 @@ const props = defineProps<{
             min read
           </span>
         </div>
-      </div>
+      </header>
       <router-link class="title reveal" :to="`/blog/${article._id}`">
-        <h3>{{ article.title }}</h3>
+        <h3 id="article-title">{{ article.title }}</h3>
       </router-link>
-    </div>
-  </div>
+    </section>
+  </article>
 </template>
 
 <style lang="scss" scoped>

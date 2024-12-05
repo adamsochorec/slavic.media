@@ -20,17 +20,24 @@ function truncateText(text: string, maxLength: number): string {
 </script>
 
 <template>
-  <a :href="url" class="gallery-item reveal">
-    <img
-      :style="`opacity:${opacity}`"
-      :src="`https://cdn.slavic.media/images/${img}/fit=contain,height=400,sharpen=100`"
-    />
-    <div class="gallery-item-caption">
-      <i :class="`bubble pi pi-${icon}`"></i>
-      <h4 v-if="title">{{ truncateText(title, 20) }}</h4>
-      <p>{{ truncateText(desc, 100) }}</p>
-    </div>
-  </a>
+  <article class="gallery-item reveal">
+    <a :href="url" :aria-label="`View details of ${title}`">
+      <img
+        :style="`opacity:${opacity}`"
+        :src="`https://cdn.slavic.media/images/${img}/fit=contain,height=400,sharpen=100`"
+        :alt="title"
+      />
+      <div class="gallery-item-caption">
+        <i aria-hidden="true" :class="`bubble pi pi-${icon}`"></i>
+        <header>
+          <h4 v-if="title">{{ truncateText(title, 20) }}</h4>
+        </header>
+        <section>
+          <p>{{ truncateText(desc, 100) }}</p>
+        </section>
+      </div>
+    </a>
+  </article>
 </template>
 
 <style scoped>

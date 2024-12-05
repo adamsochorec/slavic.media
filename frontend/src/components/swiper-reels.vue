@@ -87,7 +87,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="swiper swiper-reels reveal">
+  <section
+    class="swiper swiper-reels reveal"
+    aria-labelledby="instagram-reels-heading"
+    role="region"
+  >
+    <h2 id="instagram-reels-heading" class="visually-hidden">
+      Instagram Reels
+    </h2>
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slide -->
@@ -97,19 +104,26 @@ onMounted(() => {
           rel="noopener noreferrer nofollow"
           :href="`https://instagram.com/reel/${reel.id}`"
           class="pi pi-instagram bubble"
-        ></a>
+          :aria-label="`View reel ${index + 1} on Instagram`"
+          :title="`Instagram reel: ${reel.title || 'Reel ' + (index + 1)}`"
+        >
+          <span class="visually-hidden"
+            >View reel {{ index + 1 }} on Instagram</span
+          >
+        </a>
         <video
           class="video-offload"
-          loop="true"
-          autoplay="autoplay"
+          loop
+          autoplay
           muted
           preload="auto"
-          aria-label="Instagram Reel"
           playsinline
-          role="video"
-          aria-describedby="Instagram Reel"
+          role="region"
+          :aria-label="`Instagram reel ${index + 1}`"
           :src="`https://slavic.media/img/${reel.id}.mp4`"
-        ></video>
+        >
+          <track kind="captions" srclang="en" label="English captions" />
+        </video>
       </div>
     </div>
   </section>
@@ -132,5 +146,15 @@ onMounted(() => {
   position: absolute;
   top: var(--grid-gap-2);
   left: var(--grid-gap-2);
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 </style>

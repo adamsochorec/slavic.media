@@ -136,19 +136,26 @@ onMounted(async () => {
 </script>
 
 <template>
-  <section class="swiper swiper-reviews reveal">
+  <section
+    class="swiper swiper-reviews reveal"
+    aria-labelledby="reviews-heading"
+    role="region"
+  >
+    <h2 id="reviews-heading" class="visually-hidden">Customer Reviews</h2>
     <div class="swiper-wrapper" v-if="isDataLoaded">
       <!-- Slide -->
       <div
         v-for="review in state.reviews"
         :key="review._id"
         class="swiper-slide card"
+        role="group"
+        :aria-labelledby="`review-${review._id}`"
       >
         <div class="grid-container">
           <div class="grid-item">
             <img
               class="customer-img"
-              alt="Client's Profile Photo"
+              :alt="`Profile photo of ${review.name}`"
               :title="review.name"
               :src="`https://lh3.googleusercontent.com/${review.img}=w120-h120-p-rp-mo-br100`"
             />
@@ -159,14 +166,24 @@ onMounted(async () => {
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 :href="`https://www.google.com/maps/contrib/${review.profileLink}?hl=en-US`"
-                >{{ review.name }}</a
-              ><br />{{ review.role }}<br />
+                :aria-label="`View ${review.name}'s Google Maps profile`"
+                :title="`View ${review.name}'s profile on Google Maps`"
+              >
+                {{ review.name }}
+              </a>
+              <br />
+              {{ review.role }}
             </p>
-            <div class="stars" :data-rating="review.rating"></div>
+            <div
+              class="stars"
+              :data-rating="review.rating"
+              :aria-label="`Rating: ${review.rating} out of 5 stars`"
+            ></div>
           </div>
         </div>
         <p
           class="reviews-message"
+          id="`review-${review._id}`"
           :data-full-review="`https://maps.app.goo.gl/${review.fullReview}`"
         >
           {{ review.message }}
@@ -179,10 +196,6 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.grid-container.skeleton {
-  display: grid;
-  grid-gap: var(--grid-gap-2);
-}
 .swiper-reviews .card {
   padding: var(--grid-gap-2);
   height: var(--dimension-2);
@@ -230,30 +243,5 @@ onMounted(async () => {
   display: inline-block;
   font-size: var(--font-size-8);
   color: gold;
-}
-@media only screen and (max-width: 375px) {
-  .grid-container.skeleton {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .grid-container.skeleton .third,
-  .grid-container.skeleton .fourth {
-    display: none;
-  }
-}
-@media only screen and (min-width: 375px) {
-  .grid-container.skeleton {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .grid-container.skeleton .fourth {
-    display: none;
-  }
-}
-@media only screen and (min-width: 947px) {
-  .grid-container.skeleton {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .grid-container.skeleton .fourth {
-    display: block;
-  }
 }
 </style>

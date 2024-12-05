@@ -49,20 +49,27 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
 
 <template>
   <div>
-    <section class="swiper swiper-ourteam reveal">
+    <section
+      class="swiper swiper-ourteam reveal"
+      aria-labelledby="our-team-heading"
+      role="region"
+    >
+      <h2 id="our-team-heading" class="visually-hidden">Our Team</h2>
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper" v-if="isDataLoaded">
         <div
           v-for="employee in state.employees"
           :key="employee._id"
           class="swiper-slide"
-          role="region"
+          role="group"
+          :aria-labelledby="`employee-${employee._id}`"
         >
           <!-- Slide start -->
           <div class="reveal">
             <svg
-              :title="'Flag of ' + employee.origin"
+              :title="`Flag of ${employee.origin}`"
               class="note flag"
+              aria-hidden="true"
               id="Layer_1"
               x="0px"
               y="0px"
@@ -70,22 +77,22 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
               style="enable-background: new 0 0 1093 1092"
               xml:space="preserve"
             >
-              <use :href="'#' + employee.origin"></use>
+              <use :href="`#${employee.origin}`"></use>
             </svg>
             <img
               :src="`https://cdn.slavic.media/images/${employee._id}/width=400,sharpen=100`"
               :alt="`Portrait of ${employee.name}`"
               :title="`${employee.name}`"
-              class="reveal"
             />
           </div>
           <section class="profile">
-            <h4 class="reveal">{{ employee.name }}</h4>
-
+            <h4 :id="`employee-${employee._id}`" class="reveal">
+              {{ employee.name }}
+            </h4>
             <div class="social-icons reveal">
               <a
-                :href="'mailto:' + employee.email"
-                :aria-label="'Email: ' + employee.email"
+                :href="`mailto:${employee.email}`"
+                :aria-label="`Send an email to ${employee.name} at ${employee.email}`"
               >
                 <i title="Email" class="pi pi-envelope"></i>
               </a>
@@ -94,6 +101,7 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
                 :href="`https://linkedin.com/in/${employee.linkedin}`"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
+                :aria-label="`View ${employee.name}'s LinkedIn profile`"
               >
                 <i title="LinkedIn" class="pi pi-linkedin"></i>
               </a>
@@ -102,6 +110,7 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
                 :href="`https://github.com/${employee.github}`"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
+                :aria-label="`View ${employee.name}'s GitHub profile`"
               >
                 <i title="GitHub" class="pi pi-github"></i>
               </a>
@@ -117,7 +126,6 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
     </section>
   </div>
 </template>
-
 <style scoped>
 .profile h3,
 .profile h4,

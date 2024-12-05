@@ -1,30 +1,37 @@
-<script setup lang="ts"></script>
-
 <template>
-  <div>
+  <section aria-labelledby="banner-title">
     <hr class="semi" />
     <div class="banner">
-      <img src="https://cdn.slavic.media/images/2023-05-12-08969/height=100" />
+      <img
+        src="https://cdn.slavic.media/images/2023-05-12-08969/height=100"
+        alt="Banner showcasing Slavic Media Lightroom Presets"
+      />
       <div class="title flex-center">
         <div>
           <span
             style="font-size: var(--font-size-5)"
             class="pi pi-sparkles gradient"
+            aria-hidden="true"
           >
           </span>
-          <p>
+          <p id="banner-title">
             Emulate the classic 35mm and 120 film looks with Slavic Media’s
             signature LUTs for Lightroom and Photoshop.
           </p>
         </div>
-        <a target="_blank" href="https://store.slavic.media">
+        <a
+          target="_blank"
+          href="https://store.slavic.media"
+          aria-label="Transform Your Photos"
+        >
           <div class="cta">
-            Transform Your Photos <i class="pi pi-arrow-right"></i>
+            Transform Your Photos
+            <i class="pi pi-arrow-right" aria-hidden="true"></i>
           </div>
         </a>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>
@@ -59,8 +66,6 @@ img {
   width: 100%;
   -webkit-filter: var(--blur-1);
   filter: var(--blur-1);
-  -o-object-fit: cover;
-  object-fit: cover;
   -webkit-transition: all 350ms ease-in-out;
   -o-transition: all 350ms ease-in-out;
   transition: all 350ms ease-in-out;

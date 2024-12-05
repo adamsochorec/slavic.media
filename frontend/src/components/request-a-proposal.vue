@@ -42,15 +42,16 @@ onMounted(() => {
     <div id="requestAProposalPopup" class="white-popup-block mfp-hide">
       <section
         class="wrapper-standard"
-        role="article"
-        aria-label="Contact Form"
+        role="dialog"
+        aria-labelledby="contactFormHeading"
+        aria-modal="true"
       >
         <section
           class="contact-form-section"
           role="region"
-          aria-label="Contact Form Section"
+          aria-labelledby="contactFormHeading"
         >
-          <h3 role="heading" aria-level="3">
+          <h3 id="contactFormHeading">
             Request a
             <span class="gradient" role="presentation">Proposal</span>
           </h3>
@@ -60,16 +61,17 @@ onMounted(() => {
             action="https://formspree.io/f/mwkgdyez"
             method="POST"
             role="form"
-            aria-labelledby="contactFormHeading"
-            aria-describedby="This form is used to request a proposal."
+            aria-describedby="formDescription"
           >
+            <p id="formDescription" class="visually-hidden">
+              This form is used to request a proposal.
+            </p>
             <div
               class="grid-container contact-form"
               role="group"
               aria-labelledby="contactFormGroupLabel"
-              aria-describedby="This group contains the contact form fields."
             >
-              <div class="grid-item" aria-label="Email">
+              <div class="grid-item">
                 <p><label for="email">Email *</label></p>
                 <input
                   type="email"
@@ -80,7 +82,7 @@ onMounted(() => {
                 />
                 <br />
               </div>
-              <div class="grid-item" aria-label="Name">
+              <div class="grid-item">
                 <p><label for="name">Name *</label></p>
                 <input
                   type="text"
@@ -92,11 +94,12 @@ onMounted(() => {
                 <br />
               </div>
             </div>
-            <div
-              role="group"
-              aria-label="Project Description and Submit Button"
-            >
-              <p><label for="project">Project description *</label></p>
+            <div role="group" aria-labelledby="projectDescriptionLabel">
+              <p>
+                <label for="project" id="projectDescriptionLabel"
+                  >Project description *</label
+                >
+              </p>
               <textarea
                 minlength="10"
                 name="project"
@@ -105,7 +108,7 @@ onMounted(() => {
                 id="project"
               ></textarea>
               <button class="submit-btn" aria-label="Submit" role="button">
-                Submit<i class="pi pi-arrow-right"></i>
+                Submit<i class="pi pi-arrow-right" aria-hidden="true"></i>
               </button>
               <input
                 type="hidden"
@@ -120,8 +123,9 @@ onMounted(() => {
   </div>
 </template>
 <style scoped>
-article {
+.wrapper-standard {
   height: var(--dimension-1);
+  overflow: scroll;
 }
 .contact-form-section .contact-form .grid-item:nth-child(odd) {
   margin: 0 var(--grid-gap-2) 0 0;

@@ -68,7 +68,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="showcase">
+  <section class="showcase" aria-labelledby="video-title">
     <div class="video-container">
       <video
         :src="src"
@@ -78,21 +78,26 @@ onMounted(() => {
         class="video-offload"
         preload="auto"
         :aria-label="ariaLabel"
-        aria-describedby="video"
+        aria-describedby="video-description"
         playsinline
-        role="video"
+        role="img"
         :poster="poster"
       ></video>
     </div>
+    <h1 id="video-title" class="visually-hidden">{{ ariaLabel }}</h1>
+    <p id="video-description" class="visually-hidden">
+      {{ ariaLabel }}
+    </p>
     <a
       class="link"
       target="_blank"
       rel="noopener noreferrer nofollow"
       :href="vimeo"
       v-tooltip.left="{ value: 'Watch on Vimeo', autoHide: true }"
+      aria-label="Watch on Vimeo"
     >
-      <i class="pi pi-vimeo"></i
-    ></a>
+      <i class="pi pi-vimeo"></i>
+    </a>
   </section>
 </template>
 

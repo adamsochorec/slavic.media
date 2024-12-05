@@ -32,7 +32,7 @@ onMounted(async () => {
       autoplay
       muted
       vimeo="https://vimeo.com/slavicmedia/behind-the-scenes?share=copy"
-      ariaLabel="Behind the scenes"
+      ariaLabel="Behind the scenes video showcasing our production process"
     />
 
     <section class="wrapper-standard">
@@ -42,12 +42,13 @@ onMounted(async () => {
       </h1>
       <p>
         Creative & Production studio based in Denmark and Czechia. We tell
-        stories with deep eye contact, magnificent shots and clean designs to
+        stories with deep eye contact, magnificent shots, and clean designs to
         help your project stand out from the noise.
       </p>
       <br />
       <iframe
         class="map reveal"
+        title="Slavic Media Location"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2271004.184012724!2d9.418068164227757!3d56.23008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464c9fe2ecbe264d%3A0x5699de608acee414!2sSlavic%20Media!5e0!3m2!1sen!2scz!4v1730480218107!5m2!1sen!2scz"
         allowfullscreen=""
         loading="lazy"
@@ -56,10 +57,10 @@ onMounted(async () => {
       <br />
       <p class="reveal">
         Slavic Media is headquartered in Kolding, Denmark, with remote team
-        members distributed across the country and Czechia. We’re always on the
+        members distributed across the kingdom and Czechia. We’re always on the
         lookout to add kind, thoughtful, and exceptionally talented individuals
         to our team. Drop us a line if you're motivated by the intersection of
-        individual freelance profesional.
+        individual freelance professionals.
       </p>
       <br />
       <swiperEmployees></swiperEmployees>
