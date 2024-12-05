@@ -46,17 +46,12 @@ const videoSchema = new Schema({
 const articleSchema: Schema = new Schema({
   _id: { type: String, required: true, maxlength: 50 },
   title: { type: String, required: true, maxlength: 200 },
-  author: {
-    _id: { type: String, required: true, maxlength: 50 },
-    name: { type: String, required: true, maxlength: 100 },
-    department: { type: String, required: true, maxlength: 100 },
-    linkedin: { type: String, maxlength: 100 },
-  },
+  author: { type: String, ref: "Employee", required: true },
   metadata: {
     date: { type: Date, required: true },
     formatedDate: { type: String, required: true, maxlength: 50 },
     keywords: { type: [String], required: true },
-    linkedin: { type: String, maxlength: 100 },
+    linkedin: { type: String, maxlength: 200 },
     thumbnail: { type: String, required: true, maxlength: 100 },
     icon: { type: String, required: true, maxlength: 50 },
     desc: { type: String, required: true, maxlength: 1000 },

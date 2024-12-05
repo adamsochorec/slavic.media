@@ -7,6 +7,7 @@ import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
 import skeletonServices from "@/components/skeleton-services.vue";
 import $ from "jquery";
 import "magnific-popup";
+import flags from "@/components/flags.vue";
 import img from "@/modules/img";
 import services from "@/modules/services";
 
@@ -142,8 +143,8 @@ router.beforeEach((to, from, next) => {
                   :src="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280,sharpen=100`"
                   :alt="image.alt"
                 />
-                <svg class="flag note" :title="'Flag of ' + image.flag">
-                  <use :href="'#flag-' + image.flag"></use>
+                <svg class="flag note">
+                  <use :xlink:href="`#${flag}`"></use>
                 </svg>
               </a>
             </div>

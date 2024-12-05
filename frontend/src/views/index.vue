@@ -70,13 +70,13 @@ onMounted(async () => {
       </section>
       <!-- GALLERY END -->
 
-      <hr class="quater reveal" role="separator" />
+      <hr class="reveal" role="separator" />
       <swiperClients></swiperClients>
 
       <section class="flex-center">
         <requestAProposal></requestAProposal>
       </section>
-      <hr class="quater reveal" role="separator" />
+      <hr class="semi reveal" role="separator" />
 
       <div class="grid-container caption-container" id="reviews-caption">
         <div class="grid-item">
@@ -133,6 +133,11 @@ h3 {
 .gallery {
   grid-template-columns: repeat(4, 1fr);
 }
+@media only screen and (max-width: 375px) {
+  .gallery-item {
+    height: 120px;
+  }
+}
 @media only screen and (max-width: 415px) {
   h1,
   h2 {
@@ -145,11 +150,7 @@ h3 {
     grid-template-columns: repeat(1, 1fr);
   }
 }
-@media only screen and (min-width: 375px) {
-  hr.quater {
-    margin: 60px 0 !important;
-  }
-}
+
 @media only screen and (max-width: 667px) {
   .gallery {
     grid-template-columns: repeat(2, 1fr);

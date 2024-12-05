@@ -1,7 +1,7 @@
 <template>
   <svg style="display: none">
     <!-- Norwegian Flag -->
-    <symbol id="flag-norway" viewBox="0 0 16 16">
+    <symbol id="norway" viewBox="0 0 16 16">
       <rect width="16" height="16" fill="#ef2b2d" />
       <rect x="4" width="3" height="16" fill="#ffffff" />
       <rect y="6" width="16" height="3" fill="#ffffff" />
@@ -10,7 +10,7 @@
     </symbol>
 
     <!-- Åland Flag -->
-    <symbol id="flag-aland" viewBox="0 0 16 16">
+    <symbol id="aland" viewBox="0 0 16 16">
       <rect width="16" height="16" fill="#006aa7" />
       <rect x="4" width="3" height="16" fill="#ffc720" />
       <rect y="6" width="16" height="3" fill="#ffc720" />
@@ -19,35 +19,35 @@
     </symbol>
 
     <!-- Swedish Flag -->
-    <symbol id="flag-sweden" viewBox="0 0 16 16">
+    <symbol id="sweden" viewBox="0 0 16 16">
       <rect width="16" height="16" fill="#006aa7" />
       <rect x="5" width="2" height="16" fill="#fecc00" />
       <rect y="7" width="16" height="2" fill="#fecc00" />
     </symbol>
 
     <!-- Finnish Flag -->
-    <symbol id="flag-finland" viewBox="0 0 16 16">
+    <symbol id="finland" viewBox="0 0 16 16">
       <rect width="16" height="16" fill="#ffffff" />
       <rect x="5" width="3" height="16" fill="#003580" />
       <rect y="7" width="16" height="2" fill="#003580" />
     </symbol>
 
     <!-- Danish Flag -->
-    <symbol id="flag-denmark" viewBox="0 0 16 16">
+    <symbol id="denmark" viewBox="0 0 16 16">
       <rect width="16" height="16" fill="#c60c30" />
       <rect x="5" width="2" height="16" fill="#ffffff" />
       <rect y="7" width="16" height="2" fill="#ffffff" />
     </symbol>
 
     <!-- Czech Flag -->
-    <symbol id="flag-czechia" viewBox="0 0 16 16">
+    <symbol id="czechia" viewBox="0 0 16 16">
       <rect width="16" height="16" fill="#ffffff" />
       <rect y="8" width="16" height="8" fill="#d7141a" />
       <polygon points="0,0 8,8 0,16" fill="#11457e" />
     </symbol>
 
     <!-- Slovak Flag -->
-    <symbol id="flag-slovakia">
+    <symbol id="slovakia">
       <g>
         <path
           class="st0"
@@ -123,7 +123,7 @@
     </symbol>
 
     <!-- Israel Flag -->
-    <symbol id="flag-israel" viewBox="0 0 16 16">
+    <symbol id="israel" viewBox="0 0 16 16">
       <rect width="16" height="16" fill="#ffffff" />
       <rect y="2" width="16" height="2" fill="#0038b8" />
       <rect y="12" width="16" height="2" fill="#0038b8" />
