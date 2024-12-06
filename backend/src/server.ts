@@ -25,7 +25,7 @@ const swaggerDefinition = yaml.load(path.join(__dirname, "..", "swagger.yaml"));
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition, options));
 
 import articleRoutes from "./routes/article";
-import imgRoutes from "./routes/img";
+import imgRoutes from "./routes/images";
 import videoRoutes from "./routes/video";
 import authRoutes from "./routes/auth";
 import employeeRoutes from "./routes/employee";

@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import galleryModel from "../models/img";
+import photoGalleryModel from "../models/images";
 import { verifyToken } from "../validation";
 
 const router = Router();
@@ -9,37 +9,37 @@ const router = Router();
 // Create gallery - POST
 router.post("/", verifyToken, (req: Request, res: Response) => {
   const data = req.body;
-  galleryModel
+  photoGalleryModel
     .create(data)
-    .then((insertedData) => {
+    .then((insertedData: any) => {
       res.status(201).send(insertedData);
     })
-    .catch((err) => {
+    .catch((err: any) => {
       res.status(500).send({ message: err.message });
     });
 });
 
 // Read all galleries - GET
 router.get("/", (req: Request, res: Response) => {
-  galleryModel
+  photoGalleryModel
     .find()
-    .then((data) => {
-      data.sort((a, b) => a.index - b.index);
+    .then((data: any) => {
+      data.sort((a: any, b: any) => a.index - b.index);
       res.send(data);
     })
-    .catch((err) => {
+    .catch((err: any) => {
       res.status(500).send({ message: err.message });
     });
 });
 
 // Read specific gallery by ID - GET
 router.get("/:id", (req: Request, res: Response) => {
-  galleryModel
+  photoGalleryModel
     .findById(req.params.id)
-    .then((data) => {
+    .then((data: any) => {
       res.send(data);
     })
-    .catch((err) => {
+    .catch((err: any) => {
       res.status(500).send({ message: err.message });
     });
 });
@@ -49,9 +49,9 @@ router.put("/:id", verifyToken, (req: Request, res: Response) => {
   const { id } = req.params;
   const updatedGallery = req.body;
 
-  galleryModel
+  photoGalleryModel
     .findByIdAndUpdate(id, updatedGallery, { new: true })
-    .then((data) => {
+    .then((data: any) => {
       if (!data) {
         res.status(404).send({
           message: `Cannot update gallery with id=${id}. Maybe gallery was not found!`,
@@ -60,7 +60,7 @@ router.put("/:id", verifyToken, (req: Request, res: Response) => {
         res.send(data);
       }
     })
-    .catch((err) => {
+    .catch((err: any) => {
       res.status(500).send({ message: err.message });
     });
 });
@@ -69,9 +69,9 @@ router.put("/:id", verifyToken, (req: Request, res: Response) => {
 router.delete("/:id", verifyToken, (req: Request, res: Response) => {
   const { id } = req.params;
 
-  galleryModel
+  photoGalleryModel
     .findByIdAndDelete(id)
-    .then((data) => {
+    .then((data: any) => {
       if (!data) {
         res.status(404).send({
           message: `Cannot delete gallery with id=${id}. Maybe gallery was not found!`,
@@ -80,21 +80,21 @@ router.delete("/:id", verifyToken, (req: Request, res: Response) => {
         res.send({ message: "Gallery was deleted successfully!" });
       }
     })
-    .catch((err) => {
+    .catch((err: any) => {
       res.status(500).send({ message: err.message });
     });
 });
 
 // Delete all galleries - DELETE
 router.delete("/", verifyToken, (req: Request, res: Response) => {
-  galleryModel
+  photoGalleryModel
     .deleteMany({})
-    .then((result) => {
+    .then((result: any) => {
       res.send({
         message: `${result.deletedCount} galleries were deleted successfully!`,
       });
     })
-    .catch((err) => {
+    .catch((err: any) => {
       res.status(500).send({ message: err.message });
     });
 });
@@ -109,13 +109,13 @@ router.post(
     const { galleryId } = req.params;
     const newColumn = req.body;
 
-    galleryModel
+    photoGalleryModel
       .findByIdAndUpdate(
         galleryId,
         { $push: { columns: newColumn } },
         { new: true }
       )
-      .then((data) => {
+      .then((data: any) => {
         if (!data) {
           res.status(404).send({
             message: `Cannot add column to gallery with id=${galleryId}. Maybe gallery was not found!`,
@@ -124,7 +124,7 @@ router.post(
           res.send(data);
         }
       })
-      .catch((err) => {
+      .catch((err: any) => {
         res.status(500).send({ message: err.message });
       });
   }
@@ -138,13 +138,13 @@ router.put(
     const { galleryId, columnIndex } = req.params;
     const updatedColumn = req.body;
 
-    galleryModel
+    photoGalleryModel
       .findOneAndUpdate(
         { _id: galleryId },
         { $set: { [`columns.${parseInt(columnIndex)}`]: updatedColumn } },
         { new: true }
       )
-      .then((data) => {
+      .then((data: any) => {
         if (!data) {
           res.status(404).send({
             message: `Cannot update column ${columnIndex} in gallery with id=${galleryId}. Maybe column was not found!`,
@@ -153,7 +153,7 @@ router.put(
           res.send(data);
         }
       })
-      .catch((err) => {
+      .catch((err: any) => {
         res.status(500).send({ message: err.message });
       });
   }
@@ -166,13 +166,13 @@ router.delete(
   (req: Request, res: Response) => {
     const { galleryId, columnIndex } = req.params;
 
-    galleryModel
+    photoGalleryModel
       .findOneAndUpdate(
         { _id: galleryId },
         { $unset: { [`columns.${parseInt(columnIndex)}`]: 1 } },
         { new: true }
       )
-      .then((data) => {
+      .then((data: any) => {
         if (!data) {
           res.status(404).send({
             message: `Cannot delete column ${columnIndex} in gallery with id=${galleryId}. Maybe column was not found!`,
@@ -181,7 +181,7 @@ router.delete(
           res.send(data);
         }
       })
-      .catch((err) => {
+      .catch((err: any) => {
         res.status(500).send({ message: err.message });
       });
   }
@@ -189,7 +189,7 @@ router.delete(
 
 // CRUD operations for images
 
-// Add img to specific column in gallery - POST
+// Add image to specific column in gallery - POST
 router.post(
   "/:galleryId/:columnIndex",
   verifyToken,
@@ -197,113 +197,116 @@ router.post(
     const { galleryId, columnIndex } = req.params;
     const newImg = req.body;
 
-    galleryModel
+    photoGalleryModel
       .findByIdAndUpdate(
         galleryId,
         { $push: { [`columns.${parseInt(columnIndex)}`]: newImg } },
         { new: true }
       )
-      .then((data) => {
+      .then((data: any) => {
         if (!data) {
           res.status(404).send({
-            message: `Cannot add img to column ${columnIndex}. Maybe gallery or column was not found!`,
+            message: `Cannot add image to column ${columnIndex}. Maybe gallery or column was not found!`,
           });
         } else {
           res.send(data);
         }
       })
-      .catch((err) => {
+      .catch((err: any) => {
         res.status(500).send({ message: err.message });
       });
   }
 );
 
-// Read specific img in column - GET
-router.get("/:galleryId/:columnIndex/:imgId", (req: Request, res: Response) => {
-  const { galleryId, columnIndex, imgId } = req.params;
+// Read specific image in column - GET
+router.get(
+  "/:galleryId/:columnIndex/:imageId",
+  (req: Request, res: Response) => {
+    const { galleryId, columnIndex, imageId } = req.params;
 
-  galleryModel
-    .findById(galleryId)
-    .then((data) => {
-      if (!data) {
-        res.status(404).send({
-          message: `Cannot find gallery with id=${galleryId}.`,
-        });
-      } else {
-        const column = data.columns[parseInt(columnIndex)];
-        if (!column) {
+    photoGalleryModel
+      .findById(galleryId)
+      .then((data: any) => {
+        if (!data) {
           res.status(404).send({
-            message: `Cannot find column ${columnIndex} in gallery with id=${galleryId}.`,
+            message: `Cannot find gallery with id=${galleryId}.`,
           });
         } else {
-          const img = column.find((img) => img._id === imgId);
-          if (!img) {
+          const column = data.columns[parseInt(columnIndex)];
+          if (!column) {
             res.status(404).send({
-              message: `Cannot find img with id=${imgId} in column ${columnIndex}.`,
+              message: `Cannot find column ${columnIndex} in gallery with id=${galleryId}.`,
             });
           } else {
-            res.send(img);
+            const image = column.find((image: any) => image._id === imageId);
+            if (!image) {
+              res.status(404).send({
+                message: `Cannot find image with id=${imageId} in column ${columnIndex}.`,
+              });
+            } else {
+              res.send(image);
+            }
           }
         }
-      }
-    })
-    .catch((err) => {
-      res.status(500).send({ message: err.message });
-    });
-});
+      })
+      .catch((err: any) => {
+        res.status(500).send({ message: err.message });
+      });
+  }
+);
 
-// Update specific img in column - PUT
+// Update specific image in column - PUT
 router.put(
-  "/:galleryId/:columnIndex/:imgId",
+  "/:galleryId/:columnIndex/:imageId",
   verifyToken,
   (req: Request, res: Response) => {
-    const { galleryId, columnIndex, imgId } = req.params;
+    const { galleryId, columnIndex, imageId } = req.params;
     const updatedImg = req.body;
 
-    galleryModel
+    photoGalleryModel
       .findOneAndUpdate(
-        { _id: galleryId, [`columns.${parseInt(columnIndex)}._id`]: imgId },
+        { _id: galleryId, [`columns.${parseInt(columnIndex)}._id`]: imageId },
         { $set: { [`columns.${parseInt(columnIndex)}.$`]: updatedImg } },
         { new: true }
       )
-      .then((data) => {
+      .then((data: any) => {
         if (!data) {
           res.status(404).send({
-            message: `Cannot update img in column ${columnIndex} with id=${imgId}. Maybe img was not found!`,
+            message: `Cannot update image in column ${columnIndex} with id=${imageId}. Maybe image was not found!`,
           });
         } else {
           res.send(data);
         }
       })
-      .catch((err) => {
+      .catch((err: any) => {
         res.status(500).send({ message: err.message });
       });
   }
 );
 
-// Delete specific img in column - DELETE
+// Delete specific image in column - DELETE
 router.delete(
-  "/:galleryId/:columnIndex/:imgId",
+  "/:galleryId/:columnIndex/:imageId",
   verifyToken,
   (req: Request, res: Response) => {
-    const { galleryId, columnIndex, imgId } = req.params;
+    const { galleryId, columnIndex, imageId } = req.params;
 
-    galleryModel
+    photoGalleryModel
       .findOneAndUpdate(
-        { _id: galleryId, [`columns.${parseInt(columnIndex)}._id`]: imgId },
-        { $pull: { [`columns.${parseInt(columnIndex)}`]: { _id: imgId } } },
+        { _id: galleryId, [`columns.${parseInt(columnIndex)}._id`]: imageId },
+        { $pull: { [`columns.${parseInt(columnIndex)}`]: { _id: imageId } } },
         { new: true }
       )
-      .then((data) => {
+      .then((data: any) => {
         if (!data) {
           res.status(404).send({
-            message: `Cannot delete img in column ${columnIndex} with id=${imgId}. Maybe img was not found!`,
+            message: `Cannot delete image in column ${columnIndex} with id=${imageId}. Maybe image was not found!`,
           });
         } else {
           res.send(data);
         }
       })
-      .catch((err) => {
+      .catch((err: any) => {
         res.status(500).send({ message: err.message });
       });
   }
@@ -313,9 +316,9 @@ router.delete(
 router.get("/:galleryId/:columnIndex", (req: Request, res: Response) => {
   const { galleryId, columnIndex } = req.params;
 
-  galleryModel
+  photoGalleryModel
     .findById(galleryId)
-    .then((data) => {
+    .then((data: any) => {
       if (!data) {
         res.status(404).send({
           message: `Cannot find gallery with id=${galleryId}.`,
@@ -331,7 +334,7 @@ router.get("/:galleryId/:columnIndex", (req: Request, res: Response) => {
         }
       }
     })
-    .catch((err) => {
+    .catch((err: any) => {
       res.status(500).send({ message: err.message });
     });
 });

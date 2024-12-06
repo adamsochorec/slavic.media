@@ -8,11 +8,11 @@ import skeletonServices from "@/components/skeleton-services.vue";
 import $ from "jquery";
 import "magnific-popup";
 import flags from "@/components/flags.vue";
-import img from "@/modules/img";
+import image from "@/modules/images";
 import services from "@/modules/services";
 
 const isDataLoaded = ref<boolean>(false);
-const { state: imgState, getAllImg } = img;
+const { state: imageState, getAllImages } = image;
 const { state: serviceState, getSpecificService } = services();
 const router = useRouter();
 
@@ -51,7 +51,7 @@ async function initializeLightbox(): Promise<void> {
 
 onMounted(async () => {
   try {
-    await Promise.all([getSpecificService("photo"), getAllImg()]);
+    await Promise.all([getSpecificService("photo"), getAllImages()]);
     isDataLoaded.value = true;
   } catch (error) {}
 });
@@ -95,7 +95,10 @@ router.beforeEach((to, from, next) => {
       </div>
     </section>
     <!-- GALLERIES -->
-    <template v-for="(gallery, galleryKey) in imgState.img" :key="galleryKey">
+    <template
+      v-for="(gallery, galleryKey) in imageState.image"
+      :key="galleryKey"
+    >
       <section
         v-if="isDataLoaded"
         aria-busy="false"

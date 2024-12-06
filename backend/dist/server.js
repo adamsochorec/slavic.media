@@ -23,7 +23,7 @@ const options = {
 const swaggerDefinition = yamljs_1.default.load(path_1.default.join(__dirname, "..", "swagger.yaml"));
 app.use("/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDefinition, options));
 const article_1 = __importDefault(require("./routes/article"));
-const img_1 = __importDefault(require("./routes/img"));
+const images_1 = __importDefault(require("./routes/images"));
 const video_1 = __importDefault(require("./routes/video"));
 const auth_1 = __importDefault(require("./routes/auth"));
 const employee_1 = __importDefault(require("./routes/employee"));
@@ -45,7 +45,7 @@ app.get("/", (req, res) => {
 });
 // Route handlers
 app.use("/blog", article_1.default);
-app.use("/img", img_1.default);
+app.use("/images", images_1.default);
 app.use("/video", video_1.default);
 app.use("/user", auth_1.default);
 app.use("/employee", employee_1.default);

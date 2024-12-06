@@ -9,7 +9,7 @@ import article from "../models/article";
 import assets from "../models/assets";
 import employee from "../models/employee";
 import event from "../models/event";
-import img from "../models/img";
+import img from "../models/images";
 import legal from "../models/review";
 import user from "../models/user";
 import video from "../models/video";
