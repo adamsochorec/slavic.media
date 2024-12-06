@@ -27,7 +27,6 @@ router.get("/", (req: Request, res: Response) => {
     .find({}, fields)
     .then((data) => {
       res.send(data);
-      data.sort((a, b) => a.id - b.id);
     })
     .catch((err) => {
       res.status(500).send({ message: err.message });

@@ -43,7 +43,7 @@ onMounted(async () => {
       </h1>
       <hr class="quater reveal" />
 
-      <div v-if="isDataLoaded">
+      <div v-if="isDataLoaded" aria-busy="false">
         <div class="grid-container">
           <div
             v-for="article in state.articles"
@@ -54,7 +54,7 @@ onMounted(async () => {
           </div>
         </div>
       </div>
-      <div v-else class="grid-container">
+      <div v-else class="grid-container" aria-busy="true" aria-live="polite">
         <div v-for="n in 6" :key="n">
           <skeletonGalleryItem></skeletonGalleryItem>
         </div>

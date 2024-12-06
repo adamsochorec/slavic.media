@@ -56,7 +56,11 @@ const showRequestAProposal = (data: Gallery): void => {
   <article class="main" style="margin-top: 120px">
     <section class="wrapper-wide">
       <!-- PAGE INTRO -->
-      <div class="grid-container caption-container" v-if="isDataLoaded">
+      <div
+        class="grid-container caption-container"
+        v-if="isDataLoaded"
+        aria-busy="false"
+      >
         <div class="grid-item">
           <h1 class="reveal" aria-label="Video Services">
             <span class="gradient"> {{ serviceState.service?._id }} </span>
@@ -70,7 +74,7 @@ const showRequestAProposal = (data: Gallery): void => {
         </div>
       </div>
 
-      <div v-if="isDataLoaded">
+      <div v-if="isDataLoaded" aria-busy="false">
         <!-- GALLERY -->
         <div v-for="gallery in videoState.galleries" :key="gallery._id">
           <div :id="gallery._id"></div>
@@ -143,7 +147,7 @@ const showRequestAProposal = (data: Gallery): void => {
         <hr class="semi" role="separator" />
         <swiperReels></swiperReels>
       </div>
-      <div v-else>
+      <div v-else aria-busy="true" aria-live="polite">
         <skeletonServices></skeletonServices>
       </div>
     </section>

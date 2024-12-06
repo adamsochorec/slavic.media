@@ -32,7 +32,7 @@ onMounted(async () => {
         the terms and conditions of end user software license agreements.
       </p>
       <hr class="quater reveal" />
-      <ol v-if="isDataLoaded">
+      <ol v-if="isDataLoaded" aria-busy="false">
         <li
           v-for="legal in state.legals"
           :key="legal._id"
@@ -43,7 +43,7 @@ onMounted(async () => {
           ></router-link>
         </li>
       </ol>
-      <div v-else v-for="n in 3" :key="n">
+      <div v-else v-for="n in 3" :key="n" aria-busy="true" aria-live="polite">
         <ul style="list-style: none" class="m-0">
           <li class="mb-3">
             <div class="flex">

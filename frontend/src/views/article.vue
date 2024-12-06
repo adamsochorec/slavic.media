@@ -80,14 +80,27 @@ const copyHref = (href) => {
 
 <template>
   <article class="main" style="margin-top: 120px">
-    <section class="wrapper-wide">
-      <div v-if="isDataLoaded">
-        <h1 class="reveal">
+    <section
+      class="wrapper-wide"
+      role="region"
+      aria-label="Main Article Content"
+    >
+      <div v-if="isDataLoaded" aria-busy="false">
+        <h1 id="article-title" class="reveal">
           {{ state.article.title }}
         </h1>
         <!-- ARTICLE METADATA START -->
-        <div class="article-metadata flex justify-between reveal">
-          <div class="flex items-center gap-2">
+        <div
+          class="article-metadata flex justify-between reveal"
+          role="contentinfo"
+          aria-labelledby="article-metadata-title"
+        >
+          <!-- Author Information -->
+          <div
+            class="flex items-center gap-2"
+            aria-labelledby="author-info-title"
+          >
+            <h2 id="author-info-title" hidden>Author Information</h2>
             <a
               target="_blank"
               rel="noopener noreferrer nofollow"
@@ -95,31 +108,55 @@ const copyHref = (href) => {
             >
               <Avatar
                 :image="`https://cdn.slavic.media/images/${state.article.author._id}/height=100,sharpen=100`"
-                size="xlarge"
+                size="large"
                 shape="circle"
-            /></a>
-            <div style="font-size: var(--font-size-7)">
-              <a
-                class="author"
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                :href="`https://www.linkedin.com/in/${state.article.author.linkedin}`"
-                ><b>{{ state.article.author.name }}</b></a
-              ><br />{{ state.article.author.department }}<br />
-              <span style="font-size: var(--font-size-7)">
-                {{ state.article.metadata.formatedDate }}&nbsp;⋅&nbsp;{{
-                  state.article.metadata.length
-                }}
-                min read</span
-              >
-            </div>
+                :alt="`${state.article.author.name}'s profile picture`"
+              />
+            </a>
+            <dl>
+              <div>
+                <dt class="visually-hidden">Author</dt>
+                <dd>
+                  <a
+                    class="author"
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    :href="`https://www.linkedin.com/in/${state.article.author.linkedin}`"
+                  >
+                    <b>{{ state.article.author.name }}</b>
+                  </a>
+                </dd>
+              </div>
+              <div style="font-size: var(--font-size-7)">
+                <dt class="visually-hidden">Department</dt>
+                <dd>{{ state.article.author.department }}</dd>
+              </div>
+              <div style="display: flex">
+                <div style="font-size: var(--font-size-7)">
+                  <dt class="visually-hidden">Publication Date</dt>
+                  <dd>{{ state.article.metadata.formatedDate }}</dd>
+                </div>
+                &nbsp;
+                <div style="font-size: var(--font-size-7)">
+                  <dt class="visually-hidden">Reading Time</dt>
+                  <dd>⋅&nbsp;{{ state.article.metadata.length }} min read</dd>
+                </div>
+              </div>
+            </dl>
           </div>
-          <div class="flex items-center gap-3">
+
+          <!-- Social and Copy Link -->
+          <div
+            class="flex items-center gap-3"
+            aria-labelledby="social-actions-title"
+          >
+            <h2 id="social-actions-title" hidden>Social Actions</h2>
             <a
               v-if="state.article?.metadata.linkedin"
               target="_blank"
               rel="noopener noreferrer nofollow"
               :href="`https://www.linkedin.com/posts/${state.article?.metadata.linkedin}`"
+              aria-label="Share on LinkedIn"
             >
               <i class="pi pi-linkedin"></i>
             </a>
@@ -131,6 +168,7 @@ const copyHref = (href) => {
               @click="
                 copyHref(`https://slavic.media/blog/${state.article._id}`)
               "
+              aria-label="Copy link to this article"
             >
               <i class="pi pi-link"></i>
             </button>
@@ -138,6 +176,7 @@ const copyHref = (href) => {
         </div>
         <!-- ARTICLE METADATA END -->
         <section
+          aria-labelledby="article-title"
           class="article-content"
           v-for="(content, index) in state.article.content"
           :key="index"
@@ -145,7 +184,10 @@ const copyHref = (href) => {
         ></section>
         <div v-if="state.article?.videos && state.article?.videos.length > 0">
           <hr class="reveal" />
-          <div class="gallery" aria-label="Video Gallery">
+          <h2 class="visually-hidden" id="video-gallery-title">
+            Video Gallery
+          </h2>
+          <div class="gallery" aria-labelledby="video-gallery-title">
             <galleryItem
               v-for="video in state.article.videos"
               :key="video._id"
@@ -158,7 +200,7 @@ const copyHref = (href) => {
         </div>
       </div>
 
-      <div v-else>
+      <div v-else aria-busy="true" aria-live="polite">
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
           borderRadius="10px"
@@ -289,12 +331,19 @@ const copyHref = (href) => {
         ></Skeleton>
       </div>
     </section>
-    <bannerLightroomPresets v-if="isDataLoaded"></bannerLightroomPresets>
-    <section class="wrapper-standard">
-      <div v-if="isDataLoaded">
+    <bannerLightroomPresets
+      v-if="isDataLoaded"
+      aria-busy="false"
+    ></bannerLightroomPresets>
+    <section
+      class="wrapper-standard"
+      role="region"
+      aria-labelledby="further-reading-title"
+    >
+      <div v-if="isDataLoaded" aria-busy="false">
         <hr class="semi" />
 
-        <h3>
+        <h3 id="further-reading-title">
           More from
           <router-link to="/blog" class="gradient"
             >Slavic&nbsp;Media&nbsp;</router-link
@@ -305,9 +354,13 @@ const copyHref = (href) => {
           <div
             v-for="article in state.furtherReading"
             :key="article._id"
-            role="region"
+            role="article"
+            aria-labelledby="article-{{ article._id }}-title"
           >
-            <blogCard :article="article"></blogCard>
+            <blogCard
+              :article="article"
+              id="article-{{ article._id }}-title"
+            ></blogCard>
           </div>
         </div>
       </div>

@@ -750,7 +750,7 @@ paths:
         404:
           description: The legal document was not found
 
-  /img:
+  /images:
     get:
       summary: Returns the list of all images
       tags: [Img]
@@ -778,7 +778,7 @@ paths:
                 properties:
                   message:
                     type: string
-  /img/{id}:
+  /images/{id}:
     get:
       summary: Get the image by id
       tags: [Img]

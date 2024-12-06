@@ -67,7 +67,7 @@ const currentYear = new Date().getFullYear();
         >
           <img
             class="cookie"
-            src="https://www.cloudflare.com/img/privacyoptions.svg"
+            src="../assets/cookies.svg"
             alt="privacy options"
           />
           &nbsp;&nbsp;<span>Cookies</span>
@@ -75,7 +75,7 @@ const currentYear = new Date().getFullYear();
         <span>&nbsp;|&nbsp;</span>
         <a href="/assets/press-kit.zip" class="footer-nav" title="Assets">
           <i style="font-size: var(--font-size-7)" class="pi pi-download"></i>
-          &nbsp; <span>Press Kit</span>
+          &nbsp;<span>Press Kit</span>
         </a>
         <span>&nbsp;|&nbsp;</span>
         <router-link to="/legal" class="footer-nav" title="Legal">

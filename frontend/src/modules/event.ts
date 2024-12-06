@@ -15,7 +15,9 @@ const timeline = () => {
     try {
       const response = await fetch("https://api.slavic.media/event/");
       const data = await response.json();
-      state.value.events = data;
+      state.value.events = data.sort(
+        (a: { _id: number }, b: { _id: number }) => a._id - b._id
+      );
     } catch (error) {
       console.error(error);
     }

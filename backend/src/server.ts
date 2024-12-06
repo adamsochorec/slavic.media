@@ -54,7 +54,7 @@ app.get("/", (req: Request, res: Response) => {
 
 // Route handlers
 app.use("/blog", articleRoutes);
-app.use("/img", imgRoutes);
+app.use("/images", imgRoutes);
 app.use("/video", videoRoutes);
 app.use("/user", authRoutes);
 app.use("/employee", employeeRoutes);

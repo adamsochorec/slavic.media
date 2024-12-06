@@ -55,7 +55,11 @@ const showRequestAProposal = (data: Gallery): void => {
   <article class="main" style="margin-top: 120px">
     <section class="wrapper-wide">
       <!-- PAGE INTRO -->
-      <div class="grid-container caption-container" v-if="isDataLoaded">
+      <div
+        class="grid-container caption-container"
+        v-if="isDataLoaded"
+        aria-busy="false"
+      >
         <div class="grid-item">
           <h1 class="reveal" aria-label="Video Services">
             <span class="gradient"> {{ serviceState.service?._id }} </span>

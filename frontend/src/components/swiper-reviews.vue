@@ -142,7 +142,7 @@ onMounted(async () => {
     role="region"
   >
     <h2 id="reviews-heading" class="visually-hidden">Customer Reviews</h2>
-    <div class="swiper-wrapper" v-if="isDataLoaded">
+    <div class="swiper-wrapper" v-if="isDataLoaded" aria-busy="false">
       <!-- Slide -->
       <div
         v-for="review in state.reviews"
@@ -190,8 +190,8 @@ onMounted(async () => {
         </p>
       </div>
     </div>
-    <div class="swiper-pagination" v-if="isDataLoaded"></div>
-    <skeletonSwiper v-else></skeletonSwiper>
+    <div class="swiper-pagination" v-if="isDataLoaded" aria-busy="false"></div>
+    <skeletonSwiper v-else aria-busy="true"></skeletonSwiper>
   </section>
 </template>
 

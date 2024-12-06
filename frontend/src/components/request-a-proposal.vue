@@ -72,7 +72,27 @@ onMounted(() => {
               aria-labelledby="contactFormGroupLabel"
             >
               <div class="grid-item">
-                <p><label for="email">Email *</label></p>
+                <p><label for="firstName">First Name *</label></p>
+                <input
+                  type="text"
+                  id="firstName"
+                  required
+                  name="firstName"
+                  autocomplete="given-name"
+                />
+                <br />
+                <p><label for="lastName">Last Name *</label></p>
+                <input
+                  type="text"
+                  id="lastName"
+                  required
+                  name="lastName"
+                  autocomplete="family-name"
+                />
+                <br />
+              </div>
+              <div class="grid-item">
+                <p><label for="email">Work Email *</label></p>
                 <input
                   type="email"
                   id="email"
@@ -81,15 +101,12 @@ onMounted(() => {
                   autocomplete="email"
                 />
                 <br />
-              </div>
-              <div class="grid-item">
-                <p><label for="name">Name *</label></p>
+                <p><label for="company">Company</label></p>
                 <input
                   type="text"
-                  id="name"
-                  required
-                  name="name"
-                  autocomplete="name"
+                  id="company"
+                  name="company"
+                  autocomplete="work"
                 />
                 <br />
               </div>
@@ -124,7 +141,7 @@ onMounted(() => {
 </template>
 <style scoped>
 .wrapper-standard {
-  height: var(--dimension-1);
+  height: 90vh;
   overflow: scroll;
 }
 .contact-form-section .contact-form .grid-item:nth-child(odd) {
@@ -228,7 +245,6 @@ option .default-option {
 }
 select {
   background-color: transparent;
-  background-image: url(/img/jpg/chevron-down-solid.svg);
   background-position: right;
   background-repeat: no-repeat;
   background-size: 30px;

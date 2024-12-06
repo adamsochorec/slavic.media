@@ -76,7 +76,11 @@ router.beforeEach((to, from, next) => {
   <article class="main" style="margin-top: 120px">
     <section class="wrapper-wide">
       <!-- PAGE INTRO -->
-      <div class="grid-container caption-container" v-if="isDataLoaded">
+      <div
+        class="grid-container caption-container"
+        v-if="isDataLoaded"
+        aria-busy="false"
+      >
         <div class="grid-item">
           <h1 class="reveal" aria-label="Photo Services">
             <span class="gradient"> {{ serviceState.service?._id }} </span>
@@ -92,7 +96,12 @@ router.beforeEach((to, from, next) => {
     </section>
     <!-- GALLERIES -->
     <template v-for="(gallery, galleryKey) in imgState.img" :key="galleryKey">
-      <section v-if="isDataLoaded" class="wrapper-wide" id="photo">
+      <section
+        v-if="isDataLoaded"
+        aria-busy="false"
+        class="wrapper-wide"
+        id="photo"
+      >
         <div :id="gallery._id"></div>
         <hr class="reveal" role="separator" />
 
@@ -121,7 +130,7 @@ router.beforeEach((to, from, next) => {
         <hr class="semi" role="separator" />
       </section>
 
-      <section v-if="isDataLoaded" class="popup-gallery">
+      <section v-if="isDataLoaded" aria-busy="false" class="popup-gallery">
         <div class="row">
           <div
             v-for="(column, columnIndex) in gallery.columns"
@@ -152,10 +161,12 @@ router.beforeEach((to, from, next) => {
         </div>
       </section>
     </template>
-    <section v-if="isDataLoaded">
+    <section v-if="isDataLoaded" aria-busy="false">
       <bannerLightroomPresets></bannerLightroomPresets>
     </section>
-    <div class="wrapper-wide" v-else><skeletonServices></skeletonServices></div>
+    <div class="wrapper-wide" v-else aria-busy="true" aria-live="polite">
+      <skeletonServices></skeletonServices>
+    </div>
   </article>
 </template>
 

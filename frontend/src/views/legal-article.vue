@@ -23,7 +23,7 @@ interface State {
 <template>
   <article class="main" style="margin-top: 120px">
     <section class="wrapper-wide">
-      <div v-if="isDataLoaded">
+      <div v-if="isDataLoaded" aria-busy="false">
         <h1 class="reveal" role="heading" aria-level="1">
           {{ state.legal?.title }}
         </h1>
@@ -45,7 +45,7 @@ interface State {
           ></section>
         </div>
       </div>
-      <div v-else>
+      <div v-else aria-busy="true" aria-live="polite">
         <div class="flex mb-4">
           <Skeleton
             style="background-color: rgb(var(--dark-grey-color))"

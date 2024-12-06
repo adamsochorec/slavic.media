@@ -56,7 +56,7 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
     >
       <h2 id="our-team-heading" class="visually-hidden">Our Team</h2>
       <!-- Additional required wrapper -->
-      <div class="swiper-wrapper" v-if="isDataLoaded">
+      <div class="swiper-wrapper" v-if="isDataLoaded" aria-busy="false">
         <div
           v-for="employee in state.employees"
           :key="employee._id"
@@ -122,7 +122,11 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
           <!-- Slide End -->
         </div>
       </div>
-      <skeletonSwiper v-else></skeletonSwiper>
+      <skeletonSwiper
+        v-else
+        aria-busy="true"
+        aria-live="polite"
+      ></skeletonSwiper>
     </section>
   </div>
 </template>
