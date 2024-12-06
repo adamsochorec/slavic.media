@@ -45,7 +45,7 @@ app.get("/", (req, res) => {
 });
 // Route handlers
 app.use("/blog", article_1.default);
-app.use("/images", images_1.default);
+app.use("/img", images_1.default);
 app.use("/video", video_1.default);
 app.use("/user", auth_1.default);
 app.use("/employee", employee_1.default);

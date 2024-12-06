@@ -25,7 +25,7 @@ const swaggerDefinition = yaml.load(path.join(__dirname, "..", "swagger.yaml"));
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition, options));
 
 import articleRoutes from "./routes/article";
-import imgRoutes from "./routes/images";
+import imageRoutes from "./routes/images";
 import videoRoutes from "./routes/video";
 import authRoutes from "./routes/auth";
 import employeeRoutes from "./routes/employee";
@@ -54,7 +54,7 @@ app.get("/", (req: Request, res: Response) => {
 
 // Route handlers
 app.use("/blog", articleRoutes);
-app.use("/images", imgRoutes);
+app.use("/img", imageRoutes);
 app.use("/video", videoRoutes);
 app.use("/user", authRoutes);
 app.use("/employee", employeeRoutes);

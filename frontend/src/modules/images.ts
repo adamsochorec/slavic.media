@@ -6,7 +6,7 @@ const state = ref({
 
 const getAllImages = async () => {
   try {
-    const response = await fetch("https://api.slavic.media/images/");
+    const response = await fetch("https://api.slavic.media/img/");
     if (!response.ok) {
       throw new Error("Failed to fetch photo galleries");
     }
