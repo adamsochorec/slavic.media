@@ -74,10 +74,10 @@ router.beforeEach((to, from, next) => {
           </button>
         </div>
       </div>
-      <hr class="semi" role="separator" />
+      <br />
       <swiperColourGrading></swiperColourGrading>
       <div id="video-edit"></div>
-      <hr class="reveal" role="separator" />
+      <br />>
       <div class="grid-container caption-container">
         <div class="grid-item">
           <h2 class="reveal" aria-label="Video Services">
@@ -103,12 +103,14 @@ router.beforeEach((to, from, next) => {
         </div>
       </div>
       <hr class="semi" role="separator" />
-      <iframe
-        src="https://player.vimeo.com/video/987964137?h=870f308e79&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-        frameborder="0"
-        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-        title="Showreel 2024 | Slavic Media"
-      ></iframe>
+      <div style="padding: 177.78% 0 0 0; position: relative">
+        <iframe
+          src="https://player.vimeo.com/video/1037071233?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          title="Post Production | Slavic Media"
+        ></iframe>
+      </div>
       <div id="sound-design"></div>
       <hr class="reveal" role="separator" />
       <div class="grid-container caption-container">
@@ -135,7 +137,7 @@ router.beforeEach((to, from, next) => {
           </button>
         </div>
       </div>
-      <hr class="semi" role="separator" />
+      <br />
       <iframe
         src="https://player.vimeo.com/video/1036355079?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
         frameborder="0"
