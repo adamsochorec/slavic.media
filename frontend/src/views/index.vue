@@ -20,7 +20,7 @@ onMounted(async () => {
   <article class="main homepage">
     <!-- INTRO VIDEO START -->
     <heroVideo
-      src="https://slavic.media/video/showreel.mp4"
+      src="https://slavic.media/img/showreel.mp4"
       poster="https://cdn.slavic.media/images/showreel/height=800,sharpen=100"
       loop
       autoplay

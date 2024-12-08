@@ -130,7 +130,7 @@ router.beforeEach((to, from, next) => {
             </button>
           </div>
         </div>
-        <hr class="semi" role="separator" />
+        <br />
       </section>
 
       <section v-if="isDataLoaded" aria-busy="false" class="popup-gallery">

@@ -100,7 +100,7 @@ const showRequestAProposal = (data: Gallery): void => {
                 </div>
               </button>
             </div>
-            <hr class="reveal semi" role="separator" />
+            <br />
           </div>
 
           <!-- GALLERY ITEMS -->
@@ -144,7 +144,7 @@ const showRequestAProposal = (data: Gallery): void => {
           </div>
           <div id="content"></div>
         </div>
-        <hr class="semi" role="separator" />
+        <br />
         <swiperReels></swiperReels>
       </div>
       <div v-else aria-busy="true" aria-live="polite">
