@@ -17,6 +17,14 @@ interface State {
 const { state, getAllEvents } = event();
 const isDataLoaded = ref<boolean>(false);
 
+// SHOW MORE START
+const EVENTS_INCREMENT = 6;
+const eventsToShow = ref(EVENTS_INCREMENT);
+// SHOW MORE END
+
+const loadMoreEvents = () => {
+  eventsToShow.value += EVENTS_INCREMENT;
+};
 onMounted(async () => {
   await getAllEvents();
   isDataLoaded.value = true;
@@ -73,29 +81,39 @@ onMounted(async () => {
         Company <span class="gradient">Journey</span>
       </h2>
       <br />
-      <Timeline
-        v-if="isDataLoaded"
-        align="alternate"
-        :value="state.events"
-        aria-busy="false"
-        aria-labelledby="company-timeline"
-      >
-        <template #marker="slotProps">
-          <span class="flex h-8 items-center justify-center">
-            <span :class="`pi ${slotProps.item.icon}`"></span>
-          </span>
-        </template>
-        <template #content="slotProps">
-          <div>
-            <p class="reveal">
-              {{ slotProps.item.date }}
-            </p>
-            <p class="reveal" style="font-size: var(--font-size-8)">
-              {{ slotProps.item.event }}
-            </p>
-          </div>
-        </template>
-      </Timeline>
+      <div v-if="isDataLoaded">
+        <Timeline
+          align="alternate"
+          :value="state.events.slice(0, eventsToShow)"
+          aria-busy="false"
+          aria-labelledby="company-timeline"
+        >
+          <template #marker="slotProps">
+            <span class="flex h-8 items-center justify-center">
+              <span :class="`pi ${slotProps.item.icon}`"></span>
+            </span>
+          </template>
+          <template #content="slotProps">
+            <div>
+              <p class="reveal">
+                {{ slotProps.item.date }}
+              </p>
+              <p class="reveal" style="font-size: var(--font-size-8)">
+                {{ slotProps.item.event }}
+              </p>
+            </div>
+          </template>
+        </Timeline>
+        <div class="flex-center">
+          <button
+            v-if="eventsToShow < state.events.length"
+            @click="loadMoreEvents"
+            class="cta reveal"
+          >
+            Show More<i class="pi pi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
       <div v-else v-for="n in 4" :key="n" aria-busy="true" aria-live="polite">
         <ul style="list-style: none" class="m-0">
           <li class="mb-3">

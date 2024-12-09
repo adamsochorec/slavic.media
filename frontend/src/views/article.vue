@@ -8,9 +8,16 @@ import $ from "jquery";
 import galleryItem from "@/components/gallery-item.vue";
 
 const { getAllArticles, getSpecificArticle, state } = article();
+const isDataLoaded = ref(false);
 const route = useRoute();
 
-const isDataLoaded = ref(false);
+// SHOW MORE START
+const ARTICLES_INCREMENT = 4;
+const articlesToShow = ref(ARTICLES_INCREMENT);
+const loadMoreArticles = () => {
+  articlesToShow.value += ARTICLES_INCREMENT;
+};
+// SHOW MORE END
 
 const loadArticle = async (_id) => {
   isDataLoaded.value = false;
@@ -199,7 +206,6 @@ const copyHref = (href) => {
           </div>
         </div>
       </div>
-
       <div v-else aria-busy="true" aria-live="polite">
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
@@ -331,10 +337,13 @@ const copyHref = (href) => {
         ></Skeleton>
       </div>
     </section>
+    <!-- LIGHTROOM PRESETS BANNER CTA -->
     <bannerLightroomPresets
       v-if="isDataLoaded"
       aria-busy="false"
     ></bannerLightroomPresets>
+    <!-- FURTHER READING -->
+
     <section
       class="wrapper-standard"
       role="region"
@@ -352,7 +361,7 @@ const copyHref = (href) => {
         <hr class="quater reveal" />
         <div class="grid-container">
           <div
-            v-for="article in state.furtherReading"
+            v-for="article in state.furtherReading.slice(0, articlesToShow)"
             :key="article._id"
             role="article"
             aria-labelledby="article-{{ article._id }}-title"
@@ -363,6 +372,15 @@ const copyHref = (href) => {
             ></blogCard>
           </div>
         </div>
+      </div>
+      <div class="flex-center">
+        <button
+          v-if="articlesToShow < state.furtherReading.length"
+          @click="loadMoreArticles"
+          class="cta reveal"
+        >
+          Show More<i class="pi pi-arrow-right"></i>
+        </button>
       </div>
     </section>
   </article>

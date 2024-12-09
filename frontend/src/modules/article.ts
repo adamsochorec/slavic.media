@@ -82,7 +82,7 @@ const article = () => {
     const filteredArticles = state.value.articles.filter(
       (article) => article._id !== currentArticleID
     );
-    state.value.furtherReading = filteredArticles.slice(-4);
+    state.value.furtherReading = filteredArticles;
   };
 
   return {

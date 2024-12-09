@@ -26,8 +26,15 @@ interface State {
 }
 
 const { state, getAllArticles } = article();
-
 const isDataLoaded = ref<boolean>(false);
+
+// SHOW MORE START
+const ARTICLES_INCREMENT = 6;
+const articlesToShow = ref(ARTICLES_INCREMENT);
+const loadMoreArticles = () => {
+  articlesToShow.value += ARTICLES_INCREMENT;
+};
+// SHOW MORE END
 
 onMounted(async () => {
   await getAllArticles();
@@ -46,12 +53,22 @@ onMounted(async () => {
       <div v-if="isDataLoaded" aria-busy="false">
         <div class="grid-container">
           <div
-            v-for="article in state.articles"
+            v-for="article in state.articles.slice(0, articlesToShow)"
             :key="article._id"
             role="region"
           >
             <blogCard :article="article"></blogCard>
           </div>
+        </div>
+        <br />
+        <div class="flex-center">
+          <button
+            v-if="articlesToShow < state.articles.length"
+            @click="loadMoreArticles"
+            class="cta reveal"
+          >
+            Show More<i class="pi pi-arrow-right"></i>
+          </button>
         </div>
       </div>
       <div v-else class="grid-container" aria-busy="true" aria-live="polite">
@@ -72,9 +89,11 @@ onMounted(async () => {
   border-radius: var(--border-radius-1);
   color: white;
 }
+
 h1 {
   font-size: var(--font-size-2);
 }
+
 @media only screen and (min-width: 500px) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);

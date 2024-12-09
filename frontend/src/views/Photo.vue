@@ -16,6 +16,15 @@ const { state: imageState, getAllImages } = image;
 const { state: serviceState, getSpecificService } = services();
 const router = useRouter();
 
+// SHOW MORE START
+
+const PHOTOS_INCREMENT = 2;
+const photosToShow = ref(PHOTOS_INCREMENT);
+const loadMorePhotos = () => {
+  photosToShow.value += PHOTOS_INCREMENT;
+};
+// SHOW MORE END
+
 async function initializeLightbox(): Promise<void> {
   await nextTick();
   $(".popup-gallery").magnificPopup({
@@ -140,7 +149,11 @@ router.beforeEach((to, from, next) => {
             :key="columnIndex"
             class="column"
           >
-            <div v-for="image in column" :key="image._id" class="reveal">
+            <div
+              v-for="image in column.slice(0, loadMorePhotos)"
+              :key="image._id"
+              class="reveal"
+            >
               <a
                 :href="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280w,sharpen=100`"
                 :title="image.title"
@@ -153,6 +166,15 @@ router.beforeEach((to, from, next) => {
                   <use :xlink:href="`#${flag}`"></use>
                 </svg>
               </a>
+            </div>
+            <div class="flex-center">
+              <button
+                v-if="articlesToShow < state.articles.length"
+                @click="loadMoreArticles"
+                class="cta reveal"
+              >
+                Show More<i class="pi pi-arrow-right"></i>
+              </button>
             </div>
           </div>
         </div>
