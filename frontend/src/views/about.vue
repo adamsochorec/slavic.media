@@ -25,22 +25,8 @@ onMounted(async () => {
 
 <template>
   <article class="main">
-    <heroVideo
-      src="https://slavic.media/img/behind-the-scenes.mp4"
-      poster="https://cdn.slavic.media/images/behind-the-scenes//height=800,sharpen=100"
-      loop
-      autoplay
-      muted
-      vimeo="https://vimeo.com/slavicmedia/behind-the-scenes?share=copy"
-      aria-labelledby="hero-video-title hero-video-desc"
-    >
-      <div id="hero-video-title" hidden>Behind the Scenes Video</div>
-      <div id="hero-video-desc" hidden>
-        A behind-the-scenes look at Slavic Media's production process,
-        showcasing creative techniques and studio environments.
-      </div>
+    <heroVideo id="1013776851" ariaLabel="Behind the Scenes | Slavic Media">
     </heroVideo>
-
     <section
       class="wrapper-standard"
       role="region"

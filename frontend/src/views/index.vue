@@ -20,13 +20,9 @@ onMounted(async () => {
   <article class="main homepage">
     <!-- INTRO VIDEO START -->
     <heroVideo
-      src="https://slavic.media/img/showreel.mp4"
-      poster="https://cdn.slavic.media/images/showreel/height=800,sharpen=100"
-      loop
-      autoplay
-      muted
-      vimeo="https://vimeo.com/slavicmedia/showreel?share=copy"
-      ariaLabel="Showreel"
+      id="987964137"
+      ariaLabel="Showreel 2024 | Slavic Media"
+      start="7"
     />
     <!-- INTRO VIDEO END -->
 

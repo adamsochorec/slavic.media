@@ -3,13 +3,10 @@ import { onMounted } from "vue";
 import { defineProps } from "vue";
 
 interface Props {
-  src: string;
+  id: string;
+  start?: number;
   poster?: string;
-  muted?: boolean;
-  autoplay?: boolean;
-  loop?: boolean;
   ariaLabel?: string;
-  vimeo?: string;
 }
 
 const props = defineProps<Props>();
@@ -70,21 +67,12 @@ onMounted(() => {
 <template>
   <section class="showcase" aria-labelledby="video-title">
     <div class="video-container">
-      <video
-        :src="src"
-        :loop="loop"
-        :autoplay="autoplay"
-        :muted="muted"
-        class="video-offload"
-        preload="auto"
-        :aria-label="ariaLabel"
-        aria-describedby="video-description"
-        playsinline
-        role="img"
-        :poster="poster"
-      ></video>
+      <iframe
+        :src="`https://player.vimeo.com/video/${id}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;muted=1&amp;autoplay=1&amp;loop=1&amp;controls=0#t=${start}s`"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+        :title="ariaLabel"
+      ></iframe>
     </div>
-    <h1 id="video-title" class="visually-hidden">{{ ariaLabel }}</h1>
     <p id="video-description" class="visually-hidden">
       {{ ariaLabel }}
     </p>
@@ -92,7 +80,7 @@ onMounted(() => {
       class="link"
       target="_blank"
       rel="noopener noreferrer nofollow"
-      :href="vimeo"
+      :href="`https://vimeo.com/${id}?share=copy`"
       v-tooltip.left="{ value: 'Watch on Vimeo', autoHide: true }"
       aria-label="Watch on Vimeo"
     >
@@ -128,17 +116,16 @@ onMounted(() => {
   background-size: cover;
   z-index: -1;
 }
-.video-container video {
+.video-container iframe {
+  box-sizing: border-box;
+  width: 177.77777778vh;
+  height: 56.25vw;
   min-width: 100%;
   min-height: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -o-object-fit: cover;
-  object-fit: cover;
 }
 
 @media only screen and (max-width: 415px) {
