@@ -194,6 +194,7 @@ const copyHref = (href) => {
               icon="map-marker"
               :url="`https://vimeo.com/slavicmedia/${video.url}`"
               :desc="`${video.year}`"
+              :alt="video.title"
             />
           </div>
         </div>

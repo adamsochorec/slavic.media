@@ -91,12 +91,12 @@ onMounted(() => {
     <p class="info">
       This website uses analytical cookies to help you have a superior and more
       relevant browsing experience on the website. <br />
-      You can learn more about our policy
+      Learn more about our
       <router-link
         aria-label="Cookie Policy"
         title="Cookie Policy"
         to="/legal/cookie-policy"
-        >here</router-link
+        >cookie policy </router-link
       >.
     </p>
     <div class="grid-container">

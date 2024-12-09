@@ -130,7 +130,6 @@ onMounted(() => {
           preload="auto"
           playsinline
           role="region"
-          :aria-label="`Instagram reel ${index + 1}`"
           :src="`https://slavic.media/videos/${reel.id}.mp4`"
         >
           <track kind="captions" srclang="en" label="English captions" />
