@@ -29,7 +29,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <article class="card" role="article" aria-labelledby="article-title">
+  <article class="card" aria-labelledby="article-title">
     <galleryItem
       :img="article.metadata.thumbnail"
       :url="`/blog/${article._id}`"

@@ -60,11 +60,7 @@ const currentYear = new Date().getFullYear();
     <hr role="separator" />
     <div class="footer-container">
       <nav class="grid-item" aria-label="Footer Navigation">
-        <button
-          @click="revokeConsent"
-          class="footer-nav cookie-button"
-          title="Cookies"
-        >
+        <button @click="revokeConsent" class="footer-nav cookie-button">
           <img
             class="cookie"
             src="../assets/cookies.svg"
@@ -91,7 +87,6 @@ const currentYear = new Date().getFullYear();
           aria-label="Legal documents"
           to="/legal"
           class="footer-nav"
-          title="Legal"
         >
           <i
             style="font-size: var(--font-size-7)"

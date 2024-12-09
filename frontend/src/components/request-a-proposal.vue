@@ -66,6 +66,9 @@ onMounted(() => {
             <p id="formDescription" class="visually-hidden">
               This form is used to request a proposal.
             </p>
+            <div id="contactFormGroupLabel" class="visually-hidden">
+              Contact Form Group
+            </div>
             <div
               class="grid-container contact-form"
               role="group"
@@ -106,7 +109,7 @@ onMounted(() => {
                   type="text"
                   id="company"
                   name="company"
-                  autocomplete="work"
+                  autocomplete="organization"
                 />
                 <br />
               </div>
@@ -251,8 +254,6 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-}
-textarea {
 }
 @media only screen and (max-width: 375px) {
   button.submit-btn {

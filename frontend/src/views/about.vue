@@ -24,7 +24,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <article class="main">
+  <article class="main" aria-labelledby="about-company">
     <heroVideo id="1013776851" ariaLabel="Behind the Scenes | Slavic Media">
     </heroVideo>
     <section class="wrapper-standard" role="region">
@@ -41,7 +41,7 @@ onMounted(async () => {
           I/S</span
         >
       </h1>
-      <p aria-labelledby="about-company">
+      <p id="about-company">
         Creative & Production studio based in Denmark and Czechia. We tell
         stories with deep eye contact, magnificent shots, and clean designs to
         help your project stand out from the noise.

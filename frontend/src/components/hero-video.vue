@@ -66,7 +66,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="showcase" aria-labelledby="video-title">
+  <section class="showcase" aria-labelledby="video-description">
     <div class="video-container">
       <lite-vimeo :videoid="id"></lite-vimeo>
       <iframe

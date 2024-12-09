@@ -65,13 +65,13 @@ const swiperOptions = {
             <template #left>
               <img
                 :src="`https://cdn.slavic.media/images/${slide.original}/public`"
-                alt="Original version of image"
+                :alt="`Original version of ${slide.original}`"
               />
             </template>
             <template #right>
               <img
                 :src="`https://cdn.slavic.media/images/${slide.edited}/public`"
-                alt="Edited version of image"
+                :alt="`Original version of ${slide.edited}`"
               />
             </template>
           </ImageCompare>
