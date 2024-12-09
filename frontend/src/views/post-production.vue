@@ -103,13 +103,12 @@ router.beforeEach((to, from, next) => {
         </div>
       </div>
       <hr class="semi" role="separator" />
-        <iframe
-          src="https://player.vimeo.com/video/1037071233?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-          title="Post Production | Slavic Media"
-        ></iframe>
-      </div>
+      <iframe
+        src="https://player.vimeo.com/video/1037071233?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+        title="Post Production | Slavic Media"
+      ></iframe>
       <div id="sound-design"></div>
       <hr class="reveal" role="separator" />
       <div class="grid-container caption-container">
