@@ -27,7 +27,7 @@ const items = ref<MenuItem[]>([
   },
   {
     label: "Drone",
-    icon: "pi pi-drone",
+    icon: "pi pi-bolt",
     command: () => router.push("/services/drone"),
   },
   {

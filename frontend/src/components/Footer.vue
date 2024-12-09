@@ -105,9 +105,7 @@ const currentYear = new Date().getFullYear();
         </p>
       </nav>
       <span style="opacity: 30%" class="footer-link">
-        ©&nbsp;{{ currentYear }} Slavic Media I/S.&nbsp;<br
-          class="footerBreak"
-        />
+        ©&nbsp;{{ currentYear }} Slavic Media I/S.&nbsp;
         <a
           target="_blank"
           rel="noopener noreferrer nofollow"
@@ -171,8 +169,9 @@ footer .footer-container {
   justify-content: space-between;
   line-height: 1.5;
 }
-footer .footer-container .footerBreak {
-  display: none;
+footer .footer-container:last-of-type {
+  display: block;
+  text-align: center;
 }
 
 footer p,
@@ -217,15 +216,6 @@ footer .language-container {
 @media only screen and (max-width: 850px) {
   footer {
     font-size: var(--font-size-8);
-  }
-
-  footer .footer-container:last-of-type {
-    display: block;
-    text-align: center;
-  }
-
-  footer .footer-container .footerBreak {
-    display: block;
   }
 }
 </style>

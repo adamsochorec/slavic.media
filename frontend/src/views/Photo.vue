@@ -17,8 +17,7 @@ const { state: serviceState, getSpecificService } = services();
 const router = useRouter();
 
 // SHOW MORE START
-
-const PHOTOS_INCREMENT = 2;
+const PHOTOS_INCREMENT = 4;
 const photosToShow = ref(PHOTOS_INCREMENT);
 const loadMorePhotos = () => {
   photosToShow.value += PHOTOS_INCREMENT;
@@ -61,7 +60,7 @@ async function initializeLightbox(): Promise<void> {
 onMounted(async () => {
   try {
     await Promise.all([getSpecificService("photo"), getAllImages()]);
-    isDataLoaded.value = false;
+    isDataLoaded.value = true;
   } catch (error) {}
 });
 
@@ -150,7 +149,7 @@ router.beforeEach((to, from, next) => {
             class="column"
           >
             <div
-              v-for="image in column.slice(0, loadMorePhotos)"
+              v-for="image in column.slice(0, photosToShow)"
               :key="image._id"
               class="reveal"
             >
@@ -167,16 +166,19 @@ router.beforeEach((to, from, next) => {
                 </svg>
               </a>
             </div>
-            <div class="flex-center">
-              <button
-                v-if="articlesToShow < state.articles.length"
-                @click="loadMoreArticles"
-                class="cta reveal"
-              >
-                Show More<i class="pi pi-arrow-right"></i>
-              </button>
-            </div>
           </div>
+        </div>
+        <div class="flex-center">
+          <button
+            v-if="
+              photosToShow <
+              Math.max(...gallery.columns.map((column) => column.length))
+            "
+            @click="loadMorePhotos"
+            class="cta reveal"
+          >
+            Show More<i class="pi pi-arrow-right"></i>
+          </button>
         </div>
       </section>
     </template>
