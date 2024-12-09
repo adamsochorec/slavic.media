@@ -32,7 +32,7 @@ function truncateText(text: string, maxLength: number): string {
       <div class="gallery-item-caption">
         <i aria-hidden="true" :class="`bubble pi pi-${icon}`"></i>
         <header>
-          <span class="title" v-if="title">{{ truncateText(title, 20) }}</span>
+          <span class="title" v-if="title">{{ truncateText(title, 22) }}</span>
         </header>
         <section>
           <p>{{ truncateText(desc, 100) }}</p>

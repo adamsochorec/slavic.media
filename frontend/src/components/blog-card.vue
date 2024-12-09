@@ -95,6 +95,8 @@ img {
 }
 .avatar {
   height: 30px;
+  width: auto;
+  aspect-ratio: 1/1;
 }
 .metadata {
   display: -webkit-box;

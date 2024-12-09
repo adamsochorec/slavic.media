@@ -96,7 +96,7 @@ onMounted(() => {
         aria-label="Cookie Policy"
         title="Cookie Policy"
         to="/legal/cookie-policy"
-        >cookie policy </router-link
+        >cookie policy</router-link
       >.
     </p>
     <div class="grid-container">
@@ -125,7 +125,6 @@ onMounted(() => {
   position: fixed;
   bottom: var(--grid-gap-2);
   right: var(--grid-gap-2);
-
   max-width: 345px;
   width: 100%;
   background-color: var(--dark-grey-color-full);
@@ -195,16 +194,11 @@ onMounted(() => {
     bottom: 0;
     max-width: 100%;
     right: 0;
-    background-color: var(--dark-grey-color-full);
-    border-radius: var(--border-radius-1);
-    -webkit-backdrop-filter: var(--blur-1);
-    backdrop-filter: var(--blur-1);
     padding: var(--grid-gap-2) var(--homepage-padding);
-    -webkit-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    -webkit-box-shadow: var(--box-shadow-1);
-    box-shadow: var(--box-shadow-1);
+    border-top-left-radius: var(--border-radius-1);
+    border-top-right-radius: var(--border-radius-1);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }
 </style>

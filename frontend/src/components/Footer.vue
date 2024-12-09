@@ -57,7 +57,7 @@ const currentYear = new Date().getFullYear();
         </a>
       </nav>
     </div>
-    <hr role="separator" />
+    <hr style="opacity: 30%" role="separator" />
     <div class="footer-container">
       <nav class="grid-item" aria-label="Footer Navigation">
         <button @click="revokeConsent" class="footer-nav cookie-button">
@@ -66,14 +66,17 @@ const currentYear = new Date().getFullYear();
             src="../assets/cookies.svg"
             alt="privacy options"
           />
-          &nbsp;&nbsp;<span>Cookies</span>
+          &nbsp;&nbsp;<span style="opacity: 30%" class="footer-link"
+            >Cookies</span
+          >
         </button>
-        <span>&nbsp;|&nbsp;</span>
+        <span style="opacity: 30%" class="footer-link">&nbsp;|&nbsp;</span>
         <a
           aria-label="Press Kit"
           href="/assets/press-kit.zip"
-          class="footer-nav"
+          class="footer-nav footer-link"
           title="Assets"
+          style="opacity: 30%"
         >
           <i
             style="font-size: var(--font-size-7)"
@@ -82,11 +85,12 @@ const currentYear = new Date().getFullYear();
           ></i>
           &nbsp;<span>Press Kit</span>
         </a>
-        <span>&nbsp;|&nbsp;</span>
+        <span style="opacity: 30%" class="footer-link">&nbsp;|&nbsp;</span>
         <router-link
+          style="opacity: 30%"
           aria-label="Legal documents"
           to="/legal"
-          class="footer-nav"
+          class="footer-nav footer-link"
         >
           <i
             style="font-size: var(--font-size-7)"
@@ -95,12 +99,12 @@ const currentYear = new Date().getFullYear();
           ></i>
           &nbsp;<span>Legal</span>
         </router-link>
-        <span>&nbsp;|&nbsp;</span>
-        <p style="display: inline" title="VAT Number">
-          <span>VAT:&nbsp;DK44081512</span>
+        <span style="opacity: 30%" class="footer-link">&nbsp;|&nbsp;</span>
+        <p style="opacity: 30%; display: inline" title="VAT Number">
+          <span class="footer-link">VAT:&nbsp;DK44081512</span>
         </p>
       </nav>
-      <span>
+      <span style="opacity: 30%" class="footer-link">
         ©&nbsp;{{ currentYear }} Slavic Media I/S.&nbsp;<br
           class="footerBreak"
         />
@@ -109,7 +113,7 @@ const currentYear = new Date().getFullYear();
           rel="noopener noreferrer nofollow"
           href="https://datacvr.virk.dk/enhed/virksomhed/44081512?fritekst=slavic%20media&sideIndex=0&size=10"
           class="footer-nav"
-          style="text-decoration: underline"
+          style="text-decoration: underline; color: white"
           >Registered company in Denmark
         </a></span
       >
@@ -134,6 +138,9 @@ const currentYear = new Date().getFullYear();
 .grid-item i:hover {
   color: unset;
 }
+.footer-link i:hover {
+  color: white;
+}
 footer .footer-nav {
   color: rgb(var(--primary-color));
 }
@@ -141,10 +148,7 @@ footer .footer-nav span,
 footer .footer-nav span:hover {
   text-decoration: underline;
 }
-footer .footer-nav:hover,
-.grid-item i:hover {
-  opacity: 80%;
-}
+
 footer {
   padding: var(--grid-gap-3) var(--homepage-padding);
   background-color: rgb(var(--dark-grey-color));
@@ -157,9 +161,7 @@ footer img {
   -webkit-animation: none;
   animation: none;
 }
-footer a.footer-nav {
-  color: white;
-}
+
 footer .footer-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -172,10 +174,7 @@ footer .footer-container {
 footer .footer-container .footerBreak {
   display: none;
 }
-footer .footer-container:last-of-type,
-footer hr {
-  opacity: 30%;
-}
+
 footer p,
 footer a,
 footer span {

@@ -17,7 +17,7 @@
         aria-hidden="true"
       ></Skeleton>
     </div>
-    <div class="w-full xl:w-6/12 pl-6">
+    <div class="w-full xl:w-6/12 grid-item">
       <Skeleton
         style="background-color: rgb(var(--dark-grey-color))"
         height="4rem"
@@ -81,3 +81,10 @@
     ></Skeleton>
   </div>
 </template>
+<style scoped>
+@media only screen and (min-width: 1280px) {
+  .grid-item {
+    padding-left: 30px;
+  }
+}
+</style>

@@ -374,6 +374,8 @@ h1 {
 }
 .avatar {
   height: 60px;
+  width: auto;
+  aspect-ratio: 1/1;
 }
 .article-metadata {
   margin: var(--grid-gap-2) 0;

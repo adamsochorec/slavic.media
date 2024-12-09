@@ -18,99 +18,22 @@ const items = ref<MenuItem[]>([
   {
     label: "Photo",
     icon: "pi pi-camera",
-    items: [
-      {
-        label: "Portrait",
-        command: () => router.push("/services/photo#portrait"),
-        icon: "pi pi-user",
-        value: "Portrait",
-      },
-      {
-        label: "Outdoor",
-        command: () => router.push("/services/photo#outdoor"),
-        icon: "pi pi-map",
-        value: "Outdoor",
-      },
-      {
-        label: "Still",
-        command: () => router.push("/services/photo#still"),
-        icon: "pi pi-camera",
-        value: "Still",
-      },
-    ],
+    command: () => router.push("/services/photo"),
   },
   {
     label: "Video",
     icon: "pi pi-video",
-    items: [
-      {
-        label: "Showreel",
-        command: () => router.push("/services/video#showreel"),
-        icon: "pi pi-trophy",
-        value: "Showreel",
-      },
-      {
-        label: "Narrative",
-        command: () => router.push("/services/video#narrative"),
-        icon: "pi pi-microphone",
-        value: "Narrative",
-      },
-      {
-        label: "Content",
-        command: () => router.push("/services/video#content"),
-        icon: "pi pi-user",
-        value: "Content",
-      },
-    ],
+    command: () => router.push("/services/video"),
   },
   {
     label: "Drone",
     icon: "pi pi-drone",
-    items: [
-      {
-        label: "Still",
-        command: () => router.push("/services/drone#still"),
-        icon: "pi pi-camera",
-        value: "Still",
-      },
-      {
-        label: "Video",
-        command: () => router.push("/services/drone#video"),
-        icon: "pi pi-video",
-        value: "Video",
-      },
-      {
-        label: "Terrain Maping",
-        command: () => router.push("/services/drone#terrain-maping"),
-        icon: "pi pi-map",
-        value: "Terrain Mapping",
-      },
-    ],
+    command: () => router.push("/services/drone"),
   },
   {
     label: "Post Production",
     icon: "pi pi-image",
-    items: [
-      {
-        label: "Colour Grading",
-        command: () => router.push("/services/post-production#colour-grade"),
-        icon: "pi pi-palette",
-        value: "Colour Grade",
-      },
-      {
-        label: "Video Editing",
-        command: () => router.push("/services/post-production#video-edit"),
-        icon: "pi pi-image",
-        value: "Video Edit",
-      },
-
-      {
-        label: "Sound Design",
-        command: () => router.push("/services/post-production#sound-design"),
-        icon: "pi pi-headphones",
-        value: "Sound Design",
-      },
-    ],
+    command: () => router.push("/services/post-production"),
   },
 ]);
 
