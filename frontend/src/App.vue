@@ -2,7 +2,7 @@
 import { onMounted } from "vue";
 import { RouterView } from "vue-router";
 import { provideAuth } from "./modules/logIn-logOut";
-
+import chat from "@/components/chat.vue";
 provideAuth();
 
 // COMPONENTS
@@ -73,7 +73,7 @@ onMounted(() => {
   <div>
     <!-- HEADER START -->
     <NavBar></NavBar>
-    <aside><Cookies></Cookies></aside>
+    <aside><Cookies></Cookies><chat></chat></aside>
 
     <!-- HEADER END -->
     <main>

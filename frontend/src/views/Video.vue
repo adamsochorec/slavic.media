@@ -110,6 +110,7 @@ const showRequestAProposal = (data: Gallery): void => {
               :key="video._id"
               :img="video._id"
               icon="video"
+              :alt="`${video.title} cover`"
               :opacity="0.5"
               :url="`https://vimeo.com/slavicmedia/${video.url}`"
               :title="video.title"

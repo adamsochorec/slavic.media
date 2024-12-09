@@ -86,9 +86,9 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
             />
           </div>
           <section class="profile">
-            <h4 :id="`employee-${employee._id}`" class="reveal">
+            <h3 :id="`employee-${employee._id}`" class="reveal">
               {{ employee.name }}
-            </h4>
+            </h3>
             <div class="social-icons reveal">
               <a
                 :href="`mailto:${employee.email}`"
@@ -115,9 +115,9 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
                 <i title="GitHub" class="pi pi-github"></i>
               </a>
             </div>
-            <h6 class="reveal">
+            <h4 class="reveal">
               {{ employee.department }}
-            </h6>
+            </h4>
           </section>
           <!-- Slide End -->
         </div>
@@ -133,19 +133,21 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
 <style scoped>
 .profile h3,
 .profile h4,
-.profile h6,
 .profile p {
   padding: 0;
   margin: 0 0 var(--grid-gap-1) 0;
 }
-.profile h4,
-.profile h6 {
+.profile h3,
+.profile h4 {
   margin-top: var(--grid-gap-1) !important;
 }
 .profile p {
   margin-bottom: var(--grid-gap-1) !important;
 }
-h6 {
+h3 {
+  font-size: var(--font-size-4);
+}
+h4 {
   font-size: var(--font-size-7);
 }
 #ourteam .grid-container-team {
@@ -172,5 +174,10 @@ h6 {
 .grid-container.skeleton {
   display: grid;
   grid-gap: var(--grid-gap-2);
+}
+@media only screen and (max-width: 430px) {
+  h4 {
+    font-size: var(--font-size-8);
+  }
 }
 </style>

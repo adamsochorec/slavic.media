@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 import { defineProps } from "vue";
+import "https://cdn.jsdelivr.net/npm/lite-vimeo-embed/+esm";
 
 interface Props {
-  id: string;
+  id: number;
   start?: number;
   poster?: string;
   ariaLabel?: string;
@@ -67,6 +68,7 @@ onMounted(() => {
 <template>
   <section class="showcase" aria-labelledby="video-title">
     <div class="video-container">
+      <lite-vimeo :videoid="id"></lite-vimeo>
       <iframe
         :src="`https://player.vimeo.com/video/${id}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;muted=1&amp;autoplay=1&amp;loop=1&amp;controls=0#t=${start}s`"
         allow="autoplay; fullscreen; picture-in-picture; clipboard-write"

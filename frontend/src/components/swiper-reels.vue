@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 
@@ -30,7 +30,16 @@ const reels = ref<Reel[]>([
   { id: "C_feeHLPhBh" },
   { id: "C_zvEetv0OY" },
   { id: "C_qM6tLu603" },
+  { id: "DCFBcKaIp3Z" },
+  { id: "DCG1-h3oOqB" },
+  { id: "DBvjlmBoAV4" },
+  { id: "DCgfmD6IQ4x" },
 ]);
+
+// Compute the reversed reels array
+const reversedReels = computed(() => {
+  return [...reels.value].reverse();
+});
 
 // Initialize Swiper for the reels section
 onMounted(() => {
@@ -98,14 +107,16 @@ onMounted(() => {
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slide -->
-      <div v-for="(reel, index) in reels" :key="index" class="swiper-slide">
+      <div
+        v-for="(reel, index) in reversedReels"
+        :key="index"
+        class="swiper-slide"
+      >
         <a
           target="_blank"
           rel="noopener noreferrer nofollow"
           :href="`https://instagram.com/reel/${reel.id}`"
           class="pi pi-instagram bubble"
-          :aria-label="`View reel ${index + 1} on Instagram`"
-          :title="`Instagram reel: ${reel.title || 'Reel ' + (index + 1)}`"
         >
           <span class="visually-hidden"
             >View reel {{ index + 1 }} on Instagram</span
@@ -120,7 +131,7 @@ onMounted(() => {
           playsinline
           role="region"
           :aria-label="`Instagram reel ${index + 1}`"
-          :src="`https://slavic.media/img/${reel.id}.mp4`"
+          :src="`https://slavic.media/videos/${reel.id}.mp4`"
         >
           <track kind="captions" srclang="en" label="English captions" />
         </video>
@@ -146,6 +157,7 @@ onMounted(() => {
   position: absolute;
   top: var(--grid-gap-2);
   left: var(--grid-gap-2);
+  z-index: 8;
 }
 .visually-hidden {
   position: absolute;

@@ -5,6 +5,7 @@ const props = defineProps<{
   img: string;
   url: string;
   title: string;
+  alt: string;
   desc: string;
   icon: string;
   opacity: number;
@@ -25,12 +26,13 @@ function truncateText(text: string, maxLength: number): string {
       <img
         :style="`opacity:${opacity}`"
         :src="`https://cdn.slavic.media/images/${img}/fit=contain,height=400,sharpen=100`"
-        :alt="title"
+        :alt="alt"
+        :title="title"
       />
       <div class="gallery-item-caption">
         <i aria-hidden="true" :class="`bubble pi pi-${icon}`"></i>
         <header>
-          <h4 v-if="title">{{ truncateText(title, 20) }}</h4>
+          <span class="title" v-if="title">{{ truncateText(title, 20) }}</span>
         </header>
         <section>
           <p>{{ truncateText(desc, 100) }}</p>
@@ -41,8 +43,11 @@ function truncateText(text: string, maxLength: number): string {
 </template>
 
 <style scoped>
-h4 {
+.title {
+  font-size: var(--font-size-4);
   text-transform: capitalize;
+  text-decoration: none !important;
+  font-family: var(--logo-font);
 }
 .gallery-item {
   position: relative;
@@ -143,7 +148,7 @@ h4 {
 .gallery-item .gallery-item-caption {
   text-align: left;
 }
-.gallery-item:hover h3::after {
+.gallery-item:hover .title::after {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
@@ -166,11 +171,6 @@ h4 {
 @media only screen and (max-width: 500px) {
   .gallery-item .gallery-item-caption {
     padding: var(--grid-gap-1);
-  }
-}
-@media only screen and (max-width: 667px) {
-  .gallery-item span {
-    font-size: var(--font-size-8);
   }
 }
 </style>

@@ -73,30 +73,51 @@ const currentYear = new Date().getFullYear();
           &nbsp;&nbsp;<span>Cookies</span>
         </button>
         <span>&nbsp;|&nbsp;</span>
-        <a href="/assets/press-kit.zip" class="footer-nav" title="Assets">
-          <i style="font-size: var(--font-size-7)" class="pi pi-download"></i>
+        <a
+          aria-label="Press Kit"
+          href="/assets/press-kit.zip"
+          class="footer-nav"
+          title="Assets"
+        >
+          <i
+            style="font-size: var(--font-size-7)"
+            aria-hidden="true"
+            class="pi pi-download"
+          ></i>
           &nbsp;<span>Press Kit</span>
         </a>
         <span>&nbsp;|&nbsp;</span>
-        <router-link to="/legal" class="footer-nav" title="Legal">
-          <i style="font-size: var(--font-size-7)" class="pi pi-briefcase"></i>
+        <router-link
+          aria-label="Legal documents"
+          to="/legal"
+          class="footer-nav"
+          title="Legal"
+        >
+          <i
+            style="font-size: var(--font-size-7)"
+            aria-hidden="true"
+            class="pi pi-briefcase"
+          ></i>
           &nbsp;<span>Legal</span>
         </router-link>
         <span>&nbsp;|&nbsp;</span>
+        <p style="display: inline" title="VAT Number">
+          <span>VAT:&nbsp;DK44081512</span>
+        </p>
+      </nav>
+      <span>
+        ©&nbsp;{{ currentYear }} Slavic Media I/S.&nbsp;<br
+          class="footerBreak"
+        />
         <a
-          class="footer-nav"
           target="_blank"
           rel="noopener noreferrer nofollow"
           href="https://datacvr.virk.dk/enhed/virksomhed/44081512?fritekst=slavic%20media&sideIndex=0&size=10"
-          aria-label="VAT Number"
-        >
-          &nbsp;<span>VAT:&nbsp;DK44081512</span>
-        </a>
-      </nav>
-      <p class="grid-item">
-        ©&nbsp;{{ currentYear }} Slavic Media I/S.<br class="footerBreak" />
-        Registered company in the Kingdom of Denmark
-      </p>
+          class="footer-nav"
+          style="text-decoration: underline"
+          >Registered company in Denmark
+        </a></span
+      >
     </div>
   </footer>
 </template>
@@ -110,49 +131,40 @@ const currentYear = new Date().getFullYear();
   -ms-flex-align: center;
   align-items: center;
 }
-
 .cookie {
   height: 10px;
   vertical-align: middle;
   width: auto;
 }
-
 .grid-item i:hover {
   color: unset;
 }
-
 footer .footer-nav {
   color: rgb(var(--primary-color));
 }
-
 footer .footer-nav span,
 footer .footer-nav span:hover {
   text-decoration: underline;
 }
-
 footer .footer-nav:hover,
 .grid-item i:hover {
   opacity: 80%;
 }
-
 footer {
   padding: var(--grid-gap-3) var(--homepage-padding);
   background-color: rgb(var(--dark-grey-color));
   width: 100%;
   font-family: var(--content-font);
 }
-
 footer img {
   width: 70px;
   height: 100%;
   -webkit-animation: none;
   animation: none;
 }
-
 footer a.footer-nav {
   color: white;
 }
-
 footer .footer-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -162,16 +174,13 @@ footer .footer-container {
   justify-content: space-between;
   line-height: 1.5;
 }
-
 footer .footer-container .footerBreak {
   display: none;
 }
-
 footer .footer-container:last-of-type,
 footer hr {
   opacity: 30%;
 }
-
 footer p,
 footer a,
 footer span {
@@ -180,7 +189,6 @@ footer span {
   color: rgb(var(--white-color));
   font-family: var(--content-font);
 }
-
 footer hr {
   margin: var(--grid-gap-2) 0 !important;
 }

@@ -11,6 +11,13 @@ require("dotenv-flow").config();
 
 const app = express();
 
+// Serve static files with caching headers
+const staticOptions = {
+  maxAge: "365d",
+  etag: false,
+  lastModified: false,
+};
+
 // Enable CORS using the cors middleware
 app.use(cors());
 
@@ -18,11 +25,15 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Load and serve Swagger documentation
-const options = {
+const swaggerOptions = {
   customCss: ".swagger-ui .topbar { display: none !important; }",
 };
 const swaggerDefinition = yaml.load(path.join(__dirname, "..", "swagger.yaml"));
-app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition, options));
+app.use(
+  "/docs",
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerDefinition, swaggerOptions)
+);
 
 import articleRoutes from "./routes/article";
 import imageRoutes from "./routes/images";
@@ -64,7 +75,7 @@ app.use("/event", eventRoutes);
 app.use("/services", servicesRoutes);
 
 // Serve static files from the 'dist' directory
-app.use(express.static(path.join(__dirname, "dist")));
+app.use(express.static(path.join(__dirname, "dist"), staticOptions));
 
 // Catch-all route to serve 'index.html' for any unmatched routes
 app.get("*", (req: Request, res: Response) => {

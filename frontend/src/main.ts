@@ -8,6 +8,7 @@ import App from "./App.vue";
 import router from "./router";
 import { createHead } from "@vueuse/head";
 import "primeicons/primeicons.css";
+import VueLazyload from "vue-lazyload";
 
 const app = createApp(App);
 
@@ -45,6 +46,14 @@ app.use(router);
 // Add @vueuse/head for meta management
 const head = createHead();
 app.use(head);
+
+// Configure vue-lazyload
+app.use(VueLazyload, {
+  preLoad: 1.3,
+  error: "./assets/error.png",
+  loading: "./assets/loading.gif",
+  attempt: 1,
+});
 
 // Mount the app to the element with the id 'app'
 app.mount("#app");

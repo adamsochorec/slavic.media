@@ -27,11 +27,7 @@ onMounted(async () => {
   <article class="main">
     <heroVideo id="1013776851" ariaLabel="Behind the Scenes | Slavic Media">
     </heroVideo>
-    <section
-      class="wrapper-standard"
-      role="region"
-      aria-labelledby="about-company"
-    >
+    <section class="wrapper-standard" role="region">
       <hr class="semi" />
       <h1 class="reveal">
         <span class="gradient">Slavic Media</span>
@@ -45,7 +41,7 @@ onMounted(async () => {
           I/S</span
         >
       </h1>
-      <p>
+      <p aria-labelledby="about-company">
         Creative & Production studio based in Denmark and Czechia. We tell
         stories with deep eye contact, magnificent shots, and clean designs to
         help your project stand out from the noise.
@@ -72,11 +68,7 @@ onMounted(async () => {
       <swiperEmployees></swiperEmployees>
       <hr class="reveal" role="separator" />
     </section>
-    <section
-      class="wrapper-standard"
-      role="region"
-      aria-labelledby="company-timeline"
-    >
+    <section class="wrapper-standard" role="region">
       <h2 class="reveal" style="font-size: var(--font-size-1)">
         Company <span class="gradient">Journey</span>
       </h2>
@@ -86,6 +78,7 @@ onMounted(async () => {
         align="alternate"
         :value="state.events"
         aria-busy="false"
+        aria-labelledby="company-timeline"
       >
         <template #marker="slotProps">
           <span class="flex h-8 items-center justify-center">

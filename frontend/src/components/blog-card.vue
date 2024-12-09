@@ -36,6 +36,7 @@ const props = defineProps<{
       :desc="article.metadata.desc"
       :icon="article.metadata.icon"
       targetWindow="_self"
+      :alt="article.title"
     />
     <section class="reveal">
       <header class="metadata gap-3">
@@ -45,11 +46,10 @@ const props = defineProps<{
           :href="`https://www.linkedin.com/in/${article.author.linkedin}`"
           class="author"
         >
-          <Avatar
-            :image="`https://cdn.slavic.media/images/${article.author._id}/height=100,sharpen=100`"
-            size="medium"
-            shape="circle"
-            :alt="`Avatar of ${article.author.name}`"
+          <img
+            class="avatar"
+            :src="`https://cdn.slavic.media/images/${article.author._id}/height=100,sharpen=100`"
+            :alt="`${article.author.name}'s profile picture`"
           />
         </a>
         <div>
@@ -72,7 +72,7 @@ const props = defineProps<{
         </div>
       </header>
       <router-link class="title reveal" :to="`/blog/${article._id}`">
-        <h3 id="article-title">{{ article.title }}</h3>
+        <h2 id="article-title">{{ article.title }}</h2>
       </router-link>
     </section>
   </article>
@@ -82,13 +82,19 @@ const props = defineProps<{
 .card {
   display: grid;
 }
-h3 {
+.title[data-v-97e7de96] {
+  display: none;
+}
+h2 {
   font-size: var(--font-size-5);
 }
 img {
   opacity: 1 !important;
   -webkit-animation: skeleton-loading 1s linear infinite alternate;
   animation: skeleton-loading 1s linear infinite alternate;
+}
+.avatar {
+  height: 30px;
 }
 .metadata {
   display: -webkit-box;
@@ -107,7 +113,7 @@ img {
   .grid-item:nth-child(2) {
     font-size: var(--font-size-8);
   }
-  h3 {
+  h2 {
     font-size: var(--font-size-4);
   }
   .card {

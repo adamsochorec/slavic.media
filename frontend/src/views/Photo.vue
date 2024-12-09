@@ -146,12 +146,6 @@ router.beforeEach((to, from, next) => {
                 :title="image.title"
               >
                 <img
-                  :srcset="`
-    https://cdn.slavic.media/images/${image._id}/fit=contain,width=320   320w,
-    https://cdn.slavic.media/images/${image._id}/fit=contain,width=640   640w,
-    https://cdn.slavic.media/images/${image._id}/fit=contain,width=960   960w,
-    https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280 1280w
-  `"
                   :src="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280,sharpen=100`"
                   :alt="image.alt"
                 />

@@ -7,6 +7,7 @@ import swiperColourGrading from "@/components/swiper-colour-grading.vue";
 import services from "@/modules/services";
 import video from "@/modules/video";
 import { useRouter, useRoute } from "vue-router";
+import "https://cdn.jsdelivr.net/npm/lite-vimeo-embed/+esm";
 
 const router = useRouter();
 const route = useRoute();
@@ -104,12 +105,12 @@ router.beforeEach((to, from, next) => {
         </div>
       </div>
       <br />
-      <iframe
-        src="https://player.vimeo.com/video/1037071233?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-        frameborder="0"
-        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-        title="Post Production | Slavic Media"
-      ></iframe>
+      <lite-vimeo
+        style="
+          background-image: url(&quot;https://cdn.slavic.media/images/post-production/fit=contain,height=700,sharpen=100&quot;);
+        "
+        videoid="1037071233"
+      ></lite-vimeo>
       <div id="sound-design"></div>
       <hr class="reveal" role="separator" />
       <div class="grid-container caption-container">
@@ -137,18 +138,19 @@ router.beforeEach((to, from, next) => {
         </div>
       </div>
       <br />
-      <iframe
-        src="https://player.vimeo.com/video/1036355079?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-        frameborder="0"
-        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-        title="Sound Design | Slavic Media"
-      ></iframe>
+      <lite-vimeo
+        style="
+          background-image: url(&quot;https://cdn.slavic.media/images/sound-design/fit=contain,height=700,sharpen=100&quot;);
+        "
+        videoid="1036355079"
+      ></lite-vimeo>
     </section>
   </article>
 </template>
 
 <style lang="scss" scoped>
-iframe {
+iframe,
+lite-vimeo {
   border-radius: var(--border-radius-1);
   aspect-ratio: 16/9;
   width: 100%;

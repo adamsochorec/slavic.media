@@ -106,10 +106,9 @@ const copyHref = (href) => {
               rel="noopener noreferrer nofollow"
               :href="`https://www.linkedin.com/in/${state.article.author.linkedin}`"
             >
-              <Avatar
-                :image="`https://cdn.slavic.media/images/${state.article.author._id}/height=100,sharpen=100`"
-                size="large"
-                shape="circle"
+              <img
+                class="avatar"
+                :src="`https://cdn.slavic.media/images/${state.article.author._id}/height=100,sharpen=100`"
                 :alt="`${state.article.author.name}'s profile picture`"
               />
             </a>
@@ -371,6 +370,9 @@ const copyHref = (href) => {
 <style lang="scss" scoped>
 h1 {
   font-size: var(--font-size-2);
+}
+.avatar {
+  height: 60px;
 }
 .article-metadata {
   margin: var(--grid-gap-2) 0;

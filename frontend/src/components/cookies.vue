@@ -20,9 +20,6 @@ const checkConsent = () => {
         consentRejected.value = true;
       }
     }
-  } else {
-    // Load analytics if no consent data is found
-    loadAfterConsentScripts();
   }
 };
 
@@ -79,7 +76,6 @@ onMounted(() => {
   eventBus.on("revoke-consent", revokeConsent);
 });
 </script>
-
 <template>
   <section
     v-if="showConsent"
@@ -96,14 +92,19 @@ onMounted(() => {
       This website uses analytical cookies to help you have a superior and more
       relevant browsing experience on the website. <br />
       You can learn more about our policy
-      <router-link to="/legal/cookie-policy">here</router-link>.
+      <router-link
+        aria-label="Cookie Policy"
+        title="Cookie Policy"
+        to="/legal/cookie-policy"
+        >here</router-link
+      >.
     </p>
     <div class="grid-container">
       <button
         class="button cta"
         :class="{ clicked: consentGiven }"
         @click="acceptCookies"
-        aria-pressed="consentGiven"
+        :aria-pressed="consentGiven.toString()"
       >
         Accept all
       </button>
@@ -111,13 +112,14 @@ onMounted(() => {
         class="button cta secondary"
         :class="{ clicked: consentRejected }"
         @click="rejectCookies"
-        aria-pressed="consentRejected"
+        :aria-pressed="consentRejected.toString()"
       >
         Reject non-essential
       </button>
     </div>
   </section>
 </template>
+
 <style lang="scss" scoped>
 .wrapper {
   position: fixed;

@@ -269,7 +269,6 @@ p {
   -ms-flex-direction: column;
   flex-direction: column;
   font-size: var(--font-size-6);
-  font-weight: var(--paragraph-weight);
   line-height: 1.5;
   letter-spacing: var(--letter-spacing-1);
 }
@@ -434,6 +433,10 @@ button.submit-btn {
 }
 .cta.secondary:hover {
   background-color: rgba(var(--secondary-color), 0.8);
+}
+lite-vimeo:hover > .ltv-playbtn {
+  background-color: rgb(var(--primary-color)) !important;
+  opacity: 1;
 }
 /* CTA END */
 
@@ -864,6 +867,9 @@ i.pi-arrow-right:hover {
 /* PAYHIP END */
 
 /* ARTICLE START */
+.avatar {
+  border-radius: var(--border-radius-2);
+}
 .dropcap:first-letter {
   float: left;
   font-size: 4.7rem;

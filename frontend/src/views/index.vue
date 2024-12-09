@@ -60,6 +60,7 @@ onMounted(async () => {
           :opacity="0.5"
           :url="`/services/${service._id}`"
           :title="service._id"
+          :alt="`${service._id} services cover`"
           :desc="service.desc"
           :icon="service.icon"
         />
