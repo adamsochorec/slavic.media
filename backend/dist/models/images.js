@@ -32,9 +32,10 @@ const imagesSchema = new mongoose_1.Schema({
 });
 const photoGallerySchema = new mongoose_1.Schema({
     _id: { type: String, required: true, maxlength: 50 },
-    index: { type: Number, required: true, unique: true },
+    index: { type: Number, required: true },
     desc: { type: String, required: true, maxlength: 1000 },
     title: { type: String, required: true, maxlength: 200 },
+    type: { type: String, required: true }, // Add this line
     columns: { type: [[imagesSchema]], required: true },
 });
 const photoGallery = mongoose_1.default.model("PhotoGallery", photoGallerySchema);

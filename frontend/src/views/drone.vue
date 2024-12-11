@@ -1,44 +1,76 @@
 <script setup lang="ts">
-import { onMounted, ref, nextTick } from "vue";
-import $ from "jquery";
-import eventBus, { EventBus } from "@/eventBus";
-import requestAProposal from "@/components/request-a-proposal.vue";
-import swiperReels from "@/components/swiper-reels.vue";
-import galleryItem from "@/components/gallery-item.vue";
-import services from "@/modules/services";
-import skeletonServices from "@/components/skeleton-services.vue";
-import video from "@/modules/video";
+import { ref, onMounted, nextTick, watch } from "vue";
 import { useRouter } from "vue-router";
+import requestAProposal from "@/components/request-a-proposal.vue";
+import eventBus from "@/eventBus";
+import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
+import skeletonServices from "@/components/skeleton-services.vue";
+import $ from "jquery";
+import "magnific-popup";
+import flags from "@/components/flags.vue";
+import image from "@/modules/images";
+import services from "@/modules/services";
 
-const { state: serviceState, getSpecificService } = services();
-const { state: videoState, getAllGalleries } = video();
 const isDataLoaded = ref<boolean>(false);
+const { state: imageState, getAllImages } = image;
+const { state: serviceState, getSpecificService } = services();
 const router = useRouter();
 
-onMounted(async () => {
-  await Promise.all([getSpecificService("drone"), getAllGalleries()]);
-  isDataLoaded.value = true;
+// SHOW MORE START
+const PHOTOS_INCREMENT = 4;
+const photosToShow = ref(PHOTOS_INCREMENT);
+const loadMorePhotos = () => {
+  photosToShow.value += PHOTOS_INCREMENT;
+};
+// SHOW MORE END
 
-  nextTick(() => {
-    document.querySelectorAll<HTMLElement>(".gallery").forEach((gallery) => {
-      $(gallery).magnificPopup({
-        delegate: "a",
-        type: "iframe",
-        gallery: {
-          enabled: "true",
-          navigateByImgClick: "false",
-          fixedContentPos: "false",
-          overflowY: "scroll",
-          preload: [0, 1],
-        },
-        zoom: {
-          enabled: "true",
-          duration: 300,
-        },
-      });
-    });
+async function initializeLightbox(): Promise<void> {
+  await nextTick();
+  $(".popup-gallery").magnificPopup({
+    delegate: "a",
+    type: "image",
+    tLoading: "Loading",
+    mainClass: "mfp-img-mobile",
+    gallery: {
+      enabled: "true",
+      fixedContentPos: "false",
+      overflowY: "scroll",
+      navigateByImgClick: "true",
+      preload: [0, 1],
+    },
+    zoom: {
+      enabled: "true",
+      duration: 300,
+    },
+    image: {
+      tError: "Error",
+      titleSrc: function (item: any) {
+        return item.el.attr("title");
+      },
+    },
+    callbacks: {
+      elementParse: function (item: any) {
+        item.src = item.el.attr("href");
+      },
+    },
+    fixedContentPos: "false",
   });
+}
+
+onMounted(async () => {
+  try {
+    await Promise.all([getSpecificService("drone"), getAllImages("drone")]);
+    isDataLoaded.value = true;
+  } catch (error) {}
 });
+
+watch(isDataLoaded, (loaded) => {
+  if (loaded) initializeLightbox();
+});
+
+const showRequestAProposal = (data: any) => {
+  eventBus.emit("showRequestAProposal", data);
+};
 
 router.beforeEach((to, from, next) => {
   if ($.magnificPopup.instance.isOpen) {
@@ -46,10 +78,6 @@ router.beforeEach((to, from, next) => {
   }
   next();
 });
-
-const showRequestAProposal = (data: Gallery): void => {
-  (eventBus as EventBus).emit("showRequestAProposal", data);
-};
 </script>
 <template>
   <article class="main" style="margin-top: 120px">
@@ -72,30 +100,88 @@ const showRequestAProposal = (data: Gallery): void => {
           </p>
         </div>
       </div>
-      <hr class="reveal" role="separator" />
-      <div class="grid-container caption-container">
-        <div class="grid-item reveal">
-          <h2 class="reveal" aria-label="Engaging Content">
-            Breathtaking <span class="gradient">Still</span>
-          </h2>
+    </section>
+    <!-- IMAGES GALLERY -->
+    <template
+      v-for="(gallery, galleryKey) in imageState.image"
+      :key="galleryKey"
+    >
+      <section
+        v-if="isDataLoaded"
+        aria-busy="false"
+        class="wrapper-wide"
+        id="photo"
+      >
+        <div :id="gallery._id"></div>
+        <hr class="reveal" role="separator" />
+
+        <div class="grid-container caption-container">
+          <div class="grid-item reveal">
+            <h2>
+              {{ gallery.title.split(" ")[0] }}
+              <span class="gradient">{{ gallery.title.split(" ")[1] }}</span>
+            </h2>
+          </div>
+          <div class="grid-item">
+            <p class="reveal">{{ gallery.desc }}</p>
+
+            <requestAProposal />
+            <button
+              @click="showRequestAProposal(gallery)"
+              class="popup-with-form reveal"
+              id="request-a-proposal-button"
+            >
+              <div class="cta">
+                Request a Proposal<i class="pi pi-arrow-right"></i>
+              </div>
+            </button>
+          </div>
         </div>
-        <div class="grid-item">
-          <p class="reveal">
-            Social media reels that capture your brand’s essence—engaging,
-            genuine, and designed to resonate with your audience.
-          </p>
-          <requestAProposal />
-          <button
-            @click="showRequestAProposal(gallery)"
-            class="popup-with-form reveal"
-            id="request-a-proposal-button"
+        <br />
+      </section>
+      <!-- VIDEO GALLERY -->
+      <section v-if="isDataLoaded" aria-busy="false" class="popup-gallery">
+        <div class="row">
+          <div
+            v-for="(column, columnIndex) in gallery.columns"
+            :key="columnIndex"
+            class="column"
           >
-            <div class="cta">
-              Request a Proposal<i class="pi pi-arrow-right"></i>
+            <div
+              v-for="image in column.slice(0, photosToShow)"
+              :key="image._id"
+              class="reveal"
+            >
+              <a
+                :href="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280w,sharpen=100`"
+                :title="image.title"
+              >
+                <img
+                  :src="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280,sharpen=100`"
+                  :alt="image.alt"
+                />
+                <svg class="flag note">
+                  <use :xlink:href="`#${flag}`"></use>
+                </svg>
+              </a>
             </div>
+          </div>
+        </div>
+        <div class="flex-center">
+          <button
+            v-if="
+              photosToShow <
+              Math.max(...gallery.columns.map((column) => column.length))
+            "
+            @click="loadMorePhotos"
+            class="cta reveal"
+          >
+            Show More<i class="pi pi-arrow-right"></i>
           </button>
         </div>
-      </div>
+      </section>
+    </template>
+    <section class="wrapper-wide">
       <hr class="reveal" role="separator" />
 
       <div class="grid-container caption-container">

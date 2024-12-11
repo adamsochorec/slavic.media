@@ -21,8 +21,11 @@ router.post("/", verifyToken, (req: Request, res: Response) => {
 
 // Read all galleries - GET
 router.get("/", (req: Request, res: Response) => {
+  const { type } = req.query; // Get the type from query parameters
+  const filter = type ? { type } : {}; // Filter by type if provided
+
   photoGalleryModel
-    .find()
+    .find(filter)
     .then((data: any) => {
       data.sort((a: any, b: any) => a.index - b.index);
       res.send(data);

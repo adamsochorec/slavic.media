@@ -22,8 +22,10 @@ router.post("/", validation_1.verifyToken, (req, res) => {
 });
 // Read all galleries - GET
 router.get("/", (req, res) => {
+    const { type } = req.query; // Get the type from query parameters
+    const filter = type ? { type } : {}; // Filter by type if provided
     images_1.default
-        .find()
+        .find(filter)
         .then((data) => {
         data.sort((a, b) => a.index - b.index);
         res.send(data);

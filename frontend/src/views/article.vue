@@ -198,7 +198,7 @@ const copyHref = (href) => {
               v-for="video in state.article.videos"
               :key="video._id"
               :img="video._id"
-              icon="map-marker"
+              icon="video"
               :url="`https://vimeo.com/slavicmedia/${video.url}`"
               :desc="`${video.year}`"
               :alt="video.title"
