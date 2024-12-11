@@ -1,20 +1,18 @@
-<script setup>
+<script setup lang="ts">
 import { onMounted } from "vue";
 import { RouterView } from "vue-router";
 import { provideAuth } from "./modules/logIn-logOut";
 provideAuth();
 
 // COMPONENTS
-// import chat from "@/components/chat.vue";
 import Footer from "@/components/Footer.vue";
 import NavBar from "@/components/nav-bar.vue";
 import Cookies from "@/components/cookies.vue";
-
-// Dark Mode State
+// import chat from "@/components/chat.vue";
 
 // CONTENT REVEAL START
 function reveal() {
-  const reveals = document.querySelectorAll(".reveal");
+  const reveals = document.querySelectorAll<HTMLElement>(".reveal");
   const windowHeight = window.innerHeight;
 
   reveals.forEach((reveal) => {
@@ -26,7 +24,6 @@ function reveal() {
     }
   });
 }
-
 onMounted(() => {
   // Observer for reveal animations
   const observer = new IntersectionObserver(
@@ -41,32 +38,30 @@ onMounted(() => {
       threshold: 0.1, // Adjust as needed
     }
   );
-
   // Apply observer to initial reveals
   const applyObservers = () => {
-    const reveals = document.querySelectorAll(".reveal:not(.observed)");
+    const reveals = document.querySelectorAll<HTMLElement>(
+      ".reveal:not(.observed)"
+    );
     reveals.forEach((reveal) => {
       observer.observe(reveal);
       reveal.classList.add("observed"); // Mark as observed to avoid duplicate observing
     });
   };
-
   applyObservers(); // Initial check
-
   // Fallback for browsers without IntersectionObserver
   window.addEventListener("scroll", reveal);
   reveal();
-
   // Mutation Observer to watch for new elements
   const mutationObserver = new MutationObserver(() => {
     applyObservers();
   });
-
   mutationObserver.observe(document.body, {
     childList: true,
     subtree: true,
   });
 });
+// CONTENT REVEAL END
 </script>
 
 <template>

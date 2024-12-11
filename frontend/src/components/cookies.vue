@@ -85,8 +85,7 @@ onMounted(() => {
     aria-modal="true"
   >
     <header class="title">
-      <i class="pi pi-cog pi-spin" aria-hidden="true"></i>
-      <h2 id="cookie-consent-title">Cookie Consent</h2>
+      <h2 id="cookie-consent-title">🍪 Cookie Consent</h2>
     </header>
     <p class="info">
       This website uses analytical cookies to help you have a superior and more
@@ -146,12 +145,6 @@ onMounted(() => {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-
-  -webkit-column-gap: var(--grid-gap-2);
-
-  -moz-column-gap: var(--grid-gap-2);
-
-  column-gap: var(--grid-gap-2);
 }
 .title h2 {
   font-size: var(--font-size-4);

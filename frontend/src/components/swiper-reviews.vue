@@ -4,6 +4,7 @@ import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import review from "@/modules/review";
 import skeletonSwiper from "@/components/skeleton-swiper.vue";
+import { truncateText } from "@/functions/truncate-text.ts";
 
 const { state, getAllReviews } = review();
 const isDataLoaded = ref(false);
@@ -90,31 +91,13 @@ onMounted(async () => {
       showStars(starContainer, rating);
     });
 
-    function truncateText(text: string, maxLength: number) {
-      if (text.length > maxLength) {
-        let truncated = text.substring(0, maxLength);
-        const lastSpaceIndex = truncated.lastIndexOf(" ");
-        if (lastSpaceIndex > 0) {
-          truncated = truncated.substring(0, lastSpaceIndex);
-        }
-        return {
-          truncated: truncated + "...",
-          full: text,
-        };
-      }
-      return {
-        truncated: text,
-        full: text,
-      };
-    }
-
     const reviewMessages =
       document.querySelectorAll<HTMLElement>(".reviews-message");
 
     reviewMessages.forEach((message) => {
-      const { truncated, full } = truncateText(message.textContent || "", 170);
+      const truncated = truncateText(message.textContent || "", 170);
 
-      if (full.length > 170) {
+      if (message.textContent && message.textContent.length > 170) {
         message.textContent = truncated;
 
         const readMoreLink = document.createElement("a");
@@ -127,8 +110,6 @@ onMounted(async () => {
         const lineBreak = document.createElement("br");
         message.appendChild(lineBreak);
         message.appendChild(readMoreLink);
-      } else {
-        message.textContent = full; // No truncation needed
       }
     });
   });

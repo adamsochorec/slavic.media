@@ -44,7 +44,7 @@ const videoSchema = new Schema({
 });
 
 const articleSchema: Schema = new Schema({
-  _id: { type: String, required: true, maxlength: 50 },
+  _id: { type: String, required: true, maxlength: 100 },
   title: { type: String, required: true, maxlength: 200 },
   author: { type: String, ref: "Employee", required: true },
   metadata: {

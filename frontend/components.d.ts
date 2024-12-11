@@ -37,6 +37,7 @@ declare module 'vue' {
     SwiperReels: typeof import('./src/components/swiper-reels.vue')['default']
     SwiperReviews: typeof import('./src/components/swiper-reviews.vue')['default']
     Timeline: typeof import('primevue/timeline')['default']
+    TruncateText: typeof import('./src/components/functions/truncate-text.vue')['default']
   }
   export interface ComponentCustomProperties {
     Tooltip: typeof import('primevue/tooltip')['default']

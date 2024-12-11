@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 import galleryItem from "@/components/gallery-item.vue";
+import { truncateText } from "@/functions/truncate-text.ts";
 
 interface Author {
   name: string;
@@ -72,7 +73,7 @@ const props = defineProps<{
         </div>
       </header>
       <router-link class="title reveal" :to="`/blog/${article._id}`">
-        <h2 id="article-title">{{ article.title }}</h2>
+        <h2 id="article-title">{{ truncateText(article.title, 55) }}</h2>
       </router-link>
     </section>
   </article>

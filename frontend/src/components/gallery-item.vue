@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
+import { truncateText } from "@/functions/truncate-text.ts";
 
 const props = defineProps<{
   img: string;
@@ -10,14 +11,6 @@ const props = defineProps<{
   icon: string;
   opacity: number;
 }>();
-
-function truncateText(text: string, maxLength: number): string {
-  if (text.length <= maxLength) {
-    return text;
-  }
-  const truncated = text.substring(0, maxLength);
-  return truncated.substring(0, truncated.lastIndexOf(" ")) + "...";
-}
 </script>
 
 <template>
