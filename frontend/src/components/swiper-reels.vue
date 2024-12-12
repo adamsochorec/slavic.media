@@ -116,13 +116,7 @@ onMounted(() => {
             >View reel {{ index + 1 }} on Instagram</span
           >
         </a>
-        <country-flag
-          :country="reel.flag"
-          rounded="false"
-          class="note"
-          style="box-shadow: var(--box-shadow-1)"
-          size="normal"
-        />
+        <country-flag :country="reel.flag" class="note" size="small" />
         <video
           class="video-offload"
           loop

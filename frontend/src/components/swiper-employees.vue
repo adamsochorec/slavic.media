@@ -66,13 +66,7 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
         >
           <!-- Slide start -->
           <div class="reveal">
-            <country-flag
-              :country="employee.flag"
-              rounded="false"
-              class="note"
-              style="box-shadow: var(--box-shadow-1)"
-              size="normal"
-            />
+            <country-flag :country="employee.flag" class="note" size="small" />
             <img
               :src="`https://cdn.slavic.media/images/${employee._id}/width=400,sharpen=100`"
               :alt="`Portrait of ${employee.name}`"

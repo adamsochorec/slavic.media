@@ -67,13 +67,7 @@ const swiperOptions = {
       </h2>
       <template v-for="(slide, index) in slides" :key="index">
         <SwiperSlide>
-          <country-flag
-            :country="slide.flag"
-            rounded="false"
-            class="note"
-            style="box-shadow: var(--box-shadow-1)"
-            size="normal"
-          />
+          <country-flag :country="slide.flag" class="note" size="small" />
           <ImageCompare aria-label="Compare Images">
             <template #left>
               <img

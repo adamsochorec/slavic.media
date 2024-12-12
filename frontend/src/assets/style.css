@@ -903,11 +903,10 @@ i.pi-arrow-right:hover {
   font-size: var(--font-size-8);
   position: absolute;
   text-decoration: none;
+  box-shadow: var(--box-shadow-1);
   z-index: 8;
-  height: var(--grid-gap-2);
-  width: var(--grid-gap-2);
   padding: 0;
-  border-radius: var(--border-radius-2);
+  border-radius: var(--border-radius-1);
   bottom: var(--grid-gap-1);
   right: var(--grid-gap-1);
 }

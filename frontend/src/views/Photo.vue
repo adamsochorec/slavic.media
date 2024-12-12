@@ -162,13 +162,7 @@ router.beforeEach((to, from, next) => {
                   :src="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280,sharpen=100`"
                   :alt="image.alt"
                 />
-                <country-flag
-                  :country="image.flag"
-                  rounded="false"
-                  class="note"
-                  style="box-shadow: var(--box-shadow-1)"
-                  size="normal"
-                />
+                <country-flag :country="image.flag" class="note" size="small" />
               </a>
             </div>
           </div>
@@ -194,7 +188,7 @@ router.beforeEach((to, from, next) => {
     </section>
     <!-- LIGHTROOM PRESETS CTA END -->
     <!-- SKELETON START -->
-    <div v-else aria-busy="true" aria-live="polite">
+    <div class="wrapper-wide" v-else aria-busy="true" aria-live="polite">
       <skeletonServices></skeletonServices>
     </div>
     <!-- SKELETON END -->

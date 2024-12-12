@@ -23,30 +23,26 @@ onMounted(() => {
 });
 </script>
 <style scoped>
-.swiper-clients .swiper-slide {
-  text-align: center;
-}
-.swiper-clients img,
 .swiper-clients svg {
   height: 70px;
   aspect-ratio: 1/1;
 }
-#clients .grid-container .grid-item:nth-child(even),
-#clients .grid-container.seventy-thirty .grid-item:nth-child(even) {
-  margin: 0 0 0 var(--grid-gap-2);
-}
-.clients path,
-.clients polygon {
+
+path,
+polygon {
   fill: rgb(var(--white-color));
 }
-.clients:hover path {
+.clients:hover path,
+.clients:hover polygon {
   fill: rgba(var(--primary-color), 1);
   cursor: pointer;
 }
 .clients:hover path,
-.clients path,
+path,
 .clients:hover g,
-.clients g {
+g,
+polygon,
+.clients:hover polygon {
   transition: var(--transition-1);
   -webkit-transition: var(--transition-1);
   -moz-transition: var(--transition-1); /* Firefox */
@@ -54,8 +50,7 @@ onMounted(() => {
   -o-transition: var(--transition-1);
 }
 @media only screen and (max-width: 375px) {
-  .swiper-clients img,
-  .swiper-clients svg {
+  svg {
     height: 50px;
     aspect-ratio: 1/1;
   }
