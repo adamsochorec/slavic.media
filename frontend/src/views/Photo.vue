@@ -7,7 +7,6 @@ import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
 import skeletonServices from "@/components/skeleton-services.vue";
 import $ from "jquery";
 import "magnific-popup";
-import flags from "@/components/flags.vue";
 import image from "@/modules/images";
 import services from "@/modules/services";
 
@@ -82,8 +81,8 @@ router.beforeEach((to, from, next) => {
 
 <template>
   <article class="main" style="margin-top: 120px">
+    <!-- PAGE ABSTRACT START-->
     <section class="wrapper-wide">
-      <!-- PAGE INTRO -->
       <div
         class="grid-container caption-container"
         v-if="isDataLoaded"
@@ -102,11 +101,12 @@ router.beforeEach((to, from, next) => {
         </div>
       </div>
     </section>
-    <!-- GALLERIES -->
+    <!-- PAGE ABSTRACT START-->
     <template
       v-for="(gallery, galleryKey) in imageState.image"
       :key="galleryKey"
     >
+      <!-- GALLERY ABSTRACT START -->
       <section
         v-if="isDataLoaded"
         aria-busy="false"
@@ -140,7 +140,8 @@ router.beforeEach((to, from, next) => {
         </div>
         <br />
       </section>
-
+      <!-- GALLERY ABSTRACT END -->
+      <!-- GALLERY START -->
       <section v-if="isDataLoaded" aria-busy="false" class="popup-gallery">
         <div class="row">
           <div
@@ -161,9 +162,13 @@ router.beforeEach((to, from, next) => {
                   :src="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280,sharpen=100`"
                   :alt="image.alt"
                 />
-                <svg class="flag note">
-                  <use :xlink:href="`#${flag}`"></use>
-                </svg>
+                <country-flag
+                  :country="image.flag"
+                  rounded="false"
+                  class="note"
+                  style="box-shadow: var(--box-shadow-1)"
+                  size="normal"
+                />
               </a>
             </div>
           </div>
@@ -181,13 +186,18 @@ router.beforeEach((to, from, next) => {
           </button>
         </div>
       </section>
+      <!-- GALLERY START -->
     </template>
+    <!-- LIGHTROOM PRESETS CTA START -->
     <section v-if="isDataLoaded" aria-busy="false">
       <bannerLightroomPresets></bannerLightroomPresets>
     </section>
-    <div class="wrapper-wide" v-else aria-busy="true" aria-live="polite">
+    <!-- LIGHTROOM PRESETS CTA END -->
+    <!-- SKELETON START -->
+    <div v-else aria-busy="true" aria-live="polite">
       <skeletonServices></skeletonServices>
     </div>
+    <!-- SKELETON END -->
   </article>
 </template>
 

@@ -35,6 +35,7 @@ onMounted(async () => {
   <article class="main" aria-labelledby="about-company">
     <heroVideo id="1013776851" ariaLabel="Behind the Scenes | Slavic Media">
     </heroVideo>
+    <!--   ABOUT START -->
     <section class="wrapper-standard" role="region">
       <hr class="semi" />
       <h1 class="reveal">
@@ -76,11 +77,13 @@ onMounted(async () => {
       <swiperEmployees></swiperEmployees>
       <hr class="reveal" role="separator" />
     </section>
+    <!--   ABOUT END -->
     <section class="wrapper-standard" role="region">
       <h2 class="reveal" style="font-size: var(--font-size-1)">
         Company <span class="gradient">Journey</span>
       </h2>
       <br />
+      <!--  COMPANY TIMELINE START  -->
       <div v-if="isDataLoaded">
         <Timeline
           align="alternate"
@@ -90,7 +93,7 @@ onMounted(async () => {
         >
           <template #marker="slotProps">
             <span class="flex h-8 items-center justify-center">
-              <span :class="`pi ${slotProps.item.icon}`"></span>
+              <span :class="`pi pi-${slotProps.item.icon}`"></span>
             </span>
           </template>
           <template #content="slotProps">
@@ -114,6 +117,9 @@ onMounted(async () => {
           </button>
         </div>
       </div>
+      <!--  COMPANY TIMELINE END  -->
+
+      <!--  COMPANY TIMELINE SKELETON START  -->
       <div v-else v-for="n in 4" :key="n" aria-busy="true" aria-live="polite">
         <ul style="list-style: none" class="m-0">
           <li class="mb-3">
@@ -143,6 +149,7 @@ onMounted(async () => {
           </li>
         </ul>
       </div>
+      <!--  COMPANY TIMELINE SKELETON END  -->
     </section>
   </article>
 </template>

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
 import galleryItem from "@/components/gallery-item.vue";
 import { truncateText } from "@/functions/truncate-text.ts";
 
@@ -36,6 +35,7 @@ const props = defineProps<{
       :url="`/blog/${article._id}`"
       :desc="article.metadata.desc"
       :icon="article.metadata.icon"
+      :flag="article.metadata.flag"
       targetWindow="_self"
       :alt="article.title"
     />

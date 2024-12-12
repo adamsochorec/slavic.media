@@ -4,6 +4,7 @@ import $ from "jquery";
 import eventBus, { EventBus } from "@/eventBus";
 import requestAProposal from "@/components/request-a-proposal.vue";
 import swiperColourGrading from "@/components/swiper-colour-grading.vue";
+import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
 import services from "@/modules/services";
 import video from "@/modules/video";
 import { useRouter, useRoute } from "vue-router";
@@ -145,6 +146,11 @@ router.beforeEach((to, from, next) => {
         videoid="1036355079"
       ></lite-vimeo>
     </section>
+    <!-- LIGHTROOM PRESETS CTA START -->
+    <section aria-busy="false">
+      <bannerLightroomPresets></bannerLightroomPresets>
+    </section>
+    <!-- LIGHTROOM PRESETS CTA END -->
   </article>
 </template>
 

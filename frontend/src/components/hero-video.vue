@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
-import { defineProps } from "vue";
 import "https://cdn.jsdelivr.net/npm/lite-vimeo-embed/+esm";
 
 interface Props {

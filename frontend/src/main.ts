@@ -9,6 +9,7 @@ import router from "./router";
 import { createHead } from "@vueuse/head";
 import "primeicons/primeicons.css";
 import VueLazyload from "vue-lazyload";
+import CountryFlag from "vue-country-flag-next";
 
 const app = createApp(App);
 
@@ -54,6 +55,8 @@ app.use(VueLazyload, {
   loading: "./assets/loading.gif",
   attempt: 1,
 });
+
+app.component("CountryFlag", CountryFlag);
 
 // Mount the app to the element with the id 'app'
 app.mount("#app");

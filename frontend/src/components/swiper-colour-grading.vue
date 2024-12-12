@@ -6,16 +6,19 @@ import ImageCompare from "primevue/imagecompare";
 
 const slides = ref([
   {
-    original: "2024-09-25-135153",
-    edited: "showreel",
+    original: "2024-12-11-144344",
+    edited: "2024-12-11-144345",
+    flag: "no",
   },
   {
-    original: "2024-09-25-135154",
-    edited: "showreel",
+    original: "2024-12-11-144346",
+    edited: "2024-12-11-145021",
+    flag: "no",
   },
   {
     original: "2024-09-25-135155",
     edited: "showreel",
+    flag: "no",
   },
   {
     original: "2024-09-25-135156",
@@ -24,14 +27,17 @@ const slides = ref([
   {
     original: "2024-09-25-141317",
     edited: "showreel",
+    flag: "fi",
   },
   {
     original: "2024-10-05-150545",
     edited: "showreel",
+    flag: "fi",
   },
   {
     original: "2024-11-04-203547",
     edited: "showreel",
+    flag: "de",
   },
 ]);
 
@@ -61,6 +67,13 @@ const swiperOptions = {
       </h2>
       <template v-for="(slide, index) in slides" :key="index">
         <SwiperSlide>
+          <country-flag
+            :country="slide.flag"
+            rounded="false"
+            class="note"
+            style="box-shadow: var(--box-shadow-1)"
+            size="normal"
+          />
           <ImageCompare aria-label="Compare Images">
             <template #left>
               <img

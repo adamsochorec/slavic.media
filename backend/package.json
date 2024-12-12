@@ -25,6 +25,7 @@
   "author": "AS",
   "license": "ISC",
   "dependencies": {
+    "@types/mongoose-sequence": "^3.0.11",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
@@ -35,6 +36,7 @@
     "joi": "^17.12.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^6.1.7",
+    "mongoose-sequence": "^6.0.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
     "yamljs": "^0.3.0"

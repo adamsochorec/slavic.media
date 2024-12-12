@@ -5,7 +5,7 @@ interface employee extends Document {
   index: number;
   name: string;
   department: string;
-  origin: string;
+  flag: string;
   email: string;
   birthday: string;
   linkedin: string;
@@ -17,7 +17,7 @@ const employeeSchema = new Schema({
   index: { type: Number, required: true, unique: true },
   name: { type: String, required: true, maxlength: 100 },
   department: { type: String, required: true, maxlength: 100 },
-  origin: { type: String, required: true, maxlength: 50 },
+  flag: { type: String, required: true, maxlength: 50 },
   email: { type: String, required: true, unique: true, maxlength: 100 },
   birthday: { type: Date, required: true },
   linkedin: { type: String, maxlength: 100 },

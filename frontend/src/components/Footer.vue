@@ -112,9 +112,10 @@ const currentYear = new Date().getFullYear();
           href="https://datacvr.virk.dk/enhed/virksomhed/44081512?fritekst=slavic%20media&sideIndex=0&size=10"
           class="footer-nav"
           style="text-decoration: underline; color: white"
-          >Registered company in Denmark
-        </a></span
-      >
+          >Registered company in Denmark</a
+        >
+        <country-flag style="vertical-align: sub" country="dk" size="small" />
+      </span>
     </div>
   </footer>
 </template>

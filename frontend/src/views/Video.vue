@@ -9,6 +9,7 @@ import services from "@/modules/services";
 import skeletonServices from "@/components/skeleton-services.vue";
 import video from "@/modules/video";
 import { useRouter } from "vue-router";
+import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
 
 const { state: serviceState, getSpecificService } = services();
 const { state: videoState, getAllGalleries } = video();
@@ -55,7 +56,7 @@ const showRequestAProposal = (data: Gallery): void => {
 <template>
   <article class="main" style="margin-top: 120px">
     <section class="wrapper-wide">
-      <!-- PAGE INTRO -->
+      <!-- PAGE ABSTRACT START -->
       <div
         class="grid-container caption-container"
         v-if="isDataLoaded"
@@ -73,6 +74,7 @@ const showRequestAProposal = (data: Gallery): void => {
           </p>
         </div>
       </div>
+      <!-- PAGE ABSTRACT END -->
 
       <div v-if="isDataLoaded" aria-busy="false">
         <!-- GALLERY -->
@@ -108,6 +110,7 @@ const showRequestAProposal = (data: Gallery): void => {
             <galleryItem
               v-for="video in gallery.videos"
               :key="video._id"
+              :flag="video.flag"
               :img="video._id"
               icon="video"
               :alt="`${video.title} cover`"
@@ -120,7 +123,7 @@ const showRequestAProposal = (data: Gallery): void => {
         </div>
         <hr class="reveal" role="separator" />
 
-        <!-- SWIPER GALLERY -->
+        <!-- SWIPER START -->
         <div class="grid-container caption-container">
           <div class="grid-item reveal">
             <h2 class="reveal" aria-label="Engaging Content">
@@ -148,10 +151,19 @@ const showRequestAProposal = (data: Gallery): void => {
         <br />
         <swiperReels></swiperReels>
       </div>
+      <!-- SWIPER END -->
+
+      <!-- SKELETON START -->
       <div v-else aria-busy="true" aria-live="polite">
         <skeletonServices></skeletonServices>
       </div>
+      <!-- SKELETON END -->
     </section>
+    <!-- LIGHTROOM PRESETS CTA START -->
+    <section v-if="isDataLoaded" aria-busy="false">
+      <bannerLightroomPresets></bannerLightroomPresets>
+    </section>
+    <!-- LIGHTROOM PRESETS CTA END -->
   </article>
 </template>
 

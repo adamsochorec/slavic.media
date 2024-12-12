@@ -18,28 +18,26 @@ interface Reel {
 
 // Define the reels data in an array
 const reels = ref<Reel[]>([
-  { id: "DBN-8ImodUi" },
-  { id: "DBwOfdoKXXH" },
-  { id: "DBqXwkhI8nH" },
-  { id: "DAVWho7Ifci" },
-  { id: "DA8aZ6tIKQt" },
-  { id: "DBbHNhHq5nb" },
-  { id: "DAqc0r6IQg_" },
-  { id: "C1Oo-5rI1qw" },
-  { id: "C_IFQXKp4sN" },
-  { id: "C_feeHLPhBh" },
-  { id: "C_zvEetv0OY" },
-  { id: "C_qM6tLu603" },
-  { id: "DCFBcKaIp3Z" },
-  { id: "DCG1-h3oOqB" },
-  { id: "DBvjlmBoAV4" },
-  { id: "DCgfmD6IQ4x" },
+  {
+    id: "DBN-8ImodUi",
+    flag: "fi",
+  },
+  { id: "DBwOfdoKXXH", flag: "de" },
+  { id: "DBqXwkhI8nH", flag: "no" },
+  { id: "DAVWho7Ifci", flag: "fi" },
+  { id: "DA8aZ6tIKQt", flag: "no" },
+  { id: "DBbHNhHq5nb", flag: "no" },
+  { id: "DAqc0r6IQg_", flag: "se" },
+  { id: "C1Oo-5rI1qw", flag: "se" },
+  { id: "C_IFQXKp4sN", flag: "no" },
+  { id: "C_feeHLPhBh", flag: "fi" },
+  { id: "C_zvEetv0OY", flag: "no" },
+  { id: "C_qM6tLu603", flag: "fi" },
+  { id: "DCFBcKaIp3Z", flag: "se" },
+  { id: "DCG1-h3oOqB", flag: "fi" },
+  { id: "DBvjlmBoAV4", flag: "fi" },
+  { id: "DCgfmD6IQ4x", flag: "fi" },
 ]);
-
-// Compute the reversed reels array
-const reversedReels = computed(() => {
-  return [...reels.value].reverse();
-});
 
 // Initialize Swiper for the reels section
 onMounted(() => {
@@ -107,11 +105,7 @@ onMounted(() => {
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slide -->
-      <div
-        v-for="(reel, index) in reversedReels"
-        :key="index"
-        class="swiper-slide"
-      >
+      <div v-for="(reel, index) in reels" :key="index" class="swiper-slide">
         <a
           target="_blank"
           rel="noopener noreferrer nofollow"
@@ -122,6 +116,13 @@ onMounted(() => {
             >View reel {{ index + 1 }} on Instagram</span
           >
         </a>
+        <country-flag
+          :country="reel.flag"
+          rounded="false"
+          class="note"
+          style="box-shadow: var(--box-shadow-1)"
+          size="normal"
+        />
         <video
           class="video-offload"
           loop

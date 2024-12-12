@@ -7,7 +7,6 @@ import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
 import skeletonServices from "@/components/skeleton-services.vue";
 import $ from "jquery";
 import "magnific-popup";
-import flags from "@/components/flags.vue";
 import image from "@/modules/images";
 import services from "@/modules/services";
 
@@ -81,8 +80,9 @@ router.beforeEach((to, from, next) => {
 </script>
 <template>
   <article class="main" style="margin-top: 120px">
+    <!-- PAGE ABSTRACT START -->
     <section class="wrapper-wide">
-      <!-- PAGE INTRO -->
+      <!-- PAGE ABSTRACT START -->
       <div
         class="grid-container caption-container"
         v-if="isDataLoaded"
@@ -101,7 +101,9 @@ router.beforeEach((to, from, next) => {
         </div>
       </div>
     </section>
-    <!-- IMAGES GALLERY -->
+    <!-- PAGE ABSTRACT END -->
+
+    <!-- IMAGES GALLERY START -->
     <template
       v-for="(gallery, galleryKey) in imageState.image"
       :key="galleryKey"
@@ -181,6 +183,7 @@ router.beforeEach((to, from, next) => {
         </div>
       </section>
     </template>
+    <!-- IMAGES GALLERY END -->
     <section class="wrapper-wide">
       <hr class="reveal" role="separator" />
 
@@ -232,5 +235,10 @@ router.beforeEach((to, from, next) => {
         </div>
       </div>
     </section>
+    <!-- LIGHTROOM PRESETS CTA START -->
+    <section v-if="isDataLoaded" aria-busy="false">
+      <bannerLightroomPresets></bannerLightroomPresets>
+    </section>
+    <!-- LIGHTROOM PRESETS CTA END -->
   </article>
 </template>

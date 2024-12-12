@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
 import { truncateText } from "@/functions/truncate-text.ts";
 
 const props = defineProps<{
   img: string;
   url: string;
   title: string;
+  flag: string;
   alt: string;
   desc: string;
   icon: string;
@@ -16,6 +16,13 @@ const props = defineProps<{
 <template>
   <article class="gallery-item reveal">
     <a :href="url" :aria-label="`View details of ${title}`">
+      <country-flag
+        :country="flag"
+        rounded="false"
+        class="note"
+        style="box-shadow: var(--box-shadow-1)"
+        size="normal"
+      />
       <img
         :style="`opacity:${opacity}`"
         :src="`https://cdn.slavic.media/images/${img}/fit=contain,height=400,sharpen=100`"

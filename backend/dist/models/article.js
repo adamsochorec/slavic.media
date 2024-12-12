@@ -24,21 +24,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
-const videoSchema = new mongoose_1.Schema({
-    _id: { type: String, required: true, maxlength: 50 },
-    index: { type: Number, required: true, unique: true },
-    flag: { type: String, required: true, maxlength: 50 },
-    title: { type: String, required: true, maxlength: 200 },
-    url: { type: String, required: true, maxlength: 100 },
-    year: { type: String, required: true, maxlength: 4 },
-    client: { type: String, maxlength: 100 },
-});
+const video_1 = require("./video");
 const articleSchema = new mongoose_1.Schema({
     _id: { type: String, required: true, maxlength: 100 },
     title: { type: String, required: true, maxlength: 200 },
     author: { type: String, ref: "Employee", required: true },
     metadata: {
         date: { type: Date, required: true },
+        flag: { type: String, required: false, maxlength: 2 },
         formatedDate: { type: String, required: true, maxlength: 50 },
         keywords: { type: [String], required: true },
         linkedin: { type: String, maxlength: 200 },
@@ -48,7 +41,7 @@ const articleSchema = new mongoose_1.Schema({
         length: { type: Number, required: true, min: 1 },
     },
     content: { type: [String], required: true },
-    videos: { type: [videoSchema], required: false },
+    videos: { type: [video_1.videoSchema], required: false },
 });
 const articleModel = mongoose_1.default.model("Article", articleSchema);
 exports.default = articleModel;

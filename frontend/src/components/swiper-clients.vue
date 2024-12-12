@@ -35,7 +35,8 @@ onMounted(() => {
 #clients .grid-container.seventy-thirty .grid-item:nth-child(even) {
   margin: 0 0 0 var(--grid-gap-2);
 }
-.clients path {
+.clients path,
+.clients polygon {
   fill: rgb(var(--white-color));
 }
 .clients:hover path {
@@ -69,6 +70,31 @@ onMounted(() => {
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
+      <a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="https://rxd.dk"
+        aria-label="RXD"
+        class="swiper-slide clients"
+        ><svg
+          id="Layer_1"
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          viewBox="0 0 472.3 300.3"
+        >
+          <path
+            class="st0"
+            d="M57.2,275.3l37-65.6-.7-1.6c-8-4.5-15.4-10.9-21.3-18-41.1-50.2-10-126.3,53.7-134.1l89.4.2,83.8,145.6c10.8,18.7,21.5,37.3,32.2,56s7.4,11,9.3,15.4.5,1.4.4,2.2h-62.4c-3.2-3.9-5.2-8.8-7.8-13.2-25.5-43.6-50.6-87.5-76-131s-10.6-19.8-12-20.5l-50-.2c-22.9,3.1-33.1,31.3-15.6,47.5,17.5,16.2,11.1,7.3,15.1,7.3h50.5l-63.3,110.1h-62.4.1Z"
+          />
+          <polygon
+            class="st0"
+            points="152.5 275.3 151.9 274.2 199.6 193 230.8 247.3 214.7 275.3 152.5 275.3"
+          />
+          <polygon
+            class="st0"
+            points="341 55.9 294.2 137.3 293.1 136.5 262.5 83.1 277.5 55.9 341 55.9"
+          /></svg
+      ></a>
       <a
         target="_blank"
         rel="noopener noreferrer nofollow"

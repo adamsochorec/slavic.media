@@ -1,14 +1,5 @@
 import mongoose, { Schema, Document } from "mongoose";
-
-interface video extends Document {
-  _id: string;
-  index: number;
-  flag: string;
-  title: string;
-  url: string;
-  year: string;
-  client: string;
-}
+import { videoSchema } from "./video";
 
 interface article extends Document {
   _id: string;
@@ -21,6 +12,7 @@ interface article extends Document {
   };
   metadata: {
     date: Date;
+    flag: string;
     formatedDate: string;
     keywords: string[];
     linkedin: string;
@@ -30,18 +22,8 @@ interface article extends Document {
     length: number;
   };
   content: string[];
-  videos: video[];
+  videos: mongoose.Types.DocumentArray<mongoose.Document>;
 }
-
-const videoSchema = new Schema({
-  _id: { type: String, required: true, maxlength: 50 },
-  index: { type: Number, required: true, unique: true },
-  flag: { type: String, required: true, maxlength: 50 },
-  title: { type: String, required: true, maxlength: 200 },
-  url: { type: String, required: true, maxlength: 100 },
-  year: { type: String, required: true, maxlength: 4 },
-  client: { type: String, maxlength: 100 },
-});
 
 const articleSchema: Schema = new Schema({
   _id: { type: String, required: true, maxlength: 100 },
@@ -49,6 +31,7 @@ const articleSchema: Schema = new Schema({
   author: { type: String, ref: "Employee", required: true },
   metadata: {
     date: { type: Date, required: true },
+    flag: { type: String, required: false, maxlength: 2 },
     formatedDate: { type: String, required: true, maxlength: 50 },
     keywords: { type: [String], required: true },
     linkedin: { type: String, maxlength: 200 },

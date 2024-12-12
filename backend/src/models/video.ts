@@ -40,4 +40,5 @@ const videoGallery = mongoose.model<videoGallery>(
   "VideoGallery",
   videoGallerySchema
 );
+export { videoSchema };
 export default videoGallery;

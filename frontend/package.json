@@ -28,6 +28,7 @@
     "swiper": "^11.1.14",
     "tailwindcss-primeui": "^0.3.4",
     "vue": "^3.4.15",
+    "vue-country-flag-next": "^2.3.2",
     "vue-lazyload": "^3.0.0",
     "vue-router": "^4.2.5"
   },
