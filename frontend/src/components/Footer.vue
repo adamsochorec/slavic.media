@@ -57,71 +57,66 @@ const currentYear = new Date().getFullYear();
         </a>
       </nav>
     </div>
-    <hr style="opacity: 30%" role="separator" />
+    <hr class="quater" role="separator" />
     <div class="footer-container">
-      <nav class="grid-item" aria-label="Footer Navigation">
-        <button @click="revokeConsent" class="footer-nav cookie-button">
-          <img
-            class="cookie"
-            src="../assets/cookies.svg"
-            alt="privacy options"
-          />
-          &nbsp;&nbsp;<span style="opacity: 30%" class="footer-link"
-            >Cookies</span
-          >
+      <nav aria-label="Footer Navigation">
+        <button @click="revokeConsent" class="cookie">
+          <img src="../assets/cookies.svg" alt="privacy options" />
+          &nbsp;&nbsp;<span class="underline">Cookies</span>
         </button>
-        <span style="opacity: 30%" class="footer-link">&nbsp;|&nbsp;</span>
-        <a
-          aria-label="Press Kit"
-          href="/assets/press-kit.zip"
-          class="footer-nav footer-link"
-          title="Assets"
-          style="opacity: 30%"
-        >
+        <span class="separator"></span>
+        <a aria-label="Press Kit" href="/assets/press-kit.zip" title="Assets">
           <i
             style="font-size: var(--font-size-7)"
             aria-hidden="true"
             class="pi pi-download"
           ></i>
-          &nbsp;<span>Press Kit</span>
+          &nbsp;<span class="underline">Press Kit</span>
         </a>
-        <span style="opacity: 30%" class="footer-link">&nbsp;|&nbsp;</span>
-        <router-link
-          style="opacity: 30%"
-          aria-label="Legal documents"
-          to="/legal"
-          class="footer-nav footer-link"
-        >
+        <span class="separator"></span>
+        <router-link aria-label="Legal documents" to="/legal">
           <i
             style="font-size: var(--font-size-7)"
             aria-hidden="true"
             class="pi pi-briefcase"
           ></i>
-          &nbsp;<span>Legal</span>
+          &nbsp;<span class="underline">Legal</span>
         </router-link>
-        <span style="opacity: 30%" class="footer-link">&nbsp;|&nbsp;</span>
-        <p style="opacity: 30%; display: inline" title="VAT Number">
-          <span class="footer-link">VAT:&nbsp;DK44081512</span>
-        </p>
       </nav>
-      <span style="opacity: 30%" class="footer-link">
-        ©&nbsp;{{ currentYear }} Slavic Media I/S.&nbsp;
-        <a
-          target="_blank"
-          rel="noopener noreferrer nofollow"
-          href="https://datacvr.virk.dk/enhed/virksomhed/44081512?fritekst=slavic%20media&sideIndex=0&size=10"
-          class="footer-nav"
-          style="text-decoration: underline; color: white"
-          >Registered company in Denmark</a
-        >
-        <country-flag style="vertical-align: sub" country="dk" size="small" />
+      <span>
+        ©&nbsp;{{ currentYear }} Slavic Media I/S.<span
+          class="separator"
+        ></span
+        >VAT:&nbsp;DK44081512
       </span>
+      <span class="separator hide-min"></span>
+      <br class="hide-max" />
+      <a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="https://datacvr.virk.dk/enhed/virksomhed/44081512?fritekst=slavic%20media&sideIndex=0&size=10"
+        ><span class="underline">Registered company in Denmark</span>
+        <country-flag class="flag" country="dk" size="small" />
+      </a>
     </div>
   </footer>
 </template>
 
 <style scoped>
-.cookie-button {
+.separator {
+  margin: 0 var(--grid-gap-1);
+}
+.separator::after {
+  content: "|";
+}
+.flag {
+  vertical-align: middle;
+  opacity: 30%;
+}
+a:hover .flag {
+  opacity: 100%;
+}
+.cookie {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -129,64 +124,51 @@ const currentYear = new Date().getFullYear();
   -ms-flex-align: center;
   align-items: center;
 }
-.cookie {
+.cookie img {
   height: 10px;
   vertical-align: middle;
   width: auto;
 }
-.grid-item i:hover {
-  color: unset;
-}
-.footer-link i:hover {
-  color: white;
-}
-footer .footer-nav {
-  color: rgb(var(--primary-color));
-}
-footer .footer-nav span,
-footer .footer-nav span:hover {
-  text-decoration: underline;
-}
-
 footer {
   padding: var(--grid-gap-3) var(--homepage-padding);
   background-color: rgb(var(--dark-grey-color));
   width: 100%;
   font-family: var(--content-font);
 }
-footer img {
-  width: 70px;
-  height: 100%;
-  -webkit-animation: none;
-  animation: none;
-}
-
-footer .footer-container {
+.footer-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  line-height: 1.5;
+  line-height: 2;
 }
-footer .footer-container:last-of-type {
+.footer-container:last-of-type {
   display: block;
   text-align: center;
 }
-
-footer p,
-footer a,
-footer span {
-  font-weight: var(--paragraph-weight);
-  text-shadow: none;
-  color: rgb(var(--white-color));
-  font-family: var(--content-font);
+.hide-max {
+  display: none;
 }
+span,
+.footer-container:last-of-type i,
 footer hr {
-  margin: var(--grid-gap-2) 0 !important;
+  color: rgba(var(--white-color), 0.3);
 }
-
+a:hover span,
+button span:hover,
+a .flag,
+a:hover .flag,
+.footer-container:last-of-type a:hover i {
+  color: rgba(var(--white-color), 1);
+}
+a span,
+button span,
+a:hover span,
+button span:hover {
+  transition: var(--transition-1);
+}
 /* SOCIAL ICONS START */
 footer .social-icons,
 footer .language-container {
@@ -202,19 +184,18 @@ footer .language-container {
 .social-icons a:not(.social-icons a:nth-last-child(1)) {
   margin-right: var(--grid-gap-1);
 }
-
 .social-icons a:nth-child(5) {
   margin-right: 0;
 }
 /* SOCIAL ICONS END */
 
-@media only screen and (max-width: 415px) {
-  .separator-hide {
+@media only screen and (max-width: 850px) {
+  .hide-max {
+    display: block;
+  }
+  .hide-min {
     display: none;
   }
-}
-
-@media only screen and (max-width: 850px) {
   footer {
     font-size: var(--font-size-8);
   }

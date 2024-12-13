@@ -16,7 +16,7 @@ declare module 'vue' {
     Controls: typeof import('./src/components/controls.vue')['default']
     Cookie: typeof import('./src/components/cookie.vue')['default']
     Cookies: typeof import('./src/components/cookies.vue')['default']
-    Flags: typeof import('./src/components/flags.vue')['default']
+    Flags: typeof import('./src/components/Flags.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     GalleryItem: typeof import('./src/components/gallery-item.vue')['default']
     HeroVideo: typeof import('./src/components/hero-video.vue')['default']

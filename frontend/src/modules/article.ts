@@ -56,6 +56,7 @@ const article = () => {
           new Date(b.metadata.date).getTime() -
           new Date(a.metadata.date).getTime()
       );
+      console.log(data);
     } catch (error) {
       console.error(error);
     }

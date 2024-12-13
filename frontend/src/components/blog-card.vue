@@ -64,10 +64,16 @@ const props = defineProps<{
             <b>{{ article.author.name }}</b>
           </a>
           <br class="hide" />
-          <span style="font-size: var(--font-size-7)">
-            {{ article.metadata.formatedDate }}&nbsp;⋅&nbsp;{{
-              article.metadata.length
-            }}
+          <span style="font-size: var(--font-size-7)"
+            ><span
+              style="font-size: var(--font-size-7)"
+              class="pi pi-calendar"
+            ></span
+            >&nbsp;{{ article.metadata.formatedDate }}&nbsp;⋅&nbsp;<span
+              style="font-size: var(--font-size-7)"
+              class="pi pi-book"
+            ></span
+            >&nbsp;{{ article.metadata.length }}
             min read
           </span>
         </div>

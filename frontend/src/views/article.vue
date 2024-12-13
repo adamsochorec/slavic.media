@@ -140,12 +140,24 @@ const copyHref = (href) => {
               <div style="display: flex">
                 <div style="font-size: var(--font-size-7)">
                   <dt class="visually-hidden">Publication Date</dt>
-                  <dd>{{ state.article.metadata.formatedDate }}</dd>
+                  <dd>
+                    <span
+                      style="font-size: var(--font-size-6)"
+                      class="pi pi-calendar"
+                    ></span
+                    >&nbsp;{{ state.article.metadata.formatedDate }}
+                  </dd>
                 </div>
                 &nbsp;
                 <div style="font-size: var(--font-size-7)">
                   <dt class="visually-hidden">Reading Time</dt>
-                  <dd>⋅&nbsp;{{ state.article.metadata.length }} min read</dd>
+                  <dd>
+                    ⋅&nbsp;<span
+                      style="font-size: var(--font-size-6)"
+                      class="pi pi-book"
+                    ></span
+                    >&nbsp;{{ state.article.metadata.length }} min read
+                  </dd>
                 </div>
               </div>
             </dl>

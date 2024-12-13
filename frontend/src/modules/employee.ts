@@ -20,27 +20,9 @@ const employee = () => {
     }
   };
 
-  // Read specific document by ID - GET
-  const employee = ref({});
-  const getSpecificEmployee = async (documentID: string) => {
-    try {
-      const response = await fetch(
-        `https://api.slavic.media/employee/${documentID}`
-      );
-      if (!response.ok) {
-        throw new Error(`Failed to fetch document with ID: ${documentID}`);
-      }
-      const data = await response.json();
-      employee.value = data;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return {
     state,
     getAllEmployees,
-    getSpecificEmployee,
     documentID,
   };
 };

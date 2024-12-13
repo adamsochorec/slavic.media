@@ -23,7 +23,10 @@ onMounted(() => {
 });
 </script>
 <style scoped>
-.swiper-clients svg {
+.swiper-clients .swiper-slide {
+  text-align: center;
+}
+svg {
   height: 70px;
   aspect-ratio: 1/1;
 }
@@ -32,17 +35,18 @@ path,
 polygon {
   fill: rgb(var(--white-color));
 }
+
 .clients:hover path,
 .clients:hover polygon {
   fill: rgba(var(--primary-color), 1);
   cursor: pointer;
 }
-.clients:hover path,
 path,
-.clients:hover g,
 g,
 polygon,
-.clients:hover polygon {
+.clients:hover path,
+.clients:hover polygon,
+.clients:hover g {
   transition: var(--transition-1);
   -webkit-transition: var(--transition-1);
   -moz-transition: var(--transition-1); /* Firefox */
