@@ -23,6 +23,7 @@ declare module 'vue' {
     LazyImg: typeof import('./src/components/lazy-img.vue')['default']
     NavBar: typeof import('./src/components/nav-bar.vue')['default']
     Norway: typeof import('./src/components/norway.vue')['default']
+    PanelMenu: typeof import('primevue/panelmenu')['default']
     Privacyoptions: typeof import('./src/components/privacyoptions.vue')['default']
     RequestAProposal: typeof import('./src/components/request-a-proposal.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

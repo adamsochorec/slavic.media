@@ -82,29 +82,32 @@ const currentYear = new Date().getFullYear();
           ></i>
           &nbsp;<span class="underline">Legal</span>
         </router-link>
+        <span class="separator hide-min"></span>
+        <br class="hide-max" />
+
+        <span>
+          ©&nbsp;{{ currentYear }} Slavic Media I/S.<span
+            class="separator"
+          ></span
+          >VAT:&nbsp;DK44081512
+        </span>
+        <span class="separator hide-min"></span>
+        <br class="hide-max" />
+        <a
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          href="https://datacvr.virk.dk/enhed/virksomhed/44081512?fritekst=slavic%20media&sideIndex=0&size=10"
+          ><span class="underline">Registered company in Denmark</span>
+          <country-flag class="flag" country="dk" size="small" />
+        </a>
       </nav>
-      <span>
-        ©&nbsp;{{ currentYear }} Slavic Media I/S.<span
-          class="separator"
-        ></span
-        >VAT:&nbsp;DK44081512
-      </span>
-      <span class="separator hide-min"></span>
-      <br class="hide-max" />
-      <a
-        target="_blank"
-        rel="noopener noreferrer nofollow"
-        href="https://datacvr.virk.dk/enhed/virksomhed/44081512?fritekst=slavic%20media&sideIndex=0&size=10"
-        ><span class="underline">Registered company in Denmark</span>
-        <country-flag class="flag" country="dk" size="small" />
-      </a>
     </div>
   </footer>
 </template>
 
 <style scoped>
 .separator {
-  margin: 0 var(--grid-gap-1);
+  margin: 0 5px;
 }
 .separator::after {
   content: "|";
@@ -157,7 +160,7 @@ footer hr {
   color: rgba(var(--white-color), 0.3);
 }
 a:hover span,
-button span:hover,
+button.cookie:hover span,
 a .flag,
 a:hover .flag,
 .footer-container:last-of-type a:hover i {
@@ -170,8 +173,7 @@ button span:hover {
   transition: var(--transition-1);
 }
 /* SOCIAL ICONS START */
-footer .social-icons,
-footer .language-container {
+footer .social-icons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

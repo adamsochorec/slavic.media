@@ -37,6 +37,7 @@ const reels = ref<Reel[]>([
   { id: "DCG1-h3oOqB", flag: "fi" },
   { id: "DBvjlmBoAV4", flag: "fi" },
   { id: "DCgfmD6IQ4x", flag: "fi" },
+  { id: "DDhGm_Fo5eg", flag: "fi" },
 ]);
 
 // Initialize Swiper for the reels section

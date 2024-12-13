@@ -161,6 +161,9 @@ const props = defineProps<{
   .gallery .grid-item {
     height: 80px;
   }
+  .gallery .gallery-item:hover p {
+    display: none;
+  }
 }
 @media only screen and (max-width: 500px) {
   .gallery-item .gallery-item-caption {
