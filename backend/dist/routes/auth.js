@@ -20,14 +20,22 @@ const validation_1 = require("../validation"); // Validation functions
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken")); // jsonwebtoken to create authentication tokens
 // Express router to define the routes
 const router = (0, express_1.Router)();
+// Allowed email domain
+const allowedDomain = "slavic.media";
 // User registration endpoint
-router.post("/register", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.post("/675c6906f759b4d2938177b9", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Validate the user input (name, email, password)
         // If the validation fails, return an error message
         const { error } = (0, validation_1.registerValidation)(req.body);
         if (error) {
             return res.status(400).json({ error: error.details[0].message });
+        }
+        // Extract the domain from the email address
+        const emailDomain = req.body.email.split("@")[1];
+        // Check if the domain matches the allowed domain
+        if (emailDomain !== allowedDomain) {
+            return res.status(400).json({ error: "Email domain not allowed" });
         }
         // Check if the email is already registered
         // If the email is already registered, return an error message

@@ -311,6 +311,9 @@ ul.menu-left {
   z-index: 9;
   font-weight: var(--paragraph-weight);
 }
+.collapse {
+  visibility: unset !important;
+}
 ul.menu-left:before {
   content: "";
   display: table;
@@ -400,8 +403,8 @@ ul.menu-left.collapse {
   .menu-left a {
     padding: var(--grid-gap-2) var(--grid-gap-2) var(--grid-gap-2) 0;
   }
-  .menu-left a:hover {
-    background-color: transparent;
+  .menu-left a {
+    width: 100%;
   }
 }
 @media only screen and (min-width: 1020px) {
