@@ -55,7 +55,7 @@ const swiperOptions = {
   lazy: true,
   observer: true,
   observeParents: true,
-  direction: "horizontal",
+  direction: "vertical",
 };
 </script>
 
@@ -101,5 +101,8 @@ img {
   object-fit: cover;
   -o-object-position: center center;
   object-position: center center;
+}
+.p-imagecompare {
+  height: 100%;
 }
 </style>
