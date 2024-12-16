@@ -6,49 +6,34 @@ import ImageCompare from "primevue/imagecompare";
 
 const slides = ref([
   {
-    original: "20240308_SLAVIC-MEDIA0204",
-    edited: "20240308_SLAVIC-MEDIA0204-2",
-    flag: "fi",
+    _id: "20240308_SLAVIC-MEDIA0204",
   },
   {
-    original: "20240312_SLAVIC-MEDIA0583",
-    edited: "20240312_SLAVIC-MEDIA0583-2",
-    flag: "fi",
+    _id: "20240312_SLAVIC-MEDIA0583",
   },
   {
-    original: "20240314_SLAVIC-MEDIA0714",
-    edited: "20240314_SLAVIC-MEDIA0714-2",
-    flag: "fi",
+    _id: "20240314_SLAVIC-MEDIA0714",
   },
   {
-    original: "20240314_SLAVIC-MEDIA0719",
-    edited: "20240314_SLAVIC-MEDIA0719-2",
-    flag: "fi",
+    _id: "20241024_SLAVIC-MEDIA2061",
   },
   {
-    original: "20240511_SLAVIC-MEDIA1149",
-    edited: "20240511_SLAVIC-MEDIA1149-2",
-    flag: "no",
+    _id: "20240314_SLAVIC-MEDIA0719",
   },
   {
-    original: "20240512_SLAVIC-MEDIA1233",
-    edited: "20240512_SLAVIC-MEDIA1233-2",
-    flag: "no",
+    _id: "20240511_SLAVIC-MEDIA1149",
   },
   {
-    original: "DJI_0032",
-    edited: "DJI_0032-2",
-    flag: "no",
+    _id: "20240512_SLAVIC-MEDIA1233",
   },
   {
-    original: "DJI_20240513134142_0052_D_SLAVICM",
-    edited: "DJI_20240513134142_0052_D_SLAVICM-2",
-    flag: "no",
+    _id: "DJI_0032",
   },
   {
-    original: "DJI_20240515173653_0002_D_SLAVICM",
-    edited: "DJI_20240515173653_0002_D_SLAVICM-2",
-    flag: "no",
+    _id: "DJI_20240513134142_0052_D_SLAVICM",
+  },
+  {
+    _id: "DJI_20240515173653_0002_D_SLAVICM",
   },
 ]);
 onMounted(async () => {
@@ -85,18 +70,20 @@ onMounted(async () => {
         v-for="(slide, index) in slides"
         :key="index"
       >
-        <country-flag :country="slide.flag" class="note" size="small" />
         <ImageCompare aria-label="Compare Images">
           <template #left>
+            <span class="note _id">S-log</span>
+            <span class="note edited">Colour Graded</span>
+
             <img
-              :src="`https://cdn.slavic.media/images/${slide.original}/fit=contain,width=1280,sharpen=100`"
-              alt="Original stills"
-              title="Original"
+              :src="`https://cdn.slavic.media/images/${slide._id}/fit=contain,width=1280,sharpen=100`"
+              alt="_id stills"
+              title="_id"
             />
           </template>
           <template #right>
             <img
-              :src="`https://cdn.slavic.media/images/${slide.edited}/fit=contain,width=1280,sharpen=100`"
+              :src="`https://cdn.slavic.media/images/${slide._id}-2/fit=contain,width=1280,sharpen=100`"
               alt="Colour Graded still"
               title="Colour Graded"
             />
@@ -114,6 +101,17 @@ onMounted(async () => {
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
   aspect-ratio: 16/9;
+}
+.note.edited {
+  left: var(--grid-gap-1);
+}
+
+.note {
+  background-color: rgba(var(--dark-grey-color), 0.3);
+  backdrop-filter: var(--blur-1);
+  width: fit-content;
+  padding: 0 var(--grid-gap-1);
+  text-align: center;
 }
 img {
   -o-object-fit: cover;
