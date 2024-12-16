@@ -20,6 +20,7 @@ declare module 'vue' {
     Footer: typeof import('./src/components/Footer.vue')['default']
     GalleryItem: typeof import('./src/components/gallery-item.vue')['default']
     HeroVideo: typeof import('./src/components/hero-video.vue')['default']
+    LatestArticle: typeof import('./src/components/latest-article.vue')['default']
     LazyImg: typeof import('./src/components/lazy-img.vue')['default']
     NavBar: typeof import('./src/components/nav-bar.vue')['default']
     Norway: typeof import('./src/components/norway.vue')['default']

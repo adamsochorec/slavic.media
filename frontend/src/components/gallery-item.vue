@@ -4,19 +4,19 @@ import { truncateText } from "@/functions/truncate-text.ts";
 const props = defineProps<{
   img: string;
   url: string;
-  title: string;
-  flag: string;
+  title?: string;
+  flag?: string;
   alt: string;
   desc: string;
   icon: string;
-  opacity: number;
+  opacity?: number;
 }>();
 </script>
 
 <template>
   <article class="gallery-item reveal">
     <a :href="url" :aria-label="`View details of ${title}`">
-      <country-flag :country="flag" class="note" size="small" />
+      <country-flag v-if="flag" :country="flag" class="note" size="small" />
       <img
         :style="`opacity:${opacity}`"
         :src="`https://cdn.slavic.media/images/${img}/fit=contain,height=400,sharpen=100`"

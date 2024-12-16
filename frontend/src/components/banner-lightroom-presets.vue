@@ -62,7 +62,6 @@
 img {
   position: relative;
   display: block;
-  opacity: 0.5;
   width: 100%;
   -webkit-filter: var(--blur-1);
   filter: var(--blur-1);

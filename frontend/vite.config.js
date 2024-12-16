@@ -6,7 +6,13 @@ import { PrimeVueResolver } from "@primevue/auto-import-resolver";
 
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => tag === "lite-vimeo",
+        },
+      },
+    }),
     Components({
       resolvers: [PrimeVueResolver()],
     }),

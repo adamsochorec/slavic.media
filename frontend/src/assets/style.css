@@ -577,7 +577,7 @@ lite-vimeo:hover > .ltv-playbtn {
   vertical-align: middle;
   margin: 0 auto;
   text-align: left;
-  z-index: 9999999999999;
+  z-index: 9;
   overflow: hidden !important;
 }
 .mfp-ajax-holder .mfp-content,

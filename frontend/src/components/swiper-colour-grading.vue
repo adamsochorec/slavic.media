@@ -5,36 +5,16 @@ import "swiper/swiper-bundle.css";
 import ImageCompare from "primevue/imagecompare";
 
 const slides = ref([
-  {
-    _id: "20240308_SLAVIC-MEDIA0204",
-  },
-  {
-    _id: "20240312_SLAVIC-MEDIA0583",
-  },
-  {
-    _id: "20240314_SLAVIC-MEDIA0714",
-  },
-  {
-    _id: "20241024_SLAVIC-MEDIA2061",
-  },
-  {
-    _id: "20240314_SLAVIC-MEDIA0719",
-  },
-  {
-    _id: "20240511_SLAVIC-MEDIA1149",
-  },
-  {
-    _id: "20240512_SLAVIC-MEDIA1233",
-  },
-  {
-    _id: "DJI_0032",
-  },
-  {
-    _id: "DJI_20240513134142_0052_D_SLAVICM",
-  },
-  {
-    _id: "DJI_20240515173653_0002_D_SLAVICM",
-  },
+  { _id: "20240308_SLAVIC-MEDIA0204" },
+  { _id: "20240312_SLAVIC-MEDIA0583" },
+  { _id: "20240314_SLAVIC-MEDIA0714" },
+  { _id: "20241024_SLAVIC-MEDIA2061" },
+  { _id: "20240314_SLAVIC-MEDIA0719" },
+  { _id: "20240511_SLAVIC-MEDIA1149" },
+  { _id: "20240512_SLAVIC-MEDIA1233" },
+  { _id: "DJI_0032" },
+  { _id: "DJI_20240513134142_0052_D_SLAVICM" },
+  { _id: "DJI_20240515173653_0002_D_SLAVICM" },
 ]);
 onMounted(async () => {
   new Swiper(".swiper-colour-grading", {
@@ -45,7 +25,6 @@ onMounted(async () => {
       clickable: true,
       dynamicBullets: true,
     },
-    autoplay: { delay: 1000, pauseOnMouseEnter: true },
     preloadImages: false,
     lazy: true,
     observer: true,
@@ -61,7 +40,7 @@ onMounted(async () => {
     aria-labelledby="image-compare-heading"
   >
     <h2 id="image-compare-heading" class="visually-hidden">
-      Image Comparison Carousel
+      Colour Grading Image Comparison Carousel
     </h2>
     <div class="swiper-wrapper">
       <!-- Slide -->
@@ -72,20 +51,19 @@ onMounted(async () => {
       >
         <ImageCompare aria-label="Compare Images">
           <template #left>
-            <span class="note _id">S-log</span>
+            <span class="note">S-Log</span>
             <span class="note edited">Colour Graded</span>
-
             <img
               :src="`https://cdn.slavic.media/images/${slide._id}/fit=contain,width=1280,sharpen=100`"
-              alt="_id stills"
-              title="_id"
+              :alt="`S-Log still ${slide._id}`"
+              :title="`S-Log still ${slide._id}`"
             />
           </template>
           <template #right>
             <img
               :src="`https://cdn.slavic.media/images/${slide._id}-2/fit=contain,width=1280,sharpen=100`"
-              alt="Colour Graded still"
-              title="Colour Graded"
+              :alt="`Colour Graded still ${slide._id}`"
+              :title="`Colour Graded still ${slide._id}`"
             />
           </template>
         </ImageCompare>

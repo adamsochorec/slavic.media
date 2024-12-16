@@ -144,7 +144,7 @@ onMounted(() => {
 </template>
 <style scoped>
 .wrapper-standard {
-  height: 90vh;
+  max-height: var(--dimension-1);
   overflow: scroll;
 }
 .contact-form-section .contact-form .grid-item:nth-child(odd) {

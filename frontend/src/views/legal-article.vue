@@ -41,7 +41,6 @@ interface State {
             v-for="(content, index) in state.legal?.content"
             :key="index"
             v-html="content"
-            v-add-class
           ></section>
         </div>
       </div>

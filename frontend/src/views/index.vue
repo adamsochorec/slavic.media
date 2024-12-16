@@ -20,9 +20,9 @@ onMounted(async () => {
   <article class="main homepage">
     <!-- INTRO VIDEO START -->
     <heroVideo
-      id="1039054657"
-      ariaLabel="Showreel 2024 | Slavic Media"
-      start="7"
+      :id="1039054657"
+      ariaLabel="Showreel 24' | Slavic Media"
+      :start="7"
     />
     <!-- INTRO VIDEO END -->
 

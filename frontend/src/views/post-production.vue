@@ -60,9 +60,10 @@ router.beforeEach((to, from, next) => {
         </div>
         <div class="grid-item">
           <p class="reveal">
-            From inspiring stories to cinematic visuals, each video project is
-            crafted to captivate, impress, and showcase your vision with
-            creative precision.
+            Bring your footage to life with our professional video colour
+            grading. Using DaVinci Resolve, we grade boring log footage to
+            unlock its full potential, delivering rich, vibrant colours across
+            the depth spectrum and natural skin tones.
           </p>
           <requestAProposal />
           <button
@@ -89,9 +90,11 @@ router.beforeEach((to, from, next) => {
         </div>
         <div class="grid-item">
           <p class="reveal">
-            From inspiring stories to cinematic visuals, each video project is
-            crafted to captivate, impress, and showcase your vision with
-            creative precision.
+            Elevate your content with our dynamic video editing. From seamless
+            hyper lapses, image stabilisation, and speed ramps to multicam cuts,
+            subtitles, and personalised motion graphics. Complete with
+            professional intros, outros, and precise cuts, your video will stand
+            out from start to finish.
           </p>
           <requestAProposal />
           <button
@@ -122,9 +125,11 @@ router.beforeEach((to, from, next) => {
         </div>
         <div class="grid-item">
           <p class="reveal">
-            From inspiring stories to cinematic visuals, each video project is
-            crafted to captivate, impress, and showcase your vision with
-            creative precision.
+            Immerse your audience with our spatial sound design. We specialize
+            in creating dynamic soundscapes with high-quality SFX, smooth
+            dialogue correction, digital denoising, and strong atmospheres.
+            Whether it’s subtle accents or intense action, we bring every
+            element of your audio to life.
           </p>
           <requestAProposal />
           <button

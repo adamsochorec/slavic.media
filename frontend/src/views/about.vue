@@ -33,7 +33,7 @@ onMounted(async () => {
 
 <template>
   <article class="main" aria-labelledby="about-company">
-    <heroVideo id="1013776851" ariaLabel="Behind the Scenes | Slavic Media">
+    <heroVideo :id="1013776851" ariaLabel="Behind the Scenes | Slavic Media">
     </heroVideo>
     <!--   ABOUT START -->
     <section class="wrapper-standard" role="region">
