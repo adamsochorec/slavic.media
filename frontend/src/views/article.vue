@@ -1,11 +1,9 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
-import article from "../modules/article";
+import article from "@/modules/article";
 import { useRoute } from "vue-router";
-import "magnific-popup";
-import blogCard from "@/components/blog-card.vue";
 import $ from "jquery";
-import galleryItem from "@/components/gallery-item.vue";
+import "magnific-popup";
 
 const { getAllArticles, getSpecificArticle, state } = article();
 const isDataLoaded = ref(false);
@@ -218,183 +216,26 @@ const copyHref = (href) => {
           </div>
         </div>
       </div>
-      <div v-else aria-busy="true" aria-live="polite">
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          borderRadius="10px"
-          height="10px"
-          width="100%"
-          class="mb-2"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          borderRadius="10px"
-          height="10px"
-          width="50%"
-          class="mb-4"
-        ></Skeleton>
-        <div class="flex justify-between mt-4">
-          <div class="flex mb-4">
-            <Skeleton
-              style="background-color: rgb(var(--dark-grey-color))"
-              shape="circle"
-              size="4rem"
-              class="mr-2"
-            ></Skeleton>
-            <div>
-              <Skeleton
-                style="background-color: rgb(var(--dark-grey-color))"
-                width="10rem"
-                borderRadius="10px"
-                height="10px"
-                class="mb-2"
-              ></Skeleton>
-              <Skeleton
-                style="background-color: rgb(var(--dark-grey-color))"
-                width="5rem"
-                height="10px"
-                class="mb-2"
-              ></Skeleton>
-              <Skeleton
-                style="background-color: rgb(var(--dark-grey-color))"
-                borderRadius="10px"
-                height="10px"
-              ></Skeleton>
-            </div>
-          </div>
-        </div>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          class="mb-4"
-          width="100%"
-          height="200px"
-          borderRadius="10px"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          borderRadius="10px"
-          height="10px"
-          width="100%"
-          class="mb-2"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          borderRadius="10px"
-          height="10px"
-          s
-          width="90%"
-          class="mb-2"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          borderRadius="10px"
-          height="10px"
-          width="95%"
-          class="mb-2"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          borderRadius="10px"
-          height="10px"
-          width="90%"
-          class="mb-2"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          borderRadius="10px"
-          height="10px"
-          width="95%"
-          class="mb-4"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          class="mb-4"
-          width="100%"
-          height="200px"
-          borderRadius="10px"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          height="10px"
-          width="100%"
-          class="mb-2"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          borderRadius="10px"
-          height="10px"
-          width="90%"
-          class="mb-2"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          borderRadius="10px"
-          height="10px"
-          width="95%"
-          class="mb-2"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          borderRadius="10px"
-          height="10px"
-          width="90%"
-          class="mb-2"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          borderRadius="10px"
-          height="10px"
-          width="95%"
-          class="mb-4"
-        ></Skeleton>
-      </div>
+      <skeletonArticle
+        v-else
+        aria-busy="true"
+        aria-live="polite"
+      ></skeletonArticle>
     </section>
     <!-- LIGHTROOM PRESETS BANNER CTA -->
     <bannerLightroomPresets
       v-if="isDataLoaded"
       aria-busy="false"
     ></bannerLightroomPresets>
+
     <!-- FURTHER READING -->
-
-    <section
-      class="wrapper-standard"
-      role="region"
-      aria-labelledby="further-reading-title"
-    >
-      <div v-if="isDataLoaded" aria-busy="false">
-        <hr class="semi" />
-
-        <h3 id="further-reading-title">
-          More from
-          <router-link to="/blog" class="gradient"
-            >Slavic&nbsp;Media&nbsp;</router-link
-          >Blog
-        </h3>
-        <hr class="quater reveal" />
-        <div class="grid-container">
-          <div
-            v-for="article in state.furtherReading.slice(0, articlesToShow)"
-            :key="article._id"
-            role="article"
-            aria-labelledby="article-{{ article._id }}-title"
-          >
-            <blogCard
-              :article="article"
-              id="article-{{ article._id }}-title"
-            ></blogCard>
-          </div>
-        </div>
-      </div>
-      <div class="flex-center">
-        <button
-          v-if="articlesToShow < state.furtherReading.length"
-          @click="loadMoreArticles"
-          class="cta reveal"
-        >
-          Show More<i class="pi pi-arrow-right"></i>
-        </button>
-      </div>
-    </section>
+    <furtherReading
+      v-if="isDataLoaded"
+      :isDataLoaded="isDataLoaded"
+      :state="state"
+      :articlesToShow="articlesToShow"
+      :loadMoreArticles="loadMoreArticles"
+    />
   </article>
 </template>
 

@@ -2,8 +2,20 @@
 import { ref, onMounted, nextTick } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
+
 import employee from "@/modules/employee";
-import skeletonSwiper from "@/components/skeleton-swiper.vue";
+
+// Define the Employee interface
+interface Employee {
+  _id: string;
+  name: string;
+  flag: string;
+  email: string;
+  linkedin?: string;
+  github?: string;
+  department: string;
+}
+
 const { state, getAllEmployees } = employee();
 const isDataLoaded = ref(false);
 

@@ -1,5 +1,5 @@
 <script setup>
-import eventBus from "@/eventBus";
+import eventBus from "@/functions/eventBus";
 
 const revokeConsent = () => {
   eventBus.emit("revoke-consent");
@@ -110,7 +110,9 @@ const currentYear = new Date().getFullYear();
   margin: 0 5px;
 }
 .separator::after {
-  content: "|";
+  content: "⋅";
+  font-size: var(--font-size-3);
+  vertical-align: middle;
 }
 .flag {
   vertical-align: middle;

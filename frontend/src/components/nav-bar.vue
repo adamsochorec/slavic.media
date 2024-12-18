@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
-import TieredMenu from "primevue/tieredmenu";
 
 interface MenuItem {
   label: string;

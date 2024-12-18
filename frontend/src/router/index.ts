@@ -24,8 +24,7 @@ const router = createRouter({
     {
       path: "/blog/:_id",
       name: "article",
-      component: () =>
-        import(/* webpackChunkName: "article" */ "../views/article.vue"),
+      component: () => import("../views/article.vue"),
       meta: {
         requiresAuth: false,
       },

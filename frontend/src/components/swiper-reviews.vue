@@ -2,8 +2,8 @@
 import { ref, onMounted, nextTick } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
+
 import review from "@/modules/review";
-import skeletonSwiper from "@/components/skeleton-swiper.vue";
 import { truncateText } from "@/functions/truncate-text.ts";
 
 const { state, getAllReviews } = review();
@@ -13,20 +13,6 @@ const isDataLoaded = ref(false);
 const gridGap2 = parseFloat(
   getComputedStyle(document.documentElement).getPropertyValue("--grid-gap-2")
 );
-const gridGap3 = parseFloat(
-  getComputedStyle(document.documentElement).getPropertyValue("--grid-gap-3")
-);
-
-interface Review {
-  _id: string;
-  name: string;
-  role: string;
-  img: string;
-  profileLink: string;
-  rating: number;
-  message: string;
-  fullReview: string;
-}
 
 onMounted(async () => {
   await getAllReviews();

@@ -1,10 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import heroVideo from "@/components/hero-video.vue";
-import requestAProposal from "@/components/request-a-proposal.vue";
-import swiperClients from "@/components/swiper-clients.vue";
-import swiperReviews from "@/components/swiper-reviews.vue";
-import galleryItem from "@/components/gallery-item.vue";
 import services from "@/modules/services";
 
 const { state, getAllServices } = services();
@@ -110,7 +105,7 @@ onMounted(async () => {
           href="https://g.page/r/CRTkzopg3plWEB0/review"
           aria-label="Share your experience"
         >
-          Share Your Experience<i class="pi pi-arrow-right"></i>
+          Share Your Experience
         </a>
       </div>
     </section>

@@ -1,15 +1,11 @@
 <script setup lang="ts">
 import { onMounted, ref, nextTick } from "vue";
-import $ from "jquery";
-import eventBus, { EventBus } from "@/eventBus";
-import requestAProposal from "@/components/request-a-proposal.vue";
-import swiperReels from "@/components/swiper-reels.vue";
-import galleryItem from "@/components/gallery-item.vue";
+import eventBus, { EventBus } from "@/functions/eventBus";
 import services from "@/modules/services";
-import skeletonServices from "@/components/skeleton-services.vue";
 import video from "@/modules/video";
 import { useRouter } from "vue-router";
-import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
+import $ from "jquery";
+import "magnific-popup";
 
 const { state: serviceState, getSpecificService } = services();
 const { state: videoState, getAllGalleries } = video();
@@ -97,9 +93,7 @@ const showRequestAProposal = (data: Gallery): void => {
                 class="popup-with-form reveal"
                 id="request-a-proposal-button"
               >
-                <div class="cta">
-                  Request a Proposal<i class="pi pi-arrow-right"></i>
-                </div>
+                <div class="cta">Request a Proposal</div>
               </button>
             </div>
             <br />
@@ -141,9 +135,7 @@ const showRequestAProposal = (data: Gallery): void => {
               class="popup-with-form reveal"
               id="request-a-proposal-button"
             >
-              <div class="cta">
-                Request a Proposal<i class="pi pi-arrow-right"></i>
-              </div>
+              <div class="cta">Request a Proposal</div>
             </button>
           </div>
           <div id="content"></div>

@@ -1,6 +1,4 @@
-<script setup lang="ts">
-import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <article class="main" style="margin-top: 120px">

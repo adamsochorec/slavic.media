@@ -1,16 +1,19 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import eventBus from "@/eventBus";
+import eventBus from "@/functions/eventBus";
 
+// State variables to manage consent status
 const showConsent = ref(true);
 const consentGiven = ref(false);
 const consentRejected = ref(false);
 
+// Function to check if consent has already been given or rejected
 const checkConsent = () => {
   const consent = localStorage.getItem("cookieConsent");
   if (consent) {
     const consentData = JSON.parse(consent);
     const now = new Date().getTime();
+    // Check if the consent is still valid (within 24 hours)
     if (now - consentData.timestamp < 24 * 60 * 60 * 1000) {
       showConsent.value = false;
       if (consentData.choice === "accept") {
@@ -19,10 +22,13 @@ const checkConsent = () => {
       } else {
         consentRejected.value = true;
       }
+      // Load Chatway script regardless of the choice
+      loadChatwayScript();
     }
   }
 };
 
+// Function to dynamically load scripts
 const loadScripts = (scripts) => {
   scripts.forEach((scriptSrc) => {
     const script = document.createElement("script");
@@ -32,6 +38,7 @@ const loadScripts = (scripts) => {
   });
 };
 
+// Function to load scripts that require consent
 const loadAfterConsentScripts = () => {
   const scripts = ["https://www.googletagmanager.com/gtag/js?id=G-KGTECW9SN8"];
   loadScripts(scripts);
@@ -45,6 +52,16 @@ const loadAfterConsentScripts = () => {
   gtag("config", "G-KGTECW9SN8");
 };
 
+// Function to load the Chatway script
+const loadChatwayScript = () => {
+  const chatwayScript = document.createElement("script");
+  chatwayScript.id = "chatway";
+  chatwayScript.async = true;
+  chatwayScript.src = "https://cdn.chatway.app/widget.js?id=eIN2tIZBFO8j";
+  document.head.appendChild(chatwayScript);
+};
+
+// Function to handle acceptance of cookies
 const acceptCookies = () => {
   localStorage.setItem(
     "cookieConsent",
@@ -52,9 +69,13 @@ const acceptCookies = () => {
   );
   consentGiven.value = true;
   showConsent.value = false;
+  // Load scripts that require consent
   loadAfterConsentScripts();
+  // Load Chatway script
+  loadChatwayScript();
 };
 
+// Function to handle rejection of cookies
 const rejectCookies = () => {
   localStorage.setItem(
     "cookieConsent",
@@ -62,8 +83,11 @@ const rejectCookies = () => {
   );
   consentRejected.value = true;
   showConsent.value = false;
+  // Load Chatway script even if consent is rejected
+  loadChatwayScript();
 };
 
+// Function to revoke consent
 const revokeConsent = () => {
   localStorage.removeItem("cookieConsent");
   showConsent.value = true;
@@ -71,11 +95,13 @@ const revokeConsent = () => {
   consentRejected.value = false;
 };
 
+// Check consent status on component mount
 onMounted(() => {
   checkConsent();
   eventBus.on("revoke-consent", revokeConsent);
 });
 </script>
+
 <template>
   <section
     v-if="showConsent"

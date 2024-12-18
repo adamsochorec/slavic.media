@@ -4,7 +4,7 @@ import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 
 onMounted(() => {
-  const clientsSwiper = new Swiper(".swiper-clients", {
+  new Swiper(".swiper-clients", {
     loop: true,
     speed: 600,
     autoplay: { delay: 1000, pauseOnMouseEnter: true },

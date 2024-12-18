@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import galleryItem from "@/components/gallery-item.vue";
 import { truncateText } from "@/functions/truncate-text.ts";
 
 interface Author {
@@ -7,7 +6,6 @@ interface Author {
   url: string;
   thumbnail: string;
 }
-
 interface Metadata {
   formatedDate: string;
   length: number;
@@ -15,14 +13,12 @@ interface Metadata {
   desc: string;
   icon: string;
 }
-
 interface Article {
   _id: string;
   title: string;
   author: Author;
   metadata: Metadata;
 }
-
 const props = defineProps<{
   article: Article;
 }>();

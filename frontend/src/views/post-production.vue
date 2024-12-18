@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import $ from "jquery";
-import eventBus, { EventBus } from "@/eventBus";
-import requestAProposal from "@/components/request-a-proposal.vue";
-import swiperColourGrading from "@/components/swiper-colour-grading.vue";
-import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
+import eventBus, { EventBus } from "@/functions/eventBus";
 import services from "@/modules/services";
 import video from "@/modules/video";
 import { useRouter, useRoute } from "vue-router";
@@ -71,9 +67,7 @@ router.beforeEach((to, from, next) => {
             class="popup-with-form reveal"
             id="request-a-proposal-button"
           >
-            <div class="cta">
-              Request a Proposal<i class="pi pi-arrow-right"></i>
-            </div>
+            <div class="cta">Request a Proposal</div>
           </button>
         </div>
       </div>
@@ -102,14 +96,13 @@ router.beforeEach((to, from, next) => {
             class="popup-with-form reveal"
             id="request-a-proposal-button"
           >
-            <div class="cta">
-              Request a Proposal<i class="pi pi-arrow-right"></i>
-            </div>
+            <div class="cta">Request a Proposal</div>
           </button>
         </div>
       </div>
       <br />
       <lite-vimeo
+        class="reveal"
         style="
           background-image: url(&quot;https://cdn.slavic.media/images/post-production/fit=contain,height=700,sharpen=100&quot;);
         "
@@ -137,14 +130,13 @@ router.beforeEach((to, from, next) => {
             class="popup-with-form reveal"
             id="request-a-proposal-button"
           >
-            <div class="cta">
-              Request a Proposal<i class="pi pi-arrow-right"></i>
-            </div>
+            <div class="cta">Request a Proposal</div>
           </button>
         </div>
       </div>
       <br />
       <lite-vimeo
+        class="reveal"
         style="
           background-image: url(&quot;https://cdn.slavic.media/images/sound-design/fit=contain,height=700,sharpen=100&quot;);
         "

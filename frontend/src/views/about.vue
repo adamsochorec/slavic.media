@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import heroVideo from "@/components/hero-video.vue";
-import swiperEmployees from "@/components/swiper-employees.vue";
 import event from "@/modules/event";
 
 interface Event {
@@ -33,8 +31,8 @@ onMounted(async () => {
 
 <template>
   <article class="main" aria-labelledby="about-company">
-    <heroVideo :id="1013776851" ariaLabel="Behind the Scenes | Slavic Media">
-    </heroVideo>
+    <HeroVideo :id="1013776851" ariaLabel="Behind the Scenes | Slavic Media">
+    </HeroVideo>
     <!--   ABOUT START -->
     <section class="wrapper-standard" role="region">
       <hr class="semi" />
@@ -66,7 +64,8 @@ onMounted(async () => {
       <br />
       <address style="font-style: normal" class="reveal">
         Slavic Media is headquartered in Kolding, Denmark, with remote team
-        members distributed across the kingdom and Czechia.
+        members distributed across the kingdom and Czechia. We are bootstrapped
+        (self-funded) and profitable.
       </address>
       <p class="reveal">
         We’re always on the lookout to add kind, thoughtful, and exceptionally
@@ -74,82 +73,10 @@ onMounted(async () => {
         the intersection of individual freelance professionals.
       </p>
       <br />
-      <swiperEmployees></swiperEmployees>
+      <SwiperEmployees></SwiperEmployees>
       <hr class="reveal" role="separator" />
     </section>
     <!--   ABOUT END -->
-    <section class="wrapper-standard" role="region">
-      <h2 class="reveal" style="font-size: var(--font-size-1)">
-        Company <span class="gradient">Journey</span>
-      </h2>
-      <br />
-      <!--  COMPANY TIMELINE START  -->
-      <div v-if="isDataLoaded">
-        <Timeline
-          align="alternate"
-          :value="state.events.slice(0, eventsToShow)"
-          aria-busy="false"
-          aria-labelledby="company-timeline"
-        >
-          <template #marker="slotProps">
-            <span class="flex h-8 items-center justify-center">
-              <span :class="`pi pi-${slotProps.item.icon}`"></span>
-            </span>
-          </template>
-          <template #content="slotProps">
-            <div>
-              <p class="reveal">
-                {{ slotProps.item.date }}
-              </p>
-              <p class="reveal" style="font-size: var(--font-size-8)">
-                {{ slotProps.item.event }}
-              </p>
-            </div>
-          </template>
-        </Timeline>
-        <div class="flex-center">
-          <button
-            v-if="eventsToShow < state.events.length"
-            @click="loadMoreEvents"
-            class="cta reveal"
-          >
-            Show More<i class="pi pi-arrow-right"></i>
-          </button>
-        </div>
-      </div>
-      <!--  COMPANY TIMELINE END  -->
-
-      <!--  COMPANY TIMELINE SKELETON START  -->
-      <div v-else v-for="n in 4" :key="n" aria-busy="true" aria-live="polite">
-        <ul style="list-style: none" class="m-0">
-          <li class="mb-3">
-            <div class="flex">
-              <Skeleton
-                shape="circle"
-                size="4rem"
-                class="mr-2"
-                style="background-color: rgb(var(--dark-grey-color))"
-              ></Skeleton>
-              <div class="self-center" style="flex: 1">
-                <Skeleton
-                  style="background-color: rgb(var(--dark-grey-color))"
-                  width="100%"
-                  borderRadius="10px"
-                  class="mb-2"
-                  height="10px"
-                ></Skeleton>
-                <Skeleton
-                  style="background-color: rgb(var(--dark-grey-color))"
-                  width="75%"
-                  height="10px"
-                  borderRadius="10px"
-                ></Skeleton>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <!--  COMPANY TIMELINE SKELETON END  -->
-    </section>
+    <CompanyTimeline />
   </article>
 </template>

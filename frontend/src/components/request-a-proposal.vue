@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from "vue";
-import eventBus from "@/eventBus";
+import eventBus from "@/functions/eventBus";
 import $ from "jquery";
 import "magnific-popup";
 

@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import article from "@/modules/article";
-import blogCard from "@/components/blog-card.vue";
-import skeletonGalleryItem from "@/components/skeleton-gallery-item.vue";
 
 interface Author {
   _id: string;
@@ -67,7 +65,7 @@ onMounted(async () => {
             @click="loadMoreArticles"
             class="cta reveal"
           >
-            Show More<i class="pi pi-arrow-right"></i>
+            Show More
           </button>
         </div>
       </div>

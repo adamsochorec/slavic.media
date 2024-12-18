@@ -1,20 +1,22 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import Swiper from "swiper/bundle";
-import "swiper/swiper-bundle.css";
 import ImageCompare from "primevue/imagecompare";
 
-const slides = ref([
-  { _id: "20240308_SLAVIC-MEDIA0204" },
-  { _id: "20240312_SLAVIC-MEDIA0583" },
-  { _id: "20240314_SLAVIC-MEDIA0714" },
-  { _id: "20241024_SLAVIC-MEDIA2061" },
-  { _id: "20240314_SLAVIC-MEDIA0719" },
-  { _id: "20240511_SLAVIC-MEDIA1149" },
-  { _id: "20240512_SLAVIC-MEDIA1233" },
-  { _id: "DJI_0032" },
-  { _id: "DJI_20240513134142_0052_D_SLAVICM" },
-  { _id: "DJI_20240515173653_0002_D_SLAVICM" },
+interface Slide {
+  _id: string;
+  log: string;
+}
+const slides = ref<Slide[]>([
+  { _id: "20240308_SLAVIC-MEDIA0204", log: "S-Log" },
+  { _id: "20240312_SLAVIC-MEDIA0583", log: "S-Log" },
+  { _id: "20240314_SLAVIC-MEDIA0714", log: "S-Log" },
+  { _id: "20241024_SLAVIC-MEDIA2061", log: "S-Log" },
+  { _id: "20240314_SLAVIC-MEDIA0719", log: "S-Log" },
+  { _id: "20240511_SLAVIC-MEDIA1149", log: "S-Log" },
+  { _id: "20240512_SLAVIC-MEDIA1233", log: "S-Log" },
+  { _id: "DJI_0032", log: "D-Log" },
+  { _id: "DJI_20240513134142_0052_D_SLAVICM", log: "D-Log M" },
+  { _id: "DJI_20240515173653_0002_D_SLAVICM", log: "D-Log M" },
 ]);
 onMounted(async () => {
   new Swiper(".swiper-colour-grading", {
@@ -51,7 +53,7 @@ onMounted(async () => {
       >
         <ImageCompare aria-label="Compare Images">
           <template #left>
-            <span class="note">S-Log</span>
+            <span class="note">{{ slide.log }}</span>
             <span class="note edited">Colour Graded</span>
             <img
               :src="`https://cdn.slavic.media/images/${slide._id}/fit=contain,width=1280,sharpen=100`"

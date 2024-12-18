@@ -14,14 +14,12 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
 // Define the type for reel objects
 interface Reel {
   id: string;
+  flag: string;
 }
 
 // Define the reels data in an array
 const reels = ref<Reel[]>([
-  {
-    id: "DBN-8ImodUi",
-    flag: "fi",
-  },
+  { id: "DBN-8ImodUi", flag: "fi" },
   { id: "DBwOfdoKXXH", flag: "de" },
   { id: "DBqXwkhI8nH", flag: "no" },
   { id: "DAVWho7Ifci", flag: "fi" },

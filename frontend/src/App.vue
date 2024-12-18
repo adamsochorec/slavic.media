@@ -1,14 +1,8 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import { RouterView } from "vue-router";
 import { provideAuth } from "./modules/logIn-logOut";
 provideAuth();
-
-// COMPONENTS
-import Footer from "@/components/Footer.vue";
-import NavBar from "@/components/nav-bar.vue";
-import Cookies from "@/components/cookies.vue";
-// import chat from "@/components/chat.vue";
 
 // CONTENT REVEAL START
 function reveal() {

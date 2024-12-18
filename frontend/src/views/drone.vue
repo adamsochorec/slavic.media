@@ -1,12 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick, watch } from "vue";
 import { useRouter } from "vue-router";
-import requestAProposal from "@/components/request-a-proposal.vue";
-import eventBus from "@/eventBus";
-import bannerLightroomPresets from "@/components/banner-lightroom-presets.vue";
-import skeletonServices from "@/components/skeleton-services.vue";
-import $ from "jquery";
-import "magnific-popup";
+import eventBus from "@/functions/eventBus";
 import image from "@/modules/images";
 import services from "@/modules/services";
 
@@ -133,9 +128,7 @@ router.beforeEach((to, from, next) => {
               class="popup-with-form reveal"
               id="request-a-proposal-button"
             >
-              <div class="cta">
-                Request a Proposal<i class="pi pi-arrow-right"></i>
-              </div>
+              <div class="cta">Request a Proposal</div>
             </button>
           </div>
         </div>
@@ -178,7 +171,7 @@ router.beforeEach((to, from, next) => {
             @click="loadMorePhotos"
             class="cta reveal"
           >
-            Show More<i class="pi pi-arrow-right"></i>
+            Show More
           </button>
         </div>
       </section>
@@ -204,9 +197,7 @@ router.beforeEach((to, from, next) => {
             class="popup-with-form reveal"
             id="request-a-proposal-button"
           >
-            <div class="cta">
-              Request a Proposal<i class="pi pi-arrow-right"></i>
-            </div>
+            <div class="cta">Request a Proposal</div>
           </button>
         </div>
       </div>
@@ -228,9 +219,7 @@ router.beforeEach((to, from, next) => {
             class="popup-with-form reveal"
             id="request-a-proposal-button"
           >
-            <div class="cta">
-              Request a Proposal<i class="pi pi-arrow-right"></i>
-            </div>
+            <div class="cta">Request a Proposal</div>
           </button>
         </div>
       </div>

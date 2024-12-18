@@ -1,7 +1,7 @@
 <template>
   <section aria-labelledby="banner-title">
     <hr class="semi" />
-    <div class="banner">
+    <div class="banner reveal">
       <img
         src="https://cdn.slavic.media/images/2023-05-12-08969/height=100"
         alt="Banner showcasing Slavic Media Lightroom Presets"
@@ -24,10 +24,7 @@
           href="https://store.slavic.media"
           aria-label="Transform Your Photos"
         >
-          <div class="cta">
-            Transform Your Photos
-            <i class="pi pi-arrow-right" aria-hidden="true"></i>
-          </div>
+          <div class="cta">Transform Your Photos</div>
         </a>
       </div>
     </div>
