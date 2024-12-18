@@ -28,7 +28,7 @@ const photoGallerySchema = new Schema({
   index: { type: Number, required: true },
   desc: { type: String, required: true, maxlength: 1000 },
   title: { type: String, required: true, maxlength: 200 },
-  type: { type: String, required: true }, // Add this line
+  type: { type: String, required: true },
   columns: { type: [[imagesSchema]], required: true },
 });
 
