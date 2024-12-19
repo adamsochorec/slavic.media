@@ -111,7 +111,7 @@ onMounted(() => {
     aria-modal="true"
   >
     <header class="title">
-      <h2 id="cookie-consent-title">🍪 Cookie Consent</h2>
+      <span id="cookie-consent-title">🍪 Cookie Consent</span>
     </header>
     <p class="info">
       This website uses analytical cookies to help you have a superior and more
@@ -171,18 +171,10 @@ onMounted(() => {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-.title h2 {
   font-size: var(--font-size-4);
   font-family: var(--logo-font);
 }
-.title i {
-  font-size: 23px;
-}
-.title i:hover {
-  color: unset;
-  cursor: auto;
-}
+
 .info {
   margin: var(--grid-gap-1) 0;
   font-size: var(--font-size-7);

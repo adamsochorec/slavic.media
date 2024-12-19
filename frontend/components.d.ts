@@ -20,6 +20,7 @@ declare module 'vue' {
     RequestAProposal: typeof import('./src/components/request-a-proposal.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Skeleton: typeof import('primevue/skeleton')['default']
     SkeletonArticle: typeof import('./src/components/skeleton-article.vue')['default']
     SkeletonGalleryItem: typeof import('./src/components/skeleton-gallery-item.vue')['default']
     SkeletonServices: typeof import('./src/components/skeleton-services.vue')['default']
@@ -29,5 +30,9 @@ declare module 'vue' {
     SwiperEmployees: typeof import('./src/components/swiper-employees.vue')['default']
     SwiperReels: typeof import('./src/components/swiper-reels.vue')['default']
     SwiperReviews: typeof import('./src/components/swiper-reviews.vue')['default']
+    TieredMenu: typeof import('primevue/tieredmenu')['default']
+  }
+  export interface ComponentCustomProperties {
+    Tooltip: typeof import('primevue/tooltip')['default']
   }
 }

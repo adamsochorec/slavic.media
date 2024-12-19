@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import ImageCompare from "primevue/imagecompare";
+import Swiper from "swiper/bundle";
+import "swiper/swiper-bundle.css";
 
 interface Slide {
   _id: string;
