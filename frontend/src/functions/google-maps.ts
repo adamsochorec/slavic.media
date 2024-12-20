@@ -1,7 +1,9 @@
-export function loadGoogleMaps(apiKey) {
+declare const google: any;
+
+export function loadGoogleMaps(apiKey: string) {
   return new Promise((resolve, reject) => {
     if (typeof google !== "undefined") {
-      resolve(google.maps);
+      resolve((google as any).maps);
       return;
     }
 
@@ -12,8 +14,8 @@ export function loadGoogleMaps(apiKey) {
     script.onerror = reject;
     document.head.appendChild(script);
 
-    window.initMap = () => {
-      resolve(google.maps);
+    (window as any).initMap = () => {
+      resolve((google as any).maps);
     };
   });
 }

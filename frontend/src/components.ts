@@ -78,7 +78,7 @@ export function registerGlobalComponents(app: App) {
     defineAsyncComponent(() => import("@/components/swiper-colour-grading.vue"))
   );
   app.component(
-    "map",
+    "Map",
     defineAsyncComponent(() => import("@/components/map.vue"))
   );
 }

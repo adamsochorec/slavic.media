@@ -2,55 +2,73 @@
 import { onMounted } from "vue";
 import { loadGoogleMaps } from "@/functions/google-maps";
 
-const apiKey = "AIzaSyCTbMf5-6CExnOHtAZKuFHUoDl1C8kkWME";
+const apiKey = "AIzaSyAXgzTQliu4phH80xmKlhZMO9U1LjG84DA";
 
 onMounted(async () => {
   try {
-    const googleMaps = await loadGoogleMaps(apiKey);
-    const map = new googleMaps.Map(document.getElementById("map"), {
-      center: { lat: 56.25502295714493, lng: 11.896611755598963 },
-      zoom: 8,
-    });
+    const googleMaps: any = await loadGoogleMaps(apiKey);
+
+    const centerMap = { lat: 56.1236961, lng: 9.2658987 };
 
     const markers = [
       {
-        position: { lat: 56.25502295714493, lng: 11.896611755598963 },
-        label: "Slavic Media",
-        description:
-          "Creative & Production studio based in Denmark and Czechia.",
+        date: "Slavic Media",
+        lat: 55.49958968671408,
+        lng: 9.464197866229727,
+        event: "Langelinie 22",
       },
-      // Add more markers here
+      {
+        date: "Test Media",
+        lat: 54.80334355348578,
+        lng: 9.543357653234933,
+        event: "Langelinie 22",
+      },
     ];
+    const mapOptions = {
+      center: centerMap,
+      zoom: 5,
+    };
+    const fehMarker = "";
 
-    markers.forEach((marker) => {
-      const mapMarker = new googleMaps.Marker({
-        position: marker.position,
-        map,
-        title: marker.label,
-        label: marker.label,
-      });
-
-      const infoWindow = new googleMaps.InfoWindow({
-        content: `<div><strong>${marker.label}</strong><br>${marker.description}</div>`,
-      });
-
-      mapMarker.addListener("click", () => {
-        infoWindow.open(map, mapMarker);
-      });
+    const infoWindow = new googleMaps.InfoWindow({
+      minWidth: 150,
+      maxWidth: 150,
     });
+    const mapElement = document.getElementById("map");
+
+    const map = new googleMaps.Map(mapElement, mapOptions);
+
+    const bounds = new googleMaps.LatLngBounds();
+
+    for (let i = 0; i < markers.length; i++) {
+      const marker = new googleMaps.Marker({
+        position: { lat: markers[i].lat, lng: markers[i].lng },
+        map: map,
+        icon: fehMarker,
+      });
+
+      bounds.extend(marker.getPosition());
+
+      const infoWindowContent = `
+        <div class="feh-content">
+          <span class="location-name">${markers[i].date}</span><br>
+          <span class="location-event">${markers[i].event}</span>
+        </div>
+      `;
+
+      googleMaps.event.addListener(marker, "click", function () {
+        infoWindow.setContent(infoWindowContent);
+        infoWindow.open(map, marker);
+      });
+    }
   } catch (error) {
-    console.error("Failed to load Google Maps", error);
+    console.error("Error loading Google Maps:", error);
   }
 });
 </script>
 
 <template>
-  <div id="map" class="map reveal"></div>
+  <div id="map" class="map"></div>
 </template>
 
-<style scoped>
-#map {
-  width: 100%;
-  height: 400px;
-}
-</style>
+<style scoped></style>

@@ -55,14 +55,15 @@ onMounted(async () => {
       </p>
       <br />
       <iframe
-        class="map reveal"
+        id="map"
+        class="reveal"
         title="Slavic Media Location"
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3299827.3549044663!2d11.896611755598963!3d56.25502295714493!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464c9fe2ecbe264d%3A0x5699de608acee414!2sSlavic%20Media!5e0!3m2!1sen!2scz!4v1733431912038!5m2!1sen!2scz"
         allowfullscreen=""
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
-      <map></map>
-
+      <!--       <Map></Map>
+ -->
       <br />
       <address style="font-style: normal" class="reveal">
         Slavic Media is headquartered in Kolding, Denmark, with remote team

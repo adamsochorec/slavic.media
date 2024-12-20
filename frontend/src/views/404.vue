@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import DotLottieVue from "@lottiefiles/dotlottie-vue";
+import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 </script>
 
 <template>
