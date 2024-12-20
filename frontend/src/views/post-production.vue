@@ -5,15 +5,16 @@ import services from "@/modules/services";
 import video from "@/modules/video";
 import { useRouter, useRoute } from "vue-router";
 import "https://cdn.jsdelivr.net/npm/lite-vimeo-embed/+esm";
+import $ from "jquery";
 
 const router = useRouter();
 const route = useRoute();
 const { getSpecificService, state: serviceState } = services();
 const { getAllGalleries, state: videoState } = video();
 const isDataLoaded = ref<boolean>(false);
-
-const showRequestAProposal = (data: any): void => {
-  (eventBus as EventBus).emit("showRequestAProposal", data);
+// REQUEST A PROPOSAL ID
+const showRequestAProposal = (identifier: string) => {
+  eventBus.emit("showRequestAProposal", identifier);
 };
 
 onMounted(async () => {
@@ -62,11 +63,7 @@ router.beforeEach((to, from, next) => {
             the depth spectrum and natural skin tones.
           </p>
           <requestAProposal />
-          <button
-            @click="showRequestAProposal(serviceState.service)"
-            class="popup-with-form reveal"
-            id="request-a-proposal-button"
-          >
+          <button @click="showRequestAProposal('colour grade')">
             <div class="cta">Request a Proposal</div>
           </button>
         </div>
@@ -91,11 +88,7 @@ router.beforeEach((to, from, next) => {
             out from start to finish.
           </p>
           <requestAProposal />
-          <button
-            @click="showRequestAProposal(serviceState.service)"
-            class="popup-with-form reveal"
-            id="request-a-proposal-button"
-          >
+          <button @click="showRequestAProposal('video edit')">
             <div class="cta">Request a Proposal</div>
           </button>
         </div>
@@ -125,11 +118,7 @@ router.beforeEach((to, from, next) => {
             element of your audio to life.
           </p>
           <requestAProposal />
-          <button
-            @click="showRequestAProposal(serviceState.service)"
-            class="popup-with-form reveal"
-            id="request-a-proposal-button"
-          >
+          <button @click="showRequestAProposal('sound design')">
             <div class="cta">Request a Proposal</div>
           </button>
         </div>

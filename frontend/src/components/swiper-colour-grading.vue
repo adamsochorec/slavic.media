@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import ImageCompare from "primevue/imagecompare";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
+import { useArrowNavigation } from "@/functions/useArrowNavigation";
 
 interface Slide {
   _id: string;
@@ -20,8 +21,8 @@ const slides = ref<Slide[]>([
   { _id: "DJI_20240513134142_0052_D_SLAVICM", log: "D-Log M" },
   { _id: "DJI_20240515173653_0002_D_SLAVICM", log: "D-Log M" },
 ]);
-onMounted(async () => {
-  new Swiper(".swiper-colour-grading", {
+onMounted(() => {
+  const swiper = new Swiper(".swiper-colour-grading", {
     loop: true,
     speed: 600,
     pagination: {
@@ -34,6 +35,12 @@ onMounted(async () => {
     observer: true,
     observeParents: true,
     direction: "vertical",
+  });
+
+  const removeArrowNavigation = useArrowNavigation(swiper);
+
+  onUnmounted(() => {
+    removeArrowNavigation();
   });
 });
 </script>

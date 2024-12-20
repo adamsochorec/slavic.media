@@ -4,10 +4,12 @@ info:
   description: MongoDB ExpressJS NodeJS REST API
   version: 1.0.0
 servers:
+  # Local
   - url: http://localhost:4000/
     description: Local backend
   - url: http://localhost:5173/
     description: Local frontend
+  # Deployed
   - url: https://dev.slavic.media
     description: Deployed frontend
   - url: https://api.slavic.media
@@ -18,6 +20,7 @@ components:
       type: apiKey
       in: header
       name: auth-token
+
   schemas:
     Employee:
       type: object
@@ -40,6 +43,7 @@ components:
           type: string
         github:
           type: string
+
     Article:
       type: object
       properties:
@@ -83,7 +87,7 @@ components:
         videos:
           type: array
           items:
-            $ref: "#/components/schemas/Video"
+            $ref: "#components/schemas/Video"
     Review:
       type: object
       properties:
@@ -103,6 +107,7 @@ components:
           type: string
         message:
           type: string
+
     Video:
       type: object
       properties:
@@ -120,6 +125,7 @@ components:
           type: string
         client:
           type: string
+
     VideoGallery:
       type: object
       properties:
@@ -135,6 +141,7 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Video"
+
     Legal:
       type: object
       properties:
@@ -148,6 +155,7 @@ components:
           type: array
           items:
             type: string
+
     Event:
       type: object
       properties:
@@ -159,6 +167,7 @@ components:
           type: string
         icon:
           type: string
+
     User:
       type: object
       properties:
@@ -170,6 +179,7 @@ components:
           type: string
         date:
           type: string
+
     Img:
       type: object
       properties:
@@ -181,6 +191,7 @@ components:
           type: string
         flag:
           type: string
+
     ImgGallery:
       type: object
       properties:
@@ -198,6 +209,7 @@ components:
             type: array
             items:
               $ref: "#/components/schemas/Img"
+
 paths:
   /user/register:
     post:
@@ -221,6 +233,7 @@ paths:
                     type: string
                   _ID:
                     type: string
+
   /user/login:
     post:
       summary: Login a User
@@ -248,7 +261,8 @@ paths:
                     type: string
                   data:
                     type: string
-  /blog/articles:
+
+  /blog/articles/:
     get:
       summary: Fetches all articles
       description: Retrieves a list of articles as JSON objects
@@ -281,21 +295,21 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Article"
-    delete:
-      summary: Delete all articles
-      description: Deletes all articles from the database
-      security:
-        - ApiKeyAuth: []
-      responses:
-        200:
-          description: All articles deleted successfully
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
+        delete:
+        summary: Delete all articles
+        description: Deletes all articles from the database
+        security:
+          - ApiKeyAuth: []
+        responses:
+          200:
+            description: All articles deleted successfully
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    message:
+                      type: string
   /blog/articles/{id}:
     get:
       summary: Retrieve a specific article
@@ -358,6 +372,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Article"
+
   /employees:
     get:
       summary: Fetches all employees
@@ -389,14 +404,124 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Employee"
+    /employees:
+      delete:
+        summary: Delete all employees
+        description: Deletes all employees from the database
+        security:
+          - ApiKeyAuth: []
+        responses:
+          200:
+            description: All employees deleted successfully
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    message:
+                      type: string
+  /employees/{id}:
+    get:
+      summary: Retrieve a specific employee
+      description: Retrieves a specific employee based on its ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Employee ID
+          schema:
+            type: string
+      responses:
+        200:
+          description: An employee in the format of a JSON object
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Employee"
+    put:
+      summary: Update a specific employee
+      description: Updates a specific employee based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Employee ID
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Employee"
+      responses:
+        200:
+          description: Successfully updated!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Employee"
     delete:
-      summary: Delete all employees
-      description: Deletes all employees from the database
+      summary: Delete a specific employee
+      description: Deletes a specific employee based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Employee ID
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Employee"
+
+  /reviews:
+    get:
+      summary: Fetches all reviews
+      description: Retrieves a list of reviews as JSON objects
+      responses:
+        200:
+          description: A list of JSON objects in an array
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Review"
+    post:
+      summary: Create a new review
+      description: Creates a new review and sends it to the server for storage.
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Review"
+      responses:
+        201:
+          description: Review created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Review"
+    delete:
+      summary: Delete all reviews
+      description: Deletes all reviews from the database
       security:
         - ApiKeyAuth: []
       responses:
         200:
-          description: All employees deleted successfully
+          description: All reviews deleted successfully
           content:
             application/json:
               schema:
@@ -404,87 +529,307 @@ paths:
                 properties:
                   message:
                     type: string
-/employees/{id}:
-  get:
-    summary: Retrieve a specific employee
-    description: Retrieves a specific employee based on its ID
-    parameters:
-      - in: path
-        name: id
-        required: true
-        description: Employee ID
-        schema:
-          type: string
-    responses:
-      200:
-        description: An employee in the format of a JSON object
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Employee"
-  put:
-    summary: Update a specific employee
-    description: Updates a specific employee based on its ID
-    security:
-      - ApiKeyAuth: []
-    parameters:
-      - in: path
-        name: id
-        required: true
-        description: Employee ID
-        schema:
-          type: string
-    requestBody:
-      required: true
-      content:
-        application/json:
+  /reviews/{id}:
+    get:
+      summary: Retrieve a specific review
+      description: Retrieves a specific review based on its ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Review ID
           schema:
-            $ref: "#/components/schemas/Employee"
-    responses:
-      200:
-        description: Successfully updated!
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Employee"
-  delete:
-    summary: Delete a specific employee
-    description: Deletes a specific employee based on its ID
-    security:
-      - ApiKeyAuth: []
-    parameters:
-      - in: path
-        name: id
-        required: true
-        description: Employee ID
-        schema:
-          type: string
-    responses:
-      200:
-        description: Successfully deleted
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Employee"
-/reviews:
-  get:
-    summary: Fetches all reviews
-    description: Retrieves a list of reviews as JSON objects
-    responses:
-      200:
-        description: A list of JSON objects in an array
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
+            type: number
+      responses:
+        200:
+          description: A review in the format of a JSON object
+          content:
+            application/json:
+              schema:
                 $ref: "#/components/schemas/Review"
-  post:
-    summary: Create a new review
-    description: Creates a new review and sends it to the server for storage.
-  /event/{id}:
     put:
-      summary: Update an event by id
+      summary: Update a specific review
+      description: Updates a specific review based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Review ID
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Review"
+      responses:
+        200:
+          description: Successfully updated!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Review"
+    delete:
+      summary: Delete a specific review
+      description: Deletes a specific review based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Review ID
+          schema:
+            type: number
+      responses:
+        200:
+          description: Successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Review"
+
+  /videos:
+    get:
+      summary: Fetches all video galleries
+      description: Retrieves a list of video galleries as JSON objects
+      responses:
+        200:
+          description: A list of JSON objects in an array
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/VideoGallery"
+    post:
+      summary: Create a new video gallery
+      description: Creates a new video gallery and sends it to the server for storage.
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VideoGallery"
+      responses:
+        201:
+          description: Video gallery created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VideoGallery"
+    delete:
+      summary: Delete all video galleries
+      description: Deletes all video galleries from the database
+      security:
+        - ApiKeyAuth: []
+      responses:
+        200:
+          description: All video galleries deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /videos/{id}:
+    get:
+      summary: Retrieve a specific video gallery
+      description: Retrieves a specific video gallery based on its ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Video gallery ID
+          schema:
+            type: string
+      responses:
+        200:
+          description: A video gallery in the format of a JSON object
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VideoGallery"
+    put:
+      summary: Update a specific video gallery
+      description: Updates a specific video gallery based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Video gallery ID
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VideoGallery"
+      responses:
+        200:
+          description: Successfully updated!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VideoGallery"
+    delete:
+      summary: Delete a specific video gallery
+      description: Deletes a specific video gallery based on its ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Video gallery ID
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VideoGallery"
+
+  /legal:
+    get:
+      summary: Returns the list of all legal documents
+      tags: [Legal]
+      responses:
+        200:
+          description: The list of the legal documents
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Legal"
+    delete:
+      summary: Delete all legal documents
+      description: Deletes all legal documents from the database
+      security:
+        - ApiKeyAuth: []
+      responses:
+        200:
+          description: All legal documents deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /legal/{id}:
+    get:
+      summary: Get the legal document by id
+      tags: [Legal]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The legal document id
+      responses:
+        200:
+          description: The legal document description by id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Legal"
+        404:
+          description: The legal document was not found
+
+  /images:
+    get:
+      summary: Returns the list of all images
+      tags: [Img]
+      responses:
+        200:
+          description: The list of the images
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Img"
+    delete:
+      summary: Delete all image galleries
+      description: Deletes all image galleries from the database
+      security:
+        - ApiKeyAuth: []
+      responses:
+        200:
+          description: All image galleries deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /images/{id}:
+    get:
+      summary: Get the image by id
+      tags: [Img]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The image id
+      responses:
+        200:
+          description: The image description by id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Img"
+        404:
+          description: The image was not found
+
+  /event:
+    get:
+      summary: Returns the list of all events
+      tags: [Event]
+      responses:
+        200:
+          description: The list of the events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Event"
+    delete:
+      summary: Delete all events
+      description: Deletes all events from the database
+      security:
+        - ApiKeyAuth: []
+      responses:
+        200:
+          description: All events deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /event/{id}:
+    get:
+      summary: Get the event by id
       tags: [Event]
       parameters:
         - in: path
@@ -493,209 +838,12 @@ paths:
             type: string
           required: true
           description: The event id
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Event"
       responses:
         200:
-          description: The event was updated successfully
+          description: The event description by id
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Event"
         404:
           description: The event was not found
-    delete:
-      summary: Delete an event by id
-      tags: [Event]
-      parameters:
-        - in: path
-          name: id
-          schema:
-            type: string
-          required: true
-          description: The event id
-      responses:
-        200:
-          description: The event was deleted successfully
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-        404:
-          description: The event was not found
-  /employees:
-    get:
-      summary: Returns the list of all employees
-      tags: [Employee]
-      responses:
-        200:
-          description: The list of the employees
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Employee"
-    post:
-      summary: Create a new employee
-      description: Creates a new employee and sends it to the server for storage.
-      security:
-        - ApiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Employee"
-      responses:
-        201:
-          description: Employee created successfully
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Employee"
-    delete:
-      summary: Delete all employees
-      description: Deletes all employees from the database
-      security:
-        - ApiKeyAuth: []
-      responses:
-        200:
-          description: All employees deleted successfully
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-  /employees/{id}:
-    get:
-      summary: Get the employee by id
-      tags: [Employee]
-      parameters:
-        - in: path
-          name: id
-          schema:
-            type: string
-          required: true
-          description: The employee id
-      responses:
-        200:
-          description: The employee description by id
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Employee"
-        404:
-          description: The employee was not found
-    put:
-      summary: Update an employee by id
-      tags: [Employee]
-      parameters:
-        - in: path
-          name: id
-          schema:
-            type: string
-          required: true
-          description: The employee id
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Employee"
-      responses:
-        200:
-          description: The employee was updated successfully
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Employee"
-        404:
-          description: The employee was not found
-    delete:
-      summary: Delete an employee by id
-      tags: [Employee]
-      parameters:
-        - in: path
-          name: id
-          schema:
-            type: string
-          required: true
-          description: The employee id
-      responses:
-        200:
-          description: The employee was deleted successfully
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-        404:
-          description: The employee was not found
-  components:
-    schemas:
-      Review:
-        type: object
-        properties:
-          id:
-            type: number
-          content:
-            type: string
-          rating:
-            type: number
-      VideoGallery:
-        type: object
-        properties:
-          id:
-            type: string
-          title:
-            type: string
-          description:
-            type: string
-      Legal:
-        type: object
-        properties:
-          id:
-            type: string
-          title:
-            type: string
-          content:
-            type: string
-      Img:
-        type: object
-        properties:
-          id:
-            type: string
-          url:
-            type: string
-          description:
-            type: string
-      Event:
-        type: object
-        properties:
-          id:
-            type: string
-          name:
-            type: string
-          date:
-            type: string
-      Employee:
-        type: object
-        properties:
-          id:
-            type: string
-          name:
-            type: string
-          department:
-            type: string

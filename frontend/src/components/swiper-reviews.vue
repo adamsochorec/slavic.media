@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from "vue";
+import { ref, onMounted, nextTick, onUnmounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
-
 import review from "@/modules/review";
 import { truncateText } from "@/functions/truncate-text.ts";
+import { useArrowNavigation } from "@/functions/useArrowNavigation";
 
 const { state, getAllReviews } = review();
 const isDataLoaded = ref(false);
@@ -19,7 +19,7 @@ onMounted(async () => {
   isDataLoaded.value = true;
 
   nextTick(() => {
-    new Swiper(".swiper-reviews", {
+    const swiper = new Swiper(".swiper-reviews", {
       loop: true,
       speed: 600,
       spaceBetween: gridGap2,
@@ -49,7 +49,11 @@ onMounted(async () => {
       },
       direction: "horizontal",
     });
+    const removeArrowNavigation = useArrowNavigation(swiper);
 
+    onUnmounted(() => {
+      removeArrowNavigation();
+    });
     function showStars(container: HTMLElement, rating: number) {
       container.innerHTML = ""; // Clear any existing content
 

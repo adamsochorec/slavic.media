@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref, nextTick } from "vue";
-import eventBus, { EventBus } from "@/functions/eventBus";
+import eventBus from "@/functions/eventBus";
 import services from "@/modules/services";
 import video from "@/modules/video";
 import { useRouter } from "vue-router";
@@ -11,7 +11,10 @@ const { state: serviceState, getSpecificService } = services();
 const { state: videoState, getAllGalleries } = video();
 const isDataLoaded = ref<boolean>(false);
 const router = useRouter();
-
+// REQUEST A PROPOSAL ID
+const showRequestAProposal = (identifier: string) => {
+  eventBus.emit("showRequestAProposal", identifier);
+};
 onMounted(async () => {
   await Promise.all([getSpecificService("video"), getAllGalleries()]);
   isDataLoaded.value = true;
@@ -43,10 +46,6 @@ router.beforeEach((to, from, next) => {
   }
   next();
 });
-
-const showRequestAProposal = (data: Gallery): void => {
-  (eventBus as EventBus).emit("showRequestAProposal", data);
-};
 </script>
 
 <template>
@@ -93,11 +92,8 @@ const showRequestAProposal = (data: Gallery): void => {
             <div class="grid-item">
               <p class="reveal">{{ gallery.desc }}</p>
               <requestAProposal />
-              <button
-                @click="showRequestAProposal(gallery)"
-                class="popup-with-form reveal"
-                id="request-a-proposal-button"
-              >
+              <requestAProposal />
+              <button @click="showRequestAProposal(gallery._id)">
                 <div class="cta">Request a Proposal</div>
               </button>
             </div>
@@ -135,11 +131,8 @@ const showRequestAProposal = (data: Gallery): void => {
               genuine, and designed to resonate with your audience.
             </p>
             <requestAProposal />
-            <button
-              @click="showRequestAProposal(gallery)"
-              class="popup-with-form reveal"
-              id="request-a-proposal-button"
-            >
+            <requestAProposal />
+            <button @click="showRequestAProposal('content')">
               <div class="cta">Request a Proposal</div>
             </button>
           </div>

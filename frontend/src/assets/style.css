@@ -903,6 +903,7 @@ i.pi-arrow-right:hover {
   font-size: var(--font-size-8);
   position: absolute;
   text-decoration: none;
+  -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
   z-index: 8;
   padding: 0;

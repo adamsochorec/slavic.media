@@ -8,8 +8,8 @@ const isVisible = ref<boolean>(false);
 const content = ref<string>("");
 
 onMounted(() => {
-  eventBus.on("showRequestAProposal", (data: string) => {
-    content.value = data;
+  eventBus.on("showRequestAProposal", (identifier: string) => {
+    content.value = identifier;
     isVisible.value = true;
     nextTick(() => {
       $.magnificPopup.open({
@@ -127,6 +127,7 @@ onMounted(() => {
                 required
                 id="project"
               ></textarea>
+              <input type="hidden" name="source" :value="content" />
               <button class="submit-btn" aria-label="Submit" role="button">
                 Submit<i class="pi pi-arrow-right" aria-hidden="true"></i>
               </button>
@@ -142,6 +143,7 @@ onMounted(() => {
     </div>
   </div>
 </template>
+
 <style scoped>
 .wrapper-standard {
   max-height: var(--dimension-1);

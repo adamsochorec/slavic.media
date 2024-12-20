@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import DotLottieVue from "@lottiefiles/dotlottie-vue";
+</script>
 
 <template>
   <article class="main" style="margin-top: 120px">
@@ -29,8 +31,8 @@
         role="link"
         aria-label="Return to the homepage"
       >
-        Return to the homepage<i class="pi pi-arrow-right"></i
-      ></router-link>
+        Return to the homepage</router-link
+      >
     </section>
   </article>
 </template>

@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import services from "@/modules/services";
+import eventBus from "@/functions/eventBus";
 
 const { state, getAllServices } = services();
 const isDataLoaded = ref<boolean>(false);
+// REQUEST A PROPOSAL ID
+const showRequestAProposal = (identifier: string) => {
+  eventBus.emit("showRequestAProposal", identifier);
+};
 
 onMounted(async () => {
   await getAllServices();
@@ -43,6 +48,10 @@ onMounted(async () => {
             eye contact, and the right light that can raise your message above
             the noise.
           </p>
+          <requestAProposal />
+          <button @click="showRequestAProposal('company-intro')">
+            <div class="cta">Request a Proposal</div>
+          </button>
         </div>
       </div>
       <hr class="semi" />

@@ -5,19 +5,33 @@ import image from "@/modules/images";
 import services from "@/modules/services";
 import $ from "jquery";
 import "magnific-popup";
+import eventBus from "@/functions/eventBus";
+
+declare global {
+  interface JQueryStatic {
+    magnificPopup: any;
+  }
+}
+declare global {
+  interface JQuery {
+    magnificPopup: any;
+  }
+}
 
 const isDataLoaded = ref<boolean>(false);
 const { state: imageState, getAllImages } = image;
 const { state: serviceState, getSpecificService } = services();
 const router = useRouter();
-
 // SHOW MORE START
 const PHOTOS_INCREMENT = 4;
 const photosToShow = ref(PHOTOS_INCREMENT);
 const loadMorePhotos = () => {
   photosToShow.value += PHOTOS_INCREMENT;
 };
-// SHOW MORE END
+// REQUEST A PROPOSAL ID
+const showRequestAProposal = (identifier: string) => {
+  eventBus.emit("showRequestAProposal", identifier);
+};
 
 async function initializeLightbox(): Promise<void> {
   await nextTick();
@@ -62,10 +76,6 @@ onMounted(async () => {
 watch(isDataLoaded, (loaded) => {
   if (loaded) initializeLightbox();
 });
-
-const showRequestAProposal = (data: any) => {
-  eventBus.emit("showRequestAProposal", data);
-};
 
 router.beforeEach((to, from, next) => {
   if ($.magnificPopup.instance.isOpen) {
@@ -123,11 +133,7 @@ router.beforeEach((to, from, next) => {
             <p class="reveal">{{ gallery.desc }}</p>
 
             <requestAProposal />
-            <button
-              @click="showRequestAProposal(gallery)"
-              class="popup-with-form reveal"
-              id="request-a-proposal-button"
-            >
+            <button @click="showRequestAProposal(gallery._id)">
               <div class="cta">Request a Proposal</div>
             </button>
           </div>

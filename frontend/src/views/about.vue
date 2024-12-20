@@ -61,6 +61,8 @@ onMounted(async () => {
         allowfullscreen=""
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
+      <map></map>
+
       <br />
       <address style="font-style: normal" class="reveal">
         Slavic Media is headquartered in Kolding, Denmark, with remote team

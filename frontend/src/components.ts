@@ -40,10 +40,6 @@ export function registerGlobalComponents(app: App) {
     defineAsyncComponent(() => import("@/components/skeleton-swiper.vue"))
   );
   app.component(
-    "DotLottieVue",
-    defineAsyncComponent(() => import("@lottiefiles/dotlottie-vue"))
-  );
-  app.component(
     "SkeletonArticle",
     defineAsyncComponent(() => import("@/components/skeleton-article.vue"))
   );
@@ -80,5 +76,9 @@ export function registerGlobalComponents(app: App) {
   app.component(
     "SwiperColourGrading",
     defineAsyncComponent(() => import("@/components/swiper-colour-grading.vue"))
+  );
+  app.component(
+    "map",
+    defineAsyncComponent(() => import("@/components/map.vue"))
   );
 }

@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { onMounted, onUnmounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
+import { useArrowNavigation } from "@/functions/useArrowNavigation";
 
 onMounted(() => {
-  new Swiper(".swiper-clients", {
+  const swiper = new Swiper(".swiper-clients", {
     loop: true,
     speed: 600,
     autoplay: { delay: 1000, pauseOnMouseEnter: true },
@@ -19,6 +20,11 @@ onMounted(() => {
       947: { slidesPerView: 7.2 },
     },
     direction: "horizontal",
+  });
+  const removeArrowNavigation = useArrowNavigation(swiper);
+
+  onUnmounted(() => {
+    removeArrowNavigation();
   });
 });
 </script>

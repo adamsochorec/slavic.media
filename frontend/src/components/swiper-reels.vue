@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, computed, onUnmounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
+import { useArrowNavigation } from "@/functions/useArrowNavigation";
 
 // GRID GAP
 const gridGap2 = getComputedStyle(document.documentElement).getPropertyValue(
@@ -40,7 +41,7 @@ const reels = ref<Reel[]>([
 
 // Initialize Swiper for the reels section
 onMounted(() => {
-  new Swiper(".swiper-reels", {
+  const swiper = new Swiper(".swiper-reels", {
     loop: true,
     speed: 600,
     spaceBetween: parseFloat(gridGap2),
@@ -88,6 +89,11 @@ onMounted(() => {
         slidesPerView: 4.5,
       },
     },
+  });
+  const removeArrowNavigation = useArrowNavigation(swiper);
+
+  onUnmounted(() => {
+    removeArrowNavigation();
   });
 });
 </script>

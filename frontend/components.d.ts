@@ -16,6 +16,7 @@ declare module 'vue' {
     GalleryItem: typeof import('./src/components/gallery-item.vue')['default']
     HeroVideo: typeof import('./src/components/hero-video.vue')['default']
     LatestArticle: typeof import('./src/components/latest-article.vue')['default']
+    Map: typeof import('./src/components/map.vue')['default']
     NavBar: typeof import('./src/components/nav-bar.vue')['default']
     RequestAProposal: typeof import('./src/components/request-a-proposal.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
@@ -31,6 +32,7 @@ declare module 'vue' {
     SwiperReels: typeof import('./src/components/swiper-reels.vue')['default']
     SwiperReviews: typeof import('./src/components/swiper-reviews.vue')['default']
     TieredMenu: typeof import('primevue/tieredmenu')['default']
+    Timeline: typeof import('primevue/timeline')['default']
   }
   export interface ComponentCustomProperties {
     Tooltip: typeof import('primevue/tooltip')['default']

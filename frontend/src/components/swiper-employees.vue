@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from "vue";
+import { ref, onMounted, nextTick, onUnmounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
+import { useArrowNavigation } from "@/functions/useArrowNavigation";
 
 import employee from "@/modules/employee";
 
@@ -24,7 +25,7 @@ onMounted(async () => {
   isDataLoaded.value = true;
 
   nextTick(() => {
-    new Swiper(".swiper-ourteam", {
+    const swiper = new Swiper(".swiper-ourteam", {
       preloadImages: false,
       lazyLoading: true,
       observer: true,
@@ -46,6 +47,12 @@ onMounted(async () => {
       },
       // Optional parameters
       direction: "horizontal",
+    });
+
+    const removeArrowNavigation = useArrowNavigation(swiper);
+
+    onUnmounted(() => {
+      removeArrowNavigation();
     });
   });
 });
