@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ArticleMetadata: typeof import('./src/components/article-metadata.vue')['default']
     BannerLightroomPresets: typeof import('./src/components/banner-lightroom-presets.vue')['default']
     BlogCard: typeof import('./src/components/blog-card.vue')['default']
     CompanyTimeline: typeof import('./src/components/company-timeline.vue')['default']

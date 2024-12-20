@@ -119,6 +119,9 @@ onMounted(async () => {
       </div>
     </section>
     <!-- REVIEWS END -->
+
+    <latestArticle></latestArticle>
+
     <bannerLightroomPresets></bannerLightroomPresets>
   </article>
 </template>

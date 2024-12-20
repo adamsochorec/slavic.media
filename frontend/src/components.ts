@@ -81,4 +81,12 @@ export function registerGlobalComponents(app: App) {
     "Map",
     defineAsyncComponent(() => import("@/components/map.vue"))
   );
+  app.component(
+    "LatestArticle",
+    defineAsyncComponent(() => import("@/components/latest-article.vue"))
+  );
+  app.component(
+    "ArticleMetadata",
+    defineAsyncComponent(() => import("@/components/article-metadata.vue"))
+  );
 }

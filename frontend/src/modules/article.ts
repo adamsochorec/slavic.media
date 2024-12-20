@@ -78,6 +78,7 @@ const article = () => {
     }
   };
 
+  // Further reading
   const getFurtherReading = (currentArticleID: string): void => {
     const filteredArticles = state.value.articles.filter(
       (article) => article._id !== currentArticleID
@@ -85,11 +86,27 @@ const article = () => {
     state.value.furtherReading = filteredArticles;
   };
 
+  // Get the latest article by date
+  const getLatestArticle = async (): Promise<void> => {
+    try {
+      const response = await fetch("http://localhost:4000/blog/latest");
+      if (!response.ok) {
+        throw new Error(`Failed to fetch the latest article`);
+      }
+      const data: Article = await response.json();
+      console.log("Latest article data:", data); // Log the API response
+      state.value.article = data;
+    } catch (error) {
+      console.error("Error fetching the latest article:", error);
+    }
+  };
+
   return {
     state,
     getAllArticles,
     getSpecificArticle,
     getFurtherReading,
+    getLatestArticle,
     documentID,
   };
 };

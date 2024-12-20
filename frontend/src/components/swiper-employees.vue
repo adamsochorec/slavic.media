@@ -3,7 +3,6 @@ import { ref, onMounted, nextTick, onUnmounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import { useArrowNavigation } from "@/functions/useArrowNavigation";
-
 import employee from "@/modules/employee";
 
 // Define the Employee interface
