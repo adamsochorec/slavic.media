@@ -31,7 +31,7 @@ const gallerySchema = new mongoose_1.Schema({
     title: { type: String, required: true, maxlength: 200 },
     type: { type: String, required: true },
     columns: {
-        type: [[{ type: mongoose_1.Schema.Types.ObjectId, ref: "Img" }]],
+        type: [[{ type: String }]],
         required: true,
     },
 });

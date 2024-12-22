@@ -1,65 +1,55 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const mongoose_1 = __importDefault(require("mongoose"));
 const imgGallery_1 = __importDefault(require("../models/imgGallery"));
+const img_1 = __importDefault(require("../models/img"));
 const validation_1 = require("../validation");
 const router = (0, express_1.Router)();
-// Helper function to convert string IDs to ObjectId
-const convertToObjectId = (columns) => {
-    if (!Array.isArray(columns)) {
-        throw new TypeError("columns must be an array of arrays");
-    }
-    return columns.map((column) => {
-        if (!Array.isArray(column)) {
-            throw new TypeError("Each column must be an array");
-        }
-        return column.map((id) => new mongoose_1.default.Types.ObjectId(id));
-    });
-};
-// Create gallery - POST
+// Create document - POST
 router.post("/", validation_1.verifyToken, (req, res) => {
-    try {
-        console.log("Received data:", JSON.stringify(req.body, null, 2)); // Log the received data
-        const data = req.body;
-        if (!data.columns) {
-            throw new Error("columns field is required");
-        }
-        data.columns = convertToObjectId(data.columns);
-        imgGallery_1.default
-            .create(data)
-            .then((insertedData) => {
-            res.status(201).send(insertedData);
-        })
-            .catch((err) => {
-            res.status(500).send({ message: err.message });
-        });
-    }
-    catch (err) {
-        res.status(400).send({ message: err.message });
-    }
+    const data = req.body;
+    imgGallery_1.default
+        .create(data)
+        .then((insertedData) => {
+        res.status(201).send(insertedData);
+    })
+        .catch((err) => {
+        res.status(500).send({ message: err.message });
+    });
 });
-// Read all galleries - GET
+// Read all documents - GET
 router.get("/", (req, res) => {
-    const { type } = req.query; // Get the type from query parameters
-    const filter = type ? { type } : {}; // Filter by type if provided
+    const fields = typeof req.query.fields === "string"
+        ? req.query.fields.split(",").join(" ")
+        : "";
     imgGallery_1.default
-        .find(filter)
+        .find({}, fields)
         .then((data) => {
-        data.sort((a, b) => a.index - b.index);
         res.send(data);
     })
         .catch((err) => {
         res.status(500).send({ message: err.message });
     });
 });
-// Read specific gallery by ID - GET
+// Read specific document by ID - GET
 router.get("/:id", (req, res) => {
+    const fields = typeof req.query.fields === "string"
+        ? req.query.fields.split(",").join(" ")
+        : "";
     imgGallery_1.default
-        .findById(req.params.id)
+        .findById(req.params.id, fields)
         .then((data) => {
         res.send(data);
     })
@@ -67,36 +57,44 @@ router.get("/:id", (req, res) => {
         res.status(500).send({ message: err.message });
     });
 });
-// Update gallery - PUT
-router.put("/:id", validation_1.verifyToken, (req, res) => {
+// Read galleries with images - GET
+router.get("/with-images", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id } = req.params;
-        const updatedGallery = req.body;
-        if (!updatedGallery.columns) {
-            throw new Error("columns field is required");
-        }
-        updatedGallery.columns = convertToObjectId(updatedGallery.columns);
-        imgGallery_1.default
-            .findByIdAndUpdate(id, updatedGallery, { new: true })
-            .then((data) => {
-            if (!data) {
-                res.status(404).send({
-                    message: `Cannot update gallery with id=${id}. Maybe gallery was not found!`,
-                });
-            }
-            else {
-                res.send(data);
-            }
-        })
-            .catch((err) => {
-            res.status(500).send({ message: err.message });
-        });
+        const galleries = yield imgGallery_1.default.find({});
+        const galleriesWithImages = yield Promise.all(galleries.map((gallery) => __awaiter(void 0, void 0, void 0, function* () {
+            const columnsWithImages = yield Promise.all(gallery.columns.map((column) => __awaiter(void 0, void 0, void 0, function* () {
+                const images = yield img_1.default.find({ _id: { $in: column } });
+                return images;
+            })));
+            return Object.assign(Object.assign({}, gallery.toObject()), { columns: columnsWithImages });
+        })));
+        res.status(200).json(galleriesWithImages);
     }
     catch (err) {
-        res.status(400).send({ message: err.message });
+        res.status(500).json({ message: err.message });
     }
+}));
+// Update document - PUT
+router.put("/:id", validation_1.verifyToken, (req, res) => {
+    const { id } = req.params;
+    const updatedGalleryItem = req.body;
+    imgGallery_1.default
+        .findByIdAndUpdate(id, updatedGalleryItem, { new: true })
+        .then((data) => {
+        if (!data) {
+            res.status(404).send({
+                message: `Cannot update document with id=${id}. Maybe document was not found!`,
+            });
+        }
+        else {
+            res.send(data);
+        }
+    })
+        .catch((err) => {
+        res.status(500).send({ message: err.message });
+    });
 });
-// Delete gallery - DELETE
+// Delete document - DELETE
 router.delete("/:id", validation_1.verifyToken, (req, res) => {
     const { id } = req.params;
     imgGallery_1.default
@@ -104,28 +102,46 @@ router.delete("/:id", validation_1.verifyToken, (req, res) => {
         .then((data) => {
         if (!data) {
             res.status(404).send({
-                message: `Cannot delete gallery with id=${id}. Maybe gallery was not found!`,
+                message: `Cannot delete document with id=${id}. Maybe document was not found!`,
             });
         }
         else {
-            res.send({ message: "Gallery was deleted successfully!" });
+            res.send({ message: "Document was deleted successfully!" });
         }
     })
         .catch((err) => {
         res.status(500).send({ message: err.message });
     });
 });
-// Delete all galleries - DELETE
+// Delete all documents - DELETE
 router.delete("/", validation_1.verifyToken, (req, res) => {
     imgGallery_1.default
         .deleteMany({})
         .then((result) => {
         res.send({
-            message: `${result.deletedCount} galleries were deleted successfully!`,
+            message: `${result.deletedCount} documents were deleted successfully!`,
         });
     })
         .catch((err) => {
         res.status(500).send({ message: err.message });
     });
 });
+// Fetch specific galleries with images - GET
+router.get("/specific-galleries", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const galleryIds = req.query.ids ? req.query.ids.split(",") : [];
+    try {
+        const galleries = yield imgGallery_1.default.find({ _id: { $in: galleryIds } });
+        const galleriesWithImages = yield Promise.all(galleries.map((gallery) => __awaiter(void 0, void 0, void 0, function* () {
+            const columnsWithImages = yield Promise.all(gallery.columns.map((column) => __awaiter(void 0, void 0, void 0, function* () {
+                const images = yield img_1.default.find({ _id: { $in: column } });
+                return images;
+            })));
+            return Object.assign(Object.assign({}, gallery.toObject()), { columns: columnsWithImages });
+        })));
+        res.status(200).json(galleriesWithImages);
+    }
+    catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+}));
 exports.default = router;

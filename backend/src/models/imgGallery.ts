@@ -1,5 +1,4 @@
 import mongoose, { Schema, Document } from "mongoose";
-import { ObjectId } from "mongodb";
 
 interface Gallery extends Document {
   _id: string;
@@ -7,7 +6,7 @@ interface Gallery extends Document {
   desc: string;
   title: string;
   type: string;
-  columns: ObjectId[][];
+  columns: string[][];
 }
 
 const gallerySchema = new Schema({
@@ -17,7 +16,7 @@ const gallerySchema = new Schema({
   title: { type: String, required: true, maxlength: 200 },
   type: { type: String, required: true },
   columns: {
-    type: [[{ type: Schema.Types.ObjectId, ref: "Img" }]],
+    type: [[{ type: String }]],
     required: true,
   },
 });

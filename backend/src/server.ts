@@ -36,7 +36,6 @@ app.use(
 );
 
 import articleRoutes from "./routes/article";
-
 import imageRoutes from "./routes/images";
 import videoRoutes from "./routes/video";
 import authRoutes from "./routes/auth";
@@ -77,8 +76,8 @@ app.use("/review", reviewRoutes);
 app.use("/event", eventRoutes);
 app.use("/services", servicesRoutes);
 app.use("/img", imgRoutes);
-/* app.use("/img/gallery", imgGalleryRoutes);
- */
+app.use("/gallery/img", imgGalleryRoutes);
+
 // Serve static files from the 'dist' directory
 app.use(express.static(path.join(__dirname, "dist"), staticOptions));
 
