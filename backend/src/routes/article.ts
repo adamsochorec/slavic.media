@@ -37,8 +37,6 @@ router.get("/", (req: Request, res: Response) => {
           _id: 1,
           title: 1,
           metadata: 1,
-          content: 1,
-          videos: 1,
           author: {
             _id: "$authorDetails._id",
             name: "$authorDetails.name",
