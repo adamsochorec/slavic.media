@@ -48,7 +48,7 @@ const article = () => {
   const getAllArticles = async (): Promise<void> => {
     try {
       const response = await fetch(
-        "https://api.slavic.media/blog/?fields=author,metadata,_id,title"
+        "http://localhost:4000/blog/?fields=author,metadata,_id,title"
       );
       const data: Article[] = await response.json();
       state.value.articles = data.sort(
@@ -64,9 +64,7 @@ const article = () => {
   // Read specific document by ID - GET
   const getSpecificArticle = async (documentID: string): Promise<void> => {
     try {
-      const response = await fetch(
-        `https://api.slavic.media/blog/${documentID}`
-      );
+      const response = await fetch(`http://localhost:4000/blog/${documentID}`);
       if (!response.ok) {
         throw new Error(`Failed to fetch document with ID: ${documentID}`);
       }
@@ -86,27 +84,11 @@ const article = () => {
     state.value.furtherReading = filteredArticles;
   };
 
-  // Get the latest article by date
-  const getLatestArticle = async (): Promise<void> => {
-    try {
-      const response = await fetch("https://api.slavic.media/blog/latest");
-      if (!response.ok) {
-        throw new Error(`Failed to fetch the latest article`);
-      }
-      const data: Article = await response.json();
-      console.log("Latest article data:", data); // Log the API response
-      state.value.article = data;
-    } catch (error) {
-      console.error("Error fetching the latest article:", error);
-    }
-  };
-
   return {
     state,
     getAllArticles,
     getSpecificArticle,
     getFurtherReading,
-    getLatestArticle,
     documentID,
   };
 };

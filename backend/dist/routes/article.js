@@ -56,56 +56,11 @@ router.get("/", (req, res) => {
         res.status(500).send({ message: err.message });
     });
 });
-// Get the latest article by date - GET
-router.get("/latest", (req, res) => {
+// Read specific document by ID - GET
+router.get("/:id", (req, res) => {
     article_1.default
         .aggregate([
-        {
-            $lookup: {
-                from: "employees",
-                localField: "author",
-                foreignField: "_id",
-                as: "authorDetails",
-            },
-        },
-        {
-            $unwind: "$authorDetails",
-        },
-        {
-            $project: {
-                _id: 1,
-                title: 1,
-                metadata: 1,
-                author: {
-                    _id: "$authorDetails._id",
-                    name: "$authorDetails.name",
-                    linkedin: "$authorDetails.linkedin",
-                },
-            },
-        },
-        {
-            $sort: { "metadata.date": -1 },
-        },
-        {
-            $limit: 1,
-        },
-    ])
-        .then((data) => {
-        if (data.length > 0) {
-            res.send(data[0]);
-        }
-        else {
-            res.status(404).send({ message: "No articles found" });
-        }
-    })
-        .catch((err) => {
-        res.status(500).send({ message: err.message });
-    });
-});
-// Get the latest article by date - GET
-router.get("/latest", (req, res) => {
-    article_1.default
-        .aggregate([
+        { $match: { _id: req.params.id } },
         {
             $lookup: {
                 from: "employees",
@@ -127,15 +82,10 @@ router.get("/latest", (req, res) => {
                 author: {
                     _id: "$authorDetails._id",
                     name: "$authorDetails.name",
+                    department: "$authorDetails.department",
                     linkedin: "$authorDetails.linkedin",
                 },
             },
-        },
-        {
-            $sort: { "metadata.date": -1 },
-        },
-        {
-            $limit: 1,
         },
     ])
         .then((data) => {

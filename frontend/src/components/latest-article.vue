@@ -20,7 +20,7 @@ onMounted(async () => {
       Latest in
       <router-link to="/blog" class="gradient"
         >Slavic&nbsp;Media&nbsp;</router-link
-      >
+      >Blog
     </h3>
     <br />
     <div class="grid-container" v-if="isDataLoaded && state.article">
