@@ -89,7 +89,7 @@ const article = () => {
   // Get the latest article by date
   const getLatestArticle = async (): Promise<void> => {
     try {
-      const response = await fetch("http://localhost:4000/blog/latest");
+      const response = await fetch("https://api.slavic.media/blog/latest");
       if (!response.ok) {
         throw new Error(`Failed to fetch the latest article`);
       }

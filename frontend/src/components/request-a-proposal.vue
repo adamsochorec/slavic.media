@@ -1,14 +1,17 @@
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from "vue";
-import eventBus from "@/functions/eventBus";
+import { ref, onMounted, nextTick, watch } from "vue";
+import { useRouter } from "vue-router";
+import eventBus, { EventBus } from "@/functions/eventBus";
 import $ from "jquery";
 import "magnific-popup";
 
 const isVisible = ref<boolean>(false);
 const content = ref<string>("");
 
+const router = useRouter();
+
 onMounted(() => {
-  eventBus.on("showRequestAProposal", (identifier: string) => {
+  (eventBus as EventBus).on("showRequestAProposal", (identifier: string) => {
     content.value = identifier;
     isVisible.value = true;
     nextTick(() => {
@@ -32,6 +35,27 @@ onMounted(() => {
         },
       });
     });
+  });
+
+  router.beforeEach((to, from, next) => {
+    if ($.magnificPopup.instance.isOpen) {
+      $.magnificPopup.close();
+    }
+    next();
+  });
+
+  // Add event listener to close the lightbox when clicking on the router-link
+  nextTick(() => {
+    const privacyPolicyLink = document.querySelector(
+      'a[href="/legal/privacy-policy"]'
+    );
+    if (privacyPolicyLink) {
+      privacyPolicyLink.addEventListener("click", () => {
+        if ($.magnificPopup.instance.isOpen) {
+          $.magnificPopup.close();
+        }
+      });
+    }
   });
 });
 </script>
@@ -128,6 +152,12 @@ onMounted(() => {
                 id="project"
               ></textarea>
               <input type="hidden" name="source" :value="content" />
+              <p style="font-size: var(--font-size-7)">
+                By submitting form you agree with our
+                <router-link to="/legal/privacy-policy"
+                  >Privacy Policy</router-link
+                >.
+              </p>
               <button class="submit-btn" aria-label="Submit" role="button">
                 Submit<i class="pi pi-arrow-right" aria-hidden="true"></i>
               </button>

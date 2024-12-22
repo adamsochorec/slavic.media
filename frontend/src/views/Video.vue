@@ -51,11 +51,6 @@ router.beforeEach((to, from, next) => {
 <template>
   <article class="main" style="margin-top: 120px">
     <section class="wrapper-wide">
-      <instagram-post
-        post-url="https://instagram.com/reel/DDhGm_Fo5eg"
-        captions="true"
-      ></instagram-post>
-
       <!-- PAGE ABSTRACT START -->
       <div
         class="grid-container caption-container"
