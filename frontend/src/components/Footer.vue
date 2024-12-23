@@ -233,7 +233,7 @@ const currentYear = new Date().getFullYear();
 
 <style scoped>
 .underline {
-  text-decoration-skip: ink;
+  text-decoration-skip-ink: auto;
 }
 .logo {
   height: var(--grid-gap-3);

@@ -82,4 +82,4 @@ onMounted(async () => {
     <!--   ABOUT END -->
     <CompanyTimeline />
   </article>
-</template><template><articleclass=aria-labelledby=<HeroVideo
+</template>
