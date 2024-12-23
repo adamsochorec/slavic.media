@@ -12,8 +12,8 @@ const router = Router();
 const allowedDomain = "slavic.media";
 
 // User registration endpoint
-router.post(
-  "/675c6906f759b4d2938177b9",
+/* router.post(
+  "/register",
   async (req: Request, res: Response) => {
     try {
       // Validate the user input (name, email, password)
@@ -59,7 +59,7 @@ router.post(
     }
   }
 );
-
+ */
 // User login endpoint
 router.post("/login", async (req: Request, res: Response) => {
   try {

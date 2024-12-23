@@ -1,17 +1,18 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var swagger_autogen_1 = require("swagger-autogen");
-var server_1 = require("./src/server");
-var doc = {
-    info: {
-        title: "Slavic Media API",
-        description: "MongoDB-ExpressJS-NodeJS Restful API",
-    },
-    host: "localhost:".concat(server_1.default),
-    schemes: ["http"],
+const swaggerAutogen = require("swagger-autogen")();
+const path = require("path");
+
+const doc = {
+  info: {
+    title: "Slavic Media API",
+    description: "MongoDB-ExpressJS-NodeJS Restful API",
+  },
+  host: "localhost:4000", // Change this to your host
+  schemes: ["http"], // Change this to 'https' if you are using HTTPS
 };
-var outputFile = "./swagger.json";
-var endpointsFiles = ["./src/server.ts"];
-(0, swagger_autogen_1.default)()(outputFile, endpointsFiles, doc).then(function () {
-    require("./src/server");
+
+const outputFile = path.join(__dirname, "swagger-output.json");
+const endpointsFiles = [path.join(__dirname, "src", "server.ts")]; // Change this to your main server file
+
+swaggerAutogen(outputFile, endpointsFiles, doc).then(() => {
+  require(path.join(__dirname, "src", "server")); // Your project's root file
 });

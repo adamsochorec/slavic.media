@@ -7,9 +7,9 @@ const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
-const yamljs_1 = __importDefault(require("yamljs"));
 const cors_1 = __importDefault(require("cors"));
 const path_1 = __importDefault(require("path"));
+const fs_1 = __importDefault(require("fs"));
 require("dotenv-flow").config();
 const app = (0, express_1.default)();
 // Serve static files with caching headers
@@ -26,7 +26,7 @@ app.use(body_parser_1.default.json());
 const swaggerOptions = {
     customCss: ".swagger-ui .topbar { display: none !important; }",
 };
-const swaggerDefinition = yamljs_1.default.load(path_1.default.join(__dirname, "..", "swagger.yaml"));
+const swaggerDefinition = JSON.parse(fs_1.default.readFileSync(path_1.default.join(__dirname, "..", "swagger-output.json"), "utf8"));
 app.use("/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDefinition, swaggerOptions));
 const article_1 = __importDefault(require("./routes/article"));
 const images_1 = __importDefault(require("./routes/images"));

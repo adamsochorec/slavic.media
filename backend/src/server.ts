@@ -3,9 +3,9 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import { verifyToken } from "./validation";
 import swaggerUi from "swagger-ui-express";
-import yaml from "yamljs";
 import cors from "cors";
 import path from "path";
+import fs from "fs";
 
 require("dotenv-flow").config();
 
@@ -28,7 +28,9 @@ app.use(bodyParser.json());
 const swaggerOptions = {
   customCss: ".swagger-ui .topbar { display: none !important; }",
 };
-const swaggerDefinition = yaml.load(path.join(__dirname, "..", "swagger.yaml"));
+const swaggerDefinition = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "..", "swagger-output.json"), "utf8")
+);
 app.use(
   "/docs",
   swaggerUi.serve,
