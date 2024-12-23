@@ -6,13 +6,13 @@ const doc = {
     title: "Slavic Media API",
     description: "MongoDB-ExpressJS-NodeJS Restful API",
   },
-  host: "localhost:4000", // Change this to your host
-  schemes: ["http"], // Change this to 'https' if you are using HTTPS
+  host: "localhost:4000",
+  schemes: ["http"],
 };
 
-const outputFile = path.join(__dirname, "swagger-output.json");
-const endpointsFiles = [path.join(__dirname, "src", "server.ts")]; // Change this to your main server file
+const outputFile = path.join(__dirname, "swagger.json");
+const endpointsFiles = [path.join(__dirname, "src", "server.ts")];
 
 swaggerAutogen(outputFile, endpointsFiles, doc).then(() => {
-  require(path.join(__dirname, "src", "server")); // Your project's root file
+  require(path.join(__dirname, "dist", "server"));
 });

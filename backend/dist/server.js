@@ -26,7 +26,7 @@ app.use(body_parser_1.default.json());
 const swaggerOptions = {
     customCss: ".swagger-ui .topbar { display: none !important; }",
 };
-const swaggerDefinition = JSON.parse(fs_1.default.readFileSync(path_1.default.join(__dirname, "..", "swagger-output.json"), "utf8"));
+const swaggerDefinition = JSON.parse(fs_1.default.readFileSync(path_1.default.join(__dirname, "..", "swagger.json"), "utf8"));
 app.use("/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDefinition, swaggerOptions));
 const article_1 = __importDefault(require("./routes/article"));
 const images_1 = __importDefault(require("./routes/images"));

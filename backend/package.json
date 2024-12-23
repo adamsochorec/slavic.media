@@ -7,7 +7,7 @@
     "build": "tsc",
     "start": "npm run build && node dist/server.js",
     "dev": "tsc --watch",
-    "start-dev": "node -r dotenv/config -r ts-node/register src/server.ts",
+    "start-dev": "npm run start-gendoc && node -r dotenv/config -r ts-node/register src/server.ts",
     "test": "mocha --config .mocharc.json",
     "test:watch": "mocha --watch --config .mocharc.json",
     "start-gendoc": "node swagger.js"

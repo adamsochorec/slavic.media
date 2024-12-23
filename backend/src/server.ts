@@ -29,7 +29,7 @@ const swaggerOptions = {
   customCss: ".swagger-ui .topbar { display: none !important; }",
 };
 const swaggerDefinition = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "..", "swagger-output.json"), "utf8")
+  fs.readFileSync(path.join(__dirname, "..", "swagger.json"), "utf8")
 );
 app.use(
   "/docs",
