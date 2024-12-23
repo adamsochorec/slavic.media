@@ -119,6 +119,7 @@ onMounted(async () => {
 <style scoped>
 a > :hover {
   text-decoration: underline;
+  text-decoration-skip: ink;
 }
 .grid-container {
   display: grid;

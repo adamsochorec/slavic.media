@@ -17,7 +17,7 @@ const props = defineProps<{
     <span
       v-for="legal in props.legals"
       :key="legal._id"
-      :class="{ current: legal._id === props.currentId }"
+      :class="{ gradient: legal._id === props.currentId }"
     >
       <router-link :to="`/legal/${legal._id}`">{{ legal.title }}</router-link>
     </span>
@@ -36,8 +36,7 @@ const props = defineProps<{
   text-align: center;
   opacity: 30%;
 }
-.current {
-  border-bottom: 2px solid rgba(var(--primary-color), 0.8);
+.gradient {
   opacity: 100% !important;
 }
 .articles span:hover {

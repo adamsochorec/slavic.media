@@ -57,6 +57,7 @@ h2 {
 }
 a > :hover {
   text-decoration: underline;
+  text-decoration-skip: ink;
 }
 img {
   -webkit-animation: skeleton-loading 1s linear infinite alternate;

@@ -261,6 +261,7 @@ h1 {
 }
 .article-metadata a:hover {
   text-decoration: underline;
+  text-decoration-skip: ink;
 }
 .pi-angle-right {
   font-size: var(--font-size-4);

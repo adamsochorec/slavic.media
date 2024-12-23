@@ -97,6 +97,7 @@ const props = defineProps<{
 }
 .gallery-item span {
   text-decoration: underline;
+  text-decoration-skip: ink;
 }
 .gallery-item p {
   font-size: var(--font-size-7);

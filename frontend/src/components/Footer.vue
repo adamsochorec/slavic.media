@@ -232,6 +232,9 @@ const currentYear = new Date().getFullYear();
 </template>
 
 <style scoped>
+.underline {
+  text-decoration-skip: ink;
+}
 .logo {
   height: var(--grid-gap-3);
   fill: white;
