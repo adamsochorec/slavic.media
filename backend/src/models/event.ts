@@ -1,8 +1,8 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-interface event extends Document {
-  _id: number;
-  date: string;
+interface Event extends Document {
+  _id: mongoose.Types.ObjectId;
+  date: Date;
   event: string;
   lat: number;
   lng: number;
@@ -10,13 +10,13 @@ interface event extends Document {
 }
 
 const eventSchema = new Schema({
-  _id: { type: Number, required: true },
-  date: { type: String, required: true, maxlength: 50 },
+  _id: { type: Schema.Types.ObjectId, auto: true },
+  date: { type: Date, required: true },
   event: { type: String, required: true, maxlength: 500 },
   lat: { type: Number, required: true, maxlength: 500 },
   lng: { type: Number, required: true, maxlength: 500 },
   icon: { type: String, required: true, maxlength: 50 },
 });
 
-const eventModel = mongoose.model<event>("Event", eventSchema);
+const eventModel = mongoose.model<Event>("Event", eventSchema);
 export default eventModel;

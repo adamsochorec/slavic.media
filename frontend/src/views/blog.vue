@@ -87,7 +87,9 @@ onMounted(async () => {
   border-radius: var(--border-radius-1);
   color: white;
 }
-
+.grid-container .grid-item:nth-child(odd) {
+  margin-right: var(--grid-gap-2);
+}
 h1 {
   font-size: var(--font-size-2);
 }

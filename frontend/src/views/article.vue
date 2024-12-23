@@ -142,8 +142,8 @@ const copyHref = (href) => {
                     <span
                       style="font-size: var(--font-size-6)"
                       class="pi pi-calendar"
-                    ></span
-                    >&nbsp;{{ state.article.metadata.formatedDate }}
+                    ></span>
+                    &nbsp;{{ state.article.metadata.formatedDate }}
                   </dd>
                 </div>
                 &nbsp;
@@ -153,8 +153,8 @@ const copyHref = (href) => {
                     ⋅&nbsp;<span
                       style="font-size: var(--font-size-6)"
                       class="pi pi-book"
-                    ></span
-                    >&nbsp;{{ state.article.metadata.length }} min read
+                    ></span>
+                    &nbsp;{{ state.article.metadata.length }} min read
                   </dd>
                 </div>
               </div>
@@ -168,6 +168,10 @@ const copyHref = (href) => {
           >
             <h2 id="social-actions-title" hidden>Social Actions</h2>
             <a
+              v-tooltip.bottom="{
+                value: 'View on Linkedin',
+                autoHide: false,
+              }"
               v-if="state.article?.metadata.linkedin"
               target="_blank"
               rel="noopener noreferrer nofollow"
@@ -269,6 +273,9 @@ h1 {
   height: auto;
   border-radius: var(--border-radius-1);
   color: white;
+}
+.grid-container .grid-item:nth-child(odd) {
+  margin-right: var(--grid-gap-2);
 }
 .gallery {
   grid-template-columns: repeat(3, 1fr);

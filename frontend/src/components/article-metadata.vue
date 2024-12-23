@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { truncateText } from "@/functions/truncate-text.ts";
+import { ddmmmyyyy } from "@/functions/date-format.ts";
+import { defineProps } from "vue";
 
 interface Author {
   name: string;
@@ -7,7 +8,7 @@ interface Author {
   thumbnail: string;
 }
 interface Metadata {
-  formatedDate: string;
+  date: string;
   length: number;
   thumbnail: string;
   desc: string;
@@ -55,7 +56,7 @@ const props = defineProps<{
             style="font-size: var(--font-size-7)"
             class="pi pi-calendar"
           ></span
-          >&nbsp;{{ article.metadata.formatedDate }}&nbsp;⋅&nbsp;<span
+          >&nbsp;{{ ddmmmyyyy(article.metadata.date) }}&nbsp;⋅&nbsp;<span
             style="font-size: var(--font-size-7)"
             class="pi pi-book"
           ></span

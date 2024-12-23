@@ -14,12 +14,12 @@ const props = defineProps({
   >
     <div v-if="isDataLoaded" aria-busy="false">
       <hr class="semi" />
-      <h3 id="further-reading-title">
+      <h2 id="further-reading-title" class="reveal">
         More from
         <router-link to="/blog" class="gradient"
           >Slavic&nbsp;Media&nbsp;</router-link
         >Blog
-      </h3>
+      </h2>
       <hr class="quater reveal" />
       <div class="grid-container">
         <div
@@ -54,6 +54,9 @@ const props = defineProps({
   height: auto;
   border-radius: var(--border-radius-1);
   color: white;
+}
+.grid-container .grid-item:nth-child(odd) {
+  margin-right: var(--grid-gap-2);
 }
 @media only screen and (min-width: 400px) {
   .grid-container {

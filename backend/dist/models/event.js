@@ -25,8 +25,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
 const eventSchema = new mongoose_1.Schema({
-    _id: { type: Number, required: true },
-    date: { type: String, required: true, maxlength: 50 },
+    _id: { type: mongoose_1.Schema.Types.ObjectId, auto: true },
+    date: { type: Date, required: true },
     event: { type: String, required: true, maxlength: 500 },
     lat: { type: Number, required: true, maxlength: 500 },
     lng: { type: Number, required: true, maxlength: 500 },

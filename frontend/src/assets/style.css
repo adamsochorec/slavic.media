@@ -228,7 +228,6 @@ h6 {
   font-family: var(--logo-font);
   position: relative;
   line-height: normal;
-  text-transform: capitalize;
 }
 h1 {
   font-size: var(--font-size-1);
@@ -513,9 +512,7 @@ lite-vimeo:hover > .ltv-playbtn {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-.grid-container .grid-item:nth-child(odd) {
-  margin-right: var(--grid-gap-2);
-}
+
 /* GALLERY END */
 
 /* MAGNIFICIENT POP UP START */
@@ -942,6 +939,9 @@ i.pi-arrow-right:hover {
 }
 .article-content p {
   margin: var(--grid-gap-2) 0;
+}
+.article-content.legal h2 {
+  font-size: var(--font-size-4);
 }
 .author b:hover {
   text-decoration: underline;

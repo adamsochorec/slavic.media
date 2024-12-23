@@ -89,4 +89,8 @@ export function registerGlobalComponents(app: App) {
     "ArticleMetadata",
     defineAsyncComponent(() => import("@/components/article-metadata.vue"))
   );
+  app.component(
+    "FurtherLegal",
+    defineAsyncComponent(() => import("@/components/further-legal.vue"))
+  );
 }

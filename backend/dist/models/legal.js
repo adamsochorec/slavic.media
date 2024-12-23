@@ -27,7 +27,7 @@ const mongoose_1 = __importStar(require("mongoose"));
 const legalSchema = new mongoose_1.Schema({
     _id: { type: String, required: true, maxlength: 50 },
     title: { type: String, required: true, maxlength: 200 },
-    modified: { type: String, required: true, maxlength: 50 },
+    date: { type: Date, required: true },
     content: { type: [String], required: true },
 });
 const legal = mongoose_1.default.model("Legal", legalSchema);

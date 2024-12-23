@@ -1,26 +1,23 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("express");
-const article_1 = __importDefault(require("../models/article"));
-const validation_1 = require("../validation");
-const router = (0, express_1.Router)();
+var express_1 = require("express");
+var article_1 = require("../models/article");
+var validation_1 = require("../validation");
+var router = (0, express_1.Router)();
 // Create document - POST
-router.post("/", validation_1.verifyToken, (req, res) => {
-    const data = req.body;
+router.post("/", validation_1.verifyToken, function (req, res) {
+    var data = req.body;
     article_1.default
         .create(data)
-        .then((insertedData) => {
+        .then(function (insertedData) {
         res.status(201).send(insertedData);
     })
-        .catch((err) => {
+        .catch(function (err) {
         res.status(500).send({ message: err.message });
     });
 });
 // Read all documents - GET
-router.get("/", (req, res) => {
+router.get("/", function (req, res) {
     article_1.default
         .aggregate([
         {
@@ -47,15 +44,15 @@ router.get("/", (req, res) => {
             },
         },
     ])
-        .then((data) => {
+        .then(function (data) {
         res.send(data);
     })
-        .catch((err) => {
+        .catch(function (err) {
         res.status(500).send({ message: err.message });
     });
 });
 // Get the latest article by date - GET
-router.get("/latest", (req, res) => {
+router.get("/latest", function (req, res) {
     article_1.default
         .aggregate([
         {
@@ -88,7 +85,7 @@ router.get("/latest", (req, res) => {
             $limit: 1,
         },
     ])
-        .then((data) => {
+        .then(function (data) {
         if (data.length > 0) {
             res.send(data[0]);
         }
@@ -96,12 +93,12 @@ router.get("/latest", (req, res) => {
             res.status(404).send({ message: "No articles found" });
         }
     })
-        .catch((err) => {
+        .catch(function (err) {
         res.status(500).send({ message: err.message });
     });
 });
 // Read specific document by ID - GET
-router.get("/:id", (req, res) => {
+router.get("/:id", function (req, res) {
     article_1.default
         .aggregate([
         { $match: { _id: req.params.id } },
@@ -132,15 +129,15 @@ router.get("/:id", (req, res) => {
             },
         },
     ])
-        .then((data) => {
+        .then(function (data) {
         res.send(data[0]);
     })
-        .catch((err) => {
+        .catch(function (err) {
         res.status(500).send({ message: err.message });
     });
 });
 // Get the latest article by date - GET
-router.get("/latest", (req, res) => {
+router.get("/latest", function (req, res) {
     article_1.default
         .aggregate([
         {
@@ -175,62 +172,62 @@ router.get("/latest", (req, res) => {
             $limit: 1,
         },
     ])
-        .then((data) => {
+        .then(function (data) {
         res.send(data[0]);
     })
-        .catch((err) => {
+        .catch(function (err) {
         res.status(500).send({ message: err.message });
     });
 });
 // Update document - PUT
-router.put("/:id", validation_1.verifyToken, (req, res) => {
-    const { id } = req.params;
-    const updatedArticle = req.body;
+router.put("/:id", validation_1.verifyToken, function (req, res) {
+    var id = req.params.id;
+    var updatedArticle = req.body;
     article_1.default
         .findByIdAndUpdate(id, updatedArticle, { new: true })
-        .then((data) => {
+        .then(function (data) {
         if (!data) {
             res.status(404).send({
-                message: `Cannot update document with id=${id}. Maybe document was not found!`,
+                message: "Cannot update document with id=".concat(id, ". Maybe document was not found!"),
             });
         }
         else {
             res.send(data);
         }
     })
-        .catch((err) => {
+        .catch(function (err) {
         res.status(500).send({ message: err.message });
     });
 });
 // Delete document - DELETE
-router.delete("/:id", validation_1.verifyToken, (req, res) => {
-    const { id } = req.params;
+router.delete("/:id", validation_1.verifyToken, function (req, res) {
+    var id = req.params.id;
     article_1.default
         .findByIdAndDelete(id)
-        .then((data) => {
+        .then(function (data) {
         if (!data) {
             res.status(404).send({
-                message: `Cannot delete document with id=${id}. Maybe document was not found!`,
+                message: "Cannot delete document with id=".concat(id, ". Maybe document was not found!"),
             });
         }
         else {
             res.send({ message: "Document was deleted successfully!" });
         }
     })
-        .catch((err) => {
+        .catch(function (err) {
         res.status(500).send({ message: err.message });
     });
 });
 // Delete all documents - DELETE
-router.delete("/", validation_1.verifyToken, (req, res) => {
+router.delete("/", validation_1.verifyToken, function (req, res) {
     article_1.default
         .deleteMany({})
-        .then((result) => {
+        .then(function (result) {
         res.send({
-            message: `${result.deletedCount} documents were deleted successfully!`,
+            message: "".concat(result.deletedCount, " documents were deleted successfully!"),
         });
     })
-        .catch((err) => {
+        .catch(function (err) {
         res.status(500).send({ message: err.message });
     });
 });

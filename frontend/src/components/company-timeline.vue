@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import { mmmyyyy } from "@/functions/date-format.ts";
 import event from "@/modules/event";
 
 const { state, getAllEvents } = event();
@@ -42,7 +43,7 @@ onMounted(async () => {
         <template #content="slotProps">
           <div>
             <p class="reveal">
-              {{ slotProps.item.date }}
+              {{ mmmyyyy(slotProps.item.date) }}
             </p>
             <p class="reveal" style="font-size: var(--font-size-8)">
               {{ slotProps.item.event }}

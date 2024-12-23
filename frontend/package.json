@@ -19,6 +19,7 @@
     "@vueuse/head": "^2.0.0",
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.9",
+    "dompurify": "^3.2.3",
     "install": "^0.13.0",
     "jquery": "^3.7.1",
     "magnific-popup": "^1.2.0",

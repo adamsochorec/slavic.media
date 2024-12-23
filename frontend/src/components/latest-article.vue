@@ -125,6 +125,7 @@ a > :hover {
   grid-template-columns: 60% 38%;
   grid-gap: 0 var(--grid-gap-3);
 }
+
 h4 {
   font-size: var(--font-size-4);
   margin: 0 0 var(--grid-gap-2) 0;

@@ -13,6 +13,8 @@ interface Article {
   author: Author;
   metadata: {
     date: string;
+    formatedDate?: string;
+    length?: number;
   };
   title: string;
 }
@@ -72,18 +74,25 @@ const article = () => {
       }
       const data: Article = await response.json();
       state.value.article = data;
-      getFurtherReading(documentID);
+      await getFurtherReading(documentID);
     } catch (error) {
       console.error(error);
     }
   };
 
   // Further reading
-  const getFurtherReading = (currentArticleID: string): void => {
-    const filteredArticles = state.value.articles.filter(
-      (article) => article._id !== currentArticleID
-    );
-    state.value.furtherReading = filteredArticles;
+  const getFurtherReading = async (currentArticleID: string): Promise<void> => {
+    try {
+      const response = await fetch(
+        `https://api.slavic.media/blog/?fields=author,metadata,_id,title`
+      );
+      const data: Article[] = await response.json();
+      state.value.furtherReading = data.filter(
+        (article) => article._id !== currentArticleID
+      );
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   // Get the latest article by date
@@ -94,12 +103,12 @@ const article = () => {
         throw new Error(`Failed to fetch the latest article`);
       }
       const data: Article = await response.json();
-      console.log("Latest article data:", data); // Log the API response
       state.value.article = data;
     } catch (error) {
       console.error("Error fetching the latest article:", error);
     }
   };
+
   return {
     state,
     getAllArticles,

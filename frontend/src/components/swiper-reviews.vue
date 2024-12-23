@@ -28,7 +28,6 @@ onMounted(async () => {
         clickable: true,
         dynamicBullets: true,
       },
-      autoplay: { delay: 1000, pauseOnMouseEnter: true },
       preloadImages: false,
       lazyLoading: true,
       observer: true,
@@ -192,8 +191,8 @@ onMounted(async () => {
   margin: 0;
 }
 .swiper-reviews img {
-  height: 50px;
-  width: 50px;
+  height: 56px;
+  width: auto;
   -o-object-fit: cover;
   object-fit: cover;
   border-radius: var(--border-radius-2);
@@ -201,11 +200,15 @@ onMounted(async () => {
   -webkit-animation: skeleton-loading 1s linear infinite alternate;
   animation: skeleton-loading 1s linear infinite alternate;
   box-shadow: var(--box-shadow-1);
+  margin: 0 !important;
 }
 .swiper-slide .grid-container {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 40% 60%;
   grid-gap: var(--grid-gap-1);
+}
+.grid-container .grid-item:nth-child(odd) {
+  margin-right: none !important;
 }
 .swiper-reviews .reviews-message {
   margin: var(--grid-gap-1) 0;
