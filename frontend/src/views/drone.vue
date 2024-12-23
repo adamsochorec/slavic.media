@@ -4,6 +4,7 @@ import { useRouter } from "vue-router";
 import eventBus from "@/functions/eventBus";
 import image from "@/modules/images";
 import services from "@/modules/services";
+import $ from "jquery";
 
 const isDataLoaded = ref<boolean>(false);
 const { state: imageState, getAllImages } = image;
@@ -150,9 +151,7 @@ router.beforeEach((to, from, next) => {
                   :src="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280,sharpen=100`"
                   :alt="image.alt"
                 />
-                <svg class="flag note">
-                  <use :xlink:href="`#${flag}`"></use>
-                </svg>
+                <country-flag :country="image.flag" class="note" size="small" />
               </a>
             </div>
           </div>
@@ -218,3 +217,8 @@ router.beforeEach((to, from, next) => {
     <!-- LIGHTROOM PRESETS CTA END -->
   </article>
 </template>
+<style scoped>
+h1 {
+  text-transform: capitalize;
+}
+</style>

@@ -40,7 +40,11 @@ interface State {
   <article class="main">
     <section class="cover">
       <div class="filter"></div>
-      <div v-if="isDataLoaded" class="reveal">
+      <img
+        src="https://cdn.slavic.media/images/2024-07-16-00339/fit=contain,width=1280,sharpen=100"
+        :alt="`${state.legal?.title} cover image`"
+      />
+      <div v-if="isDataLoaded" class="title reveal">
         <h1 class="reveal" role="heading" aria-level="1">
           {{ state.legal?.title }}
         </h1>
@@ -89,23 +93,37 @@ interface State {
   height: var(--dimension-1);
   width: 100vw;
 }
+.filter {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
 .cover {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  height: var(--dimension-1);
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background: url("https://cdn.slavic.media/images/2024-07-16-00339/public")
-    no-repeat top center;
-  background-size: cover;
+  width: 100vw;
+  -o-object-fit: cover;
+  object-fit: cover;
+  position: relative;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
-.filter {
+img {
+  width: 100vw;
+  object-fit: cover;
+  object-position: top;
+}
+.title {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  text-align: center;
 }
 .grid-container {
   display: -webkit-box;

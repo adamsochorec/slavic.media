@@ -141,6 +141,9 @@ router.beforeEach((to, from, next) => {
 </template>
 
 <style lang="scss" scoped>
+h1 {
+  text-transform: capitalize;
+}
 iframe,
 lite-vimeo {
   border-radius: var(--border-radius-1);

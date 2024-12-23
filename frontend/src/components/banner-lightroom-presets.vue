@@ -62,12 +62,6 @@ img {
   width: 100%;
   -webkit-filter: var(--blur-1);
   filter: var(--blur-1);
-  -webkit-transition: all 350ms ease-in-out;
-  -o-transition: all 350ms ease-in-out;
-  transition: all 350ms ease-in-out;
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
 }
 .gradient::after {
   content: " Want the look?";

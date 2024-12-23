@@ -195,4 +195,8 @@ router.beforeEach((to, from, next) => {
   </article>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+h1 {
+  text-transform: capitalize;
+}
+</style>

@@ -153,6 +153,9 @@ router.beforeEach((to, from, next) => {
 </template>
 
 <style lang="scss" scoped>
+h1 {
+  text-transform: capitalize;
+}
 @media only screen and (max-width: 375px) {
   .gallery-item {
     height: 120px;
