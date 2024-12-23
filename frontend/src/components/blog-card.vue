@@ -57,6 +57,7 @@ h2 {
 }
 a > :hover {
   text-decoration: underline;
+  -webkit-text-decoration-skip: ink;
   text-decoration-skip: ink;
 }
 img {

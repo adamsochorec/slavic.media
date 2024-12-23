@@ -187,6 +187,12 @@ router.beforeEach((to, from, next) => {
       <bannerLightroomPresets></bannerLightroomPresets>
     </section>
     <!-- LIGHTROOM PRESETS CTA END -->
+    <!-- FURTHER SERVICES START -->
+    <furtherServices
+      v-if="isDataLoaded"
+      :excludeServiceId="serviceState.service?._id"
+    />
+    <!-- FURTHER SERVICES END -->
     <!-- SKELETON START -->
     <div class="wrapper-wide" v-else aria-busy="true" aria-live="polite">
       <skeletonServices></skeletonServices>

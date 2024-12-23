@@ -93,4 +93,8 @@ export function registerGlobalComponents(app: App) {
     "FurtherLegal",
     defineAsyncComponent(() => import("@/components/further-legal.vue"))
   );
+  app.component(
+    "FurtherServices",
+    defineAsyncComponent(() => import("@/components/further-services.vue"))
+  );
 }

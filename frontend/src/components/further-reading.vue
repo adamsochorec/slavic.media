@@ -47,6 +47,11 @@ const props = defineProps({
   </section>
 </template>
 <style scoped>
+a,
+a:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 .grid-container {
   grid-template-columns: repeat(1, 1fr);
   display: grid;

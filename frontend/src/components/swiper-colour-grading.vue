@@ -97,7 +97,10 @@ onMounted(() => {
 
 .note {
   background-color: rgba(var(--dark-grey-color), 0.3);
+  -webkit-backdrop-filter: var(--blur-1);
   backdrop-filter: var(--blur-1);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 0 var(--grid-gap-1);
   text-align: center;

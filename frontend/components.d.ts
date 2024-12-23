@@ -20,6 +20,7 @@ declare module 'vue' {
     Footer: typeof import('./src/components/Footer.vue')['default']
     FurtherLegal: typeof import('./src/components/further-legal.vue')['default']
     FurtherReading: typeof import('./src/components/further-reading.vue')['default']
+    FurtherServices: typeof import('./src/components/further-services.vue')['default']
     GalleryItem: typeof import('./src/components/gallery-item.vue')['default']
     HeroVideo: typeof import('./src/components/hero-video.vue')['default']
     LatestArticle: typeof import('./src/components/latest-article.vue')['default']

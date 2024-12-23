@@ -17,7 +17,7 @@ const props = defineProps<{
     <span
       v-for="legal in props.legals"
       :key="legal._id"
-      :class="{ gradient: legal._id === props.currentId }"
+      :class="{ current: legal._id === props.currentId }"
     >
       <router-link :to="`/legal/${legal._id}`">{{ legal.title }}</router-link>
     </span>
@@ -26,6 +26,8 @@ const props = defineProps<{
 
 <style scoped>
 .articles {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .articles span:not(.articles span:last-child) {
@@ -36,15 +38,19 @@ const props = defineProps<{
   text-align: center;
   opacity: 30%;
 }
-.gradient {
+.current {
   opacity: 100% !important;
 }
 .articles span:hover {
   opacity: 100%;
+  -webkit-transition: var(--transition-1);
+  -o-transition: var(--transition-1);
   transition: var(--transition-1);
 }
 .articles span,
 .articles span:hover {
+  -webkit-transition: var(--transition-1);
+  -o-transition: var(--transition-1);
   transition: var(--transition-1);
 }
 @media only screen and (max-width: 500px) {

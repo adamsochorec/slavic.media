@@ -117,8 +117,14 @@ onMounted(async () => {
 </template>
 
 <style scoped>
+a,
+a:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 a > :hover {
   text-decoration: underline;
+  -webkit-text-decoration-skip: ink;
   text-decoration-skip: ink;
 }
 .grid-container {
@@ -134,6 +140,7 @@ h4 {
 img {
   border-radius: var(--border-radius-1);
   height: 300px;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 @media only screen and (max-width: 600px) {

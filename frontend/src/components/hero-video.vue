@@ -60,6 +60,7 @@ const props = defineProps<Props>();
   z-index: -1;
 }
 .video-container iframe {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 177.77777778vh;
   height: 56.25vw;
@@ -68,6 +69,8 @@ const props = defineProps<Props>();
   position: absolute;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
