@@ -27,7 +27,7 @@ onMounted(async () => {
       <router-link :to="`/blog/${state.article._id}`">
         <img
           class="reveal"
-          :src="`https://cdn.slavic.media/images/${state.article.metadata.thumbnail}/public`"
+          :src="`https://cdn.slavic.media/images/${state.article.metadata.thumbnail}/fit=contain,height=600,sharpen=100`"
       /></router-link>
       <div>
         <router-link :to="`/blog/${state.article._id}`">

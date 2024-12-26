@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ObjectId": {
+      "type": "uid",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "desc": {
+      "type": "text",
+      "maxLength": 500,
+      "required": true
+    },
+    "lat": {
+      "type": "decimal",
+      "max": 500,
+      "required": true
+    },
+    "lng": {
+      "type": "decimal",
+      "max": 500,
+      "required": true
+    },
+    "icon": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50
+    }
+  }
+}
