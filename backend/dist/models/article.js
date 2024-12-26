@@ -42,7 +42,6 @@ const articleSchema = new mongoose_1.Schema({
     metadata: {
         date: { type: Date, required: true },
         flag: { type: String, required: false, maxlength: 2 },
-        formatedDate: { type: String, required: true, maxlength: 50 },
         keywords: { type: [String], required: true },
         linkedin: { type: String, maxlength: 200 },
         thumbnail: { type: String, required: true, maxlength: 100 },
