@@ -143,7 +143,7 @@ const copyHref = (href) => {
                       style="font-size: var(--font-size-6)"
                       class="pi pi-calendar"
                     ></span>
-                    &nbsp;{{ state.article.metadata.formatedDate }}
+                    &nbsp;{{ state.article.metadata.date }}
                   </dd>
                 </div>
                 &nbsp;
