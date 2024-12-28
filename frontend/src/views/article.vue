@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
+import { ddmmmyyyy } from "@/functions/date-format.ts";
 import article from "@/modules/article";
 import { useRoute } from "vue-router";
 import $ from "jquery";
@@ -143,7 +144,7 @@ const copyHref = (href) => {
                       style="font-size: var(--font-size-6)"
                       class="pi pi-calendar"
                     ></span>
-                    &nbsp;{{ state.article.metadata.date }}
+                    &nbsp;{{ ddmmmyyyy(state.article.metadata.date) }}
                   </dd>
                 </div>
                 &nbsp;
