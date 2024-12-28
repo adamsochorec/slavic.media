@@ -3,7 +3,7 @@ import { ref, onMounted, watch } from "vue";
 import article from "@/modules/article";
 import { useRoute } from "vue-router";
 import $ from "jquery";
-import "magnific-popup";
+import "magnific-popup/dist/jquery.magnific-popup.min.js"; // Ensure correct import path
 
 const { getAllArticles, getSpecificArticle, state } = article();
 const isDataLoaded = ref(false);
@@ -30,14 +30,14 @@ const loadArticle = async (_id) => {
       tLoading: "Loading",
       mainClass: "mfp-img-mobile",
       gallery: {
-        enabled: "true",
-        fixedContentPos: "false",
+        enabled: true,
+        fixedContentPos: false,
         overflowY: "scroll",
-        navigateByImgClick: "true",
+        navigateByImgClick: true,
         preload: [0, 1],
       },
       zoom: {
-        enabled: "true",
+        enabled: true,
         duration: 300,
       },
       image: {

@@ -87,9 +87,13 @@ const article = () => {
         `https://api.slavic.media/blog/?fields=author,metadata,_id,title`
       );
       const data: Article[] = await response.json();
-      state.value.furtherReading = data.filter(
-        (article) => article._id !== currentArticleID
-      );
+      state.value.furtherReading = data
+        .filter((article) => article._id !== currentArticleID)
+        .sort(
+          (a, b) =>
+            new Date(b.metadata.date).getTime() -
+            new Date(a.metadata.date).getTime()
+        );
     } catch (error) {
       console.error(error);
     }

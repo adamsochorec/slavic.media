@@ -20,6 +20,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
       },
+      props: { pageTitle: "Blog" },
     },
     {
       path: "/blog/:_id",
@@ -28,6 +29,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
       },
+      props: { pageTitle: "Blog" },
     },
     {
       path: "/about",
@@ -45,6 +47,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
       },
+      props: { pageTitle: "Services" },
     },
     {
       path: "/services/video",
@@ -53,6 +56,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
       },
+      props: { pageTitle: "Services" },
     },
     {
       path: "/services/post-production",
@@ -61,6 +65,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
       },
+      props: { pageTitle: "Services" },
     },
     {
       path: "/services/drone",
@@ -69,6 +74,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
       },
+      props: { pageTitle: "Services" },
     },
     // LEGAL
     {
@@ -78,6 +84,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
       },
+      props: { pageTitle: "Legal" },
     },
     {
       path: "/legal/:id",
@@ -86,6 +93,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
       },
+      props: { pageTitle: "Legal" },
     },
     // Add the NotFound route at the end
     {

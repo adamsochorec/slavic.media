@@ -111,8 +111,11 @@ onMounted(() => {
             class="logo"
             alt="Logo Slavic Media"
             src="https://cdn.slavic.media/images/Primary-1/height=80"
-          />
-        </router-link>
+          /> </router-link
+        ><!-- <span class="page"
+          ><span class="divider">|</span
+          ><span class="gradient">Blog</span></span
+        > -->
         <button
           aria-label="Open mobile menu"
           class="hamburger"
@@ -170,6 +173,14 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.page {
+  position: absolute;
+  padding: 12px 0;
+  font-size: var(--font-size-5);
+}
+.divider {
+  padding: 0 var(--grid-gap-2);
+}
 .loader-container,
 header:not(#homepage header) {
   backdrop-filter: var(--blur-1) !important; /* Standard syntax */

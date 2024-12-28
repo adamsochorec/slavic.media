@@ -22,7 +22,7 @@ onMounted(async () => {
     const swiper = new Swiper(".swiper-reviews", {
       loop: true,
       speed: 600,
-      autoplay: { delay: 1000, pauseOnMouseEnter: true },
+      autoplay: { delay: 2000, pauseOnMouseEnter: true },
       spaceBetween: gridGap2,
       pagination: {
         el: ".swiper-pagination",
@@ -142,7 +142,7 @@ onMounted(async () => {
                 {{ review.name }}
               </a>
               <br />
-              {{ review.role }}
+              {{ review.occupation }}
             </p>
             <div
               class="stars"
@@ -168,8 +168,7 @@ onMounted(async () => {
 <style scoped>
 .swiper-reviews .card {
   padding: var(--grid-gap-2);
-  height: fit-content;
-  max-height: 256px;
+  height: 175px;
   width: var(--dimension-2);
   border-radius: var(--border-radius-1);
   background-color: rgb(var(--dark-grey-color));
@@ -178,7 +177,7 @@ onMounted(async () => {
 }
 .swiper-reviews {
   border-radius: var(--border-radius-1);
-  height: 240px;
+  height: 220px;
 }
 .swiper-reviews p {
   padding: 0;

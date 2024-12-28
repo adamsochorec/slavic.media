@@ -39,7 +39,7 @@ const props = defineProps<{
       <ArticleMetadata :article="article" />
 
       <router-link class="title reveal" :to="`/blog/${article._id}`">
-        <h2 id="article-title">{{ truncateText(article.title, 55) }}</h2>
+        <h2 id="article-title">{{ truncateText(article.title, 83) }}</h2>
       </router-link>
     </section>
   </article>

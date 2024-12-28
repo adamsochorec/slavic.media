@@ -38,7 +38,7 @@ const reviewSchema = new mongoose_1.Schema({
     _id: { type: Number, required: true },
     img: { type: String, required: true, maxlength: 100 },
     name: { type: String, required: true, maxlength: 50 },
-    role: { type: String, required: true, maxlength: 50 },
+    occupation: { type: String, required: true, maxlength: 50 },
     profileLink: { type: String, required: true, maxlength: 100 },
     rating: { type: Number, required: true, min: 1, max: 5 },
     fullReview: { type: String, required: true, maxlength: 200 },

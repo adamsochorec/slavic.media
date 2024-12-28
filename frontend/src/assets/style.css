@@ -289,7 +289,7 @@ main ol {
 }
 .visually-hidden {
   z-index: -9999999;
-  font-size: 0.1px;
+  font-size: 0.1px !important;
 }
 /* LINK START */
 a,

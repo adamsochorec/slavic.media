@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed, watch } from "vue";
 import article from "@/modules/article";
 
 interface Author {
@@ -34,24 +34,47 @@ const loadMoreArticles = () => {
 };
 // SHOW MORE END
 
+// LATEST ARTICLE SLICE START
+const screenWidth = ref(window.innerWidth);
+const filteredArticles = computed(() => {
+  if (screenWidth.value > 510) {
+    return state.value.articles.slice(1, articlesToShow.value + 1);
+  }
+  return state.value.articles.slice(0, articlesToShow.value);
+});
+
+const updateScreenWidth = () => {
+  screenWidth.value = window.innerWidth;
+};
+window.addEventListener("resize", updateScreenWidth);
+// LATEST ARTICLE SLICE END
+
 onMounted(async () => {
   await getAllArticles();
   isDataLoaded.value = true;
+  updateScreenWidth();
 });
+
+watch(screenWidth, updateScreenWidth);
 </script>
 
 <template>
   <article class="main" style="margin-top: 120px">
     <section class="wrapper-wide">
-      <h1 class="reveal">
-        The <span class="gradient">Slavic Media</span> Blog
-      </h1>
+      <h1>The <span class="gradient">Slavic Media</span> Blog</h1>
       <hr class="quater reveal" />
+
+      <latestArticle
+        class="hide"
+        v-if="isDataLoaded"
+        aria-busy="false"
+      ></latestArticle>
+      <hr class="hide quater reveal" />
 
       <div v-if="isDataLoaded" aria-busy="false">
         <div class="grid-container">
           <div
-            v-for="article in state.articles.slice(0, articlesToShow)"
+            v-for="article in filteredArticles"
             :key="article._id"
             role="region"
           >
@@ -93,7 +116,11 @@ onMounted(async () => {
 h1 {
   font-size: var(--font-size-2);
 }
-
+@media only screen and (max-width: 500px) {
+  .hide {
+    display: none;
+  }
+}
 @media only screen and (min-width: 500px) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);

@@ -119,9 +119,20 @@ onMounted(async () => {
       </div>
     </section>
     <!-- REVIEWS END -->
+    <article class="wrapper-wide">
+      <hr class="reveal" />
+      <h3 class="latest reveal">
+        Latest Reading in Our
+        <router-link to="/blog" class="gradient">Blog</router-link>
+      </h3>
 
-    <latestArticle></latestArticle>
+      <br />
 
+      <latestArticle></latestArticle>
+      <div v-if="isDataLoaded" class="flex-center">
+        <router-link to="/blog" class="cta reveal">Read more</router-link>
+      </div>
+    </article>
     <bannerLightroomPresets></bannerLightroomPresets>
   </article>
 </template>
@@ -133,6 +144,11 @@ h2 {
 }
 h3 {
   text-transform: capitalize;
+}
+.latest a,
+.latest a:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .gallery {
   grid-template-columns: repeat(4, 1fr);

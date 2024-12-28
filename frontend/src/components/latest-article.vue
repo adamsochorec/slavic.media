@@ -14,15 +14,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <article class="wrapper-wide">
-    <hr class="reveal" />
-    <h3 class="latest reveal">
-      Latest Reading in Our
-      <router-link to="/blog" class="gradient">Blog</router-link>
-    </h3>
-
-    <br />
-
+  <div>
     <div class="grid-container" v-if="isDataLoaded && state.article">
       <router-link class="gallery-item" :to="`/blog/${state.article._id}`">
         <country-flag
@@ -57,9 +49,7 @@ onMounted(async () => {
         <ArticleMetadata :article="state.article" />
       </div>
     </div>
-    <div v-if="isDataLoaded && state.article" class="flex-center">
-      <router-link to="/blog" class="cta reveal">Read more</router-link>
-    </div>
+
     <div class="grid-container" v-else>
       <Skeleton
         style="background-color: rgb(var(--dark-grey-color))"
@@ -128,12 +118,13 @@ onMounted(async () => {
         </div>
       </div>
     </div>
-  </article>
+  </div>
 </template>
 
 <style scoped>
 .gallery-item {
   position: relative;
+  overflow: hidden;
 }
 .gallery-item .flag,
 .gallery-item-caption {
@@ -168,10 +159,35 @@ img {
   height: 300px;
   -o-object-fit: cover;
   object-fit: cover;
+  position: relative;
+  display: block;
+  width: 100%;
+  transition: var(--transition-1);
+}
+.gallery-item:hover img,
+.gallery-item img,
+.gallery-item::before img,
+.gallery-item::after img,
+.gallery-item:active img,
+.gallery-item:focus img,
+.gallery-item img::before,
+.gallery-item img::after,
+.gallery-item img:active,
+.gallery-item img:focus {
+  -webkit-transition: var(--transition-1);
+  -o-transition: var(--transition-1);
+  transition: var(--transition-1);
+  border-radius: var(--border-radius-1);
+}
+.gallery-item:hover img {
+  -webkit-transform: scale(1.2);
+  border-radius: var(--border-radius-1);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
 }
 @media only screen and (max-width: 600px) {
   .grid-container {
-    display: block;
+    grid-template-columns: 1fr;
   }
   h4 {
     font-size: var(--font-size-3);
