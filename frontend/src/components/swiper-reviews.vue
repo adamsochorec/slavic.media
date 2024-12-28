@@ -22,6 +22,7 @@ onMounted(async () => {
     const swiper = new Swiper(".swiper-reviews", {
       loop: true,
       speed: 600,
+      autoplay: { delay: 1000, pauseOnMouseEnter: true },
       spaceBetween: gridGap2,
       pagination: {
         el: ".swiper-pagination",
@@ -91,13 +92,12 @@ onMounted(async () => {
 
         const readMoreLink = document.createElement("a");
         readMoreLink.href = message.dataset.fullReview || "#";
-        readMoreLink.textContent = "Read Full Review";
+        readMoreLink.textContent = "more";
         readMoreLink.classList.add("read-more-link");
         readMoreLink.target = "_blank";
         readMoreLink.rel = "noopener noreferrer nofollow";
 
         const lineBreak = document.createElement("br");
-        message.appendChild(lineBreak);
         message.appendChild(readMoreLink);
       }
     });
@@ -168,7 +168,7 @@ onMounted(async () => {
 <style scoped>
 .swiper-reviews .card {
   padding: var(--grid-gap-2);
-  height: var(--dimension-2);
+  height: fit-content;
   max-height: 256px;
   width: var(--dimension-2);
   border-radius: var(--border-radius-1);

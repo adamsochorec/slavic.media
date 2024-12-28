@@ -2,7 +2,7 @@
 import { onMounted } from "vue";
 import { loadGoogleMaps } from "@/functions/google-maps";
 
-const apiKey = "AIzaSyAXgzTQliu4phH80xmKlhZMO9U1LjG84DA";
+const apiKey = "";
 
 onMounted(async () => {
   try {

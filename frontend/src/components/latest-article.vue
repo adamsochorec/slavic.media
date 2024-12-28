@@ -16,27 +16,43 @@ onMounted(async () => {
 <template>
   <article class="wrapper-wide">
     <hr class="reveal" />
-    <h3 class="reveal">
-      Latest in
-      <router-link to="/blog" class="gradient"
-        >Slavic&nbsp;Media&nbsp;</router-link
-      >Blog
+    <h3 class="latest reveal">
+      Latest Reading in Our
+      <router-link to="/blog" class="gradient">Blog</router-link>
     </h3>
+
     <br />
+
     <div class="grid-container" v-if="isDataLoaded && state.article">
-      <router-link :to="`/blog/${state.article._id}`">
+      <router-link class="gallery-item" :to="`/blog/${state.article._id}`">
+        <country-flag
+          v-if="state.article.metadata.flag"
+          :country="state.article.metadata.flag"
+          class="note reveal"
+          size="small"
+        />
+        <div class="gallery-item-caption reveal">
+          <i
+            aria-hidden="true"
+            :class="`bubble pi pi-${state.article.metadata.icon}`"
+          ></i>
+        </div>
+
         <img
           class="reveal"
           :src="`https://cdn.slavic.media/images/${state.article.metadata.thumbnail}/fit=contain,height=600,sharpen=100`"
-      /></router-link>
+        />
+      </router-link>
+
       <div>
-        <router-link :to="`/blog/${state.article._id}`">
-          <h4 class="reveal">
+        <router-link class="title reveal" :to="`/blog/${state.article._id}`">
+          <h4>
             {{ truncateText(state.article.title, 70) }}
           </h4></router-link
         >
         <p class="reveal">
-          {{ truncateText(state.article.metadata.desc, 200) }}
+          {{ truncateText(state.article.metadata.desc, 200)
+          }}<router-link :to="`blog/${state.article._id}`">..more</router-link>
         </p>
         <ArticleMetadata :article="state.article" />
       </div>
@@ -78,7 +94,6 @@ onMounted(async () => {
           class="mb-2"
           aria-hidden="true"
         ></Skeleton>
-
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
           height="10px"
@@ -117,12 +132,23 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-a,
-a:hover {
+.gallery-item {
+  position: relative;
+}
+.gallery-item .flag,
+.gallery-item-caption {
+  position: absolute;
+  z-index: 1;
+}
+.gallery-item-caption {
+  padding: var(--grid-gap-2);
+}
+.latest a,
+.latest a:hover {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-a > :hover {
+.title:hover {
   text-decoration: underline;
   -webkit-text-decoration-skip-ink: auto;
   text-decoration-skip-ink: auto;

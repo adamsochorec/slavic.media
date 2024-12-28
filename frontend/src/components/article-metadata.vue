@@ -45,10 +45,9 @@ const props = defineProps<{
           target="_blank"
           rel="noopener noreferrer nofollow"
           class="author"
-          style="font-size: var(--font-size-7)"
           :href="`https://www.linkedin.com/in/${article.author.linkedin}`"
         >
-          <b>{{ article.author.name }}</b>
+          <span>{{ article.author.name }}</span>
         </a>
         <br class="hide" />
         <span style="font-size: var(--font-size-7)"
@@ -72,6 +71,9 @@ const props = defineProps<{
 img {
   -webkit-animation: skeleton-loading 1s linear infinite alternate;
   animation: skeleton-loading 1s linear infinite alternate;
+}
+.author {
+  font-size: var(--font-size-7);
 }
 .avatar {
   height: 30px;

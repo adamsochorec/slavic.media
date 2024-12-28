@@ -23,7 +23,7 @@ onMounted(async () => {
 <template>
   <article class="main" style="margin: 120px 0">
     <section class="wrapper-standard">
-      <h1 class="reveal">The<span class="gradient">Legal</span> Documents</h1>
+      <h1 class="reveal">Terms & Policies</h1>
       <br />
       <p class="reveal">
         Before using Slavic Media services or digital products, you may review
