@@ -287,6 +287,12 @@ h1 {
   .gallery {
     grid-template-columns: repeat(1, 1fr);
   }
+  .avatar {
+    height: 40px;
+  }
+  .article-metadata {
+    padding: var(--grid-gap-1);
+  }
 }
 @media only screen and (min-width: 400px) {
   .grid-container {

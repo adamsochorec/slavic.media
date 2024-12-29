@@ -164,27 +164,7 @@ img {
   width: 100%;
   transition: var(--transition-1);
 }
-.gallery-item:hover img,
-.gallery-item img,
-.gallery-item::before img,
-.gallery-item::after img,
-.gallery-item:active img,
-.gallery-item:focus img,
-.gallery-item img::before,
-.gallery-item img::after,
-.gallery-item img:active,
-.gallery-item img:focus {
-  -webkit-transition: var(--transition-1);
-  -o-transition: var(--transition-1);
-  transition: var(--transition-1);
-  border-radius: var(--border-radius-1);
-}
-.gallery-item:hover img {
-  border-radius: var(--border-radius-1);
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
-}
+
 @media only screen and (max-width: 600px) {
   .grid-container {
     grid-template-columns: 1fr;

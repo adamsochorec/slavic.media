@@ -181,8 +181,8 @@ function header() {
 }
 .page .gradient {
   border-left: 2px solid rgba(var(--white-color), 0.3);
-  padding: 5px var(--grid-gap-2);
-  margin-left: var(--grid-gap-2);
+  padding: 5px var(--grid-gap-1);
+  margin-left: var(--grid-gap-1);
 }
 
 .loader-container,

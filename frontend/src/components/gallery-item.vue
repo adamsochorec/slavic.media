@@ -74,9 +74,6 @@ const props = defineProps<{
   -webkit-transition: var(--transition-1);
   -o-transition: var(--transition-1);
   transition: var(--transition-1);
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
 }
 .gallery-item .gallery-item-caption {
   padding: var(--grid-gap-2);
@@ -124,23 +121,13 @@ const props = defineProps<{
   transform: translate3d(10%, 0, 0);
 }
 .gallery-item:hover img {
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
-  -webkit-filter: var(--blur-1);
-  filter: var(--blur-1);
-  -webkit-transition: var(--transition-1);
-  -o-transition: var(--transition-1);
-  transition: var(--transition-1);
-  -webkit-transform: scale(1);
-}
-.gallery-item img:hover {
   -webkit-filter: var(--blur-1);
   filter: var(--blur-1);
   -webkit-transition: var(--transition-1);
   -o-transition: var(--transition-1);
   transition: var(--transition-1);
 }
+
 .gallery-item .gallery-item-caption {
   text-align: left;
 }
