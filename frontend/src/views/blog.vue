@@ -61,15 +61,14 @@ watch(screenWidth, updateScreenWidth);
 <template>
   <article class="main" style="margin-top: 120px">
     <section class="wrapper-wide">
-      <h1>The <span class="gradient">Slavic Media</span> Blog</h1>
-      <hr class="quater reveal" />
+      <h1 class="visually-hidden">Slavic Media Blog</h1>
 
       <latestArticle
         class="hide"
         v-if="isDataLoaded"
         aria-busy="false"
       ></latestArticle>
-      <hr class="hide quater reveal" />
+      <hr v-if="isDataLoaded" aria-busy="false" class="hide quater reveal" />
 
       <div v-if="isDataLoaded" aria-busy="false">
         <div class="grid-container">

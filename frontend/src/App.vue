@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import { RouterView } from "vue-router";
+import { ref, onMounted, watch } from "vue";
+import { RouterView, useRoute } from "vue-router";
 import { provideAuth } from "./modules/logIn-logOut";
+
 provideAuth();
 
 // CONTENT REVEAL START
@@ -56,20 +57,29 @@ onMounted(() => {
   });
 });
 // CONTENT REVEAL END
+
+// DYNAMIC PAGE TITLE START
+const route = useRoute();
+const pageTitle = ref(route.meta.pageTitle || "");
+watch(
+  () => route.meta.pageTitle,
+  (newTitle) => {
+    pageTitle.value = newTitle || "";
+  }
+);
+// DYNAMIC PAGE TITLE END
 </script>
 
 <template>
   <div>
     <!-- HEADER START -->
-    <NavBar></NavBar>
+    <NavBar :pageTitle="pageTitle" />
     <aside><Cookies></Cookies></aside>
-
     <!-- HEADER END -->
     <main>
       <RouterView />
     </main>
     <hr class="semi bodyxfooter" role="separator" />
-
     <Footer></Footer>
   </div>
 </template>

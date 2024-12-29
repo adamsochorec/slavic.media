@@ -15,15 +15,15 @@ onMounted(async () => {
 
 <template>
   <div>
-    <div class="grid-container" v-if="isDataLoaded && state.article">
+    <div class="grid-container reveal" v-if="isDataLoaded && state.article">
       <router-link class="gallery-item" :to="`/blog/${state.article._id}`">
         <country-flag
           v-if="state.article.metadata.flag"
           :country="state.article.metadata.flag"
-          class="note reveal"
+          class="note"
           size="small"
         />
-        <div class="gallery-item-caption reveal">
+        <div class="gallery-item-caption">
           <i
             aria-hidden="true"
             :class="`bubble pi pi-${state.article.metadata.icon}`"
@@ -31,13 +31,13 @@ onMounted(async () => {
         </div>
 
         <img
-          class="reveal"
+          class=""
           :src="`https://cdn.slavic.media/images/${state.article.metadata.thumbnail}/fit=contain,height=600,sharpen=100`"
         />
       </router-link>
 
       <div>
-        <router-link class="title reveal" :to="`/blog/${state.article._id}`">
+        <router-link class="title" :to="`/blog/${state.article._id}`">
           <h4>
             {{ truncateText(state.article.title, 70) }}
           </h4></router-link
@@ -180,8 +180,8 @@ img {
   border-radius: var(--border-radius-1);
 }
 .gallery-item:hover img {
-  -webkit-transform: scale(1.2);
   border-radius: var(--border-radius-1);
+  -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
 }

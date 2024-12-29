@@ -40,21 +40,23 @@ const toggle = (event: Event) => {
   menu.value?.toggle(event);
 };
 
-// HEADER START
-// HEADER TOGGLE AND COLLAPSE NAV START
+const props = defineProps<{ pageTitle: string }>();
+
+onMounted(() => {
+  header();
+});
+
 function header() {
   let lastScrollTop = 0;
 
   const hamburger = document.querySelector(".hamburger") as HTMLElement;
   const menuLeft = document.querySelector(".menu-left") as HTMLElement;
 
-  // Toggles hamburger icon and collapses navigation on click
   hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("open");
     menuLeft.classList.toggle("collapse");
   });
 
-  // Removes "open" class from hamburger and collapses navigation on link click
   const menuLeftLinks = document.querySelectorAll(".menu-left a");
   menuLeftLinks.forEach((link) => {
     link.addEventListener("click", () => {
@@ -74,7 +76,6 @@ function header() {
     }
   });
 
-  // Handles header visibility on scroll
   function hasScrolled() {
     const st = window.pageYOffset || document.documentElement.scrollTop,
       header = document.querySelector("header") as HTMLElement,
@@ -96,10 +97,6 @@ function header() {
     lastScrollTop = st;
   }
 }
-
-onMounted(() => {
-  header();
-});
 </script>
 
 <template>
@@ -111,11 +108,14 @@ onMounted(() => {
             class="logo"
             alt="Logo Slavic Media"
             src="https://cdn.slavic.media/images/Primary-1/height=80"
-          /> </router-link
-        ><!-- <span class="page"
-          ><span class="divider">|</span
-          ><span class="gradient">Blog</span></span
-        > -->
+          />
+        </router-link>
+        <span class="page" v-if="pageTitle">
+          <router-link :to="`/${pageTitle}`" class="gradient">{{
+            pageTitle
+          }}</router-link>
+        </span>
+
         <button
           aria-label="Open mobile menu"
           class="hamburger"
@@ -175,12 +175,16 @@ onMounted(() => {
 <style scoped>
 .page {
   position: absolute;
-  padding: 12px 0;
-  font-size: var(--font-size-5);
+  padding: var(--grid-gap-2) 0;
+  font-size: var(--font-size-5) !important;
+  text-transform: capitalize;
 }
-.divider {
-  padding: 0 var(--grid-gap-2);
+.page .gradient {
+  border-left: 2px solid rgba(var(--white-color), 0.3);
+  padding: 5px var(--grid-gap-2);
+  margin-left: var(--grid-gap-2);
 }
+
 .loader-container,
 header:not(#homepage header) {
   backdrop-filter: var(--blur-1) !important; /* Standard syntax */

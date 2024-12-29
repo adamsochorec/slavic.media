@@ -19,8 +19,8 @@ const router = createRouter({
       component: () => import("../views/blog.vue"),
       meta: {
         requiresAuth: false,
+        pageTitle: "blog",
       },
-      props: { pageTitle: "Blog" },
     },
     {
       path: "/blog/:_id",
@@ -28,8 +28,8 @@ const router = createRouter({
       component: () => import("../views/article.vue"),
       meta: {
         requiresAuth: false,
+        pageTitle: "blog",
       },
-      props: { pageTitle: "Blog" },
     },
     {
       path: "/about",
@@ -46,8 +46,8 @@ const router = createRouter({
       component: () => import("../views/Photo.vue"),
       meta: {
         requiresAuth: false,
+        pageTitle: "services",
       },
-      props: { pageTitle: "Services" },
     },
     {
       path: "/services/video",
@@ -55,8 +55,8 @@ const router = createRouter({
       component: () => import("../views/Video.vue"),
       meta: {
         requiresAuth: false,
+        pageTitle: "services",
       },
-      props: { pageTitle: "Services" },
     },
     {
       path: "/services/post-production",
@@ -64,8 +64,8 @@ const router = createRouter({
       component: () => import("../views/post-production.vue"),
       meta: {
         requiresAuth: false,
+        pageTitle: "services",
       },
-      props: { pageTitle: "Services" },
     },
     {
       path: "/services/drone",
@@ -73,8 +73,8 @@ const router = createRouter({
       component: () => import("../views/drone.vue"),
       meta: {
         requiresAuth: false,
+        pageTitle: "services",
       },
-      props: { pageTitle: "Services" },
     },
     // LEGAL
     {
@@ -83,8 +83,8 @@ const router = createRouter({
       component: () => import("../views/legal.vue"),
       meta: {
         requiresAuth: false,
+        pageTitle: "legal",
       },
-      props: { pageTitle: "Legal" },
     },
     {
       path: "/legal/:id",
@@ -92,8 +92,8 @@ const router = createRouter({
       component: () => import("../views/legal-article.vue"),
       meta: {
         requiresAuth: false,
+        pageTitle: "legal",
       },
-      props: { pageTitle: "Legal" },
     },
     // Add the NotFound route at the end
     {
