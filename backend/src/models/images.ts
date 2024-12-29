@@ -1,39 +1,26 @@
 import mongoose, { Schema, Document } from "mongoose";
+import { imageSchema, Image } from "./img";
 
-interface images extends Document {
-  _id: string;
-  alt: string;
-  title: string;
-  flag: string;
-}
-
-interface photoGallery extends Document {
+export interface PhotoGallery extends Document {
   _id: string;
   index: number;
   desc: string;
   title: string;
   type: string;
-  columns: images[][];
+  columns: Image[][];
 }
 
-const imagesSchema = new Schema({
-  _id: { type: String, required: true, maxlength: 50 },
-  alt: { type: String, required: true, maxlength: 200 },
-  title: { type: String, required: true, maxlength: 200 },
-  flag: { type: String, required: true, maxlength: 50 },
-});
-
-const photoGallerySchema = new Schema({
+export const photoGallerySchema = new Schema({
   _id: { type: String, required: true, maxlength: 50 },
   index: { type: Number, required: true },
   desc: { type: String, required: true, maxlength: 1000 },
   title: { type: String, required: true, maxlength: 200 },
   type: { type: String, required: true },
-  columns: { type: [[imagesSchema]], required: true },
+  columns: { type: [[imageSchema]], required: true },
 });
 
-const photoGallery = mongoose.model<photoGallery>(
+const PhotoGalleryModel = mongoose.model<PhotoGallery>(
   "PhotoGallery",
   photoGallerySchema
 );
-export default photoGallery;
+export default PhotoGalleryModel;
