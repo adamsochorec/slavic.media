@@ -44,5 +44,5 @@ exports.photoGallerySchema = new mongoose_1.Schema({
     type: { type: String, required: true },
     columns: { type: [[img_1.imageSchema]], required: true },
 });
-const PhotoGalleryModel = mongoose_1.default.model("PhotoGallery", exports.photoGallerySchema);
-exports.default = PhotoGalleryModel;
+const photoGalleryModel = mongoose_1.default.model("photoGallery", exports.photoGallerySchema);
+exports.default = photoGalleryModel;

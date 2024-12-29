@@ -1,7 +1,7 @@
 import $ from "jquery";
 import "magnific-popup";
 
-export async function initializePhotoGallery() {
+export async function initializephotoGallery() {
   $(".popup-gallery").magnificPopup({
     delegate: "a",
     type: "image",

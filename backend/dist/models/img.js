@@ -41,5 +41,5 @@ exports.imageSchema = new mongoose_1.Schema({
     title: { type: String, required: true, maxlength: 200 },
     flag: { type: String, required: true, maxlength: 2 },
 });
-const ImageModel = mongoose_1.default.model("Image", exports.imageSchema);
-exports.default = ImageModel;
+const imageModel = mongoose_1.default.model("image", exports.imageSchema);
+exports.default = imageModel;
