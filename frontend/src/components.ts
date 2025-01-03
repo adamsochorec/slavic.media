@@ -97,4 +97,12 @@ export function registerGlobalComponents(app: App) {
     "FurtherServices",
     defineAsyncComponent(() => import("@/components/further-services.vue"))
   );
+  app.component(
+    "DynamicContent",
+    defineAsyncComponent(() => import("@/components/dynamic-content.vue"))
+  );
+  app.component(
+    "Image",
+    defineAsyncComponent(() => import("@/components/image.vue"))
+  );
 }

@@ -99,7 +99,7 @@ router.beforeEach((to, from, next) => {
         style="
           background-image: url(&quot;https://cdn.slavic.media/images/post-production/fit=contain,height=700,sharpen=100&quot;);
         "
-        videoid="1042182808"
+        videoid="1037071233"
       ></lite-vimeo>
       <div id="sound-design"></div>
       <hr class="reveal" role="separator" />
@@ -150,8 +150,7 @@ router.beforeEach((to, from, next) => {
 h1 {
   text-transform: capitalize;
 }
-iframe,
-lite-vimeo {
+iframe {
   border-radius: var(--border-radius-1);
   aspect-ratio: 16/9;
   width: 100%;

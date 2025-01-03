@@ -4,7 +4,7 @@ import { ddmmmyyyy } from "@/functions/date-format.ts";
 import article from "@/modules/article";
 import { useRoute } from "vue-router";
 import $ from "jquery";
-import "magnific-popup/dist/jquery.magnific-popup.min.js"; // Ensure correct import path
+import "magnific-popup/dist/jquery.magnific-popup.min.js";
 
 const { getAllArticles, getSpecificArticle, state } = article();
 const isDataLoaded = ref(false);
@@ -23,50 +23,54 @@ const loadArticle = async (_id) => {
   await getSpecificArticle(_id);
   isDataLoaded.value = true;
 
-  // POP UP GALLERY
-  $(document).ready(function () {
-    $(".article-content").magnificPopup({
-      delegate: "a.reveal",
-      type: "image",
-      tLoading: "Loading",
-      mainClass: "mfp-img-mobile",
-      gallery: {
-        enabled: true,
-        fixedContentPos: false,
-        overflowY: "scroll",
-        navigateByImgClick: true,
-        preload: [0, 1],
-      },
-      zoom: {
-        enabled: true,
-        duration: 300,
-      },
-      image: {
-        tError: "Error",
-        titleSrc: function (item) {
-          return item.el.attr("title");
+  if (typeof $.fn.magnificPopup !== "undefined") {
+    // POP UP GALLERY
+    $(document).ready(function () {
+      $(".article-content").magnificPopup({
+        delegate: "a.reveal",
+        type: "image",
+        tLoading: "Loading",
+        mainClass: "mfp-img-mobile",
+        gallery: {
+          enabled: true,
+          fixedContentPos: false,
+          overflowY: "scroll",
+          navigateByImgClick: true,
+          preload: [0, 1],
         },
-      },
-      callbacks: {
-        elementParse: function (item) {
-          item.src = item.el.attr("href");
+        zoom: {
+          enabled: true,
+          duration: 300,
         },
-      },
+        image: {
+          tError: "Error",
+          titleSrc: function (item) {
+            return item.el.attr("title");
+          },
+        },
+        callbacks: {
+          elementParse: function (item) {
+            item.src = item.el.attr("href");
+          },
+        },
+      });
     });
-  });
-  $(document).ready(function () {
-    $(".gallery").magnificPopup({
-      delegate: "a",
-      type: "iframe",
-      gallery: {
-        enabled: true,
-        fixedContentPos: false,
-        overflowY: "scroll",
-        navigateByImgClick: true,
-        preload: [0, 1],
-      },
+    $(document).ready(function () {
+      $(".gallery").magnificPopup({
+        delegate: "a",
+        type: "iframe",
+        gallery: {
+          enabled: true,
+          fixedContentPos: false,
+          overflowY: "scroll",
+          navigateByImgClick: true,
+          preload: [0, 1],
+        },
+      });
     });
-  });
+  } else {
+    console.error("magnificPopup is not loaded properly.");
+  }
 };
 
 onMounted(async () => {
@@ -83,7 +87,6 @@ const copyHref = (href) => {
   navigator.clipboard.writeText(href);
 };
 </script>
-
 <template>
   <article class="main" style="margin-top: 120px">
     <section
@@ -196,13 +199,9 @@ const copyHref = (href) => {
           </div>
         </div>
         <!-- ARTICLE METADATA END -->
-        <section
-          aria-labelledby="article-title"
-          class="article-content"
-          v-for="(content, index) in state.article.content"
-          :key="index"
-          v-html="content"
-        ></section>
+        <section aria-labelledby="article-title" class="article-content">
+          <dynamicContent :htmlContent="String(state.article.content)" />
+        </section>
         <div v-if="state.article?.videos && state.article?.videos.length > 0">
           <hr class="reveal" />
           <h2 class="visually-hidden" id="video-gallery-title">

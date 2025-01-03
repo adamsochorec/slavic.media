@@ -111,9 +111,7 @@ function header() {
           />
         </router-link>
         <span class="page" v-if="pageTitle">
-          <router-link :to="`/${pageTitle}`" class="gradient">{{
-            pageTitle
-          }}</router-link>
+          <span class="gradient">{{ pageTitle }}</span>
         </span>
 
         <button
@@ -175,7 +173,7 @@ function header() {
 <style scoped>
 .page {
   position: absolute;
-  padding: var(--grid-gap-2) 0;
+  padding: 12px 0;
   font-size: var(--font-size-5) !important;
   text-transform: capitalize;
 }

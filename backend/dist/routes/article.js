@@ -54,6 +54,20 @@ router.get("/", (req, res) => {
         res.status(500).send({ message: err.message });
     });
 });
+// Read all documents - GET
+router.get("/content", (req, res) => {
+    const fields = typeof req.query.fields === "string"
+        ? req.query.fields.split(",").join(" ")
+        : "";
+    article_1.default
+        .find({}, fields)
+        .then((data) => {
+        res.send(data);
+    })
+        .catch((err) => {
+        res.status(500).send({ message: err.message });
+    });
+});
 // Get the latest article by date - GET
 router.get("/latest", (req, res) => {
     article_1.default

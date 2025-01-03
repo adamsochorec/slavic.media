@@ -52,7 +52,21 @@ router.get("/", (req: Request, res: Response) => {
       res.status(500).send({ message: err.message });
     });
 });
-
+// Read all documents - GET
+router.get("/content", (req: Request, res: Response) => {
+  const fields =
+    typeof req.query.fields === "string"
+      ? req.query.fields.split(",").join(" ")
+      : "";
+  articleModel
+    .find({}, fields)
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+});
 // Get the latest article by date - GET
 router.get("/latest", (req: Request, res: Response) => {
   articleModel

@@ -388,6 +388,11 @@ img {
   height: 100%;
   width: 100%;
 }
+lite-vimeo {
+  border-radius: var(--border-radius-1);
+  aspect-ratio: 16/9;
+  width: 100%;
+}
 small a {
   color: rgb(var(--white-color)) !important;
 }
@@ -984,6 +989,10 @@ i.pi-arrow-right:hover {
 .article-content iframe,
 #map {
   height: var(--dimension-2);
+}
+.desc {
+  font-size: var(--font-size-7);
+  text-align: center;
 }
 /* ARTICLE END */
 
