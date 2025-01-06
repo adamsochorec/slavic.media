@@ -1,69 +1,68 @@
 <script setup lang="ts">
-import { ref, onMounted, nextTick, watch } from "vue";
+import { ref, onMounted, nextTick, watch, onBeforeUnmount } from "vue";
 import { useRouter } from "vue-router";
 import image from "@/modules/images";
 import services from "@/modules/services";
-import $ from "jquery";
-import "magnific-popup";
+import PhotoSwipeLightbox from "photoswipe/lightbox";
+import "photoswipe/style.css";
 import eventBus from "@/functions/eventBus";
-
-declare global {
-  interface JQueryStatic {
-    magnificPopup: any;
-  }
-}
-declare global {
-  interface JQuery {
-    magnificPopup: any;
-  }
-}
 
 const isDataLoaded = ref<boolean>(false);
 const { state: imageState, getAllImages } = image;
 const { state: serviceState, getSpecificService } = services();
 const router = useRouter();
-// SHOW MORE START
+
 const PHOTOS_INCREMENT = 4;
 const photosToShow = ref(PHOTOS_INCREMENT);
 const loadMorePhotos = () => {
   photosToShow.value += PHOTOS_INCREMENT;
 };
-// REQUEST A PROPOSAL ID
+
 const showRequestAProposal = (identifier: string) => {
   eventBus.emit("showRequestAProposal", identifier);
 };
 
+let lightbox;
+
 async function initializeLightbox(): Promise<void> {
   await nextTick();
-  $(".popup-gallery").magnificPopup({
-    delegate: "a",
-    type: "image",
-    tLoading: "Loading",
-    mainClass: "mfp-img-mobile",
-    gallery: {
-      enabled: "true",
-      fixedContentPos: "false",
-      overflowY: "scroll",
-      navigateByImgClick: "true",
-      preload: [0, 1],
-    },
-    zoom: {
-      enabled: "true",
-      duration: 300,
-    },
-    image: {
-      tError: "Error",
-      titleSrc: function (item: any) {
-        return item.el.attr("title");
-      },
-    },
-    callbacks: {
-      elementParse: function (item: any) {
-        item.src = item.el.attr("href");
-      },
-    },
-    fixedContentPos: "false",
+  lightbox = new PhotoSwipeLightbox({
+    gallery: ".popup-gallery",
+    children: "a",
+    errorMsg: "The photo cannot be loaded",
+    pswpModule: () => import("photoswipe"),
+    preload: [1, 4],
   });
+  lightbox.on("uiRegister", function () {
+    lightbox.pswp.ui.registerElement({
+      name: "custom-caption",
+      order: 9,
+      isButton: false,
+      appendTo: "root",
+
+      html: "Caption text",
+      onInit: (el, pswp) => {
+        lightbox.pswp.on("change", () => {
+          const currSlideElement = lightbox.pswp.currSlide.data.element;
+          let captionHTML = "";
+          if (currSlideElement) {
+            const hiddenCaption = currSlideElement.querySelector(
+              ".hidden-caption-content"
+            );
+            if (hiddenCaption) {
+              captionHTML = hiddenCaption.innerHTML;
+            } else {
+              captionHTML = currSlideElement
+                .querySelector("img")
+                .getAttribute("alt");
+            }
+          }
+          el.innerHTML = captionHTML || "";
+        });
+      },
+    });
+  });
+  lightbox.init();
 }
 
 onMounted(async () => {
@@ -77,11 +76,11 @@ watch(isDataLoaded, (loaded) => {
   if (loaded) initializeLightbox();
 });
 
-router.beforeEach((to, from, next) => {
-  if ($.magnificPopup.instance.isOpen) {
-    $.magnificPopup.close();
+onBeforeUnmount(() => {
+  if (lightbox) {
+    lightbox.destroy();
+    lightbox = null;
   }
-  next();
 });
 </script>
 
@@ -108,6 +107,7 @@ router.beforeEach((to, from, next) => {
       </div>
     </section>
     <!-- PAGE ABSTRACT START-->
+
     <template
       v-for="(gallery, galleryKey) in imageState.image"
       :key="galleryKey"
@@ -156,12 +156,21 @@ router.beforeEach((to, from, next) => {
             >
               <a
                 :href="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280w,sharpen=100`"
+                :data-pswp-width="image.originalWidth"
+                :data-pswp-height="image.originalHeight"
                 :title="image.title"
               >
                 <img
-                  :src="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280,sharpen=100`"
+                  :src="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=400w,sharpen=100`"
                   :alt="image.alt"
+                  @load="
+                    (event) => {
+                      image.originalWidth = event.target.naturalWidth;
+                      image.originalHeight = event.target.naturalHeight;
+                    }
+                  "
                 />
+                <div class="hidden-caption-content">{{ image.title }}</div>
                 <country-flag :country="image.flag" class="note" size="small" />
               </a>
             </div>
@@ -180,9 +189,10 @@ router.beforeEach((to, from, next) => {
           </button>
         </div>
       </section>
-      <!-- GALLERY START -->
+      <!-- GALLERY END -->
     </template>
     <!-- LIGHTROOM PRESETS CTA START -->
+
     <section v-if="isDataLoaded" aria-busy="false">
       <bannerLightroomPresets></bannerLightroomPresets>
     </section>

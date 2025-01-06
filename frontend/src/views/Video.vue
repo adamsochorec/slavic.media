@@ -105,7 +105,7 @@ router.beforeEach((to, from, next) => {
               icon="video"
               :alt="`${video.title} cover`"
               :opacity="0.5"
-              :url="`https://vimeo.com/slavicmedia/${video.url}`"
+              :url="`https://vimeo.com/${video.url}`"
               :title="video.title"
               :desc="`${video.year} | ${video.client}`"
             />

@@ -546,6 +546,65 @@ lite-vimeo:hover > .ltv-playbtn {
 
 /* GALLERY END */
 
+/* PHOTO SWIPE START*/
+.pswp {
+  -webkit-backdrop-filter: var(--blur-1);
+  backdrop-filter: var(--blur-1);
+  z-index: 9999999999 !important;
+  font-family: var(--content-font);
+}
+
+.pswp__bg {
+  background-color: var(--dark-grey-color-full) !important;
+}
+.pswp__button {
+  opacity: 1 !important;
+}
+.pswp__counter {
+  font-size: var(--font-size-7) !important;
+  opacity: 1 !important;
+}
+.pswp__button--arrow--left,
+.pswp__button--arrow--right {
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.pswp:hover .pswp__button--arrow--left,
+.pswp:hover .pswp__button--arrow--right {
+  opacity: 1;
+}
+.pswp__custom-caption {
+  background: var(--dark-grey-color-full);
+  font-size: var(--font-size-8);
+  color: #fff;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-backdrop-filter: var(--blur-1);
+  backdrop-filter: var(--blur-1);
+  padding: 2px var(--border-radius-1);
+  border-radius: var(--border-radius-2);
+  position: absolute;
+  left: 50%;
+  text-align: center;
+  -webkit-box-shadow: var(--box-shadow-1);
+  box-shadow: var(--box-shadow-1);
+  bottom: var(--grid-gap-2);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.pswp__custom-caption a {
+  color: #fff;
+  text-decoration: underline;
+}
+.hidden-caption-content {
+  display: none;
+}
+/* PHOTO SWIPE END*/
+
 /* MAGNIFICIENT POP UP START */
 .popup-gallery {
   padding: 0 var(--homepage-padding) 0 var(--homepage-padding);

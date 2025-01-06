@@ -20,6 +20,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
         pageTitle: "blog",
+        titlePath: "/blog",
       },
     },
     {
@@ -29,6 +30,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
         pageTitle: "blog",
+        titlePath: "/blog",
       },
     },
     {
@@ -47,6 +49,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
         pageTitle: "services",
+        titlePath: "/#services",
       },
     },
     {
@@ -56,6 +59,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
         pageTitle: "services",
+        titlePath: "/#services",
       },
     },
     {
@@ -65,6 +69,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
         pageTitle: "services",
+        titlePath: "/#services",
       },
     },
     {
@@ -74,6 +79,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
         pageTitle: "services",
+        titlePath: "/#services",
       },
     },
     // LEGAL

@@ -131,7 +131,7 @@ const copyHref = (href) => {
                     rel="noopener noreferrer nofollow"
                     :href="`https://www.linkedin.com/in/${state.article.author.linkedin}`"
                   >
-                    <b>{{ state.article.author.name }}</b>
+                    <span> {{ state.article.author.name }}</span>
                   </a>
                 </dd>
               </div>
@@ -211,8 +211,9 @@ const copyHref = (href) => {
             <galleryItem
               v-for="video in state.article.videos"
               :key="video._id"
-              :img="video._id"
+              :img="`${video._id}`"
               icon="video"
+              :title="video.title"
               :url="`https://vimeo.com/slavicmedia/${video.url}`"
               :desc="`${video.year}`"
               :alt="video.title"
@@ -259,11 +260,7 @@ h1 {
   padding: var(--grid-gap-2);
   border-radius: var(--border-radius-1);
 }
-.article-metadata a:hover {
-  text-decoration: underline;
-  -webkit-text-decoration-skip-ink: auto;
-  text-decoration-skip-ink: auto;
-}
+
 .pi-angle-right {
   font-size: var(--font-size-4);
   vertical-align: middle;
@@ -280,7 +277,7 @@ h1 {
   margin-right: var(--grid-gap-2);
 }
 .gallery {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 @media only screen and (max-width: 667px) {
   .gallery {

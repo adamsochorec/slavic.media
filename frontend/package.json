@@ -24,6 +24,8 @@
     "jquery": "^3.7.1",
     "magnific-popup": "^1.2.0",
     "npm": "^10.9.1",
+    "photoswipe": "^5.4.4",
+    "photoswipe-dynamic-caption-plugin": "^1.2.7",
     "postcss": "^8.4.49",
     "primeicons": "^7.0.0",
     "primevue": "^4.2.4",
