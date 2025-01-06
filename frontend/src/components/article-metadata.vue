@@ -78,6 +78,7 @@ img {
 .avatar {
   height: 30px;
   width: auto;
+  object-fit: cover;
   aspect-ratio: 1/1;
 }
 .metadata {

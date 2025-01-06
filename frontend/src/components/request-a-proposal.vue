@@ -159,7 +159,7 @@ onMounted(() => {
                 >.
               </p>
               <button class="submit-btn" aria-label="Submit" role="button">
-                Submit<i class="pi pi-arrow-right" aria-hidden="true"></i>
+                Submit
               </button>
               <input
                 type="hidden"

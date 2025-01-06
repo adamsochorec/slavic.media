@@ -49,20 +49,28 @@ const props = defineProps<{
 .card {
   display: grid;
 }
+
 .title[data-v-97e7de96] {
   display: none;
 }
+
 h2 {
   font-size: var(--font-size-5);
 }
+
 a > :hover {
   text-decoration: underline;
   -webkit-text-decoration-skip-ink: auto;
   text-decoration-skip-ink: auto;
 }
+
 img {
   -webkit-animation: skeleton-loading 1s linear infinite alternate;
   animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.gallery-item:hover ~ .reveal .title h2 {
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 400px) {

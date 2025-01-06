@@ -146,7 +146,7 @@ const props = defineProps<{
   height: var(--grid-gap-2);
 }
 
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 375px) {
   .gallery .grid-item {
     height: 80px;
   }

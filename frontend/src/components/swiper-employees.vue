@@ -215,6 +215,7 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
   padding-bottom: calc(var(--grid-gap-2) * 2);
 }
 .bio {
+  margin: var(--grid-gap-1) 0;
   font-size: var(--font-size-7);
 }
 .profile h3 {
@@ -256,7 +257,7 @@ img {
 }
 @media only screen and (max-width: 430px) {
   h4 {
-    font-size: var(--font-size-8);
+    font-size: var(--font-size-7);
   }
 }
 </style>

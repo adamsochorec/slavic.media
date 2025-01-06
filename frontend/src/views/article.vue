@@ -251,6 +251,8 @@ h1 {
 .avatar {
   height: 60px;
   width: auto;
+  object-fit: cover;
+
   aspect-ratio: 1/1;
 }
 .article-metadata {

@@ -54,6 +54,7 @@ onMounted(async () => {
     onUnmounted(() => {
       removeArrowNavigation();
     });
+
     function showStars(container: HTMLElement, rating: number) {
       container.innerHTML = ""; // Clear any existing content
 
@@ -84,20 +85,62 @@ onMounted(async () => {
     const reviewMessages =
       document.querySelectorAll<HTMLElement>(".reviews-message");
 
-    reviewMessages.forEach((message) => {
-      const truncated = truncateText(message.textContent || "", 170);
+    let currentlyExpandedReview: HTMLElement | null = null;
 
-      if (message.textContent && message.textContent.length > 170) {
+    reviewMessages.forEach((message) => {
+      const truncated = truncateText(message.textContent || "", 100);
+
+      if (message.textContent && message.textContent.length > 100) {
+        message.dataset.fullReview = message.textContent;
         message.textContent = truncated;
 
         const readMoreLink = document.createElement("a");
-        readMoreLink.href = message.dataset.fullReview || "#";
+        readMoreLink.href = "#";
         readMoreLink.textContent = "more";
         readMoreLink.classList.add("read-more-link");
-        readMoreLink.target = "_blank";
-        readMoreLink.rel = "noopener noreferrer nofollow";
 
-        const lineBreak = document.createElement("br");
+        const readLessLink = document.createElement("a");
+        readLessLink.href = "#";
+        readLessLink.textContent = "...less";
+        readLessLink.classList.add("read-less-link");
+
+        readMoreLink.addEventListener("click", (event) => {
+          event.preventDefault();
+
+          // Collapse the currently expanded review if it exists and is not the same as the clicked one
+          if (currentlyExpandedReview && currentlyExpandedReview !== message) {
+            currentlyExpandedReview.classList.remove("expanded");
+            const truncatedText = truncateText(
+              currentlyExpandedReview.dataset.fullReview || "",
+              100
+            );
+            currentlyExpandedReview.textContent = truncatedText;
+            currentlyExpandedReview.appendChild(readMoreLink.cloneNode(true));
+          }
+
+          // Toggle the clicked review
+          if (message.classList.contains("expanded")) {
+            message.classList.remove("expanded");
+            message.textContent = truncated;
+            message.appendChild(readMoreLink);
+            currentlyExpandedReview = null;
+          } else {
+            message.classList.add("expanded");
+            message.textContent =
+              message.dataset.fullReview || message.textContent;
+            message.appendChild(readLessLink);
+            currentlyExpandedReview = message;
+          }
+        });
+
+        readLessLink.addEventListener("click", (event) => {
+          event.preventDefault();
+          message.classList.remove("expanded");
+          message.textContent = truncated;
+          message.appendChild(readMoreLink);
+          currentlyExpandedReview = null;
+        });
+
         message.appendChild(readMoreLink);
       }
     });
@@ -168,7 +211,7 @@ onMounted(async () => {
 <style scoped>
 .swiper-reviews .card {
   padding: var(--grid-gap-2);
-  height: 175px;
+  height: fit-content;
   width: var(--dimension-2);
   border-radius: var(--border-radius-1);
   background-color: rgb(var(--dark-grey-color));
@@ -190,7 +233,7 @@ onMounted(async () => {
   margin: 0;
 }
 .swiper-reviews img {
-  height: 56px;
+  height: 60px;
   width: auto;
   -o-object-fit: cover;
   object-fit: cover;
@@ -216,5 +259,13 @@ onMounted(async () => {
   display: inline-block;
   font-size: var(--font-size-8);
   color: gold;
+}
+.reviews-message {
+  max-height: 100px;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+.reviews-message.expanded {
+  max-height: 500px;
 }
 </style>

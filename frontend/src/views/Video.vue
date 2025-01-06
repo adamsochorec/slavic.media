@@ -169,5 +169,9 @@ h1 {
   .gallery-item {
     height: 120px;
   }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 </style>

@@ -453,7 +453,7 @@ small a {
 button.submit-btn {
   line-height: var(--grid-gap-2);
   background-color: rgba(var(--secondary-color), 1);
-  padding: var(--grid-gap-1) var(--grid-gap-2);
+  padding: 5px var(--grid-gap-1);
   color: rgba(var(--white-color), 1);
   border-radius: var(--border-radius-2);
   margin-top: var(--grid-gap-2) !important;
@@ -461,7 +461,8 @@ button.submit-btn {
   max-width: -moz-fit-content;
   max-width: fit-content;
   font-size: var(--font-size-7);
-  font-family: var(--logo-font);
+  font-weight: 500;
+  font-family: var(--content-font);
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
   white-space: nowrap;
@@ -477,18 +478,7 @@ button.submit-btn {
   z-index: 1;
   text-decoration: none !important;
 }
-button.submit-btn {
-  min-width: 150px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
+
 .cta:hover,
 button.submit-btn:hover,
 .button:hover {
@@ -553,7 +543,6 @@ lite-vimeo:hover > .ltv-playbtn {
   z-index: 9999999999 !important;
   font-family: var(--content-font);
 }
-
 .pswp__bg {
   background-color: var(--dark-grey-color-full) !important;
 }
@@ -596,6 +585,7 @@ lite-vimeo:hover > .ltv-playbtn {
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
 }
+
 .pswp__custom-caption a {
   color: #fff;
   text-decoration: underline;
