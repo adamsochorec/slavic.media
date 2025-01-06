@@ -212,7 +212,7 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
 
 <style scoped>
 .swiper-employees {
-  height: 270px;
+  padding-bottom: calc(var(--grid-gap-2) * 2);
 }
 .bio {
   font-size: var(--font-size-7);

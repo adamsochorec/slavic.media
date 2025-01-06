@@ -56,19 +56,8 @@ onMounted(async () => {
       </div>
       <hr class="semi" />
       <!-- GALLERY START -->
-      <section class="gallery reveal" aria-label="Services">
-        <galleryItem
-          v-for="service in state.services"
-          :key="service._id"
-          :img="service._id"
-          :opacity="0.5"
-          :url="`/services/${service._id}`"
-          :title="service._id"
-          :alt="`${service._id} services cover`"
-          :desc="service.desc"
-          :icon="service.icon"
-        />
-      </section>
+
+      <swiperServices></swiperServices>
       <!-- GALLERY END -->
 
       <hr class="reveal" role="separator" />
@@ -150,14 +139,7 @@ h3 {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-.gallery {
-  grid-template-columns: repeat(4, 1fr);
-}
-@media only screen and (max-width: 375px) {
-  .gallery-item {
-    height: 120px;
-  }
-}
+
 @media only screen and (max-width: 415px) {
   h1,
   h2 {
@@ -165,15 +147,6 @@ h3 {
   }
   #reviews-caption p {
     margin-bottom: 0;
-  }
-  .gallery {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-@media only screen and (max-width: 667px) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>

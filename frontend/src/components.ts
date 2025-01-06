@@ -105,4 +105,8 @@ export function registerGlobalComponents(app: App) {
     "Image",
     defineAsyncComponent(() => import("@/components/image.vue"))
   );
+  app.component(
+    "SwiperServices",
+    defineAsyncComponent(() => import("@/components/swiper-services.vue"))
+  );
 }

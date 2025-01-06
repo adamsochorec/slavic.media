@@ -177,7 +177,7 @@ onMounted(async () => {
 }
 .swiper-reviews {
   border-radius: var(--border-radius-1);
-  height: 220px;
+  padding-bottom: calc(var(--grid-gap-2) * 2);
 }
 .swiper-reviews p {
   padding: 0;

@@ -58,6 +58,7 @@ onMounted(() => {
     lazyLoading: true,
     observer: true,
     observeParents: true,
+
     direction: "horizontal",
     breakpoints: {
       0: {
@@ -136,10 +137,14 @@ onMounted(() => {
         </video>
       </div>
     </div>
+    <div class="swiper-pagination" aria-busy="false"></div>
   </section>
 </template>
 
 <style scoped>
+.swiper-reels {
+  padding-bottom: calc(var(--grid-gap-2) * 2);
+}
 .swiper-reels video {
   height: auto;
   width: var(--dimension-2);

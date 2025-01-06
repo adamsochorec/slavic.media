@@ -197,12 +197,16 @@ onBeforeUnmount(() => {
       <bannerLightroomPresets></bannerLightroomPresets>
     </section>
     <!-- LIGHTROOM PRESETS CTA END -->
+    <hr class="semi" />
     <!-- FURTHER SERVICES START -->
-    <furtherServices
-      v-if="isDataLoaded"
-      :excludeServiceId="serviceState.service?._id"
-    />
+    <div v-if="isDataLoaded" class="wrapper-wide">
+      <h3>More of Our <span class="gradient">Services</span></h3>
+      <hr class="quater reveal" />
+      <swiperServices></swiperServices>
+    </div>
+
     <!-- FURTHER SERVICES END -->
+
     <!-- SKELETON START -->
     <div class="wrapper-wide" v-else aria-busy="true" aria-live="polite">
       <skeletonServices></skeletonServices>

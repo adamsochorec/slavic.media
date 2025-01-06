@@ -41,6 +41,7 @@ declare module 'vue' {
     SwiperEmployees: typeof import('./src/components/swiper-employees.vue')['default']
     SwiperReels: typeof import('./src/components/swiper-reels.vue')['default']
     SwiperReviews: typeof import('./src/components/swiper-reviews.vue')['default']
+    SwiperServices: typeof import('./src/components/swiper-services.vue')['default']
     TieredMenu: typeof import('primevue/tieredmenu')['default']
     Timeline: typeof import('primevue/timeline')['default']
     Toast: typeof import('primevue/toast')['default']
