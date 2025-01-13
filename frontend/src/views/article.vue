@@ -27,7 +27,7 @@ const loadArticle = async (_id) => {
     // POP UP GALLERY
     $(document).ready(function () {
       $(".article-content").magnificPopup({
-        delegate: "a.reveal",
+        delegate: "a.image",
         type: "image",
         tLoading: "Loading",
         mainClass: "mfp-img-mobile",
@@ -214,7 +214,7 @@ const copyHref = (href) => {
               :img="`${video._id}`"
               icon="video"
               :title="video.title"
-              :url="`https://vimeo.com/slavicmedia/${video.url}`"
+              :url="`https://vimeo.com/${video.url}`"
               :desc="`${video.year}`"
               :alt="video.title"
             />
@@ -279,7 +279,7 @@ h1 {
   margin-right: var(--grid-gap-2);
 }
 .gallery {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 @media only screen and (max-width: 667px) {
   .gallery {

@@ -119,7 +119,8 @@ function header() {
               :aria-expanded="showDropdown"
               aria-controls="services-dropdown"
             >
-              <span class="pi pi-sitemap"></span>Services&nbsp;&nbsp;<span style="font-size: 10px" class="pi pi-angle-down"></span>
+              <span class="pi pi-sitemap"></span>Services&nbsp;&nbsp;
+              <span :class="{'pi pi-angle-down': true, rotated: showDropdown}" style="font-size: 10px"></span>
             </span>
             <ul id="services-dropdown" class="dropdown" :class="{ show: showDropdown }" role="menu">
               <li role="none">
@@ -200,20 +201,23 @@ function header() {
   list-style: none;
   padding: 0;
   margin: 0;
-  -webkit-transition: max-height 0.35s ease;
-  -o-transition: max-height 0.35s ease;
-  transition: max-height 0.35s ease;
+  -webkit-transition: max-height var(--transition-2);
+  -o-transition: max-height var(--transition-2);
+  transition: max-height var(--transition-2);
   max-height: 0;
   overflow: hidden;
 }
 .dropdown.show {
   max-height: 1000px;
-  -webkit-transition: max-height 0.35s ease;
-  -o-transition: max-height 0.35s ease;
-  transition: max-height 0.35s ease;
+  -webkit-transition: max-height var(--transition-2);
+  -o-transition: max-height var(--transition-2);
+  transition: max-height var(--transition-2);
 }
-.dropdown li:hover {
-  background-color: rgba(var(--primary-color), 0.4);
+.rotated {
+  transform: rotate(180deg);
+}
+.pi-angle-down, .rotated {
+  transition: transform var(--transition-2);
 }
 .menu-left ul a{
   padding: 10px;
@@ -261,13 +265,13 @@ span.menuitem {
   padding: 17px var(--grid-gap-1);
 }
 .menu-left a:hover,  
-span.menuitem:hover {
+.menuitem:hover {
   background-color: rgba(var(--primary-color), 0.4);
 }
 .menu-left a,
 .menu-left a:hover,  
-span.menuitem,  
-span.menuitem:hover{
+.menuitem,  
+.menuitem:hover{
   -webkit-transition: var(--transition-1);
   -o-transition: var(--transition-1);
   transition: var(--transition-1);
@@ -283,13 +287,13 @@ span.menuitem:hover{
   width: 0;
   -webkit-transition:
     width 0s ease,
-    background 0.35s ease;
+    background var(--transition-2);
   -o-transition:
     width 0s ease,
-    background 0.35s ease;
+    background var(--transition-2);
   transition:
     width 0s ease,
-    background 0.35s ease;
+    background var(--transition-2);
 }
 .menu-left a:after {
   content: "";
@@ -299,15 +303,15 @@ span.menuitem:hover{
   bottom: 0;
   height: 2px;
   width: 0;
-  -webkit-transition: width 0.35s ease;
-  -o-transition: width 0.35s ease;
-  transition: width 0.35s ease;
+  -webkit-transition: width var(--transition-2);
+  -o-transition: width var(--transition-2);
+  transition: width var(--transition-2);
 }
 .menu-left a:hover:before {
   width: 100%;
-  -webkit-transition: width 0.35s ease;
-  -o-transition: width 0.35s ease;
-  transition: width 0.35s ease;
+  -webkit-transition: width var(--transition-2);
+  -o-transition: width var(--transition-2);
+  transition: width var(--transition-2);
 }
 .menu-left a:hover:after {
   width: 100%;
@@ -331,9 +335,9 @@ header {
   width: 100%;
   background-color: var(--dark-grey-color-full);
   will-change: transform;
-  -webkit-transition: var(--transition-2);
-  -o-transition: var(--transition-2);
-  transition: var(--transition-2);
+  -webkit-transition: background var(--transition-2);
+  -o-transition:background var(--transition-2);
+  transition: background var(--transition-2);
   -ms-transform: translateY(0);
   transform: translateY(0);
   -webkit-transform: translateY(0);
@@ -360,9 +364,9 @@ ul.menu-left {
   display: block;
   max-height: 0;
   overflow: hidden;
-  -webkit-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  -webkit-transition: all var(--transition-2);
+  -o-transition: all var(--transition-2);
+  transition: all var(--transition-2);
   z-index: 9;
   font-weight: var(--paragraph-weight);
 }
@@ -472,7 +476,7 @@ ul.menu-left.collapse {
     margin-left: 20px;
   }
 .dropdown{
-  border-left: 1px solid white
+  border-left: 2px solid rgba(var(--white-color), 0.3)
 }
 }
 @media only screen and (min-width: 1020px) {

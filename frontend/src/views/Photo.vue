@@ -33,7 +33,6 @@ async function initializeLightbox(): Promise<void> {
       order: 9,
       isButton: false,
       appendTo: "root",
-
       html: "Caption text",
       onInit: (el, pswp) => {
         lightbox.pswp.on("change", () => {

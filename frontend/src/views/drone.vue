@@ -23,7 +23,10 @@ async function initializeLightbox(): Promise<void> {
   lightbox = new PhotoSwipeLightbox({
     gallery: ".popup-gallery",
     children: "a",
+    errorMsg: "The photo cannot be loaded",
     pswpModule: () => import("photoswipe"),
+    preload: [1, 4],
+    loop: false,
   });
   lightbox.on("uiRegister", function () {
     lightbox.pswp.ui.registerElement({
@@ -69,13 +72,6 @@ onBeforeUnmount(() => {
     lightbox.destroy();
     lightbox = null;
   }
-});
-router.beforeEach((to, from, next) => {
-  if (lightbox) {
-    lightbox.destroy();
-    lightbox = null;
-  }
-  next();
 });
 </script>
 
