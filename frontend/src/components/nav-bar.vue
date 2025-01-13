@@ -2,48 +2,38 @@
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 
-interface MenuItem {
-  label: string;
-  icon: string;
-  command?: () => void;
-  value?: string;
-  items?: MenuItem[];
-}
-
-const menu = ref<InstanceType<typeof TieredMenu>>();
 const router = useRouter();
 
-const items = ref<MenuItem[]>([
-  {
-    label: "Photo",
-    icon: "pi pi-camera",
-    command: () => router.push("/services/photo"),
-  },
-  {
-    label: "Video",
-    icon: "pi pi-video",
-    command: () => router.push("/services/video"),
-  },
-  {
-    label: "Drone",
-    icon: "pi pi-bolt",
-    command: () => router.push("/services/drone"),
-  },
-  {
-    label: "Post Production",
-    icon: "pi pi-image",
-    command: () => router.push("/services/post-production"),
-  },
-]);
+const showDropdown = ref(false);
+const isMobile = ref(window.innerWidth < 850);
 
-const toggle = (event: Event) => {
-  menu.value?.toggle(event);
+const toggleDropdown = (event: Event) => {
+  event.stopPropagation();
+  showDropdown.value = !showDropdown.value;
+};
+
+const collapseMenu = () => {
+  const hamburger = document.querySelector(".hamburger") as HTMLElement;
+  const menuLeft = document.querySelector(".menu-left") as HTMLElement;
+  hamburger.classList.remove("open");
+  menuLeft.classList.remove("collapse");
+  showDropdown.value = false;
 };
 
 const props = defineProps<{ pageTitle: string }>();
 
 onMounted(() => {
   header();
+  window.addEventListener("resize", () => {
+    isMobile.value = window.innerWidth < 850;
+  });
+
+  window.addEventListener("beforeunload", collapseMenu);
+
+  router.beforeEach((to, from, next) => {
+    collapseMenu();
+    next();
+  });
 });
 
 function header() {
@@ -59,10 +49,7 @@ function header() {
 
   const menuLeftLinks = document.querySelectorAll(".menu-left a");
   menuLeftLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      hamburger.classList.remove("open");
-      menuLeft.classList.remove("collapse");
-    });
+    link.addEventListener("click", collapseMenu);
   });
 
   let ticking = false;
@@ -88,8 +75,7 @@ function header() {
     if (st > lastScrollTop && st > navbarHeight) {
       header.classList.remove("show-nav");
       header.classList.add("hide-nav");
-      hamburger.classList.remove("open");
-      menuLeft.classList.remove("collapse");
+      collapseMenu();
     } else if (st + windowHeight < document.documentElement.scrollHeight) {
       header.classList.remove("hide-nav");
       header.classList.add("show-nav");
@@ -126,15 +112,37 @@ function header() {
         </button>
         <ul class="menu-left" role="menubar">
           <li role="none">
-            <a
-              @click="toggle"
+            <span class="menuitem"
+              @click="toggleDropdown"
               role="menuitem"
               aria-haspopup="true"
-              aria-expanded="false"
+              :aria-expanded="showDropdown"
+              aria-controls="services-dropdown"
             >
-              <span class="pi pi-sitemap"></span>Services
-              <TieredMenu ref="menu" id="overlay_tmenu" :model="items" popup />
-            </a>
+              <span class="pi pi-sitemap"></span>Services&nbsp;&nbsp;<span style="font-size: 10px" class="pi pi-angle-down"></span>
+            </span>
+            <ul id="services-dropdown" class="dropdown" :class="{ show: showDropdown }" role="menu">
+              <li role="none">
+                <router-link to="/services/photo" role="menuitem">
+                  <span class="pi pi-camera"></span>Photo
+                </router-link>
+              </li>
+              <li role="none">
+                <router-link to="/services/video" role="menuitem">
+                  <span class="pi pi-video"></span>Video
+                </router-link>
+              </li>
+              <li role="none">
+                <router-link to="/services/drone" role="menuitem">
+                  <span class="pi pi-bolt"></span>Drone
+                </router-link>
+              </li>
+              <li role="none">
+                <router-link to="/services/post-production" role="menuitem">
+                  <span class="pi pi-image"></span>Post Production
+                </router-link>
+              </li>
+            </ul>          
           </li>
           <li role="none">
             <a
@@ -182,9 +190,36 @@ function header() {
   padding: 5px var(--grid-gap-1);
   margin-left: var(--grid-gap-1);
 }
-
-.loader-container,
-header:not(#homepage header) {
+.menuitem{
+  width: 100%;
+}
+.dropdown {
+  display: grid;
+  position: relative;
+  z-index: 10;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  -webkit-transition: max-height 0.35s ease;
+  -o-transition: max-height 0.35s ease;
+  transition: max-height 0.35s ease;
+  max-height: 0;
+  overflow: hidden;
+}
+.dropdown.show {
+  max-height: 1000px;
+  -webkit-transition: max-height 0.35s ease;
+  -o-transition: max-height 0.35s ease;
+  transition: max-height 0.35s ease;
+}
+.dropdown li:hover {
+  background-color: rgba(var(--primary-color), 0.4);
+}
+.menu-left ul a{
+  padding: 10px;
+  font-size: var(--font-size-7);
+}
+header {
   backdrop-filter: var(--blur-1) !important; /* Standard syntax */
   -webkit-backdrop-filter: var(--blur-1) !important; /* Chrome, Safari, Opera */
   -moz-backdrop-filter: var(--blur-1) !important; /* Firefox */
@@ -200,35 +235,43 @@ header img.logo {
   -webkit-animation: none;
   animation: none;
 }
-
 header .container {
   padding: 0 var(--homepage-padding);
   max-width: 100%;
 }
-header a {
+header a,  
+span.menuitem {
   text-decoration: none;
   color: rgba(var(--white-color), 1);
 }
 header a :focus,
-header a:hover {
+header a:hover,  
+span.menuitem:focus,  
+span.menuitem:hover {
   color: rgba(var(--white-color), 1);
 }
-.menu-left a {
+.menu-left a:not(.menu-left ul a),  
+span.menuitem {
   display: inline-block;
   position: relative;
-  padding: 8px;
   display: inline-block;
   position: relative;
+  cursor: pointer;
+  font-size: var(--font-size-6);
   padding: 17px var(--grid-gap-1);
 }
-.menu-left a:hover {
+.menu-left a:hover,  
+span.menuitem:hover {
   background-color: rgba(var(--primary-color), 0.4);
 }
 .menu-left a,
-.menu-left a:hover {
+.menu-left a:hover,  
+span.menuitem,  
+span.menuitem:hover{
   -webkit-transition: var(--transition-1);
   -o-transition: var(--transition-1);
   transition: var(--transition-1);
+  cursor: pointer;
 }
 .menu-left a:before {
   content: "";
@@ -332,7 +375,7 @@ ul.menu-left:before {
   clear: both;
 }
 ul.menu-left.collapse {
-  max-height: 25em !important;
+  max-height: 30em !important;
 }
 /* HAMBURGER MENU START */
 .hamburger {
@@ -401,6 +444,13 @@ ul.menu-left.collapse {
   header .hamburger {
     display: none !important;
   }
+  .dropdown {
+  position: absolute;
+  -webkit-box-shadow: var(--box-shadow-1);
+          box-shadow: var(--box-shadow-1);
+  background-color: rgba(var(--dark-grey-color));
+  border-radius: 0 0 var(--border-radius-1) var(--border-radius-1);
+  }
 }
 @media only screen and (max-width: 850px) {
   header ul {
@@ -418,6 +468,12 @@ ul.menu-left.collapse {
   .menu-left a {
     width: 100%;
   }
+  .dropdown a {
+    margin-left: 20px;
+  }
+.dropdown{
+  border-left: 1px solid white
+}
 }
 @media only screen and (min-width: 1020px) {
   header .container {
@@ -429,4 +485,5 @@ ul.menu-left.collapse {
     clear: both;
   }
 }
+
 </style>
