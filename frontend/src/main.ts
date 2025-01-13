@@ -45,9 +45,6 @@ app.use(PrimeVue, {
 
 app.use(router);
 
-// Add @vueuse/head for meta management
-const head = createHead();
-app.use(head);
 
 // Configure vue-lazyload
 app.use(VueLazyload, {

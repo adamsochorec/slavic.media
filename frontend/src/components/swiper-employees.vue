@@ -25,7 +25,7 @@ interface Employee {
 // State management for employees
 const { state, getAllEmployees } = employee();
 const isDataLoaded = ref(false);
-let lightbox;
+let lightbox: any;
 
 // Lifecycle hook to fetch employees and initialize Swiper and PhotoSwipe
 onMounted(async () => {
@@ -58,6 +58,7 @@ onMounted(async () => {
         },
       },
       direction: "horizontal",
+      
     });
 
     // Initialize PhotoSwipe lightbox
@@ -65,11 +66,12 @@ onMounted(async () => {
       gallery: "#employeeGallery",
       children: "a.employee-img-link",
       pswpModule: () => import("photoswipe"),
+      loop: false,
     });
 
     // Initialize PhotoSwipe Dynamic Caption Plugin
     const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
-      captionContent: (slide) => {
+      captionContent: (slide: any) => {
         return slide.data.element.querySelector(".pswp-caption-content")
           .innerHTML;
       },
@@ -146,7 +148,13 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
 
               <span class="pswp-caption-content">
                 <h3>{{ employee.department }}</h3>
-                <h4>{{ employee.name }}</h4>
+                <h4 v-if="employee?.linkedin">
+                  <a    target="_blank"
+                  rel="noopener noreferrer nofollow" :href="employee.linkedin">{{ employee.name }}</a>
+                </h4>
+                <h4 v-else>
+                  {{ employee.name }}
+                </h4> 
                 <p class="bio">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet
                   eligendi atque accusantium dolore pariatur fugiat nobis
@@ -186,9 +194,14 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
           <!-- Employee profile section -->
           <section class="profile">
             <h3 class="reveal">{{ employee.department }}</h3>
-            <h4 :id="`employee-${employee._id}`" class="reveal">
-              {{ employee.name }}
-            </h4>
+
+            <h4 :id="`employee-${employee._id}`" class="reveal" v-if="employee?.linkedin">
+                  <a    target="_blank"
+                  rel="noopener noreferrer nofollow" :href="employee.linkedin">{{ employee.name }}</a>
+                </h4>
+                <h4 v-else>
+                  {{ employee.name }}
+                </h4> 
           </section>
         </div>
       </div>

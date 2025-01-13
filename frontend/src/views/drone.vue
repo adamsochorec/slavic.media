@@ -12,18 +12,11 @@ const { state: imageState, getAllImages } = image;
 const { state: serviceState, getSpecificService } = services();
 const router = useRouter();
 
-// SHOW MORE START
-const PHOTOS_INCREMENT = 4;
-const photosToShow = ref(PHOTOS_INCREMENT);
-const loadMorePhotos = () => {
-  photosToShow.value += PHOTOS_INCREMENT;
-};
 // REQUEST A PROPOSAL ID
 const showRequestAProposal = (identifier: string) => {
   eventBus.emit("showRequestAProposal", identifier);
 };
-
-let lightbox;
+let lightbox: PhotoSwipeLightbox | null = null;
 
 async function initializeLightbox(): Promise<void> {
   await nextTick();
@@ -62,25 +55,21 @@ async function initializeLightbox(): Promise<void> {
   });
   lightbox.init();
 }
-
 onMounted(async () => {
   try {
     await Promise.all([getSpecificService("drone"), getAllImages("drone")]);
     isDataLoaded.value = true;
   } catch (error) {}
 });
-
 watch(isDataLoaded, (loaded) => {
   if (loaded) initializeLightbox();
 });
-
 onBeforeUnmount(() => {
   if (lightbox) {
     lightbox.destroy();
     lightbox = null;
   }
 });
-
 router.beforeEach((to, from, next) => {
   if (lightbox) {
     lightbox.destroy();
@@ -150,50 +139,30 @@ router.beforeEach((to, from, next) => {
       <!-- VIDEO GALLERY -->
       <section v-if="isDataLoaded" aria-busy="false" class="popup-gallery">
         <div class="row">
-          <div
+           <div
             v-for="(column, columnIndex) in gallery.columns"
             :key="columnIndex"
             class="column"
           >
             <div
-              v-for="image in column.slice(0, photosToShow)"
+              v-for="image in column"
               :key="image._id"
               class="reveal"
             >
-              <a
-                :href="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280w,sharpen=100`"
-                :data-pswp-width="image.originalWidth"
-                :data-pswp-height="image.originalHeight"
+              <Image
+                :_id="image._id"
+                :alt="image.alt"
                 :title="image.title"
-              >
-                <img
-                  :src="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280w,sharpen=100`"
-                  :alt="image.alt"
-                  @load="
-                    (event) => {
-                      image.originalWidth = event.target.naturalWidth;
-                      image.originalHeight = event.target.naturalHeight;
-                    }
-                  "
-                />
-                <div class="hidden-caption-content">{{ image.title }}</div>
-                <country-flag :country="image.flag" class="note" size="small" />
-              </a>
+                :flag="image.flag"
+                :originalWidth="image.originalWidth"
+                :originalHeight="image.originalHeight"
+                @update:originalWidth="(width) => image.originalWidth = width"
+                @update:originalHeight="(height) => image.originalHeight = height"
+              />
             </div>
           </div>
         </div>
-        <div class="flex-center">
-          <button
-            v-if="
-              photosToShow <
-              Math.max(...gallery.columns.map((column) => column.length))
-            "
-            @click="loadMorePhotos"
-            class="cta reveal"
-          >
-            Show More
-          </button>
-        </div>
+       
       </section>
     </template>
     <!-- IMAGES GALLERY END -->

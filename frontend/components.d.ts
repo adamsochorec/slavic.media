@@ -28,6 +28,7 @@ declare module 'vue' {
     LatestArticle: typeof import('./src/components/latest-article.vue')['default']
     Map: typeof import('./src/components/map.vue')['default']
     NavBar: typeof import('./src/components/nav-bar.vue')['default']
+    ParsedImage: typeof import('./src/components/ParsedImage.vue')['default']
     RequestAProposal: typeof import('./src/components/request-a-proposal.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

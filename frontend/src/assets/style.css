@@ -987,7 +987,7 @@ i.pi-arrow-right:hover {
   padding: 0;
   border-radius: var(--border-radius-1);
   bottom: var(--grid-gap-1);
-  right: var(--grid-gap-1);
+  left: var(--grid-gap-1);
 }
 
 /* PAYHIP START */
