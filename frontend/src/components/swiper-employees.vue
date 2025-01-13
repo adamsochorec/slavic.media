@@ -129,19 +129,18 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
           <div class="reveal">
             <country-flag :country="employee.flag" class="note" size="small" />
             <a
-              :href="`https://cdn.slavic.media/images/${employee._id}/width=1200,sharpen=100`"
+              :href="`https://cdn.slavic.media/images/${employee._id}/width=1500,sharpen=100`"
               data-pswp-width="1200"
               data-pswp-height="900"
               :data-cropped="true"
               class="employee-img-link"
             >
               <img
-                :src="`https://cdn.slavic.media/images/${employee._id}/width=400,sharpen=100`"
+                :src="`https://cdn.slavic.media/images/${employee._id}/width=1200,sharpen=100`"
                 :alt="`Portrait of ${employee.name}`"
                 :title="`${employee.name}`"
                 class="employee-img"
-                data-pswp-width="400"
-                data-pswp-height="300"
+            
               />
               <!-- Slide Caption -->
 
@@ -244,7 +243,9 @@ img {
   aspect-ratio: 4/3;
   -o-object-fit: cover;
   object-fit: cover;
+  border-radius: var(--border-radius-1);
 }
+
 .social-icons > * {
   margin-right: var(--grid-gap-1);
 }

@@ -8,7 +8,7 @@ interface employee extends Document {
   desc: string;
   flag: string;
   email: string;
-  birthday: string;
+  birthday: Date;
   linkedin: string;
   github: string;
 }

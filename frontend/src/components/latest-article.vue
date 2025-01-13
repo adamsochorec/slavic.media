@@ -126,6 +126,11 @@ onMounted(async () => {
   position: relative;
   overflow: hidden;
 }
+.gallery-item:hover + div .title  {
+  text-decoration: underline;
+  -webkit-text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
+}
 .gallery-item .flag,
 .gallery-item-caption {
   position: absolute;
@@ -138,6 +143,11 @@ onMounted(async () => {
 .latest a:hover {
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+a > :hover {
+  text-decoration: underline;
+  -webkit-text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
 }
 .title:hover {
   text-decoration: underline;

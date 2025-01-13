@@ -161,7 +161,7 @@ onBeforeUnmount(() => {
                 :title="image.title"
               >
                 <img
-                  :src="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=400w,sharpen=100`"
+                  :src="`https://cdn.slavic.media/images/${image._id}/fit=contain,width=1280w,sharpen=100`"
                   :alt="image.alt"
                   @load="
                     (event) => {

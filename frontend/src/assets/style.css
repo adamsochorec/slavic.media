@@ -453,7 +453,7 @@ small a {
 button.submit-btn {
   line-height: var(--grid-gap-2);
   background-color: rgba(var(--secondary-color), 1);
-  padding: 5px var(--grid-gap-1);
+  padding: var(--grid-gap-1) var(--grid-gap-2);
   color: rgba(var(--white-color), 1);
   border-radius: var(--border-radius-2);
   margin-top: var(--grid-gap-2) !important;
@@ -461,8 +461,7 @@ button.submit-btn {
   max-width: -moz-fit-content;
   max-width: fit-content;
   font-size: var(--font-size-7);
-  font-weight: 500;
-  font-family: var(--content-font);
+  font-family: var(--logo-font);
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
   white-space: nowrap;
@@ -552,6 +551,8 @@ lite-vimeo:hover > .ltv-playbtn {
 .pswp__counter {
   font-size: var(--font-size-7) !important;
   opacity: 1 !important;
+  -webkit-backdrop-filter: var(--blur-1);
+          backdrop-filter: var(--blur-1);
 }
 .pswp__button--arrow--left,
 .pswp__button--arrow--right {
