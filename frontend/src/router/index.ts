@@ -49,7 +49,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
         pageTitle: "services",
-        titlePath: "/#services",
+        titlePath: "#services",
       },
     },
     {
@@ -59,7 +59,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
         pageTitle: "services",
-        titlePath: "/#services",
+        titlePath: "#services",
       },
     },
     {
@@ -69,7 +69,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
         pageTitle: "services",
-        titlePath: "/#services",
+        titlePath: "#services",
       },
     },
     {
@@ -79,7 +79,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
         pageTitle: "services",
-        titlePath: "/#services",
+        titlePath: "#services",
       },
     },
     // LEGAL
@@ -99,6 +99,7 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
         pageTitle: "legal",
+        titlePath: "/legal",
       },
     },
     // Add the NotFound route at the end

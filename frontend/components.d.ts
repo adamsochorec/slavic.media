@@ -23,6 +23,7 @@ declare module 'vue' {
     FurtherReading: typeof import('./src/components/further-reading.vue')['default']
     FurtherServices: typeof import('./src/components/further-services.vue')['default']
     GalleryItem: typeof import('./src/components/gallery-item.vue')['default']
+    HeroImage: typeof import('./src/components/hero-image.vue')['default']
     HeroVideo: typeof import('./src/components/hero-video.vue')['default']
     Image: typeof import('./src/components/image.vue')['default']
     LatestArticle: typeof import('./src/components/latest-article.vue')['default']

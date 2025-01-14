@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import { useRoute } from "vue-router";
 import legal from "@/modules/legal";
 
 interface Legal {
@@ -13,6 +14,7 @@ interface State {
 
 const { state, getAllLegal } = legal();
 const isDataLoaded = ref<boolean>(false);
+const route = useRoute();
 
 onMounted(async () => {
   await getAllLegal();
@@ -21,26 +23,34 @@ onMounted(async () => {
 </script>
 
 <template>
-  <article class="main" style="margin: 120px 0">
-    <section class="wrapper-standard">
-      <h1 class="visually-hidden">Terms & Policies</h1>
-      <br />
-      <p class="reveal">
+  <article class="main" >
+    <section class="cover">
+      <div class="filter"></div>
+      <img
+        src="https://cdn.slavic.media/images/2024-12-08-01324-2/fit=contain,width=2500,sharpen=100"
+        :alt="`${state.legal?.title} cover image`"
+      />
+      <div v-if="isDataLoaded" class="title wrapper-standard reveal">
+        <h1 class="reveal" role="heading" aria-level="1">
+        Legal
+        </h1>
+       
+      </div>
+    </section>
+    <hr class="semi" role="separator" />
+      <further-legal
+        v-if="isDataLoaded"
+        :legals="state.legals"
+        :current-id="route.params.id"
+        :highlight-current="true"
+      ></further-legal>
+      <section class="wrapper-standard">
+
+      <hr  v-if="isDataLoaded" class="reveal" role="separator" />
+      <p v-if="isDataLoaded" class="reveal">
         Before using Slavic Media services or digital products, you may review
         the terms and conditions of end user software license agreements.
       </p>
-      <hr class="quater reveal" />
-      <ol v-if="isDataLoaded" aria-busy="false">
-        <li
-          v-for="legal in state.legals"
-          :key="legal._id"
-          style="font-size: var(--font-size-6)"
-        >
-          <router-link :to="`/legal/${legal._id}`"
-            >{{ legal.title }} <span class="pi pi-arrow-right"></span
-          ></router-link>
-        </li>
-      </ol>
       <div v-else v-for="n in 3" :key="n" aria-busy="true" aria-live="polite">
         <ul style="list-style: none" class="m-0">
           <li class="mb-3">

@@ -42,7 +42,7 @@ onMounted(async () => {
             <span class="gradient">service</span>
           </h1>
         </div>
-        <div class="grid-item">
+        <div class="grid-item" >
           <p>
             We are creative storytellers who believe in good set designs, deep
             eye contact, and the right light that can raise your message above

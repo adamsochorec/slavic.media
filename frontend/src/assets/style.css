@@ -1008,6 +1008,46 @@ i.pi-arrow-right:hover {
 }
 /* MAP START */
 
+/* HERO IMAGE START */
+.cover,
+.cover .filter {
+  height: var(--dimension-1);
+  width: 100vw;
+}
+.cover .filter {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+.cover {
+  height: var(--dimension-1);
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100vw;
+  -o-object-fit: cover;
+  object-fit: cover;
+  position: relative;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.cover img {
+  width: 100vw;
+  object-fit: cover;
+  object-position: center;
+}
+.cover .title {
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+}
+/* HERO IMAGE END */
+
 /* ARTICLE START */
 .avatar {
   border-radius: var(--border-radius-2);
@@ -1024,7 +1064,6 @@ i.pi-arrow-right:hover {
 .article-content.legal h2 {
   font-size: var(--font-size-4);
 }
-
 .article-content .img-src {
   font-size: var(--font-size-8);
 }

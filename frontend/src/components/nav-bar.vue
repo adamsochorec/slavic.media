@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 
 const router = useRouter();
+const route = useRoute();
 
 const showDropdown = ref(false);
 const isMobile = ref(window.innerWidth < 850);
@@ -22,6 +23,8 @@ const collapseMenu = () => {
 
 const props = defineProps<{ pageTitle: string }>();
 
+const titlePath = ref(route.meta.titlePath || "");
+
 onMounted(() => {
   header();
   window.addEventListener("resize", () => {
@@ -32,6 +35,7 @@ onMounted(() => {
 
   router.beforeEach((to, from, next) => {
     collapseMenu();
+    titlePath.value = to.meta.titlePath || "";
     next();
   });
 });
@@ -97,7 +101,7 @@ function header() {
           />
         </router-link>
         <span class="page" v-if="pageTitle">
-          <span class="gradient">{{ pageTitle }}</span>
+          <router-link :to="titlePath" class="gradient">{{ pageTitle }}</router-link>
         </span>
 
         <button

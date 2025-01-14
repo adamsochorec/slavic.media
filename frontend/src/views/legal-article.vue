@@ -41,7 +41,7 @@ interface State {
     <section class="cover">
       <div class="filter"></div>
       <img
-        src="https://cdn.slavic.media/images/2024-12-08-01324-2/fit=contain,width=1280,sharpen=100"
+        src="https://cdn.slavic.media/images/2024-12-08-01324-2/fit=contain,width=2500,sharpen=100"
         :alt="`${state.legal?.title} cover image`"
       />
       <div v-if="isDataLoaded" class="title reveal">
@@ -63,6 +63,7 @@ interface State {
       v-if="isDataLoaded"
       :legals="state.legals"
       :current-id="route.params.id"
+      :highlight-current="true"
     ></further-legal>
     <section class="wrapper-standard">
       <div v-if="isDataLoaded" aria-busy="false">
@@ -88,43 +89,6 @@ interface State {
 </template>
 
 <style lang="scss" scoped>
-.cover,
-.filter {
-  height: var(--dimension-1);
-  width: 100vw;
-}
-.filter {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 1;
-}
-.cover {
-  height: var(--dimension-1);
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 100vw;
-  -o-object-fit: cover;
-  object-fit: cover;
-  position: relative;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-img {
-  width: 100vw;
-  object-fit: cover;
-  object-position: top;
-}
-.title {
-  position: absolute;
-  z-index: 2;
-  text-align: center;
-}
 .grid-container {
   display: -webkit-box;
   display: -ms-flexbox;

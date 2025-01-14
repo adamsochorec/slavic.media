@@ -8,7 +8,8 @@ interface LegalArticle {
 
 const props = defineProps<{
   legals: LegalArticle[];
-  currentId: string;
+  currentId?: string;
+  highlightCurrent?: boolean;
 }>();
 </script>
 
@@ -17,7 +18,7 @@ const props = defineProps<{
     <span
       v-for="legal in props.legals"
       :key="legal._id"
-      :class="{ current: legal._id === props.currentId }"
+      :class="{ current: props.highlightCurrent && legal._id === props.currentId }"
     >
       <router-link :to="`/legal/${legal._id}`">{{ legal.title }}</router-link>
     </span>
@@ -36,17 +37,11 @@ const props = defineProps<{
 .articles span {
   line-height: 1;
   text-align: center;
-  opacity: 30%;
 }
 .current {
   opacity: 100% !important;
 }
-.articles span:hover {
-  opacity: 100%;
-  -webkit-transition: var(--transition-1);
-  -o-transition: var(--transition-1);
-  transition: var(--transition-1);
-}
+
 .articles span,
 .articles span:hover {
   -webkit-transition: var(--transition-1);
