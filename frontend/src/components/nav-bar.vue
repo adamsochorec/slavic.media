@@ -182,7 +182,7 @@ function header() {
 <style scoped>
 .page {
   position: absolute;
-  padding: 12px 0;
+  padding: var(--grid-gap-2) 0;
   font-size: var(--font-size-5) !important;
   text-transform: capitalize;
 }

@@ -65,6 +65,7 @@ onMounted(async () => {
     lightbox = new PhotoSwipeLightbox({
       gallery: "#employeeGallery",
       children: "a.employee-img-link",
+      secondaryZoomLevel: 1.5,
       pswpModule: () => import("photoswipe"),
       loop: false,
     });

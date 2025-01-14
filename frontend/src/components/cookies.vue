@@ -6,6 +6,7 @@ import eventBus from "@/functions/eventBus";
 const showConsent = ref(true);
 const consentGiven = ref(false);
 const consentRejected = ref(false);
+const showTransition = ref(false);
 
 // Function to check if consent has already been given or rejected
 const checkConsent = () => {
@@ -85,6 +86,8 @@ const rejectCookies = () => {
   showConsent.value = false;
   // Load Chatway script even if consent is rejected
   loadChatwayScript();
+  // Reload the page to propagate the cookie removal
+  location.reload();
 };
 
 // Function to revoke consent
@@ -93,6 +96,7 @@ const revokeConsent = () => {
   showConsent.value = true;
   consentGiven.value = false;
   consentRejected.value = false;
+  showTransition.value = true;
 };
 
 // Check consent status on component mount
@@ -103,46 +107,48 @@ onMounted(() => {
 </script>
 
 <template>
-  <section
-    v-if="showConsent"
-    class="wrapper"
-    aria-labelledby="cookie-consent-title"
-    role="dialog"
-    aria-modal="true"
-  >
-    <header class="title">
-      <span id="cookie-consent-title">🍪 Cookie Consent</span>
-    </header>
-    <p class="info">
-      This website uses analytical cookies to help you have a superior and more
-      relevant browsing experience on the website. <br />
-      Learn more about our
-      <router-link
-        aria-label="Cookie Policy"
-        title="Cookie Policy"
-        to="/legal/cookie-policy"
-        >cookie policy</router-link
-      >.
-    </p>
-    <div class="grid-container">
-      <button
-        class="button cta"
-        :class="{ clicked: consentGiven }"
-        @click="acceptCookies"
-        :aria-pressed="consentGiven.toString()"
-      >
-        Accept all
-      </button>
-      <button
-        class="button cta secondary"
-        :class="{ clicked: consentRejected }"
-        @click="rejectCookies"
-        :aria-pressed="consentRejected.toString()"
-      >
-        Reject non-essential
-      </button>
-    </div>
-  </section>
+  <transition name="slide" :css="showTransition">
+    <section
+      v-if="showConsent"
+      class="wrapper"
+      aria-labelledby="cookie-consent-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      <header class="title">
+        <span id="cookie-consent-title">🍪 Cookie Consent</span>
+      </header>
+      <p class="info">
+        This website uses analytical cookies to help you have a superior and more
+        relevant browsing experience on the website. <br />
+        Learn more about our
+        <router-link
+          aria-label="Cookie Policy"
+          title="Cookie Policy"
+          to="/legal/cookie-policy"
+          >cookie policy</router-link
+        >.
+      </p>
+      <div class="grid-container">
+        <button
+          class="button cta"
+          :class="{ clicked: consentGiven }"
+          @click="acceptCookies"
+          :aria-pressed="consentGiven.toString()"
+        >
+          Accept all
+        </button>
+        <button
+          class="button cta secondary"
+          :class="{ clicked: consentRejected }"
+          @click="rejectCookies"
+          :aria-pressed="consentRejected.toString()"
+        >
+          Reject non-essential
+        </button>
+      </div>
+    </section>
+  </transition>
 </template>
 
 <style lang="scss" scoped>
@@ -174,7 +180,6 @@ onMounted(() => {
   font-size: var(--font-size-4);
   font-family: var(--logo-font);
 }
-
 .info {
   margin: var(--grid-gap-1) 0;
   font-size: var(--font-size-7);
@@ -194,6 +199,19 @@ onMounted(() => {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+/* Transition classes */
+.slide-enter-active, .slide-leave-active {
+  -webkit-transition: -webkit-transform var(--transition-2);
+  transition: -webkit-transform var(--transition-2);
+  -o-transition: transform var(--transition-2);
+  transition: transform var(--transition-2);
+  transition: transform var(--transition-2), -webkit-transform var(--transition-2);
+}
+.slide-enter-from, .slide-leave-to {
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
 }
 @media only screen and (max-width: 400px) {
   button {

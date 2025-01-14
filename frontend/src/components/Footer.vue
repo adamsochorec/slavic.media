@@ -249,6 +249,9 @@ const currentYear = new Date().getFullYear();
 .separator {
   margin: 0 5px;
 }
+nav{
+  line-height: normal;
+}
 .separator::after {
   content: "⋅";
   font-size: var(--font-size-3);

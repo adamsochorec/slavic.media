@@ -3,11 +3,11 @@ import { ref, onMounted, nextTick, onUnmounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import review from "@/modules/review";
-import { truncateText } from "@/functions/truncate-text.ts";
 import { useArrowNavigation } from "@/functions/useArrowNavigation";
 
 const { state, getAllReviews } = review();
 const isDataLoaded = ref(false);
+
 
 // GRID GAP
 const gridGap2 = parseFloat(
@@ -22,13 +22,13 @@ onMounted(async () => {
     const swiper = new Swiper(".swiper-reviews", {
       loop: true,
       speed: 600,
-      autoplay: { delay: 2000, pauseOnMouseEnter: true },
       spaceBetween: gridGap2,
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
         dynamicBullets: true,
       },
+     autoplay: { delay: 2000, pauseOnMouseEnter: true },
       preloadImages: false,
       lazyLoading: true,
       observer: true,
@@ -81,73 +81,9 @@ onMounted(async () => {
       );
       showStars(starContainer, rating);
     });
-
-    const reviewMessages =
-      document.querySelectorAll<HTMLElement>(".reviews-message");
-
-    let currentlyExpandedReview: HTMLElement | null = null;
-
-    reviewMessages.forEach((message) => {
-      const truncated = truncateText(message.textContent || "", 100);
-
-      if (message.textContent && message.textContent.length > 100) {
-        message.dataset.fullReview = message.textContent;
-        message.textContent = truncated;
-
-        const readMoreLink = document.createElement("a");
-        readMoreLink.href = "#";
-        readMoreLink.textContent = "more";
-        readMoreLink.classList.add("read-more-link");
-
-        const readLessLink = document.createElement("a");
-        readLessLink.href = "#";
-        readLessLink.textContent = "...less";
-        readLessLink.classList.add("read-less-link");
-
-        readMoreLink.addEventListener("click", (event) => {
-          event.preventDefault();
-
-          // Collapse the currently expanded review if it exists and is not the same as the clicked one
-          if (currentlyExpandedReview && currentlyExpandedReview !== message) {
-            currentlyExpandedReview.classList.remove("expanded");
-            const truncatedText = truncateText(
-              currentlyExpandedReview.dataset.fullReview || "",
-              100
-            );
-            currentlyExpandedReview.textContent = truncatedText;
-            currentlyExpandedReview.appendChild(readMoreLink.cloneNode(true));
-          }
-
-          // Toggle the clicked review
-          if (message.classList.contains("expanded")) {
-            message.classList.remove("expanded");
-            message.textContent = truncated;
-            message.appendChild(readMoreLink);
-            currentlyExpandedReview = null;
-          } else {
-            message.classList.add("expanded");
-            message.textContent =
-              message.dataset.fullReview || message.textContent;
-            message.appendChild(readLessLink);
-            currentlyExpandedReview = message;
-          }
-        });
-
-        readLessLink.addEventListener("click", (event) => {
-          event.preventDefault();
-          message.classList.remove("expanded");
-          message.textContent = truncated;
-          message.appendChild(readMoreLink);
-          currentlyExpandedReview = null;
-        });
-
-        message.appendChild(readMoreLink);
-      }
-    });
   });
 });
 </script>
-
 <template>
   <section
     class="swiper swiper-reviews reveal"
@@ -197,9 +133,8 @@ onMounted(async () => {
         <p
           class="reviews-message"
           id="`review-${review._id}`"
-          :data-full-review="`https://maps.app.goo.gl/${review.fullReview}`"
         >
-          {{ review.message }}
+        {{ review.message }}
         </p>
       </div>
     </div>
@@ -207,11 +142,9 @@ onMounted(async () => {
     <skeletonSwiper v-else aria-busy="true"></skeletonSwiper>
   </section>
 </template>
-
 <style scoped>
 .swiper-reviews .card {
-  padding: var(--grid-gap-2);
-  height: fit-content;
+  padding: var(--grid-gap-1);
   width: var(--dimension-2);
   border-radius: var(--border-radius-1);
   background-color: rgb(var(--dark-grey-color));
@@ -253,7 +186,7 @@ onMounted(async () => {
   margin-right: none !important;
 }
 .swiper-reviews .reviews-message {
-  margin: var(--grid-gap-1) 0;
+  margin-top: var(--grid-gap-1);
 }
 .swiper-reviews .stars {
   display: inline-block;
@@ -261,9 +194,11 @@ onMounted(async () => {
   color: gold;
 }
 .reviews-message {
-  max-height: 100px;
-  overflow: hidden;
-  transition: max-height 0.5s ease;
+  height: 80px;
+  overflow: scroll;
+  -webkit-transition: max-height var(--transition-2);
+  -o-transition: max-height var(--transition-2);
+  transition: max-height var(--transition-2);
 }
 .reviews-message.expanded {
   max-height: 500px;
