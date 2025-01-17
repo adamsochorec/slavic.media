@@ -2,19 +2,18 @@
 import "./assets/style.css";
 import { createApp } from "vue";
 import PrimeVue from "primevue/config";
-import Nora from "@primevue/themes/nora";
+import PrimeVueTheme from "@primevue/themes/material";
 import { definePreset } from "@primevue/themes";
 import App from "./App.vue";
 import router from "./router";
-import { createHead } from "@vueuse/head";
 import "primeicons/primeicons.css";
 import VueLazyload from "vue-lazyload";
 import CountryFlag from "vue-country-flag-next";
-import { registerGlobalComponents } from "./components"; // Corrected import path
+import { registerGlobalComponents } from "./components";
 
 const app = createApp(App);
 
-const slavicmedia = definePreset(Nora, {
+const slavicmedia = definePreset(PrimeVueTheme, {
   semantic: {
     primary: {
       50: "{gray.50}",
@@ -44,7 +43,6 @@ app.use(PrimeVue, {
 });
 
 app.use(router);
-
 
 // Configure vue-lazyload
 app.use(VueLazyload, {
