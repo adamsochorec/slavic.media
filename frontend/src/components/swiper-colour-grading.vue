@@ -63,7 +63,9 @@ onMounted(() => {
         <ImageCompare aria-label="Compare Images">
           <template #left>
             <span class="note">{{ slide.log }}</span>
+
             <span class="note edited">Colour Graded</span>
+
             <img
               :src="`https://cdn.slavic.media/images/${slide._id}/fit=contain,width=1280,sharpen=100`"
               :alt="`S-Log still ${slide._id}`"
@@ -94,7 +96,9 @@ onMounted(() => {
 .note.edited {
   left: var(--grid-gap-1);
 }
-
+.note.original {
+  right: var(--grid-gap-1) !important;
+}
 .note {
   background-color: rgba(var(--dark-grey-color), 0.3);
   -webkit-backdrop-filter: var(--blur-1);

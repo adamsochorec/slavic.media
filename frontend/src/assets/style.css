@@ -552,7 +552,7 @@ lite-vimeo:hover > .ltv-playbtn {
   font-size: var(--font-size-7) !important;
   opacity: 1 !important;
   -webkit-backdrop-filter: var(--blur-1);
-          backdrop-filter: var(--blur-1);
+  backdrop-filter: var(--blur-1);
 }
 .pswp__button--arrow--left,
 .pswp__button--arrow--right {
@@ -987,7 +987,7 @@ i.pi-arrow-right:hover {
   padding: 0;
   border-radius: var(--border-radius-1);
   bottom: var(--grid-gap-1);
-  left: var(--grid-gap-1);
+  right: var(--grid-gap-1);
 }
 
 /* PAYHIP START */

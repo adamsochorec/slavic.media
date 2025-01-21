@@ -140,11 +140,7 @@ onBeforeUnmount(() => {
             :key="columnIndex"
             class="column"
           >
-            <div
-              v-for="image in column"
-              :key="image._id"
-              class="reveal"
-            >
+            <div v-for="image in column" :key="image._id" class="reveal">
               <Image
                 :_id="image._id"
                 :alt="image.alt"
@@ -152,8 +148,10 @@ onBeforeUnmount(() => {
                 :flag="image.flag"
                 :originalWidth="image.originalWidth"
                 :originalHeight="image.originalHeight"
-                @update:originalWidth="(width) => image.originalWidth = width"
-                @update:originalHeight="(height) => image.originalHeight = height"
+                @update:originalWidth="(width) => (image.originalWidth = width)"
+                @update:originalHeight="
+                  (height) => (image.originalHeight = height)
+                "
               />
             </div>
           </div>
