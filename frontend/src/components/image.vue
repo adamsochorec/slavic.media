@@ -8,11 +8,11 @@ const props = defineProps({
   originalHeight: { type: Number, required: false },
 });
 
-const emit = defineEmits(['update:originalWidth', 'update:originalHeight']);
+const emit = defineEmits(["update:originalWidth", "update:originalHeight"]);
 
 const updateDimensions = (event) => {
-  emit('update:originalWidth', event.target.naturalWidth);
-  emit('update:originalHeight', event.target.naturalHeight);
+  emit("update:originalWidth", event.target.naturalWidth);
+  emit("update:originalHeight", event.target.naturalHeight);
 };
 </script>
 
@@ -35,3 +35,8 @@ const updateDimensions = (event) => {
     <country-flag :country="props.flag" class="note" size="small" />
   </a>
 </template>
+<style scoped>
+.note {
+  left: var(--grid-gap-1) !important;
+}
+</style>

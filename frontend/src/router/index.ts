@@ -6,17 +6,17 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: () => import("../views/index.vue"),
+      component: () => import("@/views/index.vue"),
     },
     {
       path: "/:catchAll(.*)", // Catch-all for undefined routes
       name: "NotFound",
-      component: () => import("../views/404.vue"),
+      component: () => import("@/views/404.vue"),
     },
     {
       path: "/blog",
       name: "blog",
-      component: () => import("../views/blog.vue"),
+      component: () => import("@/views/blog.vue"),
       meta: {
         requiresAuth: false,
         pageTitle: "blog",
@@ -26,7 +26,7 @@ const router = createRouter({
     {
       path: "/blog/:_id",
       name: "article",
-      component: () => import("../views/article.vue"),
+      component: () => import("@/views/article.vue"),
       meta: {
         requiresAuth: false,
         pageTitle: "blog",
@@ -36,7 +36,7 @@ const router = createRouter({
     {
       path: "/about",
       name: "about",
-      component: () => import("../views/about.vue"),
+      component: () => import("@/views/about.vue"),
       meta: {
         requiresAuth: false,
       },
@@ -45,7 +45,7 @@ const router = createRouter({
     {
       path: "/services/photo",
       name: "photo",
-      component: () => import("../views/Photo.vue"),
+      component: () => import("@/views/Photo.vue"),
       meta: {
         requiresAuth: false,
         pageTitle: "services",
@@ -55,7 +55,7 @@ const router = createRouter({
     {
       path: "/services/video",
       name: "video",
-      component: () => import("../views/Video.vue"),
+      component: () => import("@/views/Video.vue"),
       meta: {
         requiresAuth: false,
         pageTitle: "services",
@@ -65,7 +65,7 @@ const router = createRouter({
     {
       path: "/services/post-production",
       name: "post-production",
-      component: () => import("../views/post-production.vue"),
+      component: () => import("@/views/post-production.vue"),
       meta: {
         requiresAuth: false,
         pageTitle: "services",
@@ -75,7 +75,7 @@ const router = createRouter({
     {
       path: "/services/drone",
       name: "drone",
-      component: () => import("../views/drone.vue"),
+      component: () => import("@/views/drone.vue"),
       meta: {
         requiresAuth: false,
         pageTitle: "services",
@@ -86,7 +86,7 @@ const router = createRouter({
     {
       path: "/legal",
       name: "Legal",
-      component: () => import("../views/legal.vue"),
+      component: () => import("@/views/legal.vue"),
       meta: {
         requiresAuth: false,
         pageTitle: "legal",
@@ -95,7 +95,7 @@ const router = createRouter({
     {
       path: "/legal/:id",
       name: "Legal article",
-      component: () => import("../views/legal-article.vue"),
+      component: () => import("@/views/legal-article.vue"),
       meta: {
         requiresAuth: false,
         pageTitle: "legal",
@@ -106,7 +106,7 @@ const router = createRouter({
     {
       path: "/:pathMatch(.*)*",
       name: "404",
-      component: () => import("../views/404.vue"),
+      component: () => import("@/views/404.vue"),
     },
   ],
   scrollBehavior(to, from, savedPosition) {

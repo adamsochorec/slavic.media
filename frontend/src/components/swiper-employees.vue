@@ -58,7 +58,6 @@ onMounted(async () => {
         },
       },
       direction: "horizontal",
-      
     });
 
     // Initialize PhotoSwipe lightbox
@@ -143,24 +142,23 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
                 :alt="`Portrait of ${employee.name}`"
                 :title="`${employee.name}`"
                 class="employee-img"
-            
               />
               <!-- Slide Caption -->
 
               <span class="pswp-caption-content">
                 <h3>{{ employee.department }}</h3>
                 <h4 v-if="employee?.linkedin">
-                  <a    target="_blank"
-                  rel="noopener noreferrer nofollow" :href="employee.linkedin">{{ employee.name }}</a>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    :href="employee.linkedin"
+                    >{{ employee.name }}</a
+                  >
                 </h4>
                 <h4 v-else>
                   {{ employee.name }}
-                </h4> 
+                </h4>
                 <p class="bio">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet
-                  eligendi atque accusantium dolore pariatur fugiat nobis
-                  nesciunt temporibus officia voluptatibus quaerat similique
-                  laborum, corrupti est illo. Quia asperiores sed fuga.
                   {{ employee.desc }}
                 </p>
                 <div class="social-icons reveal">
@@ -196,13 +194,21 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
           <section class="profile">
             <h3 class="reveal">{{ employee.department }}</h3>
 
-            <h4 :id="`employee-${employee._id}`" class="reveal" v-if="employee?.linkedin">
-                  <a    target="_blank"
-                  rel="noopener noreferrer nofollow" :href="employee.linkedin">{{ employee.name }}</a>
-                </h4>
-                <h4 v-else>
-                  {{ employee.name }}
-                </h4> 
+            <h4
+              :id="`employee-${employee._id}`"
+              class="reveal"
+              v-if="employee?.linkedin"
+            >
+              <a
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                :href="employee.linkedin"
+                >{{ employee.name }}</a
+              >
+            </h4>
+            <h4 v-else>
+              {{ employee.name }}
+            </h4>
           </section>
         </div>
       </div>
@@ -259,7 +265,6 @@ img {
   object-fit: cover;
   border-radius: var(--border-radius-1);
 }
-
 .social-icons > * {
   margin-right: var(--grid-gap-1);
 }
@@ -270,6 +275,7 @@ img {
   display: grid;
   grid-gap: var(--grid-gap-2);
 }
+
 @media only screen and (max-width: 430px) {
   h4 {
     font-size: var(--font-size-7);

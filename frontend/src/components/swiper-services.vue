@@ -97,6 +97,7 @@ onMounted(async () => {
 .gallery {
   grid-template-columns: repeat(4, 1fr);
 }
+
 @media only screen and (max-width: 550px) {
   .gallery-item {
     height: 120px;

@@ -29,7 +29,7 @@ const props = defineProps<{
           <span class="title" v-if="title">{{ truncateText(title, 22) }}</span>
         </header>
         <section>
-          <p>{{ truncateText(desc, 100) }}</p>
+          <p class="description">{{ truncateText(desc, 100) }}</p>
         </section>
       </div>
     </a>
@@ -157,6 +157,11 @@ const props = defineProps<{
 @media only screen and (max-width: 500px) {
   .gallery-item .gallery-item-caption {
     padding: var(--grid-gap-1);
+  }
+}
+@media only screen and (max-width: 550px) {
+  .swiper-services .gallery-item .gallery-item-caption .description {
+    display: none;
   }
 }
 </style>

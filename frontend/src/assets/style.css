@@ -57,8 +57,8 @@ main {
   width: 70px;
 }
 .loader {
-  -webkit-animation: submit-loader 1s ease infinite;
-  animation: submit-loader 1s ease infinite;
+  -webkit-animation: submit-loader 0.5s ease infinite;
+  animation: submit-loader 0.5s ease infinite;
   border: 2px solid rgba(var(--white-color), 0.8);
   border-bottom-color: rgb(var(--primary-color));
   border-radius: 50%;
@@ -1075,7 +1075,7 @@ i.pi-arrow-right:hover {
 #map {
   border-radius: var(--border-radius-1);
 }
-.article-content iframe,
+.sketchfab,
 #map {
   height: var(--dimension-2);
 }
@@ -1106,7 +1106,7 @@ i.pi-arrow-right:hover {
   }
 }
 @media only screen and (min-width: 538px) {
-  .article-content iframe,
+  .sketchfab,
   #map {
     height: var(--dimension-1);
   }
