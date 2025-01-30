@@ -87,11 +87,11 @@ router.beforeEach((to, from, next) => {
             professional intros, outros, and precise cuts, your video will stand
             out from start to finish.
           </p>
-          <requestAProposal />
-          <button @click="showRequestAProposal('video edit')">
-            <div class="cta">Request a Proposal</div>
-          </button>
         </div>
+        <requestAProposal />
+        <button @click="showRequestAProposal('video edit')">
+          <div class="cta">Request a Proposal</div>
+        </button>
       </div>
       <br />
       <lite-vimeo
@@ -106,21 +106,27 @@ router.beforeEach((to, from, next) => {
       <div class="grid-container caption-container">
         <div class="grid-item">
           <h2 class="reveal" aria-label="Video Services">
-            Spatial <span class="gradient">Sound Design</span>
+            Thrilling <span class="gradient">Sound Edit</span>
           </h2>
-        </div>
-        <div class="grid-item">
-          <p class="reveal">
-            Immerse your audience with our spatial sound design. We specialize
-            in creating dynamic soundscapes with high-quality SFX, smooth
-            dialogue correction, digital denoising, and strong atmospheres.
-            Whether it’s subtle accents or intense action, we bring every
-            element of your audio to life.
-          </p>
           <requestAProposal />
-          <button @click="showRequestAProposal('sound design')">
+          <button
+            style="margin-bottom: var(--grid-gap-2) !important"
+            @click="showRequestAProposal('sound design')"
+          >
             <div class="cta">Request a Proposal</div>
           </button>
+        </div>
+        <div class="grid-item">
+          <ul>
+            <li>
+              Production sound (the dialogue and ambient noises captured during
+              shooting)
+            </li>
+            <li>Foley (reproduced sounds)</li>
+            <li>Walla (crowd noises)</li>
+            <li>SFX (sound effects)</li>
+            <li>Music</li>
+          </ul>
         </div>
       </div>
       <br />

@@ -124,7 +124,6 @@ onBeforeUnmount(() => {
           </div>
           <div class="grid-item">
             <p class="reveal">{{ gallery.desc }}</p>
-
             <requestAProposal />
             <button @click="showRequestAProposal(gallery._id)">
               <div class="cta">Request a Proposal</div>
@@ -136,16 +135,12 @@ onBeforeUnmount(() => {
       <!-- VIDEO GALLERY -->
       <section v-if="isDataLoaded" aria-busy="false" class="popup-gallery">
         <div class="row">
-           <div
+          <div
             v-for="(column, columnIndex) in gallery.columns"
             :key="columnIndex"
             class="column"
           >
-            <div
-              v-for="image in column"
-              :key="image._id"
-              class="reveal"
-            >
+            <div v-for="image in column" :key="image._id" class="reveal">
               <Image
                 :_id="image._id"
                 :alt="image.alt"
@@ -153,13 +148,14 @@ onBeforeUnmount(() => {
                 :flag="image.flag"
                 :originalWidth="image.originalWidth"
                 :originalHeight="image.originalHeight"
-                @update:originalWidth="(width) => image.originalWidth = width"
-                @update:originalHeight="(height) => image.originalHeight = height"
+                @update:originalWidth="(width) => (image.originalWidth = width)"
+                @update:originalHeight="
+                  (height) => (image.originalHeight = height)
+                "
               />
             </div>
           </div>
         </div>
-       
       </section>
     </template>
     <!-- IMAGES GALLERY END -->

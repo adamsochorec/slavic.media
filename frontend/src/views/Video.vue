@@ -87,7 +87,6 @@ router.beforeEach((to, from, next) => {
             <div class="grid-item">
               <p class="reveal">{{ gallery.desc }}</p>
               <requestAProposal />
-              <requestAProposal />
               <button @click="showRequestAProposal(gallery._id)">
                 <div class="cta">Request a Proposal</div>
               </button>
@@ -125,7 +124,6 @@ router.beforeEach((to, from, next) => {
               Social media reels that capture your brand’s essence—engaging,
               genuine, and designed to resonate with your audience.
             </p>
-            <requestAProposal />
             <requestAProposal />
             <button @click="showRequestAProposal('content')">
               <div class="cta">Request a Proposal</div>

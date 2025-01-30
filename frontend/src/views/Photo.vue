@@ -122,7 +122,6 @@ onBeforeUnmount(() => {
           </div>
           <div class="grid-item">
             <p class="reveal">{{ gallery.desc }}</p>
-
             <requestAProposal />
             <button @click="showRequestAProposal(gallery._id)">
               <div class="cta">Request a Proposal</div>
