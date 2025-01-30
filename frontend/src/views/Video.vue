@@ -95,7 +95,7 @@ router.beforeEach((to, from, next) => {
           </div>
 
           <!-- GALLERY ITEMS -->
-          <div class="gallery" aria-label="Video Gallery">
+          <div id="video-gallery" class="gallery" aria-label="Video Gallery">
             <galleryItem
               v-for="video in gallery.videos"
               :key="video._id"
@@ -163,10 +163,15 @@ router.beforeEach((to, from, next) => {
 h1 {
   text-transform: capitalize;
 }
+#video-gallery .gallery-item {
+  height: 9/16 !important;
+}
 @media only screen and (max-width: 375px) {
   .gallery-item {
     height: 120px;
   }
+}
+@media only screen and (max-width: 575px) {
   .gallery {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
