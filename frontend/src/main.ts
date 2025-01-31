@@ -1,5 +1,5 @@
 // src/main.ts
-import "./assets/style.css";
+import "../public/assets/style.css";
 import { createApp } from "vue";
 import PrimeVue from "primevue/config";
 import PrimeVueTheme from "@primevue/themes/material";

@@ -249,7 +249,7 @@ const currentYear = new Date().getFullYear();
 .separator {
   margin: 0 5px;
 }
-nav{
+nav {
   line-height: normal;
 }
 .separator::after {
