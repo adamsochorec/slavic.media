@@ -45,12 +45,5 @@ const videoSchema = new mongoose_1.Schema({
     client: { type: String, maxlength: 100 },
 });
 exports.videoSchema = videoSchema;
-const videoGallerySchema = new mongoose_1.Schema({
-    _id: { type: String, required: true, maxlength: 50 },
-    index: { type: Number, required: true, unique: true },
-    desc: { type: String, required: true, maxlength: 1000 },
-    title: { type: String, required: true, maxlength: 200 },
-    videos: { type: [videoSchema], required: true },
-});
-const videoGallery = mongoose_1.default.model("VideoGallery", videoGallerySchema);
-exports.default = videoGallery;
+const video = mongoose_1.default.model("video", videoSchema);
+exports.default = video;

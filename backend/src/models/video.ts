@@ -10,14 +10,6 @@ interface video extends Document {
   client: string;
 }
 
-interface videoGallery extends Document {
-  _id: string;
-  index: number;
-  desc: string;
-  title: string;
-  videos: video[];
-}
-
 const videoSchema = new Schema({
   _id: { type: String, required: true, maxlength: 50 },
   index: { type: Number, required: true, unique: true },
@@ -28,17 +20,6 @@ const videoSchema = new Schema({
   client: { type: String, maxlength: 100 },
 });
 
-const videoGallerySchema = new Schema({
-  _id: { type: String, required: true, maxlength: 50 },
-  index: { type: Number, required: true, unique: true },
-  desc: { type: String, required: true, maxlength: 1000 },
-  title: { type: String, required: true, maxlength: 200 },
-  videos: { type: [videoSchema], required: true },
-});
-
-const videoGallery = mongoose.model<videoGallery>(
-  "VideoGallery",
-  videoGallerySchema
-);
+const video = mongoose.model<video>("video", videoSchema);
 export { videoSchema };
-export default videoGallery;
+export default video;

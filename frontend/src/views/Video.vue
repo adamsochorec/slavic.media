@@ -8,7 +8,7 @@ import $ from "jquery";
 import "magnific-popup";
 
 const { state: serviceState, getSpecificService } = services();
-const { state: videoState, getAllGalleries } = video();
+const { state: videoState, getAllVideos } = video();
 const isDataLoaded = ref<boolean>(false);
 const router = useRouter();
 // REQUEST A PROPOSAL ID
@@ -16,7 +16,7 @@ const showRequestAProposal = (identifier: string) => {
   eventBus.emit("showRequestAProposal", identifier);
 };
 onMounted(async () => {
-  await Promise.all([getSpecificService("video"), getAllGalleries()]);
+  await Promise.all([getSpecificService("video"), getAllVideos()]);
   isDataLoaded.value = true;
 
   nextTick(() => {
@@ -97,7 +97,7 @@ router.beforeEach((to, from, next) => {
           <!-- GALLERY ITEMS -->
           <div id="video-gallery" class="gallery" aria-label="Video Gallery">
             <galleryItem
-              v-for="video in gallery.videos"
+              v-for="video in videos"
               :key="video._id"
               :flag="video.flag"
               :img="video._id"
