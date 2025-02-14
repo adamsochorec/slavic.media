@@ -211,11 +211,13 @@ const copyHref = (href) => {
             <galleryItem
               v-for="video in state.article.videos"
               :key="video._id"
+              :flag="video.flag"
               :img="`${video._id}`"
               icon="video"
               :title="video.title"
+              :opacity="video.opacity"
               :url="`https://vimeo.com/${video.url}`"
-              :desc="`${video.year}`"
+              :desc="`${video.desc} ⋅ ${video.year}`"
               :alt="video.title"
             />
           </div>

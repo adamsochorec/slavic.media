@@ -9,11 +9,10 @@ const isDataLoaded = ref<boolean>(false);
 // SHOW MORE START
 const EVENTS_INCREMENT = 6;
 const eventsToShow = ref(EVENTS_INCREMENT);
-// SHOW MORE END
-
 const loadMoreEvents = () => {
   eventsToShow.value += EVENTS_INCREMENT;
 };
+// SHOW MORE END
 
 onMounted(async () => {
   await getAllEvents();

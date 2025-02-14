@@ -38,7 +38,7 @@ onMounted(async () => {
           slidesPerView: 3.5,
         },
         1000: {
-          slidesPerView: 4,
+          slidesPerView: 3,
         },
       },
       direction: "horizontal",

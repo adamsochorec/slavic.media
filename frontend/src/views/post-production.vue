@@ -33,7 +33,7 @@ router.beforeEach((to, from, next) => {
 <template>
   <article class="main" style="margin-top: 120px">
     <section class="wrapper-wide">
-      <!-- PAGE INTRO -->
+      <!-- PAGE ABSTRACT START -->
       <div class="grid-container caption-container">
         <div class="grid-item">
           <h1 class="reveal" aria-label="Video Services">
@@ -68,6 +68,8 @@ router.beforeEach((to, from, next) => {
           </button>
         </div>
       </div>
+      <!-- PAGE ABSTRACT END -->
+
       <br />
       <swiperColourGrading></swiperColourGrading>
       <div id="video-edit"></div>

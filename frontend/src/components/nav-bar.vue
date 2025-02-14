@@ -101,7 +101,9 @@ function header() {
           />
         </router-link>
         <span class="page" v-if="pageTitle">
-          <router-link :to="titlePath" class="gradient">{{ pageTitle }}</router-link>
+          <router-link :to="titlePath" class="gradient">{{
+            pageTitle
+          }}</router-link>
         </span>
 
         <button
@@ -116,7 +118,8 @@ function header() {
         </button>
         <ul class="menu-left" role="menubar">
           <li role="none">
-            <span class="menuitem"
+            <span
+              class="menuitem"
               @click="toggleDropdown"
               role="menuitem"
               aria-haspopup="true"
@@ -124,9 +127,17 @@ function header() {
               aria-controls="services-dropdown"
             >
               <span class="pi pi-sitemap"></span>Services&nbsp;&nbsp;
-              <span :class="{'pi pi-angle-down': true, rotated: showDropdown}" style="font-size: 10px"></span>
+              <span
+                :class="{ 'pi pi-angle-down': true, rotated: showDropdown }"
+                style="font-size: 10px"
+              ></span>
             </span>
-            <ul id="services-dropdown" class="dropdown" :class="{ show: showDropdown }" role="menu">
+            <ul
+              id="services-dropdown"
+              class="dropdown"
+              :class="{ show: showDropdown }"
+              role="menu"
+            >
               <li role="none">
                 <router-link to="/services/photo" role="menuitem">
                   <span class="pi pi-camera"></span>Photo
@@ -138,16 +149,11 @@ function header() {
                 </router-link>
               </li>
               <li role="none">
-                <router-link to="/services/drone" role="menuitem">
-                  <span class="pi pi-bolt"></span>Drone
-                </router-link>
-              </li>
-              <li role="none">
                 <router-link to="/services/post-production" role="menuitem">
                   <span class="pi pi-image"></span>Post Production
                 </router-link>
               </li>
-            </ul>          
+            </ul>
           </li>
           <li role="none">
             <a
@@ -195,7 +201,7 @@ function header() {
   padding: 5px var(--grid-gap-1);
   margin-left: var(--grid-gap-1);
 }
-.menuitem{
+.menuitem {
   width: 100%;
 }
 .dropdown {
@@ -220,10 +226,11 @@ function header() {
 .rotated {
   transform: rotate(180deg);
 }
-.pi-angle-down, .rotated {
+.pi-angle-down,
+.rotated {
   transition: transform var(--transition-2);
 }
-.menu-left ul a{
+.menu-left ul a {
   padding: 10px;
   font-size: var(--font-size-7);
 }
@@ -247,18 +254,18 @@ header .container {
   padding: 0 var(--homepage-padding);
   max-width: 100%;
 }
-header a,  
+header a,
 span.menuitem {
   text-decoration: none;
   color: rgba(var(--white-color), 1);
 }
 header a :focus,
-header a:hover,  
-span.menuitem:focus,  
+header a:hover,
+span.menuitem:focus,
 span.menuitem:hover {
   color: rgba(var(--white-color), 1);
 }
-.menu-left a:not(.menu-left ul a),  
+.menu-left a:not(.menu-left ul a),
 span.menuitem {
   display: inline-block;
   position: relative;
@@ -268,14 +275,14 @@ span.menuitem {
   font-size: var(--font-size-6);
   padding: 17px var(--grid-gap-1);
 }
-.menu-left a:hover,  
+.menu-left a:hover,
 .menuitem:hover {
   background-color: rgba(var(--primary-color), 0.4);
 }
 .menu-left a,
-.menu-left a:hover,  
-.menuitem,  
-.menuitem:hover{
+.menu-left a:hover,
+.menuitem,
+.menuitem:hover {
   -webkit-transition: var(--transition-1);
   -o-transition: var(--transition-1);
   transition: var(--transition-1);
@@ -340,7 +347,7 @@ header {
   background-color: var(--dark-grey-color-full);
   will-change: transform;
   -webkit-transition: background var(--transition-2);
-  -o-transition:background var(--transition-2);
+  -o-transition: background var(--transition-2);
   transition: background var(--transition-2);
   -ms-transform: translateY(0);
   transform: translateY(0);
@@ -453,11 +460,11 @@ ul.menu-left.collapse {
     display: none !important;
   }
   .dropdown {
-  position: absolute;
-  -webkit-box-shadow: var(--box-shadow-1);
-          box-shadow: var(--box-shadow-1);
-  background-color: rgba(var(--dark-grey-color));
-  border-radius: 0 0 var(--border-radius-1) var(--border-radius-1);
+    position: absolute;
+    -webkit-box-shadow: var(--box-shadow-1);
+    box-shadow: var(--box-shadow-1);
+    background-color: rgba(var(--dark-grey-color));
+    border-radius: 0 0 var(--border-radius-1) var(--border-radius-1);
   }
 }
 @media only screen and (max-width: 850px) {
@@ -479,9 +486,9 @@ ul.menu-left.collapse {
   .dropdown a {
     margin-left: 20px;
   }
-.dropdown{
-  border-left: 2px solid rgba(var(--white-color), 0.3)
-}
+  .dropdown {
+    border-left: 2px solid rgba(var(--white-color), 0.3);
+  }
 }
 @media only screen and (min-width: 1020px) {
   header .container {
@@ -493,5 +500,4 @@ ul.menu-left.collapse {
     clear: both;
   }
 }
-
 </style>

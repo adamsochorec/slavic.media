@@ -11,10 +11,20 @@ const { state: serviceState, getSpecificService } = services();
 const { state: videoState, getAllVideos } = video();
 const isDataLoaded = ref<boolean>(false);
 const router = useRouter();
+
+// SHOW MORE START
+const EVENTS_INCREMENT = 4;
+const eventsToShow = ref(EVENTS_INCREMENT);
+const loadMoreEvents = () => {
+  eventsToShow.value = videoState.videos;
+};
+// SHOW MORE END
+
 // REQUEST A PROPOSAL ID
 const showRequestAProposal = (identifier: string) => {
   eventBus.emit("showRequestAProposal", identifier);
 };
+
 onMounted(async () => {
   await Promise.all([getSpecificService("video"), getAllVideos()]);
   isDataLoaded.value = true;
@@ -80,7 +90,8 @@ router.beforeEach((to, from, next) => {
         <!-- VIDEO -->
         <div id="video-gallery" class="gallery" aria-label="Video Gallery">
           <galleryItem
-            v-for="video in videoState.videos"
+            :value="videoState.videos.slice(0, eventsToShow)"
+            v-for="video in videoState.videos.slice(0, eventsToShow)"
             :key="video._id"
             :flag="video.flag"
             :img="video._id"
@@ -91,6 +102,15 @@ router.beforeEach((to, from, next) => {
             :title="video.title"
             :desc="`${video.desc} ⋅ ${video.year}`"
           />
+        </div>
+        <div class="flex-center">
+          <button
+            v-if="eventsToShow < videoState.videos.length"
+            @click="loadMoreEvents"
+            class="cta reveal"
+          >
+            Show More
+          </button>
         </div>
         <hr class="reveal" role="separator" />
 
@@ -173,6 +193,7 @@ h1 {
 #video-gallery .gallery-item {
   height: 9/16 !important;
 }
+
 @media only screen and (max-width: 375px) {
   .gallery-item {
     height: 120px;
