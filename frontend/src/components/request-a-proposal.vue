@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick, watch } from "vue";
 import { useRouter } from "vue-router";
-import eventBus, { EventBus } from "@/functions/eventBus";
+import eventBus, { EventBus } from "@/functions/event-bus";
 import $ from "jquery";
 import "magnific-popup";
 

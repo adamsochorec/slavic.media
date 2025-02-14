@@ -3,7 +3,8 @@ import { ref, onMounted, nextTick, onUnmounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import services from "@/modules/services";
-import { useArrowNavigation } from "@/functions/useArrowNavigation";
+import { useArrowNavigation } from "@/functions/arrow-navigation";
+import { useSwiperAutoplay } from "@/functions/swiper-autoplay";
 
 const { state, getAllServices } = services();
 const isDataLoaded = ref(false);
@@ -45,9 +46,11 @@ onMounted(async () => {
     });
 
     const removeArrowNavigation = useArrowNavigation(swiper);
+    const removeSwiperAutoplay = useSwiperAutoplay(swiper, ".swiper-services");
 
     onUnmounted(() => {
       removeArrowNavigation();
+      removeSwiperAutoplay();
     });
   });
 });

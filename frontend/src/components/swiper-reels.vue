@@ -2,7 +2,8 @@
 import { ref, onMounted, computed, onUnmounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
-import { useArrowNavigation } from "@/functions/useArrowNavigation";
+import { useArrowNavigation } from "@/functions/arrow-navigation";
+import { useSwiperAutoplay } from "@/functions/swiper-autoplay";
 
 // GRID GAP
 const gridGap2 = getComputedStyle(document.documentElement).getPropertyValue(
@@ -93,9 +94,11 @@ onMounted(() => {
     },
   });
   const removeArrowNavigation = useArrowNavigation(swiper);
+  const removeSwiperAutoplay = useSwiperAutoplay(swiper, ".swiper-reels");
 
   onUnmounted(() => {
     removeArrowNavigation();
+    removeSwiperAutoplay();
   });
 });
 </script>

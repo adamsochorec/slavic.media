@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 import ImageCompare from "primevue/imagecompare";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
-import { useArrowNavigation } from "@/functions/useArrowNavigation";
+import { useArrowNavigation } from "@/functions/arrow-navigation";
 
 interface Slide {
   _id: string;

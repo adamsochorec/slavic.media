@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick, watch, onBeforeUnmount } from "vue";
 import { useRouter } from "vue-router";
-import eventBus from "@/functions/eventBus";
+import eventBus from "@/functions/event-bus";
 import image from "@/modules/images";
 import services from "@/modules/services";
 import PhotoSwipeLightbox from "photoswipe/lightbox";

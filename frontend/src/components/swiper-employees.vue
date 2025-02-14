@@ -6,7 +6,7 @@ import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
 import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css";
-import { useArrowNavigation } from "@/functions/useArrowNavigation";
+import { useArrowNavigation } from "@/functions/arrow-navigation";
 import employee from "@/modules/employee";
 
 interface Employee {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import services from "@/modules/services";
-import eventBus from "@/functions/eventBus";
+import eventBus from "@/functions/event-bus";
 
 const { state, getAllServices } = services();
 const isDataLoaded = ref<boolean>(false);
@@ -42,7 +42,7 @@ onMounted(async () => {
             <span class="gradient">service</span>
           </h1>
         </div>
-        <div class="grid-item" >
+        <div class="grid-item">
           <p>
             We are creative storytellers who believe in good set designs, deep
             eye contact, and the right light that can raise your message above

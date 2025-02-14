@@ -3,11 +3,11 @@ import { ref, onMounted, nextTick, onUnmounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import review from "@/modules/review";
-import { useArrowNavigation } from "@/functions/useArrowNavigation";
+import { useArrowNavigation } from "@/functions/arrow-navigation";
+import { useSwiperAutoplay } from "@/functions/swiper-autoplay";
 
 const { state, getAllReviews } = review();
 const isDataLoaded = ref(false);
-
 
 // GRID GAP
 const gridGap2 = parseFloat(
@@ -28,7 +28,7 @@ onMounted(async () => {
         clickable: true,
         dynamicBullets: true,
       },
-     autoplay: { delay: 2000, pauseOnMouseEnter: true },
+      autoplay: { delay: 2000, pauseOnMouseEnter: true },
       preloadImages: false,
       lazyLoading: true,
       observer: true,
@@ -49,10 +49,13 @@ onMounted(async () => {
       },
       direction: "horizontal",
     });
+
     const removeArrowNavigation = useArrowNavigation(swiper);
+    const removeSwiperAutoplay = useSwiperAutoplay(swiper);
 
     onUnmounted(() => {
       removeArrowNavigation();
+      removeSwiperAutoplay();
     });
 
     function showStars(container: HTMLElement, rating: number) {
@@ -81,6 +84,25 @@ onMounted(async () => {
       );
       showStars(starContainer, rating);
     });
+
+    // Intersection Observer to pause/resume autoplay
+    const swiperElement = document.querySelector(".swiper-reviews");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            swiper.autoplay.start();
+          } else {
+            swiper.autoplay.stop();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (swiperElement) {
+      observer.observe(swiperElement);
+    }
   });
 });
 </script>
@@ -126,15 +148,12 @@ onMounted(async () => {
             <div
               class="stars"
               :data-rating="review.rating"
-              :aria-label="`Rating: ${review.rating} out of 5 stars`"
+              :aria-label="`Rating: {{ review.rating }} out of 5 stars`"
             ></div>
           </div>
         </div>
-        <p
-          class="reviews-message"
-          id="`review-${review._id}`"
-        >
-        {{ review.message }}
+        <p class="reviews-message" id="`review-${review._id}`">
+          {{ review.message }}
         </p>
       </div>
     </div>

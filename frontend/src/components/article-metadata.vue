@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ddmmmyyyy } from "@/functions/date-format.ts";
-import { defineProps } from "vue";
 
 interface Author {
   name: string;

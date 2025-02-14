@@ -5,7 +5,7 @@ import image from "@/modules/images";
 import services from "@/modules/services";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
-import eventBus from "@/functions/eventBus";
+import eventBus from "@/functions/event-bus";
 
 const isDataLoaded = ref<boolean>(false);
 const { state: imageState, getAllImages } = image;

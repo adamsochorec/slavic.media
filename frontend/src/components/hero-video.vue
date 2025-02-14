@@ -1,16 +1,60 @@
 <script setup lang="ts">
+import { onMounted, ref, reactive } from "vue";
+
 interface Props {
   id: number;
   start?: number;
   ariaLabel: string;
 }
 const props = defineProps<Props>();
+const iframeRef = ref<HTMLIFrameElement | null>(null);
+const state = reactive({
+  isPlaying: false,
+});
+
+// PAUSE & PLAY
+const sendMessageToVimeo = (method: string) => {
+  if (iframeRef.value) {
+    iframeRef.value.contentWindow?.postMessage(JSON.stringify({ method }), "*");
+  }
+};
+const playVideo = () => {
+  sendMessageToVimeo("play");
+  state.isPlaying = true;
+};
+const pauseVideo = () => {
+  sendMessageToVimeo("pause");
+  state.isPlaying = false;
+};
+
+// VIDEO OFFLOAD
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (iframeRef.value) {
+          if (entry.isIntersecting) {
+            playVideo();
+          } else {
+            pauseVideo();
+          }
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  if (iframeRef.value) {
+    observer.observe(iframeRef.value);
+  }
+});
 </script>
 
 <template>
   <section class="showcase" aria-labelledby="video-description">
     <div class="video-container">
       <iframe
+        ref="iframeRef"
         :src="`https://player.vimeo.com/video/${id}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;muted=1&amp;autoplay=1&amp;loop=1&amp;controls=0#t=${start}s`"
         allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
         :title="ariaLabel"
@@ -29,14 +73,27 @@ const props = defineProps<Props>();
     >
       <i class="pi pi-vimeo"></i>
     </a>
+    <section class="controls">
+      <button
+        v-if="state.isPlaying"
+        class="pi pi-pause"
+        @click="pauseVideo"
+      ></button>
+      <button v-else class="pi pi-play" @click="playVideo"></button>
+    </section>
   </section>
 </template>
 
 <style scoped>
+.controls,
 .link {
   position: absolute;
+}
+.controls {
+  right: var(--grid-gap-1);
+}
+.link {
   left: var(--grid-gap-1);
-  text-shadow: var(--box-shadow-1);
 }
 .showcase {
   height: var(--dimension-1);
@@ -79,15 +136,15 @@ const props = defineProps<Props>();
   .showcase {
     height: 100vh;
   }
+  .controls,
   .link {
     bottom: 5px;
   }
 }
 @media only screen and (min-width: 415px) {
+  .controls,
   .link {
-    position: absolute;
-    top: calc(var(--dimension-1) - 2.7 * var(--grid-gap-1));
-    left: var(--grid-gap-1);
+    top: calc(var(--dimension-1) - 3 * var(--grid-gap-1));
   }
 }
 </style>

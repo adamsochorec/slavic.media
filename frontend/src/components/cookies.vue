@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import eventBus from "@/functions/eventBus";
+import eventBus from "@/functions/event-bus";
 
 // State variables to manage consent status
 const showConsent = ref(true);
@@ -119,8 +119,8 @@ onMounted(() => {
         <span id="cookie-consent-title">🍪 Cookie Consent</span>
       </header>
       <p class="info">
-        This website uses analytical cookies to help you have a superior and more
-        relevant browsing experience on the website. <br />
+        This website uses analytical cookies to help you have a superior and
+        more relevant browsing experience on the website. <br />
         Learn more about our
         <router-link
           aria-label="Cookie Policy"
@@ -201,17 +201,21 @@ onMounted(() => {
   justify-content: center;
 }
 /* Transition classes */
-.slide-enter-active, .slide-leave-active {
+.slide-enter-active,
+.slide-leave-active {
   -webkit-transition: -webkit-transform var(--transition-2);
   transition: -webkit-transform var(--transition-2);
   -o-transition: transform var(--transition-2);
   transition: transform var(--transition-2);
-  transition: transform var(--transition-2), -webkit-transform var(--transition-2);
+  transition:
+    transform var(--transition-2),
+    -webkit-transform var(--transition-2);
 }
-.slide-enter-from, .slide-leave-to {
+.slide-enter-from,
+.slide-leave-to {
   -webkit-transform: translateY(100%);
-      -ms-transform: translateY(100%);
-          transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
 }
 @media only screen and (max-width: 400px) {
   button {

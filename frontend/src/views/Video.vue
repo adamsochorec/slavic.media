@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref, nextTick } from "vue";
-import eventBus from "@/functions/eventBus";
+import eventBus from "@/functions/event-bus";
+import { useShowMore } from "@/functions/show-more";
 import services from "@/modules/services";
 import video from "@/modules/video";
 import { useRouter } from "vue-router";
@@ -13,11 +14,9 @@ const isDataLoaded = ref<boolean>(false);
 const router = useRouter();
 
 // SHOW MORE START
-const EVENTS_INCREMENT = 4;
-const eventsToShow = ref(EVENTS_INCREMENT);
-const loadMoreEvents = () => {
-  eventsToShow.value = videoState.videos;
-};
+videoState.videos = videoState.videos || [];
+const { itemsToShow, allItemsShown, loadMoreItems, showLessItems } =
+  useShowMore(6);
 // SHOW MORE END
 
 // REQUEST A PROPOSAL ID
@@ -90,13 +89,13 @@ router.beforeEach((to, from, next) => {
         <!-- VIDEO -->
         <div id="video-gallery" class="gallery" aria-label="Video Gallery">
           <galleryItem
-            :value="videoState.videos.slice(0, eventsToShow)"
-            v-for="video in videoState.videos.slice(0, eventsToShow)"
+            :value="videoState.videos.slice(0, itemsToShow)"
+            v-for="video in videoState.videos.slice(0, itemsToShow)"
             :key="video._id"
             :flag="video.flag"
             :img="video._id"
             icon="video"
-            :alt="`${video.title} cover`"
+            :alt="`${video.title} cover`"
             :opacity="0.5"
             :url="`https://vimeo.com/${video.url}`"
             :title="video.title"
@@ -105,11 +104,14 @@ router.beforeEach((to, from, next) => {
         </div>
         <div class="flex-center">
           <button
-            v-if="eventsToShow < videoState.videos.length"
-            @click="loadMoreEvents"
+            v-if="!allItemsShown"
+            @click="loadMoreItems(videoState.videos.length)"
             class="cta reveal"
           >
             Show More
+          </button>
+          <button v-else @click="showLessItems" class="cta reveal">
+            Show Less
           </button>
         </div>
         <hr class="reveal" role="separator" />

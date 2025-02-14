@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { defineProps } from "vue";
-
 interface LegalArticle {
   _id: string;
   title: string;
@@ -18,7 +16,9 @@ const props = defineProps<{
     <span
       v-for="legal in props.legals"
       :key="legal._id"
-      :class="{ current: props.highlightCurrent && legal._id === props.currentId }"
+      :class="{
+        current: props.highlightCurrent && legal._id === props.currentId,
+      }"
     >
       <router-link :to="`/legal/${legal._id}`">{{ legal.title }}</router-link>
     </span>

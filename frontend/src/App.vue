@@ -84,4 +84,8 @@ watch(
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+main {
+  min-height: 85vh;
+}
+</style>

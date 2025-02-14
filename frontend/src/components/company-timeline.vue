@@ -2,16 +2,15 @@
 import { ref, onMounted } from "vue";
 import { mmmyyyy } from "@/functions/date-format.ts";
 import event from "@/modules/event";
+import { useShowMore } from "@/functions/show-more";
 
 const { state, getAllEvents } = event();
 const isDataLoaded = ref<boolean>(false);
 
 // SHOW MORE START
-const EVENTS_INCREMENT = 6;
-const eventsToShow = ref(EVENTS_INCREMENT);
-const loadMoreEvents = () => {
-  eventsToShow.value += EVENTS_INCREMENT;
-};
+state.events = state.events || [];
+const { itemsToShow, allItemsShown, loadMoreItems, showLessItems } =
+  useShowMore(6);
 // SHOW MORE END
 
 onMounted(async () => {
@@ -30,7 +29,7 @@ onMounted(async () => {
     <div v-if="isDataLoaded">
       <Timeline
         align="alternate"
-        :value="state.events.slice(0, eventsToShow)"
+        :value="state.events.slice(0, itemsToShow)"
         aria-busy="false"
         aria-labelledby="company-timeline"
       >
@@ -52,11 +51,14 @@ onMounted(async () => {
       </Timeline>
       <div class="flex-center">
         <button
-          v-if="eventsToShow < state.events.length"
-          @click="loadMoreEvents"
+          v-if="!allItemsShown"
+          @click="loadMoreItems(state.events.length)"
           class="cta reveal"
         >
           Show More
+        </button>
+        <button v-else @click="showLessItems" class="cta reveal">
+          Show Less
         </button>
       </div>
     </div>

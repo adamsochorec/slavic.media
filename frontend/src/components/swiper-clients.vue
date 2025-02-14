@@ -2,7 +2,8 @@
 import { onMounted, onUnmounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
-import { useArrowNavigation } from "@/functions/useArrowNavigation";
+import { useArrowNavigation } from "@/functions/arrow-navigation";
+import { useSwiperAutoplay } from "@/functions/swiper-autoplay";
 
 onMounted(() => {
   const swiper = new Swiper(".swiper-clients", {
@@ -22,9 +23,11 @@ onMounted(() => {
     direction: "horizontal",
   });
   const removeArrowNavigation = useArrowNavigation(swiper);
+  const removeSwiperAutoplay = useSwiperAutoplay(swiper, ".swiper-clients");
 
   onUnmounted(() => {
     removeArrowNavigation();
+    removeSwiperAutoplay();
   });
 });
 </script>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import eventBus, { EventBus } from "@/functions/eventBus";
+import eventBus, { EventBus } from "@/functions/event-bus";
 import services from "@/modules/services";
 import video from "@/modules/video";
 import { useRouter, useRoute } from "vue-router";
