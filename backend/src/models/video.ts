@@ -7,7 +7,7 @@ interface video extends Document {
   title: string;
   url: string;
   year: string;
-  client: string;
+  desc: string;
 }
 
 const videoSchema = new Schema({
@@ -17,7 +17,7 @@ const videoSchema = new Schema({
   title: { type: String, required: true, maxlength: 200 },
   url: { type: String, required: true, maxlength: 100 },
   year: { type: String, required: true, maxlength: 4 },
-  client: { type: String, maxlength: 100 },
+  desc: { type: String, maxlength: 100 },
 });
 
 const video = mongoose.model<video>("video", videoSchema);

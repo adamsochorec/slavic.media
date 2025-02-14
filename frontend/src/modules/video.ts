@@ -15,6 +15,7 @@ const video = () => {
     try {
       const response = await fetch("https://api.slavic.media/video");
       const data = await response.json();
+      data.sort((a: any, b: any) => b.index - a.index);
       state.value.videos = data;
     } catch (error) {
       console.error(error);

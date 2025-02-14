@@ -67,49 +67,56 @@ router.beforeEach((to, from, next) => {
           <p class="reveal">
             {{ serviceState.service?.desc }}
           </p>
+          <requestAProposal />
+          <button @click="showRequestAProposal('video')">
+            <div class="cta">Request a Proposal</div>
+          </button>
         </div>
+        <br />
       </div>
       <!-- PAGE ABSTRACT END -->
 
       <div v-if="isDataLoaded" aria-busy="false">
-        <!-- GALLERY -->
-        <div v-for="gallery in videoState.galleries" :key="gallery._id">
-          <div :id="gallery._id"></div>
-          <hr class="reveal" role="separator" />
+        <!-- VIDEO -->
+        <div id="video-gallery" class="gallery" aria-label="Video Gallery">
+          <galleryItem
+            v-for="video in videoState.videos"
+            :key="video._id"
+            :flag="video.flag"
+            :img="video._id"
+            icon="video"
+            :alt="`${video.title} cover`"
+            :opacity="0.5"
+            :url="`https://vimeo.com/${video.url}`"
+            :title="video.title"
+            :desc="`${video.desc} ⋅ ${video.year}`"
+          />
+        </div>
+        <hr class="reveal" role="separator" />
 
-          <div class="grid-container caption-container">
-            <div class="grid-item reveal">
-              <h2>
-                {{ gallery.title.split(" ")[0] }}
-                <span class="gradient">{{ gallery.title.split(" ")[1] }}</span>
-              </h2>
-            </div>
-            <div class="grid-item">
-              <p class="reveal">{{ gallery.desc }}</p>
-              <requestAProposal />
-              <button @click="showRequestAProposal(gallery._id)">
-                <div class="cta">Request a Proposal</div>
-              </button>
-            </div>
-            <br />
+        <!-- COLOUR GRADING START-->
+        <div v-if="isDataLoaded" class="grid-container caption-container">
+          <div class="grid-item">
+            <h2 class="reveal" aria-label="Video Services">
+              Colour <span class="gradient">Grading</span>
+            </h2>
           </div>
-
-          <!-- GALLERY ITEMS -->
-          <div id="video-gallery" class="gallery" aria-label="Video Gallery">
-            <galleryItem
-              v-for="video in videos"
-              :key="video._id"
-              :flag="video.flag"
-              :img="video._id"
-              icon="video"
-              :alt="`${video.title} cover`"
-              :opacity="0.5"
-              :url="`https://vimeo.com/${video.url}`"
-              :title="video.title"
-              :desc="`${video.year} | ${video.client}`"
-            />
+          <div class="grid-item">
+            <p class="reveal">
+              Bring your footage to life with our professional video colour
+              grading. Using DaVinci Resolve, we grade boring log footage to
+              unlock its full potential, delivering rich, vibrant colours across
+              the depth spectrum and natural skin tones.
+            </p>
+            <requestAProposal />
+            <button @click="showRequestAProposal('colour grading')">
+              <div class="cta">Request a Proposal</div>
+            </button>
           </div>
         </div>
+        <br />
+        <swiperColourGrading v-if="isDataLoaded"></swiperColourGrading>
+        <!-- COLOUR GRADING END-->
         <hr class="reveal" role="separator" />
 
         <!-- SWIPER START -->

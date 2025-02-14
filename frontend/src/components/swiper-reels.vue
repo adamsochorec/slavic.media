@@ -20,6 +20,7 @@ interface Reel {
 
 // Define the reels data in an array
 const reels = ref<Reel[]>([
+  { id: "DFpNgRkqkNY", flag: "cz" },
   { id: "DBN-8ImodUi", flag: "fi" },
   { id: "DBwOfdoKXXH", flag: "de" },
   { id: "DBqXwkhI8nH", flag: "no" },
@@ -131,7 +132,7 @@ onMounted(() => {
           preload="auto"
           playsinline
           role="region"
-          :src="`https://slavic.media/videos/${reel.id}.mp4`"
+          :src="`https://video.slavic.media/${reel.id}.mp4`"
         >
           <track kind="captions" srclang="en" label="English captions" />
         </video>

@@ -13,6 +13,7 @@ const getAllImages = async (type: string) => {
       throw new Error("Failed to fetch photo galleries");
     }
     const data = await response.json();
+    data.sort((a: any, b: any) => b.index - a.index);
     state.value.image = data;
   } catch (error) {
     console.error(error);
