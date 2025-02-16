@@ -54,7 +54,7 @@ onMounted(async () => {
           </button>
         </div>
       </div>
-      <hr class="semi" />
+      <br />
       <!-- GALLERY START -->
 
       <swiperServices></swiperServices>

@@ -173,7 +173,7 @@ const currentYear = new Date().getFullYear();
   text-decoration-skip-ink: auto;
 }
 .logo {
-  height: var(--grid-gap-3);
+  height: var(--grid-gap-2);
 }
 .logo path {
   fill: white;

@@ -1,22 +1,18 @@
-<script setup>
-import { ref, onMounted, watch } from "vue";
-import { ddmmmyyyy } from "@/functions/date-format.ts";
-import article from "@/modules/article";
+<script setup lang="ts">
+import { ref, onMounted, nextTick, onUnmounted, watch } from "vue";
 import { useRoute } from "vue-router";
+import Swiper from "swiper/bundle";
+import "swiper/swiper-bundle.css";
+import { useArrowNavigation } from "@/functions/arrow-navigation";
+import { useSwiperAutoplay } from "@/functions/swiper-autoplay";
+import article from "@/modules/article";
 import $ from "jquery";
 import "magnific-popup/dist/jquery.magnific-popup.min.js";
+import { ddmmmyyyy } from "@/functions/date-format"; // Ensure this is correctly imported
 
 const { getAllArticles, getSpecificArticle, state } = article();
 const isDataLoaded = ref(false);
 const route = useRoute();
-
-// SHOW MORE START
-const ARTICLES_INCREMENT = 4;
-const articlesToShow = ref(ARTICLES_INCREMENT);
-const loadMoreArticles = () => {
-  articlesToShow.value += ARTICLES_INCREMENT;
-};
-// SHOW MORE END
 
 const loadArticle = async (_id) => {
   isDataLoaded.value = false;
@@ -76,16 +72,52 @@ const loadArticle = async (_id) => {
 onMounted(async () => {
   await getAllArticles();
   await loadArticle(route.params._id);
+
+  nextTick(() => {
+    const swiper = new Swiper(".swiper-videos", {
+      loop: false,
+      speed: 600,
+      autoplay: { delay: 2000, pauseOnMouseEnter: true },
+      spaceBetween: 15,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        dynamicBullets: true,
+      },
+      preloadImages: false,
+      lazyLoading: true,
+      observer: true,
+      observeParents: true,
+      breakpoints: {
+        0: {
+          slidesPerView: 2.3,
+        },
+        550: {
+          slidesPerView: 2.5,
+        },
+        800: {
+          slidesPerView: 3.5,
+        },
+        1000: {
+          slidesPerView: 3,
+        },
+      },
+      direction: "horizontal",
+    });
+
+    const removeArrowNavigation = useArrowNavigation(swiper);
+    const removeSwiperAutoplay = useSwiperAutoplay(swiper, ".swiper-videos");
+
+    onUnmounted(() => {
+      removeArrowNavigation();
+      removeSwiperAutoplay();
+    });
+  });
 });
 
 watch(route, async (newRoute) => {
   await loadArticle(newRoute.params._id);
 });
-
-// COPY LINK
-const copyHref = (href) => {
-  navigator.clipboard.writeText(href);
-};
 </script>
 <template>
   <article class="main" style="margin-top: 120px">
@@ -126,6 +158,7 @@ const copyHref = (href) => {
                 <dt class="visually-hidden">Author</dt>
                 <dd>
                   <a
+                    style="font-size: var(--font-size-6)"
                     class="author"
                     target="_blank"
                     rel="noopener noreferrer nofollow"
@@ -207,20 +240,35 @@ const copyHref = (href) => {
           <h2 class="visually-hidden" id="video-gallery-title">
             Video Gallery
           </h2>
-          <div class="gallery" aria-labelledby="video-gallery-title">
-            <galleryItem
-              v-for="video in state.article.videos"
-              :key="video._id"
-              :flag="video.flag"
-              :img="`${video._id}`"
-              icon="video"
-              :title="video.title"
-              :opacity="video.opacity"
-              :url="`https://vimeo.com/${video.url}`"
-              :desc="`${video.desc} ⋅ ${video.year}`"
-              :alt="video.title"
-            />
-          </div>
+
+          <section
+            class="swiper swiper-videos reveal"
+            aria-labelledby="services-heading"
+            role="region"
+          >
+            <h2 id="services-heading" class="visually-hidden">Our Services</h2>
+            <div class="swiper-wrapper" aria-busy="false">
+              <div
+                v-for="video in state.article.videos"
+                :key="video._id"
+                class="swiper-slide"
+                role="group"
+                :aria-labelledby="`service-${video._id}`"
+              >
+                <galleryItem
+                  :flag="video.flag"
+                  :img="`${video._id}`"
+                  icon="video"
+                  :title="video.title"
+                  :opacity="video.opacity"
+                  :url="`https://vimeo.com/${video.url}`"
+                  :desc="`${video.desc} ⋅ ${video.year}`"
+                  :alt="video.title"
+                />
+              </div>
+            </div>
+            <div class="swiper-pagination" aria-busy="false"></div>
+          </section>
         </div>
       </div>
       <skeletonArticle
@@ -260,11 +308,8 @@ h1 {
 .article-metadata {
   margin: var(--grid-gap-2) 0;
   color: rgb(var(--white-color));
-  background: rgb(var(--dark-grey-color));
-  padding: var(--grid-gap-2);
   border-radius: var(--border-radius-1);
 }
-
 .pi-angle-right {
   font-size: var(--font-size-4);
   vertical-align: middle;
@@ -283,6 +328,19 @@ h1 {
 .gallery {
   grid-template-columns: repeat(3, 1fr);
 }
+.swiper-videos {
+  padding-bottom: calc(var(--grid-gap-2) * 2);
+}
+.swiper-videos .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 550px) {
+  .gallery-item {
+    height: 120px;
+  }
+}
 @media only screen and (max-width: 667px) {
   .gallery {
     grid-template-columns: repeat(1, 1fr);
@@ -290,13 +348,14 @@ h1 {
   .avatar {
     height: 40px;
   }
-  .article-metadata {
-    padding: var(--grid-gap-1);
-  }
 }
 @media only screen and (min-width: 400px) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .article-metadata {
+    background: rgb(var(--dark-grey-color));
+    padding: var(--grid-gap-1);
   }
 }
 </style>

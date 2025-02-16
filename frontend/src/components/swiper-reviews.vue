@@ -197,8 +197,7 @@ onMounted(async () => {
   margin: 0 !important;
 }
 .swiper-slide .grid-container {
-  display: grid;
-  grid-template-columns: 40% 60%;
+  display: flex;
   grid-gap: var(--grid-gap-1);
 }
 .grid-container .grid-item:nth-child(odd) {
