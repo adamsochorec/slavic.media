@@ -182,7 +182,7 @@
         }
       }
     },
-    "/images/": {
+    "/img/": {
       "post": {
         "description": "",
         "parameters": [
@@ -250,7 +250,7 @@
         }
       }
     },
-    "/images/{id}": {
+    "/img/{id}": {
       "get": {
         "description": "",
         "parameters": [
@@ -337,7 +337,7 @@
         }
       }
     },
-    "/images/{galleryId}/columns": {
+    "/img/{galleryId}/columns": {
       "post": {
         "description": "",
         "parameters": [
@@ -372,7 +372,7 @@
         }
       }
     },
-    "/images/{galleryId}/columns/{columnIndex}": {
+    "/img/{galleryId}/columns/{columnIndex}": {
       "put": {
         "description": "",
         "parameters": [
@@ -452,7 +452,7 @@
         }
       }
     },
-    "/images/{galleryId}/{columnIndex}": {
+    "/img/{galleryId}/{columnIndex}": {
       "post": {
         "description": "",
         "parameters": [
@@ -521,7 +521,7 @@
         }
       }
     },
-    "/images/{galleryId}/{columnIndex}/{imageId}": {
+    "/img/{galleryId}/{columnIndex}/{imageId}": {
       "get": {
         "description": "",
         "parameters": [

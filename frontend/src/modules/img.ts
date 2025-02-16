@@ -1,31 +1,24 @@
 import { ref } from "vue";
-import axios from "axios";
 
-const fetchedImages = ref<Record<string, any>>({});
+const state = ref({
+  image: [],
+});
 
-const fetchImageData = async (imageIds: string[]) => {
+const getAllImages = async (type: string) => {
   try {
-    const response = await axios.post("/api/images", { ids: imageIds });
-    response.data.forEach((img: any) => {
-      fetchedImages.value[img._id] = img;
-    });
+    const response = await fetch(`https://api.slavic.media/img?type=${type}`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch photo galleries");
+    }
+    const data = await response.json();
+    data.sort((a: any, b: any) => b.index - a.index);
+    state.value.image = data;
   } catch (error) {
-    console.error("Error fetching image data:", error);
+    console.error(error);
   }
 };
 
-const extractImageIds = (galleries: any[]) => {
-  const ids: string[] = [];
-  galleries.forEach((gallery) => {
-    gallery.columns.forEach((column: string[]) => {
-      column.forEach((id: string) => {
-        if (!ids.includes(id)) {
-          ids.push(id);
-        }
-      });
-    });
-  });
-  return ids;
+export default {
+  state,
+  getAllImages,
 };
-
-export { fetchedImages, fetchImageData, extractImageIds };
