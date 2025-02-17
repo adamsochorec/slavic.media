@@ -1,11 +1,25 @@
-<script setup>
+<script setup lang="ts">
+import { ref, watch } from "vue";
+import { useShowMore } from "@/functions/show-more";
+
 const props = defineProps({
   isDataLoaded: Boolean,
   state: Object,
   articlesToShow: Number,
   loadMoreArticles: Function,
 });
+
+const { itemsToShow, allItemsShown, loadMoreItems, showLessItems } =
+  useShowMore(4);
+
+watch(
+  () => props.articlesToShow,
+  (newVal) => {
+    itemsToShow.value = newVal;
+  }
+);
 </script>
+
 <template>
   <section
     class="wrapper-standard"
@@ -23,7 +37,7 @@ const props = defineProps({
       <hr class="quater reveal" />
       <div class="grid-container">
         <div
-          v-for="article in state.furtherReading.slice(0, articlesToShow)"
+          v-for="article in props.state.furtherReading.slice(0, itemsToShow)"
           :key="article._id"
           role="article"
           aria-labelledby="article-{{ article._id }}-title"
@@ -37,15 +51,19 @@ const props = defineProps({
     </div>
     <div class="flex-center">
       <button
-        v-if="articlesToShow < state.furtherReading.length"
-        @click="loadMoreArticles"
+        v-if="!allItemsShown"
+        @click="loadMoreItems(props.state.furtherReading.length)"
         class="cta reveal"
       >
         Show More
       </button>
+      <button v-else @click="showLessItems" class="cta reveal">
+        Show Less
+      </button>
     </div>
   </section>
 </template>
+
 <style scoped>
 a,
 a:hover {

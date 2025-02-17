@@ -53,7 +53,6 @@ router.get("/:id", (req: Request, res: Response) => {
 router.put("/:id", verifyToken, (req: Request, res: Response) => {
   const { id } = req.params;
   const updatedVideo = req.body;
-
   videoModel
     .findByIdAndUpdate(id, updatedVideo, { new: true })
     .then((data) => {

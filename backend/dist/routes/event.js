@@ -19,7 +19,7 @@ router.post("/", validation_1.verifyToken, (req, res) => {
         res.status(500).send({ message: err.message });
     });
 });
-// Read all document - GET
+// Read all documents - GET
 router.get("/", (req, res) => {
     const fields = typeof req.query.fields === "string"
         ? req.query.fields.split(",").join(" ")

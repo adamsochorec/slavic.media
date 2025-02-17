@@ -6,7 +6,6 @@ export interface photoGallery extends Document {
   index: number;
   desc: string;
   title: string;
-  type: string;
   columns: image[][];
 }
 
@@ -15,7 +14,6 @@ export const photoGallerySchema = new Schema({
   index: { type: Number, required: true },
   desc: { type: String, required: true, maxlength: 1000 },
   title: { type: String, required: true, maxlength: 200 },
-  type: { type: String, required: true },
   columns: { type: [[imageSchema]], required: true },
 });
 

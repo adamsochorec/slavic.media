@@ -17,7 +17,7 @@ router.post("/", verifyToken, (req: Request, res: Response) => {
     });
 });
 
-// Read all document - GET
+// Read all documents - GET
 router.get("/", (req: Request, res: Response) => {
   const fields =
     typeof req.query.fields === "string"

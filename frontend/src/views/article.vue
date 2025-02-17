@@ -182,10 +182,12 @@ watch(route, async (newRoute) => {
         <section aria-labelledby="article-title" class="article-content">
           <dynamicContent :htmlContent="String(state.article.content)" />
         </section>
+        <!-- VIDEO GALLERY START -->
         <swiperVideo
           v-if="state.article?.videos && state.article?.videos.length > 0"
           :videos="state.article.videos"
         ></swiperVideo>
+        <!-- VIDEO GALLERY END -->
       </div>
       <skeletonArticle
         v-else

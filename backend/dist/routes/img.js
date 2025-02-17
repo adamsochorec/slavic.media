@@ -22,10 +22,11 @@ router.post("/", validation_1.verifyToken, (req, res) => {
 });
 // Read all galleries - GET
 router.get("/", (req, res) => {
-    const { type } = req.query; // Get the type from query parameters
-    const filter = type ? { type } : {}; // Filter by type if provided
+    const fields = typeof req.query.fields === "string"
+        ? req.query.fields.split(",").join(" ")
+        : "";
     gallery_1.default
-        .find(filter)
+        .find({}, fields)
         .then((data) => {
         data.sort((a, b) => a.index - b.index);
         res.send(data);
@@ -36,8 +37,11 @@ router.get("/", (req, res) => {
 });
 // Read specific gallery by ID - GET
 router.get("/:id", (req, res) => {
+    const fields = typeof req.query.fields === "string"
+        ? req.query.fields.split(",").join(" ")
+        : "";
     gallery_1.default
-        .findById(req.params.id)
+        .findById(req.params.id, fields)
         .then((data) => {
         res.send(data);
     })

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, reactive } from "vue";
+import { useVideoControls } from "@/functions/video-controls";
 
 interface Props {
   id: number;
@@ -7,58 +7,8 @@ interface Props {
   ariaLabel: string;
 }
 const props = defineProps<Props>();
-const iframeRef = ref<HTMLIFrameElement | null>(null);
-const state = reactive({
-  isPlaying: false,
-  isMuted: true,
-});
-
-// VIDEO CONTROLS
-const muteVideo = () => {
-  sendMessageToVimeo("setVolume", 0);
-  state.isMuted = true;
-};
-const unmuteVideo = () => {
-  sendMessageToVimeo("setVolume", 1);
-  state.isMuted = false;
-};
-const playVideo = () => {
-  sendMessageToVimeo("play", 0);
-  state.isPlaying = true;
-};
-const pauseVideo = () => {
-  sendMessageToVimeo("pause", 0);
-  state.isPlaying = false;
-};
-const sendMessageToVimeo = (method: string, value: number) => {
-  if (iframeRef.value) {
-    iframeRef.value.contentWindow?.postMessage(
-      JSON.stringify({ method, value }),
-      "*"
-    );
-  }
-};
-// VIDEO OFFLOAD
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (iframeRef.value) {
-          if (entry.isIntersecting) {
-            playVideo();
-          } else {
-            pauseVideo();
-          }
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  if (iframeRef.value) {
-    observer.observe(iframeRef.value);
-  }
-});
+const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
+  useVideoControls();
 </script>
 
 <template>

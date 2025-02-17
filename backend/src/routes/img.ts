@@ -21,28 +21,34 @@ router.post("/", verifyToken, (req: Request, res: Response) => {
 
 // Read all galleries - GET
 router.get("/", (req: Request, res: Response) => {
-  const { type } = req.query; // Get the type from query parameters
-  const filter = type ? { type } : {}; // Filter by type if provided
-
+  const fields =
+    typeof req.query.fields === "string"
+      ? req.query.fields.split(",").join(" ")
+      : "";
   photoGalleryModel
-    .find(filter)
-    .then((data: any) => {
+    .find({}, fields)
+    .then((data) => {
       data.sort((a: any, b: any) => a.index - b.index);
+
       res.send(data);
     })
-    .catch((err: any) => {
+    .catch((err) => {
       res.status(500).send({ message: err.message });
     });
 });
 
 // Read specific gallery by ID - GET
 router.get("/:id", (req: Request, res: Response) => {
+  const fields =
+    typeof req.query.fields === "string"
+      ? req.query.fields.split(",").join(" ")
+      : "";
   photoGalleryModel
-    .findById(req.params.id)
-    .then((data: any) => {
+    .findById(req.params.id, fields)
+    .then((data) => {
       res.send(data);
     })
-    .catch((err: any) => {
+    .catch((err) => {
       res.status(500).send({ message: err.message });
     });
 });
@@ -51,7 +57,6 @@ router.get("/:id", (req: Request, res: Response) => {
 router.put("/:id", verifyToken, (req: Request, res: Response) => {
   const { id } = req.params;
   const updatedGallery = req.body;
-
   photoGalleryModel
     .findByIdAndUpdate(id, updatedGallery, { new: true })
     .then((data: any) => {
