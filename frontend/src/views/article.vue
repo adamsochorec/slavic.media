@@ -51,19 +51,6 @@ const loadArticle = async (_id) => {
         },
       });
     });
-    $(document).ready(function () {
-      $(".gallery").magnificPopup({
-        delegate: "a",
-        type: "iframe",
-        gallery: {
-          enabled: true,
-          fixedContentPos: false,
-          overflowY: "scroll",
-          navigateByImgClick: true,
-          preload: [0, 1],
-        },
-      });
-    });
   } else {
     console.error("magnificPopup is not loaded properly.");
   }
@@ -72,53 +59,13 @@ const loadArticle = async (_id) => {
 onMounted(async () => {
   await getAllArticles();
   await loadArticle(route.params._id);
-
-  nextTick(() => {
-    const swiper = new Swiper(".swiper-videos", {
-      loop: false,
-      speed: 600,
-      autoplay: { delay: 2000, pauseOnMouseEnter: true },
-      spaceBetween: 15,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        dynamicBullets: true,
-      },
-      preloadImages: false,
-      lazyLoading: true,
-      observer: true,
-      observeParents: true,
-      breakpoints: {
-        0: {
-          slidesPerView: 2.3,
-        },
-        550: {
-          slidesPerView: 2.5,
-        },
-        800: {
-          slidesPerView: 3.5,
-        },
-        1000: {
-          slidesPerView: 3,
-        },
-      },
-      direction: "horizontal",
-    });
-
-    const removeArrowNavigation = useArrowNavigation(swiper);
-    const removeSwiperAutoplay = useSwiperAutoplay(swiper, ".swiper-videos");
-
-    onUnmounted(() => {
-      removeArrowNavigation();
-      removeSwiperAutoplay();
-    });
-  });
 });
 
 watch(route, async (newRoute) => {
   await loadArticle(newRoute.params._id);
 });
 </script>
+
 <template>
   <article class="main" style="margin-top: 120px">
     <section
@@ -235,41 +182,10 @@ watch(route, async (newRoute) => {
         <section aria-labelledby="article-title" class="article-content">
           <dynamicContent :htmlContent="String(state.article.content)" />
         </section>
-        <div v-if="state.article?.videos && state.article?.videos.length > 0">
-          <hr class="reveal" />
-          <h2 class="visually-hidden" id="video-gallery-title">
-            Video Gallery
-          </h2>
-
-          <section
-            class="swiper swiper-videos reveal"
-            aria-labelledby="services-heading"
-            role="region"
-          >
-            <h2 id="services-heading" class="visually-hidden">Our Services</h2>
-            <div class="swiper-wrapper" aria-busy="false">
-              <div
-                v-for="video in state.article.videos"
-                :key="video._id"
-                class="swiper-slide"
-                role="group"
-                :aria-labelledby="`service-${video._id}`"
-              >
-                <galleryItem
-                  :flag="video.flag"
-                  :img="`${video._id}`"
-                  icon="video"
-                  :title="video.title"
-                  :opacity="video.opacity"
-                  :url="`https://vimeo.com/${video.url}`"
-                  :desc="`${video.desc} ⋅ ${video.year}`"
-                  :alt="video.title"
-                />
-              </div>
-            </div>
-            <div class="swiper-pagination" aria-busy="false"></div>
-          </section>
-        </div>
+        <swiperVideo
+          v-if="state.article?.videos && state.article?.videos.length > 0"
+          :videos="state.article.videos"
+        ></swiperVideo>
       </div>
       <skeletonArticle
         v-else

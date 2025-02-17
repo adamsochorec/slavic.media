@@ -16,9 +16,9 @@ onMounted(() => {
     observeParents: true,
     breakpoints: {
       0: { slidesPerView: 4 },
-      375: { slidesPerView: 4 },
-      620: { slidesPerView: 6 },
-      947: { slidesPerView: 7.2 },
+      375: { slidesPerView: 4.1 },
+      620: { slidesPerView: 6.1 },
+      947: { slidesPerView: 7.1 },
     },
     direction: "horizontal",
   });

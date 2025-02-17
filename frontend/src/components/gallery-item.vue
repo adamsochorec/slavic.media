@@ -46,10 +46,11 @@ const props = defineProps<{
 .gallery-item {
   position: relative;
   max-width: calc(100vw - var(--homepage-padding) * 2);
-  height: var(--dimension-2);
   border-radius: var(--border-radius-1);
   background: #000;
   cursor: pointer;
+  aspect-ratio: 2/1;
+  width: 100%;
   overflow: hidden;
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);

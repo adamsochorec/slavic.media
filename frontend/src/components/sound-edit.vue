@@ -105,6 +105,6 @@ iframe {
   border: none;
 }
 .controls {
-  bottom: var(--grid-gap-1);
+  bottom: var(--grid-gap-2);
 }
 </style>

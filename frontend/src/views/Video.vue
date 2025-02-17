@@ -142,8 +142,7 @@ router.beforeEach((to, from, next) => {
         <!-- COLOUR GRADING END-->
         <div id="content"></div>
         <hr class="reveal" role="separator" />
-
-        <!-- SWIPER START -->
+        <!-- CONTENT START -->
         <div class="grid-container caption-container">
           <div class="grid-item reveal">
             <h2 class="reveal" aria-label="Engaging Content">
@@ -165,10 +164,10 @@ router.beforeEach((to, from, next) => {
         <br />
         <swiperReels></swiperReels>
       </div>
-      <!-- SWIPER END -->
+      <!-- CONTENT END -->
       <div id="sound-edit"></div>
-
       <hr class="reveal" role="separator" />
+      <!-- SOUND EDIT START -->
       <div class="grid-container caption-container" v-if="isDataLoaded">
         <div class="grid-item">
           <h2 class="reveal" aria-label="Video Services">
@@ -182,7 +181,7 @@ router.beforeEach((to, from, next) => {
             <div class="cta">Request a Proposal</div>
           </button>
         </div>
-        <div class="grid-item">
+        <div class="grid-item reveal">
           <ul>
             <li>
               Production sound (the dialogue and ambient noises captured during
@@ -196,7 +195,9 @@ router.beforeEach((to, from, next) => {
         </div>
       </div>
       <br />
-      <soundEdit v-if="isDataLoaded"></soundEdit>
+      <soundEdit class="reveal" v-if="isDataLoaded"></soundEdit>
+      <!-- SOUND EDIT END -->
+
       <!-- SKELETON START -->
       <div v-else aria-busy="true" aria-live="polite">
         <skeletonServices></skeletonServices>
@@ -209,7 +210,6 @@ router.beforeEach((to, from, next) => {
     </section>
     <!-- LIGHTROOM PRESETS CTA END -->
     <hr class="semi" />
-
     <!-- FURTHER SERVICES START -->
     <div id="services" v-if="isDataLoaded" class="wrapper-wide">
       <h3>More of Our <span class="gradient">Services</span></h3>
@@ -224,11 +224,8 @@ router.beforeEach((to, from, next) => {
 h1 {
   text-transform: capitalize;
 }
-#video-gallery .gallery-item {
-  height: 9/16 !important;
-}
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 400px) {
   .gallery-item {
     height: 120px;
   }

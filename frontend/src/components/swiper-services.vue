@@ -72,7 +72,7 @@ onMounted(async () => {
           :img="service._id"
           :opacity="0.5"
           :url="`/services/${service._id}`"
-          :title="service._id"
+          :title="`${service._id}`"
           :alt="`${service._id} services cover`"
           :desc="service.desc"
           :icon="service.icon"
@@ -90,9 +90,9 @@ onMounted(async () => {
   padding-bottom: calc(var(--grid-gap-2) * 2);
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 400px) {
   .gallery-item {
-    height: 120px;
+    aspect-ratio: 1/1;
   }
 }
 </style>

@@ -109,9 +109,8 @@ onMounted(() => {
 <style scoped>
 .link {
   position: absolute;
-  left: var(--grid-gap-1);
+  left: var(--grid-gap-2);
 }
-
 .showcase {
   height: var(--dimension-1);
   display: -webkit-box;
@@ -155,7 +154,7 @@ onMounted(() => {
   }
   .controls,
   .link {
-    bottom: 5px;
+    bottom: var(--grid-gap-2);
   }
 }
 @media only screen and (min-width: 415px) {

@@ -49,6 +49,9 @@ const props = defineProps<{
 .card {
   display: grid;
 }
+.gallery-item {
+  aspect-ratio: 16/10;
+}
 .title[data-v-97e7de96] {
   display: none;
 }

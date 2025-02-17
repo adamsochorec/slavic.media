@@ -421,6 +421,7 @@ small a {
   -webkit-box-flex: 50%;
   flex: 50%;
   max-width: 50%;
+  margin-top: calc(-1 * (var(--grid-gap-1)));
 }
 .column img {
   margin-top: var(--grid-gap-1);
@@ -536,25 +537,23 @@ lite-vimeo:hover > .ltv-playbtn {
 /* GALLERY END */
 
 /* VIDEO CONTROLS START */
-
-/* VIDEO CONTROLS END */
 .controls {
-  right: var(--grid-gap-1);
+  right: var(--grid-gap-2);
   gap: var(--grid-gap-1);
   display: flex;
   position: absolute;
 }
 .controls .volume {
   border-radius: var(--border-radius-2);
-  font-size: 9px;
-  border: 1.5px solid white;
-  padding: 3px;
   cursor: pointer;
 }
 .controls button {
   backdrop-filter: var(--blur-1);
   border-radius: var(--border-radius-2);
 }
+
+/* VIDEO CONTROLS END */
+
 /* PHOTO SWIPE START*/
 .pswp {
   -webkit-backdrop-filter: var(--blur-1);
@@ -1122,7 +1121,7 @@ i.pi-arrow-right:hover {
     display: block;
   }
   .caption-container p {
-    margin: var(--grid-gap-1) 0;
+    margin-top: var(--grid-gap-1) 0;
   }
 }
 @media only screen and (min-width: 538px) {

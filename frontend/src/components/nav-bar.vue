@@ -12,71 +12,34 @@ const menuItems = ref([
   {
     title: "Video",
     icon: "pi pi-video",
-    link: "/services/video",
-    dropdownId: "video",
-    subMenu: [
-      {
-        title: "Colour Grading",
-        link: "/services/video#colour-grading",
-        icon: "pi pi-palette",
-      },
-      {
-        title: "Content",
-        link: "/services/video#content",
-        icon: "pi pi-tiktok",
-      },
-      {
-        title: "Sound Edit",
-        link: "/services/video#sound-edit",
-        icon: "pi pi-headphones",
-      },
-    ],
+    path: "/services/video",
   },
   {
     title: "Photo",
     icon: "pi pi-camera",
-    link: "/services/photo",
-    dropdownId: "photo",
-    subMenu: [
-      {
-        title: "Portrait",
-        link: "/services/photo#portrait",
-        icon: "pi pi-camera",
-      },
-      { title: "Still", link: "/services/photo#still", icon: "pi pi-video" },
-      {
-        title: "Landscape",
-        link: "/services/video#landscape",
-        icon: "pi pi-palette",
-      },
-      {
-        title: "Outdoor",
-        link: "/services/photo#outdoor",
-        icon: "pi pi-tiktok",
-      },
-    ],
+    path: "/services/photo",
   },
   {
     title: "Store",
     icon: "pi pi-shopping-bag",
-    link: "https://store.slavic.media",
+    path: "https://store.slavic.media",
     external: true,
   },
   {
     title: "For clients",
     icon: "pi pi-cloud-download",
-    link: "https://clients.slavic.media",
+    path: "https://clients.slavic.media",
     external: true,
   },
   {
     title: "Blog",
     icon: "pi pi-file-edit",
-    link: "/blog",
+    path: "/blog",
   },
   {
     title: "About",
     icon: "pi pi-users",
-    link: "/about",
+    path: "/about",
   },
 ]);
 
@@ -132,8 +95,8 @@ function header() {
   });
 
   const menuLeftLinks = document.querySelectorAll(".menu-left a");
-  menuLeftLinks.forEach((link) => {
-    link.addEventListener("click", collapseMenu);
+  menuLeftLinks.forEach((path) => {
+    path.addEventListener("click", collapseMenu);
   });
 
   let ticking = false;
@@ -200,7 +163,7 @@ function header() {
           <li v-for="item in menuItems" :key="item.title" role="none">
             <router-link
               v-if="!item.external"
-              :to="item.link"
+              :to="item.path"
               class="menuitem"
               @mouseenter="(event) => toggleDropdown(event, item.dropdownId)"
               role="menuitem"
@@ -218,7 +181,7 @@ function header() {
                 style="font-size: 10px"
               ></span>
             </router-link>
-            <a v-else :href="item.link" target="_blank" role="menuitem">
+            <a v-else :href="item.path" target="_blank" role="menuitem">
               <span :class="item.icon"></span>{{ item.title }}
             </a>
             <ul
@@ -233,7 +196,7 @@ function header() {
                 :key="subItem.title"
                 role="none"
               >
-                <router-link :to="subItem.link" role="menuitem">
+                <router-link :to="subItem.path" role="menuitem">
                   <span :class="subItem.icon"></span>{{ subItem.title }}
                 </router-link>
               </li>
