@@ -535,6 +535,26 @@ lite-vimeo:hover > .ltv-playbtn {
 
 /* GALLERY END */
 
+/* VIDEO CONTROLS START */
+
+/* VIDEO CONTROLS END */
+.controls {
+  right: var(--grid-gap-1);
+  gap: var(--grid-gap-1);
+  display: flex;
+  position: absolute;
+}
+.controls .volume {
+  border-radius: var(--border-radius-2);
+  font-size: 9px;
+  border: 1.5px solid white;
+  padding: 3px;
+  cursor: pointer;
+}
+.controls button {
+  backdrop-filter: var(--blur-1);
+  border-radius: var(--border-radius-2);
+}
 /* PHOTO SWIPE START*/
 .pswp {
   -webkit-backdrop-filter: var(--blur-1);

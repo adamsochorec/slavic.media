@@ -16,7 +16,7 @@ const router = useRouter();
 // SHOW MORE START
 videoState.videos = videoState.videos || [];
 const { itemsToShow, allItemsShown, loadMoreItems, showLessItems } =
-  useShowMore(6);
+  useShowMore(4);
 // SHOW MORE END
 
 // REQUEST A PROPOSAL ID
@@ -114,6 +114,7 @@ router.beforeEach((to, from, next) => {
             Show Less
           </button>
         </div>
+        <div id="colour-grading"></div>
         <hr class="reveal" role="separator" />
 
         <!-- COLOUR GRADING START-->
@@ -139,6 +140,7 @@ router.beforeEach((to, from, next) => {
         <br />
         <swiperColourGrading v-if="isDataLoaded"></swiperColourGrading>
         <!-- COLOUR GRADING END-->
+        <div id="content"></div>
         <hr class="reveal" role="separator" />
 
         <!-- SWIPER START -->
@@ -164,7 +166,37 @@ router.beforeEach((to, from, next) => {
         <swiperReels></swiperReels>
       </div>
       <!-- SWIPER END -->
+      <div id="sound-edit"></div>
 
+      <hr class="reveal" role="separator" />
+      <div class="grid-container caption-container" v-if="isDataLoaded">
+        <div class="grid-item">
+          <h2 class="reveal" aria-label="Video Services">
+            Sound<span class="gradient"> Edit</span>
+          </h2>
+          <requestAProposal />
+          <button
+            style="margin-bottom: var(--grid-gap-2) !important"
+            @click="showRequestAProposal('sound design')"
+          >
+            <div class="cta">Request a Proposal</div>
+          </button>
+        </div>
+        <div class="grid-item">
+          <ul>
+            <li>
+              Production sound (the dialogue and ambient noises captured during
+              shooting)
+            </li>
+            <li>Foley (reproduced sounds)</li>
+            <li>Walla (crowd noises)</li>
+            <li>SFX (sound effects)</li>
+            <li>Music</li>
+          </ul>
+        </div>
+      </div>
+      <br />
+      <soundEdit v-if="isDataLoaded"></soundEdit>
       <!-- SKELETON START -->
       <div v-else aria-busy="true" aria-live="polite">
         <skeletonServices></skeletonServices>

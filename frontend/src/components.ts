@@ -109,4 +109,12 @@ export function registerGlobalComponents(app: App) {
     "SwiperServices",
     defineAsyncComponent(() => import("@/components/swiper-services.vue"))
   );
+  app.component(
+    "SwiperVideo",
+    defineAsyncComponent(() => import("@/components/swiper-video.vue"))
+  );
+  app.component(
+    "SoundEdit",
+    defineAsyncComponent(() => import("@/components/sound-edit.vue"))
+  );
 }

@@ -1,16 +1,94 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
 const router = useRouter();
 const route = useRoute();
 
-const showDropdown = ref(false);
+const dropdowns = reactive<{ [key: string]: boolean }>({});
 const isMobile = ref(window.innerWidth < 850);
 
-const toggleDropdown = (event: Event) => {
+const menuItems = ref([
+  {
+    title: "Video",
+    icon: "pi pi-video",
+    link: "/services/video",
+    dropdownId: "video",
+    subMenu: [
+      {
+        title: "Colour Grading",
+        link: "/services/video#colour-grading",
+        icon: "pi pi-palette",
+      },
+      {
+        title: "Content",
+        link: "/services/video#content",
+        icon: "pi pi-tiktok",
+      },
+      {
+        title: "Sound Edit",
+        link: "/services/video#sound-edit",
+        icon: "pi pi-headphones",
+      },
+    ],
+  },
+  {
+    title: "Photo",
+    icon: "pi pi-camera",
+    link: "/services/photo",
+    dropdownId: "photo",
+    subMenu: [
+      {
+        title: "Portrait",
+        link: "/services/photo#portrait",
+        icon: "pi pi-camera",
+      },
+      { title: "Still", link: "/services/photo#still", icon: "pi pi-video" },
+      {
+        title: "Landscape",
+        link: "/services/video#landscape",
+        icon: "pi pi-palette",
+      },
+      {
+        title: "Outdoor",
+        link: "/services/photo#outdoor",
+        icon: "pi pi-tiktok",
+      },
+    ],
+  },
+  {
+    title: "Store",
+    icon: "pi pi-shopping-bag",
+    link: "https://store.slavic.media",
+    external: true,
+  },
+  {
+    title: "For clients",
+    icon: "pi pi-cloud-download",
+    link: "https://clients.slavic.media",
+    external: true,
+  },
+  {
+    title: "Blog",
+    icon: "pi pi-file-edit",
+    link: "/blog",
+  },
+  {
+    title: "About",
+    icon: "pi pi-users",
+    link: "/about",
+  },
+]);
+
+const toggleDropdown = (event: Event, dropdownId: string) => {
   event.stopPropagation();
-  showDropdown.value = !showDropdown.value;
+  dropdowns[dropdownId] = !dropdowns[dropdownId];
+  // Close other dropdowns
+  Object.keys(dropdowns).forEach((key) => {
+    if (key !== dropdownId) {
+      dropdowns[key] = false;
+    }
+  });
 };
 
 const collapseMenu = () => {
@@ -18,7 +96,9 @@ const collapseMenu = () => {
   const menuLeft = document.querySelector(".menu-left") as HTMLElement;
   hamburger.classList.remove("open");
   menuLeft.classList.remove("collapse");
-  showDropdown.value = false;
+  Object.keys(dropdowns).forEach((key) => {
+    dropdowns[key] = false;
+  });
 };
 
 const props = defineProps<{ pageTitle: string }>();
@@ -117,71 +197,47 @@ function header() {
           <span></span>
         </button>
         <ul class="menu-left" role="menubar">
-          <li role="none">
-            <span
+          <li v-for="item in menuItems" :key="item.title" role="none">
+            <router-link
+              v-if="!item.external"
+              :to="item.link"
               class="menuitem"
-              @click="toggleDropdown"
+              @mouseenter="(event) => toggleDropdown(event, item.dropdownId)"
               role="menuitem"
               aria-haspopup="true"
-              :aria-expanded="showDropdown"
-              aria-controls="services-dropdown"
+              :aria-expanded="dropdowns[item.dropdownId]"
+              :aria-controls="`${item.dropdownId}-dropdown`"
             >
-              <span class="pi pi-sitemap"></span>Services&nbsp;&nbsp;
+              <span :class="item.icon"></span>{{ item.title }}&nbsp;&nbsp;
               <span
-                :class="{ 'pi pi-angle-down': true, rotated: showDropdown }"
+                v-if="item.subMenu"
+                :class="{
+                  'pi pi-angle-down': true,
+                  rotated: dropdowns[item.dropdownId],
+                }"
                 style="font-size: 10px"
               ></span>
-            </span>
+            </router-link>
+            <a v-else :href="item.link" target="_blank" role="menuitem">
+              <span :class="item.icon"></span>{{ item.title }}
+            </a>
             <ul
-              id="services-dropdown"
+              v-if="item.subMenu"
+              :id="`${item.dropdownId}-dropdown`"
               class="dropdown"
-              :class="{ show: showDropdown }"
+              :class="{ show: dropdowns[item.dropdownId] }"
               role="menu"
             >
-              <li role="none">
-                <router-link to="/services/photo" role="menuitem">
-                  <span class="pi pi-camera"></span>Photo
-                </router-link>
-              </li>
-              <li role="none">
-                <router-link to="/services/video" role="menuitem">
-                  <span class="pi pi-video"></span>Video
-                </router-link>
-              </li>
-              <li role="none">
-                <router-link to="/services/post-production" role="menuitem">
-                  <span class="pi pi-image"></span>Post Production
+              <li
+                v-for="subItem in item.subMenu"
+                :key="subItem.title"
+                role="none"
+              >
+                <router-link :to="subItem.link" role="menuitem">
+                  <span :class="subItem.icon"></span>{{ subItem.title }}
                 </router-link>
               </li>
             </ul>
-          </li>
-          <li role="none">
-            <a
-              target="_blank"
-              href="https://store.slavic.media"
-              role="menuitem"
-            >
-              <span class="pi pi-shopping-bag"></span>Store
-            </a>
-          </li>
-          <li role="none">
-            <a
-              target="_blank"
-              href="https://clients.slavic.media"
-              role="menuitem"
-            >
-              <span class="pi pi-cloud-download"></span>For clients
-            </a>
-          </li>
-          <li role="none">
-            <router-link to="/blog" role="menuitem">
-              <span class="pi pi-file-edit"></span>Blog
-            </router-link>
-          </li>
-          <li role="none">
-            <router-link to="/about" role="menuitem">
-              <span class="pi pi-users"></span>About
-            </router-link>
           </li>
         </ul>
       </nav>

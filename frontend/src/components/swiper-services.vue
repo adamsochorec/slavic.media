@@ -30,16 +30,13 @@ onMounted(async () => {
       observeParents: true,
       breakpoints: {
         0: {
-          slidesPerView: 2.3,
+          slidesPerView: 2,
         },
         550: {
-          slidesPerView: 2.5,
-        },
-        800: {
-          slidesPerView: 3.5,
+          slidesPerView: 2,
         },
         1000: {
-          slidesPerView: 3,
+          slidesPerView: 2,
         },
       },
       direction: "horizontal",
@@ -91,11 +88,6 @@ onMounted(async () => {
 <style scoped>
 .swiper-services {
   padding-bottom: calc(var(--grid-gap-2) * 2);
-}
-.swiper-services .swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 @media only screen and (max-width: 550px) {

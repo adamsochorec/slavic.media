@@ -178,7 +178,7 @@ const currentYear = new Date().getFullYear();
 .logo path {
   fill: white;
 }
-.logo path:hover {
+.logo:hover path {
   fill: rgb(var(--primary-color));
 }
 .logo,
