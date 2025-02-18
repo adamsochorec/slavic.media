@@ -52,6 +52,8 @@ const loadAfterConsentScripts = () => {
   gtag("consent", "default", {
     ad_storage: "denied",
     analytics_storage: "denied",
+    ad_personalization: "denied",
+    ad_user_data: "denied",
   });
   gtag("js", new Date());
   gtag("config", "G-KGTECW9SN8");
@@ -62,6 +64,8 @@ const updateConsentStatus = (adStorage, analyticsStorage) => {
   gtag("consent", "update", {
     ad_storage: adStorage,
     analytics_storage: analyticsStorage,
+    ad_personalization: adPersonalization,
+    ad_user_data: adUserData,
   });
 };
 
