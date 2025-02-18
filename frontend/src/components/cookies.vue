@@ -44,13 +44,25 @@ const loadAfterConsentScripts = () => {
   const scripts = ["https://www.googletagmanager.com/gtag/js?id=G-KGTECW9SN8"];
   loadScripts(scripts);
 
-  // Initialize Google Analytics
+  // Initialize Google Analytics with Consent Mode
   window.dataLayer = window.dataLayer || [];
   function gtag() {
     window.dataLayer.push(arguments);
   }
+  gtag("consent", "default", {
+    ad_storage: "denied",
+    analytics_storage: "denied",
+  });
   gtag("js", new Date());
   gtag("config", "G-KGTECW9SN8");
+};
+
+// Function to update consent status
+const updateConsentStatus = (adStorage, analyticsStorage) => {
+  gtag("consent", "update", {
+    ad_storage: adStorage,
+    analytics_storage: analyticsStorage,
+  });
 };
 
 // Function to load the Chatway script
@@ -70,6 +82,8 @@ const acceptCookies = () => {
   );
   consentGiven.value = true;
   showConsent.value = false;
+  // Update consent status to granted
+  updateConsentStatus("granted", "granted");
   // Load scripts that require consent
   loadAfterConsentScripts();
   // Load Chatway script
@@ -84,6 +98,8 @@ const rejectCookies = () => {
   );
   consentRejected.value = true;
   showConsent.value = false;
+  // Update consent status to denied
+  updateConsentStatus("denied", "denied");
   // Load Chatway script even if consent is rejected
   loadChatwayScript();
   // Reload the page to propagate the cookie removal
