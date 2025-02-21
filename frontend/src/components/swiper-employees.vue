@@ -65,7 +65,10 @@ onMounted(async () => {
       gallery: "#employeeGallery",
       children: "a.employee-img-link",
       secondaryZoomLevel: 1.5,
+      errorMsg: "The photo cannot be loaded",
+      preload: [1, 2],
       pswpModule: () => import("photoswipe"),
+      wheelToZoom: true,
       loop: false,
     });
 

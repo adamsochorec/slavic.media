@@ -2,6 +2,7 @@
 import { ref, onMounted, computed, onUnmounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
+
 import { useArrowNavigation } from "@/functions/arrow-navigation";
 import { useSwiperAutoplay } from "@/functions/swiper-autoplay";
 
@@ -154,7 +155,8 @@ onMounted(() => {
       delay: 3000,
       pauseOnMouseEnter: true,
     },
-    preloadImages: false,
+    lazyPreloadPrevNext: 1,
+    lazy: true,
     lazyLoading: true,
     observer: true,
     observeParents: true,
@@ -262,8 +264,8 @@ onMounted(() => {
 .pi-instagram,
 .pi-tiktok {
   position: absolute;
-  top: var(--grid-gap-2);
-  left: var(--grid-gap-2);
+  top: var(--grid-gap-1);
+  left: var(--grid-gap-1);
   z-index: 8;
 }
 .visually-hidden {

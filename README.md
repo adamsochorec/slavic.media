@@ -8,31 +8,37 @@ Slavic Media is headquartered in Kolding, Denmark, with remote team members dist
 We’re always on the lookout to add kind, thoughtful, and exceptionally talented individuals to our team. Drop us a line if you're motivated by the intersection of individual freelance professionals - [contact@slavic.media](mailto:contact@slavic.media).
 
 ## Deployment
- Name                                                                                                               | Version                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| Frontend                                   | [slavic.media](https://slavic.media)                                                 |
-| API                                 | [api.slavic.media](https://api.slavic.media/docs)                                |
-| CDN                               | [cdn.slavic.media](https://cdn.slavic.media/images/thumbnail/public)                               |
-| Video                             | [vimeo.com/slavicmedia](https://vimeo.com/slavicmedia)                            |
+
+| Feature  | URL                                                                  |
+| -------- | -------------------------------------------------------------------- |
+| Frontend | [slavic.media](https://slavic.media)                                 |
+| API      | [api.slavic.media](https://api.slavic.media/docs)                    |
+| CDN      | [cdn.slavic.media](https://cdn.slavic.media/images/thumbnail/public) |
+| Video    | [vimeo.com/slavicmedia](https://vimeo.com/slavicmedia)               |
 
 ## Documentation
+
 To check out docs, visit [api.slavic.media/docs](https://api.slavic.media/docs/).
 
 ## Run commands
+
 **Frontend**
+
 ```bash
 $ cd frontend
 $ npm install
 $ npm run dev # serve examples at localhost:5173
 ```
+
 **Backend API**
+
 ```bash
 $ cd backend
 $ npm install
 $ npm run dev
 ```
+
 ```bash
 $ cd backend
 $ npm run dev # serve examples at localhost:4000
 ```
-

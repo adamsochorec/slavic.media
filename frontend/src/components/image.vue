@@ -22,7 +22,6 @@ const updateDimensions = (event) => {
     :title="props.title"
     :data-pswp-width="props.originalWidth"
     :data-pswp-height="props.originalHeight"
-    class="reveal"
   >
     <img
       class="reveal"
@@ -38,5 +37,12 @@ const updateDimensions = (event) => {
 <style scoped>
 .note {
   left: var(--grid-gap-1) !important;
+}
+
+img,
+a {
+  cursor: pointer;
+  cursor: pointer;
+  cursor: pointer;
 }
 </style>

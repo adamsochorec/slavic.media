@@ -25,6 +25,7 @@ async function initializeLightbox(): Promise<void> {
     errorMsg: "The photo cannot be loaded",
     secondaryZoomLevel: 1.5,
     pswpModule: () => import("photoswipe"),
+    wheelToZoom: true,
     preload: [1, 4],
     loop: false,
   });
