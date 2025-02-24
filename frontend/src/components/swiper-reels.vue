@@ -140,7 +140,7 @@ const reels = ref<Reel[]>([
   },
 ]);
 
-// Initialize Swiper for the reels section
+// Initialize Swiper
 onMounted(() => {
   const swiper = new Swiper(".swiper-reels", {
     loop: true,
@@ -160,7 +160,6 @@ onMounted(() => {
     lazyLoading: true,
     observer: true,
     observeParents: true,
-
     direction: "horizontal",
     breakpoints: {
       0: {
