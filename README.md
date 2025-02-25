@@ -20,25 +20,24 @@ We’re always on the lookout to add kind, thoughtful, and exceptionally talente
 
 To check out docs, visit [api.slavic.media/docs](https://api.slavic.media/docs/).
 
-## Run commands
-
-**Frontend**
-
-```bash
-$ cd frontend
-$ npm install
-$ npm run dev # serve examples at localhost:5173
+## Frontend Setup
+```sh
+cd frontend
+npm install ## Install Node
+npm run dev ## Compile and Hot-Reload for Development
+npm run build ## Type-Check, Compile and Minify for Production
 ```
 
-**Backend API**
-
-```bash
-$ cd backend
-$ npm install
-$ npm run dev
+## Backend Setup
+```sh
+cd backend
+npm install ## Install Node
+npm run dev ## Compile and Hot-Reload for Development
 ```
 
-```bash
-$ cd backend
-$ npm run dev # serve examples at localhost:4000
+## API Setup
+```sh
+cd backend
+npm run start-dev ## Compile and Hot-Reload for Development
 ```
+
