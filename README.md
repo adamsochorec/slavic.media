@@ -1,11 +1,20 @@
 # Slavic Media
-
-Creative & Production studio based in Denmark and Czechia. We tell stories with deep eye contact, magnificent shots and clean designs to help your project stand out from the noise.
-
 ![Cover 1](https://github.com/user-attachments/assets/6155e6c6-2793-4161-af29-bc6317d47e4b)
 
-Slavic Media is headquartered in Kolding, Denmark, with remote team members distributed across the kingdom and Czechia. We are bootstrapped (self-funded) and profitable.
-We’re always on the lookout to add kind, thoughtful, and exceptionally talented individuals to our team. Drop us a line if you're motivated by the intersection of individual freelance professionals - [contact@slavic.media](mailto:contact@slavic.media).
+## Who?
+Developed by [Adam Sochorec](https://www.linkedin.com/in/adamsochorec) with consultation from teachers at [EASV](https://www.easv.dk) as part of a Bachelor's project in Fall 2024.
+
+## Why?
+The previous PHP-based static website was outdated in terms of performance and scalability. It lacked integration with industry-standard tools and frameworks for deployment and testing.
+
+## When?
+Developed between September and December 2024.
+
+## What?
+A landing page for a creative multimedia studio, showcasing projects, industry-related knowledge, tips, and case studies. It also serves as a repository for client projects, mounted on platforms like [`clients.slavic.media`](https://clients.slavic.media) and [`store.slavic.media`](https://store.slavic.media) for digital product sales. Additionally, it functions as a lead-generation tool, establishing credibility and connecting with potential customers.
+
+## How?
+Built using modern, lightweight frameworks within and beyond the MEVN stack: MongoDB, Express.js, Vue.js, and Node.js, all written in TypeScript. The site includes [Tailwind CSS](https://tailwindcss.com) and [PrimeVue](https://www.primevue.org) components, supplemented by a custom component library aligned with the company brand identity. Some pages are dynamically rendered from a database, while others remain static. Images and videos are served via [Vimeo](https://vimeo.com) and [Cloudflare](https://www.cloudflare.com) CDNs. API documentation is auto-generated with [Swagger.io](https://swagger.io).
 
 ## Deployment
 
