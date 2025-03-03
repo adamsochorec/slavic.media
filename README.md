@@ -1,14 +1,3 @@
-# Slavic Media
-
-![Cover 1](https://github.com/user-attachments/assets/6155e6c6-2793-4161-af29-bc6317d47e4b)
-
-| Feature  | URL                                                                  |
-| -------- | -------------------------------------------------------------------- |
-| Frontend | [slavic.media](https://slavic.media)                                 |
-| API      | [api.slavic.media](https://api.slavic.media/docs)                    |
-| CDN      | [cdn.slavic.media](https://cdn.slavic.media/images/thumbnail/public) |
-| Video    | [vimeo.com/slavicmedia](https://vimeo.com/slavicmedia)               |
-
 ## Who?
 Developed by [Adam Sochorec](https://www.linkedin.com/in/adamsochorec) with consultation from teachers at [EASV](https://www.easv.dk) as part of a Bachelor's project in Fall 2024.
 
@@ -23,6 +12,18 @@ A landing page for a creative multimedia studio, showcasing projects, industry-r
 
 ## How?
 Built using modern, lightweight frameworks within and beyond the MEVN stack: MongoDB, Express.js, Vue.js, and Node.js, all written in TypeScript. The site includes [Tailwind CSS](https://tailwindcss.com) and [PrimeVue](https://www.primevue.org) components, supplemented by a custom component library aligned with the company brand identity. Some pages are dynamically rendered from a database, while others remain static. Images and videos are served via [Vimeo](https://vimeo.com) and [Cloudflare](https://www.cloudflare.com) CDNs. API documentation is auto-generated with [Swagger.io](https://swagger.io).
+
+# Slavic Media
+
+![Cover 1](https://github.com/user-attachments/assets/6155e6c6-2793-4161-af29-bc6317d47e4b)
+
+| Feature  | URL                                                                  |
+| -------- | -------------------------------------------------------------------- |
+| Frontend | [slavic.media](https://slavic.media)                                 |
+| API      | [api.slavic.media](https://api.slavic.media/docs)                    |
+| CDN      | [cdn.slavic.media](https://cdn.slavic.media/images/thumbnail/public) |
+| Video    | [vimeo.com/slavicmedia](https://vimeo.com/slavicmedia)               |
+
 
 ## Documentation
 
