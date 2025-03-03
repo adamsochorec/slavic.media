@@ -25,7 +25,7 @@ const router = createRouter({
     },
     {
       path: "/blog/:_id",
-      name: "article",
+      name: "AArticle",
       component: () => import("@/views/article.vue"),
       meta: {
         requiresAuth: false,
