@@ -234,7 +234,7 @@ onMounted(() => {
           preload="auto"
           playsinline
           role="region"
-          :src="`https://video.slavic.media/${reel.id}.mp4`"
+          :src="`https://assets.slavic.media/video/${reel.id}.mp4`"
         >
           <track kind="captions" srclang="en" label="English captions" />
         </video>

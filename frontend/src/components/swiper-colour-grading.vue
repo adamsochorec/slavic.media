@@ -68,14 +68,14 @@ onMounted(() => {
             <span class="note edited">Colour Graded</span>
 
             <img
-              :src="`https://cdn.slavic.media/images/${slide._id}/fit=contain,width=1280,sharpen=100`"
+              :src="`https://cdn.slavic.media/images/${slide._id}/fit=contain,width=1280`"
               :alt="`S-Log still ${slide._id}`"
               :title="`S-Log still ${slide._id}`"
             />
           </template>
           <template #right>
             <img
-              :src="`https://cdn.slavic.media/images/${slide._id}-2/fit=contain,width=1280,sharpen=100`"
+              :src="`https://cdn.slavic.media/images/${slide._id}-2/fit=contain,width=1280`"
               :alt="`Colour Graded still ${slide._id}`"
               :title="`Colour Graded still ${slide._id}`"
             />

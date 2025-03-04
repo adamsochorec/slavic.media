@@ -1,14 +1,15 @@
 import "./assets/style.css";
 import { createApp } from "vue";
-import PrimeVue from "primevue/config";
-import PrimeVueTheme from "@primevue/themes/material";
-import { definePreset } from "@primevue/themes";
-import "primeicons/primeicons.css";
 import App from "./App.vue";
 import router from "./router";
 import VueLazyload from "vue-lazyload";
 import CountryFlag from "vue-country-flag-next";
 import { registerGlobalComponents } from "./components";
+// PrimeVue
+import PrimeVue from "primevue/config";
+import PrimeVueTheme from "@primevue/themes/material";
+import { definePreset } from "@primevue/themes";
+import "primeicons/primeicons.css";
 
 const app = createApp(App);
 

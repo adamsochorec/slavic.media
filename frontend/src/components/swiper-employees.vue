@@ -134,14 +134,14 @@ const gridGap3 = getComputedStyle(document.documentElement).getPropertyValue(
           <div class="reveal">
             <country-flag :country="employee.flag" class="note" size="small" />
             <a
-              :href="`https://cdn.slavic.media/images/${employee._id}/width=1500,sharpen=100`"
+              :href="`https://cdn.slavic.media/images/${employee._id}/width=1500`"
               data-pswp-width="1200"
               data-pswp-height="900"
               :data-cropped="true"
               class="employee-img-link"
             >
               <img
-                :src="`https://cdn.slavic.media/images/${employee._id}/width=1200,sharpen=100`"
+                :src="`https://cdn.slavic.media/images/${employee._id}/width=1200`"
                 :alt="`Portrait of ${employee.name}`"
                 :title="`${employee.name}`"
                 class="employee-img"

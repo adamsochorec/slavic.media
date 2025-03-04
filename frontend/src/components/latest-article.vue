@@ -32,7 +32,7 @@ onMounted(async () => {
 
         <img
           class=""
-          :src="`https://cdn.slavic.media/images/${state.article.metadata.thumbnail}/fit=contain,height=600,sharpen=100`"
+          :src="`https://cdn.slavic.media/images/${state.article.metadata.thumbnail}/fit=contain,height=600`"
         />
       </router-link>
 
@@ -126,7 +126,7 @@ onMounted(async () => {
   position: relative;
   overflow: hidden;
 }
-.gallery-item:hover + div .title  {
+.gallery-item:hover + div .title {
   text-decoration: underline;
   -webkit-text-decoration-skip-ink: auto;
   text-decoration-skip-ink: auto;

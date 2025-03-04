@@ -35,7 +35,7 @@ const props = defineProps<{
       >
         <img
           class="avatar"
-          :src="`https://cdn.slavic.media/images/${article.author._id}/height=100,sharpen=100`"
+          :src="`https://cdn.slavic.media/images/${article.author._id}/height=100`"
           :alt="`${article.author.name}'s profile picture`"
         />
       </a>

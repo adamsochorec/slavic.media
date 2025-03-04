@@ -41,7 +41,7 @@ interface State {
     <section class="cover">
       <div class="filter"></div>
       <img
-        src="https://cdn.slavic.media/images/2024-12-08-01324-2/fit=contain,width=2500,sharpen=100"
+        src="https://cdn.slavic.media/images/2024-12-08-01324-2/fit=contain,width=2500"
         :alt="`${state.legal?.title} cover image`"
       />
       <div v-if="isDataLoaded" class="title reveal">

@@ -23,30 +23,26 @@ onMounted(async () => {
 </script>
 
 <template>
-  <article class="main" >
+  <article class="main">
     <section class="cover">
       <div class="filter"></div>
       <img
-        src="https://cdn.slavic.media/images/2024-12-08-01324-2/fit=contain,width=2500,sharpen=100"
+        src="https://cdn.slavic.media/images/2024-12-08-01324-2/fit=contain,width=2500"
         :alt="`${state.legal?.title} cover image`"
       />
       <div v-if="isDataLoaded" class="title wrapper-standard reveal">
-        <h1 class="reveal" role="heading" aria-level="1">
-        Legal
-        </h1>
-       
+        <h1 class="reveal" role="heading" aria-level="1">Legal</h1>
       </div>
     </section>
     <hr class="semi" role="separator" />
-      <further-legal
-        v-if="isDataLoaded"
-        :legals="state.legals"
-        :current-id="route.params.id"
-        :highlight-current="true"
-      ></further-legal>
-      <section class="wrapper-standard">
-
-      <hr  v-if="isDataLoaded" class="reveal" role="separator" />
+    <further-legal
+      v-if="isDataLoaded"
+      :legals="state.legals"
+      :current-id="route.params.id"
+      :highlight-current="true"
+    ></further-legal>
+    <section class="wrapper-standard">
+      <hr v-if="isDataLoaded" class="reveal" role="separator" />
       <p v-if="isDataLoaded" class="reveal">
         Before using Slavic Media services or digital products, you may review
         the terms and conditions of end user software license agreements.

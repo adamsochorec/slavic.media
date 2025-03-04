@@ -19,7 +19,7 @@ const props = defineProps<{
       <country-flag v-if="flag" :country="flag" class="note" size="small" />
       <img
         :style="`opacity:${opacity}`"
-        :src="`https://cdn.slavic.media/images/${img}/fit=contain,height=400,sharpen=100`"
+        :src="`https://cdn.slavic.media/images/${img}/fit=contain,height=400`"
         :alt="alt"
         :title="title"
       />

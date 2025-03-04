@@ -99,7 +99,7 @@ router.beforeEach((to, from, next) => {
       <lite-vimeo
         class="reveal"
         style="
-          background-image: url(&quot;https://cdn.slavic.media/images/post-production/fit=contain,height=700,sharpen=100&quot;);
+          background-image: url(&quot;https://cdn.slavic.media/images/post-production/fit=contain,height=700&quot;);
         "
         videoid="1037071233"
       ></lite-vimeo>
@@ -135,7 +135,7 @@ router.beforeEach((to, from, next) => {
       <lite-vimeo
         class="reveal"
         style="
-          background-image: url(&quot;https://cdn.slavic.media/images/sound-design/fit=contain,height=700,sharpen=100&quot;);
+          background-image: url(&quot;https://cdn.slavic.media/images/sound-design/fit=contain,height=700&quot;);
         "
         videoid="1036355079"
       ></lite-vimeo>
