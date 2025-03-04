@@ -115,7 +115,11 @@ const currentYear = new Date().getFullYear();
           &nbsp;&nbsp;<span class="underline">Cookies</span>
         </button>
         <span class="separator"></span>
-        <a aria-label="Press Kit" href="/assets/press-kit.zip" title="Assets">
+        <a
+          aria-label="Press Kit"
+          href="https://assets.slavic.media/press-kit.zip"
+          title="Assets"
+        >
           <i
             style="font-size: var(--font-size-7)"
             aria-hidden="true"

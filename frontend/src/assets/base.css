@@ -35,7 +35,8 @@
 }
 @font-face {
   font-family: "SF Pro Display";
-  src: url(/fonts/SF-Pro-Display-Light.ttf) format("truetype");
+  src: url(https://assets.slavic.media/fonts/SF-Pro-Display-Light.ttf)
+    format("truetype");
   font-style: normal;
   font-weight: 350;
   font-display: swap;
@@ -43,7 +44,8 @@
 
 @font-face {
   font-family: Raleway Semibold;
-  src: url(/fonts/Raleway-SemiBold.ttf) format("truetype");
+  src: url(https://assets.slavic.media/fonts/Raleway-SemiBold.ttf)
+    format("truetype");
   font-style: normal;
   font-weight: 600;
   font-display: swap;
