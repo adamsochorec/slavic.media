@@ -102,8 +102,8 @@ export function registerGlobalComponents(app: App) {
     defineAsyncComponent(() => import("@/components/dynamic-content.vue"))
   );
   app.component(
-    "Image",
-    defineAsyncComponent(() => import("@/components/image.vue"))
+    "Img",
+    defineAsyncComponent(() => import("@/components/img.vue"))
   );
   app.component(
     "SwiperServices",

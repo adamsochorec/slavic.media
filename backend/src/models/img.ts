@@ -1,18 +1,18 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-export interface image extends Document {
+export interface img extends Document {
   _id: string;
   alt: string;
   title: string;
   flag: string;
 }
 
-export const imageSchema = new Schema({
+export const imgSchema = new Schema({
   _id: { type: String, required: true, maxlength: 50 },
   alt: { type: String, required: true, maxlength: 200 },
   title: { type: String, required: true, maxlength: 200 },
   flag: { type: String, required: true, maxlength: 2 },
 });
 
-const imageModel = mongoose.model<image>("image", imageSchema);
-export default imageModel;
+const imgModel = mongoose.model<img>("img", imgSchema);
+export default imgModel;

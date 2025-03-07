@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick, watch, onBeforeUnmount } from "vue";
 import { useRouter } from "vue-router";
-import image from "@/modules/img";
+import img from "@/modules/img";
 import services from "@/modules/services";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 import eventBus from "@/functions/event-bus";
 
 const isDataLoaded = ref<boolean>(false);
-const { state: imageState, getAllImages } = image;
+const { state: imgState, getAllImgs } = img;
 const { state: serviceState, getSpecificService } = services();
 const router = useRouter();
 
@@ -61,7 +61,7 @@ async function initializeLightbox(): Promise<void> {
 }
 onMounted(async () => {
   try {
-    await Promise.all([getSpecificService("photo"), getAllImages("photo")]);
+    await Promise.all([getSpecificService("photo"), getAllImgs("photo")]);
     isDataLoaded.value = true;
   } catch (error) {}
 });
@@ -100,10 +100,7 @@ onBeforeUnmount(() => {
     </section>
     <!-- PAGE ABSTRACT START-->
 
-    <template
-      v-for="(gallery, galleryKey) in imageState.image"
-      :key="galleryKey"
-    >
+    <template v-for="(gallery, galleryKey) in imgState.img" :key="galleryKey">
       <!-- GALLERY ABSTRACT START -->
       <section
         v-if="isDataLoaded"
@@ -140,17 +137,17 @@ onBeforeUnmount(() => {
             :key="columnIndex"
             class="column"
           >
-            <div v-for="image in column" :key="image._id" class="reveal">
-              <Image
-                :_id="image._id"
-                :alt="image.alt"
-                :title="image.title"
-                :flag="image.flag"
-                :originalWidth="image.originalWidth"
-                :originalHeight="image.originalHeight"
-                @update:originalWidth="(width) => (image.originalWidth = width)"
+            <div v-for="img in column" :key="img._id" class="reveal">
+              <Img
+                :_id="img._id"
+                :alt="img.alt"
+                :title="img.title"
+                :flag="img.flag"
+                :originalWidth="img.originalWidth"
+                :originalHeight="img.originalHeight"
+                @update:originalWidth="(width) => (img.originalWidth = width)"
                 @update:originalHeight="
-                  (height) => (image.originalHeight = height)
+                  (height) => (img.originalHeight = height)
                 "
               />
             </div>

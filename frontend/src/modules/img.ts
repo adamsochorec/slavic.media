@@ -1,10 +1,10 @@
 import { ref } from "vue";
 
 const state = ref({
-  image: [],
+  img: [],
 });
 
-const getAllImages = async (type: string) => {
+const getAllImgs = async (type: string) => {
   try {
     const response = await fetch(`https://api.slavic.media/img?type=${type}`);
     if (!response.ok) {
@@ -12,7 +12,7 @@ const getAllImages = async (type: string) => {
     }
     const data = await response.json();
     data.sort((a: any, b: any) => b.index - a.index);
-    state.value.image = data;
+    state.value.img = data;
   } catch (error) {
     console.error(error);
   }
@@ -20,5 +20,5 @@ const getAllImages = async (type: string) => {
 
 export default {
   state,
-  getAllImages,
+  getAllImgs,
 };
