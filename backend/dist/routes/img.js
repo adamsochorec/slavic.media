@@ -161,8 +161,8 @@ router.delete("/:galleryId/columns/:columnIndex", validation_1.verifyToken, (req
         res.status(500).send({ message: err.message });
     });
 });
-// CRUD operations for images
-// Add image to specific column in gallery - POST
+// CRUD operations for imgs
+// Add img to specific column in gallery - POST
 router.post("/:galleryId/:columnIndex", validation_1.verifyToken, (req, res) => {
     const { galleryId, columnIndex } = req.params;
     const newImg = req.body;
@@ -171,7 +171,7 @@ router.post("/:galleryId/:columnIndex", validation_1.verifyToken, (req, res) => 
         .then((data) => {
         if (!data) {
             res.status(404).send({
-                message: `Cannot add image to column ${columnIndex}. Maybe gallery or column was not found!`,
+                message: `Cannot add img to column ${columnIndex}. Maybe gallery or column was not found!`,
             });
         }
         else {
@@ -182,9 +182,9 @@ router.post("/:galleryId/:columnIndex", validation_1.verifyToken, (req, res) => 
         res.status(500).send({ message: err.message });
     });
 });
-// Read specific image in column - GET
-router.get("/:galleryId/:columnIndex/:imageId", (req, res) => {
-    const { galleryId, columnIndex, imageId } = req.params;
+// Read specific img in column - GET
+router.get("/:galleryId/:columnIndex/:imgId", (req, res) => {
+    const { galleryId, columnIndex, imgId } = req.params;
     gallery_1.default
         .findById(galleryId)
         .then((data) => {
@@ -201,14 +201,14 @@ router.get("/:galleryId/:columnIndex/:imageId", (req, res) => {
                 });
             }
             else {
-                const image = column.find((image) => image._id === imageId);
-                if (!image) {
+                const img = column.find((img) => img._id === imgId);
+                if (!img) {
                     res.status(404).send({
-                        message: `Cannot find image with id=${imageId} in column ${columnIndex}.`,
+                        message: `Cannot find img with id=${imgId} in column ${columnIndex}.`,
                     });
                 }
                 else {
-                    res.send(image);
+                    res.send(img);
                 }
             }
         }
@@ -217,16 +217,16 @@ router.get("/:galleryId/:columnIndex/:imageId", (req, res) => {
         res.status(500).send({ message: err.message });
     });
 });
-// Update specific image in column - PUT
-router.put("/:galleryId/:columnIndex/:imageId", validation_1.verifyToken, (req, res) => {
-    const { galleryId, columnIndex, imageId } = req.params;
+// Update specific img in column - PUT
+router.put("/:galleryId/:columnIndex/:imgId", validation_1.verifyToken, (req, res) => {
+    const { galleryId, columnIndex, imgId } = req.params;
     const updatedImg = req.body;
     gallery_1.default
-        .findOneAndUpdate({ _id: galleryId, [`columns.${parseInt(columnIndex)}._id`]: imageId }, { $set: { [`columns.${parseInt(columnIndex)}.$`]: updatedImg } }, { new: true })
+        .findOneAndUpdate({ _id: galleryId, [`columns.${parseInt(columnIndex)}._id`]: imgId }, { $set: { [`columns.${parseInt(columnIndex)}.$`]: updatedImg } }, { new: true })
         .then((data) => {
         if (!data) {
             res.status(404).send({
-                message: `Cannot update image in column ${columnIndex} with id=${imageId}. Maybe image was not found!`,
+                message: `Cannot update img in column ${columnIndex} with id=${imgId}. Maybe img was not found!`,
             });
         }
         else {
@@ -237,15 +237,15 @@ router.put("/:galleryId/:columnIndex/:imageId", validation_1.verifyToken, (req, 
         res.status(500).send({ message: err.message });
     });
 });
-// Delete specific image in column - DELETE
-router.delete("/:galleryId/:columnIndex/:imageId", validation_1.verifyToken, (req, res) => {
-    const { galleryId, columnIndex, imageId } = req.params;
+// Delete specific img in column - DELETE
+router.delete("/:galleryId/:columnIndex/:imgId", validation_1.verifyToken, (req, res) => {
+    const { galleryId, columnIndex, imgId } = req.params;
     gallery_1.default
-        .findOneAndUpdate({ _id: galleryId, [`columns.${parseInt(columnIndex)}._id`]: imageId }, { $pull: { [`columns.${parseInt(columnIndex)}`]: { _id: imageId } } }, { new: true })
+        .findOneAndUpdate({ _id: galleryId, [`columns.${parseInt(columnIndex)}._id`]: imgId }, { $pull: { [`columns.${parseInt(columnIndex)}`]: { _id: imgId } } }, { new: true })
         .then((data) => {
         if (!data) {
             res.status(404).send({
-                message: `Cannot delete image in column ${columnIndex} with id=${imageId}. Maybe image was not found!`,
+                message: `Cannot delete img in column ${columnIndex} with id=${imgId}. Maybe img was not found!`,
             });
         }
         else {

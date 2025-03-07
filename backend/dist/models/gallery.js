@@ -41,7 +41,7 @@ exports.photoGallerySchema = new mongoose_1.Schema({
     index: { type: Number, required: true },
     desc: { type: String, required: true, maxlength: 1000 },
     title: { type: String, required: true, maxlength: 200 },
-    columns: { type: [[img_1.imageSchema]], required: true },
+    columns: { type: [[img_1.imgSchema]], required: true },
 });
 const photoGalleryModel = mongoose_1.default.model("photoGallery", exports.photoGallerySchema);
 exports.default = photoGalleryModel;
