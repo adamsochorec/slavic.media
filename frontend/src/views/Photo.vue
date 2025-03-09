@@ -165,9 +165,9 @@ onBeforeUnmount(() => {
     <hr class="semi" />
     <!-- FURTHER SERVICES START -->
     <div id="services" v-if="isDataLoaded" class="wrapper-wide">
-      <h3>More of Our <span class="gradient">Services</span></h3>
+      <h3>Discover our <span class="gradient">video</span> services</h3>
       <hr class="quater reveal" />
-      <swiperServices></swiperServices>
+      <swiperVideoServices></swiperVideoServices>
     </div>
 
     <!-- FURTHER SERVICES END -->

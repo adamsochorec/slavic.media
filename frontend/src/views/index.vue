@@ -56,7 +56,6 @@ onMounted(async () => {
       </div>
       <br />
       <!-- GALLERY START -->
-
       <swiperServices></swiperServices>
       <!-- GALLERY END -->
 

@@ -12,6 +12,7 @@ declare module 'vue' {
     BlogCard: typeof import('./src/components/blog-card.vue')['default']
     CompanyTimeline: typeof import('./src/components/company-timeline.vue')['default']
     Cookies: typeof import('./src/components/cookies.vue')['default']
+    copy: typeof import('./src/components/swiper-photo-services copy.vue')['default']
     DynamicContent: typeof import('./src/components/dynamic-content.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     FurtherLegal: typeof import('./src/components/further-legal.vue')['default']
@@ -36,10 +37,13 @@ declare module 'vue' {
     SwiperClients: typeof import('./src/components/swiper-clients.vue')['default']
     SwiperColourGrading: typeof import('./src/components/swiper-colour-grading.vue')['default']
     SwiperEmployees: typeof import('./src/components/swiper-employees.vue')['default']
+    SwiperPhoto: typeof import('./src/components/swiper-photo.vue')['default']
+    SwiperPhotoServices: typeof import('./src/components/swiper-photo-services.vue')['default']
     SwiperReels: typeof import('./src/components/swiper-reels.vue')['default']
     SwiperReviews: typeof import('./src/components/swiper-reviews.vue')['default']
     SwiperServices: typeof import('./src/components/swiper-services.vue')['default']
     SwiperVideo: typeof import('./src/components/swiper-video.vue')['default']
+    SwiperVideoServices: typeof import('./src/components/swiper-video-services.vue')['default']
     Timeline: typeof import('primevue/timeline')['default']
   }
   export interface ComponentCustomProperties {
