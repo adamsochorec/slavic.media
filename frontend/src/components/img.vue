@@ -18,14 +18,14 @@ const updateDimensions = (event) => {
 
 <template>
   <a
-    :href="`https://cdn.slavic.media/images/${props._id}/fit=contain,width=1280`"
+    :href="`https://cdn.slavic.media/img/${props._id}/fit=contain,width=1280`"
     :title="props.title"
     :data-pswp-width="props.originalWidth"
     :data-pswp-height="props.originalHeight"
   >
     <img
       class="reveal"
-      :src="`https://cdn.slavic.media/images/${props._id}/fit=contain,width=1280`"
+      :src="`https://cdn.slavic.media/img/${props._id}/fit=contain,width=1280`"
       :title="props.title"
       :alt="props.alt"
       @load="updateDimensions"
