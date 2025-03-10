@@ -117,4 +117,10 @@ export function registerGlobalComponents(app: App) {
     "SoundEdit",
     defineAsyncComponent(() => import("@/components/sound-edit.vue"))
   );
+  app.component(
+    "SkeletonLatestArticle",
+    defineAsyncComponent(
+      () => import("@/components/skeleton-latest-article.vue")
+    )
+  );
 }
