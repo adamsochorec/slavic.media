@@ -164,7 +164,7 @@ watch(route, async (newRoute) => {
             >
               <i class="pi pi-linkedin"></i>
             </a>
-            <button
+            <!--  <button
               v-tooltip.bottom="{
                 value: 'Copy link',
                 autoHide: false,
@@ -175,7 +175,7 @@ watch(route, async (newRoute) => {
               aria-label="Copy link to this article"
             >
               <i class="pi pi-link"></i>
-            </button>
+            </button> -->
           </div>
         </div>
         <!-- ARTICLE METADATA END -->
