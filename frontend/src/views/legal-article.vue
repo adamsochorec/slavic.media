@@ -15,6 +15,11 @@ const fetchLegalData = async (id: string) => {
   isDataLoaded.value = true;
 };
 
+const updateImageSrc = (event: Event) => {
+  const target = event.target as HTMLImageElement;
+  target.src = target.dataset.src!;
+};
+
 onMounted(async () => {
   await fetchLegalData(route.params.id as string);
 });
@@ -41,8 +46,10 @@ interface State {
     <section class="cover">
       <div class="filter"></div>
       <img
-        src="https://cdn.slavic.media/img/2024-12-08-01324-2/fit=contain,width=2500"
+        :src="`https://cdn.slavic.media/img/2024-12-08-01324-2/thumbnail`"
+        :data-src="`https://cdn.slavic.media/img/2024-12-08-01324-2/hd`"
         :alt="`${state.legal?.title} cover image`"
+        @load="updateImageSrc"
       />
       <div v-if="isDataLoaded" class="title reveal">
         <h1 class="reveal" role="heading" aria-level="1">

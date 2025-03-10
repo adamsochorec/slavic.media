@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ArticleMetadata: typeof import('./src/components/article-metadata.vue')['default']
+    Avatar: typeof import('primevue/avatar')['default']
     BannerLightroomPresets: typeof import('./src/components/banner-lightroom-presets.vue')['default']
     BlogCard: typeof import('./src/components/blog-card.vue')['default']
     CompanyTimeline: typeof import('./src/components/company-timeline.vue')['default']
@@ -30,6 +31,7 @@ declare module 'vue' {
     Skeleton: typeof import('primevue/skeleton')['default']
     SkeletonArticle: typeof import('./src/components/skeleton-article.vue')['default']
     SkeletonGalleryItem: typeof import('./src/components/skeleton-gallery-item.vue')['default']
+    SkeletonLatestArticle: typeof import('./src/components/skeleton-latest-article.vue')['default']
     SkeletonServices: typeof import('./src/components/skeleton-services.vue')['default']
     SkeletonSwiper: typeof import('./src/components/skeleton-swiper.vue')['default']
     SoundEdit: typeof import('./src/components/sound-edit.vue')['default']

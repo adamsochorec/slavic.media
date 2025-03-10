@@ -11,6 +11,11 @@ onMounted(async () => {
   await getLatestArticle();
   isDataLoaded.value = true;
 });
+
+const updateImageSrc = (event: Event) => {
+  const target = event.target as HTMLImageElement;
+  target.src = target.dataset.src!;
+};
 </script>
 
 <template>
@@ -32,7 +37,9 @@ onMounted(async () => {
 
         <img
           class=""
-          :src="`https://cdn.slavic.media/img/${state.article.metadata.thumbnail}/fit=contain,height=600`"
+          :src="`https://cdn.slavic.media/img/${state.article.metadata.thumbnail}/thumbnail`"
+          :data-src="`https://cdn.slavic.media/img/${state.article.metadata.thumbnail}/fit=contain,height=600`"
+          @load="updateImageSrc"
         />
       </router-link>
 
