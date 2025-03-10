@@ -32,7 +32,7 @@ onMounted(async () => {
 
         <img
           class=""
-          :src="`https://cdn.slavic.media/images/${state.article.metadata.thumbnail}/fit=contain,height=600`"
+          :src="`https://cdn.slavic.media/img/${state.article.metadata.thumbnail}/fit=contain,height=600`"
         />
       </router-link>
 

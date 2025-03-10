@@ -96,7 +96,7 @@ watch(route, async (newRoute) => {
             >
               <img
                 class="avatar"
-                :src="`https://cdn.slavic.media/images/${state.article.author._id}/height=100`"
+                :src="`https://cdn.slavic.media/img/${state.article.author._id}/height=100`"
                 :alt="`${state.article.author.name}'s profile picture`"
               />
             </a>
