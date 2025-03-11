@@ -11,6 +11,11 @@ onMounted(async () => {
   await getLatestArticle();
   isDataLoaded.value = true;
 });
+
+const updateImageSrc = (event: Event) => {
+  const target = event.target as HTMLImageElement;
+  target.src = target.dataset.src!;
+};
 </script>
 
 <template>
@@ -32,7 +37,9 @@ onMounted(async () => {
 
         <img
           class=""
-          :src="`https://cdn.slavic.media/img/${state.article.metadata.thumbnail}/fit=contain,height=600`"
+          :src="`https://cdn.slavic.media/img/${state.article.metadata.thumbnail}/thumbnail`"
+          :data-src="`https://cdn.slavic.media/img/${state.article.metadata.thumbnail}/fit=contain,height=600`"
+          @load="updateImageSrc"
         />
       </router-link>
 
@@ -50,74 +57,7 @@ onMounted(async () => {
       </div>
     </div>
 
-    <div class="grid-container" v-else>
-      <Skeleton
-        style="background-color: rgb(var(--dark-grey-color))"
-        height="200px"
-        borderRadius="10px"
-        class="mb-6"
-        aria-hidden="true"
-      ></Skeleton>
-      <div>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          height="15px"
-          width="100%"
-          borderRadius="10px"
-          class="mb-2"
-          aria-hidden="true"
-        ></Skeleton>
-
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          height="15px"
-          width="70%"
-          borderRadius="10px"
-          class="mb-4"
-          aria-hidden="true"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          height="10px"
-          width="100%"
-          borderRadius="10px"
-          class="mb-2"
-          aria-hidden="true"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          height="10px"
-          width="100%"
-          borderRadius="10px"
-          class="mb-2"
-          aria-hidden="true"
-        ></Skeleton>
-        <Skeleton
-          style="background-color: rgb(var(--dark-grey-color))"
-          height="10px"
-          width="80%"
-          borderRadius="10px"
-          class="mb-6"
-          aria-hidden="true"
-        ></Skeleton>
-        <div class="flex">
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            shape="circle"
-            size="2rem"
-            class="mr-2"
-          ></Skeleton>
-          <Skeleton
-            style="background-color: rgb(var(--dark-grey-color))"
-            height="10px"
-            width="50%"
-            borderRadius="10px"
-            class="mb-2"
-            aria-hidden="true"
-          ></Skeleton>
-        </div>
-      </div>
-    </div>
+    <skeletonLatestArticle v-else></skeletonLatestArticle>
   </div>
 </template>
 

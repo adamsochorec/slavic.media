@@ -27,13 +27,13 @@ const menuItems = ref([
   },
   {
     title: "For clients",
-    icon: "pi pi-cloud-download",
+    icon: "pi pi-download",
     path: "https://clients.slavic.media",
     external: true,
   },
   {
     title: "Blog",
-    icon: "pi pi-file-edit",
+    icon: "pi pi-align-left",
     path: "/blog",
   },
   {

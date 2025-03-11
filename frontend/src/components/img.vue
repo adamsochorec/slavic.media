@@ -13,19 +13,24 @@ const emit = defineEmits(["update:originalWidth", "update:originalHeight"]);
 const updateDimensions = (event) => {
   emit("update:originalWidth", event.target.naturalWidth);
   emit("update:originalHeight", event.target.naturalHeight);
+  event.target.src = event.target.dataset.src;
 };
+
+const fullImageUrl = `https://cdn.slavic.media/img/${props._id}/public`;
+const thumbnailUrl = `https://cdn.slavic.media/img/${props._id}/thumbnail`;
 </script>
 
 <template>
   <a
-    :href="`https://cdn.slavic.media/img/${props._id}/fit=contain,width=1280`"
+    :href="fullImageUrl"
     :title="props.title"
     :data-pswp-width="props.originalWidth"
     :data-pswp-height="props.originalHeight"
   >
     <img
       class="reveal"
-      :src="`https://cdn.slavic.media/img/${props._id}/fit=contain,width=1280`"
+      :src="thumbnailUrl"
+      :data-src="fullImageUrl"
       :title="props.title"
       :alt="props.alt"
       @load="updateDimensions"
@@ -34,15 +39,13 @@ const updateDimensions = (event) => {
     <country-flag :country="props.flag" class="note" size="small" />
   </a>
 </template>
+
 <style scoped>
 .note {
   left: var(--grid-gap-1) !important;
 }
-
 img,
 a {
-  cursor: pointer;
-  cursor: pointer;
   cursor: pointer;
 }
 </style>

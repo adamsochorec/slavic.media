@@ -91,9 +91,16 @@ watch(screenWidth, updateScreenWidth);
           </button>
         </div>
       </div>
-      <div v-else class="grid-container" aria-busy="true" aria-live="polite">
-        <div v-for="n in 6" :key="n">
-          <skeletonGalleryItem></skeletonGalleryItem>
+      <div v-else>
+        <skeletonLatestArticle
+          aria-busy="true"
+          aria-live="polite"
+        ></skeletonLatestArticle>
+
+        <div class="grid-container" aria-busy="true" aria-live="polite">
+          <div v-for="n in 3" :key="n">
+            <skeletonGalleryItem></skeletonGalleryItem>
+          </div>
         </div>
       </div>
     </section>

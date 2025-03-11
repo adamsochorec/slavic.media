@@ -171,10 +171,10 @@ router.beforeEach((to, from, next) => {
         </div>
         <br />
         <swiperReels></swiperReels>
+        <div id="sound-edit"></div>
       </div>
       <!-- CONTENT END -->
-      <div id="sound-edit"></div>
-      <hr class="reveal" role="separator" />
+      <hr v-if="isDataLoaded" class="reveal" role="separator" />
       <!-- SOUND EDIT START -->
       <div class="grid-container caption-container" v-if="isDataLoaded">
         <div class="grid-item">

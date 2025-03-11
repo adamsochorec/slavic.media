@@ -62,16 +62,6 @@ const router = createRouter({
         titlePath: "#services",
       },
     },
-    {
-      path: "/services/post-production",
-      name: "post-production",
-      component: () => import("@/views/post-production.vue"),
-      meta: {
-        requiresAuth: false,
-        pageTitle: "services",
-        titlePath: "#services",
-      },
-    },
     // LEGAL
     {
       path: "/legal",

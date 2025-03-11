@@ -29,14 +29,10 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
       <button v-else class="pi pi-play-circle play" @click="playVideo"></button>
       <button
         v-if="state.isMuted"
-        class="pi pi-volume-up volume"
+        class="pi pi-volume-off volume"
         @click="unmuteVideo"
       ></button>
-      <button
-        v-else
-        class="pi pi-volume-off volume"
-        @click="muteVideo"
-      ></button>
+      <button v-else class="pi pi-volume-up volume" @click="muteVideo"></button>
     </section>
   </section>
 </template>

@@ -11,7 +11,10 @@ interface Legal {
 interface State {
   legals: Legal[];
 }
-
+const updateImageSrc = (event: Event) => {
+  const target = event.target as HTMLImageElement;
+  target.src = target.dataset.src!;
+};
 const { state, getAllLegal } = legal();
 const isDataLoaded = ref<boolean>(false);
 const route = useRoute();
@@ -27,9 +30,12 @@ onMounted(async () => {
     <section class="cover">
       <div class="filter"></div>
       <img
-        src="https://cdn.slavic.media/img/2024-12-08-01324-2/fit=contain,width=2500"
+        :src="`https://cdn.slavic.media/img/2024-12-08-01324-2/thumbnail`"
+        :data-src="`https://cdn.slavic.media/img/2024-12-08-01324-2/hd`"
         :alt="`${state.legal?.title} cover image`"
+        @load="updateImageSrc"
       />
+
       <div v-if="isDataLoaded" class="title wrapper-standard reveal">
         <h1 class="reveal" role="heading" aria-level="1">Legal</h1>
       </div>

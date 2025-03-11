@@ -11,6 +11,14 @@ const props = defineProps<{
   icon: string;
   opacity?: number;
 }>();
+
+const fullImageUrl = `https://cdn.slavic.media/img/${props.img}/sd`;
+const thumbnailUrl = `https://cdn.slavic.media/img/${props.img}/thumbnail`;
+
+const updateImageSrc = (event: Event) => {
+  const target = event.target as HTMLImageElement;
+  target.src = fullImageUrl;
+};
 </script>
 
 <template>
@@ -19,9 +27,10 @@ const props = defineProps<{
       <country-flag v-if="flag" :country="flag" class="note" size="small" />
       <img
         :style="`opacity:${opacity}`"
-        :src="`https://cdn.slavic.media/img/${img}/fit=contain,height=400`"
+        :src="thumbnailUrl"
         :alt="alt"
         :title="title"
+        @load="updateImageSrc"
       />
       <div class="gallery-item-caption">
         <i aria-hidden="true" :class="`bubble pi pi-${icon}`"></i>

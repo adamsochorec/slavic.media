@@ -21,6 +21,12 @@ const slides = ref<Slide[]>([
   { _id: "DJI_20240513134142_0052_D_SLAVICM", log: "D-Log M" },
   { _id: "DJI_20240515173653_0002_D_SLAVICM", log: "D-Log M" },
 ]);
+
+const updateImageSrc = (event: Event) => {
+  const target = event.target as HTMLImageElement;
+  target.src = target.dataset.src!;
+};
+
 onMounted(() => {
   const swiper = new Swiper(".swiper-colour-grading", {
     loop: true,
@@ -64,20 +70,22 @@ onMounted(() => {
         <ImageCompare aria-label="Compare Images">
           <template #left>
             <span class="note">{{ slide.log }}</span>
-
             <span class="note edited">Colour Graded</span>
-
             <img
-              :src="`https://cdn.slavic.media/img/${slide._id}-2/fit=contain,width=1280`"
+              :src="`https://cdn.slavic.media/img/${slide._id}-2/thumbnail`"
+              :data-src="`https://cdn.slavic.media/img/${slide._id}-2/public`"
               :alt="`S-Log still ${slide._id}`"
               :title="`S-Log still ${slide._id}`"
+              @load="updateImageSrc"
             />
           </template>
           <template #right>
             <img
-              :src="`https://cdn.slavic.media/img/${slide._id}/fit=contain,width=1280`"
+              :src="`https://cdn.slavic.media/img/${slide._id}/thumbnail`"
+              :data-src="`https://cdn.slavic.media/img/${slide._id}/public`"
               :alt="`Colour Graded still ${slide._id}`"
               :title="`Colour Graded still ${slide._id}`"
+              @load="updateImageSrc"
             />
           </template>
         </ImageCompare>
