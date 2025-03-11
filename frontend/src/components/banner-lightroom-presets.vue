@@ -3,7 +3,7 @@
     <hr class="semi" />
     <div class="banner reveal">
       <img
-        src="https://cdn.slavic.media/images/2023-05-12-08969/height=100"
+        src="https://cdn.slavic.media/img/2023-05-12-08969/height=100"
         alt="Banner showcasing Slavic Media Lightroom Presets"
       />
       <div class="title flex-center">
