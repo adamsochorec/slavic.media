@@ -46,6 +46,14 @@ onMounted(async () => {
         },
       });
     });
+    // Scroll to the anchor if it exists
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
   });
 });
 
@@ -212,9 +220,9 @@ router.beforeEach((to, from, next) => {
     <hr class="semi" />
     <!-- FURTHER SERVICES START -->
     <div id="services" v-if="isDataLoaded" class="wrapper-wide">
-      <h3>More of Our <span class="gradient">Services</span></h3>
+      <h3>Discover our <span class="gradient">photo</span> services</h3>
       <hr class="quater reveal" />
-      <swiperServices></swiperServices>
+      <swiperPhotoServices></swiperPhotoServices>
     </div>
     <!-- FURTHER SERVICES END -->
   </article>

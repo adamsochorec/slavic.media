@@ -118,9 +118,11 @@ export function registerGlobalComponents(app: App) {
     defineAsyncComponent(() => import("@/components/sound-edit.vue"))
   );
   app.component(
-    "SkeletonLatestArticle",
-    defineAsyncComponent(
-      () => import("@/components/skeleton-latest-article.vue")
-    )
+    "SwiperPhotoServices",
+    defineAsyncComponent(() => import("@/components/swiper-photo-services.vue"))
+  );
+  app.component(
+    "SwiperVideoServices",
+    defineAsyncComponent(() => import("@/components/swiper-video-services.vue"))
   );
 }

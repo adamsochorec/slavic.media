@@ -86,7 +86,7 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.swiper-services {
+.swiper {
   padding-bottom: calc(var(--grid-gap-2) * 2);
 }
 
