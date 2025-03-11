@@ -12,7 +12,12 @@ const { state: serviceState, getSpecificService } = services();
 const { state: videoState, getAllVideos } = video();
 const isDataLoaded = ref<boolean>(false);
 const router = useRouter();
-
+const photoServices = [
+  { id: "portrait", title: "Portrait" },
+  { id: "still", title: "Still" },
+  { id: "drone", title: "Drone" },
+  { id: "outdoor", title: "Outdoor" },
+];
 // SHOW MORE START
 videoState.videos = videoState.videos || [];
 const { itemsToShow, allItemsShown, loadMoreItems, showLessItems } =
@@ -124,7 +129,6 @@ router.beforeEach((to, from, next) => {
         </div>
         <div id="colour-grading"></div>
         <hr class="reveal" role="separator" />
-
         <!-- COLOUR GRADING START-->
         <div v-if="isDataLoaded" class="grid-container caption-container">
           <div class="grid-item">
@@ -149,9 +153,9 @@ router.beforeEach((to, from, next) => {
         <swiperColourGrading v-if="isDataLoaded"></swiperColourGrading>
         <!-- COLOUR GRADING END-->
         <div id="content"></div>
-        <hr class="reveal" role="separator" />
+        <hr class="reveal" role="separator" v-if="isDataLoaded" />
         <!-- CONTENT START -->
-        <div class="grid-container caption-container">
+        <div class="grid-container caption-container" v-if="isDataLoaded">
           <div class="grid-item reveal">
             <h2 class="reveal" aria-label="Engaging Content">
               Engaging <span class="gradient">Content</span>
@@ -171,10 +175,10 @@ router.beforeEach((to, from, next) => {
         </div>
         <br />
         <swiperReels></swiperReels>
-        <div id="sound-edit"></div>
       </div>
       <!-- CONTENT END -->
       <hr v-if="isDataLoaded" class="reveal" role="separator" />
+      <div id="sound-edit"></div>
       <!-- SOUND EDIT START -->
       <div class="grid-container caption-container" v-if="isDataLoaded">
         <div class="grid-item">
@@ -222,7 +226,7 @@ router.beforeEach((to, from, next) => {
     <div id="services" v-if="isDataLoaded" class="wrapper-wide">
       <h3>Discover our <span class="gradient">photo</span> services</h3>
       <hr class="quater reveal" />
-      <swiperPhotoServices></swiperPhotoServices>
+      <swiper-further-services :services="photoServices" swiperClass="photo" />
     </div>
     <!-- FURTHER SERVICES END -->
   </article>

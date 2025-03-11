@@ -119,10 +119,14 @@ export function registerGlobalComponents(app: App) {
   );
   app.component(
     "SwiperPhotoServices",
-    defineAsyncComponent(() => import("@/components/swiper-photo-services.vue"))
+    defineAsyncComponent(
+      () => import("@/components/swiper-further-services.vue")
+    )
   );
   app.component(
-    "SwiperVideoServices",
-    defineAsyncComponent(() => import("@/components/swiper-video-services.vue"))
+    "SkeletonLatestArticle",
+    defineAsyncComponent(
+      () => import("@/components/skeleton-latest-article.vue")
+    )
   );
 }

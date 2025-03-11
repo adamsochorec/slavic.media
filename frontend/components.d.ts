@@ -39,6 +39,7 @@ declare module 'vue' {
     SwiperClients: typeof import('./src/components/swiper-clients.vue')['default']
     SwiperColourGrading: typeof import('./src/components/swiper-colour-grading.vue')['default']
     SwiperEmployees: typeof import('./src/components/swiper-employees.vue')['default']
+    SwiperFurtherServices: typeof import('./src/components/swiper-further-services.vue')['default']
     SwiperPhoto: typeof import('./src/components/swiper-photo.vue')['default']
     SwiperPhotoServices: typeof import('./src/components/swiper-photo-services.vue')['default']
     SwiperReels: typeof import('./src/components/swiper-reels.vue')['default']

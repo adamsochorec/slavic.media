@@ -11,7 +11,12 @@ const isDataLoaded = ref<boolean>(false);
 const { state: imgState, getAllImgs } = img;
 const { state: serviceState, getSpecificService } = services();
 const router = useRouter();
-
+const videoServices = [
+  { id: "commercial", title: "Commercial" },
+  { id: "colour-grading", title: "colour grading" },
+  { id: "content", title: "content" },
+  { id: "sound-edit", title: "sound edit" },
+];
 const showRequestAProposal = (identifier: string) => {
   eventBus.emit("showRequestAProposal", identifier);
 };
@@ -176,7 +181,7 @@ onBeforeUnmount(() => {
     <div id="services" v-if="isDataLoaded" class="wrapper-wide">
       <h3>Discover our <span class="gradient">video</span> services</h3>
       <hr class="quater reveal" />
-      <swiperVideoServices></swiperVideoServices>
+      <swiper-further-services :services="videoServices" swiperClass="video" />
     </div>
 
     <!-- FURTHER SERVICES END -->
