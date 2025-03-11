@@ -64,6 +64,16 @@ onMounted(async () => {
     await Promise.all([getSpecificService("photo"), getAllImgs("photo")]);
     isDataLoaded.value = true;
   } catch (error) {}
+
+  nextTick(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  });
 });
 watch(isDataLoaded, (loaded) => {
   if (loaded) initializeLightbox();
@@ -110,7 +120,6 @@ onBeforeUnmount(() => {
       >
         <div :id="gallery._id"></div>
         <hr class="reveal" role="separator" />
-
         <div class="grid-container caption-container">
           <div class="grid-item reveal">
             <h2>

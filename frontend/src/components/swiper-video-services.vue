@@ -8,25 +8,21 @@ import { useSwiperAutoplay } from "@/functions/swiper-autoplay";
 // Define the type for reel objects
 interface Service {
   id: string;
-  desc: string;
+  desc?: string;
 }
 
 const services = ref<Service[]>([
   {
     id: "commercial",
-    desc: "",
   },
   {
     id: "colour-grading",
-    desc: "",
   },
   {
     id: "content",
-    desc: "",
   },
   {
     id: "sound-edit",
-    desc: "",
   },
 ]);
 
@@ -90,7 +86,6 @@ onMounted(() => {
           :url="`/services/video#${service.id}`"
           :title="`${service.id}`"
           :alt="`${service.id} services cover`"
-          :desc="service.desc"
           icon="camera"
         />
       </div>

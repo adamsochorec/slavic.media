@@ -7,7 +7,7 @@ const props = defineProps<{
   title?: string;
   flag?: string;
   alt: string;
-  desc: string;
+  desc?: string;
   icon: string;
   opacity?: number;
 }>();
@@ -29,7 +29,7 @@ const props = defineProps<{
           <span class="title" v-if="title">{{ truncateText(title, 22) }}</span>
         </header>
         <section>
-          <p class="description">{{ truncateText(desc, 100) }}</p>
+          <p class="description" v-if="desc">{{ truncateText(desc, 100) }}</p>
         </section>
       </div>
     </a>
