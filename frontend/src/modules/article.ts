@@ -5,6 +5,7 @@ interface Author {
   _id: string;
   name: string;
   linkedin: string;
+  department: string;
   thumbnail: string;
 }
 

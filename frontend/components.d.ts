@@ -35,6 +35,7 @@ declare module 'vue' {
     SkeletonLatestArticle: typeof import('./src/components/skeleton-latest-article.vue')['default']
     SkeletonServices: typeof import('./src/components/skeleton-services.vue')['default']
     SkeletonSwiper: typeof import('./src/components/skeleton-swiper.vue')['default']
+    SocialIcon: typeof import('./src/components/social-icon.vue')['default']
     SoundEdit: typeof import('./src/components/sound-edit.vue')['default']
     SwiperClients: typeof import('./src/components/swiper-clients.vue')['default']
     SwiperColourGrading: typeof import('./src/components/swiper-colour-grading.vue')['default']

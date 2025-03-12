@@ -129,4 +129,8 @@ export function registerGlobalComponents(app: App) {
       () => import("@/components/skeleton-latest-article.vue")
     )
   );
+  app.component(
+    "SocialIcon",
+    defineAsyncComponent(() => import("@/components/social-icon.vue"))
+  );
 }

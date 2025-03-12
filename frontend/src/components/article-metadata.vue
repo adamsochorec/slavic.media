@@ -4,6 +4,7 @@ import { ddmmmyyyy } from "@/functions/date-format.ts";
 interface Author {
   name: string;
   url: string;
+  department: string;
   thumbnail: string;
 }
 interface Metadata {
@@ -22,7 +23,7 @@ interface Article {
 const props = defineProps<{
   article: Article;
 }>();
-
+console.log(props.article);
 const updateImageSrc = (event: Event) => {
   const target = event.target as HTMLImageElement;
   target.src = target.dataset.src!;
@@ -37,6 +38,10 @@ const updateImageSrc = (event: Event) => {
         rel="noopener noreferrer nofollow"
         :href="`https://www.linkedin.com/in/${article.author.linkedin}`"
         class="author"
+        v-tooltip.top="{
+          value: article.author.department,
+          autoHide: true,
+        }"
       >
         <img
           class="avatar"
@@ -68,6 +73,9 @@ const updateImageSrc = (event: Event) => {
           >&nbsp;{{ article.metadata.length }}
           min read
         </span>
+        <br />
+        <span>{{ department }}</span>
+        <!-- Add this line to display the department -->
       </div>
     </header>
   </section>

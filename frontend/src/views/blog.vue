@@ -5,6 +5,7 @@ import article from "@/modules/article";
 interface Author {
   _id: string;
   name: string;
+  department: string;
   linkedin: string;
   thumbnail: string;
 }

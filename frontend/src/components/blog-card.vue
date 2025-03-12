@@ -5,6 +5,7 @@ interface Author {
   name: string;
   url: string;
   thumbnail: string;
+  department: string;
 }
 interface Metadata {
   formatedDate: string;
