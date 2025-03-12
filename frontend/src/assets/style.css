@@ -541,10 +541,6 @@ lite-vimeo:hover > .ltv-playbtn {
   border-radius: var(--border-radius-2);
   cursor: pointer;
 }
-.controls button {
-  backdrop-filter: var(--blur-1);
-  border-radius: var(--border-radius-2);
-}
 
 /* VIDEO CONTROLS END */
 
@@ -1089,11 +1085,11 @@ i.pi-arrow-right:hover {
   border-radius: var(--border-radius-1);
 }
 .article-content iframe {
-  height: var(--dimension-2);
+  height: 100%;
+  aspect-ratio: 16/9;
 }
-.sketchfab,
 #map {
-  height: var(--dimension-2);
+  height: var(--dimension-1);
 }
 .desc {
   font-size: var(--font-size-7);
@@ -1121,16 +1117,14 @@ i.pi-arrow-right:hover {
     margin-top: var(--grid-gap-1) 0;
   }
 }
-@media only screen and (min-width: 538px) {
-  .sketchfab,
-  #map,
-  .article-content iframe {
-    height: var(--dimension-1);
-  }
-}
+
 @media only screen and (max-width: 667px) {
   .mfp-iframe-holder .mfp-content {
     max-width: 100%;
+  }
+  #map {
+    aspect-ratio: 16/9;
+    height: 100%;
   }
 }
 @media screen and (max-width: 800px) and (orientation: landscape),
