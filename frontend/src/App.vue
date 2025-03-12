@@ -86,6 +86,6 @@ watch(
 
 <style scoped>
 main {
-  min-height: 85vh;
+  min-height: 71vh;
 }
 </style>
