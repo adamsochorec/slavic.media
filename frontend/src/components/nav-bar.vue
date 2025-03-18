@@ -64,7 +64,7 @@ const collapseMenu = () => {
   });
 };
 
-const props = defineProps<{ pageTitle: string }>();
+const props = defineProps<{ headerTitle: string }>();
 
 const titlePath = ref(route.meta.titlePath || "");
 
@@ -143,9 +143,9 @@ function header() {
             src="https://cdn.slavic.media/img/Primary-1/height=80"
           />
         </router-link>
-        <span class="page" v-if="pageTitle">
+        <span class="page" v-if="headerTitle">
           <router-link :to="titlePath" class="gradient">{{
-            pageTitle
+            headerTitle
           }}</router-link>
         </span>
 

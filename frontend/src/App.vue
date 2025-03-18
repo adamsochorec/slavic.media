@@ -60,11 +60,11 @@ onMounted(() => {
 
 // DYNAMIC PAGE TITLE START
 const route = useRoute();
-const pageTitle = ref(route.meta.pageTitle || "");
+const headerTitle = ref(route.meta.headerTitle || "");
 watch(
-  () => route.meta.pageTitle,
+  () => route.meta.headerTitle,
   (newTitle) => {
-    pageTitle.value = newTitle || "";
+    headerTitle.value = newTitle || "";
   }
 );
 // DYNAMIC PAGE TITLE END
@@ -73,7 +73,7 @@ watch(
 <template>
   <div>
     <!-- HEADER START -->
-    <NavBar :pageTitle="pageTitle" />
+    <NavBar :headerTitle="headerTitle" />
     <aside><Cookies></Cookies></aside>
     <!-- HEADER END -->
     <main>

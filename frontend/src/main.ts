@@ -5,6 +5,8 @@ import router from "./router";
 import VueLazyload from "vue-lazyload";
 import CountryFlag from "vue-country-flag-next";
 import { registerGlobalComponents } from "./components";
+import { createHead } from "@vueuse/head";
+
 // PrimeVue
 import PrimeVue from "primevue/config";
 import PrimeVueTheme from "@primevue/themes/material";
@@ -12,7 +14,7 @@ import { definePreset } from "@primevue/themes";
 import "primeicons/primeicons.css";
 
 const app = createApp(App);
-
+const head = createHead();
 const slavicmedia = definePreset(PrimeVueTheme, {
   semantic: {
     primary: {
@@ -43,6 +45,7 @@ app.use(PrimeVue, {
 });
 
 app.use(router);
+app.use(head);
 
 // Configure vue-lazyload
 app.use(VueLazyload, {

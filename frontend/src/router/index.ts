@@ -9,28 +9,26 @@ const router = createRouter({
       component: () => import("@/views/index.vue"),
     },
     {
-      path: "/:catchAll(.*)", // Catch-all for undefined routes
-      name: "NotFound",
-      component: () => import("@/views/404.vue"),
-    },
-    {
       path: "/blog",
       name: "blog",
       component: () => import("@/views/blog.vue"),
       meta: {
         requiresAuth: false,
-        pageTitle: "blog",
-        titlePath: "/blog",
+        headerTitle: "Blog",
+        pageTitle: "Blog | Slavic Media",
+        desc: "Explore our latest blog posts.",
       },
     },
     {
       path: "/blog/:_id",
-      name: "AArticle",
+      name: "Article",
       component: () => import("@/views/article.vue"),
       meta: {
         requiresAuth: false,
-        pageTitle: "blog",
+        headerTitle: "Blog",
         titlePath: "/blog",
+        pageTitle: "Blog | Slavic Media",
+        desc: "Read our latest blog articles.",
       },
     },
     {
@@ -39,6 +37,8 @@ const router = createRouter({
       component: () => import("@/views/about.vue"),
       meta: {
         requiresAuth: false,
+        pageTitle: "About | Slavic Media",
+        desc: "Creative & Production studio based in Denmark and Czechia. We tell stories with deep eye contact, magnificent shots, and clean designs to help your project stand out from the noise.",
       },
     },
     // SERVICES
@@ -48,8 +48,8 @@ const router = createRouter({
       component: () => import("@/views/Photo.vue"),
       meta: {
         requiresAuth: false,
-        pageTitle: "services",
-        titlePath: "#services",
+        pageTitle: "Photo Services | Slavic Media",
+        desc: "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
       },
     },
     {
@@ -58,8 +58,8 @@ const router = createRouter({
       component: () => import("@/views/Video.vue"),
       meta: {
         requiresAuth: false,
-        pageTitle: "services",
-        titlePath: "#services",
+        pageTitle: "Video Services | Slavic Media",
+        desc: "From inspiring stories to cinematic visuals, each video project is crafted to captivate, impress, and showcase your vision with creative precision.",
       },
     },
     // LEGAL
@@ -69,24 +69,33 @@ const router = createRouter({
       component: () => import("@/views/legal.vue"),
       meta: {
         requiresAuth: false,
-        pageTitle: "legal",
+        headerTitle: "Legal",
+        titlePath: "/legal",
+        pageTitle: "Legal | Slavic Media",
+        desc: "Before using Slavic Media services or digital products, you may review the terms and conditions of end user software license agreements.",
       },
     },
     {
       path: "/legal/:id",
-      name: "Legal article",
+      name: "LegalArticle",
       component: () => import("@/views/legal-article.vue"),
       meta: {
         requiresAuth: false,
-        pageTitle: "legal",
+        headerTitle: "Legal",
         titlePath: "/legal",
+        pageTitle: "Legal Article",
+        desc: "Before using Slavic Media services or digital products, you may review the terms and conditions of end user software license agreements.",
       },
     },
-    // Add the NotFound route at the end
+    // Catch-All Route
     {
       path: "/:pathMatch(.*)*",
       name: "404",
       component: () => import("@/views/404.vue"),
+      meta: {
+        pageTitle: "Page Not Found | Slavic Media",
+        desc: "The page you are looking for does not exist.",
+      },
     },
   ],
   scrollBehavior(to, from, savedPosition) {
@@ -103,12 +112,20 @@ const router = createRouter({
   },
 });
 
-// Navigation guard that runs before each route change
-router.beforeEach(async (to, from, next) => {
+// Single Navigation Guard
+router.beforeEach((to, from, next) => {
+  const defaultTitle = "Your Online Presence | Slavic Media";
+  const defaultDesc =
+    "Creative & Production studio based in Denmark and Czechia.";
+
+  // Dynamically set the document title and meta description
+  document.title = to.meta.pageTitle || defaultTitle;
+  document.description = to.meta.pageDesc || defaultDesc;
+
+  // Handle authentication if required
   const isAuthenticated = localStorage.getItem("user");
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
 
-  // If the route requires authentication and the user is not authenticated, redirect to the home page
   if (!isAuthenticated && requiresAuth) {
     next("/");
   } else {
