@@ -105,7 +105,7 @@ watch(route, async (newRoute) => {
                 <dt class="visually-hidden">Author</dt>
                 <dd>
                   <a
-                    style="font-size: var(--font-size-6)"
+                    style="font-size: $font-size-6)"
                     class="author"
                     target="_blank"
                     rel="noopener noreferrer nofollow"
@@ -115,27 +115,27 @@ watch(route, async (newRoute) => {
                   </a>
                 </dd>
               </div>
-              <div style="font-size: var(--font-size-7)">
+              <div style="font-size: $font-size-7)">
                 <dt class="visually-hidden">Department</dt>
                 <dd>{{ state.article.author.department }}</dd>
               </div>
               <div style="display: flex">
-                <div style="font-size: var(--font-size-7)">
+                <div style="font-size: $font-size-7)">
                   <dt class="visually-hidden">Publication Date</dt>
                   <dd>
                     <span
-                      style="font-size: var(--font-size-6)"
+                      style="font-size: $font-size-6)"
                       class="pi pi-calendar"
                     ></span>
                     &nbsp;{{ ddmmmyyyy(state.article.metadata.date) }}
                   </dd>
                 </div>
                 &nbsp;
-                <div style="font-size: var(--font-size-7)">
+                <div style="font-size: $font-size-7)">
                   <dt class="visually-hidden">Reading Time</dt>
                   <dd>
                     ⋅&nbsp;<span
-                      style="font-size: var(--font-size-6)"
+                      style="font-size: $font-size-6)"
                       class="pi pi-book"
                     ></span>
                     &nbsp;{{ state.article.metadata.length }} min read
@@ -212,68 +212,65 @@ watch(route, async (newRoute) => {
   </article>
 </template>
 
-<style lang="scss" scoped>
-h1 {
-  font-size: var(--font-size-2);
-}
-.avatar {
-  height: 60px;
-  width: auto;
-  object-fit: cover;
+<style lang="sass" scoped>
+@import "@/assets/base.sass"
 
-  aspect-ratio: 1/1;
-}
-.article-metadata {
-  margin: var(--grid-gap-2) 0;
-  color: rgb(var(--white-color));
-  border-radius: var(--border-radius-1);
-}
-.pi-angle-right {
-  font-size: var(--font-size-4);
-  vertical-align: middle;
-}
-.grid-container {
-  grid-template-columns: repeat(1, 1fr);
-  display: grid;
-  grid-gap: var(--grid-gap-3);
-  height: auto;
-  border-radius: var(--border-radius-1);
-  color: white;
-}
-.grid-container .grid-item:nth-child(odd) {
-  margin-right: var(--grid-gap-2);
-}
-.gallery {
-  grid-template-columns: repeat(3, 1fr);
-}
-.swiper-videos {
-  padding-bottom: calc(var(--grid-gap-2) * 2);
-}
-.swiper-videos .swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-@media only screen and (max-width: 550px) {
-  .gallery-item {
-    height: 120px;
-  }
-}
-@media only screen and (max-width: 667px) {
-  .gallery {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .avatar {
-    height: 40px;
-  }
-}
-@media only screen and (min-width: 400px) {
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .article-metadata {
-    background: rgb(var(--dark-grey-color));
-    padding: var(--grid-gap-1);
-  }
-}
+h1
+  font-size: $font-size-2
+.avatar
+  height: 60px
+  width: auto
+  object-fit: cover
+  aspect-ratio: 1/1
+
+.article-metadata
+  margin: $grid-gap-2 0
+  color: white
+  border-radius: $border-radius-1
+
+.pi-angle-right
+  font-size: $font-size-4
+  vertical-align: middle
+
+.grid-container
+  grid-template-columns: repeat(1, 1fr)
+  display: grid
+  grid-gap: $grid-gap-3
+  height: auto
+  border-radius: $border-radius-1
+  color: white
+
+.grid-container .grid-item:nth-child(odd)
+  margin-right: $grid-gap-2
+
+.gallery
+  grid-template-columns: repeat(3, 1fr)
+
+.swiper-videos
+  padding-bottom: calc($grid-gap-2) * 2
+
+.swiper-videos .swiper-slide
+  display: flex
+  justify-content: center
+  align-items: center
+
+@media only screen and (max-width: 550px)
+  .gallery-item
+    height: 120px
+
+
+@media only screen and (max-width: 667px)
+  .gallery
+    grid-template-columns: repeat(1, 1fr)
+  .avatar
+    height: 40px
+
+
+@media only screen and (min-width: 400px)
+  .grid-container
+    grid-template-columns: repeat(2, 1fr)
+
+  .article-metadata
+    background: $dark-grey-color-full
+    padding: $grid-gap-1
 </style>

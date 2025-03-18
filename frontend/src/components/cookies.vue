@@ -151,86 +151,85 @@ onMounted(() => {
   </transition>
 </template>
 
-<style lang="scss" scoped>
-.wrapper {
-  position: fixed;
-  bottom: var(--grid-gap-2);
-  right: var(--grid-gap-2);
-  max-width: 345px;
-  width: 100%;
-  background-color: var(--dark-grey-color-full);
-  border-radius: var(--border-radius-1);
-  -webkit-backdrop-filter: var(--blur-1);
-  backdrop-filter: var(--blur-1);
-  z-index: 9999999999;
-  padding: var(--grid-gap-2);
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  -webkit-box-shadow: var(--box-shadow-1);
-  box-shadow: var(--box-shadow-1);
-}
-.title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: var(--font-size-4);
-  font-family: var(--logo-font);
-}
-.info {
-  margin: var(--grid-gap-1) 0;
-  font-size: var(--font-size-7);
-}
-.grid-container {
-  display: grid;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  width: 100%;
-  grid-gap: var(--grid-gap-2);
-  grid-template-columns: repeat(2, 1fr);
-}
-.button {
-  width: 100%;
-  min-width: 100%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
+<style lang="sass" scoped>
+@import "@/assets/base.sass"
+
+.wrapper
+  position: fixed
+  bottom: $grid-gap-2
+  right: $grid-gap-2
+  max-width: 345px
+  width: 100%
+  background-color: $dark-grey-color-full
+  border-radius: $border-radius-1
+  -webkit-backdrop-filter: $blur-1
+  backdrop-filter: $blur-1
+  z-index: 9999999999
+  padding: $grid-gap-2
+  -webkit-transition: all 0.3s ease
+  -o-transition: all 0.3s ease
+  transition: all 0.3s ease
+  -webkit-box-shadow: $box-shadow-1
+  box-shadow: $box-shadow-1
+
+.title
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  -webkit-box-align: center
+  -ms-flex-align: center
+  align-items: center
+  font-size: $font-size-4
+  font-family: $logo-font
+
+.info
+  margin: $grid-gap-1 0
+  font-size: $font-size-7
+
+.grid-container
+  display: grid
+  -webkit-box-pack: justify
+  -ms-flex-pack: justify
+  justify-content: space-between
+  width: 100%
+  grid-gap: $grid-gap-2
+  grid-template-columns: repeat(2, 1fr)
+
+.button
+  width: 100%
+  min-width: 100%
+  -webkit-box-pack: center
+  -ms-flex-pack: center
+  justify-content: center
+
 /* Transition classes */
 .slide-enter-active,
-.slide-leave-active {
-  -webkit-transition: -webkit-transform var(--transition-2);
-  transition: -webkit-transform var(--transition-2);
-  -o-transition: transform var(--transition-2);
-  transition: transform var(--transition-2);
-  transition: transform var(--transition-2),
-    -webkit-transform var(--transition-2);
-}
+.slide-leave-active
+  -webkit-transition: -webkit-transform $transition-2
+  transition: -webkit-transform $transition-2
+  -o-transition: transform $transition-2
+  transition: transform $transition-2
+  transition: transform $transition-2,
+
 .slide-enter-from,
-.slide-leave-to {
-  -webkit-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  transform: translateY(100%);
-}
-@media only screen and (max-width: 400px) {
-  button {
-    font-size: var(--font-size-8);
-  }
-}
-@media only screen and (max-width: 667px) {
-  .wrapper {
-    bottom: 0;
-    max-width: 100%;
-    right: 0;
-    padding: var(--grid-gap-2) var(--homepage-padding);
-    border-top-left-radius: var(--border-radius-1);
-    border-top-right-radius: var(--border-radius-1);
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-}
+.slide-leave-to
+  -webkit-transform: translateY(100%)
+  -ms-transform: translateY(100%)
+  transform: translateY(100%)
+
+@media only screen and (max-width: 400px)
+  button
+    font-size: $font-size-8
+
+
+@media only screen and (max-width: 667px)
+  .wrapper
+    bottom: 0
+    max-width: 100%
+    right: 0
+    padding: $grid-gap-2 $homepage-padding
+    border-top-left-radius: $border-radius-1
+    border-top-right-radius: $border-radius-1
+    border-bottom-left-radius: 0
+    border-bottom-right-radius: 0
 </style>

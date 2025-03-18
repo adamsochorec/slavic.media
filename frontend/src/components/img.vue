@@ -40,12 +40,13 @@ const thumbnailUrl = `https://cdn.slavic.media/img/${props._id}/thumbnail`;
   </a>
 </template>
 
-<style scoped>
-.note {
-  left: var(--grid-gap-1) !important;
-}
+<style lang="sass" scoped>
+@import "@/assets/base.sass"
+
+.note
+  left: $grid-gap-1 !important
+
 img,
-a {
-  cursor: pointer;
-}
+a
+  cursor: pointer
 </style>

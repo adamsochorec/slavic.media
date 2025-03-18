@@ -194,8 +194,9 @@ onBeforeUnmount(() => {
   </article>
 </template>
 
-<style lang="scss" scoped>
-h1 {
-  text-transform: capitalize;
-}
+<style lang="sass" scoped>
+@import "@/assets/base.sass"
+
+h1
+  text-transform: capitalize
 </style>

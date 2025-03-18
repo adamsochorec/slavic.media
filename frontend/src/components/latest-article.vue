@@ -61,70 +61,70 @@ const updateImageSrc = (event: Event) => {
   </div>
 </template>
 
-<style scoped>
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-}
-.gallery-item:hover + div .title {
-  text-decoration: underline;
-  -webkit-text-decoration-skip-ink: auto;
-  text-decoration-skip-ink: auto;
-}
+<style lang="sass" scoped>
+@import "@/assets/base.sass"
+
+.gallery-item
+  position: relative
+  overflow: hidden
+
+.gallery-item:hover + div .title
+  text-decoration: underline
+  -webkit-text-decoration-skip-ink: auto
+  text-decoration-skip-ink: auto
+
 .gallery-item .flag,
-.gallery-item-caption {
-  position: absolute;
-  z-index: 1;
-}
-.gallery-item-caption {
-  padding: var(--grid-gap-2);
-}
+.gallery-item-caption
+  position: absolute
+  z-index: 1
+
+.gallery-item-caption
+  padding: $grid-gap-2
+
 .latest a,
-.latest a:hover {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-a > :hover {
-  text-decoration: underline;
-  -webkit-text-decoration-skip-ink: auto;
-  text-decoration-skip-ink: auto;
-}
-.title:hover {
-  text-decoration: underline;
-  -webkit-text-decoration-skip-ink: auto;
-  text-decoration-skip-ink: auto;
-}
-.grid-container {
-  display: grid;
-  grid-template-columns: 60% 38%;
-  grid-gap: 0 var(--grid-gap-3);
-}
+.latest a:hover
+  -webkit-box-shadow: none
+  box-shadow: none
 
-h4 {
-  font-size: var(--font-size-4);
-  margin: 0 0 var(--grid-gap-2) 0;
-}
-img {
-  border-radius: var(--border-radius-1);
-  height: 300px;
-  -o-object-fit: cover;
-  object-fit: cover;
-  position: relative;
-  display: block;
-  width: 100%;
-  transition: var(--transition-1);
-}
+a > :hover
+  text-decoration: underline
+  -webkit-text-decoration-skip-ink: auto
+  text-decoration-skip-ink: auto
 
-@media only screen and (max-width: 600px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-  }
-  h4 {
-    font-size: var(--font-size-3);
-    margin: var(--grid-gap-2) 0;
-  }
-  img {
-    height: var(--dimension-2);
-  }
-}
+.title:hover
+  text-decoration: underline
+  -webkit-text-decoration-skip-ink: auto
+  text-decoration-skip-ink: auto
+
+.grid-container
+  display: grid
+  grid-template-columns: 60% 38%
+  grid-gap: 0 $grid-gap-3
+
+
+h4
+  font-size: $font-size-4
+  margin: 0 0 $grid-gap-2 0
+
+img
+  border-radius: $border-radius-1
+  height: 300px
+  -o-object-fit: cover
+  object-fit: cover
+  position: relative
+  display: block
+  width: 100%
+  transition: $transition-1
+
+
+@media only screen and (max-width: 600px)
+  .grid-container
+    grid-template-columns: 1fr
+
+  h4
+    font-size: $font-size-3
+    margin: $grid-gap-2 0
+
+  img
+    height: $dimension-2
 </style>

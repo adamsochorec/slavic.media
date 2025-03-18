@@ -49,13 +49,13 @@ watch(
   </section>
 </template>
 
-<style scoped>
-.gallery {
-  grid-template-columns: repeat(3, 1fr);
-}
-@media only screen and (max-width: 667px) {
-  .gallery {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
+<style lang="sass" scoped>
+@import "@/assets/base.sass"
+
+.gallery
+  grid-template-columns: repeat(3, 1fr)
+
+@media only screen and (max-width: 667px)
+  .gallery
+    grid-template-columns: repeat(1, 1fr)
 </style>

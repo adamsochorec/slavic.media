@@ -31,7 +31,7 @@ watch(
       <h2 id="further-reading-title" class="reveal">
         More from
         <router-link to="/blog" class="gradient"
-          >Slavic&nbsp;Media&nbsp;</router-link
+          >Slavic&nbspMedia&nbsp</router-link
         >Blog
       </h2>
       <hr class="quater reveal" />
@@ -64,26 +64,26 @@ watch(
   </section>
 </template>
 
-<style scoped>
+<style lang="sass" scoped>
+@import "@/assets/base.sass"
+
 a,
-a:hover {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-.grid-container {
-  grid-template-columns: repeat(1, 1fr);
-  display: grid;
-  grid-gap: var(--grid-gap-3);
-  height: auto;
-  border-radius: var(--border-radius-1);
-  color: white;
-}
-.grid-container .grid-item:nth-child(odd) {
-  margin-right: var(--grid-gap-2);
-}
-@media only screen and (min-width: 400px) {
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+a:hover
+  -webkit-box-shadow: none
+  box-shadow: none
+
+.grid-container
+  grid-template-columns: repeat(1, 1fr)
+  display: grid
+  grid-gap: $grid-gap-3
+  height: auto
+  border-radius: $border-radius-1
+  color: white
+
+.grid-container .grid-item:nth-child(odd)
+  margin-right: $grid-gap-2
+
+@media only screen and (min-width: 400px)
+  .grid-container
+    grid-template-columns: repeat(2, 1fr)
 </style>

@@ -95,22 +95,22 @@ interface State {
   </article>
 </template>
 
-<style lang="scss" scoped>
-.grid-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-.grid-container .grid-item:nth-child(odd) {
-  margin-right: var(--grid-gap-2);
-}
-@media only screen and (max-width: 400px) {
+<style lang="sass" scoped>
+@import "@/assets/base.sass"
+
+.grid-container
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  -webkit-box-pack: justify
+  -ms-flex-pack: justify
+  justify-content: space-between
+
+.grid-container .grid-item:nth-child(odd)
+  margin-right: $grid-gap-2
+
+@media only screen and (max-width: 400px)
   .cover,
-  .filter {
-    height: 400px;
-  }
-}
+  .filter
+    height: 400px
 </style>

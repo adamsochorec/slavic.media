@@ -25,43 +25,43 @@ const props = defineProps<{
   </div>
 </template>
 
-<style scoped>
-.articles {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-.articles span:not(.articles span:last-child) {
-  margin-right: var(--grid-gap-3);
-}
-.articles span {
-  line-height: 1;
-  text-align: center;
-}
-.current {
-  opacity: 100% !important;
-}
+<style lang="sass" scoped>
+@import "@/assets/base.sass"
+
+.articles
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+
+.articles span:not(.articles span:last-child)
+  margin-right: $grid-gap-3
+
+.articles span
+  line-height: 1
+  text-align: center
+
+.current
+  opacity: 100% !important
+
 
 .articles span,
-.articles span:hover {
-  -webkit-transition: var(--transition-1);
-  -o-transition: var(--transition-1);
-  transition: var(--transition-1);
-}
-@media only screen and (max-width: 500px) {
-  .articles a {
-    font-size: var(--font-size-8);
-  }
-  .articles span:not(.articles span:last-child) {
-    margin-right: var(--grid-gap-1);
-  }
-}
-@media only screen and (min-width: 500px) {
-  .articles a {
-    font-size: var(--font-size-6);
-  }
-  .articles span:not(.articles span:last-child) {
-    margin-right: var(--grid-gap-2);
-  }
-}
+.articles span:hover
+  -webkit-transition: $transition-1
+  -o-transition: $transition-1
+  transition: $transition-1
+
+@media only screen and (max-width: 500px)
+  .articles a
+    font-size: $font-size-8
+
+  .articles span:not(.articles span:last-child)
+    margin-right: $grid-gap-1
+
+
+@media only screen and (min-width: 500px)
+  .articles a
+    font-size: $font-size-6
+
+  .articles span:not(.articles span:last-child)
+    margin-right: $grid-gap-2
 </style>

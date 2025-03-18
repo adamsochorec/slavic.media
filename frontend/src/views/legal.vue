@@ -86,8 +86,9 @@ onMounted(async () => {
   </article>
 </template>
 
-<style lang="scss" scoped>
-ol {
-  list-style: decimal;
-}
+<style lang="sass" scoped>
+@import "@/assets/base.sass"
+
+ol
+  list-style: decimal
 </style>

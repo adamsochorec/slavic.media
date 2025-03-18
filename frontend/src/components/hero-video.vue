@@ -16,8 +16,8 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
     <div class="video-container">
       <iframe
         ref="iframeRef"
-        :src="`https://player.vimeo.com/video/${id}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;muted=1&amp;autoplay=1&amp;loop=1&amp;controls=0#t=${start}s`"
-        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+        :src="`https://player.vimeo.com/video/${id}?badge=0&ampautopause=0&ampplayer_id=0&ampapp_id=58479&ampmuted=1&ampautoplay=1&amploop=1&ampcontrols=0#t=${start}s`"
+        allow="autoplay fullscreen picture-in-picture clipboard-write"
         :title="ariaLabel"
       ></iframe>
     </div>
@@ -51,61 +51,61 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
   </section>
 </template>
 
-<style scoped>
-.link {
-  position: absolute;
-  left: var(--grid-gap-2);
-}
-.showcase {
-  height: var(--dimension-1);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  text-align: center;
-}
-.video-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: var(--dimension-1);
-  overflow: hidden;
-  background-position: center;
-  background-size: cover;
-  z-index: -1;
-}
-.video-container iframe {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 177.77777778vh;
-  height: 56.25vw;
-  min-width: 100%;
-  min-height: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
+<style lang="sass" scoped>
+@import "@/assets/base.sass"
 
-@media only screen and (max-width: 415px) {
+.link
+  position: absolute
+  left: $grid-gap-2
+
+.showcase
+  height: $dimension-1
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  -webkit-box-pack: center
+  -ms-flex-pack: center
+  justify-content: center
+  text-align: center
+
+.video-container
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: $dimension-1
+  overflow: hidden
+  background-position: center
+  background-size: cover
+  z-index: -1
+
+.video-container iframe
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+  width: 177.77777778vh
+  height: 56.25vw
+  min-width: 100%
+  min-height: 100%
+  position: absolute
+  top: 50%
+  left: 50%
+  -webkit-transform: translate(-50%, -50%)
+  -ms-transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%)
+
+
+@media only screen and (max-width: 415px)
   .video-container,
-  .showcase {
-    height: 100vh;
-  }
+  .showcase
+    height: 100vh
+
   .controls,
-  .link {
-    bottom: var(--grid-gap-2);
-  }
-}
-@media only screen and (min-width: 415px) {
+  .link
+    bottom: $grid-gap-2
+
+
+@media only screen and (min-width: 415px)
   .controls,
-  .link {
-    top: calc(var(--dimension-1) - 3 * var(--grid-gap-1));
-  }
-}
+  .link
+    top: calc($dimension-1 - 3 * $grid-gap-1)
 </style>

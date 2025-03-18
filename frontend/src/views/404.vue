@@ -37,23 +37,21 @@ import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
   </article>
 </template>
 
-<style scoped>
-#lottie {
-  height: 700px;
-  width: 100%;
-  margin: -200px 0;
-}
-h1 {
-  font-size: var(--font-size-4);
-  font-weight: var(--paragraph-weight);
-  text-transform: unset;
-  text-align: center;
-}
-@media only screen and (max-width: 500px) {
-  #lottie {
-    height: 250px;
-    width: 100%;
-    margin: -70px 0;
-  }
-}
+<style lang="sass" scoped>
+@import "@/assets/base.sass"
+#lottie
+  height: 700px
+  width: 100%
+  margin: -200px 0
+
+h1
+  font-size: $font-size-4
+  text-transform: unset
+  text-align: center
+
+@media only screen and (max-width: 500px)
+  #lottie
+    height: 250px
+    width: 100%
+    margin: -70px 0
 </style>

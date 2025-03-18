@@ -61,13 +61,10 @@ const updateImageSrc = (event: Event) => {
           <span>{{ article.author.name }}</span>
         </a>
         <br class="hide" />
-        <span style="font-size: var(--font-size-7)"
-          ><span
-            style="font-size: var(--font-size-7)"
-            class="pi pi-calendar"
-          ></span
+        <span style="font-size: $font-size-7)"
+          ><span style="font-size: $font-size-7)" class="pi pi-calendar"></span
           >&nbsp;{{ ddmmmyyyy(article.metadata.date) }}&nbsp;⋅&nbsp;<span
-            style="font-size: var(--font-size-7)"
+            style="font-size: $font-size-7)"
             class="pi pi-book"
           ></span
           >&nbsp;{{ article.metadata.length }}
@@ -81,36 +78,36 @@ const updateImageSrc = (event: Event) => {
   </section>
 </template>
 
-<style lang="scss" scoped>
-img {
-  -webkit-animation: skeleton-loading 1s linear infinite alternate;
-  animation: skeleton-loading 1s linear infinite alternate;
-}
-.author {
-  font-size: var(--font-size-7);
-}
-.avatar {
-  height: 30px;
-  width: auto;
-  object-fit: cover;
-  aspect-ratio: 1/1;
-}
-.metadata {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  line-height: 1.2;
-  margin: var(--grid-gap-2) 0;
-}
-.grid-item:nth-child(2) {
-  font-size: var(--font-size-7);
-}
-@media only screen and (max-width: 400px) {
-  .grid-item:nth-child(2) {
-    font-size: var(--font-size-8);
-  }
-}
+<style lang="sass" scoped>
+@import "@/assets/base.sass"
+
+img
+  -webkit-animation: skeleton-loading 1s linear infinite alternate
+  animation: skeleton-loading 1s linear infinite alternate
+
+.author
+  font-size: $font-size-7
+
+.avatar
+  height: 30px
+  width: auto
+  object-fit: cover
+  aspect-ratio: 1/1
+
+.metadata
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  -webkit-box-align: center
+  -ms-flex-align: center
+  align-items: center
+  line-height: 1.2
+  margin: $grid-gap-2 0
+
+.grid-item:nth-child(2)
+  font-size: $font-size-7
+
+@media only screen and (max-width: 400px)
+  .grid-item:nth-child(2)
+    font-size: $font-size-8
 </style>

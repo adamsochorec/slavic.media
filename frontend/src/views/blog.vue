@@ -108,34 +108,34 @@ watch(screenWidth, updateScreenWidth);
   </article>
 </template>
 
-<style lang="scss" scoped>
-.grid-container {
-  grid-template-columns: repeat(1, 1fr);
-  display: grid;
-  grid-gap: var(--grid-gap-3);
-  height: auto;
-  border-radius: var(--border-radius-1);
-  color: white;
-}
-.grid-container .grid-item:nth-child(odd) {
-  margin-right: var(--grid-gap-2);
-}
-h1 {
-  font-size: var(--font-size-2);
-}
-@media only screen and (max-width: 500px) {
-  .hide {
-    display: none;
-  }
-}
-@media only screen and (min-width: 500px) {
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media only screen and (min-width: 700px) {
-  .grid-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+<style lang="sass" scoped>
+@import "@/assets/base.sass"
+
+.grid-container
+  grid-template-columns: repeat(1, 1fr)
+  display: grid
+  grid-gap: $grid-gap-3
+  height: auto
+  border-radius: $border-radius-1
+  color: white
+
+.grid-container .grid-item:nth-child(odd)
+  margin-right: $grid-gap-2
+
+h1
+  font-size: $font-size-2
+
+@media only screen and (max-width: 500px)
+  .hide
+    display: none
+
+
+@media only screen and (min-width: 500px)
+  .grid-container
+    grid-template-columns: repeat(2, 1fr)
+
+
+@media only screen and (min-width: 700px)
+  .grid-container
+    grid-template-columns: repeat(3, 1fr)
 </style>

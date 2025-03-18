@@ -125,27 +125,27 @@ onMounted(async () => {
   </article>
 </template>
 
-<style scoped>
-h1,
-h2 {
-  font-size: var(--font-size-3);
-}
-h3 {
-  text-transform: capitalize;
-}
-.latest a,
-.latest a:hover {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
+<style lang="sass" scoped>
+@import "@/assets/base.sass"
 
-@media only screen and (max-width: 415px) {
+h1,
+h2
+  font-size: $font-size-3
+
+h3
+  text-transform: capitalize
+
+.latest a,
+.latest a:hover
+  -webkit-box-shadow: none
+  box-shadow: none
+
+
+@media only screen and (max-width: 415px)
   h1,
-  h2 {
-    font-size: var(--font-size-2);
-  }
-  #reviews-caption p {
-    margin-bottom: 0;
-  }
-}
+  h2
+    font-size: $font-size-2
+
+  #reviews-caption p
+    margin-bottom: 0
 </style>

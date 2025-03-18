@@ -232,20 +232,20 @@ router.beforeEach((to, from, next) => {
   </article>
 </template>
 
-<style lang="scss" scoped>
-h1 {
-  text-transform: capitalize;
-}
+<style lang="sass" scoped>
+@import "@/assets/base.sass"
 
-@media only screen and (max-width: 400px) {
-  .gallery-item {
-    height: 120px;
-  }
-}
-@media only screen and (max-width: 575px) {
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
+h1
+  text-transform: capitalize
+
+
+@media only screen and (max-width: 400px)
+  .gallery-item
+    height: 120px
+
+
+@media only screen and (max-width: 575px)
+  .gallery
+    display: grid
+    grid-template-columns: repeat(1, 1fr)
 </style>
