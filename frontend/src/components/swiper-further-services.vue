@@ -96,4 +96,10 @@ onMounted(() => {
 .gallery-item {
   aspect-ratio: 16/9;
 }
+
+@media only screen and (max-width: 400px) {
+  .gallery-item {
+    aspect-ratio: 1/1;
+  }
+}
 </style>
