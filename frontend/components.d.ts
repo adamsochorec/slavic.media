@@ -23,6 +23,7 @@ declare module 'vue' {
     HeroVideo: typeof import('./src/components/hero-video.vue')['default']
     Image: typeof import('primevue/image')['default']
     Img: typeof import('./src/components/img.vue')['default']
+    InputText: typeof import('primevue/inputtext')['default']
     LatestArticle: typeof import('./src/components/latest-article.vue')['default']
     Map: typeof import('./src/components/map.vue')['default']
     NavBar: typeof import('./src/components/nav-bar.vue')['default']

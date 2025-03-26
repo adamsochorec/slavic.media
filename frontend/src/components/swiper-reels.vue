@@ -25,6 +25,18 @@ interface Reel {
 // Define the reels data in an array
 const reels = ref<Reel[]>([
   {
+    id: "DHqq19cqgjv",
+    platform: "instagram",
+    url: "instagram.com/reel/DHqq19cqgjv",
+    flag: "",
+  },
+  {
+    id: "DHF7hoXKfiP",
+    platform: "instagram",
+    url: "instagram.com/reel/DHF7hoXKfiP",
+    flag: "fi",
+  },
+  {
     id: "DFpNgRkqkNY",
     platform: "instagram",
     url: "instagram.com/reel/DFpNgRkqkNY",
