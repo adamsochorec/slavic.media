@@ -18,7 +18,57 @@ const currentYear = new Date().getFullYear();
             viewBox="0 0 740 782"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <!-- SVG content -->
+            <g filter="url(#filter0_d_29_674)">
+              <path
+                d="M728.169 771.315C677.925 751.777 624.688 741.85 571.208 741.85C545.246 741.85 519.187 744.185 493.396 748.906L492.399 749.1C492.399 749.1 513.786 677.031 499.747 629.707C473.225 540.362 240.253 390.919 240.253 390.919C240.253 390.919 93.9737 288.923 38.7417 222.158C-0.480371 174.712 11.8313 10.5483 11.8313 10.5483C62.0754 30.0864 115.312 40.0135 168.792 40.0135C194.754 40.0135 220.813 37.6777 246.604 32.9575L247.601 32.7628C247.601 32.7628 226.214 104.832 240.253 152.156C266.775 241.501 499.747 390.944 499.747 390.944C499.747 390.944 646.026 492.94 701.258 559.706C740.48 607.152 728.169 771.315 728.169 771.315Z"
+                fill="#C71E1E"
+              />
+              <path
+                d="M730 360.433V32.7388H375.007C375.007 32.7388 320.383 141.962 730 360.433Z"
+                fill="#C71E1E"
+              />
+              <path
+                d="M10.0015 421.406V749.1H364.995C364.995 749.1 419.619 639.877 10.0015 421.406Z"
+                fill="#C71E1E"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_29_674"
+                x="0"
+                y="0.54834"
+                width="740"
+                height="781"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset />
+                <feGaussianBlur stdDeviation="5" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_29_674"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_29_674"
+                  result="shape"
+                />
+              </filter>
+            </defs>
           </svg>
         </router-link>
       </nav>
