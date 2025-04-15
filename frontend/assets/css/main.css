@@ -538,6 +538,11 @@ lite-vimeo:hover > .ltv-playbtn {
 }
 
 /* VIDEO CONTROLS END */
+.fancybox__backdrop {
+  -webkit-backdrop-filter: var(--blur-1);
+  backdrop-filter: var(--blur-1);
+  background: unset !important;
+}
 
 /* PHOTO SWIPE START*/
 .pswp {

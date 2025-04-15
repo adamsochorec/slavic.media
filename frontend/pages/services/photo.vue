@@ -73,7 +73,6 @@ async function initializeLightbox(): Promise<void> {
 onMounted(async () => {
   try {
     await getAllImgs();
-
     isDataLoaded.value = true;
 
     initializeLightbox();
