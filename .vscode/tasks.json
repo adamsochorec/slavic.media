@@ -26,7 +26,7 @@
     {
       "label": "Frontend Dev",
       "type": "shell",
-      "command": "npm run dev",
+      "command": "npm run dev - --o",
       "options": {
         "cwd": "${workspaceFolder}/frontend"
       },

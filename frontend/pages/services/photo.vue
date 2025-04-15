@@ -15,7 +15,7 @@ useSeoMeta({
   ogImage: "https://cdn.slavic.media/img/photo/width=300",
   twitterCard: "summary_large_image",
 });
-
+const headerTitle = "Services";
 const isDataLoaded = ref<boolean>(false);
 const { state: imgState, getAllImgs } = img;
 const videoServices = [
@@ -27,6 +27,7 @@ const videoServices = [
 const showRequestAProposal = (identifier: string) => {
   eventBus.emit("showRequestAProposal", identifier);
 };
+
 let lightbox: PhotoSwipeLightbox | null = null;
 
 async function initializeLightbox(): Promise<void> {
@@ -102,9 +103,9 @@ onBeforeUnmount(() => {
   }
 });
 </script>
-
 <template>
   <article class="main" style="margin-top: 120px">
+    <NavBar :headerTitle="headerTitle" />
     <!-- PAGE ABSTRACT START-->
     <section class="wrapper-wide">
       <div
@@ -158,7 +159,7 @@ onBeforeUnmount(() => {
       </section>
       <!-- GALLERY ABSTRACT END -->
       <!-- GALLERY START -->
-      <section v-if="isDataLoaded" aria-busy="false" class="popup-gallery">
+      <section v-if="isDataLoaded" aria-busy="false">
         <div class="row">
           <div
             v-for="(column, columnIndex) in gallery.columns"
@@ -209,6 +210,10 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss" scoped>
+@import url("https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lightgallery.css");
+@import url("https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-zoom.css");
+@import url("https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-video.css");
+
 h1 {
   text-transform: capitalize;
 }

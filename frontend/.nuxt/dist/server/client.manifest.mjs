@@ -1,1 +1,0 @@
-export { default } from "file:///Users/adamsochorec/Library/Mobile%20Documents/com%7Eapple%7ECloudDocs/Programming/slavic.media/frontend/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"

@@ -1,18 +1,4 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import event from "@/composables/modules/event";
-
-import Button from "primevue/button";
-interface Event {
-  date: string;
-  event: string;
-  icon: string;
-}
-
-interface State {
-  events: Event[];
-}
-
 useSeoMeta({
   title: "About",
   ogTitle: "About",
@@ -22,22 +8,6 @@ useSeoMeta({
     "Creative & Production studio based in Denmark and Czechia. We tell stories with deep eye contact, magnificent shots, and clean designs to help your project stand out from the noise.",
   ogImage: "https://cdn.slavic.media/img/thumbnail/width=300",
   twitterCard: "summary_large_image",
-});
-
-const { state, getAllEvents } = event();
-const isDataLoaded = ref<boolean>(false);
-
-// SHOW MORE START
-const EVENTS_INCREMENT = 6;
-const eventsToShow = ref(EVENTS_INCREMENT);
-// SHOW MORE END
-
-const loadMoreEvents = () => {
-  eventsToShow.value += EVENTS_INCREMENT;
-};
-onMounted(async () => {
-  await getAllEvents();
-  isDataLoaded.value = true;
 });
 </script>
 
@@ -70,8 +40,8 @@ onMounted(async () => {
         class="reveal"
         title="Slavic Media Location"
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3299827.3549044663!2d11.896611755598963!3d56.25502295714493!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464c9fe2ecbe264d%3A0x5699de608acee414!2sSlavic%20Media!5e0!3m2!1sen!2scz!4v1733431912038!5m2!1sen!2scz"
-        allowfullscreen=""
         referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
         style="margin: var(--grid-gap-2) 0"
       ></iframe>
       <p class="reveal">
@@ -88,6 +58,6 @@ onMounted(async () => {
       <hr class="reveal" role="separator" />
     </section>
     <!--   ABOUT END -->
-    <CompanyTimeline />
+    <EventTimeline />
   </article>
 </template>

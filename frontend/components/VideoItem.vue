@@ -39,11 +39,12 @@ defineProps({
   >
     <img :src="`https://cdn.slavic.media/img/${img}/sd`" :alt="alt" />
     <div class="title">
-      <!--       <Icon :name="`circle-flags:${flag}`" class="flag"></Icon> -->
       <span
-        ><b>{{ title }}</b
-        ><br />{{ desc }}</span
-      >
+        ><b>{{ title }}</b> &nbsp;
+        <Icon :name="`circle-flags:${flag}`" class="flag"></Icon> <br />{{
+          desc
+        }}
+      </span>
     </div>
   </a>
 </template>

@@ -117,11 +117,23 @@ const currentYear = new Date().getFullYear();
           &nbsp;<span class="underline">Press Kit</span>
         </a>
         <span class="separator"></span>
-        <NuxtLink aria-label="Legal documents" to="/legal">
+        <!--  <NuxtLink aria-label="Cookie Policy" to="/legal/cookie-policy">
           <Icon name="octicon:law-16" aria-hidden="true" />
-          &nbsp;<span class="underline">Legal</span>
+          &nbsp;<span class="underline">Cookie Policy</span>
         </NuxtLink>
         <span class="separator"></span>
+        <NuxtLink aria-label="Privacy Policy" to="/legal/privacy-policy">
+          <Icon name="octicon:law-16" aria-hidden="true" />
+          &nbsp;<span class="underline">Privacy Policy</span>
+        </NuxtLink>
+        <NuxtLink
+          aria-label="Digital Image License"
+          to="/legaldigital-image-licnse"
+        >
+          <Icon name="octicon:law-16" aria-hidden="true" />
+          &nbsp;<span class="underline">Digital Image License</span>
+        </NuxtLink>
+        <span class="separator"></span> -->
         <a
           title="Email us"
           href="mailto:contact@slavic.media"
@@ -230,10 +242,10 @@ footer {
 }
 footer hr {
   margin: var(--grid-gap-1) 0;
+  border-color: rgba(255, 255, 255, 0.3);
 }
 span,
-.footer-container:last-of-type i,
-footer hr {
+.footer-container:last-of-type i {
   color: rgba(255, 255, 255, 0.3);
 }
 a:hover span,

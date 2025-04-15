@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import { useVideoControls } from "@/composables/useVideoControls";
 
-interface Props {
-  id: number;
-  start?: number;
-  ariaLabel: string;
-}
-const props = defineProps<Props>();
 const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
   useVideoControls();
 </script>

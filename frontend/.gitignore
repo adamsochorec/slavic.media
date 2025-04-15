@@ -25,5 +25,5 @@ logs
 .env.*
 !.env.example
 
-
+# Ignore postcss.mjs
 postcss.mjs

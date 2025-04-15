@@ -17,6 +17,7 @@ useSeoMeta({
   twitterCard: "summary_large_image",
 });
 
+const headerTitle = "Services";
 const { state: videoState, getAllVideos } = video();
 const isDataLoaded = ref<boolean>(false);
 const photoServices = [
@@ -55,6 +56,7 @@ onMounted(async () => {
 
 <template>
   <article class="main" style="margin-top: 120px">
+    <NavBar :headerTitle="headerTitle" />
     <section class="wrapper-wide">
       <!-- PAGE ABSTRACT START -->
       <div
@@ -95,8 +97,6 @@ onMounted(async () => {
             download: false,
             autoplay: true,
           }"
-          :onInit="onInit"
-          :onBeforeSlide="onBeforeSlide"
           :showVimeoThumbnails="true"
           hideScrollbar="true"
         >

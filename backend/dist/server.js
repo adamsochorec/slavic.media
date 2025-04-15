@@ -33,7 +33,6 @@ const img_1 = __importDefault(require("./routes/img"));
 const video_1 = __importDefault(require("./routes/video"));
 const auth_1 = __importDefault(require("./routes/auth"));
 const employee_1 = __importDefault(require("./routes/employee"));
-const legal_1 = __importDefault(require("./routes/legal"));
 const review_1 = __importDefault(require("./routes/review"));
 const event_1 = __importDefault(require("./routes/event"));
 require("dotenv-flow").config();
@@ -54,7 +53,6 @@ app.use("/img", img_1.default);
 app.use("/video", video_1.default);
 app.use("/user", auth_1.default);
 app.use("/employee", employee_1.default);
-app.use("/legal", legal_1.default);
 app.use("/review", review_1.default);
 app.use("/event", event_1.default);
 // Serve static files from the 'dist' directory

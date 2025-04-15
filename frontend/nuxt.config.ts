@@ -12,12 +12,6 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
-      title: "Slavic Media", // default fallback title
-      charset: "utf-16",
-      viewport: "width=device-width, initial-scale=1, maximum-scale=1",
-      htmlAttrs: {
-        lang: "en",
-      },
       link: [
         {
           rel: "icon",
@@ -25,6 +19,12 @@ export default defineNuxtConfig({
           href: "https://cdn.slavic.media/img/Favicon-2/height=100",
         },
       ],
+      title: "Slavic Media",
+      charset: "utf-16",
+      viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+      htmlAttrs: {
+        lang: "en",
+      },
     },
     pageTransition: { name: "page", mode: "out-in" },
   },

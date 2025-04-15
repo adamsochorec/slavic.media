@@ -1068,9 +1068,6 @@ i.pi-arrow-right:hover {
 .article-content p {
   margin: var(--grid-gap-2) 0;
 }
-.article-content.legal h2 {
-  font-size: var(--font-size-4);
-}
 .article-content .img-src {
   font-size: var(--font-size-8);
 }

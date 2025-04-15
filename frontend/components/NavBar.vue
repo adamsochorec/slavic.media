@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import { ref, reactive, onMounted } from "vue";
+import { useRouter, useRoute } from "vue-router";
+
 const router = useRouter();
 const route = useRoute();
-
 const dropdowns = reactive<{ [key: string]: boolean }>({});
 const isMobile = ref(false);
-
+const props = defineProps<{ headerTitle?: string }>();
+const titlePath = ref(route.meta.titlePath);
 const menuItems = ref([
   {
     title: "Video",
@@ -60,10 +63,6 @@ const collapseMenu = () => {
     dropdowns[key] = false;
   });
 };
-
-const props = defineProps<{ headerTitle: string }>();
-
-const titlePath = ref(route.meta.titlePath || "");
 
 onMounted(() => {
   header();

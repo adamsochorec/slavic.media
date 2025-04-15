@@ -83,7 +83,7 @@ onMounted(() => {
         />
       </div>
     </div>
-    <div :class="swiperPaginationClass" aria-busy="false"></div>
+    <div class="swiper-pagination" aria-busy="false"></div>
   </section>
 </template>
 

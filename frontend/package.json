@@ -10,8 +10,9 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/icon": "^1.12.0",
+    "@fancyapps/ui": "^5.0.36",
     "@lottiefiles/dotlottie-vue": "^0.4.18",
+    "@nuxt/icon": "^1.12.0",
     "@primeuix/themes": "^1.0.3",
     "@primevue/forms": "^4.3.3",
     "axios": "^1.8.4",

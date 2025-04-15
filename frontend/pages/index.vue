@@ -130,7 +130,7 @@ const showRequestAProposal = (identifier: string) => {
       <br />
 
       <latestArticle></latestArticle>
-      <div v-if="isDataLoaded" class="flex-center">
+      <div class="flex-center">
         <NuxtLink to="/blog" class="cta reveal">Read more</NuxtLink>
       </div>
     </article>

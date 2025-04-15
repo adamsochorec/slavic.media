@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, nextTick, onUnmounted, onMounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import review from "@/composables/modules/review";
@@ -23,8 +24,6 @@ onMounted(async () => {
         dynamicBullets: true,
       },
       autoplay: { delay: 2000, pauseOnMouseEnter: true },
-      preloadImages: false,
-      lazyLoading: true,
       observer: true,
       observeParents: true,
       breakpoints: {

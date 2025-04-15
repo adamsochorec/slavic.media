@@ -122,8 +122,5 @@ img {
     font-size: var(--font-size-3);
     margin: var(--grid-gap-2) 0;
   }
-  img {
-    height: var(--dimension-2);
-  }
 }
 </style>

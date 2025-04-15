@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref, onUnmounted, onMounted } from "vue";
+
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 
@@ -10,7 +12,7 @@ interface Reel {
   id: string;
   platform: string;
   url: string;
-  flag: string;
+  flag?: string;
 }
 
 // Define the reels data in an array
@@ -19,7 +21,6 @@ const reels = ref<Reel[]>([
     id: "DHqq19cqgjv",
     platform: "instagram",
     url: "instagram.com/reel/DHqq19cqgjv",
-    flag: "",
   },
   {
     id: "DHF7hoXKfiP",
@@ -226,7 +227,11 @@ onMounted(() => {
             >View reel {{ index + 1 }} on Instagram</span
           >
         </a>
-        <Icon :name="`circle-flags:${reel.flag}`" class="note" />
+        <Icon
+          v-if="reel.flag"
+          :name="`circle-flags:${reel.flag}`"
+          class="note"
+        />
         <video
           class="video-offload"
           loop

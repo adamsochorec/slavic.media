@@ -23,7 +23,6 @@ interface Article {
 const props = defineProps<{
   article: Article;
 }>();
-console.log(props.article);
 const updateImageSrc = (event: Event) => {
   const target = event.target as HTMLImageElement;
   target.src = target.dataset.src!;
@@ -74,8 +73,6 @@ const updateImageSrc = (event: Event) => {
           min read
         </span>
         <br />
-        <span>{{ department }}</span>
-        <!-- Add this line to display the department -->
       </div>
     </header>
   </section>

@@ -20,7 +20,6 @@ interface Author {
   linkedin: string;
   thumbnail: string;
 }
-
 interface Article {
   _id: string;
   title: string;
@@ -30,11 +29,11 @@ interface Article {
   };
   content: string[];
 }
-
 interface State {
   articles: Article[];
 }
 
+const headerTitle = "Blog";
 const { state, getAllArticles } = article();
 const isDataLoaded = ref<boolean>(false);
 
@@ -80,6 +79,7 @@ onUnmounted(() => {
 
 <template>
   <article class="main" style="margin-top: 120px">
+    <NavBar :headerTitle="headerTitle" />
     <section class="wrapper-wide">
       <h1 class="visually-hidden">Slavic Media Blog</h1>
 

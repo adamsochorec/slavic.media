@@ -26,6 +26,7 @@ interface Employee {
 const { state, getAllEmployees } = employee();
 const isDataLoaded = ref(false);
 let lightbox: any;
+let removeArrowNavigation: () => void;
 
 // Lifecycle hook to fetch employees and initialize Swiper and PhotoSwipe
 onMounted(async () => {
@@ -83,17 +84,19 @@ onMounted(async () => {
     lightbox.init();
 
     // Enable arrow navigation for Swiper
-    const removeArrowNavigation = useArrowNavigation(swiper);
-
-    // Cleanup on component unmount
-    onUnmounted(() => {
-      removeArrowNavigation();
-      if (lightbox) {
-        lightbox.destroy();
-        lightbox = null;
-      }
-    });
+    removeArrowNavigation = useArrowNavigation(swiper);
   });
+});
+
+// Cleanup on component unmount
+onUnmounted(() => {
+  if (removeArrowNavigation) {
+    removeArrowNavigation();
+  }
+  if (lightbox) {
+    lightbox.destroy();
+    lightbox = null;
+  }
 });
 </script>
 
