@@ -1,0 +1,2 @@
+import{toValues as p}from"@primeuix/forms/utils";import{isNotEmpty as u}from"@primeuix/utils/object";var h=(y,i,m)=>async({values:e,name:s})=>{let{sync:l=!1,raw:n=!1}=m||{};try{let r=await y[l?"parse":"parseAsync"](e,i);return{values:p(n?e:r,s),errors:{}}}catch(r){if(Array.isArray(r?.errors))return{values:p(n?e:void 0,s),errors:r.errors.reduce((t,o)=>{let a=u(o.path)?o.path.join("."):s;return a&&(t[a]||=[],t[a].push(o)),t},{})};throw r}};export{h as zodResolver};
+//# sourceMappingURL=index.mjs.map
