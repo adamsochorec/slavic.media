@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBar :headerTitle="headerTitle" />
+    <NavBar />
     <slot style="min-height: 71vh" />
     <RequestProposal />
     <hr class="semi bodyxfooter" role="separator" />

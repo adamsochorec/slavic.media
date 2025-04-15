@@ -79,7 +79,6 @@ onUnmounted(() => {
 
 <template>
   <article class="main" style="margin-top: 120px">
-    <NavBar :headerTitle="headerTitle" />
     <section class="wrapper-wide">
       <h1 class="visually-hidden">Slavic Media Blog</h1>
 

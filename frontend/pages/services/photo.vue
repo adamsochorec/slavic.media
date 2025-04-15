@@ -101,8 +101,6 @@ onBeforeUnmount(() => {
 </script>
 <template>
   <article class="main" style="margin-top: 120px">
-    <NavBar :headerTitle="headerTitle" />
-
     <!-- PAGE ABSTRACT START-->
     <section class="wrapper-wide">
       <div

@@ -50,7 +50,6 @@ onMounted(async () => {
 
 <template>
   <article class="main" style="margin-top: 120px">
-    <NavBar :headerTitle="headerTitle" />
     <section class="wrapper-wide">
       <!-- PAGE ABSTRACT START -->
       <div

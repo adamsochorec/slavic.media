@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
-import { useRouter, useRoute } from "vue-router";
+
+import { useRouter } from "vue-router";
 
 const router = useRouter();
-const route = useRoute();
 const dropdowns = reactive<{ [key: string]: boolean }>({});
 const isMobile = ref(false);
-const props = defineProps<{ headerTitle?: string }>();
-const titlePath = ref(route.meta.titlePath);
 const menuItems = ref([
   {
     title: "Video",
@@ -130,7 +128,7 @@ function header() {
 </script>
 
 <template>
-  <header>
+  <header class="transparent">
     <div class="container">
       <nav id="navigation" role="navigation" aria-label="Main Navigation">
         <NuxtLink to="/" aria-label="Home">
@@ -140,12 +138,6 @@ function header() {
             src="https://cdn.slavic.media/img/Primary-1/height=80"
           />
         </NuxtLink>
-        <span class="page" v-if="headerTitle">
-          <NuxtLink :to="titlePath" class="gradient">{{
-            headerTitle
-          }}</NuxtLink>
-        </span>
-
         <button
           aria-label="Open mobile menu"
           class="hamburger"
@@ -206,26 +198,9 @@ function header() {
 </template>
 
 <style scoped>
-.page {
-  position: absolute;
-  padding: var(--grid-gap-2) 0;
-  font-size: var(--font-size-5) !important;
-  text-transform: capitalize;
-}
-.page .gradient {
-  border-left: 2px solid rgba(255, 255, 255, 0.3);
-  padding: 5px var(--grid-gap-1);
-  margin-left: var(--grid-gap-1);
-}
 .menuitem {
   width: 100%;
 }
-.iconify,
-.iconfly:hover {
-  color: white;
-  margin-bottom: 3px;
-}
-
 .dropdown {
   display: grid;
   position: relative;
@@ -255,13 +230,6 @@ function header() {
 .menu-left ul a {
   padding: 10px;
   font-size: var(--font-size-7);
-}
-header {
-  backdrop-filter: var(--blur-1) !important; /* Standard syntax */
-  -webkit-backdrop-filter: var(--blur-1) !important; /* Chrome, Safari, Opera */
-  -moz-backdrop-filter: var(--blur-1) !important; /* Firefox */
-  -ms-backdrop-filter: var(--blur-1) !important; /* Edge */
-  -o-backdrop-filter: var(--blur-1) !important; /* Older versions of Opera */
 }
 header img.logo {
   float: left;
@@ -371,8 +339,12 @@ header {
   -webkit-transform: translateY(0);
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
-
   z-index: 9;
+  backdrop-filter: var(--blur-1); /* Standard syntax */
+  -webkit-backdrop-filter: var(--blur-1); /* Chrome, Safari, Opera */
+  -moz-backdrop-filter: var(--blur-1); /* Firefox */
+  -ms-backdrop-filter: var(--blur-1); /* Edge */
+  -o-backdrop-filter: var(--blur-1); /* Older versions of Opera */
 }
 header nav ul {
   list-style: none;
@@ -445,6 +417,17 @@ ul.menu-left.collapse {
   transition: all 0.25s;
   margin-top: 4px;
 }
+
+header.transparent {
+  backdrop-filter: none; /* Standard syntax */
+  -webkit-backdrop-filter: none; /* Chrome, Safari, Opera */
+  -moz-backdrop-filter: none; /* Firefox */
+  -ms-backdrop-filter: none; /* Edge */
+  -o-backdrop-filter: none; /* Older versions of Opera */
+  box-shadow: none;
+  background-color: transparent;
+}
+
 /* HAMBURGER MENU END */
 @media only screen and (min-width: 538px) {
   header nav ul li a {
