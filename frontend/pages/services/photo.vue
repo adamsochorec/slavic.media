@@ -29,6 +29,17 @@ let lightbox: PhotoSwipeLightbox | null = null;
 
 async function initializeLightbox(): Promise<void> {
   await nextTick();
+
+  // Custom SVGs for arrows
+  const leftArrowSVGString = `
+   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="pswp__button--arrow--left">
+	<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 12H4m0 0l6-6m-6 6l6 6" />
+</svg>`;
+  const rightArrowSVGString = `
+   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="pswp__button--arrow--right">
+	<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12h16m0 0l-6-6m6 6l-6 6" />
+</svg>`;
+
   lightbox = new PhotoSwipeLightbox({
     gallery: ".popup-gallery",
     children: "a",
@@ -36,9 +47,19 @@ async function initializeLightbox(): Promise<void> {
     secondaryZoomLevel: 1.5,
     pswpModule: () => import("photoswipe"),
     wheelToZoom: true,
+    padding: {
+      top: 0,
+      bottom: 40,
+      left: 0,
+      right: 0,
+    },
     preload: [1, 4],
     loop: false,
+    arrowPrevSVG: leftArrowSVGString,
+    arrowNextSVG: rightArrowSVGString,
+    mainClass: "pswp--custom-icon-colors", // Optional custom class for styling
   });
+
   lightbox.on("uiRegister", function () {
     lightbox.pswp.ui.registerElement({
       name: "custom-caption",
@@ -67,6 +88,7 @@ async function initializeLightbox(): Promise<void> {
       },
     });
   });
+
   lightbox.init();
 }
 
@@ -153,7 +175,7 @@ onBeforeUnmount(() => {
       </section>
       <!-- GALLERY ABSTRACT END -->
       <!-- GALLERY START -->
-      <section v-if="isDataLoaded" aria-busy="false">
+      <section v-if="isDataLoaded" aria-busy="false" class="popup-gallery">
         <div class="row">
           <div
             v-for="(column, columnIndex) in gallery.columns"
@@ -204,10 +226,6 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss" scoped>
-@import url("https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lightgallery.css");
-@import url("https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-zoom.css");
-@import url("https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-video.css");
-
 h1 {
   text-transform: capitalize;
 }

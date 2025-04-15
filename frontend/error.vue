@@ -25,7 +25,17 @@ defineProps({
             aria-label="Page not found animation."
             src="https://lottie.host/a6502c3c-0553-41df-96d5-ebccd619e634/Zd9lglu2le.lottie"
           />
-          <h1 class="" id="error-heading" aria-describedby="error-description">
+          <h1
+            class="logo-font"
+            style="
+              font-family: var(--logo-font);
+              font-optical-sizing: auto;
+              font-weight: 600;
+              font-style: normal;
+            "
+            id="error-heading"
+            aria-describedby="error-description"
+          >
             {{ error?.statusMessage }}
           </h1>
           <router-link

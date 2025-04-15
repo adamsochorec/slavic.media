@@ -3,9 +3,10 @@ import { ref, onMounted } from "vue";
 import eventBus from "@/composables/useEventBus";
 
 // State variables to manage consent status
-const showConsent = ref(true);
+const showConsent = ref(false); // Initialize as false to prevent flashing
 const consentGiven = ref(false);
 const consentRejected = ref(false);
+const showTransition = ref(false);
 
 // Function to check if consent has already been given or rejected
 const checkConsent = () => {
@@ -13,17 +14,54 @@ const checkConsent = () => {
   if (consent) {
     const consentData = JSON.parse(consent);
     const now = new Date().getTime();
+    // Check if the consent is still valid (within 24 hours)
     if (now - consentData.timestamp < 24 * 60 * 60 * 1000) {
-      showConsent.value = false;
       if (consentData.choice === "accept") {
         consentGiven.value = true;
         loadAfterConsentScripts();
       } else {
         consentRejected.value = true;
       }
+      // Load Chatway script regardless of the choice
       loadChatwayScript();
     }
+  } else {
+    // Show the consent banner if no consent is found
+    showConsent.value = true;
   }
+};
+
+// Function to dynamically load scripts
+const loadScripts = (scripts) => {
+  scripts.forEach((scriptSrc) => {
+    const script = document.createElement("script");
+    script.src = scriptSrc;
+    script.async = true;
+    document.head.appendChild(script);
+  });
+};
+
+// Function to load scripts that require consent
+const loadAfterConsentScripts = () => {
+  const scripts = ["https://www.googletagmanager.com/gtag/js?id=G-KGTECW9SN8"];
+  loadScripts(scripts);
+
+  // Initialize Google Analytics
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-KGTECW9SN8");
+};
+
+// Function to load the Chatway script
+const loadChatwayScript = () => {
+  const chatwayScript = document.createElement("script");
+  chatwayScript.id = "chatway";
+  chatwayScript.async = true;
+  chatwayScript.src = "https://cdn.chatway.app/widget.js?id=eIN2tIZBFO8j";
+  document.head.appendChild(chatwayScript);
 };
 
 // Function to handle acceptance of cookies
@@ -34,7 +72,9 @@ const acceptCookies = () => {
   );
   consentGiven.value = true;
   showConsent.value = false;
+  // Load scripts that require consent
   loadAfterConsentScripts();
+  // Load Chatway script
   loadChatwayScript();
 };
 
@@ -46,7 +86,9 @@ const rejectCookies = () => {
   );
   consentRejected.value = true;
   showConsent.value = false;
+  // Load Chatway script even if consent is rejected
   loadChatwayScript();
+  // Reload the page to propagate the cookie removal
   location.reload();
 };
 
@@ -56,18 +98,7 @@ const revokeConsent = () => {
   showConsent.value = true;
   consentGiven.value = false;
   consentRejected.value = false;
-};
-
-// Function to load scripts after consent
-const loadAfterConsentScripts = () => {
-  console.log("Loading scripts after consent...");
-  // Add your script loading logic here
-};
-
-// Function to load Chatway script
-const loadChatwayScript = () => {
-  console.log("Loading Chatway script...");
-  // Add your Chatway script loading logic here
+  showTransition.value = true;
 };
 
 // Check consent status on component mount
@@ -78,7 +109,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <transition name="slide">
+  <transition name="slide" :css="showTransition">
     <section
       v-if="showConsent"
       class="wrapper"
@@ -86,18 +117,18 @@ onMounted(() => {
       role="dialog"
       aria-modal="true"
     >
-      <header class="title">
+      <header class="title logo-font">
         <span id="cookie-consent-title">🍪 Cookie Consent</span>
       </header>
       <p class="info">
         This website uses analytical cookies to help you have a superior and
         more relevant browsing experience on the website. <br />
         Learn more about our
-        <NuxtLink
+        <router-link
           aria-label="Cookie Policy"
           title="Cookie Policy"
           to="/legal/cookie-policy"
-          >cookie policy</NuxtLink
+          >cookie policy</router-link
         >.
       </p>
       <div class="grid-container">
@@ -121,6 +152,7 @@ onMounted(() => {
     </section>
   </transition>
 </template>
+
 <style lang="scss" scoped>
 .wrapper {
   position: fixed;
@@ -145,7 +177,6 @@ onMounted(() => {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  color: white;
   -ms-flex-align: center;
   align-items: center;
   font-size: var(--font-size-4);

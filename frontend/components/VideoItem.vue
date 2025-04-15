@@ -35,7 +35,7 @@ defineProps({
   <a
     class="reveal"
     :data-src="`//vimeo.com/${url}?autoplay=true`"
-    :data-sub-html="`<h4>${title}</h4><p>${desc} ⋅ ${year}</p>`"
+    :data-sub-html="`<span class='gallery-desc content-font'><b>${title}</b><br>${desc} ⋅ ${year}</span>`"
   >
     <img :src="`https://cdn.slavic.media/img/${img}/sd`" :alt="alt" />
     <div class="title">
