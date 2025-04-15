@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, computed, watch, onUnmounted } from "vue";
+import { ref, onMounted, computed, onUnmounted } from "vue";
 import article from "@/composables/modules/article";
 
 useSeoMeta({

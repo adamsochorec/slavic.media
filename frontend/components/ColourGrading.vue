@@ -115,6 +115,8 @@ onMounted(() => {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  font-size: var(--font-size-8);
+  border-radius: var(--border-radius-2);
   padding: 0 var(--grid-gap-1);
   text-align: center;
 }

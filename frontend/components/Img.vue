@@ -36,14 +36,11 @@ const thumbnailUrl = `https://cdn.slavic.media/img/${props._id}/thumbnail`;
       @load="updateDimensions"
     />
     <div class="hidden-caption-content">{{ props.title }}</div>
-    <Icon :name="`circle-flags:${props.flag}`" class="note" />
+    <Icon :name="`cif:${props.flag}`" class="note flag" />
   </a>
 </template>
 
 <style scoped>
-.note {
-  left: var(--grid-gap-1) !important;
-}
 img,
 a {
   cursor: pointer;

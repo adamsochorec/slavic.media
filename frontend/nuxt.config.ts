@@ -11,7 +11,6 @@ export default defineNuxtConfig({
   css: ["/assets/css/main.css", "primeicons/primeicons.css"],
   devtools: { enabled: true },
   debug: true,
-  ssr: false,
   modules: [
     "nuxt-swiper",
     "@nuxtjs/tailwindcss",

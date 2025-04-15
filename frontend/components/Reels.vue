@@ -227,11 +227,7 @@ onMounted(() => {
             >View reel {{ index + 1 }} on Instagram</span
           >
         </a>
-        <Icon
-          v-if="reel.flag"
-          :name="`circle-flags:${reel.flag}`"
-          class="note"
-        />
+        <Icon v-if="reel.flag" :name="`cif:${reel.flag}`" class="note flag" />
         <video
           class="video-offload"
           loop

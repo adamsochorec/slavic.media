@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { onMounted } from "vue";
+
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} | Slavic Media` : "Slavic Media";
   },
 });
-
-const layout = "default";
 
 // CONTENT REVEAL START
 function reveal() {
@@ -63,7 +63,13 @@ onMounted(() => {
 
 <template>
   <div>
-    <NuxtLayout :name="layout"><NuxtPage /></NuxtLayout>
+    <NavBar />
+    <aside>
+      <Cookies><RequestProposal /></Cookies>
+    </aside>
+    <NuxtPage />
+    <hr class="semi bodyxfooter" role="separator" />
+    <Footer />
   </div>
 </template>
 <style scoped>

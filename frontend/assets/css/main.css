@@ -688,20 +688,22 @@ i.pi-arrow-right:hover {
   border-radius: var(--border-radius-2);
   margin-bottom: var(--grid-gap-1);
 }
-/* ICONS END */
-
+.flag {
+  border-radius: 2px;
+  height: var(--grid-gap-1);
+  vertical-align: middle;
+}
 .note {
-  font-size: var(--font-size-8);
   position: absolute;
   text-decoration: none;
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
   z-index: 8;
   padding: 0;
-  border-radius: var(--border-radius-1);
   bottom: var(--grid-gap-1);
   right: var(--grid-gap-1);
 }
+/* ICONS END */
 
 /* PAYHIP START */
 .section-wrapper[data-section-key="footer"] .section-background {

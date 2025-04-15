@@ -24,7 +24,7 @@ const updateImageSrc = (event: Event) => {
 <template>
   <article class="gallery-item reveal">
     <a :href="url" :aria-label="`View details of ${title}`">
-      <Icon :name="`circle-flags:${flag}`" class="note" />
+      <Icon :name="`cif:${flag}`" class="note flag" />
       <img
         :style="`opacity:${opacity}`"
         :src="thumbnailUrl"

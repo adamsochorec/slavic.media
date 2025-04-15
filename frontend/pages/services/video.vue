@@ -212,7 +212,7 @@ onMounted(async () => {
     <div id="services" v-if="isDataLoaded" class="wrapper-wide">
       <h3>Discover our <span class="gradient">photo</span> services</h3>
       <hr class="quater reveal" />
-      <SwiperFurtherServices :services="photoServices" swiperClass="photo" />
+      <FurtherServices :services="photoServices" swiperClass="photo" />
     </div>
     <!-- FURTHER SERVICES END -->
   </article>

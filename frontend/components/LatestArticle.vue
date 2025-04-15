@@ -23,8 +23,8 @@ const updateImageSrc = (event: Event) => {
       <NuxtLink class="gallery-item" :to="`/blog/${state.article._id}`">
         <Icon
           v-if="state.article.metadata.flag"
-          :name="`circle-flags:${state.article.metadata.flag}`"
-          class="note"
+          :name="`cif:${state.article.metadata.flag}`"
+          class="note flag"
         />
 
         <div class="gallery-item-caption">

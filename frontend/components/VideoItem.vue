@@ -41,9 +41,7 @@ defineProps({
     <div class="title">
       <span
         ><b>{{ title }}</b> &nbsp;
-        <Icon :name="`circle-flags:${flag}`" class="flag"></Icon> <br />{{
-          desc
-        }}
+        <Icon :name="`cif:${flag}`" class="flag"></Icon> <br />{{ desc }}
       </span>
     </div>
   </a>
@@ -59,6 +57,9 @@ defineProps({
 a {
   text-decoration: none;
   color: inherit;
+  display: block;
+  position: relative;
+  overflow: hidden; // Ensures the zoom effect stays within bounds
 }
 a img {
   border-radius: var(--border-radius-1);
@@ -66,12 +67,29 @@ a img {
   aspect-ratio: 16/9;
   width: 100%;
   height: auto;
+  transition: transform 0.3s ease; // Smooth zoom effect
+}
+a:hover img {
+  filter: saturate(0);
 }
 .title {
   margin-top: var(--grid-gap-1);
   color: white;
   line-height: 1.5;
   font-size: var(--font-size-7);
+}
+.title b {
+  transition: var(--transition-1);
+}
+a:hover .title b {
+  text-decoration: underline;
+}
+
+a:hover img,
+a img,
+a .title b,
+a:hover .title b {
+  transition: var(--transition-1);
 }
 .flag {
   margin-bottom: var(--grid-gap-0-5);
