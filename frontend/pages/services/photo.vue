@@ -3,9 +3,7 @@ import { ref, onMounted, nextTick, watch, onBeforeUnmount } from "vue";
 import img from "@/composables/modules/img";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
-import { EventBus } from "@/composables/useEventBus";
-
-const eventBus: EventBus = new EventBus();
+import eventBus from "@/composables/useEventBus";
 
 useSeoMeta({
   title: "Photo",
@@ -61,8 +59,9 @@ async function initializeLightbox(): Promise<void> {
             if (hiddenCaption) {
               captionHTML = hiddenCaption.innerHTML;
             } else {
-              captionHTML =
-                currSlideElement.querySelector("img").getAttribute("alt") || "";
+              captionHTML = currSlideElement
+                .querySelector("img")
+                .getAttribute("alt");
             }
           }
           el.innerHTML = captionHTML || "";
@@ -102,17 +101,6 @@ onBeforeUnmount(() => {
     lightbox = null;
   }
 });
-
-function useSeoMeta(arg0: {
-  title: string;
-  ogTitle: string;
-  description: string;
-  ogDescription: string;
-  ogImage: string;
-  twitterCard: "summary_large_image";
-}) {
-  throw new Error("Function not implemented.");
-}
 </script>
 
 <template>
