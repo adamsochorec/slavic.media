@@ -41,7 +41,6 @@ interface _GlobalComponents {
     'SocialIcon': typeof import("../components/SocialIcon.vue")['default']
     'SoundEdit': typeof import("../components/SoundEdit.vue")['default']
     'SwiperFurtherServices': typeof import("../components/SwiperFurtherServices.vue")['default']
-    'SwiperServices': typeof import("../components/SwiperServices.vue")['default']
     'VideoItem': typeof import("../components/VideoItem.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
     'NuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
@@ -217,7 +216,6 @@ interface _GlobalComponents {
     'LazySocialIcon': LazyComponent<typeof import("../components/SocialIcon.vue")['default']>
     'LazySoundEdit': LazyComponent<typeof import("../components/SoundEdit.vue")['default']>
     'LazySwiperFurtherServices': LazyComponent<typeof import("../components/SwiperFurtherServices.vue")['default']>
-    'LazySwiperServices': LazyComponent<typeof import("../components/SwiperServices.vue")['default']>
     'LazyVideoItem': LazyComponent<typeof import("../components/VideoItem.vue")['default']>
     'LazyNuxtWelcome': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
     'LazyNuxtLayout': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
@@ -399,7 +397,6 @@ export const SkeletonSwiper: typeof import("../components/SkeletonSwiper.vue")['
 export const SocialIcon: typeof import("../components/SocialIcon.vue")['default']
 export const SoundEdit: typeof import("../components/SoundEdit.vue")['default']
 export const SwiperFurtherServices: typeof import("../components/SwiperFurtherServices.vue")['default']
-export const SwiperServices: typeof import("../components/SwiperServices.vue")['default']
 export const VideoItem: typeof import("../components/VideoItem.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
@@ -575,7 +572,6 @@ export const LazySkeletonSwiper: LazyComponent<typeof import("../components/Skel
 export const LazySocialIcon: LazyComponent<typeof import("../components/SocialIcon.vue")['default']>
 export const LazySoundEdit: LazyComponent<typeof import("../components/SoundEdit.vue")['default']>
 export const LazySwiperFurtherServices: LazyComponent<typeof import("../components/SwiperFurtherServices.vue")['default']>
-export const LazySwiperServices: LazyComponent<typeof import("../components/SwiperServices.vue")['default']>
 export const LazyVideoItem: LazyComponent<typeof import("../components/VideoItem.vue")['default']>
 export const LazyNuxtWelcome: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
 export const LazyNuxtLayout: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>

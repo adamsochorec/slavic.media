@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick, watch, onBeforeUnmount } from "vue";
 import img from "@/composables/modules/img";
-import services from "@/composables/modules/services";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 import eventBus from "@/composables/useEventBus";
@@ -19,8 +18,6 @@ useSeoMeta({
 
 const isDataLoaded = ref<boolean>(false);
 const { state: imgState, getAllImgs } = img;
-const { state: serviceState, getSpecificService } = services();
-const router = useRouter();
 const videoServices = [
   { id: "commercial", title: "Commercial" },
   { id: "colour-grading", title: "colour grading" },
@@ -74,25 +71,30 @@ async function initializeLightbox(): Promise<void> {
   });
   lightbox.init();
 }
+
 onMounted(async () => {
   try {
-    await Promise.all([getSpecificService("photo"), getAllImgs("photo")]);
-    isDataLoaded.value = true;
-  } catch (error) {}
+    await getAllImgs();
 
-  nextTick(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const element = document.querySelector(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+    isDataLoaded.value = true;
+
+    initializeLightbox();
+
+    // Handle hash scrolling
+    nextTick(() => {
+      const hash = window.location.hash;
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
-    }
-  });
+    });
+  } catch (error) {
+    console.error("Error loading images:", error);
+  }
 });
-watch(isDataLoaded, (loaded) => {
-  if (loaded) initializeLightbox();
-});
+
 onBeforeUnmount(() => {
   if (lightbox) {
     lightbox.destroy();
@@ -112,13 +114,15 @@ onBeforeUnmount(() => {
       >
         <div class="grid-item">
           <h1 class="reveal" aria-label="Photo Services">
-            <span class="gradient"> {{ serviceState.service?._id }} </span>
+            <span class="gradient"> Photo </span>
             Services
           </h1>
         </div>
         <div class="grid-item">
           <p class="reveal">
-            {{ serviceState.service?.desc }}
+            Whether it’s a dynamic performance, a powerful portrait, or the vast
+            outdoors, our photography captures authentic moments, rich in colour
+            and emotion, that tell your story.
           </p>
         </div>
       </div>
