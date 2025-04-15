@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import eventBus from "@/composables/useEventBus";
 import { useShowMore } from "@/composables/useShowMore";
 import video from "@/composables/modules/video";
 import Lightgallery from "lightgallery/vue";
 import lgVideo from "lightgallery/plugins/video";
+import { showRequestAProposal } from "@/composables/useRequestProposal";
 
 useSeoMeta({
   title: "Video",
@@ -31,12 +31,6 @@ const photoServices = [
 videoState.value.videos = videoState.value.videos || [];
 const { itemsToShow, allItemsShown, loadMoreItems, showLessItems } =
   useShowMore(4);
-// SHOW MORE END
-
-// REQUEST A PROPOSAL ID
-const showRequestAProposal = (identifier: string) => {
-  eventBus.emit("showRequestAProposal", identifier);
-};
 
 // Lightgallery plugins
 const plugins = [lgVideo];
@@ -76,7 +70,6 @@ onMounted(async () => {
             crafted to captivate, impress, and showcase your vision with
             creative precision.
           </p>
-          <!-- <RequestProposal /> -->
           <button @click="showRequestAProposal('video')">
             <div class="cta">Request a Proposal</div>
           </button>
@@ -140,7 +133,6 @@ onMounted(async () => {
               unlock its full potential, delivering rich, vibrant colours across
               the depth spectrum and natural skin tones.
             </p>
-            <!-- <RequestProposal /> -->
             <button @click="showRequestAProposal('colour grading')">
               <div class="cta">Request a Proposal</div>
             </button>
@@ -163,7 +155,6 @@ onMounted(async () => {
               Social media reels that capture your brand’s essence—engaging,
               genuine, and designed to resonate with your audience.
             </p>
-            <!-- <RequestProposal /> -->
             <button @click="showRequestAProposal('content')">
               <div class="cta">Request a Proposal</div>
             </button>
@@ -182,7 +173,6 @@ onMounted(async () => {
           <h2 class="reveal" aria-label="Video Services">
             Sound<span class="gradient"> Edit</span>
           </h2>
-          <!-- <RequestProposal /> -->
           <button
             style="margin-bottom: var(--grid-gap-2) !important"
             @click="showRequestAProposal('sound design')"

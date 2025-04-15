@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import eventBus from "@/composables/useEventBus";
-
-// REQUEST A PROPOSAL ID
-const showRequestAProposal = (identifier: string) => {
-  eventBus.emit("showRequestAProposal", identifier);
-};
+import { showRequestAProposal } from "@/composables/useRequestProposal";
 </script>
 <template>
   <article class="main homepage">
@@ -38,7 +33,6 @@ const showRequestAProposal = (identifier: string) => {
             eye contact, and the right light that can raise your message above
             the noise.
           </p>
-          <!-- <RequestProposal /> -->
           <button @click="showRequestAProposal('company-intro')">
             <div class="cta">Request a Proposal</div>
           </button>
@@ -75,9 +69,7 @@ const showRequestAProposal = (identifier: string) => {
       <hr class="reveal" role="separator" />
       <Clients></Clients>
 
-      <section class="flex-center">
-        <RequestProposal></RequestProposal>
-      </section>
+      <section class="flex-center"></section>
       <hr class="semi reveal" role="separator" />
 
       <div class="grid-container caption-container" id="reviews-caption">

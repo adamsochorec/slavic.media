@@ -1,176 +1,129 @@
 <script setup lang="ts">
-/* import eventBus, { EventBus } from "@/composables/useEventBus";
+import { ref, onMounted } from "vue";
+import eventBus from "@/composables/useEventBus";
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
-import $ from "jquery";
-import "magnific-popup";
-
-const isVisible = ref<boolean>(false);
-const content = ref<string>("");
-
-const router = useRouter();
+const isVisible = ref(false);
+const formIdentifier = ref<string>("");
 
 onMounted(() => {
-  (eventBus as EventBus).on("showRequestAProposal", (identifier: string) => {
-    content.value = identifier;
+  eventBus.on("showRequestAProposal", (identifier: string) => {
+    formIdentifier.value = identifier; // Set the identifier
     isVisible.value = true;
-    nextTick(() => {
-      $.magnificPopup.open({
-        items: {
-          src: "#requestAProposalPopup",
-          type: "inline",
-        },
-        preloader: "false",
-        focus: "#name",
-        overflowY: "scroll",
-        fixedContentPos: "false",
-        callbacks: {
-          beforeOpen: function () {
-            if ($(window).width() < 700) {
-              this.st.focus = false;
-            } else {
-              this.st.focus = "#name";
-            }
-          },
-        },
-      });
-    });
+    Fancybox.show([{ src: "#requestAProposalPopup" }]);
   });
-
-  router.beforeEach((to, from, next) => {
-    if ($.magnificPopup.instance.isOpen) {
-      $.magnificPopup.close();
-    }
-    next();
-  });
-
-  // Add event listener to close the lightbox when clicking on the NuxtLink
-  nextTick(() => {
-    const privacyPolicyLink = document.querySelector(
-      'a[href="/legal/privacy-policy"]'
-    );
-    if (privacyPolicyLink) {
-      privacyPolicyLink.addEventListener("click", () => {
-        if ($.magnificPopup.instance.isOpen) {
-          $.magnificPopup.close();
-        }
-      });
-    }
-  });
-}); */
+});
 </script>
 
 <template>
-  <div>
-    <!-- Popup Content -->
-    <div id="requestAProposalPopup" class="white-popup-block mfp-hide">
+  <div id="requestAProposalPopup" style="display: none">
+    <section
+      role="dialog"
+      aria-labelledby="contactFormHeading"
+      aria-modal="true"
+    >
       <section
-        class="wrapper-standard"
-        role="dialog"
+        class="contact-form-section"
+        role="region"
         aria-labelledby="contactFormHeading"
-        aria-modal="true"
       >
-        <section
-          class="contact-form-section"
-          role="region"
-          aria-labelledby="contactFormHeading"
+        <h3 id="contactFormHeading">
+          Request a
+          <span class="gradient" role="presentation">Proposal</span>
+        </h3>
+        <br />
+        <form
+          id="contactForm"
+          action="https://formspree.io/f/mwkgdyez"
+          method="POST"
+          role="form"
+          aria-describedby="formDescription"
         >
-          <h3 id="contactFormHeading">
-            Request a
-            <span class="gradient" role="presentation">Proposal</span>
-          </h3>
-          <br />
-          <form
-            id="contactForm"
-            action="https://formspree.io/f/mwkgdyez"
-            method="POST"
-            role="form"
-            aria-describedby="formDescription"
+          <p id="formDescription" class="visually-hidden">
+            This form is used to request a proposal.
+          </p>
+          <div id="contactFormGroupLabel" class="visually-hidden">
+            Contact Form Group
+          </div>
+          <div
+            class="grid-container contact-form"
+            role="group"
+            aria-labelledby="contactFormGroupLabel"
           >
-            <p id="formDescription" class="visually-hidden">
-              This form is used to request a proposal.
-            </p>
-            <div id="contactFormGroupLabel" class="visually-hidden">
-              Contact Form Group
-            </div>
-            <div
-              class="grid-container contact-form"
-              role="group"
-              aria-labelledby="contactFormGroupLabel"
-            >
-              <div class="grid-item">
-                <p><label for="firstName">First Name *</label></p>
-                <input
-                  type="text"
-                  id="firstName"
-                  required
-                  name="firstName"
-                  autocomplete="given-name"
-                />
-                <br />
-                <p><label for="lastName">Last Name *</label></p>
-                <input
-                  type="text"
-                  id="lastName"
-                  required
-                  name="lastName"
-                  autocomplete="family-name"
-                />
-                <br />
-              </div>
-              <div class="grid-item">
-                <p><label for="email">Work Email *</label></p>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  autocomplete="email"
-                />
-                <br />
-                <p><label for="company">Company</label></p>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  autocomplete="organization"
-                />
-                <br />
-              </div>
-            </div>
-            <div role="group" aria-labelledby="projectDescriptionLabel">
-              <p>
-                <label for="project" id="projectDescriptionLabel"
-                  >Project description *</label
-                >
-              </p>
-              <textarea
-                minlength="10"
-                name="project"
-                rows="4"
-                required
-                id="project"
-              ></textarea>
-              <input type="hidden" name="source" :value="content" />
-              <p style="font-size: var(--font-size-7)">
-                By submitting form you agree with our
-                <NuxtLink to="/legal/privacy-policy">Privacy Policy</NuxtLink>.
-              </p>
-              <button class="submit-btn" aria-label="Submit" role="button">
-                Submit
-              </button>
+            <div class="grid-item">
+              <p><label for="firstName">First Name *</label></p>
               <input
-                type="hidden"
-                name="_next"
-                value="https://slavic.media/success"
+                type="text"
+                id="firstName"
+                required
+                name="firstName"
+                autocomplete="given-name"
               />
+              <br />
+              <p><label for="lastName">Last Name *</label></p>
+              <input
+                type="text"
+                id="lastName"
+                required
+                name="lastName"
+                autocomplete="family-name"
+              />
+              <br />
             </div>
-          </form>
-        </section>
+            <div class="grid-item">
+              <p><label for="email">Work Email *</label></p>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                autocomplete="email"
+              />
+              <br />
+              <p><label for="company">Company</label></p>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                autocomplete="organization"
+              />
+              <br />
+            </div>
+          </div>
+          <div role="group" aria-labelledby="projectDescriptionLabel">
+            <p>
+              <label for="project" id="projectDescriptionLabel"
+                >Project description *</label
+              >
+            </p>
+            <textarea
+              minlength="10"
+              name="project"
+              rows="4"
+              required
+              id="project"
+            ></textarea>
+            <input type="hidden" name="source" :value="formIdentifier" />
+            <p style="font-size: var(--font-size-7)">
+              By submitting form you agree with our
+              <NuxtLink to="/legal/privacy-policy">Privacy Policy</NuxtLink>.
+            </p>
+            <button class="submit-btn" aria-label="Submit" role="button">
+              Submit
+            </button>
+            <input
+              type="hidden"
+              name="_next"
+              value="https://slavic.media/success"
+            />
+          </div>
+        </form>
       </section>
-    </div>
+    </section>
   </div>
 </template>
-
+<style scoped></style>
 <style scoped>
 .wrapper-standard {
   max-height: var(--dimension-1);
@@ -191,30 +144,30 @@ onMounted(() => {
   font-size: 1em;
 }
 .contact-form-section ::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(var(--white-color), 0.7);
 }
 .contact-form-section ::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(var(--white-color), 0.7);
 }
 .contact-form-section :-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(var(--white-color), 0.7);
 }
 .contact-form-section ::-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(var(--white-color), 0.7);
 }
 .contact-form-section ::placeholder,
 .contact-form-section input,
 .contact-form-section select,
 .contact-form-section textarea {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(var(--white-color), 0.7);
 }
 option .default-option {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(var(--white-color), 0.5);
 }
 .contact-form-section input,
 .contact-form-section select,
 .contact-form-section textarea {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(var(--white-color), 1);
 }
 .contact-form-section ::-webkit-input-placeholder,
 .contact-form-section ::-moz-placeholder,

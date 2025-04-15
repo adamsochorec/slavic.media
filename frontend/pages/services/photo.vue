@@ -3,7 +3,7 @@ import { ref, onMounted, nextTick, watch, onBeforeUnmount } from "vue";
 import img from "@/composables/modules/img";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
-import eventBus from "@/composables/useEventBus";
+import { showRequestAProposal } from "@/composables/useRequestProposal";
 
 useSeoMeta({
   title: "Photo",
@@ -24,9 +24,6 @@ const videoServices = [
   { id: "content", title: "content" },
   { id: "sound-edit", title: "sound edit" },
 ];
-const showRequestAProposal = (identifier: string) => {
-  eventBus.emit("showRequestAProposal", identifier);
-};
 
 let lightbox: PhotoSwipeLightbox | null = null;
 
@@ -106,6 +103,7 @@ onBeforeUnmount(() => {
 <template>
   <article class="main" style="margin-top: 120px">
     <NavBar :headerTitle="headerTitle" />
+
     <!-- PAGE ABSTRACT START-->
     <section class="wrapper-wide">
       <div
@@ -149,7 +147,6 @@ onBeforeUnmount(() => {
           </div>
           <div class="grid-item">
             <p class="reveal">{{ gallery.desc }}</p>
-            <!-- <RequestProposal /> -->
             <button @click="showRequestAProposal(gallery._id)">
               <div class="cta">Request a Proposal</div>
             </button>
