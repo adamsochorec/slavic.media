@@ -14,7 +14,7 @@ declare module "#build/test-component-wrapper.mjs";
 declare module "#build/primevue-style.mjs";
 declare module "#build/primevue-plugin.mjs";
 declare module "#build/devtools/settings.mjs";
-declare module "#build/runtime.vue-devtools-client.sBao-FX1uIydZpteSXTD0_5RDNMP2mmcNr4V7Bt9XL0.js";
+declare module "#build/runtime.vue-devtools-client.nb_Y0Zca-W_jedqUYvl06wegFEQPOGLKanlVlbnuiu0.js";
 declare module "#build/routes.mjs";
 declare module "#build/pages.mjs";
 declare module "#build/router.options.mjs";

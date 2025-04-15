@@ -108,7 +108,7 @@
         "./imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/dev"
+        "./manifest/meta/dev.json"
       ],
       "#components": [
         "./components"
@@ -169,6 +169,7 @@
   "exclude": [
     "../dist",
     "../node_modules",
+    "../../node_modules",
     "../node_modules/nuxt/node_modules",
     "../node_modules/nuxt-swiper/node_modules",
     "../node_modules/@nuxtjs/tailwindcss/node_modules",

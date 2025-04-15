@@ -127,6 +127,7 @@
   ],
   "exclude": [
     "../node_modules",
+    "../../node_modules",
     "../node_modules/nuxt/node_modules",
     "../node_modules/nuxt-swiper/node_modules",
     "../node_modules/@nuxtjs/tailwindcss/node_modules",

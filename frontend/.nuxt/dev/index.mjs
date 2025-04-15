@@ -1,138 +1,138 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, getRequestURL, getResponseHeader, getResponseStatus, createError, getQuery as getQuery$1, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getRouterParam, readBody, getResponseStatusText } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, getRequestURL, getResponseHeader, getResponseStatus, createError, getQuery as getQuery$1, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getRouterParam, readBody, getResponseStatusText } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import destr from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/destr/dist/index.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, joinRelativeURL } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/ufo/dist/index.mjs';
-import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/unhead/dist/server.mjs';
-import { isVNode, toValue, isRef } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/vue/index.mjs';
-import { walkResolver } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/unhead/dist/utils.mjs';
-import { renderToString } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/vue/server-renderer/index.mjs';
-import { createHooks } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/hookable/dist/index.mjs';
-import { createFetch, Headers as Headers$1 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/ofetch/dist/node.mjs';
-import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/node-mock-http/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/unstorage/drivers/fs.mjs';
-import { digest, hash as hash$1 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/ohash/dist/index.mjs';
-import { klona } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/defu/dist/defu.mjs';
-import { snakeCase } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/scule/dist/index.mjs';
-import { getContext } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/unctx/dist/index.mjs';
-import { toRouteMatcher, createRouter } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/radix3/dist/index.mjs';
+import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import destr from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/destr/dist/index.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, joinRelativeURL } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/ufo/dist/index.mjs';
+import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/unhead/dist/server.mjs';
+import { isVNode, toValue, isRef } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/vue/index.mjs';
+import { walkResolver } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/unhead/dist/utils.mjs';
+import { renderToString } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/vue/server-renderer/index.mjs';
+import { createHooks } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/hookable/dist/index.mjs';
+import { createFetch, Headers as Headers$1 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/ofetch/dist/node.mjs';
+import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/node-mock-http/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/unstorage/drivers/fs.mjs';
+import { digest, hash as hash$1 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/ohash/dist/index.mjs';
+import { klona } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/defu/dist/defu.mjs';
+import { snakeCase } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/scule/dist/index.mjs';
+import { getContext } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/unctx/dist/index.mjs';
+import { toRouteMatcher, createRouter } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/radix3/dist/index.mjs';
 import { readFile } from 'node:fs/promises';
-import consola, { consola as consola$1 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/consola/dist/index.mjs';
-import { ErrorParser } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/youch-core/build/index.js';
-import { Youch } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/youch/build/index.js';
-import { SourceMapConsumer } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/source-map/source-map.js';
+import consola, { consola as consola$1 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/consola/dist/index.mjs';
+import { ErrorParser } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/youch-core/build/index.js';
+import { Youch } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/youch/build/index.js';
+import { SourceMapConsumer } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/source-map/source-map.js';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { stringify, uneval } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/devalue/index.js';
-import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/errx/dist/index.js';
-import BaseStyle from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primevue/core/base/style/index.mjs';
-import BaseComponentStyle from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primevue/core/basecomponent/style/index.mjs';
-import { style } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/autocomplete/index.mjs';
-import { isNotEmpty, isEmpty } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/utils/object/index.mjs';
-import { style as style$1 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/cascadeselect/index.mjs';
-import { style as style$2 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/checkbox/index.mjs';
-import { style as style$3 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/checkboxgroup/index.mjs';
-import { style as style$4 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/colorpicker/index.mjs';
-import { style as style$5 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/datepicker/index.mjs';
-import { style as style$6 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/floatlabel/index.mjs';
-import { style as style$7 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/iconfield/index.mjs';
-import { style as style$8 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/iftalabel/index.mjs';
-import { style as style$9 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/inputchips/index.mjs';
-import { style as style$a } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/inputgroup/index.mjs';
-import { style as style$b } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/inputnumber/index.mjs';
-import { style as style$c } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/inputotp/index.mjs';
-import { style as style$d } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/inputtext/index.mjs';
-import { style as style$e } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/knob/index.mjs';
-import { style as style$f } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/listbox/index.mjs';
-import { style as style$g } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/multiselect/index.mjs';
-import { style as style$h } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/password/index.mjs';
-import { style as style$i } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/radiobutton/index.mjs';
-import { style as style$j } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/radiobuttongroup/index.mjs';
-import { style as style$k } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/rating/index.mjs';
-import { style as style$l } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/select/index.mjs';
-import { style as style$m } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/selectbutton/index.mjs';
-import { style as style$n } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/slider/index.mjs';
-import { style as style$o } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/textarea/index.mjs';
-import { style as style$p } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/togglebutton/index.mjs';
-import { style as style$q } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/toggleswitch/index.mjs';
-import { style as style$r } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/treeselect/index.mjs';
-import { style as style$s } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/button/index.mjs';
-import { style as style$t } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/buttongroup/index.mjs';
-import { style as style$u } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/speeddial/index.mjs';
-import { style as style$v } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/splitbutton/index.mjs';
-import { style as style$w } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/datatable/index.mjs';
-import { style as style$x } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/dataview/index.mjs';
-import { style as style$y } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/orderlist/index.mjs';
-import { style as style$z } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/organizationchart/index.mjs';
-import { style as style$A } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/paginator/index.mjs';
-import { style as style$B } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/picklist/index.mjs';
-import { style as style$C } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/tree/index.mjs';
-import { style as style$D } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/treetable/index.mjs';
-import { style as style$E } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/timeline/index.mjs';
-import { style as style$F } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/virtualscroller/index.mjs';
-import { style as style$G } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/accordion/index.mjs';
-import { style as style$H } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/card/index.mjs';
-import { style as style$I } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/divider/index.mjs';
-import { style as style$J } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/fieldset/index.mjs';
-import { style as style$K } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/panel/index.mjs';
-import { style as style$L } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/scrollpanel/index.mjs';
-import { style as style$M } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/splitter/index.mjs';
-import { style as style$N } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/stepper/index.mjs';
-import { style as style$O } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/tabview/index.mjs';
-import { style as style$P } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/tabs/index.mjs';
-import { style as style$Q } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/toolbar/index.mjs';
-import { style as style$R } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/confirmdialog/index.mjs';
-import { style as style$S } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/confirmpopup/index.mjs';
-import { style as style$T } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/dialog/index.mjs';
-import { style as style$U } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/drawer/index.mjs';
-import { style as style$V } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/popover/index.mjs';
-import { style as style$W } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/fileupload/index.mjs';
-import { style as style$X } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/breadcrumb/index.mjs';
-import { style as style$Y } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/contextmenu/index.mjs';
-import { style as style$Z } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/dock/index.mjs';
-import { style as style$_ } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/menu/index.mjs';
-import { style as style$$ } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/menubar/index.mjs';
-import { style as style$10 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/megamenu/index.mjs';
-import { style as style$11 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/panelmenu/index.mjs';
-import { style as style$12 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/steps/index.mjs';
-import { style as style$13 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/tabmenu/index.mjs';
-import { style as style$14 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/tieredmenu/index.mjs';
-import { style as style$15 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/message/index.mjs';
-import { style as style$16 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/inlinemessage/index.mjs';
-import { style as style$17 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/toast/index.mjs';
-import { style as style$18 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/carousel/index.mjs';
-import { style as style$19 } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/galleria/index.mjs';
-import { style as style$1a } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/image/index.mjs';
-import { style as style$1b } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/imagecompare/index.mjs';
-import { style as style$1c } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/avatar/index.mjs';
-import { style as style$1d } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/badge/index.mjs';
-import { style as style$1e } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/blockui/index.mjs';
-import { style as style$1f } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/chip/index.mjs';
-import { style as style$1g } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/inplace/index.mjs';
-import { style as style$1h } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/metergroup/index.mjs';
-import { style as style$1i } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/overlaybadge/index.mjs';
-import { style as style$1j } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/scrolltop/index.mjs';
-import { style as style$1k } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/skeleton/index.mjs';
-import { style as style$1l } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/progressbar/index.mjs';
-import { style as style$1m } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/progressspinner/index.mjs';
-import { style as style$1n } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/tag/index.mjs';
-import { style as style$1o } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/terminal/index.mjs';
-import FormStyle from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primevue/forms/form/style/index.mjs';
-import FormFieldStyle from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primevue/forms/formfield/style/index.mjs';
-import { style as style$1p } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/tooltip/index.mjs';
-import { style as style$1q } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styles/ripple/index.mjs';
-import { Theme } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@primeuix/styled/index.mjs';
-import { basename } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/pathe/dist/index.mjs';
-import { getIcons } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/@iconify/utils/lib/index.mjs';
-import { collections } from 'file:///Users/adamsochorec/Desktop/frontend/.nuxt/nuxt-icon-server-bundle.mjs';
-import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'file:///Users/adamsochorec/Desktop/frontend/node_modules/unhead/dist/plugins.mjs';
+import { stringify, uneval } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/devalue/index.js';
+import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/errx/dist/index.js';
+import BaseStyle from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primevue/core/base/style/index.mjs';
+import BaseComponentStyle from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primevue/core/basecomponent/style/index.mjs';
+import { style } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/autocomplete/index.mjs';
+import { isNotEmpty, isEmpty } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/utils/object/index.mjs';
+import { style as style$1 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/cascadeselect/index.mjs';
+import { style as style$2 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/checkbox/index.mjs';
+import { style as style$3 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/checkboxgroup/index.mjs';
+import { style as style$4 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/colorpicker/index.mjs';
+import { style as style$5 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/datepicker/index.mjs';
+import { style as style$6 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/floatlabel/index.mjs';
+import { style as style$7 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/iconfield/index.mjs';
+import { style as style$8 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/iftalabel/index.mjs';
+import { style as style$9 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/inputchips/index.mjs';
+import { style as style$a } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/inputgroup/index.mjs';
+import { style as style$b } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/inputnumber/index.mjs';
+import { style as style$c } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/inputotp/index.mjs';
+import { style as style$d } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/inputtext/index.mjs';
+import { style as style$e } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/knob/index.mjs';
+import { style as style$f } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/listbox/index.mjs';
+import { style as style$g } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/multiselect/index.mjs';
+import { style as style$h } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/password/index.mjs';
+import { style as style$i } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/radiobutton/index.mjs';
+import { style as style$j } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/radiobuttongroup/index.mjs';
+import { style as style$k } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/rating/index.mjs';
+import { style as style$l } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/select/index.mjs';
+import { style as style$m } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/selectbutton/index.mjs';
+import { style as style$n } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/slider/index.mjs';
+import { style as style$o } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/textarea/index.mjs';
+import { style as style$p } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/togglebutton/index.mjs';
+import { style as style$q } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/toggleswitch/index.mjs';
+import { style as style$r } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/treeselect/index.mjs';
+import { style as style$s } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/button/index.mjs';
+import { style as style$t } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/buttongroup/index.mjs';
+import { style as style$u } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/speeddial/index.mjs';
+import { style as style$v } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/splitbutton/index.mjs';
+import { style as style$w } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/datatable/index.mjs';
+import { style as style$x } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/dataview/index.mjs';
+import { style as style$y } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/orderlist/index.mjs';
+import { style as style$z } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/organizationchart/index.mjs';
+import { style as style$A } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/paginator/index.mjs';
+import { style as style$B } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/picklist/index.mjs';
+import { style as style$C } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/tree/index.mjs';
+import { style as style$D } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/treetable/index.mjs';
+import { style as style$E } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/timeline/index.mjs';
+import { style as style$F } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/virtualscroller/index.mjs';
+import { style as style$G } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/accordion/index.mjs';
+import { style as style$H } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/card/index.mjs';
+import { style as style$I } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/divider/index.mjs';
+import { style as style$J } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/fieldset/index.mjs';
+import { style as style$K } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/panel/index.mjs';
+import { style as style$L } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/scrollpanel/index.mjs';
+import { style as style$M } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/splitter/index.mjs';
+import { style as style$N } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/stepper/index.mjs';
+import { style as style$O } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/tabview/index.mjs';
+import { style as style$P } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/tabs/index.mjs';
+import { style as style$Q } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/toolbar/index.mjs';
+import { style as style$R } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/confirmdialog/index.mjs';
+import { style as style$S } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/confirmpopup/index.mjs';
+import { style as style$T } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/dialog/index.mjs';
+import { style as style$U } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/drawer/index.mjs';
+import { style as style$V } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/popover/index.mjs';
+import { style as style$W } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/fileupload/index.mjs';
+import { style as style$X } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/breadcrumb/index.mjs';
+import { style as style$Y } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/contextmenu/index.mjs';
+import { style as style$Z } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/dock/index.mjs';
+import { style as style$_ } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/menu/index.mjs';
+import { style as style$$ } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/menubar/index.mjs';
+import { style as style$10 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/megamenu/index.mjs';
+import { style as style$11 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/panelmenu/index.mjs';
+import { style as style$12 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/steps/index.mjs';
+import { style as style$13 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/tabmenu/index.mjs';
+import { style as style$14 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/tieredmenu/index.mjs';
+import { style as style$15 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/message/index.mjs';
+import { style as style$16 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/inlinemessage/index.mjs';
+import { style as style$17 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/toast/index.mjs';
+import { style as style$18 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/carousel/index.mjs';
+import { style as style$19 } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/galleria/index.mjs';
+import { style as style$1a } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/image/index.mjs';
+import { style as style$1b } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/imagecompare/index.mjs';
+import { style as style$1c } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/avatar/index.mjs';
+import { style as style$1d } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/badge/index.mjs';
+import { style as style$1e } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/blockui/index.mjs';
+import { style as style$1f } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/chip/index.mjs';
+import { style as style$1g } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/inplace/index.mjs';
+import { style as style$1h } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/metergroup/index.mjs';
+import { style as style$1i } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/overlaybadge/index.mjs';
+import { style as style$1j } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/scrolltop/index.mjs';
+import { style as style$1k } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/skeleton/index.mjs';
+import { style as style$1l } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/progressbar/index.mjs';
+import { style as style$1m } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/progressspinner/index.mjs';
+import { style as style$1n } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/tag/index.mjs';
+import { style as style$1o } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/terminal/index.mjs';
+import FormStyle from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primevue/forms/form/style/index.mjs';
+import FormFieldStyle from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primevue/forms/formfield/style/index.mjs';
+import { style as style$1p } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/tooltip/index.mjs';
+import { style as style$1q } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styles/ripple/index.mjs';
+import { Theme } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@primeuix/styled/index.mjs';
+import { basename } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/pathe/dist/index.mjs';
+import { getIcons } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/@iconify/utils/lib/index.mjs';
+import { collections } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/.nuxt/nuxt-icon-server-bundle.mjs';
+import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/node_modules/unhead/dist/plugins.mjs';
 
-const serverAssets = [{"baseName":"server","dir":"/Users/adamsochorec/Desktop/frontend/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/Users/adamsochorec/Library/Mobile Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/server/assets"}];
 
 const assets = createStorage();
 
@@ -144,11 +144,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/adamsochorec/Desktop/frontend","watchOptions":{"ignored":[null]}}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/adamsochorec/Desktop/frontend/server","watchOptions":{"ignored":[null]}}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/adamsochorec/Desktop/frontend/.nuxt"}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/adamsochorec/Desktop/frontend/.nuxt/cache"}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/adamsochorec/Desktop/frontend/.data/kv"}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/adamsochorec/Library/Mobile Documents/com~apple~CloudDocs/Programming/slavic.media/frontend","watchOptions":{"ignored":[null]}}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/adamsochorec/Library/Mobile Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/server","watchOptions":{"ignored":[null]}}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/adamsochorec/Library/Mobile Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/.nuxt"}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/adamsochorec/Library/Mobile Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/.nuxt/cache"}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/adamsochorec/Library/Mobile Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/.data/kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -8445,13 +8445,13 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _uz49eObDCQ_eyFHnxy7CCNFYCInfYtCOhWmfGGjkyUY = (function(nitro) {
+const _6KAWV8myQMQzNXYYzypdsxOE2gV4mTXoDWsAq6a75_0 = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
-const rootDir = "/Users/adamsochorec/Desktop/frontend";
+const rootDir = "/Users/adamsochorec/Library/Mobile Documents/com~apple~CloudDocs/Programming/slavic.media/frontend";
 
 const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=1"},{"charset":"utf-16"}],"link":[{"rel":"icon","type":"image/x-icon","href":"https://cdn.slavic.media/img/Favicon-2/height=100"}],"style":[],"script":[],"noscript":[],"title":"Slavic Media","charset":"utf-16","viewport":"width=device-width, initial-scale=1, maximum-scale=1","htmlAttrs":{"lang":"en"}};
 
@@ -8470,7 +8470,7 @@ const devReducers = {
   URL: (data) => data instanceof URL ? data.toString() : void 0
 };
 const asyncContext = getContext("nuxt-dev", { asyncContext: true, AsyncLocalStorage });
-const _8iVTFzitkUB9iIHym7xSnLWtdpYdxPW_T4hInJ7QgQ = (nitroApp) => {
+const _pdTbk4CZzcsaz51ndNcN9eB8NJ3ySWHptYNMks6RxA = (nitroApp) => {
   const handler = nitroApp.h3App.handler;
   nitroApp.h3App.handler = (event) => {
     return asyncContext.callAsync({ logs: [], event }, () => handler(event));
@@ -11697,7 +11697,7 @@ const themes =
 ].join('');
 
 const defineNitroPlugin = (def) => def;
-const _W_t_KSn6UANovukKXjR1KGmMDxSL9EfcoR6bnBWeu38 = defineNitroPlugin(async (nitroApp) => {
+const _0zUjPL28oZLwIPiCXo2XkZEB9wRPYF7bA_FtkAUvwI = defineNitroPlugin(async (nitroApp) => {
   nitroApp.hooks.hook("render:html", (html) => {
     html.head.unshift(stylesToTop);
     html.head.push(styles$2);
@@ -11706,14 +11706,14 @@ const _W_t_KSn6UANovukKXjR1KGmMDxSL9EfcoR6bnBWeu38 = defineNitroPlugin(async (ni
 });
 
 const plugins = [
-  _uz49eObDCQ_eyFHnxy7CCNFYCInfYtCOhWmfGGjkyUY,
-_8iVTFzitkUB9iIHym7xSnLWtdpYdxPW_T4hInJ7QgQ,
-_W_t_KSn6UANovukKXjR1KGmMDxSL9EfcoR6bnBWeu38
+  _6KAWV8myQMQzNXYYzypdsxOE2gV4mTXoDWsAq6a75_0,
+_pdTbk4CZzcsaz51ndNcN9eB8NJ3ySWHptYNMks6RxA,
+_0zUjPL28oZLwIPiCXo2XkZEB9wRPYF7bA_FtkAUvwI
 ];
 
 const warnOnceSet = /* @__PURE__ */ new Set();
 const DEFAULT_ENDPOINT = "https://api.iconify.design";
-const _w4VUV5 = defineCachedEventHandler(async (event) => {
+const _33QHWc = defineCachedEventHandler(async (event) => {
   const url = getRequestURL(event);
   if (!url)
     return createError({ status: 400, message: "Invalid icon request" });
@@ -11771,12 +11771,12 @@ const _w4VUV5 = defineCachedEventHandler(async (event) => {
   // 1 week
 });
 
-const _lazy_FT84tV = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_aWzfTY = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '/__nuxt_error', handler: _lazy_FT84tV, lazy: true, middleware: false, method: undefined },
-  { route: '/api/_nuxt_icon/:collection', handler: _w4VUV5, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_FT84tV, lazy: true, middleware: false, method: undefined }
+  { route: '/__nuxt_error', handler: _lazy_aWzfTY, lazy: true, middleware: false, method: undefined },
+  { route: '/api/_nuxt_icon/:collection', handler: _33QHWc, lazy: false, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_aWzfTY, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -12043,8 +12043,8 @@ function resolveUnrefHeadInput(input) {
 
 const APP_ROOT_OPEN_TAG = `<${appRootTag}${propsToString(appRootAttrs)}>`;
 const APP_ROOT_CLOSE_TAG = `</${appRootTag}>`;
-const getClientManifest = () => import('file:///Users/adamsochorec/Desktop/frontend/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
-const getServerEntry = () => import('file:///Users/adamsochorec/Desktop/frontend/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
+const getClientManifest = () => import('file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getServerEntry = () => import('file:///Users/adamsochorec/Library/Mobile%20Documents/com~apple~CloudDocs/Programming/slavic.media/frontend/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
 const getSSRStyles = lazyCachedFunction(() => Promise.resolve().then(function () { return styles$1; }).then((r) => r.default || r));
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
