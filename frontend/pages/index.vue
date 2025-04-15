@@ -46,7 +46,30 @@ const showRequestAProposal = (identifier: string) => {
       </div>
       <br />
       <!-- GALLERY START -->
-      <SwiperServices></SwiperServices>
+      <div style="display: flex; gap: var(--grid-gap-2)">
+        <galleryItem
+          img="video"
+          :opacity="0.5"
+          url="/services/video"
+          title="Video"
+          alt="Video services cover"
+          icon="video"
+          desc="From inspiring stories to cinematic visuals, each video project is
+            crafted to captivate, impress, and showcase your vision with
+            creative precision."
+        />
+        <galleryItem
+          img="photo"
+          :opacity="0.5"
+          url="/services/photo"
+          title="Photo"
+          alt="Photo services cover"
+          icon="camera"
+          desc="Whether it’s a dynamic performance, a powerful portrait, or the vast
+            outdoors, our photography captures authentic moments, rich in colour
+            and emotion, that tell your story."
+        />
+      </div>
       <!-- GALLERY END -->
 
       <hr class="reveal" role="separator" />
