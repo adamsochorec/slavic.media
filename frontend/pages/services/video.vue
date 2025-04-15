@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
 import eventBus from "@/composables/useEventBus";
 import { useShowMore } from "@/composables/useShowMore";
-import services from "@/composables/modules/services";
 import video from "@/composables/modules/video";
 import Lightgallery from "lightgallery/vue";
 import lgVideo from "lightgallery/plugins/video";
@@ -17,10 +17,8 @@ useSeoMeta({
   twitterCard: "summary_large_image",
 });
 
-const { state: serviceState, getSpecificService } = services();
 const { state: videoState, getAllVideos } = video();
 const isDataLoaded = ref<boolean>(false);
-const router = useRouter();
 const photoServices = [
   { id: "portrait", title: "Portrait" },
   { id: "still", title: "Still" },
@@ -29,7 +27,7 @@ const photoServices = [
 ];
 
 // SHOW MORE START
-videoState.videos = videoState.videos || [];
+videoState.value.videos = videoState.value.videos || [];
 const { itemsToShow, allItemsShown, loadMoreItems, showLessItems } =
   useShowMore(4);
 // SHOW MORE END
@@ -43,8 +41,15 @@ const showRequestAProposal = (identifier: string) => {
 const plugins = [lgVideo];
 
 onMounted(async () => {
-  await Promise.all([getSpecificService("video"), getAllVideos()]);
-  isDataLoaded.value = true;
+  try {
+    // Fetch all videos from the database
+    await getAllVideos();
+
+    // Set isDataLoaded to true only after videos are fetched
+    isDataLoaded.value = true;
+  } catch (error) {
+    console.error("Error loading videos:", error);
+  }
 });
 </script>
 
@@ -59,13 +64,15 @@ onMounted(async () => {
       >
         <div class="grid-item">
           <h1 class="reveal" aria-label="Video Services">
-            <span class="gradient"> {{ serviceState.service?._id }} </span>
+            <span class="gradient"> Video </span>
             Services
           </h1>
         </div>
         <div class="grid-item">
           <p class="reveal">
-            {{ serviceState.service?.desc }}
+            From inspiring stories to cinematic visuals, each video project is
+            crafted to captivate, impress, and showcase your vision with
+            creative precision.
           </p>
           <!-- <RequestProposal /> -->
           <button @click="showRequestAProposal('video')">
