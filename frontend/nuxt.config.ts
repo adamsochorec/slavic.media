@@ -2,8 +2,16 @@ import Aura from "@primeuix/themes/aura";
 
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
+  runtimeConfig: {
+    public: {
+      GOOGLE_ANALYTICS: process.env.GOOGLE_ANALYTICS,
+      CHATWAY: process.env.CHATWAY,
+    },
+  },
   css: ["/assets/css/main.css", "primeicons/primeicons.css"],
   devtools: { enabled: true },
+  debug: true,
+  ssr: false,
   modules: [
     "nuxt-swiper",
     "@nuxtjs/tailwindcss",
@@ -12,6 +20,8 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
   ],
   app: {
+    baseURL: "/",
+    buildAssetsDir: "/_nuxt/",
     head: {
       link: [
         {
@@ -29,6 +39,7 @@ export default defineNuxtConfig({
     },
     pageTransition: { name: "page", mode: "out-in" },
   },
+
   nitro: {
     output: {
       publicDir: "dist",

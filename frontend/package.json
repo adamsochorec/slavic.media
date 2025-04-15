@@ -37,6 +37,7 @@
     "@iconify-json/material-symbols": "^1.2.19",
     "@nuxtjs/tailwindcss": "^6.13.2",
     "@primevue/nuxt-module": "^4.3.3",
+    "@types/node": "^22.14.1",
     "nuxt-primevue": "^3.0.0",
     "postcss-import": "^16.1.0",
     "sass-embedded": "^1.86.3"
