@@ -69,8 +69,7 @@ a img {
 .title {
   margin-top: var(--grid-gap-1);
   color: white;
-  line-height: 1.2;
-  letter-spacing: 1px;
+  line-height: 1.5;
   font-size: var(--font-size-7);
 }
 .flag {
