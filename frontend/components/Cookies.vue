@@ -43,7 +43,10 @@ const loadScripts = (scripts) => {
 
 // Function to load scripts that require consent
 const loadAfterConsentScripts = () => {
-  const scripts = ["https://www.googletagmanager.com/gtag/js?id=G-KGTECW9SN8"];
+  const scripts = [
+    `https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`,
+  ];
+
   loadScripts(scripts);
 
   // Initialize Google Analytics
@@ -60,7 +63,7 @@ const loadChatwayScript = () => {
   const chatwayScript = document.createElement("script");
   chatwayScript.id = "chatway";
   chatwayScript.async = true;
-  chatwayScript.src = "https://cdn.chatway.app/widget.js?id=eIN2tIZBFO8j";
+  chatwayScript.src = `https://cdn.chatway.app/widget.js?id=${process.env.CHATWAY}`;
   document.head.appendChild(chatwayScript);
 };
 
