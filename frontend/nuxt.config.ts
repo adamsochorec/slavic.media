@@ -29,6 +29,11 @@ export default defineNuxtConfig({
     },
     pageTransition: { name: "page", mode: "out-in" },
   },
+  nitro: {
+    output: {
+      publicDir: "dist",
+    },
+  },
   primevue: {
     options: {
       theme: {
