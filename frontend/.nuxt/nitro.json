@@ -10,6 +10,7 @@
   },
   "dev": {
     "pid": 6367,
+    "pid": 6367,
     "workerAddress": {
       "socketPath": "/var/folders/9t/2hyb3tk97_dfxv22b6gzlbfc0000gn/T/nitro-worker-6367-3-3-4681.sock"
     }
