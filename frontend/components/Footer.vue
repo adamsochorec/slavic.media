@@ -223,6 +223,9 @@ footer {
   background-color: rgb(var(--dark-grey-color));
   width: 100%;
   font-family: var(--content-font);
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
 }
 .footer-container {
   display: -webkit-box;

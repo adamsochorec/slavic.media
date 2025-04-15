@@ -26,6 +26,9 @@ body {
   -ms-flex-direction: column;
   flex-direction: column;
   font-family: var(--content-font);
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
   overflow: hidden;
 }
 /* LOADER START */
@@ -224,6 +227,9 @@ h6 {
   font-family: var(--logo-font);
   position: relative;
   line-height: normal;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 h1 {
   font-size: var(--font-size-1);
@@ -452,6 +458,9 @@ button.submit-btn {
   max-width: fit-content;
   font-size: var(--font-size-7);
   font-family: var(--logo-font);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
   white-space: nowrap;
@@ -550,6 +559,9 @@ lite-vimeo:hover > .ltv-playbtn {
   backdrop-filter: var(--blur-1);
   z-index: 9999999999 !important;
   font-family: var(--content-font);
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
 }
 .pswp__bg {
   background-color: var(--dark-grey-color-full) !important;
@@ -633,6 +645,9 @@ lite-vimeo:hover > .ltv-playbtn {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   font-family: var(--content-font);
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
 }
 .mfp-wrap img {
   -webkit-animation: none;
@@ -1014,6 +1029,9 @@ i.pi-arrow-right:hover {
   color: rgb(var(--grey-color));
   font-weight: bold;
   font-family: var(--content-font);
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
 }
 .location-name {
   font-size: var(--font-size-5);

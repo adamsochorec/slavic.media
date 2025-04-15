@@ -66,6 +66,9 @@ img {
 .pi-sparkles::after {
   content: " Want the look?";
   font-family: var(--logo-font);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 .gradient,
 .gradient::after,

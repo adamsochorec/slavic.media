@@ -140,6 +140,9 @@ onMounted(() => {
 label {
   font-size: var(--font-size-6);
   font-family: var(--content-font);
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
   color: white;
   line-height: 1;
   font-weight: bold;
@@ -147,6 +150,9 @@ label {
 
 .message {
   font-family: var(--content-font);
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
   font-weight: bold;
 }
 
@@ -154,6 +160,9 @@ label {
 .message {
   color: rgb(var(--primary-color));
   font-family: var(--content-font);
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
   font-weight: bold;
 }
 

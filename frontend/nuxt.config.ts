@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@primevue/nuxt-module",
     "@nuxt/icon",
+    "@nuxt/fonts",
   ],
   app: {
     head: {

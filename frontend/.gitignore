@@ -27,3 +27,6 @@ logs
 
 # Ignore postcss.mjs
 postcss.mjs
+
+# Nuxt fonts
+.data

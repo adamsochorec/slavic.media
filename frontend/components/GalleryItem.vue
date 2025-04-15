@@ -51,6 +51,9 @@ const updateImageSrc = (event: Event) => {
   text-transform: capitalize;
   text-decoration: none !important;
   font-family: var(--logo-font);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
   color: white;
 }
 .gallery-item {

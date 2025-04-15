@@ -128,7 +128,7 @@ function header() {
 </script>
 
 <template>
-  <header class="transparent">
+  <header class="logo-font">
     <div class="container">
       <nav id="navigation" role="navigation" aria-label="Main Navigation">
         <NuxtLink to="/" aria-label="Home">
@@ -323,7 +323,6 @@ header nav ul li a {
   display: block;
 }
 header {
-  font-family: var(--logo-font);
   position: fixed;
   top: 0;
   left: 0;

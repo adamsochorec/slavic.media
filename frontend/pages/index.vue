@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { showRequestAProposal } from "@/composables/useRequestProposal";
-
-const transparentHeader = true;
 </script>
 <template>
   <article class="main homepage">

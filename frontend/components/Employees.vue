@@ -250,6 +250,9 @@ h3 {
 h4 {
   font-size: var(--font-size-6);
   font-family: var(--content-font);
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
 }
 #ourteam .grid-container-team {
   grid-template-columns: repeat(3, 1fr);

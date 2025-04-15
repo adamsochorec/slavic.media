@@ -24,6 +24,9 @@ useSeoMeta({
           style="
             font-size: var(--font-size-8) !important;
             font-family: var(--content-font);
+            font-optical-sizing: auto;
+            font-weight: 100;
+            font-style: normal;
             vertical-align: text-top;
           "
         >
