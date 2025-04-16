@@ -139,23 +139,16 @@ onMounted(() => {
 <style scoped>
 label {
   font-size: var(--font-size-6);
-  font-family: var(--content-font);
-  font-optical-sizing: auto;
-  font-weight: 100;
-  font-style: normal;
-  color: white;
-  line-height: 1;
-  font-weight: bold;
 }
-
+label,
 .message {
   font-family: var(--content-font);
   font-optical-sizing: auto;
   font-weight: 100;
   font-style: normal;
-  font-weight: bold;
+  font-family: var(--content-font);
+  color: white;
 }
-
 .p-floatlabel:has(.p-invalid) label,
 .message {
   color: rgb(var(--primary-color));
@@ -165,7 +158,6 @@ label {
   font-style: normal;
   font-weight: bold;
 }
-
 .p-checkbox-checked .p-checkbox-box {
   border-color: rgb(var(--secondary-color));
   background-color: rgb(var(--secondary-color));

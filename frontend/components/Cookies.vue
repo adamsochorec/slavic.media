@@ -3,7 +3,7 @@ import { ref, onMounted } from "vue";
 import eventBus from "@/composables/useEventBus";
 
 // State variables to manage consent status
-const showConsent = ref(false); // Initialize as false to prevent flashing
+const showConsent = ref(true);
 const consentGiven = ref(false);
 const consentRejected = ref(false);
 const showTransition = ref(false);
@@ -16,6 +16,7 @@ const checkConsent = () => {
     const now = new Date().getTime();
     // Check if the consent is still valid (within 24 hours)
     if (now - consentData.timestamp < 24 * 60 * 60 * 1000) {
+      showConsent.value = false;
       if (consentData.choice === "accept") {
         consentGiven.value = true;
         loadAfterConsentScripts();
@@ -25,9 +26,6 @@ const checkConsent = () => {
       // Load Chatway script regardless of the choice
       loadChatwayScript();
     }
-  } else {
-    // Show the consent banner if no consent is found
-    showConsent.value = true;
   }
 };
 
@@ -46,7 +44,6 @@ const loadAfterConsentScripts = () => {
   const scripts = [
     `https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`,
   ];
-
   loadScripts(scripts);
 
   // Initialize Google Analytics

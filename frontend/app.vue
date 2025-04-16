@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
+import eventBus from "@/composables/useEventBus";
 
 useHead({
   titleTemplate: (titleChunk) => {
@@ -64,9 +65,7 @@ onMounted(() => {
 <template>
   <div>
     <NavBar />
-    <aside>
-      <Cookies><RequestProposal /></Cookies>
-    </aside>
+    <aside><Cookies></Cookies><RequestProposal /></aside>
     <NuxtPage />
     <hr class="semi bodyxfooter" role="separator" />
     <Footer />

@@ -122,5 +122,10 @@ img {
     font-size: var(--font-size-3);
     margin: var(--grid-gap-2) 0;
   }
+  img {
+    aspect-ratio: 16/10;
+    height: auto;
+    width: 100%;
+  }
 }
 </style>
