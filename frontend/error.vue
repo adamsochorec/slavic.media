@@ -28,9 +28,9 @@ defineProps({
           <h1
             class="logo-font"
             style="
-              font-family: var(--logo-font);
+              font-family: var(--content-font);
               font-optical-sizing: auto;
-              font-weight: 600;
+              font-weight: 100;
               font-style: normal;
             "
             id="error-heading"

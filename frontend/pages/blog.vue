@@ -79,14 +79,14 @@ onUnmounted(() => {
 
 <template>
   <article class="main" style="margin-top: 120px">
-    <section class="wrapper-wide">
+    <section class="wrapper-wide" role="region">
       <h1 class="visually-hidden">Slavic Media Blog</h1>
 
-      <latestArticle
+      <LatestArticle
         class="hide"
         v-if="isDataLoaded"
         aria-busy="false"
-      ></latestArticle>
+      ></LatestArticle>
       <hr v-if="isDataLoaded" aria-busy="false" class="hide quater reveal" />
 
       <div v-if="isDataLoaded" aria-busy="false">
@@ -96,7 +96,7 @@ onUnmounted(() => {
             :key="article._id"
             role="region"
           >
-            <blogCard :article="article"></blogCard>
+            <BlogCard :article="article"></BlogCard>
           </div>
         </div>
         <br />

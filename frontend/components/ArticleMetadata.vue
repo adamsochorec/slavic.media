@@ -1,24 +1,18 @@
 <script setup lang="ts">
 import { ddmmmyyyy } from "@/composables/useDateFormat.ts";
 
-interface Author {
-  name: string;
-  url: string;
-  department: string;
-  thumbnail: string;
-}
-interface Metadata {
+interface Article {
+  _id: string;
+  title: string;
   date: string;
   length: number;
   thumbnail: string;
   desc: string;
   icon: string;
-}
-interface Article {
-  _id: string;
-  title: string;
-  author: Author;
-  metadata: Metadata;
+  authorName: string;
+  authorId: string;
+  authorLinkedin: string;
+  url: string;
 }
 const props = defineProps<{
   article: Article;
@@ -35,18 +29,14 @@ const updateImageSrc = (event: Event) => {
       <a
         target="_blank"
         rel="noopener noreferrer nofollow"
-        :href="`https://www.linkedin.com/in/${article.author.linkedin}`"
+        :href="`https://www.linkedin.com/in/${article.authorLinkedin}`"
         class="author"
-        v-tooltip.top="{
-          value: article.author.department,
-          autoHide: true,
-        }"
       >
         <img
           class="avatar"
-          :src="`https://cdn.slavic.media/img/${article.author._id}/thumbnail`"
-          :data-src="`https://cdn.slavic.media/img/${article.author._id}/avatar`"
-          :alt="`${article.author.name}'s profile picture`"
+          :src="`https://cdn.slavic.media/img/${article.authorId}/thumbnail`"
+          :data-src="`https://cdn.slavic.media/img/${article.authorId}/avatar`"
+          :alt="`${article.authorName}'s profile picture`"
           @load="updateImageSrc"
         />
       </a>
@@ -55,9 +45,9 @@ const updateImageSrc = (event: Event) => {
           target="_blank"
           rel="noopener noreferrer nofollow"
           class="author"
-          :href="`https://www.linkedin.com/in/${article.author.linkedin}`"
+          :href="`https://www.linkedin.com/in/${article.authorLinkedin}`"
         >
-          <span>{{ article.author.name }}</span>
+          <span>{{ article.authorName }}</span>
         </a>
         <br class="hide" />
         <span style="font-size: var(--font-size-7)"
@@ -65,11 +55,11 @@ const updateImageSrc = (event: Event) => {
             style="font-size: var(--font-size-7)"
             class="pi pi-calendar"
           ></span
-          >&nbsp;{{ ddmmmyyyy(article.metadata.date) }}&nbsp;⋅&nbsp;<span
+          >&nbsp;{{ ddmmmyyyy(article.date) }}&nbsp;⋅&nbsp;<span
             style="font-size: var(--font-size-7)"
             class="pi pi-clock"
           ></span
-          >&nbsp;{{ article.metadata.length }}
+          >&nbsp;{{ article.length }}
           min read
         </span>
         <br />

@@ -784,9 +784,6 @@ i.pi-arrow-right:hover {
 .article-content .img-src {
   font-size: var(--font-size-8);
 }
-.article-content p {
-  margin: var(--grid-gap-2) 0;
-}
 .article-content img,
 .article-content iframe,
 #map {

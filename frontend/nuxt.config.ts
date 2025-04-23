@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     "@primevue/nuxt-module",
     "@nuxt/icon",
     "@nuxt/fonts",
+    "@nuxt/content",
   ],
   app: {
     baseURL: "/",
@@ -38,7 +39,6 @@ export default defineNuxtConfig({
     },
     pageTransition: { name: "page", mode: "out-in" },
   },
-
   nitro: {
     output: {
       publicDir: "dist",

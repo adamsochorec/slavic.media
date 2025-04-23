@@ -1,24 +1,16 @@
 <script setup lang="ts">
 import { truncateText } from "@/composables/useTruncateText.ts";
 
-interface Author {
-  name: string;
-  url: string;
-  thumbnail: string;
-  department: string;
-}
-interface Metadata {
-  formatedDate: string;
+interface Article {
+  _id: string;
+  title: string;
   length: number;
   thumbnail: string;
   desc: string;
   icon: string;
-}
-interface Article {
-  _id: string;
-  title: string;
-  author: Author;
-  metadata: Metadata;
+  authorName: string;
+  authorLinkedin: string;
+  authorId: string;
 }
 const props = defineProps<{
   article: Article;
@@ -27,12 +19,12 @@ const props = defineProps<{
 
 <template>
   <article class="card" aria-labelledby="article-title">
-    <galleryItem
-      :img="article.metadata.thumbnail"
+    <GalleryItem
+      :img="article.thumbnail"
       :url="`/blog/${article._id}`"
-      :desc="article.metadata.desc"
-      :icon="article.metadata.icon"
-      :flag="article.metadata.flag"
+      :desc="article.desc"
+      :icon="article.icon"
+      :flag="article.flag"
       targetWindow="_self"
       :alt="article.title"
     />
