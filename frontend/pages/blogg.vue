@@ -33,7 +33,6 @@ interface State {
   articles: Article[];
 }
 
-const headerTitle = "Blog";
 const { state, getAllArticles } = article();
 const isDataLoaded = ref<boolean>(false);
 

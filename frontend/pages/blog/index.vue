@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, nextTick, onUnmounted, watch } from "vue";
+import { ref } from "vue";
 const isDataLoaded = ref(true);
 
 const { data: articles } = await useAsyncData("blog", () =>
@@ -14,7 +14,7 @@ const { data: articles } = await useAsyncData("blog", () =>
 
       <div v-if="isDataLoaded" aria-busy="false">
         <div class="grid-container">
-          <div v-for="article in articles" :key="article._id" role="region">
+          <div v-for="article in articles" :key="article.slug" role="region">
             <BlogCard :article="article"></BlogCard>
           </div>
         </div>

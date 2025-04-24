@@ -41,7 +41,7 @@ async function initializeLightbox(): Promise<void> {
 </svg>`;
 
   lightbox = new PhotoSwipeLightbox({
-    gallery: ".popup-gallery",
+    gallery: ".lightbox",
     children: "a",
     errorMsg: "The photo cannot be loaded",
     secondaryZoomLevel: 1.5,
@@ -175,7 +175,7 @@ onBeforeUnmount(() => {
       </section>
       <!-- GALLERY ABSTRACT END -->
       <!-- GALLERY START -->
-      <section v-if="isDataLoaded" aria-busy="false" class="popup-gallery">
+      <section v-if="isDataLoaded" aria-busy="false" class="lightbox">
         <div class="row">
           <div
             v-for="(column, columnIndex) in gallery.columns"

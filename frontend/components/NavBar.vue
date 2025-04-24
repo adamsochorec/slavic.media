@@ -10,12 +10,12 @@ const menuItems = ref([
   {
     title: "Video",
     icon: "pi pi-video",
-    path: "/services/video",
+    path: "/video",
   },
   {
     title: "Photo",
     icon: "pi pi-camera",
-    path: "/services/photo",
+    path: "/photo",
   },
   {
     title: "Store",

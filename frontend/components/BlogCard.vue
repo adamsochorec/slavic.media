@@ -29,7 +29,7 @@ const props = defineProps<{
       :alt="article.title"
     />
     <section class="reveal">
-      <ArticleMetadata :article="article" />
+      <BlogCardMetadata :article="article" />
 
       <NuxtLink class="title reveal" :to="`/blog/${article._id}`">
         <h2 id="article-title">{{ truncateText(article.title, 83) }}</h2>
