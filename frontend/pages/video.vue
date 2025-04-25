@@ -94,7 +94,7 @@ onMounted(async () => {
           <VideoItem
             v-for="video in videoState.videos.slice(0, itemsToShow)"
             :key="video._id"
-            :url="video.url"
+            :viemeoId="video.url"
             :title="video.title"
             :desc="video.desc"
             :year="video.year"

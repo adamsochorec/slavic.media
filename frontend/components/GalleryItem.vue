@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { truncateText } from "@/composables/useTruncateText.ts";
 
-const props = defineProps<{
+interface GalleryItemProps {
   img: string;
   url: string;
   title?: string;
@@ -10,7 +10,8 @@ const props = defineProps<{
   desc?: string;
   icon: string;
   opacity?: number;
-}>();
+}
+const props = defineProps<GalleryItemProps>();
 
 const fullImageUrl = `https://cdn.slavic.media/img/${props.img}/sd`;
 const thumbnailUrl = `https://cdn.slavic.media/img/${props.img}/thumbnail`;

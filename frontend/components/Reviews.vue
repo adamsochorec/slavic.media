@@ -6,6 +6,17 @@ import review from "@/composables/modules/review";
 import { useArrowNavigation } from "@/composables/useArrowNavigation";
 import { useSwiperAutoplay } from "@/composables/useSwiperAutoplay";
 
+interface Review {
+  _id: string;
+  name: string;
+  occupation: string;
+  img: string;
+  profileLink: string;
+  rating: number;
+  message: string;
+}
+
+// State management for reviews
 const { state, getAllReviews } = review();
 const isDataLoaded = ref(false);
 

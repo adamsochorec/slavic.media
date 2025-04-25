@@ -6,12 +6,19 @@ import { useArrowNavigation } from "@/composables/useArrowNavigation";
 import { useSwiperAutoplay } from "@/composables/useSwiperAutoplay";
 import VideoItem from "@/components/VideoItem.vue";
 
-defineProps({
-  videos: {
-    type: Array,
-    required: true,
-  },
-});
+interface Video {
+  url: string;
+  title: string;
+  desc: string;
+  year: string;
+  img: string;
+  flag: string;
+  alt: string;
+}
+interface VideoItemSwiperProps {
+  videos: Video[];
+}
+const props = defineProps<VideoItemSwiperProps>();
 
 onMounted(() => {
   nextTick(() => {

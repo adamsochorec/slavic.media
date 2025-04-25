@@ -1,6 +1,15 @@
+<script lang="ts" setup>
+interface SocialIconProps {
+  url: string;
+  label: string;
+  id: string;
+}
+const props = defineProps<SocialIconProps>();
+</script>
+
 <template>
   <a
-    :href="`https://${href}`"
+    :href="`https://${url}`"
     target="_blank"
     rel="noopener noreferrer nofollow"
     :aria-label="label"
@@ -9,11 +18,3 @@
     <i :class="`pi pi-${id}`"></i>
   </a>
 </template>
-
-<script setup>
-defineProps({
-  href: String,
-  label: String,
-  id: String,
-});
-</script>

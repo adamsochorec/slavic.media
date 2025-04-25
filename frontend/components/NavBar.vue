@@ -1,7 +1,19 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
-
 import { useRouter } from "vue-router";
+interface SubMenuItem {
+  title: string;
+  path: string;
+  icon?: string;
+}
+interface MenuItem {
+  title: string;
+  icon: string;
+  path: string;
+  external?: boolean;
+  dropdownId?: string;
+  subMenu?: SubMenuItem[];
+}
 
 const router = useRouter();
 const dropdowns = reactive<{ [key: string]: boolean }>({});

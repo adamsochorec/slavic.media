@@ -13,7 +13,7 @@ useSeoMeta({
 
 <template>
   <article class="main" aria-labelledby="about-company">
-    <HeroVideo :id="1013776851" ariaLabel="Behind the Scenes | Slavic Media">
+    <HeroVideo :id="1013776851" alt="Behind the Scenes | Slavic Media">
     </HeroVideo>
     <!--   ABOUT START -->
     <section class="wrapper-standard" role="region">

@@ -2,12 +2,33 @@
 import { ref, watch } from "vue";
 import { useShowMore } from "@/composables/useShowMore";
 
-const props = defineProps({
-  isDataLoaded: Boolean,
-  state: Object,
-  articlesToShow: Number,
-  loadMoreArticles: Function,
-});
+interface Article {
+  _id: string;
+  author: {
+    _id: string;
+    name: string;
+    linkedin: string;
+    department: string;
+    thumbnail: string;
+  };
+  metadata: {
+    date: string;
+    formatedDate?: string;
+    length?: number;
+  };
+  title: string;
+}
+
+interface FurtherReadingProps {
+  isDataLoaded: boolean;
+  state: {
+    furtherReading: Article[];
+  };
+  articlesToShow: number;
+  loadMoreArticles: () => void;
+}
+
+const props = defineProps<FurtherReadingProps>();
 
 const { itemsToShow, allItemsShown, loadMoreItems, showLessItems } =
   useShowMore(4);

@@ -1,40 +1,24 @@
 <script setup lang="ts">
-defineProps({
-  url: {
-    type: String,
-    required: true,
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  desc: {
-    type: String,
-    required: true,
-  },
-  year: {
-    type: String,
-    required: true,
-  },
-  img: {
-    type: String,
-    required: true,
-  },
-  flag: {
-    type: String,
-    required: true,
-  },
-  alt: {
-    type: String,
-    required: true,
-  },
-});
+interface VideoItemProps {
+  viemeoId?: string;
+  url?: string;
+  title: string;
+  desc: string;
+  year: string;
+  img: string;
+  flag: string;
+  alt: string;
+}
+const props = defineProps<VideoItemProps>();
 </script>
 
 <template>
   <a
     class="reveal"
-    :data-src="`//vimeo.com/${url}?autoplay=true`"
+    target="_blank"
+    rel="noopener noreferrer nofollow"
+    :href="`https://${url}`"
+    :data-src="`//${url}?autoplay=true`"
     :data-sub-html="`<span class='gallery-desc content-font'><b>${title}</b><br>${desc} ⋅ ${year}</span>`"
   >
     <img :src="`https://cdn.slavic.media/img/${img}/sd`" :alt="alt" />

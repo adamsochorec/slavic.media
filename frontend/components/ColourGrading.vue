@@ -37,8 +37,6 @@ onMounted(() => {
       dynamicBullets: true,
     },
     lazyPreloadPrevNext: 1,
-    lazy: true,
-    lazyLoading: true,
     observer: true,
     observeParents: true,
     direction: "vertical",

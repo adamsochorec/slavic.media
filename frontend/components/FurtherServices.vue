@@ -5,17 +5,16 @@ import "swiper/swiper-bundle.css";
 import { useArrowNavigation } from "@/composables/useArrowNavigation";
 import { useSwiperAutoplay } from "@/composables/useSwiperAutoplay";
 
-// Define the type for reel objects
 interface Service {
   id: string;
   title: string;
   desc?: string;
 }
-
-const props = defineProps<{
+interface FurtherServicesProps {
   services: Service[];
-  swiperClass: String;
-}>();
+  swiperClass: string;
+}
+const props = defineProps<FurtherServicesProps>();
 
 onMounted(() => {
   const swiper = new Swiper(".swiper-further-services", {
@@ -75,7 +74,7 @@ onMounted(() => {
         <galleryItem
           :img="service.id"
           :opacity="0.5"
-          :url="`/services/${swiperClass}#${service.id}`"
+          :url="`/${swiperClass}#${service.id}`"
           :title="`${service.title}`"
           :alt="`${service.id} services cover`"
           :desc="service.desc"

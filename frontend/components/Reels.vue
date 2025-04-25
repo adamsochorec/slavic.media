@@ -1,21 +1,16 @@
 <script setup lang="ts">
 import { ref, onUnmounted, onMounted } from "vue";
-
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
-
 import { useArrowNavigation } from "@/composables/useArrowNavigation";
 import { useSwiperAutoplay } from "@/composables/useSwiperAutoplay";
 
-// Define the type for reel objects
 interface Reel {
   id: string;
   platform: string;
   url: string;
   flag?: string;
 }
-
-// Define the reels data in an array
 const reels = ref<Reel[]>([
   {
     id: "DHqq19cqgjv",

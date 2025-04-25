@@ -4,7 +4,7 @@ import { useVideoControls } from "@/composables/useVideoControls";
 interface Props {
   id: number;
   start?: number;
-  ariaLabel: string;
+  alt: string;
 }
 const props = defineProps<Props>();
 const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
@@ -18,11 +18,11 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
         ref="iframeRef"
         :src="`https://player.vimeo.com/video/${id}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;muted=1&amp;autoplay=1&amp;loop=1&amp;controls=0#t=${start}s`"
         allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-        :title="ariaLabel"
+        :title="alt"
       ></iframe>
     </div>
     <p id="video-description" class="visually-hidden">
-      {{ ariaLabel }}
+      {{ alt }}
     </p>
     <a
       class="link"

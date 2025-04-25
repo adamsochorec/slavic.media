@@ -1,19 +1,24 @@
-<script setup>
-const props = defineProps({
-  _id: { type: String, required: true, maxlength: 50 },
-  alt: { type: String, required: true, maxlength: 200 },
-  title: { type: String, required: true, maxlength: 200 },
-  flag: { type: String, required: true, maxlength: 2 },
-  originalWidth: { type: Number, required: false },
-  originalHeight: { type: Number, required: false },
-});
+<script setup lang="ts">
+interface Props {
+  _id: string;
+  alt: string;
+  title: string;
+  flag: string;
+  originalWidth?: number;
+  originalHeight?: number;
+}
+const props = defineProps<Props>();
 
-const emit = defineEmits(["update:originalWidth", "update:originalHeight"]);
+const emit = defineEmits<{
+  (event: "update:originalWidth", value: number): void;
+  (event: "update:originalHeight", value: number): void;
+}>();
 
-const updateDimensions = (event) => {
-  emit("update:originalWidth", event.target.naturalWidth);
-  emit("update:originalHeight", event.target.naturalHeight);
-  event.target.src = event.target.dataset.src;
+const updateDimensions = (event: Event) => {
+  const target = event.target as HTMLImageElement;
+  emit("update:originalWidth", target.naturalWidth);
+  emit("update:originalHeight", target.naturalHeight);
+  target.src = target.dataset.src!;
 };
 
 const fullImageUrl = `https://cdn.slavic.media/img/${props._id}/public`;

@@ -4,11 +4,7 @@ import { showRequestAProposal } from "@/composables/useRequestProposal";
 <template>
   <article class="main homepage">
     <!-- INTRO VIDEO START -->
-    <HeroVideo
-      :id="1039054657"
-      ariaLabel="Showreel 24' | Slavic Media"
-      :start="7"
-    />
+    <HeroVideo :id="1039054657" alt="Showreel 24' | Slavic Media" :start="7" />
     <!-- INTRO VIDEO END -->
 
     <section class="wrapper-wide" id="company-intro">

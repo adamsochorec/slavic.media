@@ -73,24 +73,24 @@ const currentYear = new Date().getFullYear();
         </NuxtLink>
       </nav>
       <nav class="social-icons" aria-label="Social media links">
-        <SocialIcon href="vimeo.com/slavicmedia" label="Vimeo" id="vimeo" />
+        <SocialIcon url="vimeo.com/slavicmedia" label="Vimeo" id="vimeo" />
         <SocialIcon
-          href="linkedin.com/company/slavicmedia/"
+          url="linkedin.com/company/slavicmedia/"
           label="LinkedIn"
           id="linkedin"
         />
         <SocialIcon
-          href="youtube.com/@slavicmedia"
+          url="youtube.com/@slavicmedia"
           label="YouTube"
           id="youtube"
         />
         <SocialIcon
-          href="instagram.com/slavic.media/"
+          url="instagram.com/slavic.media/"
           label="Instagram"
           id="instagram"
         />
         <SocialIcon
-          href="github.com/adamsochorec/slavic.media/"
+          url="github.com/adamsochorec/slavic.media/"
           label="GitHub"
           id="github"
         />

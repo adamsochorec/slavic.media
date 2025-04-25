@@ -30,8 +30,7 @@ const updateDimensions = (event: Event) => {
   >
     <img
       class="reveal"
-      :data-src="`https://cdn.slavic.media/img/${id}/public`"
-      :src="`https://cdn.slavic.media/img/${id}/thumbnail`"
+      :src="`https://cdn.slavic.media/img/${id}/public`"
       :alt="alt"
     />
   </a>
