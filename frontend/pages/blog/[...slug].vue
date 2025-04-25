@@ -24,7 +24,7 @@ const rightArrowSVGString = `
 onMounted(() => {
   lightbox = new PhotoSwipeLightbox({
     gallery: ".article-content",
-    children: "a",
+    children: "a.lightbox",
     errorMsg: "The photo cannot be loaded",
     secondaryZoomLevel: 1.5,
     pswpModule: () => import("photoswipe"),
@@ -61,10 +61,9 @@ onBeforeUnmount(() => {
       aria-label="Main Article Content"
     >
       <h1 class="reveal">{{ post.title }}</h1>
-
       <ArticleMetadata
         class="reveal"
-        :id="post._id"
+        :id="post.slug"
         :author="{
           id: post.authorId,
           name: post.authorName,

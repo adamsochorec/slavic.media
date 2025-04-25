@@ -17,7 +17,6 @@ useSeoMeta({
   twitterCard: "summary_large_image",
 });
 
-const headerTitle = "Services";
 const { state: videoState, getAllVideos } = video();
 const isDataLoaded = ref<boolean>(false);
 const photoServices = [

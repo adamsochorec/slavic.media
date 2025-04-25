@@ -85,5 +85,6 @@ onMounted(() => {
 <style scoped>
 .swiper-video {
   padding-bottom: calc(var(--grid-gap-2) * 2);
+  border-radius: 10px;
 }
 </style>

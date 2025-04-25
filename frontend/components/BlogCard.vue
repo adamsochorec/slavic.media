@@ -2,7 +2,7 @@
 import { truncateText } from "@/composables/useTruncateText.ts";
 
 interface Article {
-  _id: string;
+  slug: string;
   title: string;
   length: number;
   thumbnail: string;
@@ -21,7 +21,7 @@ const props = defineProps<{
   <article class="card" aria-labelledby="article-title">
     <GalleryItem
       :img="article.thumbnail"
-      :url="`/blog/${article._id}`"
+      :url="`/blog/${article.slug}`"
       :desc="article.desc"
       :icon="article.icon"
       :flag="article.flag"
@@ -31,7 +31,7 @@ const props = defineProps<{
     <section class="reveal">
       <BlogCardMetadata :article="article" />
 
-      <NuxtLink class="title reveal" :to="`/blog/${article._id}`">
+      <NuxtLink class="title reveal" :to="`/blog/${article.slug}`">
         <h2 id="article-title">{{ truncateText(article.title, 83) }}</h2>
       </NuxtLink>
     </section>

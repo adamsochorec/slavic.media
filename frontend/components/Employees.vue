@@ -71,7 +71,7 @@ onMounted(async () => {
 
     lightbox = new PhotoSwipeLightbox({
       gallery: "#employeeGallery",
-      children: "a.employee-img-link",
+      children: "a.lightbox",
       secondaryZoomLevel: 1.5,
       errorMsg: "The photo cannot be loaded",
       preload: [1, 2],
@@ -142,7 +142,7 @@ onUnmounted(() => {
               data-pswp-width="1200"
               data-pswp-height="900"
               :data-cropped="true"
-              class="employee-img-link"
+              class="lightbox"
             >
               <img
                 :src="`https://cdn.slavic.media/img/${employee._id}/thumbnail`"

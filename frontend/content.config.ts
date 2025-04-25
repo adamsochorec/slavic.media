@@ -33,6 +33,7 @@ export default defineContentConfig({
     }),
   },
   content: {
+    components: true,
     build: {
       markdown: {
         toc: {
