@@ -8,6 +8,11 @@ export default defineNuxtConfig({
       CHATWAY: process.env.CHATWAY,
     },
   },
+  content: {
+    preview: {
+      api: "https://api.nuxt.studio",
+    },
+  },
   css: ["/assets/css/main.css", "primeicons/primeicons.css"],
   devtools: { enabled: true },
   debug: true,
@@ -18,7 +23,6 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/fonts",
     "@nuxt/content",
-    "@nuxthq/studio",
   ],
   app: {
     baseURL: "/",

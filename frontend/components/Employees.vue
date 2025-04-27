@@ -280,7 +280,7 @@ img {
 .social-icons > * {
   margin-right: var(--grid-gap-1);
 }
-.social-icons a:nth-last-child() {
+.social-icons a:nth-last-child(1) {
   margin-right: 0;
 }
 .grid-container.skeleton {
