@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/fonts",
     "@nuxt/content",
+    "@nuxthq/studio",
   ],
   app: {
     baseURL: "/",
