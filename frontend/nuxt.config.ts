@@ -11,6 +11,11 @@ export default defineNuxtConfig({
   content: {
     preview: {
       api: "https://api.nuxt.studio",
+      gitInfo: {
+        name: "slavic.media",
+        owner: "Adam Sochorec",
+        url: "https://github.com/adamsochorec/slavic.media",
+      },
     },
   },
   css: ["/assets/css/main.css", "primeicons/primeicons.css"],
