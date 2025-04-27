@@ -33,7 +33,7 @@ title: Competition finalist
 ---
 ::
 
-Recently, I had the pleasure of working with [RXDevents](https://www.rxd.dk) on a [CrossFit](https://crossfitpitstop.dk) competition. I took over 6000 photos in two days, which never happened to me before, but there were a couple of shots I could not stop looking at, despite the mass of the rest, and that's what I would like to talk about.:br:brIt has been a while since I saw the movie [Tatami](https://www.imdb.com/title/tt26674818/?ref_=nm_ov_bio_lk), directed by [Zar Amir Ebrahimi](https://www.imdb.com/name/nm4399355/?ref_=tt_ov_dr_1) and [Guy Nattiv](https://www.imdb.com/name/nm1142235/?ref_=tt_ov_dr_2). The movie is about the Iranian female judoka Leila, who is competing in the World Judo Championships and is intent on bringing home Iran's first gold medal.
+Recently, I had the pleasure of working with [RXDevents](https://www.rxd.dk) on a [CrossFit](https://crossfitpitstop.dk) competition. I took over 6000 photos in two days, which never happened to me before, but there were a couple of shots I could not stop looking at, despite the mass of the rest, and that's what I would like to talk about.\:br\:brIt has been a while since I saw the movie [Tatami](https://www.imdb.com/title/tt26674818/?ref_=nm_ov_bio_lk), directed by [Zar Amir Ebrahimi](https://www.imdb.com/name/nm4399355/?ref_=tt_ov_dr_1) and [Guy Nattiv](https://www.imdb.com/name/nm1142235/?ref_=tt_ov_dr_2). The movie is about the Iranian female judoka Leila, who is competing in the World Judo Championships and is intent on bringing home Iran's first gold medal.
 
 ::photo
 ---
