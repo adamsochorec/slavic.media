@@ -13,7 +13,7 @@ export default defineNuxtConfig({
       api: "https://api.nuxt.studio",
       gitInfo: {
         name: "slavic.media",
-        owner: "Adam Sochorec",
+        owner: "adamsochorec",
         url: "https://github.com/adamsochorec/slavic.media",
       },
     },
@@ -28,6 +28,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/fonts",
     "@nuxt/content",
+    "@nuxthq/studio",
   ],
   app: {
     baseURL: "/",
