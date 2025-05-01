@@ -12,14 +12,6 @@ interface GalleryItemProps {
   opacity?: number;
 }
 const props = defineProps<GalleryItemProps>();
-
-const fullImageUrl = `https://cdn.slavic.media/img/${props.img}/sd`;
-const thumbnailUrl = `https://cdn.slavic.media/img/${props.img}/thumbnail`;
-
-const updateImageSrc = (event: Event) => {
-  const target = event.target as HTMLImageElement;
-  target.src = fullImageUrl;
-};
 </script>
 
 <template>
@@ -28,10 +20,9 @@ const updateImageSrc = (event: Event) => {
       <Icon :name="`cif:${flag}`" class="note flag" />
       <img
         :style="`opacity:${opacity}`"
-        :src="thumbnailUrl"
+        :src="`https://cdn.slavic.media/img/${props.img}/sd`"
         :alt="alt"
         :title="title"
-        @load="updateImageSrc"
       />
       <div class="gallery-item-caption">
         <i aria-hidden="true" :class="`bubble pi pi-${icon}`"></i>

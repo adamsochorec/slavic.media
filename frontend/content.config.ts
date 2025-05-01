@@ -1,10 +1,27 @@
 import { defineCollection, defineContentConfig, z } from "@nuxt/content";
 
+type Collection = {
+  type: "page";
+  source?: string | CollectionSource;
+  schema?: z.ZodObject<any>;
+};
+
+type CollectionSource = {
+  include: string;
+  prefix?: string;
+  exclude?: string[];
+  cwd?: string;
+  repository?: string;
+  authToken?: string;
+};
+
 export default defineContentConfig({
   collections: {
     blog: defineCollection({
-      source: "blog/*.md",
       type: "page",
+      source: "blog/*.md",
+      include: "blog",
+      prefix: "blog",
       schema: z.object({
         slug: z.string().max(100),
         title: z.string().max(200),
@@ -20,17 +37,18 @@ export default defineContentConfig({
         authorId: z.string().max(50),
         authorLinkedin: z.string().url(),
       }),
-    }),
+    } as Collection),
     legal: defineCollection({
-      source: "legal/*.md",
       type: "page",
+      source: "legal/*.md",
+      include: "legal",
+      prefix: "legal",
       schema: z.object({
         slug: z.string().max(100),
         title: z.string().max(200),
         date: z.string().datetime(),
-        dateUpdated: z.string().datetime(),
       }),
-    }),
+    } as Collection),
   },
   content: {
     components: true,

@@ -764,7 +764,6 @@ i.pi-arrow-right:hover {
 .cover .title {
   position: absolute;
   z-index: 2;
-  text-align: center;
 }
 /* HERO IMAGE END */
 
@@ -778,7 +777,9 @@ i.pi-arrow-right:hover {
   line-height: 0.65;
   margin: 10px 10px 10px 0;
 }
-
+.article-content.legal h2 {
+  font-size: var(--font-size-4);
+}
 .article-content img,
 .article-content iframe,
 #map {

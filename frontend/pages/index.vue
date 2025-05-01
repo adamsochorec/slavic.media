@@ -40,7 +40,7 @@ import { showRequestAProposal } from "@/composables/useRequestProposal";
         <galleryItem
           img="video"
           :opacity="0.5"
-          url="/services/video"
+          url="/video"
           title="Video"
           alt="Video services cover"
           icon="video"
@@ -51,7 +51,7 @@ import { showRequestAProposal } from "@/composables/useRequestProposal";
         <galleryItem
           img="photo"
           :opacity="0.5"
-          url="/services/photo"
+          url="/photo"
           title="Photo"
           alt="Photo services cover"
           icon="camera"

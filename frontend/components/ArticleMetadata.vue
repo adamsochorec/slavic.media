@@ -1,3 +1,28 @@
+<script setup lang="ts">
+import { ddmmmyyyy } from "@/composables/useDateFormat";
+defineProps({
+  id: String,
+  author: {
+    type: Object,
+    required: true,
+    default: () => ({
+      id: "",
+      name: "",
+      linkedin: "",
+      department: "",
+    }),
+  },
+  metadata: {
+    type: Object,
+    required: true,
+    default: () => ({
+      date: "",
+      length: 0,
+      linkedin: "",
+    }),
+  },
+});
+</script>
 <template>
   <div
     class="article-metadata flex justify-between"
@@ -45,7 +70,7 @@
                 style="font-size: var(--font-size-6)"
                 class="pi pi-calendar"
               ></span>
-              &nbsp;{{ formatDate(metadata.date) }}
+              &nbsp;{{ ddmmmyyyy(metadata.date) }}
             </dd>
           </div>
           &nbsp;
@@ -93,42 +118,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { defineProps } from "vue";
-
-defineProps({
-  id: String,
-  author: {
-    type: Object,
-    required: true,
-    default: () => ({
-      id: "",
-      name: "",
-      linkedin: "",
-      department: "",
-    }),
-  },
-  metadata: {
-    type: Object,
-    required: true,
-    default: () => ({
-      date: "",
-      length: 0,
-      linkedin: "",
-    }),
-  },
-});
-
-function formatDate(date: string): string {
-  const options: Intl.DateTimeFormatOptions = {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  };
-  return new Date(date).toLocaleDateString("en-US", options);
-}
-</script>
 
 <style scoped>
 .avatar {

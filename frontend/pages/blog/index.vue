@@ -23,38 +23,33 @@ const { data: articles } = await useAsyncData("blog", () =>
   </article>
 </template>
 <style lang="scss" scoped>
-.card {
+.grid-container {
+  grid-template-columns: repeat(1, 1fr);
   display: grid;
+  grid-gap: var(--grid-gap-3);
+  height: auto;
+  border-radius: var(--border-radius-1);
+  color: white;
 }
-.gallery-item {
-  aspect-ratio: 16/10;
+.grid-container .grid-item:nth-child(odd) {
+  margin-right: var(--grid-gap-2);
 }
-.title[data-v-97e7de96] {
-  display: none;
+h1 {
+  font-size: var(--font-size-2);
 }
-h2 {
-  font-size: var(--font-size-5);
-}
-a > :hover {
-  text-decoration: underline;
-  -webkit-text-decoration-skip-ink: auto;
-  text-decoration-skip-ink: auto;
-}
-img {
-  -webkit-animation: skeleton-loading 1s linear infinite alternate;
-  animation: skeleton-loading 1s linear infinite alternate;
-}
-
-.gallery-item:hover ~ .reveal .title h2 {
-  text-decoration: underline;
-}
-@media only screen and (max-width: 400px) {
-  h2 {
-    font-size: var(--font-size-4);
+@media only screen and (max-width: 500px) {
+  .hide {
+    display: none;
   }
-  .card {
-    border-bottom: 1px solid white;
-    padding-bottom: var(--grid-gap-3);
+}
+@media only screen and (min-width: 500px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (min-width: 700px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 </style>

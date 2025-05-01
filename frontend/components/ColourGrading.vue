@@ -67,8 +67,14 @@ onMounted(() => {
       >
         <ImageCompare aria-label="Compare Images">
           <template #left>
-            <span class="note">{{ slide.log }}</span>
-            <span class="note edited">Colour Graded</span>
+            <Label icon="pi pi-video" :label="slide.log" class="note"></Label>
+            <Label
+              icon="pi pi-image"
+              label="Colour Graded"
+              class="note"
+              style="left: var(--grid-gap-1)"
+            ></Label>
+
             <img
               :src="`https://cdn.slavic.media/img/${slide._id}-2/thumbnail`"
               :data-src="`https://cdn.slavic.media/img/${slide._id}-2/public`"
@@ -99,24 +105,6 @@ onMounted(() => {
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
   aspect-ratio: 16/9;
-}
-.note.edited {
-  left: var(--grid-gap-1);
-}
-.note.original {
-  right: var(--grid-gap-1) !important;
-}
-.note {
-  background-color: rgba(var(--dark-grey-color), 0.3);
-  -webkit-backdrop-filter: var(--blur-1);
-  backdrop-filter: var(--blur-1);
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  font-size: var(--font-size-8);
-  border-radius: var(--border-radius-2);
-  padding: 0 var(--grid-gap-1);
-  text-align: center;
 }
 img {
   -o-object-fit: cover;

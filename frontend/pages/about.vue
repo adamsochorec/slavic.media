@@ -33,7 +33,7 @@ useSeoMeta({
           I/S</span
         >
       </h1>
-      <p id="about-company">
+      <p id="about-company" class="reveal">
         Creative & Production studio based in Denmark and Czechia. We tell
         stories with deep eye contact, magnificent shots, and clean designs to
         help your project stand out from the noise.
