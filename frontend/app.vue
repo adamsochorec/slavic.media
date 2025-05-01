@@ -8,6 +8,24 @@ useHead({
   },
 });
 
+// Reactive state for loader visibility
+const isLoading = ref(true);
+const router = useRouter();
+
+// Show loader until NuxtPage is ready
+onMounted(() => {
+  isLoading.value = false; // Hide loader once the page is mounted
+});
+
+// Handle page transitions
+router.beforeEach((to, from, next) => {
+  isLoading.value = true; // Show loader during navigation
+  next();
+});
+router.afterEach(() => {
+  isLoading.value = false; // Hide loader after navigation
+});
+
 // CONTENT REVEAL START
 function reveal() {
   const reveals = document.querySelectorAll<HTMLElement>(".reveal");
@@ -65,20 +83,14 @@ onMounted(() => {
 <template>
   <div>
     <NavBar />
-    <aside><Cookies></Cookies><RequestProposal /></aside>
-    <NuxtPage />
-    <hr class="semi bodyxfooter" role="separator" />
-    <Footer />
+    <Loader v-if="isLoading" />
+    <!-- Main Content -->
+    <div v-else>
+      <aside><Cookies /><RequestProposal /></aside>
+      <NuxtPage />
+      <hr class="semi bodyxfooter" role="separator" />
+      <Footer />
+    </div>
   </div>
 </template>
-<style scoped>
-.page-enter-active,
-.page-leave-active {
-  transition: all 0.4s;
-}
-.page-enter-from,
-.page-leave-to {
-  opacity: 0;
-  filter: blur(1rem);
-}
-</style>
+<style scoped></style>
