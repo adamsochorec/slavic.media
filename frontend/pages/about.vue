@@ -1,17 +1,18 @@
 <script setup lang="ts">
-useSeoMeta({
-  title: "About",
-  ogTitle: "About",
-  description:
-    "Creative & Production studio based in Denmark and Czechia. We tell stories with deep eye contact, magnificent shots, and clean designs to help your project stand out from the noise.",
-  ogDescription:
-    "Creative & Production studio based in Denmark and Czechia. We tell stories with deep eye contact, magnificent shots, and clean designs to help your project stand out from the noise.",
-  ogImage: "https://cdn.slavic.media/img/thumbnail/width=300",
-  twitterCard: "summary_large_image",
-});
+// Meta SEO
+const desc =
+  "Creative & Production studio based in Denmark and Czechia. We tell stories with deep eye contact, magnificent shots and clean designs to help your project stand out from the noise.";
+const title = "About";
 </script>
 
 <template>
+  <Head>
+    <Title>{{ title }}</Title>
+    <Meta name="ogTitle" :content="title" />
+    <Meta name="description" :content="desc" />
+    <Meta name="ogDescription" :content="desc" />
+    <Meta name="ogImage" content="https.//cdn.slavic.media/img/thumbnail/sd" />
+  </Head>
   <article class="main" aria-labelledby="about-company">
     <HeroVideo :id="1013776851" alt="Behind the Scenes | Slavic Media">
     </HeroVideo>

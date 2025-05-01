@@ -1,7 +1,17 @@
 <script setup lang="ts">
 import { showRequestAProposal } from "@/composables/useRequestProposal";
+
+// Meta SEO
+const desc =
+  "Creative & Production studio based in Denmark and Czechia. We tell stories with deep eye contact, magnificent shots and clean designs to help your project stand out from the noise.";
 </script>
 <template>
+  <Head>
+    <Meta name="ogTitle" content="Slavic Media" />
+    <Meta name="description" :content="desc" />
+    <Meta name="ogDescription" :content="desc" />
+    <Meta name="ogImage" content="https.//cdn.slavic.media/img/thumbnail/sd" />
+  </Head>
   <article class="main homepage">
     <!-- INTRO VIDEO START -->
     <HeroVideo :id="1039054657" alt="Showreel 24' | Slavic Media" :start="7" />

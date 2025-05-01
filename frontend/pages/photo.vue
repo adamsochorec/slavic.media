@@ -5,19 +5,15 @@ import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 import { showRequestAProposal } from "@/composables/useRequestProposal";
 
-useSeoMeta({
-  title: "Photo",
-  ogTitle: "Photo",
-  description:
-    "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
-  ogDescription:
-    "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
-  ogImage: "https://cdn.slavic.media/img/photo/width=300",
-  twitterCard: "summary_large_image",
-});
-const headerTitle = "Services";
+// Meta SEO
+const desc =
+  "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.";
+const title = "Photo";
+
 const isDataLoaded = ref<boolean>(false);
 const { state: imgState, getAllImgs } = img;
+
+// Further services matrix
 const videoServices = [
   { id: "commercial", title: "Commercial" },
   { id: "colour-grading", title: "colour grading" },
@@ -122,6 +118,13 @@ onBeforeUnmount(() => {
 });
 </script>
 <template>
+  <Head>
+    <Title>{{ title }}</Title>
+    <Meta name="ogTitle" :content="title" />
+    <Meta name="description" :content="desc" />
+    <Meta name="ogDescription" :content="desc" />
+    <Meta name="ogImage" content="https.//cdn.slavic.media/img/photo/sd" />
+  </Head>
   <article class="main" style="margin-top: 120px">
     <!-- PAGE ABSTRACT START-->
     <section class="wrapper-wide">

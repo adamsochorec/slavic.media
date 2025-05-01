@@ -277,10 +277,10 @@ p {
   font-style: normal;
   letter-spacing: var(--letter-spacing-1);
 }
-main ul {
+ul {
   list-style-type: circle;
 }
-main ol {
+ol {
   list-style-type: decimal;
 }
 main li {
@@ -289,8 +289,8 @@ main li {
 .highlited {
   color: rgba(var(--primary-color), 1);
 }
-main ul,
-main ol {
+ul,
+ol {
   margin-left: var(--grid-gap-3);
 }
 .visually-hidden {
@@ -310,7 +310,7 @@ h4 a,
 h5 a,
 h6 a,
 i a,
-main li a,
+.main li a,
 p a,
 .current,
 .author span {
@@ -333,7 +333,7 @@ h4 a:hover,
 h5 a:hover,
 h6 a:hover,
 i a:hover,
-main li a:hover,
+.main li a:hover,
 p a:hover,
 a p:hover,
 .current:hover,
@@ -821,6 +821,10 @@ iframe.spotify {
   }
   .caption-container p {
     margin-top: var(--grid-gap-1) 0;
+  }
+  .cover,
+  .filter {
+    height: 400px;
   }
 }
 

@@ -37,7 +37,6 @@ app.use(
   swaggerUi.setup(swaggerDefinition, swaggerOptions)
 );
 
-import articleRoutes from "./routes/article";
 import imageRoutes from "./routes/img";
 import videoRoutes from "./routes/video";
 import authRoutes from "./routes/auth";
@@ -64,7 +63,6 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 // Route handlers
-app.use("/blog", articleRoutes);
 app.use("/img", imageRoutes);
 app.use("/video", videoRoutes);
 app.use("/user", authRoutes);

@@ -4,16 +4,10 @@ import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import { useArrowNavigation } from "@/composables/useArrowNavigation";
 import { useSwiperAutoplay } from "@/composables/useSwiperAutoplay";
-import VideoItem from "@/components/VideoItem.vue";
 
 interface Video {
-  url: string;
+  src: string;
   title: string;
-  desc: string;
-  year: string;
-  img: string;
-  flag: string;
-  alt: string;
 }
 interface VideoItemSwiperProps {
   videos: Video[];
@@ -30,7 +24,7 @@ onMounted(() => {
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
-        dynamicBullets: true,
+        dynamicBullets: false,
       },
       observer: true,
       observeParents: true,
@@ -73,15 +67,14 @@ onMounted(() => {
           class="swiper-slide"
           role="group"
         >
-          <VideoItem
-            :url="video.url"
-            :title="video.title"
-            :desc="video.desc"
-            :year="video.year"
-            :img="video.img"
-            :flag="video.flag"
-            :alt="video.alt"
-          />
+          <iframe
+            :src="`https://${video.src}`"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            :title="`${video.title} | Slavic Media`"
+          ></iframe>
         </div>
       </div>
       <div class="swiper-pagination" aria-busy="false"></div>

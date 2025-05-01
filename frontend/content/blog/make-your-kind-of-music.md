@@ -16,7 +16,7 @@ keywords:
 linkedin: activity-7297582831206105088-sY9-?utm_source=share&utm_medium=member_desktop&rcm=ACoAADhnnusBAz9utnV3BAcpNUWP9RVjWhswzLo
 thumbnail: 2024-12-08-01324-2
 icon: camera
-description: Recently, I had the pleasure of working with RXDevents on a
+desc: Recently, I had the pleasure of working with RXDevents on a
   CrossFit competition. I took over 6000 photos in two days, which never
   happened to me before but there were a couple of shots I could not stop
   looking at, despite the mass of the rest and that's what I would like to talk
@@ -57,29 +57,15 @@ title: Competition finalist
 
 Similarly, like in web design, many great things come up when playing around with knowledge of established, tested, and proven principles, together with some kind of inner motivation and inspiration. Why try to invent the wheel every time? Just like borrowing the visual concept of *Tatami* and flexing it according to my very own vision, to [make your kind of music](https://open.spotify.com/track/6H3Wa6hWR9DRMzMSd4pZkT?si=a182d7d39a1a4f21).
 
-::video-item-swiper
+::video-swiper
 ---
 videos:
-  - url: vimeo.com/950575511
+  - src: player.vimeo.com/video/950575511
     title: Norwegian Fjords | Timetravels
-    year: "2024"
-    desc: Commercial
-    img: norwegian-fjords
-    flag: no
-    alt: Norwegian Fjords cover
-  - url: vimeo.com/950479131
+  - src: player.vimeo.com/video/950479131
     title: Finnish Lapland | Timetravels
     year: "2024"
-    desc: Commercial
-    img: finnish-lapland
-    flag: fi
-    alt: Finnish Lapland cover
-  - url: vimeo.com/942145699
+  - src: player.vimeo.com/video/942145699
     title: Swedish Lapland Fjords | Timetravels
-    year: "2024"
-    desc: Commercial
-    img: swedish-lapland
-    flag: se
-    alt: Swedish Lapland cover
 ---
 ::

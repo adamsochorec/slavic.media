@@ -17,10 +17,6 @@ interface Article {
 const props = defineProps<{
   article: Article;
 }>();
-const updateImageSrc = (event: Event) => {
-  const target = event.target as HTMLImageElement;
-  target.src = target.dataset.src!;
-};
 </script>
 
 <template>
@@ -34,10 +30,8 @@ const updateImageSrc = (event: Event) => {
       >
         <img
           class="avatar"
-          :src="`https://cdn.slavic.media/img/${article.authorId}/thumbnail`"
-          :data-src="`https://cdn.slavic.media/img/${article.authorId}/avatar`"
+          :src="`https://cdn.slavic.media/img/${article.authorId}/height=90`"
           :alt="`${article.authorName}'s profile picture`"
-          @load="updateImageSrc"
         />
       </a>
       <div>

@@ -39,7 +39,7 @@ defineProps({
       >
         <img
           class="avatar"
-          :src="`https://cdn.slavic.media/img/${author.id}/height=100`"
+          :src="`https://cdn.slavic.media/img/${author.id}/height=200`"
           :alt="`${author.name}'s profile picture`"
         />
       </a>

@@ -3,7 +3,7 @@ import { onMounted, onBeforeUnmount } from "vue";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 
-// Content hydration from blog colletion
+// Content hydration
 const slug = useRoute().params.slug;
 const { data: post } = await useAsyncData(`blog-${slug}`, () => {
   return queryCollection("blog").path(`/blog/${slug}`).first();
@@ -54,6 +54,16 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
+  <Head>
+    <Title>{{ post.title }}</Title>
+    <Meta name="ogTitle" :content="post.title" />
+    <Meta name="description" :content="post.desc" />
+    <Meta name="ogDescription" :content="post.desc" />
+    <Meta
+      name="ogImage"
+      :content="`https://cdn.slavic.media/img/${post.thumbnail}/sd`"
+    />
+  </Head>
   <article class="main" style="margin-top: 120px">
     <section
       class="wrapper-wide"

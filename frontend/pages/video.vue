@@ -6,19 +6,15 @@ import Lightgallery from "lightgallery/vue";
 import lgVideo from "lightgallery/plugins/video";
 import { showRequestAProposal } from "@/composables/useRequestProposal";
 
-useSeoMeta({
-  title: "Video",
-  ogTitle: "Video",
-  description:
-    "Before using Slavic Media services or digital products, you may review the terms and conditions of end user software license agreements.",
-  ogDescription:
-    "Before using Slavic Media services or digital products, you may review the terms and conditions of end user software license agreements.",
-  ogImage: "https://cdn.slavic.media/img/thumbnail/width=300",
-  twitterCard: "summary_large_image",
-});
+// Meta SEO
+const desc =
+  "Before using Slavic Media services or digital products, you may review the terms and conditions of end user software license agreements.";
+const title = "Video";
 
 const { state: videoState, getAllVideos } = video();
 const isDataLoaded = ref<boolean>(false);
+
+// Further services matrix
 const photoServices = [
   { id: "portrait", title: "Portrait" },
   { id: "still", title: "Still" },
@@ -48,6 +44,13 @@ onMounted(async () => {
 </script>
 
 <template>
+  <Head>
+    <Title>{{ title }}</Title>
+    <Meta name="ogTitle" :content="title" />
+    <Meta name="description" :content="desc" />
+    <Meta name="ogDescription" :content="desc" />
+    <Meta name="ogImage" content="https.//cdn.slavic.media/img/video/sd" />
+  </Head>
   <article class="main" style="margin-top: 120px">
     <section class="wrapper-wide">
       <!-- PAGE ABSTRACT START -->
