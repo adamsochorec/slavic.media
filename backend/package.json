@@ -1,0 +1,65 @@
+{
+  "name": "slavicmedia",
+  "version": "1.0.0",
+  "description": "MongoDB-ExpressJS-NodeJS Restful API",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node dist/server.js",
+    "dev": "tsc --watch",
+    "start-dev": "npm run start-gendoc && node -r dotenv/config -r ts-node/register src/server.ts",
+    "test": "mocha --config .mocharc.json",
+    "test:watch": "mocha --watch --config .mocharc.json",
+    "start-gendoc": "node swagger.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "slavicmedia"
+  },
+  "keywords": [
+    "mongodb",
+    "mongoose",
+    "nodejs",
+    "expressjs"
+  ],
+  "author": "AS",
+  "license": "ISC",
+  "dependencies": {
+    "@types/mongoose-sequence": "^3.0.11",
+    "axios": "^1.7.9",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "dotenv-flow": "^4.1.0",
+    "express": "^4.18.2",
+    "joi": "^17.12.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^6.1.7",
+    "mongoose-sequence": "^6.0.1",
+    "react": "^18.0.0",
+    "styled-components": "^6.0.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/chai": "^5.0.1",
+    "@types/chai-http": "^4.2.4",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.10.2",
+    "@types/swagger-ui-express": "^4.1.7",
+    "@types/yamljs": "^0.2.34",
+    "chai": "^4.5.0",
+    "chai-http": "^4.4.0",
+    "mocha": "^10.4.0",
+    "nodemon": "^3.1.7",
+    "swagger-autogen": "^2.23.7",
+    "ts-node": "^10.0.0",
+    "typescript": "^5.5.4"
+  }
+}
