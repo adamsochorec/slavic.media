@@ -26,7 +26,7 @@
     {
       "label": "Frontend Dev",
       "type": "shell",
-      "command": "npm run dev - --o",
+      "command": "yarn dev",
       "options": {
         "cwd": "${workspaceFolder}/frontend"
       },
