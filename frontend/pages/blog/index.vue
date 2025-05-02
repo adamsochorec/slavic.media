@@ -1,20 +1,30 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 // Meta SEO
 const description =
   "Slavic Media Blog shares behind-the-scenes insights, industry tips, and technical know-how from our industry professionals.";
 const title = "Blog";
 
-const { data: articles } = await useAsyncData("blog", () =>
+// Content hydration
+const { data: articles = ref([]) } = await useAsyncData("blog", () =>
   queryCollection("blog").all()
 );
 
 // SHOW MORE START
 const ARTICLES_INCREMENT = 6;
 const articlesToShow = ref(ARTICLES_INCREMENT);
+
+const visibleArticles = computed(() => {
+  return Array.isArray(articles.value)
+    ? articles.value.slice(0, articlesToShow.value)
+    : [];
+});
 const loadMoreArticles = () => {
   articlesToShow.value += ARTICLES_INCREMENT;
+};
+const showLessArticles = () => {
+  articlesToShow.value = ARTICLES_INCREMENT;
 };
 // SHOW MORE END
 </script>
@@ -30,19 +40,29 @@ const loadMoreArticles = () => {
   <article class="main" style="margin-top: 120px">
     <section class="wrapper-wide" role="region">
       <h1>Slavic Media <span class="gradient">Blog</span></h1>
-
       <LatestArticle class="hide" aria-busy="false"></LatestArticle>
       <hr aria-busy="false" class="hide quater reveal" />
       <div aria-busy="false">
         <div class="grid-container">
-          <div v-for="article in articles" :key="article.slug" role="region">
+          <div
+            v-for="article in visibleArticles"
+            :key="article.slug"
+            role="region"
+          >
             <BlogCard :article="article"></BlogCard>
           </div>
         </div>
         <br />
         <div class="flex-center">
-          <button @click="loadMoreArticles" class="cta reveal">
+          <button
+            v-if="articlesToShow < articles.length"
+            @click="loadMoreArticles"
+            class="cta reveal"
+          >
             Show More
+          </button>
+          <button v-else @click="showLessArticles" class="cta reveal">
+            Show Less
           </button>
         </div>
       </div>

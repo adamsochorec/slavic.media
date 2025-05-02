@@ -1,12 +1,8 @@
 ---
+title: Are You Going to Steal From Us?
 thumbnail: "1728539251293"
 icon: face-smile
 length: 4
-seo:
-  title: Are You Going to Steal From Us?
-  description: That’s one of the first things we heard when we introduced Slavic
-    Media in Denmark. The name provoked uncomfortable reactions and raised
-    eyebrows
 slug: are-you-going-to-steal-from-us
 keywords:
   - story
@@ -20,6 +16,13 @@ author:
 linkedin: marcelhajik_story-startupstory-startup-activity-7256605680747319298-a7Zt?utm_source=share&utm_medium=member_desktop
 date: 2024-11-10T00:00:00.000Z
 ---
+That’s one of the first things we heard when we introduced Slavic Media in Denmark. The name provoked uncomfortable reactions and raised eyebrows. 
+
+:br
+
+*'Why associate yourself with a culture that has a negative reputation?'*
+
+*'Slavic? Isn't that risky?'*
 
 ::photo
 ---
@@ -29,15 +32,6 @@ id: "1728539251293"
 title: Marcel H. & Adam S.
 ---
 ::
-
-That’s one of the first things we heard when we introduced Slavic Media in Denmark. The name provoked uncomfortable reactions and raised eyebrows. :br
-
-*'Why associate yourself with a culture that has a negative reputation?'*
-
-*'Slavic? Isn't that risky?'*
-
-:br
-
 For us, Slavic Media was a celebration of our roots—Czechia and Slovakia. It represents authenticity, hard work, honesty, and a deep respect for nature—values we proudly uphold. But not everyone saw it that way…
 
 :br

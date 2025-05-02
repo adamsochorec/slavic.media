@@ -6,19 +6,15 @@ interface Author {
   id: string;
   linkedin: string;
 }
-interface Seo {
-  title: string;
-  description: string;
-}
 interface Article {
   slug: string;
   thumbnail: string;
-  description: string;
   icon: string;
   length: number;
   flag?: string;
   author: Author;
-  seo: Seo;
+  title: string;
+  description: string;
 }
 const props = defineProps<{
   article: Article;
@@ -30,17 +26,17 @@ const props = defineProps<{
     <GalleryItem
       :img="article.thumbnail"
       :url="`/blog/${article.slug}`"
-      :description="article.seo.description"
+      :description="article.description"
       :icon="article.icon"
       :flag="article.flag"
       targetWindow="_self"
-      :alt="article.seo.title"
+      :alt="article.title"
     />
     <section class="reveal">
       <BlogCardMetadata :article="article" />
 
       <NuxtLink class="title reveal" :to="`/blog/${article.slug}`">
-        <h2 id="article-title">{{ truncateText(article.seo.title, 83) }}</h2>
+        <h2 id="article-title">{{ truncateText(article.title, 83) }}</h2>
       </NuxtLink>
     </section>
   </article>

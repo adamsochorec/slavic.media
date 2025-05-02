@@ -24,19 +24,14 @@ export default defineContentConfig({
       prefix: "blog",
       schema: z.object({
         slug: z.string().max(100),
-        title: z.string().max(200),
-        date: z.string().datetime(),
-        flag: z.string().length(2).optional(),
-        keywords: z.array(z.string()),
-        linkedin: z.string().url().optional(),
         thumbnail: z.string().max(100),
         icon: z.string().max(50),
-        description: z.string().max(1000),
+        flag: z.string().length(2).optional(),
+        date: z.string().datetime(),
+        keywords: z.array(z.string()),
+        linkedin: z.string().url().optional(),
         length: z.number().min(1),
-        seo: z.object({
-          title: z.string().max(200),
-          description: z.string().max(1000),
-        }),
+        seo: z.object({}),
         author: z.object({
           name: z.string().max(100),
           id: z.string().max(50),
@@ -51,10 +46,6 @@ export default defineContentConfig({
       prefix: "legal",
       schema: z.object({
         slug: z.string().max(100),
-        seo: z.object({
-          title: z.string().max(200),
-          description: z.string().max(1000),
-        }),
         date: z.string().datetime(),
       }),
     } as Collection),

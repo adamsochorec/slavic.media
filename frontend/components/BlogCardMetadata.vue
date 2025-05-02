@@ -6,19 +6,15 @@ interface Author {
   id: string;
   linkedin: string;
 }
-interface Seo {
-  title: string;
-  description: string;
-}
 interface Article {
   slug: string;
   thumbnail: string;
+  title: string;
   description: string;
   icon: string;
   length: number;
   flag?: string;
   author: Author;
-  seo: Seo;
 }
 const props = defineProps<{
   article: Article;

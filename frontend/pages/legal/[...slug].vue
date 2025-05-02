@@ -9,10 +9,10 @@ const { data: post } = await useAsyncData(`legal-${slug}`, () => {
 </script>
 <template>
   <Head>
-    <Title>{{ post?.seo.title }}</Title>
-    <Meta name="ogTitle" :content="post?.seo.title" />
-    <Meta name="description" :content="post?.seo.description" />
-    <Meta name="ogDescription" :content="post?.seo.description" />
+    <Title>{{ post?.title }}</Title>
+    <Meta name="ogTitle" :content="post?.title" />
+    <Meta name="description" :content="post?.description" />
+    <Meta name="ogDescription" :content="post?.description" />
     <Meta
       name="ogImage"
       content="https://cdn.slavic.media/img/2024-12-08-01324-2/sd"
@@ -24,7 +24,7 @@ const { data: post } = await useAsyncData(`legal-${slug}`, () => {
       <img :src="`https://cdn.slavic.media/img/2024-12-08-01324-2/public`" />
       <div class="title reveal">
         <h1 class="reveal" role="heading" aria-level="1">
-          {{ post?.seo.title }}
+          {{ post?.title }}
         </h1>
         <Label icon="pi pi-replay" :label="ddmmmyyyy(post.date)"></Label>
       </div>
@@ -35,9 +35,9 @@ const { data: post } = await useAsyncData(`legal-${slug}`, () => {
       aria-label="Main Article Content"
     >
       <hr class="semi" />
-      <p class="reveal">{{ post?.seo.description }}</p>
+      <p class="reveal">{{ post?.description }}</p>
       <hr class="reveal" />
-      <ContentRenderer :value="post" class="article-content legal reveal" />
+      <ContentRenderer :value="post" class="article-content reveal" />
     </section>
   </article>
 </template>
