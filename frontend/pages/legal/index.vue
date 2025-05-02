@@ -41,7 +41,9 @@ const { data: legals } = await useAsyncData("legal", () =>
       <br />
       <ol class="reveal">
         <li v-for="legal in legals" :key="legal.slug">
-          <NuxtLink :href="`/legal/${legal.slug}`">{{ legal.title }}</NuxtLink>
+          <NuxtLink :href="`/legal/${legal.slug}`">{{
+            legal.seo.title
+          }}</NuxtLink>
         </li>
       </ol>
     </section>

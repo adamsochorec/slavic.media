@@ -33,9 +33,15 @@ export default defineContentConfig({
         icon: z.string().max(50),
         description: z.string().max(1000),
         length: z.number().min(1),
-        authorName: z.string().max(100),
-        authorId: z.string().max(50),
-        authorLinkedin: z.string().url(),
+        seo: z.object({
+          title: z.string().max(200),
+          description: z.string().max(1000),
+        }),
+        author: z.object({
+          name: z.string().max(100),
+          id: z.string().max(50),
+          linkedin: z.string().url(),
+        }),
       }),
     } as Collection),
     legal: defineCollection({
@@ -45,8 +51,10 @@ export default defineContentConfig({
       prefix: "legal",
       schema: z.object({
         slug: z.string().max(100),
-        title: z.string().max(200),
-        description: z.string().max(500),
+        seo: z.object({
+          title: z.string().max(200),
+          description: z.string().max(1000),
+        }),
         date: z.string().datetime(),
       }),
     } as Collection),

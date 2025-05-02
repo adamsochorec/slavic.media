@@ -1,18 +1,24 @@
 <script setup lang="ts">
 import { ddmmmyyyy } from "@/composables/useDateFormat.ts";
 
-interface Article {
-  _id: string;
+interface Author {
+  name: string;
+  id: string;
+  linkedin: string;
+}
+interface Seo {
   title: string;
-  date: string;
-  length: number;
+  description: string;
+}
+interface Article {
+  slug: string;
   thumbnail: string;
   description: string;
   icon: string;
-  authorName: string;
-  authorId: string;
-  authorLinkedin: string;
-  url: string;
+  length: number;
+  flag?: string;
+  author: Author;
+  seo: Seo;
 }
 const props = defineProps<{
   article: Article;
@@ -25,13 +31,13 @@ const props = defineProps<{
       <a
         target="_blank"
         rel="noopener noreferrer nofollow"
-        :href="`https://www.linkedin.com/in/${article.authorLinkedin}`"
+        :href="`https://www.linkedin.com/in/${article.author.linkedin}`"
         class="author"
       >
         <img
           class="avatar"
-          :src="`https://cdn.slavic.media/img/${article.authorId}/height=90`"
-          :alt="`${article.authorName}'s profile picture`"
+          :src="`https://cdn.slavic.media/img/${article.author.id}/height=90`"
+          :alt="`${article.author.name}'s profile picture`"
         />
       </a>
       <div>
@@ -39,9 +45,9 @@ const props = defineProps<{
           target="_blank"
           rel="noopener noreferrer nofollow"
           class="author"
-          :href="`https://www.linkedin.com/in/${article.authorLinkedin}`"
+          :href="`https://www.linkedin.com/in/${article.author.linkedin}`"
         >
-          <span>{{ article.authorName }}</span>
+          <span>{{ article.author.name }}</span>
         </a>
         <br class="hide" />
         <span style="font-size: var(--font-size-7)"

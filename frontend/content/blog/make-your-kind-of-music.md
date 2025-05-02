@@ -1,9 +1,9 @@
 ---
 slug: make-your-kind-of-music
-title: Make Your Kind of Music
-authorName: Adam S.
-authorId: adam
-authorLinkedin: adamsochorec
+author:
+  name: Adam S.
+  id: adam
+  linkedin: adamsochorec
 date: 2025-02-18
 flag: dk
 keywords:
@@ -16,12 +16,10 @@ keywords:
 linkedin: activity-7297582831206105088-sY9-?utm_source=share&utm_medium=member_desktop&rcm=ACoAADhnnusBAz9utnV3BAcpNUWP9RVjWhswzLo
 thumbnail: 2024-12-08-01324-2
 icon: camera
-description: Recently, I had the pleasure of working with RXDevents on a
-  CrossFit competition. I took over 6000 photos in two days, which never
-  happened to me before but there were a couple of shots I could not stop
-  looking at, despite the mass of the rest and that's what I would like to talk
-  about.
 length: 5
+seo:
+  title: Make Your Kind of Music
+  description: Recently, I had the pleasure of working with RXDevents on a CrossFit competition. I took over 6000 photos in two days, which never happened to me before but there were a couple of shots I could not stop looking at, despite the mass of the rest and that's what I would like to talk about.
 ---
 
 ::photo

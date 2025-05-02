@@ -1,5 +1,4 @@
 ---
-title: Six Lessons from Our Journey in the Scandinavian Travel Industry
 slug: six-lessons-from-our-journey-in-the-scandinavian-travel-industry
 date: 2024-11-14T00:00:00.000Z
 flag: fi
@@ -13,12 +12,14 @@ keywords:
 linkedin: activity-7262411566527000577--4wt?utm_source=share&utm_medium=member_desktop
 thumbnail: IMG_0556
 icon: map
-description: From above the Arctic Circle to the fjords of Norway, here’s what
-  we learned along the way.
 length: 10
-authorName: Adam S.
-authorId: adam
-authorLinkedin: adamsochorec
+author:
+  name: Adam S.
+  id: adam
+  linkedin: adamsochorec
+seo:
+  title: Six Lessons from Our Journey in the Scandinavian Travel Industry
+  description: From above the Arctic Circle to the fjords of Norway, here’s what we learned along the way.
 ---
 
 ::photo

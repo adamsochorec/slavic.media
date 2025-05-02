@@ -1,16 +1,24 @@
 <script setup lang="ts">
 import { truncateText } from "@/composables/useTruncateText.ts";
 
+interface Author {
+  name: string;
+  id: string;
+  linkedin: string;
+}
+interface Seo {
+  title: string;
+  description: string;
+}
 interface Article {
   slug: string;
-  title: string;
-  length: number;
   thumbnail: string;
   description: string;
   icon: string;
-  authorName: string;
-  authorLinkedin: string;
-  authorId: string;
+  length: number;
+  flag?: string;
+  author: Author;
+  seo: Seo;
 }
 const props = defineProps<{
   article: Article;
@@ -22,17 +30,17 @@ const props = defineProps<{
     <GalleryItem
       :img="article.thumbnail"
       :url="`/blog/${article.slug}`"
-      :description="article.description"
+      :description="article.seo.description"
       :icon="article.icon"
       :flag="article.flag"
       targetWindow="_self"
-      :alt="article.title"
+      :alt="article.seo.title"
     />
     <section class="reveal">
       <BlogCardMetadata :article="article" />
 
       <NuxtLink class="title reveal" :to="`/blog/${article.slug}`">
-        <h2 id="article-title">{{ truncateText(article.title, 83) }}</h2>
+        <h2 id="article-title">{{ truncateText(article.seo.title, 83) }}</h2>
       </NuxtLink>
     </section>
   </article>
@@ -62,6 +70,17 @@ img {
 }
 
 .gallery-item:hover ~ .reveal .title h2 {
+  text-decoration: underline;
+}
+.author {
+  font-size: var(--font-size-3);
+  margin-top: var(--grid-gap-2);
+}
+.author a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.author a:hover {
   text-decoration: underline;
 }
 @media only screen and (max-width: 400px) {

@@ -1,12 +1,9 @@
 ---
-title: Are You Going to Steal From Us?
 thumbnail: "1728539251293"
 icon: face-smile
 length: 4
-description: That’s one of the first things we heard when we introduced Slavic
-  Media in Denmark. The name provoked uncomfortable reactions and raised
-  eyebrows
 seo:
+  title: Are You Going to Steal From Us?
   description: That’s one of the first things we heard when we introduced Slavic
     Media in Denmark. The name provoked uncomfortable reactions and raised
     eyebrows
@@ -16,10 +13,11 @@ keywords:
   - startup
   - Denmark
   - Branding
+author:
+  name: Marcel H.
+  id: marcel
+  linkedin: marcelhajik
 linkedin: marcelhajik_story-startupstory-startup-activity-7256605680747319298-a7Zt?utm_source=share&utm_medium=member_desktop
-authorName: Marcel H.
-authorId: marcel
-authorLinkedin: marcelhajik
 date: 2024-11-10T00:00:00.000Z
 ---
 

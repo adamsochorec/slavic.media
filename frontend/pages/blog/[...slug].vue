@@ -55,10 +55,10 @@ onBeforeUnmount(() => {
 
 <template>
   <Head>
-    <Title>{{ post.title }}</Title>
-    <Meta name="ogTitle" :content="post.title" />
-    <Meta name="description" :content="post.description" />
-    <Meta name="ogDescription" :content="post.description" />
+    <Title>{{ post?.seo.title }}</Title>
+    <Meta name="ogTitle" :content="post?.seo.title" />
+    <Meta name="description" :content="post?.seo.description" />
+    <Meta name="ogDescription" :content="post?.seo.description" />
     <Meta
       name="ogImage"
       :content="`https://cdn.slavic.media/img/${post.thumbnail}/sd`"
@@ -70,15 +70,14 @@ onBeforeUnmount(() => {
       role="region"
       aria-label="Main Article Content"
     >
-      <h1 class="reveal">{{ post.title }}</h1>
+      <h1 class="reveal">{{ post?.seo.title }}</h1>
       <ArticleMetadata
         class="reveal"
         :id="post.slug"
         :author="{
-          id: post.authorId,
-          name: post.authorName,
-          linkedin: post.authorLinkedin,
-          department: post.authorDepartment,
+          id: post?.author.id,
+          name: post?.author.name,
+          linkedin: post?.author.linkedin,
         }"
         :metadata="{
           date: post.date,

@@ -1,9 +1,9 @@
 ---
-slug: advanced-topography-and-terrain-mapping-with-a-consumer-drone
-title: Transformative Territories
-authorName: Adam S.
-authorId: adam
-authorLinkedin: adamsochorec
+slug: transformative-territories
+author:
+  name: Adam S.
+  id: adam
+  linkedin: adamsochorec
 date: 2025-04-27
 flag: cz
 keywords:
@@ -15,8 +15,10 @@ keywords:
 linkedin: activity-7297582831206105088-sY9-?utm_source=share&utm_medium=member_desktop&rcm=ACoAADhnnusBAz9utnV3BAcpNUWP9RVjWhswzLo
 thumbnail: artmill
 icon: microchip
-description: Last summer, I had the opportunity to work on a pro bono agroforestry project for ArtMill Gallery. Using a DJI drone and DroneDeploy software, we created a high-resolution 3D model of ArtMill’s landscape, capturing topography and plant health profiles.
 length: 7
+seo:
+  title: Transformative Territories
+  description: Last summer, I had the opportunity to work on a pro bono agroforestry project for ArtMill Gallery. Using a DJI drone and DroneDeploy software, we created a high-resolution 3D model of ArtMill’s landscape, capturing topography and plant health profiles.
 ---
 
 <iframe src="https://player.vimeo.com/video/1042182808?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;muted=1&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Transformative Territories | ArtMill"></iframe>
