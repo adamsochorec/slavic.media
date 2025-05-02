@@ -2,7 +2,7 @@
 import { ref } from "vue";
 
 // Meta SEO
-const desc =
+const description =
   "Slavic Media Blog shares behind-the-scenes insights, industry tips, and technical know-how from our industry professionals.";
 const title = "Blog";
 
@@ -23,8 +23,8 @@ const loadMoreArticles = () => {
   <Head>
     <Title>{{ title }}</Title>
     <Meta name="ogTitle" :content="title" />
-    <Meta name="description" :content="desc" />
-    <Meta name="ogDescription" :content="desc" />
+    <Meta name="description" :content="description" />
+    <Meta name="ogDescription" :content="description" />
     <Meta name="ogImage" content="https.//cdn.slavic.media/img/thumbnail/sd" />
   </Head>
   <article class="main" style="margin-top: 120px">

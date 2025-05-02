@@ -31,7 +31,7 @@ export default defineContentConfig({
         linkedin: z.string().url().optional(),
         thumbnail: z.string().max(100),
         icon: z.string().max(50),
-        desc: z.string().max(1000),
+        description: z.string().max(1000),
         length: z.number().min(1),
         authorName: z.string().max(100),
         authorId: z.string().max(50),
@@ -46,7 +46,7 @@ export default defineContentConfig({
       schema: z.object({
         slug: z.string().max(100),
         title: z.string().max(200),
-        desc: z.string().max(500),
+        description: z.string().max(500),
         date: z.string().datetime(),
       }),
     } as Collection),

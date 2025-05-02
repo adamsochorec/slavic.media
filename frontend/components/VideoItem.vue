@@ -3,7 +3,7 @@ interface VideoItemProps {
   viemeoId?: string;
   url?: string;
   title: string;
-  desc: string;
+  description: string;
   year: string;
   img: string;
   flag: string;
@@ -19,13 +19,13 @@ const props = defineProps<VideoItemProps>();
     rel="noopener noreferrer nofollow"
     :href="`https://${url}`"
     :data-src="`//${url}?autoplay=true`"
-    :data-sub-html="`<span class='gallery-desc content-font'><b>${title}</b><br>${desc} ⋅ ${year}</span>`"
+    :data-sub-html="`<span class='gallery-desc content-font'><b>${title}</b><br>${description} ⋅ ${year}</span>`"
   >
     <img :src="`https://cdn.slavic.media/img/${img}/sd`" :alt="alt" />
     <div class="title">
       <span
         ><b>{{ title }}</b> &nbsp;
-        <Icon :name="`cif:${flag}`" class="flag"></Icon> <br />{{ desc }}
+        <Icon :name="`cif:${flag}`" class="flag"></Icon> <br />{{ description }}
       </span>
     </div>
   </a>

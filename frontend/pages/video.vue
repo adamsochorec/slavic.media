@@ -7,7 +7,7 @@ import lgVideo from "lightgallery/plugins/video";
 import { showRequestAProposal } from "@/composables/useRequestProposal";
 
 // Meta SEO
-const desc =
+const description =
   "Before using Slavic Media services or digital products, you may review the terms and conditions of end user software license agreements.";
 const title = "Video";
 
@@ -47,8 +47,8 @@ onMounted(async () => {
   <Head>
     <Title>{{ title }}</Title>
     <Meta name="ogTitle" :content="title" />
-    <Meta name="description" :content="desc" />
-    <Meta name="ogDescription" :content="desc" />
+    <Meta name="description" :content="description" />
+    <Meta name="ogDescription" :content="description" />
     <Meta name="ogImage" content="https.//cdn.slavic.media/img/video/sd" />
   </Head>
   <article class="main" style="margin-top: 120px">
@@ -99,7 +99,7 @@ onMounted(async () => {
             :key="video._id"
             :viemeoId="video.url"
             :title="video.title"
-            :desc="video.desc"
+            :description="video.description"
             :year="video.year"
             :img="video._id"
             :flag="video.flag"

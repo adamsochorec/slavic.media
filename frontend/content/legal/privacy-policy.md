@@ -2,7 +2,7 @@
 slug: privacy-policy
 title: Privacy Policy
 date: 2025-04-27
-desc: This Privacy Policy (“Policy”) outlines how Slavic Media collects, uses, and protects the personal data you provide through our web applications, in compliance with the General Data Protection Regulation (GDPR).
+description: This Privacy Policy (“Policy”) outlines how Slavic Media collects, uses, and protects the personal data you provide through our web applications, in compliance with the General Data Protection Regulation (GDPR).
 ---
 
 ## What Data We Collect

@@ -2,14 +2,14 @@
 import { showRequestAProposal } from "@/composables/useRequestProposal";
 
 // Meta SEO
-const desc =
+const description =
   "Creative & Production studio based in Denmark and Czechia. We tell stories with deep eye contact, magnificent shots and clean designs to help your project stand out from the noise.";
 </script>
 <template>
   <Head>
     <Meta name="ogTitle" content="Slavic Media" />
-    <Meta name="description" :content="desc" />
-    <Meta name="ogDescription" :content="desc" />
+    <Meta name="description" :content="description" />
+    <Meta name="ogDescription" :content="description" />
     <Meta name="ogImage" content="https.//cdn.slavic.media/img/thumbnail/sd" />
   </Head>
   <article class="main homepage">
@@ -54,7 +54,7 @@ const desc =
           title="Video"
           alt="Video services cover"
           icon="video"
-          desc="From inspiring stories to cinematic visuals, each video project is
+          description="From inspiring stories to cinematic visuals, each video project is
             crafted to captivate, impress, and showcase your vision with
             creative precision."
         />
@@ -65,7 +65,7 @@ const desc =
           title="Photo"
           alt="Photo services cover"
           icon="camera"
-          desc="Whether it’s a dynamic performance, a powerful portrait, or the vast
+          description="Whether it’s a dynamic performance, a powerful portrait, or the vast
             outdoors, our photography captures authentic moments, rich in colour
             and emotion, that tell your story."
         />

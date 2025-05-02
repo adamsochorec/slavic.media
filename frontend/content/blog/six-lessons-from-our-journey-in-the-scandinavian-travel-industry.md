@@ -1,6 +1,6 @@
 ---
 title: Six Lessons from Our Journey in the Scandinavian Travel Industry
-slug: ix-lessons-from-our-journey-in-the-scandinavian-travel-industry
+slug: six-lessons-from-our-journey-in-the-scandinavian-travel-industry
 date: 2024-11-14T00:00:00.000Z
 flag: fi
 keywords:

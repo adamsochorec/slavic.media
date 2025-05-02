@@ -6,7 +6,7 @@ interface Article {
   title: string;
   length: number;
   thumbnail: string;
-  desc: string;
+  description: string;
   icon: string;
   authorName: string;
   authorLinkedin: string;
@@ -22,7 +22,7 @@ const props = defineProps<{
     <GalleryItem
       :img="article.thumbnail"
       :url="`/blog/${article.slug}`"
-      :desc="article.desc"
+      :description="article.description"
       :icon="article.icon"
       :flag="article.flag"
       targetWindow="_self"

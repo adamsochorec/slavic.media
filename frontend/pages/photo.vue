@@ -6,7 +6,7 @@ import "photoswipe/style.css";
 import { showRequestAProposal } from "@/composables/useRequestProposal";
 
 // Meta SEO
-const desc =
+const description =
   "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.";
 const title = "Photo";
 
@@ -121,8 +121,8 @@ onBeforeUnmount(() => {
   <Head>
     <Title>{{ title }}</Title>
     <Meta name="ogTitle" :content="title" />
-    <Meta name="description" :content="desc" />
-    <Meta name="ogDescription" :content="desc" />
+    <Meta name="description" :content="description" />
+    <Meta name="ogDescription" :content="description" />
     <Meta name="ogImage" content="https.//cdn.slavic.media/img/photo/sd" />
   </Head>
   <article class="main" style="margin-top: 120px">
@@ -168,7 +168,7 @@ onBeforeUnmount(() => {
             </h2>
           </div>
           <div class="grid-item">
-            <p class="reveal">{{ gallery.desc }}</p>
+            <p class="reveal">{{ gallery.description }}</p>
             <button @click="showRequestAProposal(gallery._id)">
               <div class="cta">Request a Proposal</div>
             </button>

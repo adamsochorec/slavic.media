@@ -7,7 +7,7 @@ interface GalleryItemProps {
   title?: string;
   flag?: string;
   alt: string;
-  desc?: string;
+  description?: string;
   icon: string;
   opacity?: number;
 }
@@ -30,7 +30,9 @@ const props = defineProps<GalleryItemProps>();
           <span class="title" v-if="title">{{ truncateText(title, 22) }}</span>
         </header>
         <section>
-          <p class="description" v-if="desc">{{ truncateText(desc, 100) }}</p>
+          <p class="description" v-if="description">
+            {{ truncateText(description, 100) }}
+          </p>
         </section>
       </div>
     </a>

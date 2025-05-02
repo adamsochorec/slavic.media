@@ -3,7 +3,7 @@ import mongoose, { Schema, Document } from "mongoose";
 interface Event extends Document {
   _id: mongoose.Types.ObjectId;
   date: Date;
-  desc: string;
+  description: string;
   lat: number;
   lng: number;
   icon: string;
@@ -12,7 +12,7 @@ interface Event extends Document {
 const eventSchema = new Schema({
   _id: { type: Schema.Types.ObjectId, auto: true },
   date: { type: Date, required: true },
-  desc: { type: String, required: true, maxlength: 500 },
+  description: { type: String, required: true, maxlength: 500 },
   lat: { type: Number, required: true, maxlength: 500 },
   lng: { type: Number, required: true, maxlength: 500 },
   icon: { type: String, required: true, maxlength: 50 },

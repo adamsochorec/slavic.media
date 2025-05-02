@@ -49,7 +49,7 @@ const updateImageSrc = (event: Event) => {
           </h4></NuxtLink
         >
         <p class="reveal">
-          {{ truncateText(state.article.metadata.desc, 200)
+          {{ truncateText(state.article.metadata.description, 200)
           }}<NuxtLink :to="`blog/${state.article._id}`">..more</NuxtLink>
         </p>
         <BlogCardMetadata :article="state.article" />

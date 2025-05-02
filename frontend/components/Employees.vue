@@ -17,7 +17,7 @@ interface Employee {
   linkedin?: string;
   github?: string;
   department: string;
-  desc: string;
+  description: string;
   originalWidth?: number;
   originalHeight?: number;
 }
@@ -168,7 +168,7 @@ onUnmounted(() => {
                   {{ employee.name }}
                 </h4>
                 <p class="bio">
-                  {{ employee.desc }}
+                  {{ employee.description }}
                 </p>
                 <div class="social-icons reveal">
                   <a

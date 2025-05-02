@@ -11,8 +11,8 @@ const { data: post } = await useAsyncData(`legal-${slug}`, () => {
   <Head>
     <Title>{{ post.title }}</Title>
     <Meta name="ogTitle" :content="post.title" />
-    <Meta name="description" :content="post.desc" />
-    <Meta name="ogDescription" :content="post.desc" />
+    <Meta name="description" :content="post.description" />
+    <Meta name="ogDescription" :content="post.description" />
     <Meta
       name="ogImage"
       content="https://cdn.slavic.media/img/2024-12-08-01324-2/sd"
@@ -35,7 +35,7 @@ const { data: post } = await useAsyncData(`legal-${slug}`, () => {
       aria-label="Main Article Content"
     >
       <hr class="semi" />
-      <p class="reveal">{{ post.desc }}</p>
+      <p class="reveal">{{ post.description }}</p>
       <hr class="reveal" />
       <ContentRenderer :value="post" class="article-content legal reveal" />
     </section>

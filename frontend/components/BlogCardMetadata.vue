@@ -7,7 +7,7 @@ interface Article {
   date: string;
   length: number;
   thumbnail: string;
-  desc: string;
+  description: string;
   icon: string;
   authorName: string;
   authorId: string;

@@ -57,8 +57,8 @@ onBeforeUnmount(() => {
   <Head>
     <Title>{{ post.title }}</Title>
     <Meta name="ogTitle" :content="post.title" />
-    <Meta name="description" :content="post.desc" />
-    <Meta name="ogDescription" :content="post.desc" />
+    <Meta name="description" :content="post.description" />
+    <Meta name="ogDescription" :content="post.description" />
     <Meta
       name="ogImage"
       :content="`https://cdn.slavic.media/img/${post.thumbnail}/sd`"

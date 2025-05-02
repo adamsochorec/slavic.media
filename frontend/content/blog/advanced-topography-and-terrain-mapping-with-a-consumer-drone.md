@@ -15,7 +15,7 @@ keywords:
 linkedin: activity-7297582831206105088-sY9-?utm_source=share&utm_medium=member_desktop&rcm=ACoAADhnnusBAz9utnV3BAcpNUWP9RVjWhswzLo
 thumbnail: artmill
 icon: microchip
-desc: Last summer, I had the opportunity to work on a pro bono agroforestry project for ArtMill Gallery. Using a DJI drone and DroneDeploy software, we created a high-resolution 3D model of ArtMill’s landscape, capturing topography and plant health profiles.
+description: Last summer, I had the opportunity to work on a pro bono agroforestry project for ArtMill Gallery. Using a DJI drone and DroneDeploy software, we created a high-resolution 3D model of ArtMill’s landscape, capturing topography and plant health profiles.
 length: 7
 ---
 

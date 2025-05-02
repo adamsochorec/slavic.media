@@ -43,7 +43,7 @@ onMounted(async () => {
               {{ mmmyyyy(slotProps.item.date) }}
             </p>
             <p class="reveal" style="font-size: var(--font-size-8)">
-              {{ slotProps.item.desc }}
+              {{ slotProps.item.description }}
             </p>
           </div>
         </template>

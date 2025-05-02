@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Meta SEO
 const title = "Legal";
-const desc =
+const description =
   "Before using Slavic Media services or digital products, you may review the terms and conditions of end user software license agreements.";
 
 // Content hydration
@@ -14,8 +14,8 @@ const { data: legals } = await useAsyncData("legal", () =>
   <Head>
     <Title>{{ title }}</Title>
     <Meta name="ogTitle" :content="title" />
-    <Meta name="description" :content="desc" />
-    <Meta name="ogDescription" :content="desc" />
+    <Meta name="description" :content="description" />
+    <Meta name="ogDescription" :content="description" />
     <Meta
       name="ogImage"
       content="https.//cdn.slavic.media/img/2024-12-08-01324-2/sd"
@@ -36,7 +36,7 @@ const { data: legals } = await useAsyncData("legal", () =>
     >
       <hr class="semi" />
       <p class="reveal">
-        {{ desc }}
+        {{ description }}
       </p>
       <br />
       <ol class="reveal">
