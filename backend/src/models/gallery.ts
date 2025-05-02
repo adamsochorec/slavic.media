@@ -4,7 +4,7 @@ import { imgSchema, img } from "./img";
 export interface photoGallery extends Document {
   _id: string;
   index: number;
-  desc: string;
+  description: string;
   title: string;
   columns: img[][];
 }
@@ -12,7 +12,7 @@ export interface photoGallery extends Document {
 export const photoGallerySchema = new Schema({
   _id: { type: String, required: true, maxlength: 50 },
   index: { type: Number, required: true },
-  desc: { type: String, required: true, maxlength: 1000 },
+  description: { type: String, required: true, maxlength: 1000 },
   title: { type: String, required: true, maxlength: 200 },
   columns: { type: [[imgSchema]], required: true },
 });

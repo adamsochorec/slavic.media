@@ -46,7 +46,7 @@ const articleSchema = new mongoose_1.Schema({
         linkedin: { type: String, maxlength: 200 },
         thumbnail: { type: String, required: true, maxlength: 100 },
         icon: { type: String, required: true, maxlength: 50 },
-        desc: { type: String, required: true, maxlength: 1000 },
+        description: { type: String, required: true, maxlength: 1000 },
         length: { type: Number, required: true, min: 1 },
     },
     content: { type: [String], required: true },

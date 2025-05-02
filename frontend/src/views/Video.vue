@@ -87,7 +87,7 @@ router.beforeEach((to, from, next) => {
         </div>
         <div class="grid-item">
           <p class="reveal">
-            {{ serviceState.service?.desc }}
+            {{ serviceState.service?.description }}
           </p>
           <requestAProposal />
           <button @click="showRequestAProposal('video')">
@@ -110,9 +110,9 @@ router.beforeEach((to, from, next) => {
             icon="video"
             :alt="`${video.title} cover`"
             :opacity="0.5"
-            :url="`https://vimeo.com/${video.url}`"
+            :url="`https://${video.url}`"
             :title="video.title"
-            :desc="`${video.desc} ⋅ ${video.year}`"
+            :description="`${video.description} ⋅ ${video.year}`"
           />
         </div>
         <div class="flex-center">

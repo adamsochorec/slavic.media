@@ -16,7 +16,7 @@ const router = createRouter({
         requiresAuth: false,
         headerTitle: "Blog",
         pageTitle: "Blog | Slavic Media",
-        desc: "Explore our latest blog posts.",
+        description: "Explore our latest blog posts.",
       },
     },
     {
@@ -28,7 +28,7 @@ const router = createRouter({
         headerTitle: "Blog",
         titlePath: "/blog",
         pageTitle: "Blog | Slavic Media",
-        desc: "Read our latest blog articles.",
+        description: "Read our latest blog articles.",
       },
     },
     {
@@ -38,7 +38,8 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
         pageTitle: "About | Slavic Media",
-        desc: "Creative & Production studio based in Denmark and Czechia. We tell stories with deep eye contact, magnificent shots, and clean designs to help your project stand out from the noise.",
+        description:
+          "Creative & Production studio based in Denmark and Czechia. We tell stories with deep eye contact, magnificent shots, and clean designs to help your project stand out from the noise.",
       },
     },
     // SERVICES
@@ -49,7 +50,8 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
         pageTitle: "Photo Services | Slavic Media",
-        desc: "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
+        description:
+          "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.",
       },
     },
     {
@@ -59,7 +61,8 @@ const router = createRouter({
       meta: {
         requiresAuth: false,
         pageTitle: "Video Services | Slavic Media",
-        desc: "From inspiring stories to cinematic visuals, each video project is crafted to captivate, impress, and showcase your vision with creative precision.",
+        description:
+          "From inspiring stories to cinematic visuals, each video project is crafted to captivate, impress, and showcase your vision with creative precision.",
       },
     },
     // LEGAL
@@ -72,7 +75,8 @@ const router = createRouter({
         headerTitle: "Legal",
         titlePath: "/legal",
         pageTitle: "Legal | Slavic Media",
-        desc: "Before using Slavic Media services or digital products, you may review the terms and conditions of end user software license agreements.",
+        description:
+          "Before using Slavic Media services or digital products, you may review the terms and conditions of end user software license agreements.",
       },
     },
     {
@@ -84,7 +88,8 @@ const router = createRouter({
         headerTitle: "Legal",
         titlePath: "/legal",
         pageTitle: "Legal Article",
-        desc: "Before using Slavic Media services or digital products, you may review the terms and conditions of end user software license agreements.",
+        description:
+          "Before using Slavic Media services or digital products, you may review the terms and conditions of end user software license agreements.",
       },
     },
     // Catch-All Route
@@ -94,7 +99,7 @@ const router = createRouter({
       component: () => import("@/views/404.vue"),
       meta: {
         pageTitle: "Page Not Found | Slavic Media",
-        desc: "The page you are looking for does not exist.",
+        description: "The page you are looking for does not exist.",
       },
     },
   ],

@@ -11,7 +11,7 @@ interface Metadata {
   formatedDate: string;
   length: number;
   thumbnail: string;
-  desc: string;
+  description: string;
   icon: string;
 }
 interface Article {
@@ -30,7 +30,7 @@ const props = defineProps<{
     <galleryItem
       :img="article.metadata.thumbnail"
       :url="`/blog/${article._id}`"
-      :desc="article.metadata.desc"
+      :description="article.metadata.description"
       :icon="article.metadata.icon"
       :flag="article.metadata.flag"
       targetWindow="_self"

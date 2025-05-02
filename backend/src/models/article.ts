@@ -17,7 +17,7 @@ interface article extends Document {
     linkedin: string;
     thumbnail: string;
     icon: string;
-    desc: string;
+    description: string;
     length: number;
   };
   content: string[];
@@ -35,7 +35,7 @@ const articleSchema: Schema = new Schema({
     linkedin: { type: String, maxlength: 200 },
     thumbnail: { type: String, required: true, maxlength: 100 },
     icon: { type: String, required: true, maxlength: 50 },
-    desc: { type: String, required: true, maxlength: 1000 },
+    description: { type: String, required: true, maxlength: 1000 },
     length: { type: Number, required: true, min: 1 },
   },
   content: { type: [String], required: true },

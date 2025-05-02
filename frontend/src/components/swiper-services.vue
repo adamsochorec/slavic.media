@@ -74,7 +74,7 @@ onMounted(async () => {
           :url="`/services/${service._id}`"
           :title="`${service._id}`"
           :alt="`${service._id} services cover`"
-          :desc="service.desc"
+          :description="service.description"
           :icon="service.icon"
         />
       </div>

@@ -7,7 +7,7 @@ interface video extends Document {
   title: string;
   url: string;
   year: string;
-  desc: string;
+  description: string;
 }
 
 const videoSchema = new Schema({
@@ -17,7 +17,7 @@ const videoSchema = new Schema({
   title: { type: String, required: true, maxlength: 200 },
   url: { type: String, required: true, maxlength: 100 },
   year: { type: String, required: true, maxlength: 4 },
-  desc: { type: String, required: false, maxlength: 100 },
+  description: { type: String, required: false, maxlength: 100 },
   opacity: { type: Number, required: false, maxlength: 3 },
 });
 

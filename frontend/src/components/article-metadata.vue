@@ -11,7 +11,7 @@ interface Metadata {
   date: string;
   length: number;
   thumbnail: string;
-  desc: string;
+  description: string;
   icon: string;
 }
 interface Article {

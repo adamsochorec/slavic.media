@@ -99,7 +99,7 @@ onMounted(() => {
             :url="`https://vimeo.com/${video.url}`"
             :title="video.title"
             :opacity="video.opacity"
-            :desc="`${video.desc} ⋅ ${video.year}`"
+            :description="`${video.description} ⋅ ${video.year}`"
             :alt="video.title"
           />
         </div>

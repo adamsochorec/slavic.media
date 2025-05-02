@@ -7,7 +7,7 @@ const props = defineProps<{
   title?: string;
   flag?: string;
   alt: string;
-  desc?: string;
+  description?: string;
   icon: string;
   opacity?: number;
 }>();
@@ -38,7 +38,9 @@ const updateImageSrc = (event: Event) => {
           <span class="title" v-if="title">{{ truncateText(title, 22) }}</span>
         </header>
         <section>
-          <p class="description" v-if="desc">{{ truncateText(desc, 100) }}</p>
+          <p class="description" v-if="description">
+            {{ truncateText(description, 100) }}
+          </p>
         </section>
       </div>
     </a>
@@ -111,22 +113,11 @@ const updateImageSrc = (event: Event) => {
   font-size: var(--font-size-7);
   padding: 0;
   opacity: 0;
-  -webkit-transition:
-    opacity 0.35s,
-    -webkit-transform 0.35s;
-  transition:
-    opacity 0.35s,
-    -webkit-transform 0.35s;
-  -o-transition:
-    opacity 0.35s,
-    transform 0.35s;
-  transition:
-    opacity 0.35s,
-    transform 0.35s;
-  transition:
-    opacity 0.35s,
-    transform 0.35s,
-    -webkit-transform 0.35s;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -o-transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
   -webkit-transform: translate3d(10%, 0, 0);
   transform: translate3d(10%, 0, 0);
 }

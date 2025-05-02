@@ -9,7 +9,7 @@ import { useSwiperAutoplay } from "@/functions/swiper-autoplay";
 interface Service {
   id: string;
   title: string;
-  desc?: string;
+  description?: string;
 }
 
 const props = defineProps<{
@@ -80,7 +80,7 @@ onMounted(() => {
           :url="`/services/${swiperClass}#${service.id}`"
           :title="`${service.title}`"
           :alt="`${service.id} services cover`"
-          :desc="service.desc"
+          :description="service.description"
           icon="camera"
         />
       </div>

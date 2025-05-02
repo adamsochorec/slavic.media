@@ -50,7 +50,7 @@ const updateImageSrc = (event: Event) => {
           </h4></router-link
         >
         <p class="reveal">
-          {{ truncateText(state.article.metadata.desc, 200)
+          {{ truncateText(state.article.metadata.description, 200)
           }}<router-link :to="`blog/${state.article._id}`">..more</router-link>
         </p>
         <ArticleMetadata :article="state.article" />

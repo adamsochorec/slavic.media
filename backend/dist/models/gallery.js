@@ -39,7 +39,7 @@ const img_1 = require("./img");
 exports.photoGallerySchema = new mongoose_1.Schema({
     _id: { type: String, required: true, maxlength: 50 },
     index: { type: Number, required: true },
-    desc: { type: String, required: true, maxlength: 1000 },
+    description: { type: String, required: true, maxlength: 1000 },
     title: { type: String, required: true, maxlength: 200 },
     columns: { type: [[img_1.imgSchema]], required: true },
 });
