@@ -64,7 +64,7 @@ onBeforeUnmount(() => {
       :content="`https://cdn.slavic.media/img/${post.thumbnail}/sd`"
     />
   </Head>
-  <article class="main" style="margin-top: 120px">
+  <main style="margin-top: 120px">
     <section
       class="wrapper-wide"
       role="region"
@@ -89,7 +89,7 @@ onBeforeUnmount(() => {
     </section>
     <!-- LIGHTROOM PRESETS BANNER CTA -->
     <LightroomPresets aria-busy="false"></LightroomPresets>
-  </article>
+  </main>
 </template>
 <style lang="scss" scoped>
 h1 {
@@ -102,15 +102,5 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-@media only screen and (max-width: 550px) {
-  .gallery-item {
-    height: 120px;
-  }
-}
-@media only screen and (max-width: 667px) {
-  .gallery {
-    grid-template-columns: repeat(1, 1fr);
-  }
 }
 </style>

@@ -84,25 +84,25 @@ watch(
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 a,
 a:hover {
-  -webkit-box-shadow: none;
   box-shadow: none;
 }
+
 .grid-container {
-  grid-template-columns: repeat(1, 1fr);
   display: grid;
+  grid-template-columns: repeat(1, 1fr);
   grid-gap: var(--grid-gap-3);
   height: auto;
   border-radius: var(--border-radius-1);
   color: white;
-}
-.grid-container .grid-item:nth-child(odd) {
-  margin-right: var(--grid-gap-2);
-}
-@media only screen and (min-width: 400px) {
-  .grid-container {
+
+  .grid-item:nth-child(odd) {
+    margin-right: var(--grid-gap-2);
+  }
+
+  @media only screen and (min-width: 400px) {
     grid-template-columns: repeat(2, 1fr);
   }
 }

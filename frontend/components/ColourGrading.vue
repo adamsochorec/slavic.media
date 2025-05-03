@@ -60,11 +60,7 @@ onMounted(() => {
     </h2>
     <div class="swiper-wrapper">
       <!-- Slide -->
-      <div
-        class="swiper-slide card"
-        v-for="(slide, index) in slides"
-        :key="index"
-      >
+      <div class="swiper-slide" v-for="(slide, index) in slides" :key="index">
         <ImageCompare aria-label="Compare Images">
           <template #left>
             <Label icon="pi pi-video" :label="slide.log" class="note"></Label>

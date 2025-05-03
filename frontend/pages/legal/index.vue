@@ -21,7 +21,7 @@ const { data: legals } = await useAsyncData("legal", () =>
       content="https.//cdn.slavic.media/img/2024-12-08-01324-2/sd"
     />
   </Head>
-  <article class="main">
+  <article>
     <section class="cover">
       <div class="filter"></div>
       <img :src="`https://cdn.slavic.media/img/2024-12-08-01324-2/public`" />

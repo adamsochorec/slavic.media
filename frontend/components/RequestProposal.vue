@@ -31,7 +31,7 @@ onMounted(() => {
 
 <template>
   <div id="requestAProposalPopup" style="display: none">
-    <div class="card flex wrapper-narrow">
+    <div class="flex wrapper-narrow">
       <Form
         :resolver
         class="flex flex-col gap-4 w-full"
@@ -136,7 +136,7 @@ onMounted(() => {
     </div>
   </div>
 </template>
-<style scoped>
+<style scoped lang="scss">
 label {
   font-size: var(--font-size-6);
 }

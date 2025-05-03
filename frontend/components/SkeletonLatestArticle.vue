@@ -68,16 +68,16 @@
     </div>
   </div>
 </template>
-<style scoped>
+<style scoped lang="scss">
 .container {
   display: grid;
   grid-template-columns: 60% 38%;
   grid-gap: 0 var(--grid-gap-3);
-}
 
-@media only screen and (max-width: 600px) {
-  .container {
-    grid-template-columns: 1fr;
+  @media only screen and (max-width: 600px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
   }
 }
 </style>

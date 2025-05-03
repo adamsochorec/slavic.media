@@ -14,7 +14,7 @@
 body {
   background-color: rgb(var(--grey-color));
 }
-.main {
+main {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -241,6 +241,11 @@ ol {
   z-index: -9999999;
   font-size: 0.1px !important;
 }
+.separator::after {
+  content: "⋅";
+  margin: 0 4px;
+  font-size: inherit;
+}
 /* LINK START */
 a,
 a:hover {
@@ -254,7 +259,7 @@ h4 a,
 h5 a,
 h6 a,
 i a,
-.main li a,
+main li a,
 p a,
 span a,
 .current,
@@ -576,7 +581,6 @@ lite-vimeo:hover > .ltv-playbtn {
   line-height: 1;
   color: #fff;
 }
-
 .pswp__custom-caption {
   position: absolute;
   left: 50%;
@@ -591,6 +595,12 @@ lite-vimeo:hover > .ltv-playbtn {
 }
 .hidden-caption-content {
   display: none;
+}
+.gallery-desc .pi {
+  font-size: var(--font-size-7);
+}
+.gallery-desc {
+  line-height: 1.4;
 }
 /* POP UP GALERRIES END*/
 

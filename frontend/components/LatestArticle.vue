@@ -60,70 +60,71 @@ const updateImageSrc = (event: Event) => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .gallery-item {
   position: relative;
   overflow: hidden;
+
+  &:hover + div .title {
+    text-decoration: underline;
+    -webkit-text-decoration-skip-ink: auto;
+    text-decoration-skip-ink: auto;
+  }
+
+  .flag,
+  &-caption {
+    position: absolute;
+    z-index: 1;
+  }
+
+  &-caption {
+    padding: var(--grid-gap-2);
+  }
 }
-.gallery-item:hover + div .title {
-  text-decoration: underline;
-  -webkit-text-decoration-skip-ink: auto;
-  text-decoration-skip-ink: auto;
-}
-.gallery-item .flag,
-.gallery-item-caption {
-  position: absolute;
-  z-index: 1;
-}
-.gallery-item-caption {
-  padding: var(--grid-gap-2);
-}
+
 .latest a,
 .latest a:hover {
-  -webkit-box-shadow: none;
   box-shadow: none;
 }
-a > :hover {
-  text-decoration: underline;
-  -webkit-text-decoration-skip-ink: auto;
-  text-decoration-skip-ink: auto;
-}
+
+a > :hover,
 .title:hover {
   text-decoration: underline;
   -webkit-text-decoration-skip-ink: auto;
   text-decoration-skip-ink: auto;
 }
+
 .grid-container {
   display: grid;
   grid-template-columns: 60% 38%;
   grid-gap: 0 var(--grid-gap-3);
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 h4 {
   font-size: var(--font-size-4);
   margin: 0 0 var(--grid-gap-2) 0;
+
+  @media only screen and (max-width: 600px) {
+    font-size: var(--font-size-3);
+    margin: var(--grid-gap-2) 0;
+  }
 }
+
 img {
   border-radius: var(--border-radius-1);
   height: 300px;
-  -o-object-fit: cover;
   object-fit: cover;
   position: relative;
   display: block;
   width: 100%;
   transition: var(--transition-1);
-}
 
-@media only screen and (max-width: 600px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-  }
-  h4 {
-    font-size: var(--font-size-3);
-    margin: var(--grid-gap-2) 0;
-  }
-  img {
-    aspect-ratio: 16/10;
+  @media only screen and (max-width: 600px) {
+    aspect-ratio: 16 / 10;
     height: auto;
     width: 100%;
   }

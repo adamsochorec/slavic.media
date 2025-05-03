@@ -9,10 +9,10 @@ interface Video {
   src: string;
   title: string;
 }
-interface VideoItemSwiperProps {
+interface VideoSwiper {
   videos: Video[];
 }
-const props = defineProps<VideoItemSwiperProps>();
+const props = defineProps<VideoSwiper>();
 
 onMounted(() => {
   nextTick(() => {
@@ -82,7 +82,7 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .swiper-video {
   padding-bottom: calc(var(--grid-gap-2) * 2);
   border-radius: 10px;

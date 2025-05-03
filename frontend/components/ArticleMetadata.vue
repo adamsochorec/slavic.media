@@ -115,32 +115,29 @@ const props = defineProps<ArticleMetadata>();
   </div>
 </template>
 
-<style scoped>
-.avatar {
-  height: 60px;
-  width: auto;
-  object-fit: cover;
-  aspect-ratio: 1/1;
-}
+<style scoped lang="scss">
 .article-metadata {
   margin: var(--grid-gap-2) 0;
   color: rgb(var(--white-color));
   border-radius: var(--border-radius-1);
+
+  @media only screen and (min-width: 400px) {
+    background: rgb(var(--dark-grey-color));
+    padding: var(--grid-gap-1);
+  }
+}
+.avatar {
+  height: 60px;
+  width: auto;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+
+  @media only screen and (max-width: 667px) {
+    height: 40px;
+  }
 }
 .pi-angle-right {
   font-size: var(--font-size-4);
   vertical-align: middle;
-}
-
-@media only screen and (max-width: 667px) {
-  .avatar {
-    height: 40px;
-  }
-}
-@media only screen and (min-width: 400px) {
-  .article-metadata {
-    background: rgb(var(--dark-grey-color));
-    padding: var(--grid-gap-1);
-  }
 }
 </style>

@@ -22,13 +22,14 @@ const props = defineProps<{
 </script>
 
 <template>
-  <section class="reveal">
+  <figcaption class="reveal">
     <header class="metadata gap-3">
       <a
         target="_blank"
         rel="noopener noreferrer nofollow"
         :href="`https://www.linkedin.com/in/${article.author.linkedin}`"
         class="author"
+        aria-label="Visit {{ article.author.name }}'s LinkedIn profile"
       >
         <img
           class="avatar"
@@ -42,26 +43,22 @@ const props = defineProps<{
           rel="noopener noreferrer nofollow"
           class="author"
           :href="`https://www.linkedin.com/in/${article.author.linkedin}`"
+          aria-label="Visit {{ article.author.name }}'s LinkedIn profile"
         >
           <span>{{ article.author.name }}</span>
         </a>
         <br class="hide" />
-        <span style="font-size: var(--font-size-7)"
-          ><span
-            style="font-size: var(--font-size-7)"
-            class="pi pi-calendar"
-          ></span
-          >&nbsp;{{ ddmmmyyyy(article.date) }}&nbsp;⋅&nbsp;<span
-            style="font-size: var(--font-size-7)"
-            class="pi pi-clock"
-          ></span
-          >&nbsp;{{ article.length }}
-          min read
-        </span>
+        <figure class="submetadata">
+          <span class="pi pi-calendar"></span>
+          {{ ddmmmyyyy(article.date) }}<i class="separator"></i>
+          <span class="pi pi-clock"></span>
+          {{ article.length }} min read
+        </figure>
+
         <br />
       </div>
     </header>
-  </section>
+  </figcaption>
 </template>
 
 <style lang="scss" scoped>
@@ -76,24 +73,22 @@ img {
   height: 30px;
   width: auto;
   object-fit: cover;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
 }
 .metadata {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   line-height: 1.2;
   color: white;
-  margin: var(--grid-gap-2) 0;
+  margin-top: var(--grid-gap-1);
+}
+.submetadata,
+.submetadata .pi {
+  font-size: var(--font-size-7);
 }
 .grid-item:nth-child(2) {
   font-size: var(--font-size-7);
-}
-@media only screen and (max-width: 400px) {
-  .grid-item:nth-child(2) {
+  @media only screen and (max-width: 400px) {
     font-size: var(--font-size-8);
   }
 }

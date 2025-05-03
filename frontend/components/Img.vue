@@ -29,7 +29,7 @@ const thumbnailUrl = `https://cdn.slavic.media/img/${props._id}/thumbnail`;
   <a
     :href="fullImageUrl"
     :title="props.title"
-    :data-pswp-width="props.originalWidth"
+    :data-pswp-width="originalWidth"
     :data-pswp-height="props.originalHeight"
   >
     <img
@@ -45,7 +45,7 @@ const thumbnailUrl = `https://cdn.slavic.media/img/${props._id}/thumbnail`;
   </a>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 img,
 a {
   cursor: pointer;

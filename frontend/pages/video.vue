@@ -68,8 +68,8 @@ onMounted(async () => {
     <Meta name="ogDescription" :content="description" />
     <Meta name="ogImage" content="https.//cdn.slavic.media/img/video/sd" />
   </Head>
-  <article class="main" style="margin-top: 120px">
-    <section class="wrapper-wide">
+  <main style="margin-top: 120px">
+    <section class="wrapper-wide" aria-labelledby="video-services-heading">
       <!-- PAGE ABSTRACT START -->
       <div
         class="grid-container caption-container"
@@ -77,7 +77,7 @@ onMounted(async () => {
         aria-busy="false"
       >
         <div class="grid-item">
-          <h1 class="reveal" aria-label="Video Services">
+          <h1 id="video-services-heading" class="reveal">
             <span class="gradient"> Video </span>
             Services
           </h1>
@@ -88,14 +88,16 @@ onMounted(async () => {
             crafted to captivate, impress, and showcase your vision with
             creative precision.
           </p>
-          <button @click="showRequestAProposal('video')">
+          <button
+            @click="showRequestAProposal('video')"
+            aria-label="Request a proposal for video services"
+          >
             <div class="cta">Request a Proposal</div>
           </button>
         </div>
         <br />
       </div>
       <!-- PAGE ABSTRACT END -->
-
       <div v-if="isDataLoaded" aria-busy="false">
         <!-- VIDEO -->
         <lightgallery
@@ -111,7 +113,7 @@ onMounted(async () => {
           :showVimeoThumbnails="true"
           hideScrollbar="true"
         >
-          <VideoItem
+          <VideoCard
             v-for="video in videoState.videos.slice(0, itemsToShow)"
             :key="video._id"
             :video="video"
@@ -122,36 +124,44 @@ onMounted(async () => {
             v-if="!allItemsShown"
             @click="loadMoreItems(videoState.videos.length)"
             class="cta reveal"
+            aria-label="Load more videos"
           >
-            Show More
+            Show More<span class="pi pi-plus-circle ml-2"></span>
           </button>
-          <button v-else @click="showLessItems" class="cta reveal">
-            Show Less
+          <button
+            v-else
+            @click="showLessItems"
+            class="cta reveal"
+            aria-label="Show fewer videos"
+          >
+            Show Less<span class="pi pi-minus-circle ml-2"></span>
           </button>
         </div>
-        <div id="colour-grading"></div>
-        <hr class="reveal" role="separator" />
-        <!-- COLOUR GRADING START-->
-        <div v-if="isDataLoaded" class="grid-container caption-container">
-          <div class="grid-item">
-            <h2 class="reveal" aria-label="Video Services">
-              Colour <span class="gradient">Grading</span>
-            </h2>
+        <section aria-labelledby="colougrading-services-heading">
+          <div id="colour-grading"></div>
+          <hr class="reveal" role="separator" />
+          <!-- COLOUR GRADING START-->
+          <div v-if="isDataLoaded" class="grid-container caption-container">
+            <div class="grid-item">
+              <h2 id="colougrading-services-heading" class="reveal">
+                Colour <span class="gradient">Grading</span>
+              </h2>
+            </div>
+            <div class="grid-item">
+              <p class="reveal">
+                Bring your footage to life with our professional video colour
+                grading. Using DaVinci Resolve, we grade boring log footage to
+                unlock its full potential, delivering rich, vibrant colours
+                across the depth spectrum and natural skin tones.
+              </p>
+              <button @click="showRequestAProposal('colour grading')">
+                <div class="cta">Request a Proposal</div>
+              </button>
+            </div>
           </div>
-          <div class="grid-item">
-            <p class="reveal">
-              Bring your footage to life with our professional video colour
-              grading. Using DaVinci Resolve, we grade boring log footage to
-              unlock its full potential, delivering rich, vibrant colours across
-              the depth spectrum and natural skin tones.
-            </p>
-            <button @click="showRequestAProposal('colour grading')">
-              <div class="cta">Request a Proposal</div>
-            </button>
-          </div>
-        </div>
-        <br />
-        <ColourGrading v-if="isDataLoaded"></ColourGrading>
+          <br />
+          <ColourGrading v-if="isDataLoaded"></ColourGrading>
+        </section>
         <!-- COLOUR GRADING END-->
         <div id="content"></div>
         <hr class="reveal" role="separator" v-if="isDataLoaded" />
@@ -174,7 +184,7 @@ onMounted(async () => {
           <div id="content"></div>
         </div>
         <br />
-        <Reels></Reels>
+        <Reels />
       </div>
       <!-- CONTENT END -->
       <hr v-if="isDataLoaded" class="reveal" role="separator" />
@@ -217,7 +227,7 @@ onMounted(async () => {
     </section>
     <!-- LIGHTROOM PRESETS CTA START -->
     <section v-if="isDataLoaded" aria-busy="false">
-      <LightroomPresets></LightroomPresets>
+      <LightroomPresets />
     </section>
     <!-- LIGHTROOM PRESETS CTA END -->
     <hr class="semi" />
@@ -228,7 +238,7 @@ onMounted(async () => {
       <FurtherServices :services="photoServices" swiperClass="photo" />
     </div>
     <!-- FURTHER SERVICES END -->
-  </article>
+  </main>
 </template>
 
 <style lang="scss" scoped>
@@ -247,12 +257,16 @@ h1 {
   border-radius: var(--border-radius-1);
   color: white;
 }
-.gallery .grid-item:nth-child(odd) {
-  margin-right: var(--grid-gap-2);
-}
+
 @media only screen and (min-width: 600px) {
   .gallery {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .video-card {
+    border-bottom: 1px solid white;
+    padding-bottom: var(--grid-gap-3);
   }
 }
 </style>

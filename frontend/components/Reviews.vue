@@ -122,7 +122,7 @@ onMounted(async () => {
       <div
         v-for="review in state.reviews"
         :key="review._id"
-        class="swiper-slide card"
+        class="swiper-slide"
         role="group"
         :aria-labelledby="`review-${review._id}`"
       >
@@ -165,64 +165,66 @@ onMounted(async () => {
     <SkeletonSwiper v-else aria-busy="true"></SkeletonSwiper>
   </section>
 </template>
-<style scoped>
-.swiper-reviews .card {
-  padding: var(--grid-gap-1);
-  width: var(--dimension-2);
-  border-radius: var(--border-radius-1);
-  background-color: rgb(var(--dark-grey-color));
-  -webkit-box-shadow: var(--box-shadow-1);
-  box-shadow: var(--box-shadow-1);
-}
+<style scoped lang="scss">
 .swiper-reviews {
   border-radius: var(--border-radius-1);
   padding-bottom: calc(var(--grid-gap-2) * 2);
-}
-.swiper-reviews p {
-  padding: 0;
-  font-size: var(--font-size-8);
-}
-.swiper-reviews .quotes {
-  font-size: 32px;
-  color: white;
-  padding: 0;
-  margin: 0;
-}
-.swiper-reviews img {
-  height: 60px;
-  width: auto;
-  -o-object-fit: cover;
-  object-fit: cover;
-  border-radius: var(--border-radius-2);
-  -webkit-box-shadow: var(--box-shadow-1);
-  -webkit-animation: skeleton-loading 1s linear infinite alternate;
-  animation: skeleton-loading 1s linear infinite alternate;
-  box-shadow: var(--box-shadow-1);
-  margin: 0 !important;
+
+  .swiper-slide {
+    padding: var(--grid-gap-1);
+    width: var(--dimension-2);
+    border-radius: var(--border-radius-1);
+    background-color: rgb(var(--dark-grey-color));
+    box-shadow: var(--box-shadow-1);
+  }
+
+  p {
+    padding: 0;
+    font-size: var(--font-size-8);
+  }
+
+  .quotes {
+    font-size: 32px;
+    color: white;
+    padding: 0;
+    margin: 0;
+  }
+
+  img {
+    height: 60px;
+    width: auto;
+    object-fit: cover;
+    border-radius: var(--border-radius-2);
+    box-shadow: var(--box-shadow-1);
+    animation: skeleton-loading 1s linear infinite alternate;
+    margin: 0 !important;
+  }
+
+  .reviews-message {
+    margin-top: var(--grid-gap-1);
+  }
+
+  .stars {
+    display: inline-block;
+    font-size: var(--font-size-8);
+    color: gold;
+  }
 }
 .swiper-slide .grid-container {
   display: flex;
   grid-gap: var(--grid-gap-1);
-}
-.grid-container .grid-item:nth-child(odd) {
-  margin-right: none !important;
-}
-.swiper-reviews .reviews-message {
-  margin-top: var(--grid-gap-1);
-}
-.swiper-reviews .stars {
-  display: inline-block;
-  font-size: var(--font-size-8);
-  color: gold;
+
+  .grid-item:nth-child(odd) {
+    margin-right: none !important;
+  }
 }
 .reviews-message {
   height: 80px;
   overflow: scroll;
-  -webkit-transition: max-height var(--transition-2);
-  -o-transition: max-height var(--transition-2);
   transition: max-height var(--transition-2);
-}
-.reviews-message.expanded {
-  max-height: 500px;
+
+  &.expanded {
+    max-height: 500px;
+  }
 }
 </style>

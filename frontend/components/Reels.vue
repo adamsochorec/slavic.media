@@ -241,18 +241,17 @@ onMounted(() => {
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .swiper-reels {
   padding-bottom: calc(var(--grid-gap-2) * 2);
-}
-.swiper-reels video {
-  height: auto;
-  width: var(--dimension-2);
-  border-radius: var(--border-radius-1);
-  -webkit-box-shadow: var(--box-shadow-1);
-  box-shadow: var(--box-shadow-1);
-  -webkit-animation: skeleton-loading 1s linear infinite alternate;
-  animation: skeleton-loading 1s linear infinite alternate;
+
+  video {
+    height: auto;
+    width: var(--dimension-2);
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow-1);
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
 }
 .swiper-pagination {
   margin-top: 40px;
@@ -263,15 +262,5 @@ onMounted(() => {
   top: var(--grid-gap-1);
   left: var(--grid-gap-1);
   z-index: 8;
-}
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
 }
 </style>

@@ -11,7 +11,7 @@ defineProps({
   <div>
     <aside><Cookies></Cookies></aside>
     <NuxtLayout :name="layout">
-      <article class="main" style="margin: 120px 0">
+      <article style="margin: 120px 0">
         <section
           class="wrapper-wide flex-center"
           role="article"

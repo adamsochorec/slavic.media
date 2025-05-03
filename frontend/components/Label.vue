@@ -14,7 +14,7 @@ const props = defineProps<Label>();
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .chip {
   font-size: var(--font-size-8);
   background-color: rgba(var(--dark-grey-color), 0.3);
@@ -27,9 +27,10 @@ const props = defineProps<Label>();
   justify-content: center;
   border: 1px solid white;
   box-shadow: var(--box-shadow-1);
-}
-.chip .pi {
-  font-size: var(--font-size-6);
-  margin-right: var(--grid-gap-1);
+
+  .pi {
+    font-size: var(--font-size-6);
+    margin-right: var(--grid-gap-1);
+  }
 }
 </style>

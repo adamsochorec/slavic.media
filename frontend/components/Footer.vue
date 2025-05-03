@@ -159,54 +159,52 @@ const currentYear = new Date().getFullYear();
   </footer>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .underline {
   text-decoration-skip-ink: auto;
 }
 .logo {
   height: var(--grid-gap-2);
-}
-.logo path {
-  fill: white;
-}
-.logo:hover path {
-  fill: rgb(var(--primary-color));
-}
-.logo,
-.logo:hover {
-  transition: var(--transition-1);
+
+  path {
+    fill: white;
+  }
+
+  &:hover path {
+    fill: rgb(var(--primary-color));
+  }
+
+  &,
+  &:hover {
+    transition: var(--transition-1);
+  }
 }
 .separator {
   margin: 0 5px;
-}
-nav {
-  line-height: normal;
-}
-.separator::after {
-  content: "⋅";
-  font-size: var(--font-size-3);
-  vertical-align: middle;
+
+  &::after {
+    content: "⋅";
+    font-size: var(--font-size-3);
+    vertical-align: middle;
+  }
 }
 .flag {
   opacity: 30%;
   margin-left: 3px;
   font-size: var(--font-size-8);
-}
-a:hover .flag {
-  opacity: 100%;
+
+  a:hover & {
+    opacity: 100%;
+  }
 }
 .cookie {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-}
-.cookie img {
-  height: 10px;
-  vertical-align: middle;
-  width: auto;
+  img {
+    height: 10px;
+    vertical-align: middle;
+    width: auto;
+  }
 }
 footer {
   padding: var(--grid-gap-3) var(--homepage-padding);
@@ -216,63 +214,53 @@ footer {
   font-optical-sizing: auto;
   font-weight: 100;
   font-style: normal;
-}
-.footer-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  line-height: 2;
-}
-.footer-container:last-of-type {
-  display: block;
-  text-align: center;
-}
-.hide-max {
-  display: none;
-}
-footer hr {
-  margin: var(--grid-gap-1) 0;
-  border-color: rgba(255, 255, 255, 0.3);
+  hr {
+    margin: var(--grid-gap-1) 0;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    line-height: 2;
+
+    &:last-of-type {
+      display: block;
+      text-align: center;
+    }
+  }
+  .social-icons {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    a:not(:nth-last-child(1)) {
+      margin-right: var(--grid-gap-1);
+    }
+    a:nth-child(5) {
+      margin-right: 0;
+    }
+  }
 }
 span,
 .footer-container:last-of-type i {
   color: rgba(255, 255, 255, 0.3);
-}
-a:hover span,
-button.cookie:hover span,
-a .flag,
-a:hover .flag,
-.footer-container:last-of-type a:hover i {
-  color: white;
+
+  a:hover &,
+  button.cookie:hover & {
+    color: white;
+  }
 }
 a span,
-button span,
-a:hover span,
-button span:hover {
+button span {
   transition: var(--transition-1);
-}
-/* SOCIAL ICONS START */
-footer .social-icons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  text-decoration: none;
-}
 
-.social-icons a:not(.social-icons a:nth-last-child(1)) {
-  margin-right: var(--grid-gap-1);
+  &:hover {
+    color: white;
+  }
 }
-.social-icons a:nth-child(5) {
-  margin-right: 0;
+.hide-max {
+  display: none;
 }
-/* SOCIAL ICONS END */
-
 @media only screen and (max-width: 850px) {
   .hide-max {
     display: block;

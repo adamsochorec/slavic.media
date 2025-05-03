@@ -106,34 +106,35 @@
     </div>
   </div>
 </template>
-<style scoped>
+<style scoped lang="scss">
 .grid-container.skeleton {
   display: grid;
   grid-gap: var(--grid-gap-2);
-}
-@media only screen and (max-width: 375px) {
-  .grid-container.skeleton {
-    grid-template-columns: repeat(2, 1fr);
+
+  @media only screen and (max-width: 375px) {
+    .grid-container.skeleton {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-container.skeleton .third,
+    .grid-container.skeleton .fourth {
+      display: none;
+    }
   }
-  .grid-container.skeleton .third,
-  .grid-container.skeleton .fourth {
-    display: none;
+  @media only screen and (min-width: 375px) {
+    .grid-container.skeleton {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .grid-container.skeleton .fourth {
+      display: none;
+    }
   }
-}
-@media only screen and (min-width: 375px) {
-  .grid-container.skeleton {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .grid-container.skeleton .fourth {
-    display: none;
-  }
-}
-@media only screen and (min-width: 947px) {
-  .grid-container.skeleton {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .grid-container.skeleton .fourth {
-    display: block;
+  @media only screen and (min-width: 947px) {
+    .grid-container.skeleton {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .grid-container.skeleton .fourth {
+      display: block;
+    }
   }
 }
 </style>

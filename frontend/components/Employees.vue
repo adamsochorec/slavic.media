@@ -240,7 +240,7 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .swiper-employees {
   padding-bottom: calc(var(--grid-gap-2) * 2);
 }
@@ -248,14 +248,18 @@ onUnmounted(() => {
   margin: var(--grid-gap-1) 0;
   font-size: var(--font-size-7);
 }
-.profile h3 {
-  margin-top: var(--grid-gap-1) !important;
-}
-.profile p {
-  margin-bottom: var(--grid-gap-1) !important;
-}
-.profile h4 {
-  font-size: var(--font-size-7);
+.profile {
+  h3 {
+    margin-top: var(--grid-gap-1) !important;
+  }
+
+  p {
+    margin-bottom: var(--grid-gap-1) !important;
+  }
+
+  h4 {
+    font-size: var(--font-size-7);
+  }
 }
 h3 {
   font-size: var(--font-size-6);
@@ -266,33 +270,36 @@ h4 {
   font-optical-sizing: auto;
   font-weight: 100;
   font-style: normal;
+
+  @media only screen and (max-width: 430px) {
+    font-size: var(--font-size-7);
+  }
 }
-#ourteam .grid-container-team {
-  grid-template-columns: repeat(3, 1fr);
-  display: grid;
+#ourteam {
+  .grid-container-team {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 img {
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
-  aspect-ratio: 4/3;
+  aspect-ratio: 4 / 3;
   -o-object-fit: cover;
   object-fit: cover;
   border-radius: var(--border-radius-1);
 }
-.social-icons > * {
-  margin-right: var(--grid-gap-1);
-}
-.social-icons a:nth-last-child(1) {
-  margin-right: 0;
+.social-icons {
+  > * {
+    margin-right: var(--grid-gap-1);
+  }
+
+  a:nth-last-child(1) {
+    margin-right: 0;
+  }
 }
 .grid-container.skeleton {
   display: grid;
   grid-gap: var(--grid-gap-2);
-}
-
-@media only screen and (max-width: 430px) {
-  h4 {
-    font-size: var(--font-size-7);
-  }
 }
 </style>

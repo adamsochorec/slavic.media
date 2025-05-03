@@ -77,7 +77,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <article class="main" style="margin-top: 120px">
+  <article style="margin-top: 120px">
     <section class="wrapper-wide" role="region">
       <h1 class="visually-hidden">Slavic Media Blog</h1>
 

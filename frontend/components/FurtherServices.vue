@@ -71,7 +71,7 @@ onMounted(() => {
         role="group"
         :aria-labelledby="`service-${service.id}`"
       >
-        <galleryItem
+        <GalleryCard
           :img="service.id"
           :opacity="0.5"
           :url="`/${swiperClass}#${service.id}`"
@@ -85,18 +85,15 @@ onMounted(() => {
     <div class="swiper-pagination" aria-busy="false"></div>
   </section>
 </template>
-
-<style scoped>
+<style scoped lang="scss">
 .swiper {
   padding-bottom: calc(var(--grid-gap-2) * 2);
 }
 .gallery-item {
-  aspect-ratio: 16/9;
-}
+  aspect-ratio: 16 / 9;
 
-@media only screen and (max-width: 400px) {
-  .gallery-item {
-    aspect-ratio: 1/1;
+  @media only screen and (max-width: 400px) {
+    aspect-ratio: 1 / 1;
   }
 }
 </style>

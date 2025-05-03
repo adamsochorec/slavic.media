@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { truncateText } from "@/composables/useTruncateText.ts";
 
-interface GalleryItemProps {
+interface GalleryCard {
   img: string;
   url: string;
   title?: string;
@@ -11,7 +11,7 @@ interface GalleryItemProps {
   icon: string;
   opacity?: number;
 }
-const props = defineProps<GalleryItemProps>();
+const props = defineProps<GalleryCard>();
 </script>
 
 <template>
@@ -40,16 +40,6 @@ const props = defineProps<GalleryItemProps>();
 </template>
 
 <style scoped>
-.title {
-  font-size: var(--font-size-4);
-  text-transform: capitalize;
-  text-decoration: none !important;
-  font-family: var(--logo-font);
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-  color: white;
-}
 .gallery-item {
   position: relative;
   max-width: calc(100vw - var(--homepage-padding) * 2);
@@ -99,6 +89,16 @@ const props = defineProps<GalleryItemProps>();
   margin: var(--grid-gap-1) 0;
   z-index: 1;
   pointer-events: none;
+}
+.gallery-item .title {
+  font-size: var(--font-size-4);
+  text-transform: capitalize;
+  text-decoration: none !important;
+  font-family: var(--logo-font);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  color: white;
 }
 .gallery-item span {
   text-decoration: underline;

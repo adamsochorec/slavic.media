@@ -125,7 +125,7 @@ onBeforeUnmount(() => {
     <Meta name="ogDescription" :content="description" />
     <Meta name="ogImage" content="https.//cdn.slavic.media/img/photo/sd" />
   </Head>
-  <article class="main" style="margin-top: 120px">
+  <main style="margin-top: 120px">
     <!-- PAGE ABSTRACT START-->
     <section class="wrapper-wide">
       <div
@@ -149,20 +149,20 @@ onBeforeUnmount(() => {
       </div>
     </section>
     <!-- PAGE ABSTRACT START-->
-
     <template v-for="(gallery, galleryKey) in imgState.img" :key="galleryKey">
       <!-- GALLERY ABSTRACT START -->
-      <section
+      <article
         v-if="isDataLoaded"
         aria-busy="false"
         class="wrapper-wide"
         id="photo"
+        :aria-labelledby="`gallery-heading-${galleryKey}`"
       >
         <div :id="gallery._id"></div>
         <hr class="reveal" role="separator" />
         <div class="grid-container caption-container">
           <div class="grid-item reveal">
-            <h2>
+            <h2 :id="`gallery-heading-${galleryKey}`">
               {{ gallery.title.split(" ")[0] }}
               <span class="gradient">{{ gallery.title.split(" ")[1] }}</span>
             </h2>
@@ -175,10 +175,15 @@ onBeforeUnmount(() => {
           </div>
         </div>
         <br />
-      </section>
+      </article>
       <!-- GALLERY ABSTRACT END -->
       <!-- GALLERY START -->
-      <section v-if="isDataLoaded" aria-busy="false" class="lightbox">
+      <section
+        v-if="isDataLoaded"
+        aria-busy="false"
+        class="lightbox"
+        :aria-labelledby="`gallery-heading-${galleryKey}`"
+      >
         <div class="row">
           <div
             v-for="(column, columnIndex) in gallery.columns"
@@ -205,27 +210,31 @@ onBeforeUnmount(() => {
       <!-- GALLERY END -->
     </template>
     <!-- LIGHTROOM PRESETS CTA START -->
-
     <section v-if="isDataLoaded" aria-busy="false">
-      <LightroomPresets></LightroomPresets>
+      <LightroomPresets />
     </section>
     <!-- LIGHTROOM PRESETS CTA END -->
     <hr class="semi" />
     <!-- FURTHER SERVICES START -->
-    <div id="services" v-if="isDataLoaded" class="wrapper-wide">
-      <h3>Discover our <span class="gradient">video</span> services</h3>
+    <section
+      id="services"
+      v-if="isDataLoaded"
+      class="wrapper-wide"
+      aria-labelledby="video-services-heading"
+    >
+      <h3 id="video-services-heading">
+        Discover our <span class="gradient">video</span> services
+      </h3>
       <hr class="quater reveal" />
       <FurtherServices :services="videoServices" swiperClass="video" />
-    </div>
-
+    </section>
     <!-- FURTHER SERVICES END -->
-
     <!-- SKELETON START -->
     <div class="wrapper-wide" v-else aria-busy="true" aria-live="polite">
-      <SkeletonServices></SkeletonServices>
+      <SkeletonServices />
     </div>
     <!-- SKELETON END -->
-  </article>
+  </main>
 </template>
 
 <style lang="scss" scoped>

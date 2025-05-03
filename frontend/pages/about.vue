@@ -13,7 +13,7 @@ const title = "About";
     <Meta name="ogDescription" :content="description" />
     <Meta name="ogImage" content="https.//cdn.slavic.media/img/thumbnail/sd" />
   </Head>
-  <article class="main" aria-labelledby="about-company">
+  <main aria-labelledby="about-company">
     <HeroVideo :id="1013776851" alt="Behind the Scenes | Slavic Media">
     </HeroVideo>
     <!--   ABOUT START -->
@@ -63,5 +63,5 @@ const title = "About";
     </section>
     <!--   ABOUT END -->
     <EventTimeline />
-  </article>
+  </main>
 </template>

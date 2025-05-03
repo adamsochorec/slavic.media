@@ -31,7 +31,7 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .video-container {
   position: relative;
   width: 100%;

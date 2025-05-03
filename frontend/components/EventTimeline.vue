@@ -54,10 +54,10 @@ onMounted(async () => {
           @click="loadMoreItems(state.events.length)"
           class="cta reveal"
         >
-          Show More
+          Show More<span class="pi pi-plus-circle ml-2"></span>
         </button>
         <button v-else @click="showLessItems" class="cta reveal">
-          Show Less
+          Show Less<span class="pi pi-minus-circle ml-2"></span>
         </button>
       </div>
     </div>

@@ -1,0 +1,78 @@
+<script setup lang="ts">
+interface Client {
+  name: string;
+  url: string;
+}
+interface Video {
+  _id?: string;
+  index?: number;
+  flag: string;
+  title: string;
+  url: string;
+  year: string;
+  client?: Client;
+  description?: string;
+  category?: string;
+}
+const props = defineProps<{ video: Video }>();
+</script>
+
+<template>
+  <a
+    class="video-card reveal"
+    aria-labelledby="video-card-title"
+    :data-src="`//${video.url}?autoplay=true`"
+    :data-sub-html="`<figcaption class='gallery-desc metadata content-font'><b>${video.title}</b><br><span class='pi pi-info-circle mr-1'></span>${video.category}<i class='separator'></i><span class='pi pi-calendar mr-1'></span>${video.year}<i v-if='video.client' class='separator'></i><span v-if='video?.client'><span class='pi pi-users mr-1'></span>${video.client?.name}</span></figcaption>`"
+  >
+    <img
+      :src="`https://cdn.slavic.media/img/${video._id}/sd`"
+      :alt="video.title"
+    />
+    <figure class="metadata">
+      <span class="pi pi-info-circle"></span>
+      {{ video.category }}<i class="separator"></i>
+      <span class="pi pi-calendar"></span>
+      {{ video.year }}<i v-if="video.client" class="separator"></i>
+      <span v-if="video.client">
+        <span class="pi pi-users"></span>
+        {{ video.client.name }}
+      </span>
+    </figure>
+    <h3 class="title" id="video-card-title">{{ video.title }}</h3>
+  </a>
+</template>
+<style lang="scss" scoped>
+.video-card {
+  display: grid;
+  transition: var(--transition-1);
+  &:hover {
+    img {
+      filter: saturate(0);
+      transition: var(--transition-1);
+    }
+    .title {
+      text-decoration: underline;
+      transition: var(--transition-1);
+    }
+  }
+}
+img {
+  border-radius: var(--border-radius-1);
+  -o-object-fit: cover;
+  object-fit: cover;
+  aspect-ratio: 2/1;
+  transition: var(--transition-1);
+}
+.metadata,
+.metadata .pi {
+  font-size: var(--font-size-7);
+}
+.metadata,
+.title {
+  margin-top: var(--grid-gap-1);
+}
+.title {
+  font-size: var(--font-size-5);
+  transition: var(--transition-1);
+}
+</style>

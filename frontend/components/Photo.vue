@@ -36,7 +36,7 @@ const updateDimensions = (event: Event) => {
   </a>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 img,
 a {
   cursor: pointer;

@@ -35,55 +35,62 @@ const showLessArticles = () => {
     <Meta name="ogTitle" :content="title" />
     <Meta name="description" :content="description" />
     <Meta name="ogDescription" :content="description" />
-    <Meta name="ogImage" content="https.//cdn.slavic.media/img/thumbnail/sd" />
+    <Meta name="ogImage" content="https://cdn.slavic.media/img/thumbnail/sd" />
   </Head>
-  <article class="main" style="margin-top: 120px">
-    <section class="wrapper-wide" role="region">
-      <h1>Slavic Media <span class="gradient">Blog</span></h1>
+  <main style="margin-top: 120px">
+    <section class="wrapper-wide" role="region" aria-labelledby="blog-heading">
+      <h1 id="blog-heading">Slavic Media <span class="gradient">Blog</span></h1>
       <br />
       <LatestArticle class="hide" aria-busy="false"></LatestArticle>
       <hr aria-busy="false" class="hide quater reveal" />
-      <div aria-busy="false">
+      <section aria-labelledby="articles-heading">
+        <h2 id="articles-heading" class="visually-hidden">Articles</h2>
         <div class="grid-container">
           <div
             v-for="article in visibleArticles"
             :key="article.slug"
-            role="region"
+            role="article"
           >
             <BlogCard :article="article"></BlogCard>
           </div>
         </div>
-        <br />
-        <div class="flex-center">
-          <button
-            v-if="articlesToShow < articles.length"
-            @click="loadMoreArticles"
-            class="cta reveal"
-          >
-            Show More
-          </button>
-          <button v-else @click="showLessArticles" class="cta reveal">
-            Show Less
-          </button>
-        </div>
+      </section>
+      <br />
+      <div class="flex-center">
+        <button
+          v-if="articlesToShow < articles.length"
+          @click="loadMoreArticles"
+          class="cta reveal"
+        >
+          Show More<span class="pi pi-plus-circle ml-2"></span>
+        </button>
+        <button v-else @click="showLessArticles" class="cta reveal">
+          Show Less<span class="pi pi-minus-circle ml-2"></span>
+        </button>
       </div>
     </section>
-  </article>
+  </main>
 </template>
 <style lang="scss" scoped>
 .grid-container {
-  grid-template-columns: repeat(1, 1fr);
   display: grid;
+  grid-template-columns: repeat(1, 1fr);
   grid-gap: var(--grid-gap-3);
   height: auto;
   border-radius: var(--border-radius-1);
   color: white;
-}
-.grid-container .grid-item:nth-child(odd) {
-  margin-right: var(--grid-gap-2);
+
+  .grid-item:nth-child(odd) {
+    margin-right: var(--grid-gap-2);
+  }
 }
 h1 {
   font-size: var(--font-size-2);
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media only screen and (max-width: 500px) {
   .hide {

@@ -31,41 +31,48 @@ onMounted(() => {
   });
 });
 </script>
-<style scoped>
-.swiper-clients .swiper-slide {
-  text-align: center;
+<style scoped lang="scss">
+.swiper-clients {
+  .swiper-slide {
+    text-align: center;
+  }
 }
 svg {
   height: 70px;
-  aspect-ratio: 1/1;
-}
+  aspect-ratio: 1 / 1;
 
+  @media only screen and (max-width: 375px) {
+    height: 50px;
+    aspect-ratio: 1 / 1;
+  }
+}
 path,
 polygon {
   fill: white;
-}
 
-.clients:hover path,
-.clients:hover polygon {
-  fill: rgba(var(--primary-color), 1);
-  cursor: pointer;
+  .clients:hover & {
+    fill: rgba(var(--primary-color), 1);
+    cursor: pointer;
+  }
 }
 path,
 g,
-polygon,
-.clients:hover path,
-.clients:hover polygon,
-.clients:hover g {
+polygon {
   transition: var(--transition-1);
   -webkit-transition: var(--transition-1);
-  -moz-transition: var(--transition-1); /* Firefox */
-  -ms-transition: var(--transition-1); /* Edge */
+  -moz-transition: var(--transition-1);
+  -ms-transition: var(--transition-1);
   -o-transition: var(--transition-1);
 }
-@media only screen and (max-width: 375px) {
-  svg {
-    height: 50px;
-    aspect-ratio: 1/1;
+.clients:hover {
+  path,
+  polygon,
+  g {
+    transition: var(--transition-1);
+    -webkit-transition: var(--transition-1);
+    -moz-transition: var(--transition-1); // Firefox
+    -ms-transition: var(--transition-1); // Edge
+    -o-transition: var(--transition-1);
   }
 }
 </style>

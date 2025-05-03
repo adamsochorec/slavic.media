@@ -171,13 +171,20 @@ onMounted(() => {
   transition: all 0.3s ease;
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
+
+  @media only screen and (max-width: 667px) {
+    bottom: 0;
+    max-width: 100%;
+    right: 0;
+    padding: var(--grid-gap-2) var(--homepage-padding);
+    border-top-left-radius: var(--border-radius-1);
+    border-top-right-radius: var(--border-radius-1);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }
 .title {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   font-size: var(--font-size-4);
   font-family: var(--logo-font);
@@ -188,8 +195,6 @@ onMounted(() => {
 }
 .grid-container {
   display: grid;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   width: 100%;
   grid-gap: var(--grid-gap-2);
@@ -198,17 +203,16 @@ onMounted(() => {
 .button {
   width: 100%;
   min-width: 100%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
+
+  @media only screen and (max-width: 400px) {
+    font-size: var(--font-size-8);
+  }
 }
-/* Transition classes */
 .slide-enter-active,
 .slide-leave-active {
   -webkit-transition: -webkit-transform var(--transition-2);
-  transition: -webkit-transform var(--transition-2);
   -o-transition: transform var(--transition-2);
-  transition: transform var(--transition-2);
   transition: transform var(--transition-2),
     -webkit-transform var(--transition-2);
 }
@@ -217,22 +221,5 @@ onMounted(() => {
   -webkit-transform: translateY(100%);
   -ms-transform: translateY(100%);
   transform: translateY(100%);
-}
-@media only screen and (max-width: 400px) {
-  button {
-    font-size: var(--font-size-8);
-  }
-}
-@media only screen and (max-width: 667px) {
-  .wrapper {
-    bottom: 0;
-    max-width: 100%;
-    right: 0;
-    padding: var(--grid-gap-2) var(--homepage-padding);
-    border-top-left-radius: var(--border-radius-1);
-    border-top-right-radius: var(--border-radius-1);
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
 }
 </style>
