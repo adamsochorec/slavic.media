@@ -20,7 +20,7 @@ const emit = defineEmits(["click"]);
   <template v-if="tag === 'button'">
     <button :class="['cta', variant]" :type="type" @click="$emit('click')">
       {{ label }}
-      <span v-if="icon" :class="`pi pi-${icon} ml-3`"></span>
+      <span v-if="icon" :class="`pi pi-${icon} ml-2`"></span>
     </button>
   </template>
   <template v-else-if="tag === 'a'">
@@ -31,13 +31,13 @@ const emit = defineEmits(["click"]);
       @click="$emit('click')"
     >
       {{ label }}
-      <span v-if="icon" :class="`pi pi-${icon} ml-3`"></span>
+      <span v-if="icon" :class="`pi pi-${icon} ml-2`"></span>
     </a>
   </template>
   <template v-else-if="tag === 'NuxtLink'">
     <NuxtLink :class="['cta', variant]" :to="to" @click="$emit('click')">
       {{ label }}
-      <span v-if="icon" :class="`pi pi-${icon} ml-3`"></span>
+      <span v-if="icon" :class="`pi pi-${icon} ml-2`"></span>
     </NuxtLink>
   </template>
 </template>

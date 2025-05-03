@@ -5,13 +5,13 @@ import "swiper/swiper-bundle.css";
 import { useArrowNavigation } from "@/composables/useArrowNavigation";
 import { useSwiperAutoplay } from "@/composables/useSwiperAutoplay";
 
-interface Reel {
+interface reel {
   id: string;
   platform: string;
   url: string;
   flag?: string;
 }
-const reels = ref<Reel[]>([
+const reels = ref<reel[]>([
   {
     id: "DHqq19cqgjv",
     platform: "instagram",
