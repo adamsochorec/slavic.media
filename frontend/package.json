@@ -20,6 +20,7 @@
     "@nuxthq/studio": "^2.2.1",
     "@primeuix/themes": "^1.0.3",
     "@primevue/forms": "^4.3.3",
+    "@vercel/speed-insights": "^1.2.0",
     "axios": "^1.8.4",
     "countryflag": "^5.0.0",
     "gray-matter": "^4.0.3",

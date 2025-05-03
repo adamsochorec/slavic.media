@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 import eventBus from "@/composables/useEventBus";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 useHead({
   titleTemplate: (titleChunk) => {
