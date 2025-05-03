@@ -5,7 +5,7 @@ const description =
   "Before using Slavic Media services or digital products, you may review the terms and conditions of end user software license agreements.";
 
 // Content hydration
-const { data: legals } = await useAsyncData("legal", () =>
+const { data: documents } = await useAsyncData("legal", () =>
   queryCollection("legal").all()
 );
 </script>
@@ -40,8 +40,10 @@ const { data: legals } = await useAsyncData("legal", () =>
       </p>
       <br />
       <ol class="reveal">
-        <li v-for="legal in legals" :key="legal.slug">
-          <NuxtLink :href="`/legal/${legal.slug}`">{{ legal.title }}</NuxtLink>
+        <li v-for="document in documents" :key="document.slug">
+          <NuxtLink :href="`/legal/${document.slug}`">{{
+            document.title
+          }}</NuxtLink>
         </li>
       </ol>
     </section>

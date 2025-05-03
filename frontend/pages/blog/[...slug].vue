@@ -5,7 +5,7 @@ import "photoswipe/style.css";
 
 // Content hydration
 const slug = useRoute().params.slug;
-const { data: post } = await useAsyncData(`blog-${slug}`, () => {
+const { data: document } = await useAsyncData(`blog-${slug}`, () => {
   return queryCollection("blog").path(`/blog/${slug}`).first();
 });
 
@@ -55,13 +55,13 @@ onBeforeUnmount(() => {
 
 <template>
   <Head>
-    <Title>{{ post?.title }}</Title>
-    <Meta name="ogTitle" :content="post?.title" />
-    <Meta name="description" :content="post?.description" />
-    <Meta name="ogDescription" :content="post?.description" />
+    <Title>{{ document?.title }}</Title>
+    <Meta name="ogTitle" :content="document?.title" />
+    <Meta name="description" :content="document?.description" />
+    <Meta name="ogDescription" :content="document?.description" />
     <Meta
       name="ogImage"
-      :content="`https://cdn.slavic.media/img/${post.thumbnail}/sd`"
+      :content="`https://cdn.slavic.media/img/${document.thumbnail}/sd`"
     />
   </Head>
   <main style="margin-top: 120px">
@@ -70,22 +70,22 @@ onBeforeUnmount(() => {
       role="region"
       aria-label="Main Article Content"
     >
-      <h1 class="reveal">{{ post?.title }}</h1>
+      <h1 class="reveal">{{ document?.title }}</h1>
       <ArticleMetadata
         class="reveal"
-        :id="post.slug"
+        :id="document.slug"
         :author="{
-          id: post?.author.id,
-          name: post?.author.name,
-          linkedin: post?.author.linkedin,
+          id: document?.author.id,
+          name: document?.author.name,
+          linkedin: document?.author.linkedin,
         }"
         :metadata="{
-          date: post.date,
-          length: post.length,
-          linkedin: post.linkedin,
+          date: document.date,
+          length: document.length,
+          linkedin: document.linkedin,
         }"
       />
-      <ContentRenderer :value="post" class="article-content reveal" />
+      <ContentRenderer :value="document" class="article-content reveal" />
     </section>
     <!-- LIGHTROOM PRESETS -->
     <LightroomPresets aria-busy="false"></LightroomPresets>

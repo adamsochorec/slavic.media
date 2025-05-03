@@ -1,35 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import { useLoadMore } from "~/composables/useLoadMore";
-import video from "@/composables/modules/video";
-import Lightgallery from "lightgallery/vue";
-import lgVideo from "lightgallery/plugins/video";
+import { ref } from "vue";
 import { showRequestAProposal } from "@/composables/useRequestProposal";
-
-interface Client {
-  name: string;
-  url: string;
-}
-
-interface Video {
-  _id: string;
-  index: number;
-  flag: string;
-  title: string;
-  url: string;
-  year: string;
-  client: Client;
-  description?: string;
-  category?: string;
-}
 
 // Meta SEO
 const description =
   "Before using Slavic Media services or digital products, you may review the terms and conditions of end user software license agreements.";
 const title = "Video";
-
-const { state: videoState, getAllVideos } = video();
-const isDataLoaded = ref<boolean>(false);
 
 // Further services matrix
 const photoServices = [
@@ -38,24 +14,7 @@ const photoServices = [
   { id: "drone", title: "Drone" },
   { id: "outdoor", title: "Outdoor" },
 ];
-
-// LOAD MORE START
-const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(4, 4);
-// LOAD MORE END
-
-// Lightgallery plugins
-const plugins = [lgVideo];
-
-onMounted(async () => {
-  try {
-    await getAllVideos();
-    isDataLoaded.value = true;
-  } catch (error) {
-    console.error("Error loading videos:", error);
-  }
-});
 </script>
-
 <template>
   <Head>
     <Title>{{ title }}</Title>
@@ -66,12 +25,8 @@ onMounted(async () => {
   </Head>
   <main style="margin-top: 120px">
     <section class="wrapper-wide" aria-labelledby="video-services-heading">
-      <!-- PAGE ABSTRACT START -->
-      <div
-        class="grid-container caption-container"
-        v-if="isDataLoaded"
-        aria-busy="false"
-      >
+      <!-- VIDEO PROJECTS START -->
+      <div class="grid-container caption-container" aria-busy="false">
         <div class="grid-item">
           <h1 id="video-services-heading" class="reveal">
             <span class="gradient"> Video </span>
@@ -94,108 +49,69 @@ onMounted(async () => {
         </div>
         <br />
       </div>
-      <!-- PAGE ABSTRACT END -->
-      <div v-if="isDataLoaded" aria-busy="false">
-        <!-- VIDEO -->
-        <lightgallery
-          id="video-gallery"
-          class="gallery"
-          aria-label="Video Gallery"
-          :settings="{
-            speed: 500,
-            plugins: plugins,
-            download: false,
-            autoplay: true,
-          }"
-          :showVimeoThumbnails="true"
-          hideScrollbar="true"
-        >
-          <VideoCard
-            v-for="video in videoState.videos.slice(0, itemsToShow)"
-            :key="video._id"
-            :video="video"
-          />
-        </lightgallery>
-        <div class="flex-center">
-          <Btn
-            tag="button"
-            v-if="!allItemsShown"
-            label="Show more"
-            icon="plus-circle"
-            variant="secondary"
-            @click="loadMore(videoState.videos.length)"
-          />
-          <Btn
-            tag="button"
-            v-else
-            label="Show less"
-            icon="minus-circle"
-            variant="secondary"
-            @click="loadLess"
-          />
-        </div>
-        <section aria-labelledby="colougrading-services-heading">
-          <div id="colour-grading"></div>
-          <hr class="reveal" role="separator" />
-          <!-- COLOUR GRADING START-->
-          <div v-if="isDataLoaded" class="grid-container caption-container">
-            <div class="grid-item">
-              <h2 id="colougrading-services-heading" class="reveal">
-                Colour <span class="gradient">Grading</span>
-              </h2>
-            </div>
-            <div class="grid-item">
-              <p class="reveal">
-                Bring your footage to life with our professional video colour
-                grading. Using DaVinci Resolve, we grade boring log footage to
-                unlock its full potential, delivering rich, vibrant colours
-                across the depth spectrum and natural skin tones.
-              </p>
-              <Btn
-                tag="button"
-                label="Request a proposal"
-                icon="arrow-right"
-                variant="primary"
-                @click="showRequestAProposal('colour grading')"
-              />
-            </div>
-          </div>
-          <br />
-          <ColourGrading v-if="isDataLoaded"></ColourGrading>
-        </section>
-        <!-- COLOUR GRADING END-->
-        <div id="content"></div>
-        <hr class="reveal" role="separator" v-if="isDataLoaded" />
-        <!-- CONTENT START -->
-        <div class="grid-container caption-container" v-if="isDataLoaded">
-          <div class="grid-item reveal">
-            <h2 class="reveal" aria-label="Engaging Content">
-              Engaging <span class="gradient">Content</span>
+      <VideoCard />
+      <!-- VIDEO PROJECTS END -->
+      <section aria-labelledby="colougrading-services-heading">
+        <div id="colour-grading"></div>
+        <hr class="reveal" role="separator" />
+        <!-- COLOUR GRADING START-->
+        <div class="grid-container caption-container">
+          <div class="grid-item">
+            <h2 id="colougrading-services-heading" class="reveal">
+              Colour <span class="gradient">Grading</span>
             </h2>
           </div>
           <div class="grid-item">
             <p class="reveal">
-              Social media reels that capture your brand’s essence—engaging,
-              genuine, and designed to resonate with your audience.
+              Bring your footage to life with our professional video colour
+              grading. Using DaVinci Resolve, we grade boring log footage to
+              unlock its full potential, delivering rich, vibrant colours across
+              the depth spectrum and natural skin tones.
             </p>
             <Btn
               tag="button"
               label="Request a proposal"
               icon="arrow-right"
               variant="primary"
-              @click="showRequestAProposal('content')"
+              @click="showRequestAProposal('colour grading')"
             />
           </div>
-          <div id="content"></div>
         </div>
         <br />
-        <Reels />
+        <ColourGrading></ColourGrading>
+      </section>
+      <!-- COLOUR GRADING END-->
+      <div id="content"></div>
+      <hr class="reveal" role="separator" />
+      <!-- CONTENT START -->
+      <div class="grid-container caption-container">
+        <div class="grid-item reveal">
+          <h2 class="reveal" aria-label="Engaging Content">
+            Engaging <span class="gradient">Content</span>
+          </h2>
+        </div>
+        <div class="grid-item">
+          <p class="reveal">
+            Social media reels that capture your brand’s essence—engaging,
+            genuine, and designed to resonate with your audience.
+          </p>
+          <Btn
+            tag="button"
+            label="Request a proposal"
+            icon="arrow-right"
+            variant="primary"
+            @click="showRequestAProposal('content')"
+          />
+        </div>
+        <div id="content"></div>
       </div>
+      <br />
+      <Reels />
       <!-- CONTENT END -->
-      <hr v-if="isDataLoaded" class="reveal" role="separator" />
+      <hr class="reveal" role="separator" />
       <div id="sound-edit"></div>
       <!-- SOUND EDIT START -->
-      <div class="grid-container caption-container" v-if="isDataLoaded">
+      <div class="grid-container caption-container">
         <div class="grid-item">
           <h2 class="reveal" aria-label="Video Services">
             Sound<span class="gradient"> Edit</span>
@@ -222,23 +138,17 @@ onMounted(async () => {
         </div>
       </div>
       <br />
-      <SoundEdit class="reveal" v-if="isDataLoaded"></SoundEdit>
+      <SoundEdit class="reveal"></SoundEdit>
       <!-- SOUND EDIT END -->
-
-      <!-- SKELETON START -->
-      <div v-else aria-busy="true" aria-live="polite">
-        <SkeletonServices></SkeletonServices>
-      </div>
-      <!-- SKELETON END -->
     </section>
     <!-- LIGHTROOM PRESETS START -->
-    <section v-if="isDataLoaded" aria-busy="false">
+    <section aria-busy="false">
       <LightroomPresets />
     </section>
     <!-- LIGHTROOM PRESETS END -->
     <hr class="semi" />
     <!-- FURTHER SERVICES START -->
-    <div id="services" v-if="isDataLoaded" class="wrapper-wide">
+    <div id="services" class="wrapper-wide">
       <h3>Discover our <span class="gradient">photo</span> services</h3>
       <hr class="quater reveal" />
       <FurtherServices :services="photoServices" swiperClass="photo" />

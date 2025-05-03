@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
+import Lightgallery from "lightgallery/vue";
+import lgVideo from "lightgallery/plugins/video";
+import video from "@/composables/modules/video";
+import { useLoadMore } from "@/composables/useLoadMore";
+
 interface Client {
   name: string;
   url: string;
@@ -14,33 +20,87 @@ interface Video {
   description?: string;
   category?: string;
 }
-const props = defineProps<{ video: Video }>();
+
+const { state: videoState, getAllVideos } = video();
+const isDataLoaded = ref(false);
+
+// Load more
+const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(4, 4);
+
+onMounted(async () => {
+  try {
+    await getAllVideos();
+    isDataLoaded.value = true;
+  } catch (error) {
+    console.error("Error loading videos:", error);
+  }
+});
+
+// Lightgallery plugins
+const plugins = [lgVideo];
 </script>
 
 <template>
-  <a
-    class="video-card reveal"
-    aria-labelledby="video-card-title"
-    :data-src="`//${video.url}?autoplay=true`"
-    :data-sub-html="`<figcaption class='gallery-desc metadata content-font'><b>${video.title}</b><br><span class='pi pi-info-circle mr-1'></span>${video.category}<i class='separator'></i><span class='pi pi-calendar mr-1'></span>${video.year}<i v-if='video.client' class='separator'></i><span v-if='video?.client'><span class='pi pi-users mr-1'></span>${video.client?.name}</span></figcaption>`"
+  <lightgallery
+    v-if="isDataLoaded"
+    id="video-gallery"
+    class="gallery"
+    aria-label="Video Gallery"
+    :settings="{
+      speed: 500,
+      plugins: plugins,
+      download: false,
+      autoplay: true,
+    }"
+    :showVimeoThumbnails="true"
+    hideScrollbar="true"
   >
-    <img
-      :src="`https://cdn.slavic.media/img/${video._id}/sd`"
-      :alt="video.title"
+    <a
+      v-for="video in videoState.videos.slice(0, itemsToShow)"
+      :key="video._id"
+      class="video-card reveal"
+      aria-labelledby="video-card-title"
+      :data-src="`//${video.url}?autoplay=true`"
+      :data-sub-html="`<figcaption class='gallery-desc metadata content-font'><b>${video.title}</b><br><span class='pi pi-info-circle mr-1'></span>${video.category}<i class='separator'></i><span class='pi pi-calendar mr-1'></span>${video.year}<i v-if='video.client' class='separator'></i><span v-if='video?.client'><span class='pi pi-users mr-1'></span>${video.client?.name}</span></figcaption>`"
+    >
+      <img
+        :src="`https://cdn.slavic.media/img/${video._id}/sd`"
+        :alt="video.title"
+      />
+      <figure class="metadata">
+        <span class="pi pi-info-circle"></span>
+        {{ video.category }}<i class="separator"></i>
+        <span class="pi pi-calendar"></span>
+        {{ video.year }}<i v-if="video.client" class="separator"></i>
+        <span v-if="video.client">
+          <span class="pi pi-users"></span>
+          {{ video.client.name }}
+        </span>
+      </figure>
+      <h3 class="title" id="video-card-title">{{ video.title }}</h3>
+    </a>
+  </lightgallery>
+  <div class="flex-center" v-if="isDataLoaded">
+    <Btn
+      tag="button"
+      v-if="!allItemsShown"
+      label="Show more"
+      icon="plus-circle"
+      variant="secondary"
+      @click="loadMore(videoState.videos.length)"
     />
-    <figure class="metadata">
-      <span class="pi pi-info-circle"></span>
-      {{ video.category }}<i class="separator"></i>
-      <span class="pi pi-calendar"></span>
-      {{ video.year }}<i v-if="video.client" class="separator"></i>
-      <span v-if="video.client">
-        <span class="pi pi-users"></span>
-        {{ video.client.name }}
-      </span>
-    </figure>
-    <h3 class="title" id="video-card-title">{{ video.title }}</h3>
-  </a>
+    <Btn
+      tag="button"
+      v-else
+      label="Show less"
+      icon="minus-circle"
+      variant="secondary"
+      @click="loadLess"
+    />
+  </div>
+  <SkeletonSwiper v-else aria-busy="true" />
 </template>
+
 <style lang="scss" scoped>
 .video-card {
   display: grid;
