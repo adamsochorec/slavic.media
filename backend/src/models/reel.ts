@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 export interface reel extends Document {
-  id: string;
+  _id: string;
   platform: string;
   url: string;
   flag?: string;
