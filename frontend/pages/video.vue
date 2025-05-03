@@ -48,10 +48,7 @@ const plugins = [lgVideo];
 
 onMounted(async () => {
   try {
-    // Fetch all videos from the database
     await getAllVideos();
-
-    // Set isDataLoaded to true only after videos are fetched
     isDataLoaded.value = true;
   } catch (error) {
     console.error("Error loading videos:", error);

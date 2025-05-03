@@ -13,7 +13,7 @@ const reel = () => {
   // Read all documents - GET
   const getAllReels = async () => {
     try {
-      const response = await fetch("https://api.slavic.media/video/reel/");
+      const response = await fetch("https://api.slavic.media/reel/");
       const data = await response.json();
       state.value.reels = data;
     } catch (error) {

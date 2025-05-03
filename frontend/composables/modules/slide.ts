@@ -13,7 +13,7 @@ const slide = () => {
   // Read all documents - GET
   const getAllSlides = async () => {
     try {
-      const response = await fetch("https://api.slavic.media/img/slide");
+      const response = await fetch("https://api.slavic.media/slide");
       const data = await response.json();
       state.value.slides = data;
     } catch (error) {

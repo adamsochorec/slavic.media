@@ -163,7 +163,7 @@ onMounted(async () => {
       </div>
     </div>
     <div class="swiper-pagination" v-if="isDataLoaded" aria-busy="false"></div>
-    <SkeletonSwiper v-else aria-busy="true"></SkeletonSwiper>
+    <SkeletonSwiper v-else aria-busy="true" />
   </section>
 </template>
 <style scoped lang="scss">

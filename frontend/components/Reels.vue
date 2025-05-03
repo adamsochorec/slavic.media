@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { ref, onMounted, onUnmounted, nextTick } from "vue";
 import reel from "@/composables/modules/reel";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
@@ -12,69 +12,70 @@ interface Reel {
   url: string;
   flag?: string;
 }
-const { state, getAllReels } = reel();
-const reels = ref<Reel[]>([]);
 
-// Fetch reels data on component mount
+const isDataLoaded = ref(false);
+const { state, getAllReels } = reel();
+
 onMounted(async () => {
   await getAllReels();
-  reels.value = state.value.reels;
+  isDataLoaded.value = true;
 
-  // Initialize Swiper
-  const swiper = new Swiper(".swiper-reels", {
-    loop: true,
-    speed: 600,
-    spaceBetween: 15,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: true,
-    },
-    autoplay: {
-      delay: 3000,
-      pauseOnMouseEnter: true,
-    },
-    lazyPreloadPrevNext: 1,
-    observer: true,
-    observeParents: true,
-    direction: "horizontal",
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
+  nextTick(() => {
+    const swiper = new Swiper(".swiper-reels", {
+      loop: true,
+      speed: 600,
+      spaceBetween: 15,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        dynamicBullets: true,
       },
-      250: {
-        slidesPerView: 1.5,
+      autoplay: {
+        delay: 3000,
+        pauseOnMouseEnter: true,
       },
-      300: {
-        slidesPerView: 2.25,
+      lazyPreloadPrevNext: 1,
+      observer: true,
+      observeParents: true,
+      direction: "horizontal",
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        250: {
+          slidesPerView: 1.5,
+        },
+        300: {
+          slidesPerView: 2.25,
+        },
+        350: {
+          slidesPerView: 2.75,
+        },
+        400: {
+          slidesPerView: 3,
+        },
+        450: {
+          slidesPerView: 3.5,
+        },
+        550: {
+          slidesPerView: 4,
+        },
+        750: {
+          slidesPerView: 3.5,
+        },
+        850: {
+          slidesPerView: 4.5,
+        },
       },
-      350: {
-        slidesPerView: 2.75,
-      },
-      400: {
-        slidesPerView: 3,
-      },
-      450: {
-        slidesPerView: 3.5,
-      },
-      550: {
-        slidesPerView: 4,
-      },
-      750: {
-        slidesPerView: 3.5,
-      },
-      850: {
-        slidesPerView: 4.5,
-      },
-    },
-  });
+    });
 
-  const removeArrowNavigation = useArrowNavigation(swiper);
-  const removeSwiperAutoplay = useSwiperAutoplay(swiper, ".swiper-reels");
+    const removeArrowNavigation = useArrowNavigation(swiper);
+    const removeSwiperAutoplay = useSwiperAutoplay(swiper, ".swiper-reels");
 
-  onUnmounted(() => {
-    removeArrowNavigation();
-    removeSwiperAutoplay();
+    onUnmounted(() => {
+      removeArrowNavigation();
+      removeSwiperAutoplay();
+    });
   });
 });
 </script>
@@ -85,13 +86,15 @@ onMounted(async () => {
     aria-labelledby="instagram-reels-heading"
     role="region"
   >
-    <h2 id="instagram-reels-heading" class="visually-hidden">
-      Instagram Reels
-    </h2>
+    <h2 id="instagram-reels-heading" class="visually-hidden">Reels</h2>
     <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
+    <div class="swiper-wrapper" v-if="isDataLoaded" aria-busy="false">
       <!-- Slide -->
-      <div v-for="(reel, index) in reels" :key="index" class="swiper-slide">
+      <div
+        v-for="(reel, index) in state.reels"
+        :key="index"
+        class="swiper-slide"
+      >
         <a
           target="_blank"
           rel="noopener noreferrer nofollow"
@@ -117,7 +120,9 @@ onMounted(async () => {
         </video>
       </div>
     </div>
-    <div class="swiper-pagination" aria-busy="false"></div>
+    <div class="swiper-pagination" v-if="isDataLoaded" aria-busy="false"></div>
+
+    <SkeletonSwiper v-else aria-busy="true" />
   </section>
 </template>
 
