@@ -59,8 +59,8 @@ app.use("/review", review_1.default);
 app.use("/event", event_1.default);
 app.use("/blog", article_1.default);
 app.use("/services", services_1.default);
-app.use("/video/reel", reel_1.default);
-app.use("/img/slide", slide_1.default);
+app.use("/reel", reel_1.default);
+app.use("/slide", slide_1.default);
 // Serve static files from the 'dist' directory
 app.use(express_1.default.static(path_1.default.join(__dirname, "dist"), staticOptions));
 // Catch-all route to serve 'index.html' for any unmatched routes

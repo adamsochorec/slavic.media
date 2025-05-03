@@ -1,146 +1,26 @@
 <script setup lang="ts">
-import { ref, onUnmounted, onMounted } from "vue";
+import { onMounted, ref } from "vue";
+import reel from "@/composables/modules/reel";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import { useArrowNavigation } from "@/composables/useArrowNavigation";
 import { useSwiperAutoplay } from "@/composables/useSwiperAutoplay";
 
-interface reel {
-  id: string;
+interface Reel {
+  _id: string;
   platform: string;
   url: string;
   flag?: string;
 }
-const reels = ref<reel[]>([
-  {
-    id: "DHqq19cqgjv",
-    platform: "instagram",
-    url: "instagram.com/reel/DHqq19cqgjv",
-  },
-  {
-    id: "DHF7hoXKfiP",
-    platform: "instagram",
-    url: "instagram.com/reel/DHF7hoXKfiP",
-    flag: "fi",
-  },
-  {
-    id: "DFpNgRkqkNY",
-    platform: "instagram",
-    url: "instagram.com/reel/DFpNgRkqkNY",
-    flag: "cz",
-  },
-  {
-    id: "DBN-8ImodUi",
-    platform: "instagram",
-    url: "instagram.com/reel/DBN-8ImodUi",
-    flag: "fi",
-  },
-  {
-    id: "DBwOfdoKXXH",
-    platform: "instagram",
-    url: "instagram.com/reel/DBwOfdoKXXH",
-    flag: "de",
-  },
-  {
-    id: "DBqXwkhI8nH",
-    platform: "instagram",
-    url: "instagram.com/reel/DBqXwkhI8nH",
-    flag: "no",
-  },
-  {
-    id: "7447867670269070614",
-    platform: "tiktok",
-    url: "tiktok.com/@timetravelsclub/video/7447867670269070614",
-    flag: "fi",
-  },
-  {
-    id: "DAVWho7Ifci",
-    platform: "instagram",
-    url: "instagram.com/reel/DAVWho7Ifci",
-    flag: "fi",
-  },
-  {
-    id: "DA8aZ6tIKQt",
-    platform: "instagram",
-    url: "instagram.com/reel/DA8aZ6tIKQt",
-    flag: "no",
-  },
-  {
-    id: "DBbHNhHq5nb",
-    platform: "instagram",
-    url: "instagram.com/reel/DBbHNhHq5nb",
-    flag: "no",
-  },
-  {
-    id: "7444927612696136982",
-    platform: "tiktok",
-    url: "tiktok.com/@timetravelsclub/video/7444927612696136982",
-    flag: "se",
-  },
-  {
-    id: "C1Oo-5rI1qw",
-    platform: "instagram",
-    url: "instagram.com/reel/C1Oo-5rI1qw",
-    flag: "se",
-  },
-  {
-    id: "C_IFQXKp4sN",
-    platform: "instagram",
-    url: "instagram.com/reel/C_IFQXKp4sN",
-    flag: "no",
-  },
-  {
-    id: "C_feeHLPhBh",
-    platform: "instagram",
-    url: "instagram.com/reel/C_feeHLPhBh",
-    flag: "fi",
-  },
-  {
-    id: "C_zvEetv0OY",
-    platform: "instagram",
-    url: "instagram.com/reel/C_zvEetv0OY",
-    flag: "no",
-  },
-  {
-    id: "7441514567575948577",
-    platform: "tiktok",
-    url: "tiktok.com/@timetravelsclub/video/7441514567575948577",
-    flag: "fi",
-  },
-  {
-    id: "DCFBcKaIp3Z",
-    platform: "instagram",
-    url: "instagram.com/reel/DCFBcKaIp3Z",
-    flag: "se",
-  },
-  {
-    id: "7438579976082918688",
-    platform: "tiktok",
-    url: "tiktok.com/@timetravelsclub/video/7438579976082918688",
-    flag: "fi",
-  },
-  {
-    id: "DBvjlmBoAV4",
-    platform: "instagram",
-    url: "instagram.com/reel/DBvjlmBoAV4",
-    flag: "fi",
-  },
-  {
-    id: "DCgfmD6IQ4x",
-    platform: "instagram",
-    url: "instagram.com/reel/DCgfmD6IQ4x",
-    flag: "fi",
-  },
-  {
-    id: "DDhGm_Fo5eg",
-    platform: "instagram",
-    url: "instagram.com/reel/DDhGm_Fo5eg",
-    flag: "fi",
-  },
-]);
+const { state, getAllReels } = reel();
+const reels = ref<Reel[]>([]);
 
-// Initialize Swiper
-onMounted(() => {
+// Fetch reels data on component mount
+onMounted(async () => {
+  await getAllReels();
+  reels.value = state.value.reels;
+
+  // Initialize Swiper
   const swiper = new Swiper(".swiper-reels", {
     loop: true,
     speed: 600,
@@ -180,7 +60,6 @@ onMounted(() => {
       550: {
         slidesPerView: 4,
       },
-
       750: {
         slidesPerView: 3.5,
       },
@@ -189,6 +68,7 @@ onMounted(() => {
       },
     },
   });
+
   const removeArrowNavigation = useArrowNavigation(swiper);
   const removeSwiperAutoplay = useSwiperAutoplay(swiper, ".swiper-reels");
 
@@ -219,7 +99,7 @@ onMounted(() => {
           :class="`pi pi-${reel.platform} bubble`"
         >
           <span class="visually-hidden"
-            >View reel {{ index + 1 }} on Instagram</span
+            >View reel {{ index + 1 }} on {{ reel.platform }}</span
           >
         </a>
         <Icon v-if="reel.flag" :name="`cif:${reel.flag}`" class="note flag" />
@@ -231,7 +111,7 @@ onMounted(() => {
           preload="auto"
           playsinline
           role="region"
-          :src="`https://assets.slavic.media/video/${reel.id}.mp4`"
+          :src="`https://assets.slavic.media/video/${reel._id}.mp4`"
         >
           <track kind="captions" srclang="en" label="English captions" />
         </video>

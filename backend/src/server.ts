@@ -75,8 +75,8 @@ app.use("/review", reviewRoutes);
 app.use("/event", eventRoutes);
 app.use("/blog", articleRoutes);
 app.use("/services", servicesRoutes);
-app.use("/video/reel", reelRoutes);
-app.use("/img/slide", slideRoutes);
+app.use("/reel", reelRoutes);
+app.use("/slide", slideRoutes);
 
 // Serve static files from the 'dist' directory
 app.use(express.static(path.join(__dirname, "dist"), staticOptions));
