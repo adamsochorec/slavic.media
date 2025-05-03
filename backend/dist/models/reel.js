@@ -38,7 +38,7 @@ const mongoose_1 = __importStar(require("mongoose"));
 exports.reelSchema = new mongoose_1.Schema({
     _id: { type: String, required: true, maxlength: 100 },
     platform: { type: String, required: true, maxlength: 20 },
-    flag: { type: String, required: true, maxlength: 2 },
+    flag: { type: String, required: false, maxlength: 2 },
     url: { type: String, required: true, maxlength: 200 },
 });
 const reelModel = mongoose_1.default.model("reel", exports.reelSchema);

@@ -10,7 +10,7 @@ export interface reel extends Document {
 export const reelSchema = new Schema({
   _id: { type: String, required: true, maxlength: 100 },
   platform: { type: String, required: true, maxlength: 20 },
-  flag: { type: String, required: true, maxlength: 2 },
+  flag: { type: String, required: false, maxlength: 2 },
   url: { type: String, required: true, maxlength: 200 },
 });
 

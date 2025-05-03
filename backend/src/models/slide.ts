@@ -2,9 +2,7 @@ import mongoose, { Schema, Document } from "mongoose";
 
 export interface slide extends Document {
   _id: string;
-  alt: string;
-  title: string;
-  flag: string;
+  log: string;
 }
 
 export const slideSchema = new Schema({
