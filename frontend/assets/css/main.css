@@ -527,6 +527,9 @@ small a {
   color: #fff;
   text-decoration: underline;
 }
+.pswp__dynamic-caption--mobile {
+  background: transparent !important;
+}
 .hidden-caption-content {
   display: none;
 }

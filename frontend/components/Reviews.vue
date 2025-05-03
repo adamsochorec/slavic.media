@@ -21,6 +21,9 @@ const props = ref<Review[]>([]);
 const { state, getAllReviews } = review();
 const isDataLoaded = ref(false);
 
+let removeArrowNavigation: () => void;
+let removeSwiperAutoplay: () => void;
+
 onMounted(async () => {
   await getAllReviews();
   isDataLoaded.value = true;
@@ -55,16 +58,11 @@ onMounted(async () => {
       direction: "horizontal",
     });
 
-    const removeArrowNavigation = useArrowNavigation(swiper);
-    const removeSwiperAutoplay = useSwiperAutoplay(swiper);
-
-    onUnmounted(() => {
-      removeArrowNavigation();
-      removeSwiperAutoplay();
-    });
+    removeArrowNavigation = useArrowNavigation(swiper);
+    removeSwiperAutoplay = useSwiperAutoplay(swiper);
 
     function showStars(container: HTMLElement, rating: number) {
-      container.innerHTML = ""; // Clear any existing content
+      container.innerHTML = "";
 
       for (let i = 1; i <= 5; i++) {
         const star = document.createElement("span");
@@ -109,6 +107,11 @@ onMounted(async () => {
       observer.observe(swiperElement);
     }
   });
+});
+
+onUnmounted(() => {
+  if (removeArrowNavigation) removeArrowNavigation();
+  if (removeSwiperAutoplay) removeSwiperAutoplay();
 });
 </script>
 <template>

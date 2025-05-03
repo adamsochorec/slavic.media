@@ -16,6 +16,9 @@ interface Reel {
 const isDataLoaded = ref(false);
 const { state, getAllReels } = reel();
 
+let removeArrowNavigation: () => void;
+let removeSwiperAutoplay: () => void;
+
 onMounted(async () => {
   await getAllReels();
   isDataLoaded.value = true;
@@ -69,14 +72,18 @@ onMounted(async () => {
       },
     });
 
-    const removeArrowNavigation = useArrowNavigation(swiper);
-    const removeSwiperAutoplay = useSwiperAutoplay(swiper, ".swiper-reels");
-
-    onUnmounted(() => {
-      removeArrowNavigation();
-      removeSwiperAutoplay();
-    });
+    removeArrowNavigation = useArrowNavigation(swiper);
+    removeSwiperAutoplay = useSwiperAutoplay(swiper, ".swiper-reels");
   });
+});
+
+onUnmounted(() => {
+  if (removeArrowNavigation) {
+    removeArrowNavigation();
+  }
+  if (removeSwiperAutoplay) {
+    removeSwiperAutoplay();
+  }
 });
 </script>
 

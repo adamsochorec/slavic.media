@@ -8,17 +8,17 @@ const { data: document } = await useAsyncData(`legal-${slug}`, () => {
 });
 </script>
 <template>
-  <Head>
-    <Title>{{ document?.title }}</Title>
-    <Meta name="ogTitle" :content="document?.title" />
-    <Meta name="description" :content="document?.description" />
-    <Meta name="ogDescription" :content="document?.description" />
-    <Meta
-      name="ogImage"
-      content="https://cdn.slavic.media/img/2024-12-08-01324-2/sd"
-    />
-  </Head>
   <main>
+    <Head>
+      <Title>{{ document?.title }}</Title>
+      <Meta name="ogTitle" :content="document?.title" />
+      <Meta name="description" :content="document?.description" />
+      <Meta name="ogDescription" :content="document?.description" />
+      <Meta
+        name="ogImage"
+        content="https://cdn.slavic.media/img/2024-12-08-01324-2/sd"
+      />
+    </Head>
     <section class="cover">
       <div class="filter"></div>
       <img :src="`https://cdn.slavic.media/img/2024-12-08-01324-2/public`" />

@@ -16,14 +16,14 @@ const photoServices = [
 ];
 </script>
 <template>
-  <Head>
-    <Title>{{ title }}</Title>
-    <Meta name="ogTitle" :content="title" />
-    <Meta name="description" :content="description" />
-    <Meta name="ogDescription" :content="description" />
-    <Meta name="ogImage" content="https.//cdn.slavic.media/img/video/sd" />
-  </Head>
   <main style="margin-top: 120px">
+    <Head>
+      <Title>{{ title }}</Title>
+      <Meta name="ogTitle" :content="title" />
+      <Meta name="description" :content="description" />
+      <Meta name="ogDescription" :content="description" />
+      <Meta name="ogImage" content="https.//cdn.slavic.media/img/video/sd" />
+    </Head>
     <section class="wrapper-wide" aria-labelledby="video-services-heading">
       <!-- VIDEO PROJECTS START -->
       <div class="grid-container caption-container" aria-busy="false">

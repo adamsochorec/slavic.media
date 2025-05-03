@@ -6,14 +6,17 @@ const title = "About";
 </script>
 
 <template>
-  <Head>
-    <Title>{{ title }}</Title>
-    <Meta name="ogTitle" :content="title" />
-    <Meta name="description" :content="description" />
-    <Meta name="ogDescription" :content="description" />
-    <Meta name="ogImage" content="https.//cdn.slavic.media/img/thumbnail/sd" />
-  </Head>
   <main aria-labelledby="about-company">
+    <Head>
+      <Title>{{ title }}</Title>
+      <Meta name="ogTitle" :content="title" />
+      <Meta name="description" :content="description" />
+      <Meta name="ogDescription" :content="description" />
+      <Meta
+        name="ogImage"
+        content="https.//cdn.slavic.media/img/thumbnail/sd"
+      />
+    </Head>
     <HeroVideo :id="1013776851" alt="Behind the Scenes | Slavic Media">
     </HeroVideo>
     <!--   ABOUT START -->
@@ -58,7 +61,7 @@ const title = "About";
         motivated by the intersection of individual freelance professionals.
       </p>
       <br />
-      <Employees></Employees>
+      <Employees />
       <hr class="reveal" role="separator" />
     </section>
     <!--   ABOUT END -->

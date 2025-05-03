@@ -21,9 +21,8 @@ interface Employee {
   originalWidth?: number;
   originalHeight?: number;
 }
-const props = defineProps<{
-  employees: Employee[];
-}>();
+const props = ref<Employee[]>([]);
+
 // State management for employees
 const { state, getAllEmployees } = employee();
 const isDataLoaded = ref(false);

@@ -19,6 +19,8 @@ const updateImageSrc = (event: Event) => {
   target.src = target.dataset.src!;
 };
 
+let removeArrowNavigation: () => void;
+
 onMounted(async () => {
   await getAllSlides();
   slides.value = state.value.slides;
@@ -39,12 +41,14 @@ onMounted(async () => {
       direction: "vertical",
     });
 
-    const removeArrowNavigation = useArrowNavigation(swiper);
-
-    onUnmounted(() => {
-      removeArrowNavigation();
-    });
+    removeArrowNavigation = useArrowNavigation(swiper);
   });
+});
+
+onUnmounted(() => {
+  if (removeArrowNavigation) {
+    removeArrowNavigation();
+  }
 });
 </script>
 
@@ -92,7 +96,7 @@ onMounted(async () => {
     </div>
     <div class="swiper-pagination" v-if="isDataLoaded" aria-busy="false"></div>
   </section>
-  <SkeletonServices v-else aria-busy="true" />
+  <SkeletonServices v-else />
 </template>
 
 <style scoped>

@@ -48,4 +48,4 @@ title: Competition finalist
 ---
 ::
 Similarly, like in web design, many great things come up when playing around with knowledge of established, tested, and proven principles, together with some kind of inner motivation and inspiration. Why try to invent the wheel every time? Just like borrowing the visual concept of *Tatami* and flexing it according to my very own vision, to make your kind of music.
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6H3Wa6hWR9DRMzMSd4pZkT?utm_source=generator" class="spotify" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6H3Wa6hWR9DRMzMSd4pZkT?utm_source=generator" class="spotify" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>

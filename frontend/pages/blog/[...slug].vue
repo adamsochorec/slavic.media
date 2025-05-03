@@ -54,17 +54,17 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <Head>
-    <Title>{{ document?.title }}</Title>
-    <Meta name="ogTitle" :content="document?.title" />
-    <Meta name="description" :content="document?.description" />
-    <Meta name="ogDescription" :content="document?.description" />
-    <Meta
-      name="ogImage"
-      :content="`https://cdn.slavic.media/img/${document.thumbnail}/sd`"
-    />
-  </Head>
   <main style="margin-top: 120px">
+    <Head>
+      <Title>{{ document?.title }}</Title>
+      <Meta name="ogTitle" :content="document?.title" />
+      <Meta name="description" :content="document?.description" />
+      <Meta name="ogDescription" :content="document?.description" />
+      <Meta
+        name="ogImage"
+        :content="`https://cdn.slavic.media/img/${document.thumbnail}/sd`"
+      />
+    </Head>
     <section
       class="wrapper-wide"
       role="region"

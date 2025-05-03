@@ -6,13 +6,16 @@ const description =
   "Creative & Production studio based in Denmark and Czechia. We tell stories with deep eye contact, magnificent shots and clean designs to help your project stand out from the noise.";
 </script>
 <template>
-  <Head>
-    <Meta name="ogTitle" content="Slavic Media" />
-    <Meta name="description" :content="description" />
-    <Meta name="ogDescription" :content="description" />
-    <Meta name="ogImage" content="https.//cdn.slavic.media/img/thumbnail/sd" />
-  </Head>
   <main class="homepage">
+    <Head>
+      <Meta name="ogTitle" content="Slavic Media" />
+      <Meta name="description" :content="description" />
+      <Meta name="ogDescription" :content="description" />
+      <Meta
+        name="ogImage"
+        content="https.//cdn.slavic.media/img/thumbnail/sd"
+      />
+    </Head>
     <!-- INTRO VIDEO START -->
     <HeroVideo :id="1039054657" alt="Showreel 24' | Slavic Media" :start="7" />
     <!-- INTRO VIDEO END -->
@@ -105,7 +108,7 @@ const description =
               tag="a"
               icon="share-alt"
               label="Share Your Experience"
-              variant="primary"
+              variant="secondary"
               href="https://g.page/r/CRTkzopg3plWEB0/review"
               target="_blank"
               rel="noopener noreferrer nofollow"
@@ -123,13 +126,13 @@ const description =
         <NuxtLink to="/blog" class="gradient">Blog</NuxtLink>
       </h3>
       <br />
-      <latestArticle></latestArticle>
+      <!--       <latestArticle></latestArticle> -->
       <div class="flex-center">
         <Btn
           tag="NuxtLink"
           icon="plus-circle"
           label="Read more"
-          variant="primary"
+          variant="secondary"
           :to="'/blog'"
           class="reveal"
         />
