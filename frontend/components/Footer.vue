@@ -106,22 +106,17 @@ const currentYear = new Date().getFullYear();
         <span class="separator"></span>
 
         <NuxtLink aria-label="Legal" to="/legal">
-          <Icon name="octicon:law-16" aria-hidden="true" />
-          &nbsp;<span class="underline">Legal</span>
+          <Icon name="octicon:law-16" class="mr-1" />
+          <span class="underline">Legal</span>
         </NuxtLink>
         <span class="separator"></span>
-
         <a
           aria-label="Press Kit"
           href="https://assets.slavic.media/press-kit.zip"
           title="Assets"
         >
-          <i
-            style="font-size: var(--font-size-7)"
-            aria-hidden="true"
-            class="pi pi-download"
-          ></i>
-          &nbsp;<span class="underline">Press Kit</span>
+          <Icon name="octicon:download-16" class="mr-1" />
+          <span class="underline">Press Kit</span>
         </a>
         <span class="separator"></span>
         <a
@@ -129,21 +124,16 @@ const currentYear = new Date().getFullYear();
           href="mailto:contact@slavic.media"
           aria-label="Email: contact@slavic.media"
         >
-          <i
-            style="font-size: var(--font-size-7)"
-            aria-hidden="true"
-            class="pi pi-envelope"
-          ></i>
-          &nbsp;<span class="underline">Contact</span>
+          <Icon name="octicon:mail-24" class="mr-1" />
+          <span class="underline">Contact</span>
         </a>
         <span class="separator hide-min"></span>
         <br class="hide-max" />
-
+        <span> © {{ currentYear }} Slavic Media I/S </span>
+        <span class="separator"></span>
         <span>
-          ©&nbsp;{{ currentYear }} Slavic Media I/S.<span
-            class="separator"
-          ></span
-          >VAT:&nbsp;DK44081512
+          <Icon name="octicon:verified-16" class="mr-1 icon" />
+          VAT: DK44081512
         </span>
         <span class="separator hide-min"></span>
         <br class="hide-max" />
@@ -163,6 +153,10 @@ const currentYear = new Date().getFullYear();
 .underline {
   text-decoration-skip-ink: auto;
 }
+.icon:hover {
+  color: unset;
+  cursor: text;
+}
 .logo {
   height: var(--grid-gap-2);
 
@@ -179,15 +173,7 @@ const currentYear = new Date().getFullYear();
     transition: var(--transition-1);
   }
 }
-.separator {
-  margin: 0 5px;
 
-  &::after {
-    content: "⋅";
-    font-size: var(--font-size-3);
-    vertical-align: middle;
-  }
-}
 .flag {
   opacity: 30%;
   margin-left: 3px;
