@@ -100,17 +100,6 @@ const props = defineProps<ArticleMetadata>();
       >
         <i class="pi pi-linkedin"></i>
       </a>
-      <!-- Uncomment if copy link functionality is needed -->
-      <!-- <button
-        v-tooltip.bottom="{
-          value: 'Copy link',
-          autoHide: false,
-        }"
-        @click="copyHref(`https://slavic.media/blog/${id}`)"
-        aria-label="Copy link to this article"
-      >
-        <i class="pi pi-link"></i>
-      </button> -->
     </div>
   </div>
 </template>

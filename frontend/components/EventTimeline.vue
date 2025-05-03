@@ -2,15 +2,13 @@
 import { ref, onMounted } from "vue";
 import { mmmyyyy } from "@/composables/useDateFormat.ts";
 import event from "@/composables/modules/event";
-import { useShowMore } from "@/composables/useShowMore";
+import { useLoadMore } from "@/composables/useLoadMore";
 
 const { state, getAllEvents } = event();
 const isDataLoaded = ref<boolean>(false);
 
-// SHOW MORE START
-const { itemsToShow, allItemsShown, loadMoreItems, showLessItems } =
-  useShowMore(6);
-// SHOW MORE END
+// LOAD MORE START
+const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(6, 6);
 
 onMounted(async () => {
   await getAllEvents();
@@ -49,16 +47,22 @@ onMounted(async () => {
         </template>
       </Timeline>
       <div class="flex-center">
-        <button
+        <Btn
           v-if="!allItemsShown"
-          @click="loadMoreItems(state.events.length)"
-          class="cta reveal"
-        >
-          Show More<span class="pi pi-plus-circle ml-2"></span>
-        </button>
-        <button v-else @click="showLessItems" class="cta reveal">
-          Show Less<span class="pi pi-minus-circle ml-2"></span>
-        </button>
+          tag="button"
+          label="Show more"
+          icon="plus-circle"
+          variant="secondary"
+          @click="loadMore(state.events.length)"
+        />
+        <Btn
+          v-else
+          label="Show less"
+          tag="button"
+          icon="minus-circle"
+          variant="secondary"
+          @click="loadLess"
+        />
       </div>
     </div>
     <!--  COMPANY TIMELINE END  -->

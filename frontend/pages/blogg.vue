@@ -36,13 +36,13 @@ interface State {
 const { state, getAllArticles } = article();
 const isDataLoaded = ref<boolean>(false);
 
-// SHOW MORE START
+// LOAD MORE START
 const ARTICLES_INCREMENT = 6;
 const articlesToShow = ref(ARTICLES_INCREMENT);
 const loadMoreArticles = () => {
   articlesToShow.value += ARTICLES_INCREMENT;
 };
-// SHOW MORE END
+// LOAD MORE END
 
 // LATEST ARTICLE SLICE START
 const screenWidth = ref<number>(0);

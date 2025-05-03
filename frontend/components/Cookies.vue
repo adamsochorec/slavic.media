@@ -124,30 +124,30 @@ onMounted(() => {
         This website uses analytical cookies to help you have a superior and
         more relevant browsing experience on the website. <br />
         Learn more about our
-        <router-link
+        <NuxtLink
           aria-label="Cookie Policy"
           title="Cookie Policy"
           to="/legal/cookie-policy"
-          >cookie policy</router-link
+          >cookie policy</NuxtLink
         >.
       </p>
       <div class="grid-container">
-        <button
-          class="button cta"
+        <Btn
+          tag="button"
+          label="Accept all"
+          variant="primary"
           :class="{ clicked: consentGiven }"
           @click="acceptCookies"
           :aria-pressed="consentGiven.toString()"
-        >
-          Accept all
-        </button>
-        <button
-          class="button cta secondary"
+        />
+        <Btn
+          tag="button"
+          label="Reject non-essential"
+          variant="secondary"
           :class="{ clicked: consentRejected }"
           @click="rejectCookies"
           :aria-pressed="consentRejected.toString()"
-        >
-          Reject non-essential
-        </button>
+        />
       </div>
     </section>
   </transition>
@@ -200,7 +200,7 @@ onMounted(() => {
   grid-gap: var(--grid-gap-2);
   grid-template-columns: repeat(2, 1fr);
 }
-.button {
+button {
   width: 100%;
   min-width: 100%;
   justify-content: center;

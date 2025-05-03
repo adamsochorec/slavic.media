@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
+import { useLoadMore } from "@/composables/useLoadMore";
 
 // Meta SEO
 const description =
@@ -11,22 +12,8 @@ const { data: articles = ref([]) } = await useAsyncData("blog", () =>
   queryCollection("blog").all()
 );
 
-// SHOW MORE START
-const ARTICLES_INCREMENT = 6;
-const articlesToShow = ref(ARTICLES_INCREMENT);
-
-const visibleArticles = computed(() => {
-  return Array.isArray(articles.value)
-    ? articles.value.slice(0, articlesToShow.value)
-    : [];
-});
-const loadMoreArticles = () => {
-  articlesToShow.value += ARTICLES_INCREMENT;
-};
-const showLessArticles = () => {
-  articlesToShow.value = ARTICLES_INCREMENT;
-};
-// SHOW MORE END
+// LOAD MORE
+const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(6, 6);
 </script>
 
 <template>
@@ -46,27 +33,31 @@ const showLessArticles = () => {
       <section aria-labelledby="articles-heading">
         <h2 id="articles-heading" class="visually-hidden">Articles</h2>
         <div class="grid-container">
-          <div
-            v-for="article in visibleArticles"
+          <BlogCard
+            v-for="article in articles.slice(0, itemsToShow)"
             :key="article.slug"
-            role="article"
-          >
-            <BlogCard :article="article"></BlogCard>
-          </div>
+            :article="article"
+          ></BlogCard>
         </div>
       </section>
       <br />
       <div class="flex-center">
-        <button
-          v-if="articlesToShow < articles.length"
-          @click="loadMoreArticles"
-          class="cta reveal"
-        >
-          Show More<span class="pi pi-plus-circle ml-2"></span>
-        </button>
-        <button v-else @click="showLessArticles" class="cta reveal">
-          Show Less<span class="pi pi-minus-circle ml-2"></span>
-        </button>
+        <Btn
+          tag="button"
+          v-if="!allItemsShown"
+          label="Show more"
+          icon="plus-circle"
+          variant="secondary"
+          @click="loadMore(articles.length)"
+        />
+        <Btn
+          tag="button"
+          v-else
+          label="Show less"
+          icon="minus-circle"
+          variant="secondary"
+          @click="loadLess"
+        />
       </div>
     </section>
   </main>

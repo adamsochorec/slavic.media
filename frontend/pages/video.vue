@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { useShowMore } from "@/composables/useShowMore";
+import { useLoadMore } from "~/composables/useLoadMore";
 import video from "@/composables/modules/video";
 import Lightgallery from "lightgallery/vue";
 import lgVideo from "lightgallery/plugins/video";
@@ -39,10 +39,9 @@ const photoServices = [
   { id: "outdoor", title: "Outdoor" },
 ];
 
-// SHOW MORE START
-videoState.value.videos = videoState.value.videos || [];
-const { itemsToShow, allItemsShown, loadMoreItems, showLessItems } =
-  useShowMore(4);
+// LOAD MORE START
+const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(4, 4);
+// LOAD MORE END
 
 // Lightgallery plugins
 const plugins = [lgVideo];
@@ -88,12 +87,13 @@ onMounted(async () => {
             crafted to captivate, impress, and showcase your vision with
             creative precision.
           </p>
-          <button
+          <Btn
+            tag="button"
+            label="Request a proposal"
+            icon="arrow-right"
+            variant="primary"
             @click="showRequestAProposal('video')"
-            aria-label="Request a proposal for video services"
-          >
-            <div class="cta">Request a Proposal</div>
-          </button>
+          />
         </div>
         <br />
       </div>
@@ -120,22 +120,22 @@ onMounted(async () => {
           />
         </lightgallery>
         <div class="flex-center">
-          <button
+          <Btn
+            tag="button"
             v-if="!allItemsShown"
-            @click="loadMoreItems(videoState.videos.length)"
-            class="cta reveal"
-            aria-label="Load more videos"
-          >
-            Show More<span class="pi pi-plus-circle ml-2"></span>
-          </button>
-          <button
+            label="Show more"
+            icon="plus-circle"
+            variant="secondary"
+            @click="loadMore(videoState.videos.length)"
+          />
+          <Btn
+            tag="button"
             v-else
-            @click="showLessItems"
-            class="cta reveal"
-            aria-label="Show fewer videos"
-          >
-            Show Less<span class="pi pi-minus-circle ml-2"></span>
-          </button>
+            label="Show less"
+            icon="minus-circle"
+            variant="secondary"
+            @click="loadLess"
+          />
         </div>
         <section aria-labelledby="colougrading-services-heading">
           <div id="colour-grading"></div>
@@ -154,9 +154,13 @@ onMounted(async () => {
                 unlock its full potential, delivering rich, vibrant colours
                 across the depth spectrum and natural skin tones.
               </p>
-              <button @click="showRequestAProposal('colour grading')">
-                <div class="cta">Request a Proposal</div>
-              </button>
+              <Btn
+                tag="button"
+                label="Request a proposal"
+                icon="arrow-right"
+                variant="primary"
+                @click="showRequestAProposal('colour grading')"
+              />
             </div>
           </div>
           <br />
@@ -177,9 +181,13 @@ onMounted(async () => {
               Social media reels that capture your brand’s essence—engaging,
               genuine, and designed to resonate with your audience.
             </p>
-            <button @click="showRequestAProposal('content')">
-              <div class="cta">Request a Proposal</div>
-            </button>
+            <Btn
+              tag="button"
+              label="Request a proposal"
+              icon="arrow-right"
+              variant="primary"
+              @click="showRequestAProposal('content')"
+            />
           </div>
           <div id="content"></div>
         </div>
@@ -195,12 +203,13 @@ onMounted(async () => {
           <h2 class="reveal" aria-label="Video Services">
             Sound<span class="gradient"> Edit</span>
           </h2>
-          <button
-            style="margin-bottom: var(--grid-gap-2) !important"
+          <Btn
+            tag="button"
+            label="Request a proposal"
+            icon="arrow-right"
+            variant="primary"
             @click="showRequestAProposal('sound design')"
-          >
-            <div class="cta">Request a Proposal</div>
-          </button>
+          />
         </div>
         <div class="grid-item reveal">
           <ul style="list-style: circle; color: white">
@@ -225,11 +234,11 @@ onMounted(async () => {
       </div>
       <!-- SKELETON END -->
     </section>
-    <!-- LIGHTROOM PRESETS CTA START -->
+    <!-- LIGHTROOM PRESETS START -->
     <section v-if="isDataLoaded" aria-busy="false">
       <LightroomPresets />
     </section>
-    <!-- LIGHTROOM PRESETS CTA END -->
+    <!-- LIGHTROOM PRESETS END -->
     <hr class="semi" />
     <!-- FURTHER SERVICES START -->
     <div id="services" v-if="isDataLoaded" class="wrapper-wide">

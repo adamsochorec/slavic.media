@@ -20,7 +20,7 @@ const props = defineProps<GalleryCard>();
       <Icon :name="`cif:${flag}`" class="note flag" />
       <img
         :style="`opacity:${opacity}`"
-        :src="`https://cdn.slavic.media/img/${props.img}/sd`"
+        :src="`https://cdn.slavic.media/img/${img}/sd`"
         :alt="alt"
         :title="title"
       />

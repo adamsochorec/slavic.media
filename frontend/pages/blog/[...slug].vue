@@ -87,7 +87,7 @@ onBeforeUnmount(() => {
       />
       <ContentRenderer :value="post" class="article-content reveal" />
     </section>
-    <!-- LIGHTROOM PRESETS BANNER CTA -->
+    <!-- LIGHTROOM PRESETS -->
     <LightroomPresets aria-busy="false"></LightroomPresets>
   </main>
 </template>

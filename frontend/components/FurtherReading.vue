@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import { useShowMore } from "@/composables/useShowMore";
+import { useShowMore } from "~/composables/useLoadMore";
 
 interface Article {
   _id: string;
@@ -19,7 +19,7 @@ interface Article {
   title: string;
 }
 
-interface FurtherReadingProps {
+interface FurtherReading {
   isDataLoaded: boolean;
   state: {
     furtherReading: Article[];
@@ -28,7 +28,7 @@ interface FurtherReadingProps {
   loadMoreArticles: () => void;
 }
 
-const props = defineProps<FurtherReadingProps>();
+const props = defineProps<FurtherReading>();
 
 const { itemsToShow, allItemsShown, loadMoreItems, showLessItems } =
   useShowMore(4);

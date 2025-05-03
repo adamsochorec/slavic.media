@@ -19,13 +19,15 @@
             signature LUTs for Lightroom and Photoshop.
           </p>
         </div>
-        <a
-          target="_blank"
+        <Btn
+          tag="a"
+          label="Transform Your Photos"
+          variant="primary"
           href="https://store.slavic.media"
+          icon="sparkles"
+          target="_blank"
           aria-label="Transform Your Photos"
-        >
-          <div class="cta">Transform Your Photos</div>
-        </a>
+        />
       </div>
     </div>
   </section>

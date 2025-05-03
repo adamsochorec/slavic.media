@@ -169,9 +169,13 @@ onBeforeUnmount(() => {
           </div>
           <div class="grid-item">
             <p class="reveal">{{ gallery.description }}</p>
-            <button @click="showRequestAProposal(gallery._id)">
-              <div class="cta">Request a Proposal</div>
-            </button>
+            <Btn
+              tag="button"
+              label="Request a proposal"
+              icon="arrow-right"
+              variant="primary"
+              @click="showRequestAProposal(gallery._id)"
+            />
           </div>
         </div>
         <br />
@@ -209,11 +213,11 @@ onBeforeUnmount(() => {
       </section>
       <!-- GALLERY END -->
     </template>
-    <!-- LIGHTROOM PRESETS CTA START -->
+    <!-- LIGHTROOM PRESETS START -->
     <section v-if="isDataLoaded" aria-busy="false">
       <LightroomPresets />
     </section>
-    <!-- LIGHTROOM PRESETS CTA END -->
+    <!-- LIGHTROOM PRESETS END -->
     <hr class="semi" />
     <!-- FURTHER SERVICES START -->
     <section
@@ -240,5 +244,8 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 h1 {
   text-transform: capitalize;
+}
+.lightbox {
+  padding: 0 var(--homepage-padding) 0 var(--homepage-padding);
 }
 </style>

@@ -39,9 +39,13 @@ const description =
             eye contact, and the right light that can raise your message above
             the noise.
           </p>
-          <button @click="showRequestAProposal('company-intro')">
-            <div class="cta">Request a Proposal</div>
-          </button>
+          <Btn
+            tag="button"
+            label="Request a proposal"
+            icon="arrow-right"
+            variant="primary"
+            @click="showRequestAProposal('company-intro')"
+          />
         </div>
       </div>
       <br />
@@ -97,15 +101,16 @@ const description =
           <hr class="semi" />
           <Reviews />
           <div class="flex-center reveal">
-            <a
-              class="cta"
+            <Btn
+              tag="a"
+              icon="share-alt"
+              label="Share Your Experience"
+              variant="primary"
+              href="https://g.page/r/CRTkzopg3plWEB0/review"
               target="_blank"
               rel="noopener noreferrer nofollow"
-              href="https://g.page/r/CRTkzopg3plWEB0/review"
               aria-label="Share your experience"
-            >
-              Share Your Experience
-            </a>
+            />
           </div>
         </section>
       </section>
@@ -120,7 +125,14 @@ const description =
       <br />
       <latestArticle></latestArticle>
       <div class="flex-center">
-        <NuxtLink to="/blog" class="cta reveal">Read more</NuxtLink>
+        <Btn
+          tag="NuxtLink"
+          icon="plus-circle"
+          label="Read more"
+          variant="primary"
+          :to="'/blog'"
+          class="reveal"
+        />
       </div>
     </article>
     <LightroomPresets />

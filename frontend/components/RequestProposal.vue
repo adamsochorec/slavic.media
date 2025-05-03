@@ -127,11 +127,16 @@ onMounted(() => {
         <input type="hidden" name="source" :value="formIdentifier" />
         <p style="font-size: var(--font-size-7)">
           By submitting form you agree with our
-          <router-link to="/legal/privacy-policy">Privacy Policy</router-link>.
+          <NuxtLink to="/legal/privacy-policy">Privacy Policy</NuxtLink>.
         </p>
-        <button class="flex-center" type="submit">
-          <div class="cta">Submit</div>
-        </button>
+
+        <Btn
+          tag="button"
+          label="Submit"
+          icon="arrow-right"
+          variant="primary"
+          type="submit"
+        />
       </Form>
     </div>
   </div>

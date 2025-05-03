@@ -162,7 +162,7 @@ function header() {
         </button>
         <ul class="menu-left" role="menubar">
           <li v-for="item in menuItems" :key="item.title" role="none">
-            <router-link
+            <NuxtLink
               v-if="!item.external"
               :to="item.path"
               class="menuitem"
@@ -181,7 +181,7 @@ function header() {
                 }"
                 style="font-size: 10px"
               ></span>
-            </router-link>
+            </NuxtLink>
             <a v-else :href="item.path" target="_blank" role="menuitem">
               <span :class="item.icon"></span>{{ item.title }}
             </a>
@@ -197,9 +197,9 @@ function header() {
                 :key="subItem.title"
                 role="none"
               >
-                <router-link :to="subItem.path" role="menuitem">
+                <NuxtLink :to="subItem.path" role="menuitem">
                   <span :class="subItem.icon"></span>{{ subItem.title }}
-                </router-link>
+                </NuxtLink>
               </li>
             </ul>
           </li>

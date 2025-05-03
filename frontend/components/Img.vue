@@ -7,7 +7,8 @@ interface Img {
   originalWidth?: number;
   originalHeight?: number;
 }
-const props = defineProps<Img>();
+const { _id, alt, title, flag, originalWidth, originalHeight } =
+  defineProps<Img>();
 
 const emit = defineEmits<{
   (event: "update:originalWidth", value: number): void;
@@ -21,27 +22,27 @@ const updateDimensions = (event: Event) => {
   target.src = target.dataset.src!;
 };
 
-const fullImageUrl = `https://cdn.slavic.media/img/${props._id}/public`;
-const thumbnailUrl = `https://cdn.slavic.media/img/${props._id}/thumbnail`;
+const fullImageUrl = `https://cdn.slavic.media/img/${_id}/public`;
+const thumbnailUrl = `https://cdn.slavic.media/img/${_id}/thumbnail`;
 </script>
 
 <template>
   <a
     :href="fullImageUrl"
-    :title="props.title"
+    :title="title"
     :data-pswp-width="originalWidth"
-    :data-pswp-height="props.originalHeight"
+    :data-pswp-height="originalHeight"
   >
     <img
       class="reveal"
       :src="thumbnailUrl"
       :data-src="fullImageUrl"
-      :title="props.title"
-      :alt="props.alt"
+      :title="title"
+      :alt="alt"
       @load="updateDimensions"
     />
-    <div class="hidden-caption-content">{{ props.title }}</div>
-    <Icon :name="`cif:${props.flag}`" class="note flag" />
+    <div class="hidden-caption-content">{{ title }}</div>
+    <Icon :name="`cif:${flag}`" class="note flag" />
   </a>
 </template>
 
