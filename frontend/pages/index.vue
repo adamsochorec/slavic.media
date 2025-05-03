@@ -19,7 +19,6 @@ const description =
     <!-- INTRO VIDEO START -->
     <HeroVideo :id="1039054657" alt="Showreel 24' | Slavic Media" :start="7" />
     <!-- INTRO VIDEO END -->
-
     <section class="wrapper-wide" id="company-intro">
       <hr class="semi" role="separator" />
 

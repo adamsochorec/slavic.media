@@ -21,11 +21,11 @@
         </div>
         <Btn
           tag="a"
+          href="https://store.slavic.media"
+          target="_blank"
+          icon="sparkles"
           label="Transform Your Photos"
           variant="primary"
-          href="https://store.slavic.media"
-          icon="sparkles"
-          target="_blank"
           aria-label="Transform Your Photos"
         />
       </div>
@@ -33,34 +33,38 @@
   </section>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .banner {
   height: 240px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   width: 100vw;
   backdrop-filter: var(--blur-1) !important; /* Standard syntax */
   -webkit-backdrop-filter: var(--blur-1) !important; /* Chrome, Safari, Opera */
+  -o-object-fit: cover;
   object-fit: cover;
+  -o-object-position: center;
   object-position: center;
   position: relative;
   background: #000;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
-
-  @media only screen and (max-width: 500px) {
-    height: var(--dimension-2);
-  }
 }
-
 img {
   position: relative;
   display: block;
   width: 100%;
+  -webkit-filter: var(--blur-1);
   filter: var(--blur-1);
 }
-
 .pi-sparkles::after {
   content: " Want the look?";
   font-family: var(--logo-font);
@@ -68,36 +72,39 @@ img {
   font-weight: 600;
   font-style: normal;
 }
-
 .gradient,
 .gradient::after,
 .gradient::before {
   font-size: var(--font-size-4);
   text-shadow: var(--box-shadow-1);
-
-  @media only screen and (max-width: 900px) {
-    font-size: var(--font-size-2);
-  }
 }
-
 .title {
   position: absolute;
   text-align: center;
   margin-bottom: var(--grid-gap-2);
   padding: var(--grid-gap-2);
-
-  @media only screen and (max-width: 900px) {
-    width: 80%;
-  }
-
-  @media only screen and (min-width: 900px) {
-    width: 30%;
-  }
 }
-
 @media only screen and (max-width: 500px) {
   p {
     font-size: var(--font-size-8);
+  }
+  .banner {
+    height: var(--dimension-2);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .title {
+    width: 80%;
+  }
+  .gradient,
+  .gradient::after,
+  .gradient::before {
+    font-size: var(--font-size-2);
+  }
+}
+@media only screen and (min-width: 900px) {
+  .title {
+    width: 30%;
   }
 }
 </style>
