@@ -1,14 +1,14 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-export interface slide extends Document {
+export interface Slide extends Document {
   _id: string;
   log: string;
 }
 
-export const slideSchema = new Schema({
+export const SlideSchema = new Schema({
   _id: { type: String, required: true, maxlength: 50 },
   log: { type: String, required: true, maxlength: 50 },
 });
 
-const slideModel = mongoose.model<slide>("slide", slideSchema);
-export default slideModel;
+const SlideModel = mongoose.model<Slide>("Slide", SlideSchema);
+export default SlideModel;

@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-interface review extends Document {
+interface Review extends Document {
   _id: number;
   img: string;
   name: string;
@@ -11,7 +11,7 @@ interface review extends Document {
   message: string;
 }
 
-const reviewSchema = new Schema({
+const ReviewSchema = new Schema({
   _id: { type: Number, required: true },
   img: { type: String, required: true, maxlength: 100 },
   name: { type: String, required: true, maxlength: 50 },
@@ -22,5 +22,5 @@ const reviewSchema = new Schema({
   message: { type: String, required: true, maxlength: 1000 },
 });
 
-const review = mongoose.model<review>("Review", reviewSchema);
-export default review;
+const Review = mongoose.model<Review>("Review", ReviewSchema);
+export default Review;

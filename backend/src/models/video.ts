@@ -34,6 +34,6 @@ const videoSchema = new Schema<Video>({
   category: { type: String, maxlength: 100 },
 });
 
-const video = mongoose.model<Video>("video", videoSchema);
+const Video = mongoose.model<Video>("Video", videoSchema);
 export { videoSchema };
-export default video;
+export default Video;

@@ -33,13 +33,13 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.reelSchema = void 0;
+exports.ReelSchema = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
-exports.reelSchema = new mongoose_1.Schema({
+exports.ReelSchema = new mongoose_1.Schema({
     _id: { type: String, required: true, maxlength: 100 },
     platform: { type: String, required: true, maxlength: 20 },
     flag: { type: String, required: false, maxlength: 2 },
     url: { type: String, required: true, maxlength: 200 },
 });
-const reelModel = mongoose_1.default.model("reel", exports.reelSchema);
-exports.default = reelModel;
+const ReelModel = mongoose_1.default.model("Reel", exports.ReelSchema);
+exports.default = ReelModel;

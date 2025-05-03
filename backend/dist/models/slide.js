@@ -33,11 +33,11 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.slideSchema = void 0;
+exports.SlideSchema = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
-exports.slideSchema = new mongoose_1.Schema({
+exports.SlideSchema = new mongoose_1.Schema({
     _id: { type: String, required: true, maxlength: 50 },
     log: { type: String, required: true, maxlength: 50 },
 });
-const slideModel = mongoose_1.default.model("slide", exports.slideSchema);
-exports.default = slideModel;
+const SlideModel = mongoose_1.default.model("Slide", exports.SlideSchema);
+exports.default = SlideModel;

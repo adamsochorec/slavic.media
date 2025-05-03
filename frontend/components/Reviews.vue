@@ -15,6 +15,7 @@ interface Review {
   rating: number;
   message: string;
 }
+const props = ref<Review[]>([]);
 
 // State management for reviews
 const { state, getAllReviews } = review();

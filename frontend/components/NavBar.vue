@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
 import { useRouter } from "vue-router";
+
 interface SubMenuItem {
   title: string;
   path: string;
@@ -14,6 +15,7 @@ interface MenuItem {
   dropdownId?: string;
   subMenu?: SubMenuItem[];
 }
+const props = ref<MenuItem[]>([]);
 
 const router = useRouter();
 const dropdowns = reactive<{ [key: string]: boolean }>({});

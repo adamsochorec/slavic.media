@@ -35,7 +35,7 @@ var __importStar = (this && this.__importStar) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
 const video_1 = require("./video");
-const articleSchema = new mongoose_1.Schema({
+const ArticleSchema = new mongoose_1.Schema({
     _id: { type: String, required: true, maxlength: 100 },
     title: { type: String, required: true, maxlength: 200 },
     author: { type: String, ref: "Employee", required: true },
@@ -52,5 +52,5 @@ const articleSchema = new mongoose_1.Schema({
     content: { type: [String], required: true },
     videos: { type: [video_1.videoSchema], required: false },
 });
-const articleModel = mongoose_1.default.model("Article", articleSchema);
-exports.default = articleModel;
+const ArticleModel = mongoose_1.default.model("Article", ArticleSchema);
+exports.default = ArticleModel;

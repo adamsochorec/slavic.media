@@ -10,8 +10,6 @@ onMounted(() => {
     loop: true,
     speed: 600,
     autoplay: { delay: 1000, pauseOnMouseEnter: true },
-    preloadImages: false,
-    lazyLoading: true,
     observer: true,
     observeParents: true,
     breakpoints: {

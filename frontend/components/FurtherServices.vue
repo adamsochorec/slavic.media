@@ -10,11 +10,11 @@ interface Service {
   title: string;
   description?: string;
 }
-interface FurtherServicesProps {
+interface FurtherServices {
   services: Service[];
   swiperClass: string;
 }
-const props = defineProps<FurtherServicesProps>();
+const props = defineProps<FurtherServices>();
 
 onMounted(() => {
   const swiper = new Swiper(".swiper-further-services", {

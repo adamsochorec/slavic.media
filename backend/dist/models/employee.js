@@ -34,7 +34,7 @@ var __importStar = (this && this.__importStar) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
-const employeeSchema = new mongoose_1.Schema({
+const EmployeeSchema = new mongoose_1.Schema({
     _id: { type: String, required: true, maxlength: 50 },
     index: { type: Number, required: true, unique: true },
     name: { type: String, required: true, maxlength: 100 },
@@ -46,5 +46,5 @@ const employeeSchema = new mongoose_1.Schema({
     linkedin: { type: String, maxlength: 100 },
     github: { type: String, maxlength: 100 },
 });
-const employeeModel = mongoose_1.default.model("Employee", employeeSchema);
-exports.default = employeeModel;
+const EmployeeModel = mongoose_1.default.model("Employee", EmployeeSchema);
+exports.default = EmployeeModel;

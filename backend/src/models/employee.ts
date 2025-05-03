@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-interface employee extends Document {
+interface Employee extends Document {
   _id: string;
   index: number;
   name: string;
@@ -13,7 +13,7 @@ interface employee extends Document {
   github: string;
 }
 
-const employeeSchema = new Schema({
+const EmployeeSchema = new Schema({
   _id: { type: String, required: true, maxlength: 50 },
   index: { type: Number, required: true, unique: true },
   name: { type: String, required: true, maxlength: 100 },
@@ -26,5 +26,5 @@ const employeeSchema = new Schema({
   github: { type: String, maxlength: 100 },
 });
 
-const employeeModel = mongoose.model<employee>("Employee", employeeSchema);
-export default employeeModel;
+const EmployeeModel = mongoose.model<Employee>("Employee", EmployeeSchema);
+export default EmployeeModel;

@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from "mongoose";
 import { videoSchema } from "./video";
 
-interface article extends Document {
+interface Article extends Document {
   _id: string;
   title: string;
   author: {
@@ -24,7 +24,7 @@ interface article extends Document {
   videos: mongoose.Types.DocumentArray<mongoose.Document>;
 }
 
-const articleSchema: Schema = new Schema({
+const ArticleSchema: Schema = new Schema({
   _id: { type: String, required: true, maxlength: 100 },
   title: { type: String, required: true, maxlength: 200 },
   author: { type: String, ref: "Employee", required: true },
@@ -42,5 +42,5 @@ const articleSchema: Schema = new Schema({
   videos: { type: [videoSchema], required: false },
 });
 
-const articleModel = mongoose.model<article>("Article", articleSchema);
-export default articleModel;
+const ArticleModel = mongoose.model<Article>("Article", ArticleSchema);
+export default ArticleModel;

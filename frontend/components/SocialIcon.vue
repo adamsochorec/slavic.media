@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-interface SocialIconProps {
+interface SocialIcon {
   url: string;
   label: string;
   id: string;
 }
-const props = defineProps<SocialIconProps>();
+const props = defineProps<SocialIcon>();
 </script>
 
 <template>

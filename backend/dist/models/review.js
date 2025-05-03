@@ -34,7 +34,7 @@ var __importStar = (this && this.__importStar) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
-const reviewSchema = new mongoose_1.Schema({
+const ReviewSchema = new mongoose_1.Schema({
     _id: { type: Number, required: true },
     img: { type: String, required: true, maxlength: 100 },
     name: { type: String, required: true, maxlength: 50 },
@@ -44,5 +44,5 @@ const reviewSchema = new mongoose_1.Schema({
     fullReview: { type: String, required: true, maxlength: 200 },
     message: { type: String, required: true, maxlength: 1000 },
 });
-const review = mongoose_1.default.model("Review", reviewSchema);
-exports.default = review;
+const Review = mongoose_1.default.model("Review", ReviewSchema);
+exports.default = Review;

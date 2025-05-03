@@ -53,5 +53,5 @@ const videoSchema = new mongoose_1.Schema({
     category: { type: String, maxlength: 100 },
 });
 exports.videoSchema = videoSchema;
-const video = mongoose_1.default.model("video", videoSchema);
-exports.default = video;
+const Video = mongoose_1.default.model("Video", videoSchema);
+exports.default = Video;
