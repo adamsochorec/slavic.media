@@ -2,16 +2,9 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/server.ts",
+      "src": "package.json",
       "use": "@vercel/node"
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "src/server.ts"
-    }
-  ],
-  "installCommand": "yarn install",
-  "buildCommand": "yarn build"
+  "routes": [{ "src": "/(.*)", "dest": ".output/server/index.mjs" }]
 }

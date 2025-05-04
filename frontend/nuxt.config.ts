@@ -50,7 +50,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     output: {
-      publicDir: "dist",
+      serverDir: ".output/server",
     },
   },
   primevue: {
