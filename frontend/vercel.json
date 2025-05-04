@@ -1,11 +1,17 @@
 {
-  "version": 3,
+  "version": 2,
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": ".output/public" }
+      "src": "src/server.ts",
+      "use": "@vercel/node"
     }
   ],
-  "routes": [{ "handle": "filesystem" }, { "src": "/(.*)", "dest": "/" }]
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/server.ts"
+    }
+  ],
+  "installCommand": "yarn install",
+  "buildCommand": "yarn build"
 }
