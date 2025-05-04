@@ -30,3 +30,4 @@ postcss.mjs
 
 # Nuxt fonts
 .data
+.vercel
