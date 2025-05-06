@@ -79,7 +79,7 @@ const description =
       <!-- GALLERY END -->
       <hr class="reveal" role="separator" />
       <Clients />
-      <hr class="semi reveal" role="separator" />
+      <hr class="semi" role="separator" />
       <!-- REVIEWS START -->
       <section aria-labelledby="reviews-heading">
         <div class="grid-container caption-container" id="reviews-caption">

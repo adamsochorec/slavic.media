@@ -85,10 +85,10 @@ onMounted(() => {
 
   window.addEventListener("beforeunload", collapseMenu);
 
+  // Remove this block or ensure `titlePath` is properly defined
   router.beforeEach((to, from, next) => {
     collapseMenu();
-    titlePath.value = to.meta.titlePath || "";
-    next();
+    next(); // Ensure navigation proceeds
   });
 });
 

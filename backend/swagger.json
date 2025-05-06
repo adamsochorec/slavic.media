@@ -1664,7 +1664,7 @@
         }
       }
     },
-    "/video/reel/": {
+    "/reel/": {
       "post": {
         "description": "",
         "parameters": [
@@ -1732,7 +1732,7 @@
         }
       }
     },
-    "/video/reel/{id}": {
+    "/reel/{id}": {
       "get": {
         "description": "",
         "parameters": [
@@ -1824,7 +1824,7 @@
         }
       }
     },
-    "/img/slide/": {
+    "/slide/": {
       "post": {
         "description": "",
         "parameters": [
@@ -1892,7 +1892,7 @@
         }
       }
     },
-    "/img/slide/{id}": {
+    "/slide/{id}": {
       "get": {
         "description": "",
         "parameters": [

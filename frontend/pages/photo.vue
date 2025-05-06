@@ -133,14 +133,14 @@ onBeforeUnmount(() => {
         v-if="isDataLoaded"
         aria-busy="false"
       >
-        <div class="grid-item">
-          <h1 class="reveal" aria-label="Photo Services">
+        <div class="grid-item reveal">
+          <h1 aria-label="Photo Services">
             <span class="gradient"> Photo </span>
             Services
           </h1>
         </div>
-        <div class="grid-item">
-          <p class="reveal">
+        <div class="grid-item reveal">
+          <p>
             Whether it’s a dynamic performance, a powerful portrait, or the vast
             outdoors, our photography captures authentic moments, rich in colour
             and emotion, that tell your story.
@@ -167,8 +167,8 @@ onBeforeUnmount(() => {
               <span class="gradient">{{ gallery.title.split(" ")[1] }}</span>
             </h2>
           </div>
-          <div class="grid-item">
-            <p class="reveal">{{ gallery.description }}</p>
+          <div class="grid-item reveal">
+            <p>{{ gallery.description }}</p>
             <Btn
               tag="button"
               label="Request a proposal"
@@ -223,7 +223,7 @@ onBeforeUnmount(() => {
     <section
       id="services"
       v-if="isDataLoaded"
-      class="wrapper-wide"
+      class="wrapper-wide reveal"
       aria-labelledby="video-services-heading"
     >
       <h3 id="video-services-heading">

@@ -2,12 +2,6 @@ import Aura from "@primeuix/themes/aura";
 
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
-  runtimeConfig: {
-    public: {
-      GOOGLE_ANALYTICS: process.env.GOOGLE_ANALYTICS,
-      CHATWAY: process.env.CHATWAY,
-    },
-  },
   content: {
     preview: {
       api: "https://api.nuxt.studio",
@@ -28,6 +22,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/fonts",
     "@nuxt/content",
+    "@nuxt/devtools",
   ],
   app: {
     baseURL: "/",
@@ -46,7 +41,6 @@ export default defineNuxtConfig({
         lang: "en",
       },
     },
-    pageTransition: { name: "page", mode: "out-in" },
   },
   nitro: {
     output: {
@@ -58,7 +52,6 @@ export default defineNuxtConfig({
       theme: {
         preset: Aura,
       },
-      ripple: true,
     },
   },
 });

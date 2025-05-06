@@ -27,14 +27,14 @@ const photoServices = [
     <section class="wrapper-wide" aria-labelledby="video-services-heading">
       <!-- VIDEO PROJECTS START -->
       <div class="grid-container caption-container" aria-busy="false">
-        <div class="grid-item">
-          <h1 id="video-services-heading" class="reveal">
+        <div class="grid-item reveal">
+          <h1 id="video-services-heading">
             <span class="gradient"> Video </span>
             Services
           </h1>
         </div>
-        <div class="grid-item">
-          <p class="reveal">
+        <div class="grid-item reveal">
+          <p>
             From inspiring stories to cinematic visuals, each video project is
             crafted to captivate, impress, and showcase your vision with
             creative precision.
@@ -56,13 +56,13 @@ const photoServices = [
         <hr class="reveal" role="separator" />
         <!-- COLOUR GRADING START-->
         <div class="grid-container caption-container">
-          <div class="grid-item">
-            <h2 id="colougrading-services-heading" class="reveal">
+          <div class="grid-item reveal">
+            <h2 id="colougrading-services-heading">
               Colour <span class="gradient">Grading</span>
             </h2>
           </div>
-          <div class="grid-item">
-            <p class="reveal">
+          <div class="grid-item reveal">
+            <p>
               Bring your footage to life with our professional video colour
               grading. Using DaVinci Resolve, we grade boring log footage to
               unlock its full potential, delivering rich, vibrant colours across
@@ -86,12 +86,12 @@ const photoServices = [
       <!-- CONTENT START -->
       <div class="grid-container caption-container">
         <div class="grid-item reveal">
-          <h2 class="reveal" aria-label="Engaging Content">
+          <h2 aria-label="Engaging Content">
             Engaging <span class="gradient">Content</span>
           </h2>
         </div>
-        <div class="grid-item">
-          <p class="reveal">
+        <div class="grid-item reveal">
+          <p>
             Social media reels that capture your brand’s essence—engaging,
             genuine, and designed to resonate with your audience.
           </p>
@@ -112,8 +112,8 @@ const photoServices = [
       <div id="sound-edit"></div>
       <!-- SOUND EDIT START -->
       <div class="grid-container caption-container">
-        <div class="grid-item">
-          <h2 class="reveal" aria-label="Video Services">
+        <div class="grid-item reveal">
+          <h2 aria-label="Video Services">
             Sound<span class="gradient"> Edit</span>
           </h2>
           <Btn
@@ -148,7 +148,7 @@ const photoServices = [
     <!-- LIGHTROOM PRESETS END -->
     <hr class="semi" />
     <!-- FURTHER SERVICES START -->
-    <div id="services" class="wrapper-wide">
+    <div id="services" class="wrapper-wide reveal">
       <h3>Discover our <span class="gradient">photo</span> services</h3>
       <hr class="quater reveal" />
       <FurtherServices :services="photoServices" swiperClass="photo" />
