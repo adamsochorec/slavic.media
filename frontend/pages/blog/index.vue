@@ -31,13 +31,20 @@ const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(6, 6);
     <section class="wrapper-wide" role="region" aria-labelledby="blog-heading">
       <h1 id="blog-heading">Slavic Media <span class="gradient">Blog</span></h1>
       <br />
-      <!--       <LatestArticle class="hide" aria-busy="false"></LatestArticle> -->
+      <LatestArticle class="hide" aria-busy="false"></LatestArticle>
       <hr aria-busy="false" class="hide quater reveal" />
       <section aria-labelledby="articles-heading">
         <h2 id="articles-heading" class="visually-hidden">Articles</h2>
         <div class="grid-container">
           <BlogCard
-            v-for="document in documents.slice(0, itemsToShow)"
+            class="hide"
+            v-for="document in documents.slice(1, itemsToShow + 1)"
+            :key="document.slug"
+            :article="document"
+          ></BlogCard>
+          <BlogCard
+            class="unhide"
+            v-for="document in documents"
             :key="document.slug"
             :article="document"
           ></BlogCard>
@@ -78,9 +85,6 @@ const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(6, 6);
     margin-right: var(--grid-gap-2);
   }
 }
-h1 {
-  font-size: var(--font-size-2);
-}
 .flex-center {
   display: flex;
   justify-content: center;
@@ -94,6 +98,9 @@ h1 {
 @media only screen and (min-width: 500px) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .unhide {
+    display: none;
   }
 }
 @media only screen and (min-width: 700px) {

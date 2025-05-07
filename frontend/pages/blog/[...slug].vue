@@ -95,6 +95,7 @@ onBeforeUnmount(() => {
 h1 {
   font-size: var(--font-size-2);
 }
+
 .swiper-videos {
   padding-bottom: calc(var(--grid-gap-2) * 2);
 }

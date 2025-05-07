@@ -2,15 +2,11 @@
   <section aria-labelledby="banner-title">
     <hr class="semi" />
     <div class="banner reveal">
-      <img
-        src="https://cdn.slavic.media/img/2023-05-12-08969/height=100"
-        alt="Banner showcasing Slavic Media Lightroom Presets"
-      />
       <div class="title flex-center">
         <div>
           <span
             style="font-size: var(--font-size-5)"
-            class="pi pi-sparkles gradient"
+            class="pi pi-sparkles"
             aria-hidden="true"
           >
           </span>
@@ -36,34 +32,16 @@
 <style scoped>
 .banner {
   height: 240px;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   width: 100vw;
-  backdrop-filter: var(--blur-1) !important; /* Standard syntax */
-  -webkit-backdrop-filter: var(--blur-1) !important; /* Chrome, Safari, Opera */
-  -o-object-fit: cover;
-  object-fit: cover;
-  -o-object-position: center;
-  object-position: center;
   position: relative;
-  background: #000;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-shadow: var(--box-shadow-1);
+  align-items: center;
+  background: linear-gradient(120deg, #ff7eb3, #ff758c, #ff6a65);
+  background-size: 300% 300%;
+  animation: gradientAnimation 8s ease infinite;
   box-shadow: var(--box-shadow-1);
-}
-img {
-  position: relative;
-  display: block;
-  width: 100%;
-  -webkit-filter: var(--blur-1);
-  filter: var(--blur-1);
 }
 .pi-sparkles::after {
   content: " Want the look?";
@@ -72,18 +50,62 @@ img {
   font-weight: 600;
   font-style: normal;
 }
-.gradient,
-.gradient::after,
-.gradient::before {
-  font-size: var(--font-size-4);
-  text-shadow: var(--box-shadow-1);
-}
-.title {
+.banner::before,
+.banner::after {
+  content: "";
   position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+  animation: blobAnimation 10s ease-in-out infinite;
+  z-index: 0;
+}
+
+.banner::before {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.banner::after {
+  width: 500px;
+  height: 500px;
+  bottom: -150px;
+  right: -150px;
+  animation-delay: 3s;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes blobAnimation {
+  0%,
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.2) translate(50px, 50px);
+  }
+}
+
+.title {
+  position: relative;
   text-align: center;
   margin-bottom: var(--grid-gap-2);
   padding: var(--grid-gap-2);
+  z-index: 1; /* Ensure title is above the blobs */
 }
+
 @media only screen and (max-width: 500px) {
   p {
     font-size: var(--font-size-8);
@@ -92,6 +114,7 @@ img {
     height: var(--dimension-2);
   }
 }
+
 @media only screen and (max-width: 900px) {
   .title {
     width: 80%;
@@ -102,6 +125,7 @@ img {
     font-size: var(--font-size-2);
   }
 }
+
 @media only screen and (min-width: 900px) {
   .title {
     width: 30%;

@@ -73,6 +73,7 @@ img {
   height: 30px;
   width: auto;
   object-fit: cover;
+  margin-bottom: var(--grid-gap-2);
   aspect-ratio: 1 / 1;
 }
 .metadata {

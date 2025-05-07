@@ -44,7 +44,7 @@ const plugins = [lgVideo];
   <lightgallery
     v-if="isDataLoaded"
     id="video-gallery"
-    class="gallery"
+    class="grid-container"
     aria-label="Video Gallery"
     :settings="{
       speed: 500,
@@ -102,6 +102,14 @@ const plugins = [lgVideo];
 </template>
 
 <style lang="scss" scoped>
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: var(--grid-gap-3);
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .video-card {
   display: grid;
   transition: var(--transition-1);

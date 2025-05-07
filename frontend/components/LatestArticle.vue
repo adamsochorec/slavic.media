@@ -1,62 +1,49 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import article from "@/composables/modules/article";
-import { truncateText } from "@/composables/useTruncateText.ts";
+import { ref, computed } from "vue";
 
-const { state, getLatestArticle } = article();
-const isDataLoaded = ref(false);
+// Content hydration
+const { data: documents = ref([]) } = await useAsyncData("blog", () =>
+  queryCollection("blog").all()
+);
 
-onMounted(async () => {
-  await getLatestArticle();
-  isDataLoaded.value = true;
-});
-
-const updateImageSrc = (event: Event) => {
-  const target = event.target as HTMLImageElement;
-  target.src = target.dataset.src!;
-};
+// Bind the first document to the `article` property
+const article = computed(() =>
+  documents.value.length > 0 ? documents.value[0] : null
+);
 </script>
 
 <template>
   <div>
-    <div class="grid-container reveal" v-if="isDataLoaded && state.article">
-      <NuxtLink class="gallery-item" :to="`/blog/${state.article._id}`">
+    <div class="grid-container reveal" v-if="article">
+      <NuxtLink class="gallery-item" :to="`/blog/${article.slug}`">
         <Icon
-          v-if="state.article.metadata.flag"
-          :name="`cif:${state.article.metadata.flag}`"
+          v-if="article.flag"
+          :name="`cif:${article.flag}`"
           class="note flag"
         />
 
         <div class="gallery-item-caption">
-          <i
-            aria-hidden="true"
-            :class="`bubble pi pi-${state.article.metadata.icon}`"
-          ></i>
+          <i aria-hidden="true" :class="`bubble pi pi-${article.icon}`"></i>
         </div>
 
         <img
-          class=""
-          :src="`https://cdn.slavic.media/img/${state.article.metadata.thumbnail}/thumbnail`"
-          :data-src="`https://cdn.slavic.media/img/${state.article.metadata.thumbnail}/fit=contain,height=600`"
-          @load="updateImageSrc"
+          :src="`https://cdn.slavic.media/img/${article.thumbnail}/fit=contain,height=600`"
         />
       </NuxtLink>
 
       <div>
-        <NuxtLink class="title" :to="`/blog/${state.article._id}`">
+        <NuxtLink class="title" :to="`/blog/${article.slug}`">
           <h4>
-            {{ truncateText(state.article.title, 70) }}
-          </h4></NuxtLink
-        >
+            {{ truncateText(article.title, 70) }}
+          </h4>
+        </NuxtLink>
         <p class="reveal">
-          {{ truncateText(state.article.metadata.description, 200)
-          }}<NuxtLink :to="`blog/${state.article._id}`">..more</NuxtLink>
+          {{ truncateText(article.description, 200)
+          }}<NuxtLink :to="`/blog/${article.slug}`">more</NuxtLink>
         </p>
-        <BlogCardMetadata :article="state.article" />
+        <BlogCardMetadata :article="article" />
       </div>
     </div>
-
-    <skeletonLatestArticle v-else></skeletonLatestArticle>
   </div>
 </template>
 
@@ -97,7 +84,7 @@ a > :hover,
 .grid-container {
   display: grid;
   grid-template-columns: 60% 38%;
-  grid-gap: 0 var(--grid-gap-3);
+  grid-gap: 0 var(--grid-gap-2);
 
   @media only screen and (max-width: 600px) {
     grid-template-columns: 1fr;
@@ -113,7 +100,6 @@ h4 {
     margin: var(--grid-gap-2) 0;
   }
 }
-
 img {
   border-radius: var(--border-radius-1);
   height: 300px;

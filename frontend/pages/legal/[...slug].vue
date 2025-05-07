@@ -22,15 +22,20 @@ const { data: document } = await useAsyncData(`legal-${slug}`, () => {
     <section class="cover">
       <div class="filter"></div>
       <img :src="`https://cdn.slavic.media/img/2024-12-08-01324-2/public`" />
-      <div class="title reveal">
-        <h1 class="reveal" role="heading" aria-level="1">
+      <div class="title flex-center reveal">
+        <h1
+          class="reveal"
+          role="heading"
+          aria-level="1"
+          style="margin-bottom: var(--grid-gap-1)"
+        >
           {{ document?.title }}
         </h1>
         <Label icon="pi pi-replay" :label="ddmmmyyyy(document.date)"></Label>
       </div>
     </section>
     <section
-      class="wrapper-standard"
+      class="wrapper-wide"
       role="region"
       aria-label="Main Article Content"
     >

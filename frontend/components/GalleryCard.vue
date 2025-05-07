@@ -16,7 +16,7 @@ const props = defineProps<GalleryCard>();
 
 <template>
   <article class="gallery-item reveal">
-    <a :href="url" :data-src="`//${url}`">
+    <NuxtLink :to="url" :data-src="`//${url}`">
       <Icon :name="`cif:${flag}`" class="note flag" />
       <img
         :style="`opacity:${opacity}`"
@@ -35,7 +35,7 @@ const props = defineProps<GalleryCard>();
           </p>
         </section>
       </div>
-    </a>
+    </NuxtLink>
   </article>
 </template>
 

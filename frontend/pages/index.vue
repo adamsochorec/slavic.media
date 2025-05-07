@@ -125,7 +125,7 @@ const description =
         <NuxtLink to="/blog" class="gradient">Blog</NuxtLink>
       </h3>
       <br />
-      <!--       <latestArticle></latestArticle> -->
+      <latestArticle></latestArticle>
       <div class="flex-center">
         <Btn
           tag="NuxtLink"
