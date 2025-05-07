@@ -48,8 +48,6 @@ Please keep in mind that removing or blocking cookies will make parts of our web
 
 From time to time, we will update this Cookie Policy to reflect changes to the cookies we use for operational, legal, or regulatory reasons. Please visit this Cookie Policy regularly to fully understand our use of cookies and other related technologies.
 
----
-
 ## Contact Information
 
 For inquiries or issues related to cookies or privacy, please get in touch with Slavic Media at [privacy@slavic.media](mailto:privacy@slavic.media).

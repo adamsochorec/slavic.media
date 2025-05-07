@@ -52,28 +52,21 @@ const description =
       </div>
       <br />
       <!-- GALLERY START -->
-      <div style="display: flex; gap: var(--grid-gap-2)">
-        <GalleryCard
-          img="video"
-          :opacity="0.5"
+      <div class="gallery">
+        <LinkCard
           url="/video"
           title="Video"
-          alt="Video services cover"
           icon="video"
           description="From inspiring stories to cinematic visuals, each video project is
             crafted to captivate, impress, and showcase your vision with
             creative precision."
         />
-        <GalleryCard
-          img="photo"
-          :opacity="0.5"
+
+        <LinkCard
           url="/photo"
           title="Photo"
-          alt="Photo services cover"
           icon="camera"
-          description="Whether it’s a dynamic performance, a powerful portrait, or the vast
-            outdoors, our photography captures authentic moments, rich in colour
-            and emotion, that tell your story."
+          description="Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story."
         />
       </div>
       <!-- GALLERY END -->
@@ -153,6 +146,17 @@ h3 {
 .latest a:hover {
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: var(--grid-gap-3);
+}
+
+@media only screen and (min-width: 640px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media only screen and (max-width: 415px) {

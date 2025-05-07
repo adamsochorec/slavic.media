@@ -776,12 +776,12 @@
   integrity sha512-4wMPu9iN3/HL97QblBsBay3E1etIciR84izI3U+4iALY+JHCrI+a2jO0qbAZ/nxKoegypYEaiiqWXylm+/zfrw==
 
 "@netlify/blobs@^9.0.1":
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/@netlify/blobs/-/blobs-9.0.1.tgz#ca5c8e787decaa044182c88e3bb9de3ad22e3c04"
-  integrity sha512-l2d7KCAvekDpIBMQjUuOpOgolhMWt9Bll7G/KH/zmW/3gFlTB2mD5/2ghSjCTxLGJzdjbch7/5EBt8UPSDlD3A==
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/@netlify/blobs/-/blobs-9.1.0.tgz#7738df03a10ffa3efbdfb74cd395a5776a2ffeeb"
+  integrity sha512-2N9+V9LJ+aL7oZOCgCcASXBFvvN6WZs/QhrI6qyuXWVml2wpLwxr0x+efX9YLjwgJqRQQ46h3GmMeixnGv76kw==
   dependencies:
     "@netlify/dev-utils" "2.1.0"
-    "@netlify/runtime-utils" "1.2.0"
+    "@netlify/runtime-utils" "1.3.0"
 
 "@netlify/dev-utils@2.1.0":
   version "2.1.0"
@@ -823,10 +823,10 @@
   resolved "https://registry.yarnpkg.com/@netlify/open-api/-/open-api-2.37.0.tgz#fe2896f993d07e1a881a671b121d0f0dbae6a3c2"
   integrity sha512-zXnRFkxgNsalSgU8/vwTWnav3R+8KG8SsqHxqaoJdjjJtnZR7wo3f+qqu4z+WtZ/4V7fly91HFUwZ6Uz2OdW7w==
 
-"@netlify/runtime-utils@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@netlify/runtime-utils/-/runtime-utils-1.2.0.tgz#a2a4b0298009a13c057a607b1d4945ed8654d207"
-  integrity sha512-iTWkuINC7O8AqthMzbF9/OAnz3ubVPn8ycSD5ZO7vtnlaQiYu/L8mZ7Nez1eZu4WxWgpNBwS79YgAK6x0RBWUQ==
+"@netlify/runtime-utils@1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@netlify/runtime-utils/-/runtime-utils-1.3.0.tgz#db74697f25a17cf265d480652abd5b961c405967"
+  integrity sha512-q0O29ylPTs67ux3tfkTDaiMI8qwshhVLdWWIG8ohYqaG5/RejhbhUetugzyDg5W4BX17ZpCbgLHdmK3BVRebPg==
 
 "@netlify/serverless-functions-api@1.38.0":
   version "1.38.0"
@@ -834,9 +834,9 @@
   integrity sha512-AuTzLH4BlQxPViwdEP9WcW/9NjqmjzaPHxOd9fyaMZUOkAgF0iauio9PF9QylAtgyodhLd6mGuASESZZiJcXaw==
 
 "@netlify/serverless-functions-api@^1.38.0":
-  version "1.39.0"
-  resolved "https://registry.yarnpkg.com/@netlify/serverless-functions-api/-/serverless-functions-api-1.39.0.tgz#2862d061b39008af62a56d96cd0e07037a2c8fc0"
-  integrity sha512-fPqtx+W0Y/1lzic473tnUtq77gFOpqHDG5h1k9PSn7FPVRIr+kWNm23TL1XWUUXZv47OmxHMZWS7UDnDZeXlSg==
+  version "1.41.0"
+  resolved "https://registry.yarnpkg.com/@netlify/serverless-functions-api/-/serverless-functions-api-1.41.0.tgz#f3d8e7cc47d2898a3de32042c35bdd441e4d7b71"
+  integrity sha512-gez/2z8az4SFOitVID0j3GImXHs+1wsnthkpxMFoedeQ113uEE2wY0V492y7ABNfofR5VjMauWSdAK1S1JyNTQ==
 
 "@netlify/zip-it-and-ship-it@^10.0.7":
   version "10.0.7"
@@ -1861,9 +1861,9 @@
   integrity sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==
 
 "@types/node@*", "@types/node@^22.15.14":
-  version "22.15.14"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.15.14.tgz#889fd356a04d003a6d5650ccc003ef4d712430d7"
-  integrity sha512-BL1eyu/XWsFGTtDWOYULQEs4KR0qdtYfCxYAUYRoB7JP7h9ETYLgQTww6kH8Sj2C0pFGgrpM0XKv6/kbIzYJ1g==
+  version "22.15.15"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.15.15.tgz#8877c05c18e552e738438e477d7ba22c5d73a57c"
+  integrity sha512-R5muMcZob3/Jjchn5LcO8jdKwSCbzqmPB6ruBxMcf9kbxtniZHP327s6C37iOfuw8mbKK3cAQa7sEl7afLrQ8A==
   dependencies:
     undici-types "~6.21.0"
 

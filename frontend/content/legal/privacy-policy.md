@@ -59,7 +59,5 @@ Our web applications may use cookies to enhance user experience and analyze webs
 ## Policy Updates
 We may update this Privacy Policy periodically to reflect changes in regulations, technologies, or business practices. Please review this page regularly for the latest information.
 
----
-
 ## Contact Information
 If you have any questions about this Policy or your personal data, please contact us at [privacy@slavic.media](mailto:privacy@slavic.media).

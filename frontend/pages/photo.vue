@@ -15,10 +15,32 @@ const { state: imgState, getAllImgs } = img;
 
 // Further services matrix
 const videoServices = [
-  { id: "commercial", title: "Commercial" },
-  { id: "colour-grading", title: "colour grading" },
-  { id: "content", title: "content" },
-  { id: "sound-edit", title: "sound edit" },
+  {
+    id: "commercial",
+    title: "Commercial",
+    icon: "chart-line",
+    description: "From inspiring stories to cinematic visuals.",
+  },
+  {
+    id: "colour-grading",
+    title: "Colour Grading",
+    icon: "palette",
+    description:
+      "Bring your footage to life with our professional video colour grading.",
+  },
+  {
+    id: "content",
+    title: "Engagning Content",
+    icon: "tiktok",
+    description: "Social media reels that capture your brand’s essence.",
+  },
+  {
+    id: "sound-edit",
+    title: "Sound Edit",
+    icon: "headphones",
+    description:
+      "Production sound (the dialogue and ambient noises captured during shooting).",
+  },
 ];
 
 let lightbox: PhotoSwipeLightbox | null = null;

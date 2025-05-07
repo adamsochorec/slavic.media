@@ -8,6 +8,7 @@ import { useSwiperAutoplay } from "@/composables/useSwiperAutoplay";
 interface Service {
   id: string;
   title: string;
+  icon: string;
   description?: string;
 }
 interface FurtherServices {
@@ -25,19 +26,19 @@ onMounted(() => {
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
-      dynamicBullets: true,
+      dynamicBullets: false,
     },
     observer: true,
     observeParents: true,
     breakpoints: {
       0: {
-        slidesPerView: 2,
+        slidesPerView: 1.3,
       },
       550: {
-        slidesPerView: 2.7,
+        slidesPerView: 2.25,
       },
       1000: {
-        slidesPerView: 4,
+        slidesPerView: 2.75,
       },
     },
     direction: "horizontal",
@@ -67,18 +68,15 @@ onMounted(() => {
       <div
         v-for="service in services"
         :key="service.id"
-        class="swiper-slide"
         role="group"
+        class="swiper-slide"
         :aria-labelledby="`service-${service.id}`"
       >
-        <GalleryCard
-          :img="service.id"
-          :opacity="0.5"
-          :url="`/${swiperClass}#${service.id}`"
-          :title="`${service.title}`"
-          :alt="`${service.id} services cover`"
+        <LinkCard
+          :url="`/${swiperClass}`"
+          :title="service.title"
+          :icon="service.icon"
           :description="service.description"
-          icon="camera"
         />
       </div>
     </div>
@@ -87,13 +85,6 @@ onMounted(() => {
 </template>
 <style scoped lang="scss">
 .swiper {
-  padding-bottom: calc(var(--grid-gap-2) * 2);
-}
-.gallery-item {
-  aspect-ratio: 16 / 9;
-
-  @media only screen and (max-width: 400px) {
-    aspect-ratio: 1 / 1;
-  }
+  padding-bottom: calc(var(--grid-gap-2) * 3);
 }
 </style>

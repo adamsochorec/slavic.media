@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { showRequestAProposal } from "@/composables/useRequestProposal";
 
 // Meta SEO
 const description =
@@ -9,10 +8,34 @@ const title = "Video";
 
 // Further services matrix
 const photoServices = [
-  { id: "portrait", title: "Portrait" },
-  { id: "still", title: "Still" },
-  { id: "drone", title: "Drone" },
-  { id: "outdoor", title: "Outdoor" },
+  {
+    id: "portrait",
+    title: "Colorful Portrait",
+    icon: "user",
+    description:
+      "Through rich colors and deep eye contact, each portrait captures the true essence of who you are.",
+  },
+  {
+    id: "still",
+    title: "Timeless Still",
+    icon: "expand",
+    description:
+      "Magnificent moments from concerts, theatre, and live performances.",
+  },
+  {
+    id: "drone",
+    title: "Spectacular Drone",
+    icon: "wave-pulse",
+    description:
+      "Whether capturing a cruise trip on the open sea or a hotel from the above.",
+  },
+  {
+    id: "outdoor",
+    title: "Immersive Outdoor",
+    icon: "compass",
+    description:
+      "From the tundra to the desert, we specialize in capturing the raw beauty of nature.",
+  },
 ];
 </script>
 <template>
