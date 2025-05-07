@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@fancyapps/ui": "^5.0.36",
-    "@iconify-json/cif": "^1.2.2",
     "@lottiefiles/dotlottie-vue": "^0.6.2",
     "@nuxt/content": "^3.5.1",
     "@nuxt/fonts": "^0.11.1",
@@ -21,20 +20,15 @@
     "@nuxtjs/mdc": "^0.17.0",
     "@primeuix/themes": "^1.0.3",
     "@primevue/forms": "^4.3.3",
-    "axios": "^1.8.4",
-    "countryflag": "^5.0.0",
-    "github-markdown-css": "^5.8.1",
-    "gray-matter": "^4.0.3",
+    "@primevue/nuxt-module": "^4.3.4",
     "lightgallery": "^2.8.3",
-    "nuxt": "^3.16.2",
-    "nuxt-plausible": "^0.1.2",
+    "nuxt": "^3.17.2",
     "nuxt-swiper": "^2.0.0",
     "photoswipe": "^5.4.4",
     "photoswipe-dynamic-caption-plugin": "^1.2.7",
     "primeicons": "^7.0.0",
-    "primevue": "^4.3.3",
+    "sass-embedded": "^1.87.0",
     "swiper": "^11.2.6",
-    "tailwindcss-primeui": "^0.6.1",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",
     "zod": "^3.24.2"
@@ -43,12 +37,6 @@
     "@iconify-json/flag": "^1.2.5",
     "@iconify-json/material-symbols": "^1.2.19",
     "@nuxtjs/tailwindcss": "^6.13.2",
-    "@primevue/nuxt-module": "^4.3.3",
-    "@types/node": "^22.14.1",
-    "nuxt-primevue": "^3.0.0",
-    "postcss-import": "^16.1.0",
-    "sass": "^1.87.0",
-    "sass-embedded": "^1.86.3",
-    "sass-loader": "^16.0.5"
+    "@types/node": "^22.14.1"
   }
 }
