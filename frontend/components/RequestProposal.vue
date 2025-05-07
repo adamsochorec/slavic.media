@@ -3,22 +3,14 @@ import { ref, onMounted, reactive } from "vue";
 import eventBus from "@/composables/useEventBus";
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-import { zodResolver } from "@primevue/forms/resolvers/zod";
-import { FormField } from "@primevue/forms";
-import { z } from "zod";
+import { useRuntimeConfig } from "#app";
 
 const isVisible = ref(false);
 const formIdentifier = ref<string>("");
 
-const resolver = zodResolver(
-  z.object({
-    email: z.string().email({ message: "Email is required." }),
-    firstName: z.string().min(1, { message: "First name is required." }),
-    lastName: z.string().min(1, { message: "Last name is required." }),
-    company: z.string().optional(), // Optional field
-    message: z.string().min(1, { message: "Message is required." }),
-  })
-);
+// Access runtime config
+const config = useRuntimeConfig();
+const formspreeEndpoint = `https://formspree.io/f/${config.public.FORMSPREE}`;
 
 onMounted(() => {
   eventBus.on("showRequestAProposal", (identifier: string) => {
@@ -31,166 +23,149 @@ onMounted(() => {
 
 <template>
   <div id="requestAProposalPopup" style="display: none">
-    <div class="flex wrapper-narrow">
-      <Form
-        :resolver
-        class="flex flex-col gap-4 w-full"
-        method="POST"
-        action="https://formspree.io/f/mwkgdyez"
-        ><h4>Request a proposal</h4>
-        <FormField v-slot="$field" name="email" initialValue="">
-          <FloatLabel variant="in">
-            <InputText
-              v-model="$field.value"
-              :id="$field.name"
-              class="input"
-              size="small"
+    <section
+      class="wrapper-narrow"
+      role="dialog"
+      aria-labelledby="contactFormHeading"
+      aria-modal="true"
+    >
+      <section
+        class="contact-form-section"
+        role="region"
+        aria-labelledby="contactFormHeading"
+      >
+        <h3 id="contactFormHeading">
+          Request a
+          <span class="gradient" role="presentation">Proposal</span>
+        </h3>
+        <br />
+        <form
+          id="contactForm"
+          :action="formspreeEndpoint"
+          method="POST"
+          role="form"
+          aria-describedby="formDescription"
+        >
+          <div class="input-item">
+            <label for="firstName">First Name *</label>
+            <input
+              type="text"
+              id="firstName"
+              required
+              name="firstName"
+              autocomplete="given-name"
             />
-            <label for="email">Work email</label>
-          </FloatLabel>
-          <Message
-            v-if="$field?.invalid"
-            severity="error"
-            variant="simple"
-            class="message"
-            >{{ $field.error?.message }}</Message
-          >
-        </FormField>
-        <div style="display: flex;  gap: var(--grid-gap-2)">
-          <FormField v-slot="$field" name="firstName" initialValue="">
-            <FloatLabel variant="in">
-              <InputText
-                v-model="$field.value"
-                :id="$field.name"
-                class="input"
-              />
-              <label for="firstName">First name</label>
-            </FloatLabel>
-            <Message
-              v-if="$field?.invalid"
-              severity="error"
-              variant="simple"
-              class="message"
-              >{{ $field.error?.message }}</Message
-            >
-          </FormField>
-          <FormField v-slot="$field" name="lastName" initialValue="">
-            <FloatLabel variant="in">
-              <InputText
-                v-model="$field.value"
-                :id="$field.name"
-                class="input"
-              />
-              <label for="lastName">Last name</label>
-            </FloatLabel>
-            <Message
-              v-if="$field?.invalid"
-              severity="error"
-              variant="simple"
-              class="message"
-              >{{ $field.error?.message }}</Message
-            >
-          </FormField>
-        </div>
-
-        <FormField v-slot="$field" name="company" initialValue="">
-          <FloatLabel variant="in">
-            <InputText v-model="$field.value" :id="$field.name" class="input" />
+          </div>
+          <div class="input-item">
+            <label for="lastName">Last Name *</label>
+            <input
+              type="text"
+              id="lastName"
+              required
+              name="lastName"
+              autocomplete="family-name"
+            />
+          </div>
+          <div class="input-item">
+            <label for="email">Work Email *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+            />
+          </div>
+          <div class="input-item">
             <label for="company">Company</label>
-          </FloatLabel>
-          <Message
-            v-if="$field?.invalid"
-            severity="error"
-            variant="simple"
-            class="message"
-            >{{ $field.error?.message }}</Message
-          >
-        </FormField>
-        <FormField v-slot="$field" name="message" initialValue="">
-          <FloatLabel variant="in">
-            <TextArea
-              v-model="$field.value"
-              :id="$field.name"
-              rows="4"
-              class="input"
+            <input
+              type="text"
+              id="company"
+              name="company"
+              autocomplete="organization"
             />
-            <label for="message">Message</label>
-          </FloatLabel>
-          <Message
-            v-if="$field?.invalid"
-            severity="error"
-            variant="simple"
-            class="message"
-            >{{ $field.error?.message }}</Message
-          >
-        </FormField>
-        <input type="hidden" name="source" :value="formIdentifier" />
-        <p style="font-size: var(--font-size-7)">
-          By submitting form you agree with our
-          <NuxtLink to="/legal/privacy-policy">Privacy Policy</NuxtLink>.
-        </p>
+          </div>
+          <div class="input-item">
+            <label for="project" id="projectDescriptionLabel"
+              >Project description *</label
+            >
+            <textarea
+              minlength="10"
+              name="project"
+              rows="4"
+              required
+              id="project"
+            ></textarea>
+          </div>
+          <input type="hidden" name="source" :value="content" />
+          <p style="font-size: var(--font-size-7)">
+            By submitting form you agree with our
+            <NuxtLink to="/legal/privacy-policy">Privacy Policy</NuxtLink>.
+          </p>
+          <Btn
+            tag="button"
+            label="Submit"
+            icon="arrow-right"
+            variant="primary"
+            type="submit"
+          />
 
-        <Btn
-          tag="button"
-          label="Submit"
-          icon="arrow-right"
-          variant="primary"
-          type="submit"
-        />
-      </Form>
-    </div>
+          <input
+            type="hidden"
+            name="_next"
+            value="https://slavic.media/success"
+          />
+        </form>
+      </section>
+    </section>
   </div>
 </template>
+
 <style scoped lang="scss">
-label {
-  font-size: var(--font-size-6);
+.fancybox__content {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: var(--border-radius-1);
+  border: 0.5px solid rgba(255, 255, 255, 0.4);
 }
-label,
-.message {
-  font-family: var(--content-font);
-  font-optical-sizing: auto;
-  font-weight: 100;
-  font-style: normal;
-  font-family: var(--content-font);
-  color: white;
-}
-.p-floatlabel:has(.p-invalid) label,
-.message {
-  color: rgb(var(--primary-color));
-  font-family: var(--content-font);
-  font-optical-sizing: auto;
-  font-weight: 100;
-  font-style: normal;
-  font-weight: bold;
-}
-.p-checkbox-checked .p-checkbox-box {
-  border-color: rgb(var(--secondary-color));
-  background-color: rgb(var(--secondary-color));
-}
-.p-inputtext:enabled:focus,
-.p-textarea:enabled:focus {
-  border-color: rgb(var(--secondary-color));
-}
-.p-inputtext.p-invalid,
-.p-textarea.p-invalid,
-.p-checkbox.p-invalid {
-  border-color: rgb(var(--primary-color));
-}
-.p-checkbox-checked .p-checkbox-icon {
-  color: white !important;
-}
-.cta {
-  width: 100%;
+button {
   min-width: 100%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
-.fancybox__content {
-  background: rgb(var(--dark-grey-color));
-  border-radius: var(--border-radius-1);
+
+.input-item {
+  margin-bottom: var(--grid-gap-2);
+
+  label,
+  input,
+  textarea {
+    font-family: var(--content-font);
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    color: white;
+  }
+  input,
+  textarea {
+    padding: var(--grid-gap-1) var(--grid-gap-2);
+    border-radius: var(--border-radius-1);
+    background: rgba(var(--dark-grey-color), 1);
+    border: 0.5px solid rgba(255, 255, 255, 0.4);
+    line-height: normal;
+    width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: rgb(var(--secondary-color));
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
 }
-.input {
-  width: 100%;
+
+@media only screen and (max-width: 415px) {
+  .fancybox__content {
+    padding: var(--grid-gap-3) var(--grid-gap-1);
+  }
 }
 </style>

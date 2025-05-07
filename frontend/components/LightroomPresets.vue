@@ -38,7 +38,11 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: linear-gradient(120deg, #c71e1e, #11457e, #974242, #2b73c0);
+  background: linear-gradient(
+    120deg,
+    rgb(var(--primary-color)),
+    rgb(var(--secondary-color))
+  );
   background-size: 300% 300%;
   animation: gradientAnimation 14s ease infinite;
 }
