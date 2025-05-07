@@ -14,7 +14,7 @@ const formspreeEndpoint = `https://formspree.io/f/${config.public.FORMSPREE}`;
 
 onMounted(() => {
   eventBus.on("showRequestAProposal", (identifier: string) => {
-    formIdentifier.value = identifier; // Set the identifier
+    formIdentifier.value = identifier;
     isVisible.value = true;
     Fancybox.show([{ src: "#requestAProposalPopup" }]);
   });
@@ -143,6 +143,7 @@ button {
     font-weight: 100;
     font-style: normal;
     color: white;
+    font-size: var(--font-size-6);
   }
   input,
   textarea {

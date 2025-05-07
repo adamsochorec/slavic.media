@@ -41,9 +41,7 @@ const loadScripts = (scripts) => {
 
 // Function to load scripts that require consent
 const loadAfterConsentScripts = () => {
-  const scripts = [
-    `https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`,
-  ];
+  const scripts = [" https://www.googletagmanager.com/gtag/js?id=G-KGTECW9SN8"];
   loadScripts(scripts);
 
   // Initialize Google Analytics
@@ -52,44 +50,16 @@ const loadAfterConsentScripts = () => {
     window.dataLayer.push(arguments);
   }
   gtag("js", new Date());
-  gtag("config", process.env.GOOGLE_ANALYTICS);
+  gtag("config", "G-KGTECW9SN8");
 };
 
 // Function to load the Chatway script
 const loadChatwayScript = () => {
-  const scriptId = "chatway";
-  const existingScript = document.getElementById(scriptId);
-
-  // Remove existing script if necessary
-  if (existingScript) {
-    console.warn("Chatway script is already loaded. Reinitializing...");
-    if (window.Chatway && typeof window.Chatway.init === "function") {
-      window.Chatway.init(); // Reinitialize Chatway if possible.
-    } else {
-      console.error("Chatway script is loaded but not initialized.");
-    }
-    return;
-  }
-
   const chatwayScript = document.createElement("script");
-  chatwayScript.id = scriptId;
+  chatwayScript.id = "chatway";
   chatwayScript.async = true;
-  chatwayScript.src = `https://cdn.chatway.app/widget.js?id=${process.env.CHATWAY}`;
-
-  chatwayScript.onerror = () => {
-    console.error("Failed to load the Chatway script.");
-  };
-
-  chatwayScript.onload = () => {
-    console.log("Chatway script loaded successfully.");
-    if (window.Chatway && typeof window.Chatway.init === "function") {
-      window.Chatway.init(); // Initialize Chatway if required.
-    } else {
-      console.error("Chatway did not initialize correctly.");
-    }
-  };
-
-  document.body.appendChild(chatwayScript); // Append to <body> for better compatibility.
+  chatwayScript.src = "https://cdn.chatway.app/widget.js?id=G-KGTECW9SN8";
+  document.head.appendChild(chatwayScript);
 };
 
 // Function to handle acceptance of cookies
