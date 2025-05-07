@@ -137,7 +137,7 @@ onUnmounted(() => {
         >
           <!-- Slide content -->
           <div class="reveal">
-            <Icon :name="`cif:${employee.flag}`" class="note flag" />
+            <Icon :name="`flag:${employee.flag}-4x3`" class="note flag" />
             <a
               :href="`https://cdn.slavic.media/img/${employee._id}/hd`"
               data-pswp-width="1200"

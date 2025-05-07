@@ -112,7 +112,11 @@ onUnmounted(() => {
             >View reel {{ index + 1 }} on {{ reel.platform }}</span
           >
         </a>
-        <Icon v-if="reel.flag" :name="`cif:${reel.flag}`" class="note flag" />
+        <Icon
+          v-if="reel.flag"
+          :name="`flag:${reel.flag}-4x3`"
+          class="note flag"
+        />
         <video
           class="video-offload"
           loop

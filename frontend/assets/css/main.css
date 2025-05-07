@@ -608,15 +608,12 @@ i.pi-arrow-right:hover {
   margin-bottom: var(--grid-gap-1);
 }
 .flag {
-  border-radius: 2px;
   height: var(--grid-gap-1);
   vertical-align: middle;
 }
 .note {
   position: absolute;
   text-decoration: none;
-  -webkit-box-shadow: var(--box-shadow-1);
-  box-shadow: var(--box-shadow-1);
   z-index: 8;
   padding: 0;
   bottom: var(--grid-gap-1);

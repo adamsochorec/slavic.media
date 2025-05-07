@@ -18,7 +18,7 @@ const article = computed(() =>
       <NuxtLink class="gallery-item" :to="`/blog/${article.slug}`">
         <Icon
           v-if="article.flag"
-          :name="`cif:${article.flag}`"
+          :name="`flag:${article.flag}-4x3`"
           class="note flag"
         />
 

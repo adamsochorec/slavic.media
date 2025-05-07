@@ -42,7 +42,7 @@ const thumbnailUrl = `https://cdn.slavic.media/img/${_id}/thumbnail`;
       @load="updateDimensions"
     />
     <div class="hidden-caption-content">{{ title }}</div>
-    <Icon :name="`cif:${flag}`" class="note flag" />
+    <Icon :name="`flag:${flag}-4x3`" class="note flag" />
   </a>
 </template>
 
