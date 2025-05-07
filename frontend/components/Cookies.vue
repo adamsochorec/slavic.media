@@ -52,15 +52,22 @@ const loadAfterConsentScripts = () => {
     window.dataLayer.push(arguments);
   }
   gtag("js", new Date());
-  gtag("config", "G-KGTECW9SN8");
+  gtag("config", process.env.GOOGLE_ANALYTICS);
 };
 
 // Function to load the Chatway script
 const loadChatwayScript = () => {
   const scriptId = "chatway";
-  // Check if the script is already loaded
-  if (document.getElementById(scriptId)) {
-    console.warn("Chatway script is already loaded.");
+  const existingScript = document.getElementById(scriptId);
+
+  // Remove existing script if necessary
+  if (existingScript) {
+    console.warn("Chatway script is already loaded. Reinitializing...");
+    if (window.Chatway && typeof window.Chatway.init === "function") {
+      window.Chatway.init(); // Reinitialize Chatway if possible.
+    } else {
+      console.error("Chatway script is loaded but not initialized.");
+    }
     return;
   }
 
@@ -69,16 +76,20 @@ const loadChatwayScript = () => {
   chatwayScript.async = true;
   chatwayScript.src = `https://cdn.chatway.app/widget.js?id=${process.env.CHATWAY}`;
 
-  // Add error handling
   chatwayScript.onerror = () => {
     console.error("Failed to load the Chatway script.");
   };
 
-  document.head.appendChild(chatwayScript);
-
   chatwayScript.onload = () => {
     console.log("Chatway script loaded successfully.");
+    if (window.Chatway && typeof window.Chatway.init === "function") {
+      window.Chatway.init(); // Initialize Chatway if required.
+    } else {
+      console.error("Chatway did not initialize correctly.");
+    }
   };
+
+  document.body.appendChild(chatwayScript); // Append to <body> for better compatibility.
 };
 
 // Function to handle acceptance of cookies
