@@ -1,44 +1,27 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
-import { useShowMore } from "~/composables/useLoadMore";
+import { ref, computed } from "vue";
+import { useLoadMore } from "@/composables/useLoadMore";
 
-interface Article {
-  _id: string;
-  author: {
-    _id: string;
-    name: string;
-    linkedin: string;
-    department: string;
-    thumbnail: string;
-  };
-  metadata: {
-    date: string;
-    formatedDate?: string;
-    length?: number;
-  };
-  title: string;
-}
+// Props
+const { excludeSlug } = defineProps({
+  excludeSlug: {
+    type: String,
+    required: true,
+  },
+});
 
-interface FurtherReading {
-  isDataLoaded: boolean;
-  state: {
-    furtherReading: Article[];
-  };
-  articlesToShow: number;
-  loadMoreArticles: () => void;
-}
-
-const props = defineProps<FurtherReading>();
-
-const { itemsToShow, allItemsShown, loadMoreItems, showLessItems } =
-  useShowMore(4);
-
-watch(
-  () => props.articlesToShow,
-  (newVal) => {
-    itemsToShow.value = newVal;
-  }
+// Content hydration
+const { data: documents = ref([]) } = await useAsyncData("blog", () =>
+  queryCollection("blog").all()
 );
+
+// Filter out the current article
+const filteredDocuments = computed(() =>
+  documents.value.filter((article) => article.slug !== excludeSlug)
+);
+
+// LOAD MORE
+const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(2, 4);
 </script>
 
 <template>
@@ -47,7 +30,7 @@ watch(
     role="region"
     aria-labelledby="further-reading-title"
   >
-    <div v-if="isDataLoaded" aria-busy="false">
+    <div v-if="filteredDocuments.length" aria-busy="false">
       <hr class="semi" />
       <h2 id="further-reading-title" class="reveal">
         More from
@@ -57,29 +40,35 @@ watch(
       <hr class="quater reveal" />
       <div class="grid-container">
         <div
-          v-for="article in props.state.furtherReading.slice(0, itemsToShow)"
-          :key="article._id"
+          v-for="article in filteredDocuments.slice(0, itemsToShow)"
+          :key="article.slug"
           role="article"
-          aria-labelledby="article-{{ article._id }}-title"
+          aria-labelledby="article-{{ article.slug }}-title"
         >
-          <blogCard
+          <BlogCard
             :article="article"
-            id="article-{{ article._id }}-title"
-          ></blogCard>
+            id="article-{{ article.slug }}-title"
+          ></BlogCard>
         </div>
       </div>
-    </div>
-    <div class="flex-center">
-      <button
-        v-if="!allItemsShown"
-        @click="loadMoreItems(props.state.furtherReading.length)"
-        class="cta reveal"
-      >
-        Show More
-      </button>
-      <button v-else @click="showLessItems" class="cta reveal">
-        Show Less
-      </button>
+      <div class="flex-center">
+        <Btn
+          tag="button"
+          v-if="!allItemsShown"
+          label="Show more"
+          icon="plus-circle"
+          variant="secondary"
+          @click="loadMore(filteredDocuments.length)"
+        />
+        <Btn
+          tag="button"
+          v-else
+          label="Show less"
+          icon="minus-circle"
+          variant="secondary"
+          @click="loadLess"
+        />
+      </div>
     </div>
   </section>
 </template>

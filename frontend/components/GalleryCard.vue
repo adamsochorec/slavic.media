@@ -31,7 +31,7 @@ const props = defineProps<GalleryCard>();
         </header>
         <section>
           <p class="description" v-if="description">
-            {{ truncateText(description, 170) }}
+            {{ truncateText(description, 150) }}
           </p>
         </section>
       </div>

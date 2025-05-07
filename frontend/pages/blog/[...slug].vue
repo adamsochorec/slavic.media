@@ -88,7 +88,8 @@ onBeforeUnmount(() => {
       <ContentRenderer :value="document" class="article-content reveal" />
     </section>
     <!-- LIGHTROOM PRESETS -->
-    <LightroomPresets aria-busy="false"></LightroomPresets>
+    <LightroomPresets aria-busy="false"></LightroomPresets
+    ><FurtherReading :excludeSlug="document.slug" />
   </main>
 </template>
 <style lang="scss" scoped>

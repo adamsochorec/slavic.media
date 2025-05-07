@@ -26,6 +26,7 @@ flag: dk
 
 On the 12th of April, I woke up early and packed a backpack with lunch before heading to the Kolding train station. I took a train to Oksbøl, which is located near Blåvand, the westernmost city in Denmark. My plan was to visit the [Blåvand Lighthouse](https://en.wikipedia.org/wiki/Bl%C3%A5vand_Lighthouse), about a 35-minute walk from the bus station. At the time, Blåvand was hosting a festival, and the main road through the city was congested with cars with Danish and German license plates.
 
+
 ::photo
 ---
 alt: WWII bunker sinking into the sand.
@@ -39,14 +40,6 @@ I stopped at a local fisherman's shop to buy a shrimp salad from a bakery and be
 
 <iframe title='Map of Blåvands Huk' src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230514.95742332027!2d7.9101174183203184!3d55.591246469354545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ac242a22f1f7f%3A0x4e7f7a444252009a!2sBl%C3%A5vandshuk%20Fyr!5e0!3m2!1sen!2scz!4v1730815918307!5m2!1sen!2scz' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>
 
-::photo
----
-alt: Summer house hidden in the sand dunes.
-flag: dk
-id: "2022-04-15-00335"
-title: 2022 ⋅ Blåvands Huk, Denmark
----
-::
 
 According to my navigation app, I had about 20 minutes left on my walk. As I walked along the North Sea shore, I headed slightly north to follow the 400 km-long west coast that borders Germany to the south and flows into the Baltic Sea at [Skagen](https://en.wikipedia.org/wiki/Skagen) to the north. The westernmost point of Denmark, [Blåvandshuk](https://en.wikipedia.org/wiki/Bl%C3%A5vandshuk), was filled with the sounds of waves crashing and seagulls screeching, as well as children playing on the WWII bunkers built as part of the [Atlantic Wall](https://en.wikipedia.org/wiki/Atlantic_Wall) during the war.
 

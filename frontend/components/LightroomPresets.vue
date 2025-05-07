@@ -38,10 +38,9 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: linear-gradient(120deg, #ff7eb3, #ff758c, #ff6a65);
+  background: linear-gradient(120deg, #c71e1e, #11457e, #974242, #2b73c0);
   background-size: 300% 300%;
-  animation: gradientAnimation 8s ease infinite;
-  box-shadow: var(--box-shadow-1);
+  animation: gradientAnimation 14s ease infinite;
 }
 .pi-sparkles::after {
   content: " Want the look?";
@@ -56,7 +55,7 @@
   position: absolute;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
-  animation: blobAnimation 10s ease-in-out infinite;
+  animation: blobAnimation 20s ease-in-out infinite;
   z-index: 0;
 }
 
@@ -87,7 +86,6 @@
     background-position: 0% 50%;
   }
 }
-
 @keyframes blobAnimation {
   0%,
   100% {
@@ -97,13 +95,12 @@
     transform: scale(1.2) translate(50px, 50px);
   }
 }
-
 .title {
   position: relative;
   text-align: center;
   margin-bottom: var(--grid-gap-2);
   padding: var(--grid-gap-2);
-  z-index: 1; /* Ensure title is above the blobs */
+  z-index: 1;
 }
 
 @media only screen and (max-width: 500px) {

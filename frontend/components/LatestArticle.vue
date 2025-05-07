@@ -68,7 +68,10 @@ const article = computed(() =>
     padding: var(--grid-gap-2);
   }
 }
-
+img:hover {
+  filter: saturate(0);
+  transition: var(--transition-1);
+}
 .latest a,
 .latest a:hover {
   box-shadow: none;

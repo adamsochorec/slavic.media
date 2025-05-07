@@ -44,7 +44,7 @@ const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(6, 6);
           ></BlogCard>
           <BlogCard
             class="unhide"
-            v-for="document in documents"
+            v-for="document in documents.slice(0, itemsToShow)"
             :key="document.slug"
             :article="document"
           ></BlogCard>
