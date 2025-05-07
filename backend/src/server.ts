@@ -43,8 +43,6 @@ import authRoutes from "./routes/auth";
 import employeeRoutes from "./routes/employee";
 import reviewRoutes from "./routes/review";
 import eventRoutes from "./routes/event";
-import articleRoutes from "./routes/article";
-import servicesRoutes from "./routes/services";
 import slideRoutes from "./routes/slide";
 import reelRoutes from "./routes/reel";
 
@@ -73,8 +71,6 @@ app.use("/user", authRoutes);
 app.use("/employee", employeeRoutes);
 app.use("/review", reviewRoutes);
 app.use("/event", eventRoutes);
-app.use("/blog", articleRoutes);
-app.use("/services", servicesRoutes);
 app.use("/reel", reelRoutes);
 app.use("/slide", slideRoutes);
 

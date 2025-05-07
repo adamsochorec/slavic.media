@@ -34,8 +34,6 @@ const auth_1 = __importDefault(require("./routes/auth"));
 const employee_1 = __importDefault(require("./routes/employee"));
 const review_1 = __importDefault(require("./routes/review"));
 const event_1 = __importDefault(require("./routes/event"));
-const article_1 = __importDefault(require("./routes/article"));
-const services_1 = __importDefault(require("./routes/services"));
 const slide_1 = __importDefault(require("./routes/slide"));
 const reel_1 = __importDefault(require("./routes/reel"));
 require("dotenv-flow").config();
@@ -57,8 +55,6 @@ app.use("/user", auth_1.default);
 app.use("/employee", employee_1.default);
 app.use("/review", review_1.default);
 app.use("/event", event_1.default);
-app.use("/blog", article_1.default);
-app.use("/services", services_1.default);
 app.use("/reel", reel_1.default);
 app.use("/slide", slide_1.default);
 // Serve static files from the 'dist' directory
