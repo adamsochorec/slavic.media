@@ -57,11 +57,28 @@ const loadAfterConsentScripts = () => {
 
 // Function to load the Chatway script
 const loadChatwayScript = () => {
+  const scriptId = "chatway";
+  // Check if the script is already loaded
+  if (document.getElementById(scriptId)) {
+    console.warn("Chatway script is already loaded.");
+    return;
+  }
+
   const chatwayScript = document.createElement("script");
-  chatwayScript.id = "chatway";
+  chatwayScript.id = scriptId;
   chatwayScript.async = true;
   chatwayScript.src = `https://cdn.chatway.app/widget.js?id=${process.env.CHATWAY}`;
+
+  // Add error handling
+  chatwayScript.onerror = () => {
+    console.error("Failed to load the Chatway script.");
+  };
+
   document.head.appendChild(chatwayScript);
+
+  chatwayScript.onload = () => {
+    console.log("Chatway script loaded successfully.");
+  };
 };
 
 // Function to handle acceptance of cookies

@@ -17,7 +17,7 @@ const props = defineProps<GalleryCard>();
 <template>
   <article class="gallery-item reveal">
     <NuxtLink :to="url" :data-src="`//${url}`">
-      <Icon :name="`flag:${flag}-4x3`" class="note flag" />
+      <Icon v-if="flag" :name="`flag:${flag}-4x3`" class="note flag" />
       <img
         :style="`opacity:${opacity}`"
         :src="`https://cdn.slavic.media/img/${img}/sd`"
