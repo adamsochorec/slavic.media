@@ -26,16 +26,26 @@ const props = defineProps<LinkCard>();
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
   cursor: pointer;
+  -webkit-transition: var(--transition-1);
+  -o-transition: var(--transition-1);
   transition: var(--transition-1);
 }
 .card:hover {
-  box-shadow: 0 0 var(--grid-gap-3) rgba(var(--secondary-color), 0.4);
+  -webkit-box-shadow: var(--box-shadow-2);
+  box-shadow: var(--box-shadow-2);
+  -webkit-transform: scale(1.02);
+  -ms-transform: scale(1.02);
   transform: scale(1.02);
+  -webkit-transition: var(--transition-1);
+  -o-transition: var(--transition-1);
   transition: var(--transition-1);
 }
 h3 {
   font-size: var(--font-size-5);
-  margin-bottom: var(--grid-gap-1);
+
+  @media only screen and (min-width: 600px) {
+    margin-bottom: var(--grid-gap-1);
+  }
 }
 .description {
   font-size: var(--font-size-7);

@@ -66,7 +66,7 @@ const description =
           url="/photo"
           title="Photo"
           icon="camera"
-          description="Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story."
+          description="Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour."
         />
       </div>
       <!-- GALLERY END -->

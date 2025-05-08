@@ -58,7 +58,7 @@ const loadChatwayScript = () => {
   const chatwayScript = document.createElement("script");
   chatwayScript.id = "chatway";
   chatwayScript.async = true;
-  chatwayScript.src = "https://cdn.chatway.app/widget.js?id=G-KGTECW9SN8";
+  chatwayScript.src = "https://cdn.chatway.app/widget.js?id=eIN2tIZBFO8j";
   document.head.appendChild(chatwayScript);
 };
 

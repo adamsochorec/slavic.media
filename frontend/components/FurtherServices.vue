@@ -32,7 +32,7 @@ onMounted(() => {
     observeParents: true,
     breakpoints: {
       0: {
-        slidesPerView: 1.3,
+        slidesPerView: 1,
       },
       550: {
         slidesPerView: 2.25,

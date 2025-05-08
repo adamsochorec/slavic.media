@@ -22,6 +22,7 @@
     -webkit-transform 0.5s cubic-bezier(0.694, 0.048, 0.335, 1);
   --nav-bar-top-position: 50px;
   --box-shadow-1: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  --box-shadow-2: 0 0 var(--grid-gap-3) rgba(var(--secondary-color), 1);
   --homepage-padding: 50px;
   --blur-1: blur(35px);
   --cta-margin: 20px 0 0 0;

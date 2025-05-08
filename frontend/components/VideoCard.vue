@@ -102,6 +102,10 @@ const plugins = [lgVideo];
 </template>
 
 <style lang="scss" scoped>
+@import url("https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lightgallery.css");
+@import url("https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-zoom.css");
+@import url("https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-video.css");
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -109,19 +113,34 @@ const plugins = [lgVideo];
   margin: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .video-card {
   display: grid;
+  -webkit-transition: var(--transition-1);
+  -o-transition: var(--transition-1);
   transition: var(--transition-1);
   &:hover {
     img {
+      -webkit-filter: saturate(0);
       filter: saturate(0);
+      -webkit-transition: var(--transition-1);
+      -o-transition: var(--transition-1);
       transition: var(--transition-1);
     }
     .title {
       text-decoration: underline;
+      -webkit-transition: var(--transition-1);
+      -o-transition: var(--transition-1);
       transition: var(--transition-1);
     }
+  }
+  @media only screen and (max-width: 600px) {
+    border-bottom: 1px solid white;
+    padding-bottom: var(--grid-gap-3);
   }
 }
 img {
@@ -129,6 +148,8 @@ img {
   -o-object-fit: cover;
   object-fit: cover;
   aspect-ratio: 2/1;
+  -webkit-transition: var(--transition-1);
+  -o-transition: var(--transition-1);
   transition: var(--transition-1);
 }
 .metadata,
@@ -141,6 +162,8 @@ img {
 }
 .title {
   font-size: var(--font-size-5);
+  -webkit-transition: var(--transition-1);
+  -o-transition: var(--transition-1);
   transition: var(--transition-1);
 }
 </style>

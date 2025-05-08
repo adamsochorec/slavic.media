@@ -153,14 +153,19 @@ button {
     border: 0.5px solid rgba(255, 255, 255, 0.4);
     line-height: normal;
     width: 100%;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    -webkit-transition: var(--transition-1);
+    -o-transition: var(--transition-1);
+    transition: var(--transition-1);
   }
 
   input:focus,
   textarea:focus {
-    border-color: rgb(var(--secondary-color));
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    -webkit-box-shadow: var(--box-shadow-2);
+    box-shadow: var(--box-shadow-2);
+    -webkit-transition: var(--transition-1);
+    -o-transition: var(--transition-1);
+    transition: var(--transition-1);
   }
 }
 

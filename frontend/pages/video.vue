@@ -181,31 +181,7 @@ const photoServices = [
 </template>
 
 <style lang="scss" scoped>
-@import url("https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lightgallery.css");
-@import url("https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-zoom.css");
-@import url("https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-video.css");
-
 h1 {
   text-transform: capitalize;
-}
-.gallery {
-  grid-template-columns: repeat(1, 1fr);
-  display: grid;
-  grid-gap: var(--grid-gap-3);
-  height: auto;
-  border-radius: var(--border-radius-1);
-  color: white;
-}
-
-@media only screen and (min-width: 600px) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media only screen and (max-width: 600px) {
-  .video-card {
-    border-bottom: 1px solid white;
-    padding-bottom: var(--grid-gap-3);
-  }
 }
 </style>
