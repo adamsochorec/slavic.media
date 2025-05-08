@@ -125,8 +125,10 @@ onMounted(() => {
 .fancybox__content {
   background: rgba(0, 0, 0, 0.3);
   border-radius: var(--border-radius-1);
-  border: 0.5px solid rgba(255, 255, 255, 0.4);
+  border: var(--border-1);
+  z-index: 9999999;
 }
+
 button {
   min-width: 100%;
   justify-content: center;
@@ -150,7 +152,7 @@ button {
     padding: var(--grid-gap-1) var(--grid-gap-2);
     border-radius: var(--border-radius-1);
     background: rgba(var(--dark-grey-color), 1);
-    border: 0.5px solid rgba(255, 255, 255, 0.4);
+    border: var(--border-1);
     line-height: normal;
     width: 100%;
     -webkit-transition: var(--transition-1);

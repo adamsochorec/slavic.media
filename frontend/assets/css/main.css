@@ -120,7 +120,7 @@ main {
 
 /* HR / SEPARATORS START */
 hr {
-  border: 0.5px solid rgba(255, 255, 255, 0.4);
+  border: var(--border-1);
   z-index: 3;
 }
 hr.quater {
@@ -304,14 +304,14 @@ table {
   margin: var(--grid-gap-2) 0;
   border-spacing: 0;
   border-collapse: separate;
-  font-size: var(--font-size-6);
+  font-size: var(--font-size-7);
   border-radius: var(--border-radius-1);
   text-align: left;
 }
 
 th,
 td {
-  border: 0.5px solid rgba(255, 255, 255, 0.4);
+  border: var(--border-1);
   padding: var(--grid-gap-1) var(--grid-gap-2);
 }
 th {
@@ -699,7 +699,7 @@ i.pi-arrow-right:hover {
 .article-content h6 {
   margin: var(--grid-gap-3) 0 var(--grid-gap-1) 0;
   padding-bottom: var(--grid-gap-1);
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.4);
+  border-bottom: var(--border-1);
 }
 .article-content h2 a,
 .article-content h4 a,

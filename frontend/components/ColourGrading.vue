@@ -68,7 +68,6 @@ onUnmounted(() => {
           <template #left>
             <Label icon="pi pi-video" :label="slide.log" class="note"></Label>
             <Label
-              icon="pi pi-image"
               label="Colour Graded"
               class="note"
               style="left: var(--grid-gap-1)"

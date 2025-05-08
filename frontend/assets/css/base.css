@@ -17,6 +17,7 @@
   --font-size-8: 0.7em;
   --border-radius-1: 10px;
   --border-radius-2: 50px;
+  --border-1: 0.5px solid rgba(255, 255, 255, 0.4);
   --transition-1: all.1s ease-in-out;
   --transition-2: 0.35s ease-in-out,
     -webkit-transform 0.5s cubic-bezier(0.694, 0.048, 0.335, 1);

@@ -25,7 +25,7 @@ const props = defineProps<Label>();
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid white;
+  border: var(--border-1);
   box-shadow: var(--box-shadow-1);
 
   .pi {

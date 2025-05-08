@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { truncateText } from "@/composables/useTruncateText.ts";
+
 interface LinkCard {
   url: string;
   icon: string;
@@ -12,17 +14,16 @@ const props = defineProps<LinkCard>();
     <div class="card">
       <span :class="`pi pi-${icon} bubble`"></span>
       <h3>{{ title }}</h3>
-      <span class="description">{{ description }}</span>
+      <span class="description"> {{ truncateText(description, 83) }} </span>
     </div>
   </NuxtLink>
 </template>
 <style lang="scss" scoped>
 .card {
-  height: var(--dimension-2);
+  height: 160px;
   background-color: rgb(var(--dark-grey-color));
   padding: var(--grid-gap-2);
   border-radius: var(--border-radius-1);
-  border: 0.5px solid rgba(255, 255, 255, 0.4);
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
   cursor: pointer;

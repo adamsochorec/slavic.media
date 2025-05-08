@@ -87,4 +87,12 @@ onMounted(() => {
 .swiper {
   padding-bottom: calc(var(--grid-gap-2) * 3);
 }
+.swiper-slide {
+  @media only screen and (max-width: 550px) {
+    padding: var(--grid-gap-3);
+  }
+  @media only screen and (min-width: 550px) {
+    padding: var(--grid-gap-3) 0;
+  }
+}
 </style>
