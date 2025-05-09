@@ -1,6 +1,7 @@
 ---
-title: What does a supermarket sign have in common with colour grading and light design?
-thumbnail: "IMG_3337"
+title: What does a supermarket sign have in common with colour grading and light
+  design?
+thumbnail: IMG_3337
 icon: palette
 length: 5
 slug: what-does-a-supermarket-sign-have-in-common-with-colour-grading-and-light-design
@@ -27,7 +28,7 @@ It’s all about how light and colour interact. For example, when a strong sourc
 ---
 alt: Parking lot lit by the supermarket neon sign.
 flag: cz
-id: "IMG_3337"
+id: IMG_3337
 title: Red + Blue = Violet
 ---
 ::
@@ -36,9 +37,10 @@ This phenomenon happens because red and blue are two parts of the digital colour
 
 ::photo
 ---
-alt: Colour schema showcasing the intersection of red and blue casting violet colour.
+alt: Colour schema showcasing the intersection of red and blue casting violet
+  colour.
 flag: cz
-id: "colour-blend"
+id: colour-blend
 title: Red + Blue = Violet
 ---
 ::
@@ -49,7 +51,7 @@ There are 16,777,216 possible colours when you combine these three colours at di
 ---
 alt: Silhouette of two girls kissing each other in the darkness.
 flag: dk
-id: "2021-10-01-01825"
+id: 2021-10-01-01825
 title: 2023 ⋅ Kolding, Denmark ⋅ Soul Mates
 ---
 ::

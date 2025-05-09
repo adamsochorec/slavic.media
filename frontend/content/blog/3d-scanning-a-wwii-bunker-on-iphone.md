@@ -1,6 +1,6 @@
 ---
 title: 3D scanning a WWII bunker on iPhone
-thumbnail: "2022-04-15-00340"
+thumbnail: 2022-04-15-00340
 icon: microchip
 length: 10
 slug: 3d-scanning-a-wwii-bunker-on-iphone
@@ -18,7 +18,7 @@ keywords:
 author:
   name: Adam S.
   id: adam
-  linkedin: "adamsochorec"
+  linkedin: adamsochorec
   department: Creative Director
 date: 2022-04-10T00:00:00.000Z
 flag: dk
@@ -26,20 +26,18 @@ flag: dk
 
 On the 12th of April, I woke up early and packed a backpack with lunch before heading to the Kolding train station. I took a train to Oksbøl, which is located near Blåvand, the westernmost city in Denmark. My plan was to visit the [Blåvand Lighthouse](https://en.wikipedia.org/wiki/Bl%C3%A5vand_Lighthouse), about a 35-minute walk from the bus station. At the time, Blåvand was hosting a festival, and the main road through the city was congested with cars with Danish and German license plates.
 
-
 ::photo
 ---
 alt: WWII bunker sinking into the sand.
 flag: dk
-id: "2022-04-15-00340"
+id: 2022-04-15-00340
 title: 2022 ⋅ Blåvands Huk, Denmark
 ---
 ::
 
 I stopped at a local fisherman's shop to buy a shrimp salad from a bakery and began walking. The town center of Blåvand is not large, and it wasn't long before I reached an area with dozens of summer houses surrounded by pine trees. As I neared the shore, the vacation homes gave way to standalone houses built in the dunes a few meters from the sea.
 
-<iframe title='Map of Blåvands Huk' src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230514.95742332027!2d7.9101174183203184!3d55.591246469354545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ac242a22f1f7f%3A0x4e7f7a444252009a!2sBl%C3%A5vandshuk%20Fyr!5e0!3m2!1sen!2scz!4v1730815918307!5m2!1sen!2scz' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>
-
+[Map of Blåvands Huk](https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230514.95742332027!2d7.9101174183203184!3d55.591246469354545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ac242a22f1f7f%3A0x4e7f7a444252009a!2sBl%C3%A5vandshuk%20Fyr!5e0!3m2!1sen!2scz!4v1730815918307!5m2!1sen!2scz)
 
 According to my navigation app, I had about 20 minutes left on my walk. As I walked along the North Sea shore, I headed slightly north to follow the 400 km-long west coast that borders Germany to the south and flows into the Baltic Sea at [Skagen](https://en.wikipedia.org/wiki/Skagen) to the north. The westernmost point of Denmark, [Blåvandshuk](https://en.wikipedia.org/wiki/Bl%C3%A5vandshuk), was filled with the sounds of waves crashing and seagulls screeching, as well as children playing on the WWII bunkers built as part of the [Atlantic Wall](https://en.wikipedia.org/wiki/Atlantic_Wall) during the war.
 
@@ -47,16 +45,14 @@ According to my navigation app, I had about 20 minutes left on my walk. As I wal
 ---
 alt: Bunker sinking into the sand with horse-themed graffiti.
 flag: dk
-id: "2022-04-15-00324"
+id: 2022-04-15-00324
 title: 2022 ⋅ Blåvands Huk, Denmark
 ---
 ::
 
 I noticed that these bunkers were spaced about every few hundred meters along the entire west coast. However, 'standing' might not be the right term to describe their condition. After more than half a century of neglect in the sand, these bunkers had sunken into the ground. Their exteriors were often covered in graffiti, and some even had additional metal constructions shaped like horses or giraffes. As I passed more and more bunkers, each with its unique design and level of deterioration, I had the idea to scan them using a 3D modeling app called [Polycam](https://poly.cam).
 
-
-<iframe class='sketchfab' title='3D model of bunker' src='https://sketchfab.com/models/dd16bb89f8844760ab31396d495fd0ce/embed?autospin=1&ui_theme=dark&dnt=1'></iframe>
-<iframe class='sketchfab' title='3D model of bunker' src='https://sketchfab.com/models/37e4150677634273954aa6e69434ec15/embed?autospin=1&ui_theme=dark&dnt=1'></iframe>
+[3D model of bunker](https://sketchfab.com/models/dd16bb89f8844760ab31396d495fd0ce/embed?autospin=1\&ui_theme=dark\&dnt=1)[3D model of bunker](https://sketchfab.com/models/37e4150677634273954aa6e69434ec15/embed?autospin=1\&ui_theme=dark\&dnt=1)
 
 While the app's scanning and processing options are not the most advanced, it is user-friendly and convenient to use. There are also several ways to use the app for free, such as creating user profiles and sharing scanned content.
 
@@ -64,7 +60,7 @@ While the app's scanning and processing options are not the most advanced, it is
 ---
 alt: Hilly dunes near Blåvand lighthouse.
 flag: dk
-id: "2022-04-15-00339"
+id: 2022-04-15-00339
 title: 2022 ⋅ Blåvands Huk, Denmark
 ---
 ::
@@ -75,7 +71,7 @@ When I reached the lighthouse, I bought a ticket to the top of the tower from a 
 ---
 alt: Panoramic view from Blåvand lighthouse.
 flag: dk
-id: "2022-04-15-00333"
+id: 2022-04-15-00333
 title: 2022 ⋅ Blåvands Huk, Denmark
 ---
 ::

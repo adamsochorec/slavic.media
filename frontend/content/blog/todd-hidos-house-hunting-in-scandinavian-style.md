@@ -1,6 +1,6 @@
 ---
 title: Todd Hido's House Hunting in Scandinavian style
-thumbnail: "2022-10-09-00946"
+thumbnail: 2022-10-09-00946
 icon: camera
 length: 7
 slug: todd-hidos-house-hunting-in-scandinavian-style
@@ -16,7 +16,7 @@ keywords:
 author:
   name: Adam S.
   id: adam
-  linkedin: "adamsochorec"
+  linkedin: adamsochorec
   department: Creative Director
 date: 2022-10-09T00:00:00.000Z
 flag: fi
@@ -28,7 +28,7 @@ I borrowed the concept of *House Hunting* from the inspiring photographer and ar
 ---
 alt: Pastel green abandoned house in Vaasa.
 flag: fi
-id: "2022-10-09-00946"
+id: 2022-10-09-00946
 title: 2022 ⋅ Vaasa, Finland
 ---
 ::
@@ -37,9 +37,11 @@ In the past, I tried several times to apply the inspiration I gained from Hido's
 
 ::photo
 ---
-alt: Shot of abandoned property with garden and an old family house built in a typical Scandinavian style - pastel green facade made out of wooden planks with white outlined corners and windows.
+alt: Shot of abandoned property with garden and an old family house built in a
+  typical Scandinavian style - pastel green facade made out of wooden planks
+  with white outlined corners and windows.
 flag: fi
-id: "2022-10-09-00947"
+id: 2022-10-09-00947
 title: 2022 ⋅ Vaasa, Finland
 ---
 ::
@@ -50,7 +52,7 @@ Even though the exterior atmosphere was slightly more matching to the one that H
 ---
 alt: An empty room lit by the morning sun.
 flag: fi
-id: "2022-10-09-00948"
+id: 2022-10-09-00948
 title: 2022 ⋅ Vaasa, Finland
 ---
 ::
@@ -61,7 +63,7 @@ On one of my walks in the neighbourhood of Palosaari, in Finnish Vaasa, I couldn
 ---
 alt: Narrow wooden staircase leading upstairs.
 flag: fi
-id: "2022-10-09-00951"
+id: 2022-10-09-00951
 title: 2022 ⋅ Vaasa, Finland
 ---
 ::
@@ -72,10 +74,9 @@ Beforehand, I contacted the city planning department to gather information about
 ---
 alt: Faded spots on walls hinting at previous frames.
 flag: fi
-id: "2022-10-09-00956"
+id: 2022-10-09-00956
 title: 2022 ⋅ Vaasa, Finland
 ---
 ::
 
-With the owner's permission, my friend and fellow photographer [Samuli](https://www.instagram.com/samuliframes/) and I agreed to photograph the inside of the building at sunrise on an early autumn morning.  
-We were able to explore the interior of the building and photograph the bleached spots on the walls, likely left by previously hanging frames and paintings. Despite the building's impending demolition, we were able to document its beauty and history through our photography.
+With the owner's permission, my friend and fellow photographer [Samuli](https://www.instagram.com/samuliframes/) and I agreed to photograph the inside of the building at sunrise on an early autumn morning.:brWe were able to explore the interior of the building and photograph the bleached spots on the walls, likely left by previously hanging frames and paintings. Despite the building's impending demolition, we were able to document its beauty and history through our photography.

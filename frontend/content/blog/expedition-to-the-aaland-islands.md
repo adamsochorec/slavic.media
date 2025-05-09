@@ -1,6 +1,6 @@
 ---
 title: Expedition to the Åland Islands
-thumbnail: "2022-10-16-00977"
+thumbnail: 2022-10-16-00977
 icon: map
 length: 15
 slug: expedition-to-the-aaland-islands
@@ -13,7 +13,7 @@ keywords:
 author:
   name: Adam S.
   id: adam
-  linkedin: "adamsochorec"
+  linkedin: adamsochorec
   department: Creative Director
 date: 2022-10-15T00:00:00.000Z
 flag: ax
@@ -25,7 +25,7 @@ The Åland Islands are autonomously demilitarized territories under Finnish juri
 ---
 alt: Two guys posing with panorama in their background.
 flag: ax
-id: "2022-10-16-00977"
+id: 2022-10-16-00977
 title: 2022 ⋅ Geta, Ålands
 ---
 ::
@@ -34,25 +34,26 @@ The Åland Islands are autonomously demilitarized territories under Finnish juri
 
 I had been planning an expedition to the *land of ål* ([eel](https://en.wikipedia.org/wiki/eel)) since my arrival in Finland. In mid-October 2022, during the Autumn break, my friend Andreas, from Swedish Dalarna, and I decided to take a ferry from the Finnish coastal town of [Turku](https://en.wikipedia.org/wiki/Turku) (Åbo in Swedish). However, we had to stay overnight in Turku due to train connections from our hometown of [Vaasa](https://en.wikipedia.org/wiki/Vaasa) not matching the early ferry departure time.
 
-<iframe title='Map of Åland Islands' src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d471667.97509938205!2d19.636926193596548!3d60.296944920952406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468ae468c4e1eb19%3A0xcd43f68373428eed!2s%C3%85land%20Islands!5e0!3m2!1sen!2sdk!4v1733089628800!5m2!1sen!2sdk' allowfullscreen='' loading='lazy'  referrerpolicy='no-referrer-when-downgrade'></iframe>
+[Map of Åland Islands](https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d471667.97509938205!2d19.636926193596548!3d60.296944920952406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468ae468c4e1eb19%3A0xcd43f68373428eed!2s%C3%85land%20Islands!5e0!3m2!1sen!2sdk!4v1733089628800!5m2!1sen!2sdk)
 
 For the first few hours of our cruise, we navigated through hundreds of skerries as we sailed through the densest area of the [Archipelago Sea](https://en.wikipedia.org/wiki/Archipelago_Sea). This area, approximately *8300 square kilometers* in size, is home to around *50,000 archipelagos* and tiny rocky islands (skerries). It is considered one of the largest areas by the number of archipelagos in the world and is truly an interesting sight to behold.
 
 ::photo
 ---
-title: 2022 ⋅ Archipelago Sea
-id: IMG_3017
 alt: Photo of skerries covered by vegetation, located in the Archipelago sea.
 flag: ax
+id: IMG_3017
+title: 2022 ⋅ Archipelago Sea
 ---
 ::
 
 ::photo
 ---
-title: 2022 ⋅ Archipelago Sea
-id: IMG_3020
-alt: Photo of several boulder archipelagos with erected wind turbines, located in the Archipelago sea.
+alt: Photo of several boulder archipelagos with erected wind turbines, located
+  in the Archipelago sea.
 flag: ax
+id: IMG_3020
+title: 2022 ⋅ Archipelago Sea
 ---
 ::
 
@@ -60,23 +61,27 @@ After disembarking from the Baltic Princess in [Mariehamn](https://en.wikipedia.
 
 ::photo
 ---
-title: 2022 ⋅ Geta, Åland
-id: 2022-10-15-00970
-alt: Photo of Andreas standing on the rock in the forest with a hiking pole out of a tree branch.
+alt: Photo of Andreas standing on the rock in the forest with a hiking pole out
+  of a tree branch.
 flag: ax
+id: 2022-10-15-00970
+title: 2022 ⋅ Geta, Åland
 ---
 ::
 
 The following day we woke up in our bushcraft camp on the banks of Lake Långsjön. Right in the morning we had to change our plans when we learned that the local ferry we were supposed to take back from the north tip of the islands only operates during the summer.
+
 :br
+
 Our original plan to walk over 100 km in five days, from south to north through the eastern hemisphere of the most inhabited island, [Fasta](https://en.wikipedia.org/wiki/Fasta_%C3%85land), and return through the western hemisphere, was changed to hitchhiking and seeing as much as possible. We were able to reach the Djupviksgrottan cave by the evening of the second day with the help of two hitchhiking rides.
 
 ::photo
 ---
-title: 2022 ⋅ Geta, Åland
-id: 2022-10-15-00967
-alt: Marcel and Andreas are captured walking along the road, hitchhiking with their left thumbs, trying to stop approaching the car.
+alt: Marcel and Andreas are captured walking along the road, hitchhiking with
+  their left thumbs, trying to stop approaching the car.
 flag: ax
+id: 2022-10-15-00967
+title: 2022 ⋅ Geta, Åland
 ---
 ::
 
@@ -84,10 +89,11 @@ After saying goodbye to our last ferryman, we embarked on a journey through the 
 
 ::photo
 ---
-title: 2022 ⋅ Djupviksgrottan, Åland
-id: 2022-10-16-00975
-alt: Outside view at our Djupviksgrottan cave camp, Marcel is reading a book and Andreas is keeping an eye on a campfire.
+alt: Outside view at our Djupviksgrottan cave camp, Marcel is reading a book and
+  Andreas is keeping an eye on a campfire.
 flag: ax
+id: 2022-10-16-00975
+title: 2022 ⋅ Djupviksgrottan, Åland
 ---
 ::
 
@@ -95,10 +101,11 @@ Before leaving the cave, Marcel and I scouted the surrounding countryside and we
 
 ::photo
 ---
-title: 2022 ⋅ Geta, Åland
-id: 2022-10-16-00979
-alt: Photo of pilgrims Marcel and Andreas walking over dusty red path up on a hill with Autumn forests in their background.
+alt: Photo of pilgrims Marcel and Andreas walking over dusty red path up on a
+  hill with Autumn forests in their background.
 flag: ax
+id: 2022-10-16-00979
+title: 2022 ⋅ Geta, Åland
 ---
 ::
 
@@ -106,10 +113,11 @@ This time, our carriers were two fresh-looking wanderers we had talked with earl
 
 ::photo
 ---
-title: 2022 ⋅ Godby, Åland
-id: 2022-10-16-00981
-alt: Photo of an old blue Ford tractor with big red wheels, standing on the side of the road. The scene is lit by the morning sun.
+alt: Photo of an old blue Ford tractor with big red wheels, standing on the side
+  of the road. The scene is lit by the morning sun.
 flag: ax
+id: 2022-10-16-00981
+title: 2022 ⋅ Godby, Åland
 ---
 ::
 
@@ -117,10 +125,11 @@ It was just the second day of our expedition, and we had already reached our fin
 
 ::photo
 ---
-title: 2022 ⋅ Geta, Åland
-id: 2022-10-15-00971
-alt: Photo of Andreas and Marcel hiking through the forest in the northern part of Ålands.
+alt: Photo of Andreas and Marcel hiking through the forest in the northern part
+  of Ålands.
 flag: ax
+id: 2022-10-15-00971
+title: 2022 ⋅ Geta, Åland
 ---
 ::
 
@@ -128,10 +137,12 @@ After an hour of struggling to attract passing drivers with smiles and hand wave
 
 ::photo
 ---
-title: 2022 ⋅ Prastö, Åland
-id: 2022-10-17-00984
-alt: Shot of a garden and family house built in a typical Scandinavian style - pastel green facade made out of wooden planks with white outlined corners and windows.
+alt: Shot of a garden and family house built in a typical Scandinavian style -
+  pastel green facade made out of wooden planks with white outlined corners and
+  windows.
 flag: ax
+id: 2022-10-17-00984
+title: 2022 ⋅ Prastö, Åland
 ---
 ::
 
@@ -139,10 +150,12 @@ Later that evening we met most likely her entire family including cats, dogs, an
 
 ::photo
 ---
-title: 2022 ⋅ Prastö, Åland
-id: 2022-10-17-00996
-alt: Photo of an empty road through the Autumn colored forest, aside from the road stands a traffic sign informing about the name of our surroundings - Prästo.
+alt: Photo of an empty road through the Autumn colored forest, aside from the
+  road stands a traffic sign informing about the name of our surroundings -
+  Prästo.
 flag: ax
+id: 2022-10-17-00996
+title: 2022 ⋅ Prastö, Åland
 ---
 ::
 
@@ -150,10 +163,13 @@ Karolina advised us to scout the island of Prästo, which is among the locals pr
 
 ::photo
 ---
-title: 2022 ⋅ Prastö, Åland
-id: graveyards
-alt: Photo of two really old Jewish gravestones on the former cemetery in the middle of forest, covered by moss and containing text in Hebrew. There are tiny stacks of small boulders on the top of each gravestone, as a symbol of respect and remembrance.
+alt: Photo of two really old Jewish gravestones on the former cemetery in the
+  middle of forest, covered by moss and containing text in Hebrew. There are
+  tiny stacks of small boulders on the top of each gravestone, as a symbol of
+  respect and remembrance.
 flag: ax
+id: graveyards
+title: 2022 ⋅ Prastö, Åland
 ---
 ::
 
@@ -161,10 +177,11 @@ Our afternoon was spent in the spirit of attempts to fish in the crystal-clear w
 
 ::photo
 ---
-title: 2022 ⋅ Norrgård, Åland
-id: 2022-10-17-01001
-alt: Photo of two guys posing upon my shoulders while standing in the cold Archipelago sea.
+alt: Photo of two guys posing upon my shoulders while standing in the cold
+  Archipelago sea.
 flag: ax
+id: 2022-10-17-01001
+title: 2022 ⋅ Norrgård, Åland
 ---
 ::
 
@@ -172,10 +189,11 @@ Our final task was to make it back to Mariehamn. We had no luck with hitchhiking
 
 ::photo
 ---
-title: 2022 ⋅ Norrgård, Åland
-id: 2022-10-14-00962
-alt: Photo of resting Andreas with dark sky in the background. Andreas’s face is highlighted by the screen of the phone he is holding.
+alt: Photo of resting Andreas with dark sky in the background. Andreas’s face is
+  highlighted by the screen of the phone he is holding.
 flag: ax
+id: 2022-10-14-00962
+title: 2022 ⋅ Norrgård, Åland
 ---
 ::
 
@@ -185,7 +203,7 @@ Despite feeling like we had overcome all obstacles, the last one was the rain th
 ---
 videos:
   - src: player.vimeo.com/video/1010365595
-    title: Expedition to the Åland Islands I. 
+    title: Expedition to the Åland Islands I.
   - src: player.vimeo.com/video/1010365608
     title: Expedition to the Åland Islands II.
   - src: player.vimeo.com/video/1010365581

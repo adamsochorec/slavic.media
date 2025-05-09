@@ -1,6 +1,6 @@
 ---
 title: Capturing stills just like a portrait - It’s all about the eyes
-thumbnail: "2023-09-09-10524"
+thumbnail: 2023-09-09-10524
 icon: camera
 length: 3
 slug: capturing-stills-just-like-a-portrait-its-all-about-the-eyes
@@ -27,7 +27,7 @@ A mentor once told me that every powerful image or film thrives on eye contact. 
 ---
 alt: Anime Animeaux frontman holding a microphone on a stage.
 flag: dk
-id: "2023-09-09-10524"
+id: 2023-09-09-10524
 title: 2023 ⋅ Kolding, Denmark ⋅ Huset Fundament
 ---
 ::
@@ -38,19 +38,18 @@ Directing models or actors in the studio can be challenging. They expect confide
 ---
 alt: Kim Kim performing live on a stage.
 flag: dk
-id: "2022-06-30-00754"
+id: 2022-06-30-00754
 title: 2022 ⋅ Roskilde, Denmark ⋅ Roskilde Festival
 ---
 ::
 
 When studio sessions fall short, I capture raw, unfiltered moments. Trading the control of a studio for the energy of live settings—whether at a theatre rehearsal, a crowded Pitstop, or a festival stage at [Roskilde Festival](https://roskilde-festival.dk)—has led to some of my favourite shots. Performers lost in their world create an authenticity that can’t be directed.
 
-
 ::photo
 ---
 alt: Performance 'Hrdina Západu' at Divadlo Disk.
 flag: cz
-id: "2021-06-24-01208"
+id: 2021-06-24-01208
 title: 2023 ⋅ Prague, Czechia ⋅ Divadlo Disk
 ---
 ::

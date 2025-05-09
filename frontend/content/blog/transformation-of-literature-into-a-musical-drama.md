@@ -1,6 +1,6 @@
 ---
 title: Transformation of Literature into a Musical Drama
-thumbnail: "2023-11-13-00043"
+thumbnail: 2023-11-13-00043
 icon: palette
 length: 5
 slug: transformation-of-literature-into-a-musical-drama
@@ -24,7 +24,7 @@ We had the unique opportunity to be part of the “Friskabe” performance, dire
 ---
 alt: Kim Kim laying upside down on a bench.
 flag: dk
-id: "2023-11-13-00043"
+id: 2023-11-13-00043
 title: 2023 ⋅ Copenhagen, Denmark ⋅ Sort/Hvid
 ---
 ::
@@ -35,7 +35,7 @@ title: 2023 ⋅ Copenhagen, Denmark ⋅ Sort/Hvid
 ---
 alt: Elf lady holding knife on Kim Kim's throat.
 flag: dk
-id: "2023-11-13-00267"
+id: 2023-11-13-00267
 title: 2023 ⋅ Copenhagen, Denmark ⋅ Sort/Hvid
 ---
 ::
@@ -46,7 +46,7 @@ Our visual documentation was supported by unique props: a fountain made of wine 
 ---
 alt: Kim Kim covered by gravel holding a tombstone.
 flag: dk
-id: "2023-11-13-00338"
+id: 2023-11-13-00338
 title: 2023 ⋅ Copenhagen, Denmark ⋅ Sort/Hvid
 ---
 ::

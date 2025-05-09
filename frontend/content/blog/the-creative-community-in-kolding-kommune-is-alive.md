@@ -1,6 +1,6 @@
 ---
 title: The creative community in Kolding Kommune is alive
-thumbnail: "2023-04-26-08882"
+thumbnail: 2023-04-26-08882
 icon: users
 length: 5
 slug: the-creative-community-in-kolding-kommune-is-alive
@@ -25,7 +25,7 @@ At Slavic Media, we love working on projects that have meaning and contribute to
 ---
 alt: Community of Huset Fundament
 flag: dk
-id: "2023-04-26-08882"
+id: 2023-04-26-08882
 title: 2023 ⋅ Kolding, Denmark ⋅ Huset Fundament
 ---
 ::
@@ -36,7 +36,7 @@ Our partnership began in February 2023, and since then, we’ve completed over 2
 ---
 alt: Grafisk Marked stand
 flag: dk
-id: "2023-09-30-00022"
+id: 2023-09-30-00022
 title: 2023 ⋅ Kolding, Denmark ⋅ Huset Fundament
 ---
 ::
@@ -47,7 +47,7 @@ Our work enhanced the visitor experience by providing them with photos of their 
 ---
 alt: Backyard filled with people hanging out together.
 flag: dk
-id: "2023-05-19-09057"
+id: 2023-05-19-09057
 title: 2023 ⋅ Kolding, Denmark ⋅ Huset Fundament
 ---
 ::
