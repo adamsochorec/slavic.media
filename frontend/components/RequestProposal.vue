@@ -47,9 +47,9 @@ onMounted(() => {
           aria-describedby="formDescription"
         >
           <div class="input-item">
-            <label for="firstName">First Name *</label>
             <input
               type="text"
+              placeholder="First Name"
               id="firstName"
               required
               name="firstName"
@@ -57,9 +57,9 @@ onMounted(() => {
             />
           </div>
           <div class="input-item">
-            <label for="lastName">Last Name *</label>
             <input
               type="text"
+              placeholder="Last Name"
               id="lastName"
               required
               name="lastName"
@@ -67,9 +67,9 @@ onMounted(() => {
             />
           </div>
           <div class="input-item">
-            <label for="email">Work Email *</label>
             <input
               type="email"
+              placeholder="Work Email"
               id="email"
               name="email"
               required
@@ -77,22 +77,20 @@ onMounted(() => {
             />
           </div>
           <div class="input-item">
-            <label for="company">Company</label>
             <input
               type="text"
               id="company"
+              placeholder="Company"
               name="company"
               autocomplete="organization"
             />
           </div>
           <div class="input-item">
-            <label for="project" id="projectDescriptionLabel"
-              >Project description *</label
-            >
             <textarea
               minlength="10"
+              placeholder="Project description"
               name="project"
-              rows="4"
+              rows="10"
               required
               id="project"
             ></textarea>
@@ -149,7 +147,7 @@ button {
   }
   input,
   textarea {
-    padding: var(--grid-gap-1) var(--grid-gap-2);
+    padding: var(--grid-gap-2);
     border-radius: var(--border-radius-1);
     background: rgba(var(--dark-grey-color), 1);
     border: var(--border-1);

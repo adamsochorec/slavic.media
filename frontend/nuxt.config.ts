@@ -67,9 +67,11 @@ export default defineNuxtConfig({
   },
   primevue: {
     options: {
+      ripple: false,
       theme: {
         preset: Aura,
       },
     },
+    treeshake: true,
   },
 });
