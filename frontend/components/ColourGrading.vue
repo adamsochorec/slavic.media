@@ -66,7 +66,7 @@ onUnmounted(() => {
       <div class="swiper-slide" v-for="(slide, index) in slides" :key="index">
         <ImageCompare aria-label="Compare Images">
           <template #left>
-            <Label icon="pi pi-video" :label="slide.log" class="note"></Label>
+            <Label :label="slide.log" class="note"></Label>
             <Label
               label="Colour Graded"
               class="note"
