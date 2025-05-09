@@ -35,7 +35,6 @@ const menuItems = ref([
     title: "Store",
     icon: "pi pi-shopping-bag",
     path: "https://store.slavic.media",
-    external: true,
   },
   {
     title: "For clients",

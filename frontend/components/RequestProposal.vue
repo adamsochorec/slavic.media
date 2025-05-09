@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted, reactive } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
+import { useRouter } from "vue-router";
 import eventBus from "@/composables/useEventBus";
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
@@ -12,12 +13,29 @@ const formIdentifier = ref<string>("");
 const config = useRuntimeConfig();
 const formspreeEndpoint = `https://formspree.io/f/${config.public.FORMSPREE}`;
 
+const router = useRouter();
+
 onMounted(() => {
+  // Listen for the custom event to show the popup
   eventBus.on("showRequestAProposal", (identifier: string) => {
     formIdentifier.value = identifier;
     isVisible.value = true;
     Fancybox.show([{ src: "#requestAProposalPopup" }]);
   });
+
+  // Close the popup on route change
+  router.afterEach(() => {
+    if (isVisible.value) {
+      Fancybox.close();
+      isVisible.value = false;
+    }
+  });
+});
+
+onUnmounted(() => {
+  // Clean up event listeners
+  Fancybox.close();
+  isVisible.value = false;
 });
 </script>
 

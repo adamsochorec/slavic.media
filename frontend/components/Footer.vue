@@ -8,11 +8,17 @@ const currentYear = new Date().getFullYear();
 </script>
 
 <template>
-  <footer>
+  <footer aria-labelledby="footer-heading">
+    <span id="footer-heading" class="sr-only">Footer</span>
     <section class="wrapper-wide">
-      <header class="services">
+      <header class="services" aria-labelledby="services-heading">
+        <span id="services-heading" class="sr-only">Our Services</span>
         <section>
-          <b><NuxtLink to="/video">Video&nbsp;Services</NuxtLink></b>
+          <b
+            ><NuxtLink to="/video" aria-label="Video Services"
+              >Video&nbsp;Services</NuxtLink
+            ></b
+          >
           <ul>
             <li>Production</li>
             <li>Colour&nbsp;Grading</li>
@@ -21,16 +27,20 @@ const currentYear = new Date().getFullYear();
           </ul>
         </section>
         <section>
-          <b><NuxtLink to="/photo">Photo&nbsp;Services</NuxtLink></b>
+          <b
+            ><NuxtLink to="/photo" aria-label="Photo Services"
+              >Photo&nbsp;Services</NuxtLink
+            ></b
+          >
           <ul>
             <li>Portrait&nbsp;Photography</li>
             <li>Still&nbsp;Photography</li>
-            <li>Drone&nbsp;Photography Content</li>
-            <li>Outdor&nbsp;Photography</li>
+            <li>Drone&nbsp;Photography&nbsp;Content</li>
+            <li>Outdoor&nbsp;Photography</li>
           </ul>
         </section>
       </header>
-      <hr class="quater" />
+      <hr class="quater" aria-hidden="true" />
 
       <header class="footer">
         <div class="logo-links">
@@ -39,6 +49,7 @@ const currentYear = new Date().getFullYear();
             class="logo"
             viewBox="0 0 740 782"
             xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
           >
             <g filter="url(#filter0_d_29_674)">
               <path
@@ -92,28 +103,39 @@ const currentYear = new Date().getFullYear();
               </filter>
             </defs>
           </svg>
-          <section class="links">
-            <a href="https://store.slavic.media" aria-label="store.slavic.media"
-              >Digital&nbsp;Assets&nbsp;Portal</a
+          <section class="links" aria-labelledby="quick-links-heading">
+            <span id="quick-links-heading" class="sr-only">Quick Links</span>
+            <a
+              href="https://store.slavic.media"
+              aria-label="Visit Digital Assets Portal"
             >
+              Digital&nbsp;Assets&nbsp;Portal
+            </a>
             <a
               href="https://clients.slavic.media"
               target="_blank"
-              aria-label="clients.slavic.media"
-              >Client&nbsp;Portal</a
+              rel="noopener noreferrer"
+              aria-label="Visit Client Portal"
             >
-            <NuxtLink title="Who We Are" to="/about"
-              >Who&nbsp;We&nbsp;Are
+              Client&nbsp;Portal
+            </a>
+            <NuxtLink
+              title="Learn more about us"
+              to="/about"
+              aria-label="Learn more about us"
+            >
+              Who&nbsp;We&nbsp;Are
             </NuxtLink>
             <a
               title="Email us"
               href="mailto:contact@slavic.media"
-              aria-label="Email: contact@slavic.media"
-              >Contact&nbsp;Us</a
+              aria-label="Email us at contact@slavic.media"
             >
+              Contact&nbsp;Us
+            </a>
           </section>
         </div>
-        <nav class="social-icons" aria-label="Social media links">
+        <nav class="social-icons" aria-label="Follow us on social media">
           <SocialIcon url="vimeo.com/slavicmedia" label="Vimeo" id="vimeo" />
           <SocialIcon
             url="linkedin.com/company/slavicmedia/"
@@ -137,36 +159,45 @@ const currentYear = new Date().getFullYear();
           />
         </nav>
       </header>
-      <hr class="quater" />
+      <hr class="quater" aria-hidden="true" />
       <header class="footer" role="contentinfo">
         <section class="copyright">
           <span
-            >Copyright © {{ currentYear }} Slavic Media I/S All rights
-            reserved</span
+            >Copyright © {{ currentYear }} Slavic Media I/S. All rights
+            reserved.</span
           >
         </section>
-        <section class="links">
+        <section class="links" aria-labelledby="footer-links-heading">
+          <span id="footer-links-heading" class="sr-only">Footer Links</span>
           <a
-            aria-label="Press Kit"
+            aria-label="Download our Press Kit"
             href="https://assets.slavic.media/press-kit.zip"
-            title="Assets"
+            title="Download Press Kit"
           >
-            Press&nbsp;Kit</a
+            Press&nbsp;Kit
+          </a>
+          <NuxtLink aria-label="View our Legal page" to="/legal"
+            >Legal</NuxtLink
           >
-          <NuxtLink aria-label="Legal" to="/legal">Legal</NuxtLink>
-          <button @click="revokeConsent" class="cookie">
+          <button
+            @click="revokeConsent"
+            class="cookie"
+            aria-label="Manage cookie preferences"
+          >
             <img
               src="../assets/cookies.svg"
               class="mr-1"
-              alt="privacy options"
+              alt="Cookie icon"
             />Cookies
           </button>
           <a
             target="_blank"
             rel="noopener noreferrer nofollow"
             href="https://datacvr.virk.dk/enhed/virksomhed/44081512?fritekst=slavic%20media&sideIndex=0&size=10"
-            >VAT:&nbsp;DK44081512</a
+            aria-label="View VAT details for Slavic Media"
           >
+            VAT:&nbsp;DK44081512
+          </a>
         </section>
       </header>
     </section>
@@ -196,7 +227,7 @@ footer {
 .links > *:hover {
   text-decoration: underline;
 }
-.links > *:first-child {
+.links > *:nth-child(2) {
   border-left: none;
 }
 .logo-links {
@@ -302,6 +333,9 @@ footer {
   }
   .social-icons > *:first-child {
     margin-left: 0;
+  }
+  .logo {
+    height: var(--grid-gap-2);
   }
 }
 </style>

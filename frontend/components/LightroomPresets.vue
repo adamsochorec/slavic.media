@@ -18,7 +18,6 @@
         <Btn
           tag="a"
           href="https://store.slavic.media"
-          target="_blank"
           icon="sparkles"
           label="Transform Your Photos"
           variant="primary"
