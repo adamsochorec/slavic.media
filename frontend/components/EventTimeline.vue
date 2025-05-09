@@ -19,7 +19,7 @@ onMounted(async () => {
 <template>
   <section class="wrapper-standard" role="region">
     <h2 class="docs reveal" style="font-size: var(--font-size-1)">
-      Company <span class="gradient">Journey</span>
+      Our <span class="gradient">Journey</span>
     </h2>
     <!--  COMPANY TIMELINE START  -->
     <div v-if="isDataLoaded">

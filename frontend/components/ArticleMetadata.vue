@@ -86,7 +86,7 @@ function copyToClipboard(link: string) {
   border-left: var(--border-1);
   border-right: var(--border-1);
   margin: 0 var(--grid-gap-2);
-  padding: 10px var(--grid-gap-2);
+  padding: var(--grid-gap-1) var(--grid-gap-2);
 
   .pi {
     font-size: var(--font-size-7);

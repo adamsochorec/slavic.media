@@ -22,21 +22,7 @@ const title = "About";
     <!--   ABOUT START -->
     <section class="wrapper-standard" role="region">
       <hr class="semi" />
-      <h1 class="docs reveal">
-        <span class="gradient">Slavic Media</span>
-        <span
-          style="
-            font-size: var(--font-size-8) !important;
-            font-family: var(--content-font);
-            font-optical-sizing: auto;
-            font-weight: 100;
-            font-style: normal;
-            vertical-align: text-top;
-          "
-        >
-          I/S</span
-        >
-      </h1>
+      <h1 class="docs reveal">Who <span class="gradient">We</span> Are</h1>
       <p id="about-company" class="reveal">
         Creative & Production studio based in Denmark and Czechia. We tell
         stories with deep eye contact, magnificent shots, and clean designs to

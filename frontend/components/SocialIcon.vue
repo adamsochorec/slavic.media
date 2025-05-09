@@ -13,7 +13,6 @@ const props = defineProps<SocialIcon>();
     target="_blank"
     rel="noopener noreferrer nofollow"
     :aria-label="label"
-    v-tooltip.top="{ value: label, autoHide: true }"
   >
     <i :class="`pi pi-${id}`"></i>
   </a>

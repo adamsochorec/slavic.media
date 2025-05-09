@@ -31,16 +31,7 @@ const props = defineProps<LinkCard>();
   -o-transition: var(--transition-1);
   transition: var(--transition-1);
 }
-.card:hover {
-  -webkit-box-shadow: var(--box-shadow-2);
-  box-shadow: var(--box-shadow-2);
-  -webkit-transform: scale(1.02);
-  -ms-transform: scale(1.02);
-  transform: scale(1.02);
-  -webkit-transition: var(--transition-1);
-  -o-transition: var(--transition-1);
-  transition: var(--transition-1);
-}
+
 h3 {
   font-size: var(--font-size-5);
 

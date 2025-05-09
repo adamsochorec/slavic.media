@@ -8,10 +8,32 @@ const currentYear = new Date().getFullYear();
 </script>
 
 <template>
-  <footer role="contentinfo">
-    <div class="footer-container">
-      <nav>
-        <NuxtLink to="/" aria-label="Home">
+  <footer>
+    <section class="wrapper-wide">
+      <header class="services">
+        <section>
+          <b><NuxtLink to="/video">Video&nbsp;Services</NuxtLink></b>
+          <ul>
+            <li>Production</li>
+            <li>Colour&nbsp;Grading</li>
+            <li>Social&nbsp;Media&nbsp;Content</li>
+            <li>Sound&nbsp;Edit</li>
+          </ul>
+        </section>
+        <section>
+          <b><NuxtLink to="/photo">Photo&nbsp;Services</NuxtLink></b>
+          <ul>
+            <li>Portrait&nbsp;Photography</li>
+            <li>Still&nbsp;Photography</li>
+            <li>Drone&nbsp;Photography Content</li>
+            <li>Outdor&nbsp;Photography</li>
+          </ul>
+        </section>
+      </header>
+      <hr class="quater" />
+
+      <header class="footer">
+        <div class="logo-links">
           <svg
             title="Logo Slavic Media"
             class="logo"
@@ -70,118 +92,121 @@ const currentYear = new Date().getFullYear();
               </filter>
             </defs>
           </svg>
-        </NuxtLink>
-      </nav>
-      <nav class="social-icons" aria-label="Social media links">
-        <SocialIcon url="vimeo.com/slavicmedia" label="Vimeo" id="vimeo" />
-        <SocialIcon
-          url="linkedin.com/company/slavicmedia/"
-          label="LinkedIn"
-          id="linkedin"
-        />
-        <SocialIcon
-          url="youtube.com/@slavicmedia"
-          label="YouTube"
-          id="youtube"
-        />
-        <SocialIcon
-          url="instagram.com/slavic.media/"
-          label="Instagram"
-          id="instagram"
-        />
-        <SocialIcon
-          url="github.com/adamsochorec/slavic.media/"
-          label="GitHub"
-          id="github"
-        />
-      </nav>
-    </div>
-    <hr role="separator" />
-    <div class="footer-container">
-      <nav aria-label="Footer Navigation">
-        <button @click="revokeConsent" class="cookie">
-          <img src="../assets/cookies.svg" alt="privacy options" />
-          &nbsp;&nbsp;<span class="underline">Cookies</span>
-        </button>
-        <span class="separator"></span>
-
-        <NuxtLink aria-label="Legal" to="/legal">
-          <Icon name="octicon:law-16" class="mr-1" />
-          <span class="underline">Legal</span>
-        </NuxtLink>
-        <span class="separator"></span>
-        <a
-          aria-label="Press Kit"
-          href="https://assets.slavic.media/press-kit.zip"
-          title="Assets"
-        >
-          <Icon name="octicon:download-16" class="mr-1" />
-          <span class="underline">Press Kit</span>
-        </a>
-        <span class="separator"></span>
-        <a
-          title="Email us"
-          href="mailto:contact@slavic.media"
-          aria-label="Email: contact@slavic.media"
-        >
-          <Icon name="octicon:mail-24" class="mr-1" />
-          <span class="underline">Contact</span>
-        </a>
-        <span class="separator hide-min"></span>
-        <br class="hide-max" />
-        <span> © {{ currentYear }} Slavic Media I/S </span>
-        <span class="separator"></span>
-        <span>
-          <Icon name="octicon:verified-16" class="mr-1 icon" />
-          VAT: DK44081512
-        </span>
-        <span class="separator hide-min"></span>
-        <br class="hide-max" />
-        <a
-          target="_blank"
-          rel="noopener noreferrer nofollow"
-          href="https://datacvr.virk.dk/enhed/virksomhed/44081512?fritekst=slavic%20media&sideIndex=0&size=10"
-          ><span class="underline">Registered company in Denmark</span>
-          <Icon name="flag:dk-4x3" class="flag" />
-        </a>
-      </nav>
-    </div>
+          <section class="links">
+            <a href="https://store.slavic.media" aria-label="store.slavic.media"
+              >Digital&nbsp;Assets&nbsp;Portal</a
+            >
+            <a
+              href="https://clients.slavic.media"
+              target="_blank"
+              aria-label="clients.slavic.media"
+              >Client&nbsp;Portal</a
+            >
+            <NuxtLink title="Who We Are" to="/about"
+              >Who&nbsp;We&nbsp;Are
+            </NuxtLink>
+            <a
+              title="Email us"
+              href="mailto:contact@slavic.media"
+              aria-label="Email: contact@slavic.media"
+              >Contact&nbsp;Us</a
+            >
+          </section>
+        </div>
+        <nav class="social-icons" aria-label="Social media links">
+          <SocialIcon url="vimeo.com/slavicmedia" label="Vimeo" id="vimeo" />
+          <SocialIcon
+            url="linkedin.com/company/slavicmedia/"
+            label="LinkedIn"
+            id="linkedin"
+          />
+          <SocialIcon
+            url="youtube.com/@slavicmedia"
+            label="YouTube"
+            id="youtube"
+          />
+          <SocialIcon
+            url="instagram.com/slavic.media/"
+            label="Instagram"
+            id="instagram"
+          />
+          <SocialIcon
+            url="github.com/adamsochorec/slavic.media/"
+            label="GitHub"
+            id="github"
+          />
+        </nav>
+      </header>
+      <hr class="quater" />
+      <header class="footer" role="contentinfo">
+        <section class="copyright">
+          <span
+            >Copyright © {{ currentYear }} Slavic Media I/S All rights
+            reserved</span
+          >
+        </section>
+        <section class="links">
+          <a
+            aria-label="Press Kit"
+            href="https://assets.slavic.media/press-kit.zip"
+            title="Assets"
+          >
+            Press&nbsp;Kit</a
+          >
+          <NuxtLink aria-label="Legal" to="/legal">Legal</NuxtLink>
+          <button @click="revokeConsent" class="cookie">
+            <img
+              src="../assets/cookies.svg"
+              class="mr-1"
+              alt="privacy options"
+            />Cookies
+          </button>
+          <a
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://datacvr.virk.dk/enhed/virksomhed/44081512?fritekst=slavic%20media&sideIndex=0&size=10"
+            >VAT:&nbsp;DK44081512</a
+          >
+        </section>
+      </header>
+    </section>
   </footer>
 </template>
 
 <style scoped lang="scss">
-.underline {
-  text-decoration-skip-ink: auto;
+footer {
+  background-color: rgb(var(--dark-grey-color));
+  padding: var(--grid-gap-3) 0;
+  font-family: var(--content-font);
+  font-size: var(--font-size-7);
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  line-height: 1.5;
 }
-.icon:hover {
-  color: unset;
-  cursor: text;
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.logo {
-  height: var(--grid-gap-2);
-
-  path {
-    fill: white;
-  }
-
-  &:hover path {
-    fill: rgb(var(--primary-color));
-  }
-
-  &,
-  &:hover {
-    transition: var(--transition-1);
-  }
+.links > * {
+  border-left: var(--border-1);
+  padding: 0 var(--grid-gap-1);
 }
-
-.flag {
-  opacity: 30%;
-  margin-left: 3px;
-  font-size: var(--font-size-8);
-
-  a:hover & {
-    opacity: 100%;
-  }
+.links > *:hover {
+  text-decoration: underline;
+}
+.links > *:first-child {
+  border-left: none;
+}
+.logo-links {
+  display: flex;
+  align-items: center;
+  gap: var(--grid-gap-2);
+}
+.copyright,
+.services li {
+  color: rgba(255, 255, 255, 0.4);
 }
 .cookie {
   display: inline-flex;
@@ -192,70 +217,91 @@ const currentYear = new Date().getFullYear();
     width: auto;
   }
 }
-footer {
-  padding: var(--grid-gap-3) var(--homepage-padding);
-  background-color: rgb(var(--dark-grey-color));
-  width: 100%;
-  font-family: var(--content-font);
-  font-optical-sizing: auto;
-  font-weight: 100;
-  font-style: normal;
-  hr {
-    margin: var(--grid-gap-1) 0;
-    border-color: rgba(255, 255, 255, 0.3);
-  }
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-    line-height: 2;
-
-    &:last-of-type {
-      display: block;
-      text-align: center;
-    }
-  }
-  .social-icons {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-
-    a:not(:nth-last-child(1)) {
-      margin-right: var(--grid-gap-1);
-    }
-    a:nth-child(5) {
-      margin-right: 0;
-    }
-  }
+.services {
+  display: flex;
+  gap: var(--grid-gap-3);
+  line-height: 2;
 }
-span,
-.footer-container:last-of-type i {
-  color: rgba(255, 255, 255, 0.3);
-
-  a:hover &,
-  button.cookie:hover & {
-    color: white;
-  }
+.services ul {
+  list-style: none;
+  margin: 0;
 }
-a span,
-button span {
+.social-icons > * {
+  margin-left: var(--grid-gap-2);
+}
+.social-icons > *:first-child {
+  margin-left: none;
+}
+.logo {
+  height: var(--grid-gap-3);
+  width: auto;
+  aspect-ratio: 1/1;
+}
+.links > *,
+.social-icons *,
+.services a,
+.logo path {
+  color: rgba(255, 255, 255, 0.6);
+  fill: rgba(255, 255, 255, 0.6);
+}
+.links > *:hover,
+.social-icons *:hover,
+.services a:hover,
+.logo:hover path {
+  color: white;
+  fill: white;
+  cursor: pointer;
+}
+.links > *,
+.links > *:hover,
+.social-icons *,
+.social-icons *:hover,
+.logo,
+.logo:hover path {
   transition: var(--transition-1);
+}
 
-  &:hover {
-    color: white;
-  }
-}
-.hide-max {
-  display: none;
-}
-@media only screen and (max-width: 850px) {
-  .hide-max {
+@media only screen and (max-width: 420px) {
+  .services {
     display: block;
+    justify-content: space-between;
+    align-items: center;
   }
-  .hide-min {
+  .services > *:not(:first-child) {
+    margin-top: var(--grid-gap-2);
+  }
+  .services,
+  .logo-links {
+    gap: 0;
+  }
+  .copyright {
+    margin-bottom: var(--grid-gap-2);
+  }
+}
+@media only screen and (max-width: 500px) {
+  .logo {
     display: none;
   }
-  footer {
-    font-size: var(--font-size-8);
+  .links > * {
+    padding: 0 7px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .footer {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .links > *:first-child {
+    padding-left: 0;
+    line-height: 2;
+  }
+  .social-icons {
+    margin-top: var(--grid-gap-3);
+  }
+  .social-icons > *:first-child {
+    margin-left: 0;
   }
 }
 </style>
