@@ -9,7 +9,7 @@
       aria-hidden="true"
     ></Skeleton>
     <div>
-      <div class="flex mt-4 mb-4">
+      <figure class="flex mt-4 mb-4">
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
           class="mr-2"
@@ -35,7 +35,7 @@
             aria-hidden="true"
           ></Skeleton>
         </div>
-      </div>
+      </figure>
       <Skeleton
         width="100%"
         height="10px"

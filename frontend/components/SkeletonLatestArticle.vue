@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <figure class="container">
     <Skeleton
       style="background-color: rgb(var(--dark-grey-color))"
       height="300px"
@@ -7,7 +7,7 @@
       class="mb-6"
       aria-hidden="true"
     ></Skeleton>
-    <div>
+    <figure>
       <Skeleton
         style="background-color: rgb(var(--dark-grey-color))"
         height="15px"
@@ -65,8 +65,8 @@
           aria-hidden="true"
         ></Skeleton>
       </div>
-    </div>
-  </div>
+    </figure>
+  </figure>
 </template>
 <style scoped lang="scss">
 .container {

@@ -1,6 +1,6 @@
 <template>
   <div class="grid-container skeleton" aria-busy="true" aria-live="polite">
-    <div>
+    <figure>
       <Skeleton
         style="background-color: rgb(var(--dark-grey-color))"
         borderRadius="10px"
@@ -25,8 +25,8 @@
         borderRadius="10px"
         aria-hidden="true"
       ></Skeleton>
-    </div>
-    <div class="second">
+    </figure>
+    <figure class="second">
       <Skeleton
         style="background-color: rgb(var(--dark-grey-color))"
         borderRadius="10px"
@@ -51,8 +51,8 @@
         class="mb-2"
         aria-hidden="true"
       ></Skeleton>
-    </div>
-    <div class="third">
+    </figure>
+    <figure class="third">
       <Skeleton
         style="background-color: rgb(var(--dark-grey-color))"
         borderRadius="10px"
@@ -77,8 +77,8 @@
         borderRadius="10px"
         aria-hidden="true"
       ></Skeleton>
-    </div>
-    <div class="fourth">
+    </figure>
+    <figure class="fourth">
       <Skeleton
         style="background-color: rgb(var(--dark-grey-color))"
         borderRadius="10px"
@@ -103,7 +103,7 @@
         class="mb-2"
         aria-hidden="true"
       ></Skeleton>
-    </div>
+    </figure>
   </div>
 </template>
 <style scoped>

@@ -32,14 +32,13 @@ const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(2, 4);
   >
     <div v-if="filteredDocuments.length" aria-busy="false">
       <hr class="semi" />
-      <h2 id="further-reading-title" class="reveal">
+      <h2 id="further-reading-title" class="docs reveal">
         More from
         <NuxtLink to="/blog" class="gradient">Slavic&nbsp;Media&nbsp;</NuxtLink
         >Blog
       </h2>
-      <hr class="quater reveal" />
       <div class="grid-container">
-        <div
+        <figure
           v-for="article in filteredDocuments.slice(0, itemsToShow)"
           :key="article.slug"
           role="article"
@@ -49,7 +48,7 @@ const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(2, 4);
             :article="article"
             id="article-{{ article.slug }}-title"
           ></BlogCard>
-        </div>
+        </figure>
       </div>
       <div class="flex-center">
         <Btn
@@ -78,7 +77,6 @@ a,
 a:hover {
   box-shadow: none;
 }
-
 .grid-container {
   display: grid;
   grid-template-columns: repeat(1, 1fr);

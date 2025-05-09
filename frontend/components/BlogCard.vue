@@ -22,7 +22,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <article class="blog-card" aria-labelledby="blog-card-title">
+  <article class="blog-card reveal" aria-labelledby="blog-card-title">
     <figure>
       <GalleryCard
         :img="article.thumbnail"
@@ -51,8 +51,10 @@ const props = defineProps<{
 .blog-card {
   display: grid;
   @media only screen and (max-width: 499px) {
-    border-bottom: 1px solid white;
-    padding-bottom: var(--grid-gap-3);
+    padding-bottom: var(--grid-gap-1);
+    &:not(:last-child) {
+      border-bottom: var(--border-1);
+    }
   }
 }
 .gallery-item {

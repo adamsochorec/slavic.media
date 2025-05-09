@@ -156,7 +156,7 @@ onBeforeUnmount(() => {
         aria-busy="false"
       >
         <div class="grid-item reveal">
-          <h1 aria-label="Photo Services">
+          <h1 class="docs" aria-label="Photo Services">
             <span class="gradient"> Photo </span>
             Services
           </h1>
@@ -184,7 +184,7 @@ onBeforeUnmount(() => {
         <hr class="reveal" role="separator" />
         <div class="grid-container caption-container">
           <div class="grid-item reveal">
-            <h2 :id="`gallery-heading-${galleryKey}`">
+            <h2 class="docs" :id="`gallery-heading-${galleryKey}`">
               {{ gallery.title.split(" ")[0] }}
               <span class="gradient">{{ gallery.title.split(" ")[1] }}</span>
             </h2>
@@ -248,10 +248,9 @@ onBeforeUnmount(() => {
       class="wrapper-wide reveal"
       aria-labelledby="video-services-heading"
     >
-      <h3 id="video-services-heading">
+      <h3 class="docs" id="video-services-heading">
         Discover our <span class="gradient">video</span> services
       </h3>
-      <hr class="quater reveal" />
       <FurtherServices :services="videoServices" swiperClass="video" />
     </section>
     <!-- FURTHER SERVICES END -->
@@ -269,5 +268,22 @@ h1 {
 }
 .lightbox {
   padding: 0 var(--homepage-padding) 0 var(--homepage-padding);
+}
+
+@media only screen and (min-width: 415px) {
+  h1.docs,
+  h2.docs {
+    padding-bottom: unset;
+    border-bottom: unset;
+    margin-bottom: unset;
+  }
+}
+@media only screen and (max-width: 415px) {
+  h2.docs {
+    margin-top: calc(2 * var(--grid-gap-3));
+  }
+  #photo hr {
+    display: none;
+  }
 }
 </style>

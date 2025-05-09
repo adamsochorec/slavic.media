@@ -15,7 +15,7 @@ const props = defineProps<GalleryCard>();
 </script>
 
 <template>
-  <article class="gallery-item reveal">
+  <figure class="gallery-item reveal">
     <NuxtLink :to="url" :data-src="`//${url}`">
       <Icon v-if="flag" :name="`flag:${flag}-4x3`" class="note flag" />
       <img
@@ -24,19 +24,19 @@ const props = defineProps<GalleryCard>();
         :alt="alt"
         :title="title"
       />
-      <div class="gallery-item-caption">
+      <figcaption class="gallery-item-caption">
         <i aria-hidden="true" :class="`bubble pi pi-${icon}`"></i>
         <header>
           <span class="title" v-if="title">{{ truncateText(title, 22) }}</span>
         </header>
-        <section>
+        <div>
           <p class="description" v-if="description">
             {{ truncateText(description, 150) }}
           </p>
-        </section>
-      </div>
+        </div>
+      </figcaption>
     </NuxtLink>
-  </article>
+  </figure>
 </template>
 
 <style scoped>

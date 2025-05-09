@@ -10,6 +10,7 @@ interface Article {
   slug: string;
   thumbnail: string;
   title: string;
+  date: string;
   description: string;
   icon: string;
   length: number;
@@ -22,7 +23,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <figcaption class="reveal">
+  <figcaption>
     <header class="metadata gap-3">
       <a
         target="_blank"
@@ -48,12 +49,11 @@ const props = defineProps<{
           <span>{{ article.author.name }}</span>
         </a>
         <br class="hide" />
-        <figure class="submetadata">
-          <span class="pi pi-calendar"></span>
-          {{ ddmmmyyyy(article.date) }}<i class="separator"></i>
-          <span class="pi pi-clock"></span>
-          {{ article.length }} min read
-        </figure>
+        <div class="submetadata">
+          <span class="pi pi-calendar mr-1"></span>{{ ddmmmyyyy(article.date)
+          }}<i class="separator"></i> <span class="pi pi-clock mr-1"></span
+          >{{ article.length }} min read
+        </div>
 
         <br />
       </div>
@@ -62,19 +62,17 @@ const props = defineProps<{
 </template>
 
 <style lang="scss" scoped>
-img {
-  -webkit-animation: skeleton-loading 1s linear infinite alternate;
-  animation: skeleton-loading 1s linear infinite alternate;
-}
 .author {
   font-size: var(--font-size-7);
 }
-.avatar {
-  height: 30px;
+img {
+  height: var(--grid-gap-3);
   width: auto;
   object-fit: cover;
   margin-bottom: var(--grid-gap-2);
   aspect-ratio: 1 / 1;
+  -webkit-animation: skeleton-loading 1s linear infinite alternate;
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 .metadata {
   display: flex;

@@ -139,15 +139,18 @@ const plugins = [lgVideo];
     }
   }
   @media only screen and (max-width: 600px) {
-    border-bottom: 1px solid white;
-    padding-bottom: var(--grid-gap-3);
+    padding-bottom: var(--grid-gap-1);
+    &:not(:last-child) {
+      border-bottom: var(--border-1);
+    }
   }
 }
 img {
   border-radius: var(--border-radius-1);
   -o-object-fit: cover;
   object-fit: cover;
-  aspect-ratio: 2/1;
+  aspect-ratio: 16/9;
+  height: auto;
   -webkit-transition: var(--transition-1);
   -o-transition: var(--transition-1);
   transition: var(--transition-1);

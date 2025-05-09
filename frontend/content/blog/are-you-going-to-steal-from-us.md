@@ -21,9 +21,8 @@ That’s one of the first things we heard when we introduced Slavic Media in Den
 
 :br
 
-*'Why associate yourself with a culture that has a negative reputation?'*
-
-*'Slavic? Isn't that risky?'*
+> "Why associate yourself with a culture that has a negative reputation?"
+:br "Slavic, isn't that risky?"
 
 ::photo
 ---

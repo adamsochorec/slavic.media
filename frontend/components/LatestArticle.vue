@@ -14,7 +14,7 @@ const article = computed(() =>
 
 <template>
   <div>
-    <div class="grid-container reveal" v-if="article">
+    <figure class="grid-container reveal">
       <NuxtLink class="gallery-item" :to="`/blog/${article.slug}`">
         <Icon
           v-if="article.flag"
@@ -37,13 +37,13 @@ const article = computed(() =>
             {{ truncateText(article.title, 70) }}
           </h4>
         </NuxtLink>
-        <p class="reveal">
+        <p>
           {{ truncateText(article.description, 200)
           }}<NuxtLink :to="`/blog/${article.slug}`">more</NuxtLink>
         </p>
         <BlogCardMetadata :article="article" />
       </div>
-    </div>
+    </figure>
   </div>
 </template>
 

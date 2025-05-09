@@ -97,7 +97,7 @@ onUnmounted(() => {
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper" v-if="isDataLoaded" aria-busy="false">
       <!-- Slide -->
-      <div
+      <figure
         v-for="(reel, index) in state.reels"
         :key="index"
         class="swiper-slide"
@@ -108,9 +108,6 @@ onUnmounted(() => {
           :href="`https://${reel.url}`"
           :class="`pi pi-${reel.platform} bubble`"
         >
-          <span class="visually-hidden"
-            >View reel {{ index + 1 }} on {{ reel.platform }}</span
-          >
         </a>
         <Icon
           v-if="reel.flag"
@@ -129,7 +126,10 @@ onUnmounted(() => {
         >
           <track kind="captions" srclang="en" label="English captions" />
         </video>
-      </div>
+        <figcaption class="visually-hidden">
+          Reel {{ index + 1 }} on {{ reel.platform }}. Click to view the reel.
+        </figcaption>
+      </figure>
     </div>
     <div class="swiper-pagination" v-if="isDataLoaded" aria-busy="false"></div>
 

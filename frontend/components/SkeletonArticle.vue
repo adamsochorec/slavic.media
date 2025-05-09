@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <figure>
     <Skeleton
       style="background-color: rgb(var(--dark-grey-color))"
       borderRadius="10px"
@@ -14,7 +14,7 @@
       width="50%"
       class="mb-4"
     ></Skeleton>
-    <div class="flex justify-between mt-4">
+    <figure class="flex justify-between mt-4">
       <div class="flex mb-4">
         <Skeleton
           style="background-color: rgb(var(--dark-grey-color))"
@@ -43,7 +43,7 @@
           ></Skeleton>
         </div>
       </div>
-    </div>
+    </figure>
     <Skeleton
       style="background-color: rgb(var(--dark-grey-color))"
       class="mb-4"
@@ -128,5 +128,5 @@
       width="95%"
       class="mb-4"
     ></Skeleton>
-  </div>
+  </figure>
 </template>

@@ -112,12 +112,11 @@ const description =
     </section>
     <!-- REVIEWS END -->
     <article class="wrapper-wide">
-      <hr class="reveal" />
-      <h3 class="latest reveal">
+      <hr class="semi" />
+      <h3 class="docs latest reveal">
         Latest Reading in Our
         <NuxtLink to="/blog" class="gradient">Blog</NuxtLink>
       </h3>
-      <br />
       <latestArticle></latestArticle>
       <div class="flex-center">
         <Btn

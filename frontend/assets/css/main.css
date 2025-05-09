@@ -136,6 +136,11 @@ hr:not(hr.semi) {
 #homepage hr.bodyxfooter {
   display: none;
 }
+.separator::after {
+  content: "⋅";
+  margin: 0 4px;
+  font-size: inherit;
+}
 /* HR / SEPARATORS END */
 
 /* BROWSER SETTINGS START */
@@ -230,6 +235,11 @@ main li {
 .highlited {
   color: rgba(var(--primary-color), 1);
 }
+.docs {
+  padding-bottom: var(--grid-gap-1);
+  border-bottom: var(--border-1);
+  margin-bottom: var(--grid-gap-2);
+}
 ul,
 ol {
   margin-left: var(--grid-gap-3);
@@ -238,10 +248,10 @@ ol {
   z-index: -9999999;
   font-size: 0.1px !important;
 }
-.separator::after {
-  content: "⋅";
-  margin: 0 4px;
-  font-size: inherit;
+blockquote * {
+  font-style: italic !important;
+  border-left: 5px solid rgba(var(--primary-color), 0.4);
+  padding-left: var(--grid-gap-1);
 }
 /* LINK START */
 a,
@@ -446,7 +456,7 @@ small a {
 
 /* VIDEO CONTROLS START */
 .controls {
-  right: var(--grid-gap-2);
+  left: var(--grid-gap-2);
   gap: var(--grid-gap-1);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -689,34 +699,35 @@ i.pi-arrow-right:hover {
   line-height: 0.65;
   margin: 10px 10px 10px 0;
 }
-.article-content h2 {
+.rendered-content h2 {
   font-size: var(--font-size-4);
 }
-.article-content h2,
-.article-content h3,
-.article-content h4,
-.article-content h5,
-.article-content h6 {
-  margin: var(--grid-gap-3) 0 var(--grid-gap-1) 0;
+.content h1,
+.rendered-content h2,
+.rendered-content h3,
+.rendered-content h4,
+.rendered-content h5,
+.rendered-content h6 {
   padding-bottom: var(--grid-gap-1);
   border-bottom: var(--border-1);
 }
-.article-content h2 a,
-.article-content h4 a,
-.article-content h5 a,
-.article-content h6 a {
+.rendered-content h2,
+.rendered-content h4,
+.rendered-content h5,
+.rendered-content h6 {
+  margin: var(--grid-gap-3) 0 var(--grid-gap-1) 0;
   -webkit-box-shadow: none;
   box-shadow: none;
   text-decoration: none;
   cursor: text;
 }
-.article-content img,
-.article-content iframe,
+.rendered-content img,
+.rendered-content iframe,
 #map {
   border-radius: var(--border-radius-1);
   margin: var(--grid-gap-2) 0;
 }
-.article-content iframe {
+.rendered-content iframe {
   height: 100%;
   aspect-ratio: 16/9;
 }
@@ -757,7 +768,6 @@ iframe.spotify {
     height: 400px;
   }
 }
-
 @media only screen and (max-width: 667px) {
   .mfp-iframe-holder .mfp-content {
     max-width: 100%;

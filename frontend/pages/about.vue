@@ -22,7 +22,7 @@ const title = "About";
     <!--   ABOUT START -->
     <section class="wrapper-standard" role="region">
       <hr class="semi" />
-      <h1 class="reveal">
+      <h1 class="docs reveal">
         <span class="gradient">Slavic Media</span>
         <span
           style="
@@ -42,6 +42,15 @@ const title = "About";
         stories with deep eye contact, magnificent shots, and clean designs to
         help your project stand out from the noise.
       </p>
+      <Employees />
+      <p class="reveal">
+        Slavic Media is headquartered in Kolding, Denmark, with remote team
+        members distributed across the kingdom and Czechia. We are bootstrapped
+        (self-funded) and profitable.<br />
+        We’re always on the lookout to add kind, thoughtful, and exceptionally
+        talented individuals to our team.
+      </p>
+
       <iframe
         id="map"
         class="reveal"
@@ -52,17 +61,10 @@ const title = "About";
         style="margin: var(--grid-gap-2) 0"
       ></iframe>
       <p class="reveal">
-        Slavic Media is headquartered in Kolding, Denmark, with remote team
-        members distributed across the kingdom and Czechia. We are bootstrapped
-        (self-funded) and profitable.<br />
-        We’re always on the lookout to add kind, thoughtful, and exceptionally
-        talented individuals to our team.<br />
         <a href="mailto:contact@slavic.media">Drop us a line</a> if you're
         motivated by the intersection of individual freelance professionals.
       </p>
       <br />
-      <Employees />
-      <hr class="reveal" role="separator" />
     </section>
     <!--   ABOUT END -->
     <EventTimeline />

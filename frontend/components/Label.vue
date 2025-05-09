@@ -6,12 +6,12 @@ interface Label {
 const props = defineProps<Label>();
 </script>
 <template>
-  <div class="chip">
+  <figure class="chip">
     <span :class="icon"></span>
     <span>
       {{ label }}
     </span>
-  </div>
+  </figure>
 </template>
 
 <style scoped lang="scss">

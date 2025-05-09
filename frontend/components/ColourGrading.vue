@@ -63,7 +63,11 @@ onUnmounted(() => {
     </h2>
     <div class="swiper-wrapper" v-if="isDataLoaded" aria-busy="false">
       <!-- Slide -->
-      <div class="swiper-slide" v-for="(slide, index) in slides" :key="index">
+      <figure
+        class="swiper-slide"
+        v-for="(slide, index) in slides"
+        :key="index"
+      >
         <ImageCompare aria-label="Compare Images">
           <template #left>
             <Label :label="slide.log" class="note"></Label>
@@ -91,7 +95,7 @@ onUnmounted(() => {
             />
           </template>
         </ImageCompare>
-      </div>
+      </figure>
     </div>
     <div class="swiper-pagination" v-if="isDataLoaded" aria-busy="false"></div>
   </section>

@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { ref } from "vue";
-
 // Meta SEO
 const description =
-  "Before using Slavic Media services or digital products, you may review the terms and conditions of end user software license agreements.";
+  "From inspiring stories to cinematic visuals, each video project is crafted to captivate, impress, and showcase your vision with creative precision.";
 const title = "Video";
 
 // Further services matrix
@@ -51,7 +49,7 @@ const photoServices = [
       <!-- VIDEO PROJECTS START -->
       <div class="grid-container caption-container" aria-busy="false">
         <div class="grid-item reveal">
-          <h1 id="video-services-heading">
+          <h1 class="docs" id="video-services-heading">
             <span class="gradient"> Video </span>
             Services
           </h1>
@@ -76,11 +74,11 @@ const photoServices = [
       <!-- VIDEO PROJECTS END -->
       <section aria-labelledby="colougrading-services-heading">
         <div id="colour-grading"></div>
-        <hr class="reveal" role="separator" />
+        <hr class="hide reveal" role="separator" />
         <!-- COLOUR GRADING START-->
         <div class="grid-container caption-container">
           <div class="grid-item reveal">
-            <h2 id="colougrading-services-heading">
+            <h2 class="docs" id="colougrading-services-heading">
               Colour <span class="gradient">Grading</span>
             </h2>
           </div>
@@ -105,11 +103,11 @@ const photoServices = [
       </section>
       <!-- COLOUR GRADING END-->
       <div id="content"></div>
-      <hr class="reveal" role="separator" />
+      <hr class="hide reveal" role="separator" />
       <!-- CONTENT START -->
       <div class="grid-container caption-container">
         <div class="grid-item reveal">
-          <h2 aria-label="Engaging Content">
+          <h2 class="docs" aria-label="Engaging Content">
             Engaging <span class="gradient">Content</span>
           </h2>
         </div>
@@ -131,14 +129,21 @@ const photoServices = [
       <br />
       <Reels />
       <!-- CONTENT END -->
-      <hr class="reveal" role="separator" />
+      <hr class="hide reveal" role="separator" />
       <div id="sound-edit"></div>
       <!-- SOUND EDIT START -->
       <div class="grid-container caption-container">
         <div class="grid-item reveal">
-          <h2 aria-label="Video Services">
+          <h2 class="docs" aria-label="Video Services">
             Sound<span class="gradient"> Edit</span>
           </h2>
+        </div>
+        <div class="grid-item reveal">
+          <p>
+            Production sound (the dialogue and ambient noises captured during
+            shooting), foley (reproduced sounds), Walla (crowd noises), SFX
+            (sound effects), Music
+          </p>
           <Btn
             tag="button"
             label="Request a proposal"
@@ -146,18 +151,6 @@ const photoServices = [
             variant="primary"
             @click="showRequestAProposal('sound design')"
           />
-        </div>
-        <div class="grid-item reveal">
-          <ul style="list-style: circle; color: white">
-            <li>
-              Production sound (the dialogue and ambient noises captured during
-              shooting)
-            </li>
-            <li>Foley (reproduced sounds)</li>
-            <li>Walla (crowd noises)</li>
-            <li>SFX (sound effects)</li>
-            <li>Music</li>
-          </ul>
         </div>
       </div>
       <br />
@@ -183,5 +176,21 @@ const photoServices = [
 <style lang="scss" scoped>
 h1 {
   text-transform: capitalize;
+}
+@media only screen and (min-width: 415px) {
+  h1.docs,
+  h2.docs {
+    padding-bottom: unset;
+    border-bottom: unset;
+    margin-bottom: unset;
+  }
+}
+@media only screen and (max-width: 415px) {
+  h2.docs {
+    margin-top: calc(2 * var(--grid-gap-3));
+  }
+  hr.hide {
+    display: none;
+  }
 }
 </style>

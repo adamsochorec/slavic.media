@@ -11,11 +11,11 @@ const props = defineProps<LinkCard>();
 </script>
 <template>
   <NuxtLink :to="url">
-    <div class="card">
+    <figure class="card">
       <span :class="`pi pi-${icon} bubble`"></span>
       <h3>{{ title }}</h3>
-      <span class="description"> {{ truncateText(description, 83) }} </span>
-    </div>
+      <div class="description">{{ truncateText(description, 83) }}</div>
+    </figure>
   </NuxtLink>
 </template>
 <style lang="scss" scoped>

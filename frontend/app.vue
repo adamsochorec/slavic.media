@@ -34,15 +34,15 @@ function reveal() {
 
   reveals.forEach((reveal) => {
     const revealtop = reveal.getBoundingClientRect().top;
-    const revealpoint = 0; // Trigger as soon as it enters the viewport
+    const revealpoint = 0; // Trigger as soon as the element is in the viewport
 
     if (revealtop < windowHeight - revealpoint) {
       reveal.classList.add("active");
     }
   });
 }
+
 onMounted(() => {
-  // Observer for reveal animations
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -52,26 +52,29 @@ onMounted(() => {
       });
     },
     {
-      threshold: 0.1, // Adjust as needed
+      threshold: 0.01, // Trigger as soon as a small part of the element is visible
     }
   );
-  // Apply observer to initial reveals
+
   const applyObservers = () => {
     const reveals = document.querySelectorAll<HTMLElement>(
       ".reveal:not(.observed)"
     );
     reveals.forEach((reveal) => {
       observer.observe(reveal);
-      reveal.classList.add("observed"); // Mark as observed to avoid duplicate observing
+      reveal.classList.add("observed");
     });
   };
-  applyObservers(); // Initial check
-  // Fallback for browsers without IntersectionObserver
+
+  // Apply observers and reveal elements immediately on page load
+  applyObservers();
+  reveal(); // Ensure elements are revealed immediately on load
+
   window.addEventListener("scroll", reveal);
-  reveal();
-  // Mutation Observer to watch for new elements
+
   const mutationObserver = new MutationObserver(() => {
     applyObservers();
+    reveal(); // Re-check visibility when DOM changes
   });
   mutationObserver.observe(document.body, {
     childList: true,

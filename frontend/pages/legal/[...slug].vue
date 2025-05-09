@@ -35,14 +35,12 @@ const { data: document } = await useAsyncData(`legal-${slug}`, () => {
       </div>
     </section>
     <section
-      class="wrapper-wide"
+      class="wrapper-wide content"
       role="region"
       aria-label="Main Article Content"
     >
       <hr class="semi" />
-      <p class="reveal">{{ document?.description }}</p>
-      <hr class="reveal" />
-      <ContentRenderer :value="document" class="article-content reveal" />
+      <ContentRenderer :value="document" class="rendered-content reveal" />
     </section>
   </main>
 </template>

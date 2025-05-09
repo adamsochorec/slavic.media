@@ -58,7 +58,7 @@ After an hour of searching, we realized that the stones were not in the location
 :br
 In addition to bush crafting, we also attended a free induction lecture on [Brazilian jiu-jitsu](https://en.wikipedia.org/wiki/Brazilian_jiu-jitsu) at a [Umeå Kampcenter](http://www.umeakampcenter.se) later that day.
 :br
-> *BJJ focuses on taking an opponent to the ground, controlling them, gaining a dominant position, and using various techniques to force them into submission through joint locks or choke holds. —Wikipedia*
+> BJJ focuses on taking an opponent to the ground, controlling them, gaining a dominant position, and using various techniques to force them into submission through joint locks or choke holds —Wikipedia
 :br
 ::photo
 ---

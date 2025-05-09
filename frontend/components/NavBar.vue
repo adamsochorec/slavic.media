@@ -149,7 +149,7 @@ function header() {
           <img
             class="logo"
             alt="Logo Slavic Media"
-            src="https://cdn.slavic.media/img/Primary-1/height=80"
+            src="https://cdn.slavic.media/img/Primary-1/public"
           />
         </NuxtLink>
         <button

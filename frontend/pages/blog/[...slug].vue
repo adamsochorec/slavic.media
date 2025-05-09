@@ -66,26 +66,26 @@ onBeforeUnmount(() => {
       />
     </Head>
     <section
-      class="wrapper-wide"
+      class="wrapper-wide content reveal"
       role="region"
       aria-label="Main Article Content"
     >
-      <h1 class="reveal">{{ document?.title }}</h1>
+      <h1>{{ document.title }}</h1>
       <ArticleMetadata
-        class="reveal"
-        :id="document.slug"
+        :slug="document.slug"
         :author="{
-          id: document?.author.id,
-          name: document?.author.name,
+          id: document.author.id,
+          name: document.author.name,
+          department: document.author.department,
           linkedin: document?.author.linkedin,
         }"
         :metadata="{
           date: document.date,
           length: document.length,
-          linkedin: document.linkedin,
+          linkedin: document?.linkedin,
         }"
       />
-      <ContentRenderer :value="document" class="article-content" />
+      <ContentRenderer :value="document" class="rendered-content" />
     </section>
     <!-- LIGHTROOM PRESETS -->
     <LightroomPresets aria-busy="false"></LightroomPresets
@@ -93,10 +93,6 @@ onBeforeUnmount(() => {
   </main>
 </template>
 <style lang="scss" scoped>
-h1 {
-  font-size: var(--font-size-2);
-}
-
 .swiper-videos {
   padding-bottom: calc(var(--grid-gap-2) * 2);
 }

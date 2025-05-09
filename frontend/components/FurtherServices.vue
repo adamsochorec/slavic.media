@@ -65,7 +65,7 @@ onMounted(() => {
   >
     <h2 id="services-heading" class="visually-hidden">Our Services</h2>
     <div class="swiper-wrapper" aria-busy="false">
-      <div
+      <figure
         v-for="service in services"
         :key="service.id"
         role="group"
@@ -78,7 +78,7 @@ onMounted(() => {
           :icon="service.icon"
           :description="service.description"
         />
-      </div>
+      </figure>
     </div>
     <div class="swiper-pagination" aria-busy="false"></div>
   </section>

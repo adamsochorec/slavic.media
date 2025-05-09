@@ -3,7 +3,6 @@ slug: cookie-policy
 date: 2025-04-27
 ---
 
-# Cookie Policy
 This Cookie Policy (“Policy”) is meant to explain the type of cookies and other tracking technologies that this website may place on your device to improve the services and your experience when visiting us.
 
 ## What are cookies?

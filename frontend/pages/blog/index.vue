@@ -50,7 +50,6 @@ const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(6, 6);
           ></BlogCard>
         </div>
       </section>
-      <br />
       <div class="flex-center">
         <Btn
           tag="button"

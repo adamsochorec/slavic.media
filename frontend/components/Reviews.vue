@@ -123,7 +123,7 @@ onUnmounted(() => {
     <h2 id="reviews-heading" class="visually-hidden">Customer Reviews</h2>
     <div class="swiper-wrapper" v-if="isDataLoaded" aria-busy="false">
       <!-- Slide -->
-      <div
+      <figure
         v-for="review in state.reviews"
         :key="review._id"
         class="swiper-slide"
@@ -163,7 +163,7 @@ onUnmounted(() => {
         <p class="reviews-message" id="`review-${review._id}`">
           {{ review.message }}
         </p>
-      </div>
+      </figure>
     </div>
     <div class="swiper-pagination" v-if="isDataLoaded" aria-busy="false"></div>
     <SkeletonSwiper v-else aria-busy="true" />

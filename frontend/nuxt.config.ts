@@ -4,8 +4,6 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-05-07",
   runtimeConfig: {
     public: {
-      GOOGLE_ANALYTICS: process.env.GOOGLE_ANALYTICS,
-      CHATWAY: process.env.CHATWAY,
       FORMSPREE: process.env.FORMSPREE,
     },
   },
@@ -52,7 +50,7 @@ export default defineNuxtConfig({
         {
           rel: "icon",
           type: "image/x-icon",
-          href: "https://cdn.slavic.media/img/Favicon-2/height=100",
+          href: "https://cdn.slavic.media/img/Favicon-2/public",
         },
       ],
       charset: "utf-16",

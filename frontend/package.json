@@ -38,6 +38,7 @@
     "@iconify-json/flag": "^1.2.5",
     "@iconify-json/material-symbols": "^1.2.19",
     "@nuxtjs/tailwindcss": "^6.13.2",
-    "@types/node": "^22.15.14"
+    "@types/node": "^22.15.14",
+    "sass-loader": "^16.0.5"
   }
 }

@@ -128,7 +128,7 @@ onUnmounted(() => {
         id="employeeGallery"
       >
         <!-- Swiper slide for each employee -->
-        <div
+        <figure
           v-for="employee in state.employees"
           :key="employee._id"
           class="swiper-slide"
@@ -220,7 +220,7 @@ onUnmounted(() => {
               {{ employee.name }}
             </h4>
           </section>
-        </div>
+        </figure>
       </div>
 
       <!-- Skeleton loader for loading state -->
@@ -240,6 +240,9 @@ onUnmounted(() => {
 </template>
 
 <style scoped lang="scss">
+.swiper {
+  margin: var(--grid-gap-3) 0;
+}
 .swiper-employees {
   padding-bottom: calc(var(--grid-gap-2) * 2);
 }

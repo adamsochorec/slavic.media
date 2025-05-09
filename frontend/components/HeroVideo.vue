@@ -54,7 +54,7 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
 <style scoped>
 .link {
   position: absolute;
-  left: var(--grid-gap-2);
+  right: var(--grid-gap-2);
 }
 .showcase {
   height: var(--dimension-1);

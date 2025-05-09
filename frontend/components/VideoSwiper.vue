@@ -61,7 +61,7 @@ onMounted(() => {
       role="region"
     >
       <div class="swiper-wrapper" aria-busy="false">
-        <div
+        <figure
           v-for="video in videos"
           :key="video.url"
           class="swiper-slide"
@@ -75,7 +75,7 @@ onMounted(() => {
             allowfullscreen
             :title="`${video.title} | Slavic Media`"
           ></iframe>
-        </div>
+        </figure>
       </div>
       <div class="swiper-pagination" aria-busy="false"></div>
     </section>
