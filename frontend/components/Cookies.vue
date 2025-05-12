@@ -151,7 +151,7 @@ onMounted(() => {
   </transition>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .wrapper {
   position: fixed;
   bottom: var(--grid-gap-2);

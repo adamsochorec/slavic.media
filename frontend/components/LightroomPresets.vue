@@ -28,7 +28,7 @@
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="postcss">
 .banner {
   height: 240px;
   justify-content: center;
@@ -44,38 +44,44 @@
   );
   background-size: 300% 300%;
   animation: gradientAnimation 14s ease infinite;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+    animation: blobAnimation 20s ease-in-out infinite;
+    z-index: 0;
+  }
+
+  &::before {
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+  }
+
+  &::after {
+    width: 500px;
+    height: 500px;
+    bottom: -150px;
+    right: -150px;
+    animation-delay: 3s;
+  }
+
+  @media only screen and (max-width: 500px) {
+    height: var(--dimension-2);
+  }
 }
+
 .pi-sparkles::after {
   content: " Want the look?";
   font-family: var(--logo-font);
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
-}
-.banner::before,
-.banner::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
-  animation: blobAnimation 20s ease-in-out infinite;
-  z-index: 0;
-}
-
-.banner::before {
-  width: 400px;
-  height: 400px;
-  top: -100px;
-  left: -100px;
-  animation-delay: 0s;
-}
-
-.banner::after {
-  width: 500px;
-  height: 500px;
-  bottom: -150px;
-  right: -150px;
-  animation-delay: 3s;
 }
 
 @keyframes gradientAnimation {
@@ -89,6 +95,7 @@
     background-position: 0% 50%;
   }
 }
+
 @keyframes blobAnimation {
   0%,
   100% {
@@ -98,37 +105,34 @@
     transform: scale(1.2) translate(50px, 50px);
   }
 }
+
 .title {
   position: relative;
   text-align: center;
   margin-bottom: var(--grid-gap-2);
   padding: var(--grid-gap-2);
   z-index: 1;
+
+  @media only screen and (max-width: 900px) {
+    width: 80%;
+  }
+
+  @media only screen and (min-width: 900px) {
+    width: 30%;
+  }
 }
 
 @media only screen and (max-width: 500px) {
   p {
     font-size: var(--font-size-8);
   }
-  .banner {
-    height: var(--dimension-2);
-  }
 }
 
 @media only screen and (max-width: 900px) {
-  .title {
-    width: 80%;
-  }
   .gradient,
   .gradient::after,
   .gradient::before {
     font-size: var(--font-size-2);
-  }
-}
-
-@media only screen and (min-width: 900px) {
-  .title {
-    width: 30%;
   }
 }
 </style>

@@ -73,7 +73,7 @@ function copyToClipboard(link: string) {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
 .metadata-container {
   display: flex;
   margin: var(--grid-gap-1) 0;

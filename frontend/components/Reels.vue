@@ -137,7 +137,7 @@ onUnmounted(() => {
   </section>
 </template>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
 .swiper-reels {
   padding-bottom: calc(var(--grid-gap-2) * 2);
 

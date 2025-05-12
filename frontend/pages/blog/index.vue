@@ -71,7 +71,7 @@ const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(6, 6);
     </section>
   </main>
 </template>
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .grid-container {
   display: grid;
   grid-template-columns: repeat(1, 1fr);

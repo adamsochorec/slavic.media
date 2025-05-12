@@ -2,8 +2,7 @@
   <div class="loader-container"><span class="loader"></span></div>
 </template>
 
-<style scoped lang="scss">
-/* LOADER START */
+<style scoped lang="postcss">
 .loader-container {
   position: fixed;
   top: 0;

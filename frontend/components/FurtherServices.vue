@@ -83,7 +83,7 @@ onMounted(() => {
     <div class="swiper-pagination" aria-busy="false"></div>
   </section>
 </template>
-<style scoped lang="scss">
+<style scoped lang="postcss">
 .swiper {
   padding-bottom: calc(var(--grid-gap-2) * 3);
 }

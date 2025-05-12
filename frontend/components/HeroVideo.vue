@@ -51,7 +51,7 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
   </section>
 </template>
 
-<style scoped>
+<style lang="postcss" scoped>
 .link {
   position: absolute;
   right: var(--grid-gap-2);
@@ -76,22 +76,22 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
   background-position: center;
   background-size: cover;
   z-index: -1;
-}
-.video-container iframe {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 177.77777778vh;
-  height: 56.25vw;
-  min-width: 100%;
-  min-height: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
 
+  iframe {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 177.77777778vh;
+    height: 56.25vw;
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
 @media only screen and (max-width: 415px) {
   .video-container,
   .showcase {

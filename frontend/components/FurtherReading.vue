@@ -72,7 +72,7 @@ const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(2, 4);
   </section>
 </template>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
 a,
 a:hover {
   box-shadow: none;

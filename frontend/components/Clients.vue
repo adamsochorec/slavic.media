@@ -29,7 +29,7 @@ onMounted(() => {
   });
 });
 </script>
-<style scoped lang="scss">
+<style scoped lang="postcss">
 .swiper-clients {
   .swiper-slide {
     text-align: center;
@@ -68,8 +68,8 @@ polygon {
   g {
     transition: var(--transition-1);
     -webkit-transition: var(--transition-1);
-    -moz-transition: var(--transition-1); // Firefox
-    -ms-transition: var(--transition-1); // Edge
+    -moz-transition: var(--transition-1);
+    -ms-transition: var(--transition-1);
     -o-transition: var(--transition-1);
   }
 }

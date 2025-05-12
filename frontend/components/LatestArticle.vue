@@ -47,7 +47,7 @@ const article = computed(() =>
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
 .gallery-item {
   position: relative;
   overflow: hidden;

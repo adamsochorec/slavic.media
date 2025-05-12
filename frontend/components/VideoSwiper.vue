@@ -82,7 +82,7 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
 .swiper-video {
   padding-bottom: calc(var(--grid-gap-2) * 2);
   border-radius: 10px;

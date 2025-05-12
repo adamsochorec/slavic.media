@@ -21,7 +21,7 @@ const updateDimensions = (event: Event) => {
 </script>
 
 <template>
-<!--
+  <!--
 <a
   :href="`https://cdn.slavic.media/img/${id}/public`"
   :title="title"
@@ -32,14 +32,10 @@ const updateDimensions = (event: Event) => {
 >
 </a>
 -->
-    <img
-      :src="`https://cdn.slavic.media/img/${id}/public`"
-      :alt="alt"
-    />
-
+  <img :src="`https://cdn.slavic.media/img/${id}/public`" :alt="alt" />
 </template>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
 /*
 img,
 a {

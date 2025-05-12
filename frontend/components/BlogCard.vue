@@ -47,7 +47,7 @@ const props = defineProps<{
   </article>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .blog-card {
   display: grid;
   @media only screen and (max-width: 499px) {

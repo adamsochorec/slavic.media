@@ -18,7 +18,7 @@ const props = defineProps<LinkCard>();
     </figure>
   </NuxtLink>
 </template>
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .card {
   height: 160px;
   background-color: rgb(var(--dark-grey-color));

@@ -123,9 +123,10 @@ footer {
 hr {
   border: var(--border-1);
   z-index: 3;
-}
-hr.quater {
-  margin: var(--grid-gap-3) 0 !important;
+
+  hr.quater {
+    margin: var(--grid-gap-3) 0 !important;
+  }
 }
 hr:not(hr.semi) {
   margin: 60px 0;
@@ -390,18 +391,19 @@ lite-vimeo {
 small a {
   color: white !important;
 }
-.row img {
-  height: unset;
-  width: unset;
-  -webkit-box-shadow: var(--box-shadow-1);
-  box-shadow: var(--box-shadow-1);
-}
 .row {
   display: -ms-flexbox; /* IE10 */
   display: -webkit-box;
   display: flex;
   -ms-flex-wrap: wrap; /* IE10 */
   flex-wrap: wrap;
+
+  img {
+    height: unset;
+    width: unset;
+    -webkit-box-shadow: var(--box-shadow-1);
+    box-shadow: var(--box-shadow-1);
+  }
 }
 .columns {
   display: -webkit-box;

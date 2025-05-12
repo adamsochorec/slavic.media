@@ -239,7 +239,7 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
 .swiper {
   margin: var(--grid-gap-3) 0;
 }

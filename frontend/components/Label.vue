@@ -14,7 +14,7 @@ const props = defineProps<Label>();
   </figure>
 </template>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
 .chip {
   font-size: var(--font-size-8);
   background-color: rgba(var(--dark-grey-color), 0.3);

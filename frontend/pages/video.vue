@@ -164,16 +164,21 @@ const photoServices = [
     <!-- LIGHTROOM PRESETS END -->
     <hr class="semi" />
     <!-- FURTHER SERVICES START -->
-    <div id="services" class="wrapper-wide reveal">
-      <h3>Discover our <span class="gradient">photo</span> services</h3>
-      <hr class="quater reveal" />
+    <section
+      id="services"
+      class="wrapper-wide reveal"
+      aria-labelledby="photo-services-heading"
+    >
+      <h3 class="docs" id="photo-services-heading">
+        Discover our <span class="gradient">photo</span> services
+      </h3>
       <FurtherServices :services="photoServices" swiperClass="photo" />
-    </div>
+    </section>
     <!-- FURTHER SERVICES END -->
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 h1 {
   text-transform: capitalize;
 }

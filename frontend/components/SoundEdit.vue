@@ -31,20 +31,21 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
   </section>
 </template>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
 .video-container {
   position: relative;
   width: 100%;
   aspect-ratio: 16/9;
   border-radius: var(--border-radius-1);
   overflow: hidden;
-}
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-.controls {
-  bottom: var(--grid-gap-2);
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .controls {
+    bottom: var(--grid-gap-2);
+  }
 }
 </style>

@@ -92,13 +92,14 @@ onBeforeUnmount(() => {
     ><FurtherReading :excludeSlug="document.slug" />
   </main>
 </template>
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .swiper-videos {
   padding-bottom: calc(var(--grid-gap-2) * 2);
-}
-.swiper-videos .swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>

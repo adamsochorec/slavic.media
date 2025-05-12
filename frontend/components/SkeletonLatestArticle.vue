@@ -16,7 +16,6 @@
         class="mb-2"
         aria-hidden="true"
       ></Skeleton>
-
       <Skeleton
         style="background-color: rgb(var(--dark-grey-color))"
         height="15px"
@@ -68,7 +67,7 @@
     </figure>
   </figure>
 </template>
-<style scoped lang="scss">
+<style scoped lang="postcss">
 .container {
   display: grid;
   grid-template-columns: 60% 38%;

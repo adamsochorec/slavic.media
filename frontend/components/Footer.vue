@@ -35,7 +35,7 @@ const currentYear = new Date().getFullYear();
           <ul>
             <li>Portrait&nbsp;Photography</li>
             <li>Still&nbsp;Photography</li>
-            <li>Drone&nbsp;Photography&nbsp;Content</li>
+            <li>Aerial&nbsp;Photography</li>
             <li>Outdoor&nbsp;Photography</li>
           </ul>
         </section>
@@ -108,30 +108,26 @@ const currentYear = new Date().getFullYear();
             <a
               href="https://store.slavic.media"
               aria-label="Visit Digital Assets Portal"
+              >Digital&nbsp;Assets&nbsp;Portal</a
             >
-              Digital&nbsp;Assets&nbsp;Portal
-            </a>
             <a
               href="https://clients.slavic.media"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit Client Portal"
+              >Client&nbsp;Portal</a
             >
-              Client&nbsp;Portal
-            </a>
             <NuxtLink
               title="Learn more about us"
               to="/about"
               aria-label="Learn more about us"
+              >Who&nbsp;We&nbsp;Are</NuxtLink
             >
-              Who&nbsp;We&nbsp;Are
-            </NuxtLink>
             <a
               title="Email us"
               href="mailto:contact@slavic.media"
               aria-label="Email us at contact@slavic.media"
-            >
-              Contact&nbsp;Us
+              >Contact&nbsp;Us
             </a>
           </section>
         </div>
@@ -173,9 +169,8 @@ const currentYear = new Date().getFullYear();
             aria-label="Download our Press Kit"
             href="https://assets.slavic.media/press-kit.zip"
             title="Download Press Kit"
+            >Press&nbsp;Kit</a
           >
-            Press&nbsp;Kit
-          </a>
           <NuxtLink aria-label="View our Legal page" to="/legal"
             >Legal</NuxtLink
           >
@@ -195,16 +190,15 @@ const currentYear = new Date().getFullYear();
             rel="noopener noreferrer nofollow"
             href="https://datacvr.virk.dk/enhed/virksomhed/44081512?fritekst=slavic%20media&sideIndex=0&size=10"
             aria-label="View VAT details for Slavic Media"
+            >VAT:&nbsp;DK44081512</a
           >
-            VAT:&nbsp;DK44081512
-          </a>
         </section>
       </header>
     </section>
   </footer>
 </template>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
 footer {
   background-color: rgb(var(--dark-grey-color));
   padding: var(--grid-gap-3) 0;
@@ -214,128 +208,155 @@ footer {
   font-weight: 100;
   font-style: normal;
   line-height: 1.5;
-}
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.links > * {
-  border-left: var(--border-1);
-  padding: 0 var(--grid-gap-1);
-}
-.links > *:hover {
-  text-decoration: underline;
-}
-.links > *:nth-child(2) {
-  border-left: none;
-}
-.logo-links {
-  display: flex;
-  align-items: center;
-  gap: var(--grid-gap-2);
-}
-.copyright,
-.services li {
-  color: rgba(255, 255, 255, 0.4);
-}
-.cookie {
-  display: inline-flex;
-  align-items: center;
-  img {
-    height: 10px;
-    vertical-align: middle;
-    width: auto;
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo-links {
+      display: flex;
+      align-items: center;
+      gap: var(--grid-gap-2);
+    }
+
+    .social-icons {
+      > * {
+        margin-left: var(--grid-gap-2);
+      }
+      > *:first-child {
+        margin-left: none;
+      }
+    }
+
+    .logo {
+      height: var(--grid-gap-3);
+      width: auto;
+      aspect-ratio: 1/1;
+    }
   }
-}
-.services {
-  display: flex;
-  gap: var(--grid-gap-3);
-  line-height: 2;
-}
-.services ul {
-  list-style: none;
-  margin: 0;
-}
-.social-icons > * {
-  margin-left: var(--grid-gap-2);
-}
-.social-icons > *:first-child {
-  margin-left: none;
-}
-.logo {
-  height: var(--grid-gap-3);
-  width: auto;
-  aspect-ratio: 1/1;
-}
-.links > *,
-.social-icons *,
-.services a,
-.logo path {
-  color: rgba(255, 255, 255, 0.6);
-  fill: rgba(255, 255, 255, 0.6);
-}
-.links > *:hover,
-.social-icons *:hover,
-.services a:hover,
-.logo:hover path {
-  color: white;
-  fill: white;
-  cursor: pointer;
-}
-.links > *,
-.links > *:hover,
-.social-icons *,
-.social-icons *:hover,
-.logo,
-.logo:hover path {
-  transition: var(--transition-1);
+
+  .links {
+    > * {
+      border-left: var(--border-1);
+      padding: 0 var(--grid-gap-1);
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:nth-child(2) {
+        border-left: none;
+      }
+    }
+  }
+
+  .copyright,
+  .services li {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .cookie {
+    display: inline-flex;
+    align-items: center;
+
+    img {
+      height: 10px;
+      vertical-align: middle;
+      width: auto;
+    }
+  }
+
+  .services {
+    display: flex;
+    gap: var(--grid-gap-3);
+    line-height: 2;
+
+    ul {
+      list-style: none;
+      margin: 0;
+    }
+  }
+
+  .links > *,
+  .social-icons *,
+  .services a,
+  .logo path {
+    color: rgba(255, 255, 255, 0.6);
+    fill: rgba(255, 255, 255, 0.6);
+
+    &:hover {
+      color: white;
+      fill: white;
+      cursor: pointer;
+    }
+  }
+
+  .links > *,
+  .social-icons *,
+  .logo {
+    transition: var(--transition-1);
+  }
 }
 
 @media only screen and (max-width: 420px) {
-  .services {
-    display: block;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .services > *:not(:first-child) {
-    margin-top: var(--grid-gap-2);
-  }
-  .services,
-  .logo-links {
-    gap: 0;
-  }
-  .copyright {
-    margin-bottom: var(--grid-gap-2);
+  footer {
+    .services {
+      display: block;
+      justify-content: space-between;
+      align-items: center;
+
+      > *:not(:first-child) {
+        margin-top: var(--grid-gap-2);
+      }
+    }
+
+    .logo-links {
+      gap: 0;
+    }
+
+    .copyright {
+      margin-bottom: var(--grid-gap-2);
+    }
   }
 }
+
 @media only screen and (max-width: 500px) {
-  .logo {
-    display: none;
-  }
-  .links > * {
-    padding: 0 7px;
+  footer {
+    .logo {
+      display: none;
+    }
+
+    .links > * {
+      padding: 0 7px;
+    }
   }
 }
 
 @media only screen and (max-width: 720px) {
-  .footer {
-    display: block;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .links > *:first-child {
-    padding-left: 0;
-    line-height: 2;
-  }
-  .social-icons {
-    margin-top: var(--grid-gap-3);
-  }
-  .social-icons > *:first-child {
-    margin-left: 0;
-  }
-  .logo {
-    height: var(--grid-gap-2);
+  footer {
+    .footer {
+      display: block;
+      justify-content: space-between;
+      align-items: center;
+
+      .links > *:first-child {
+        padding-left: 0;
+        line-height: 2;
+      }
+
+      .social-icons {
+        margin-top: var(--grid-gap-3);
+
+        > *:first-child {
+          margin-left: 0;
+        }
+      }
+
+      .logo {
+        height: var(--grid-gap-2);
+      }
+    }
   }
 }
 </style>

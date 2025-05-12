@@ -39,7 +39,7 @@
     ></Skeleton>
   </div>
 </template>
-<style scoped lang="scss">
+<style scoped lang="postcss">
 @media only screen and (min-width: 1280px) {
   .grid-item {
     padding-left: 30px;

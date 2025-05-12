@@ -169,7 +169,7 @@ onUnmounted(() => {
     <SkeletonSwiper v-else aria-busy="true" />
   </section>
 </template>
-<style scoped lang="scss">
+<style scoped lang="postcss">
 .swiper-reviews {
   border-radius: var(--border-radius-1);
   padding-bottom: calc(var(--grid-gap-2) * 2);

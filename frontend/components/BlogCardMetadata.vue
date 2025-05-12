@@ -61,7 +61,7 @@ const props = defineProps<{
   </figcaption>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .author {
   font-size: var(--font-size-7);
 }

@@ -46,7 +46,7 @@ const thumbnailUrl = `https://cdn.slavic.media/img/${_id}/thumbnail`;
   </a>
 </template>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
 img,
 a {
   cursor: pointer;

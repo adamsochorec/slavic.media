@@ -133,10 +133,14 @@ const description =
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 h1,
 h2 {
   font-size: var(--font-size-3);
+
+  @media only screen and (max-width: 415px) {
+    font-size: var(--font-size-2);
+  }
 }
 h3 {
   text-transform: capitalize;
@@ -150,19 +154,12 @@ h3 {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: var(--grid-gap-3);
-}
-
-@media only screen and (min-width: 640px) {
-  .gallery {
+  @media only screen and (min-width: 640px) {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media only screen and (max-width: 415px) {
-  h1,
-  h2 {
-    font-size: var(--font-size-2);
-  }
   #reviews-caption p {
     margin-bottom: 0;
   }

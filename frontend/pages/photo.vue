@@ -262,7 +262,7 @@ onBeforeUnmount(() => {
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 h1 {
   text-transform: capitalize;
 }

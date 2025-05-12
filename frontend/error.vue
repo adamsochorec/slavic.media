@@ -46,23 +46,22 @@ defineProps({
   </main>
 </template>
 
-<style scoped>
+<style scoped lang="postcss">
 #lottie {
   height: 700px;
   width: 100%;
   margin: -200px 0;
+
+  @media only screen and (max-width: 500px) {
+    height: 250px;
+    width: 100%;
+    margin: -70px 0;
+  }
 }
 h1 {
   font-size: var(--font-size-4);
   font-weight: var(--paragraph-weight);
   text-transform: unset;
   text-align: center;
-}
-@media only screen and (max-width: 500px) {
-  #lottie {
-    height: 250px;
-    width: 100%;
-    margin: -70px 0;
-  }
 }
 </style>
