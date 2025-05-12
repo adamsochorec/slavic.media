@@ -30,7 +30,7 @@ const videoSchema = new Schema<Video>({
     }),
     required: true,
   },
-  description: { type: String, maxlength: 100 },
+  description: { type: String, maxlength: 300 },
   category: { type: String, maxlength: 100 },
 });
 
