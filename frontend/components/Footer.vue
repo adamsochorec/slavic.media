@@ -132,27 +132,46 @@ const currentYear = new Date().getFullYear();
           </section>
         </div>
         <nav class="social-icons" aria-label="Follow us on social media">
-          <SocialIcon url="vimeo.com/slavicmedia" label="Vimeo" id="vimeo" />
-          <SocialIcon
-            url="linkedin.com/company/slavicmedia/"
-            label="LinkedIn"
-            id="linkedin"
-          />
-          <SocialIcon
-            url="youtube.com/@slavicmedia"
-            label="YouTube"
-            id="youtube"
-          />
-          <SocialIcon
-            url="instagram.com/slavic.media/"
-            label="Instagram"
-            id="instagram"
-          />
-          <SocialIcon
-            url="github.com/adamsochorec/slavic.media/"
-            label="GitHub"
-            id="github"
-          />
+          <a
+            href="https://vimeo.com/slavicmedia"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            aria-label="Vimeo"
+          >
+            <i class="pi pi-vimeo"></i>
+          </a>
+          <a
+            href="https://linkedin.com/company/slavicmedia/"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            aria-label="LinkedIn"
+          >
+            <i class="pi pi-linkedin"></i>
+          </a>
+          <a
+            href="https://youtube.com/@slavicmedia"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            aria-label="YouTube"
+          >
+            <i class="pi pi-youtube"></i>
+          </a>
+          <a
+            href="https://instagram.com/slavic.media/"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            aria-label="Instagram"
+          >
+            <i class="pi pi-instagram"></i>
+          </a>
+          <a
+            href="https://github.com/adamsochorec/slavic.media/"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            aria-label="GitHub"
+          >
+            <i class="pi pi-github"></i>
+          </a>
         </nav>
       </header>
       <hr class="quater" aria-hidden="true" />
@@ -207,7 +226,7 @@ footer {
   font-optical-sizing: auto;
   font-weight: 100;
   font-style: normal;
-  line-height: 1.5;
+  line-height: 2;
 
   .footer {
     display: flex;
@@ -247,6 +266,7 @@ footer {
 
       &:nth-child(2) {
         border-left: none;
+        padding-left: 0;
       }
     }
   }
@@ -261,8 +281,7 @@ footer {
     align-items: center;
 
     img {
-      height: 10px;
-      vertical-align: middle;
+      height: 8px;
       width: auto;
     }
   }
@@ -270,7 +289,6 @@ footer {
   .services {
     display: flex;
     gap: var(--grid-gap-3);
-    line-height: 2;
 
     ul {
       list-style: none;
@@ -291,11 +309,17 @@ footer {
       cursor: pointer;
     }
   }
-
+  .logo:hover path {
+    fill: white;
+  }
   .links > *,
   .social-icons *,
-  .logo {
+  .logo,
+  .logo path {
     transition: var(--transition-1);
+  }
+  hr {
+    margin: var(--grid-gap-3) 0 !important;
   }
 }
 
@@ -314,19 +338,12 @@ footer {
     .logo-links {
       gap: 0;
     }
-
-    .copyright {
-      margin-bottom: var(--grid-gap-2);
-    }
   }
 }
 
 @media only screen and (max-width: 500px) {
   footer {
-    .logo {
-      display: none;
-    }
-
+    font-size: 10px;
     .links > * {
       padding: 0 7px;
     }
@@ -342,7 +359,6 @@ footer {
 
       .links > *:first-child {
         padding-left: 0;
-        line-height: 2;
       }
 
       .social-icons {
