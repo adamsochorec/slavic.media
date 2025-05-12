@@ -30,9 +30,11 @@ const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(6, 6);
     </Head>
     <section class="wrapper-wide" role="region" aria-labelledby="blog-heading">
       <h1 id="blog-heading">Slavic Media <span class="gradient">Blog</span></h1>
-      <br />
-      <LatestArticle class="hide" aria-busy="false"></LatestArticle>
-      <hr aria-busy="false" class="hide quater reveal" />
+      <LatestArticle
+        class="hide"
+        aria-busy="false"
+        style="margin: var(--grid-gap-3) 0"
+      ></LatestArticle>
       <section aria-labelledby="articles-heading">
         <h2 id="articles-heading" class="visually-hidden">Articles</h2>
         <div class="grid-container">

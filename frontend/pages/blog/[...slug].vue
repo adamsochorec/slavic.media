@@ -85,7 +85,7 @@ onBeforeUnmount(() => {
           linkedin: document?.linkedin,
         }"
       />
-      <ContentRenderer :value="document" class="rendered-content" />
+      <ContentRenderer :value="document" class="rendered-content reveal" />
     </section>
     <!-- LIGHTROOM PRESETS -->
     <LightroomPresets aria-busy="false"></LightroomPresets
