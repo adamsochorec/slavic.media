@@ -22,14 +22,7 @@ flag: fi
 
 If you’re in the travel industry and haven’t started planning your winter video content yet—you’re already missing out on major opportunities!:brWith the 2024/25 winter season here, travel brands need a thoughtful content strategy. This season offers rare chances, like the once-in-a-decade [solar maximum](https://en.wikipedia.org/wiki/Solar_maximum) and record-breaking tourism expectations in Northern Scandinavia. Now is the time to create meaningful content that resonates.
 
-::photo
----
-alt: Collage of tourists in Scandinavia.
-flag: fi
-id: IMG_4108
-title: Nordic Tourism
----
-:br
+![Collage of tourists in Scandinavia.](https://cdn.slavic.media/img/IMG_4108/public "Nordic Tourism")
 
 ### I. Video, video, video...
 
@@ -37,11 +30,12 @@ title: Nordic Tourism
 
 :br
 
- 
-
 ### II. Sustainability Content
 
-**Why?** Sustainability is now a major decision factor for travellers. Many base their choices on a brand’s environmental impact.:br**How?** Show transparency—give visual proof of your brand’s efforts, like eco-lodges or educating visitors on responsible travel. Crucial and aligned with global trends and traveller values.
+**Why?** Sustainability is now a major decision factor for travellers. Many base their choices on a brand’s environmental impact.
+
+:br
+
+**How?** Show transparency—give visual proof of your brand’s efforts, like eco-lodges or educating visitors on responsible travel. Crucial and aligned with global trends and traveller values.
 
 :video-swiper{:videos='[{"src":"player.vimeo.com/video/950575511","title":"Norwegian Fjords | Timetravels"},{"src":"player.vimeo.com/video/950479131","title":"Finnish Lapland | Timetravels"},{"src":"player.vimeo.com/video/942145699","title":"Swedish Lapland Fjords | Timetravels"}]'}
-::

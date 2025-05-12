@@ -21,36 +21,15 @@ flag: dk
 
 At Slavic Media, we love working on projects that have meaning and contribute to something good. Our collaboration with [Huset Fundament](https://husetfundament.dk) was one of those projects, especially because Slavic Media’s beginnings are rooted here.
 
-::photo
----
-alt: Community of Huset Fundament
-flag: dk
-id: 2023-04-26-08882
-title: 2023 ⋅ Kolding, Denmark ⋅ Huset Fundament
----
-::
+![Community of Huset Fundament](https://cdn.slavic.media/img/2023-04-26-08882/public "2023 ⋅ Kolding, Denmark ⋅ Huset Fundament")
 
 Our partnership began in February 2023, and since then, we’ve completed over 25 photo sessions and two video shoots. We focused on capturing authentic moments – from live concerts in the iconic Pitstop venue to workshops where local artists shared their skills, like leather crafting, ceramics, or portrait photography. Each time, we faced the challenge of adapting to different environments and capturing the true spirit of these events.
 
-::photo
----
-alt: Grafisk Marked stand
-flag: dk
-id: 2023-09-30-00022
-title: 2023 ⋅ Kolding, Denmark ⋅ Huset Fundament
----
-::
+![Grafisk Marked stand](https://cdn.slavic.media/img/2023-09-30-00022/public "2023 ⋅ Kolding, Denmark ⋅ Huset Fundament")
 
 Our work enhanced the visitor experience by providing them with photos of their involvement at Huset Fundament, creating a collection for crowdfunding campaigns, and attracting more artists to this unique community. For us, it wasn’t just work, but a real connection with artists, creators, and their stories.
 
-::photo
----
-alt: Backyard filled with people hanging out together.
-flag: dk
-id: 2023-05-19-09057
-title: 2023 ⋅ Kolding, Denmark ⋅ Huset Fundament
----
-::
+![Backyard filled with people hanging out together.](https://cdn.slavic.media/img/2023-05-19-09057/public "2023 ⋅ Kolding, Denmark ⋅ Huset Fundament")
 
 Working in the theatre and capturing artistic works, especially autobiographical ones, is always a rewarding challenge. We are passionate about bringing unique stories to life through visual media, and this collaboration was truly inspiring. We look forward to documenting more new artistic visions!
 

@@ -21,11 +21,12 @@ flag: fi
 
 We all know the [solar maximum](https://en.wikipedia.org/wiki/Solar_maximum) is here — it’s no secret. But what does that really mean for the tourism industry?:brThe Northern Lights are always breathtaking, but this year’s solar maximum is taking things to a whole new level. For travellers, it’s a bucket-list opportunity.
 
-[Aurora Timelapse | Slavic Media](https://player.vimeo.com/video/1043711717?badge=0\&autopause=0\&player_id=0\&app_id=58479\&muted=1\&autoplay=1\&loop=1\&controls=0\&app_id=58479)
-
-*"This season will be talked about for a decade."*
-
 :br
+
+>"This season will be talked about for a decade."*
+
+<iframe src="https://player.vimeo.com/video/1043711717?badge=0&amp;muted=1&amp;loop=1&amp;controls=0&amp;autoplay=1&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"  title="Aurora Timelapse"></iframe>
+
 
 For the tourism industry, it’s a chance to create visuals that will set your brand apart. The content captured this season will elevate your marketing for years to come. Whether in travel, hospitality, or adventure tourism, this is a game-changer.
 

@@ -21,14 +21,7 @@ flag: fi
 
 Lapland tourism is getting ready for an exciting winter, and I’ve been researching and analysing the latest developments in the region. Here’s what’s happening in Finnish Lapland:
 
-::photo
----
-alt: Girl cuddling with a husky.
-flag: fi
-id: 2024-03-09-00048
-title: 2024 ⋅ Inari, Finland ⋅ Timetravels
----
-::
+![Girl cuddling with a husky.](https://cdn.slavic.media/img/2024-03-09-00048/public "2024 ⋅ Inari, Finland ⋅ Timetravels")
 
 1. **Record-Breaking Flights**:
    :br

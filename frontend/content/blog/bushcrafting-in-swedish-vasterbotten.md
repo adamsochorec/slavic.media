@@ -22,15 +22,8 @@ flag: se
 
 As the autumn days began, I had the opportunity to visit the Västerbotten province in Sweden during my exchange program at [Vaasan Ylipsto](https://www.uwasa.fi/). My Swedish classmate, Andreas, invited me to stay with his friend in the province, which is located on the east side of Sweden. Westrobothnia, or Västerbotten in Sweden, is one of the 21 counties in Sweden and its administrative centre is located in Umeå. The Finnish city of Vaasa, where my university is located, and Umeå are connected by a 4-hour ferry ride across the narrowest part of the Bothnian Bay.
 
-::photo
----
-alt: Panorama shot of a mire, where we bushcraft. Heap and weed around the lake
-  are mustard yellow, surrounded by a wall of forest trees.
-flag: se
-id: 2022-09-04-00937
-title: 2022 ⋅ Bullmark, Sweden
----
-::
+![Panorama shot of a mire, where we bushcraft. Heap and weed around the lake are mustard yellow, surrounded by a wall of forest trees.](https://cdn.slavic.media/img/2022-09-04-00937/public "2022 ⋅ Bullmark, Sweden")
+
 
 As it was my first time in Sweden, I had high expectations for the countryside and the way Swedes handle [Everyman's right](https://en.wikipedia.org/wiki/Freedom_to_roam#Sweden). These were the focus of our trip for the next four days.
 
@@ -42,15 +35,8 @@ We arrived in Umeå on September 1st and were greeted warmly by our hosts. After
 
 In the evening, we settled down and had dinner at Joakim's apartment, which was located next to the forest. The apartment was best described as a shipping container with a classical Nordic facade made out of red [falu rödfärg](https://falurodfarg.com/en/about-us/) planks and white outlines around windows and edges. Our host, Joakim, belonged to the [Sámi](https://en.wikipedia.org/wiki/S%C3%A1mi) family, the native inhabitants of Scandinavia who still live in the forests of Lapland and primarily herd [reindeer](https://en.wikipedia.org/wiki/Reindeer). His apartment was full of family heritage, including historical furniture, reindeer trophies, and traditional hand-crafted knives of various sizes.
 
-::photo
----
-alt: View from the ship to the ship docks in Umeå, there is a coast guard boat
-  in the foreground, in the background are two wind turbines.
-flag: se
-id: 2022-09-01-00918
-title: 2022 ⋅ Umeå, Sweden
----
-::
+![View from the ship to the ship docks in Umeå, there is a coast guard boat in the foreground, in the background are two wind turbines.](https://cdn.slavic.media/img/2022-09-01-00918/public "2022 ⋅ Umeå, Sweden")
+
 
 Later that night, we decided to sleep in the surrounding forest. The essence of the Everyman's right is that one can sleep, pick berries and mushrooms, and set a campfire almost anywhere, with the exception of private properties and national parks. This right to roam exists in several other countries besides Finland and Sweden. We set up camp under the bare sky in a [bivak bag](https://gobagguide.com/bivy-bag/) and Andreas and Joakim under a stretched tarp among the trees.
 
@@ -76,14 +62,7 @@ In addition to bush crafting, we also attended a free induction lecture on [Braz
 
 :br
 
-::photo
----
-alt: Swedish pine forest
-flag: se
-id: 2022-09-02-00920
-title: 2022 ⋅ Bullmark, Sweden
----
-::
+![Swedish pine forest](https://cdn.slavic.media/img/2022-09-02-00920/public "2022 ⋅ Bullmark, Sweden")
 
 The martial arts lecture sparked our interest in continuing to test our strengths even after returning to Bullmark. Joakim had two pairs of hand-guards for sparring from his [MMA](https://en.wikipedia.org/wiki/Mixed_martial_arts) period, so we conducted a modest sparring session on a rocky parking lot behind his house.
 
@@ -95,14 +74,8 @@ During the session, we shared our various combat experiences from boxing, MMA, t
 
 Despite our unsuccessful morning hunt, we had an exciting plan for the rest of the day: proper [bushcraft](https://en.wikipedia.org/wiki/Bushcraft). We headed to a countryside location a dozen kilometres south of Bullmark. As we drove deeper into the forest, we encountered a hunter's watch that was keeping an eye on the group's belongings, mainly consisting of several large pickups parked by the road. This meant we would be sharing the woods with hunters during hunting season, and according to my friends, they don't usually respect others' right to wander in the landscape during this time.
 
-::photo
----
-alt: Panorama photo of our campsite on the shore of a more
-flag: se
-id: 2022-09-03-00931
-title: 2022 ⋅ Bullmark, Sweden
----
-::
+![Panorama photo of our campsite on the shore of a mire](https://cdn.slavic.media/img/2022-09-03-00931/public "2022 ⋅ Bullmark, Sweden")
+
 
 When we reached the end of the dirt road, we took our gear and Emil's husky, Barnabas, and walked through the mixed woods. As soon as we passed through the wall of trees, we could see the subject of our interest: a mire lake that was semi-cut throughout by a heap of tentacles, which were solid enough to walk on. We followed the tentacle-shaped ground to its tip, where we decided to set up camp.
 
@@ -110,13 +83,7 @@ When we reached the end of the dirt road, we took our gear and Emil's husky, Bar
 
 The boys set up a tarp 45 degrees over a rope between the pines to create a single-sided shelter. Emil decided to sleep in a hammock. The first thing we did upon arriving at the campsite was to set up a reflective west on a tall pine tree around our campsite—so the hunters could see our position.
 
-::photo
----
-alt: Illustration Illustrating various simple field shelters made with a rope
-  and tarp.
-id: tarp-setup
----
-::
+![Illustration illustrating various simple field shelters made with a rope and tarp.](https://cdn.slavic.media/img/tarp-setup/public "Tarp Setup")
 
 Right after setting up camp, light rain began and we had a chance to test our shelter. As I sat under the tarp, I observed how the sunny day transformed into a cloudy rainstorm, then into a sunny afternoon followed by a wall of fog that evaporated from the bog, and was later cut through by sunset rays.
 

@@ -25,10 +25,10 @@ flag: dk
 
 At some point, Marcel and I decided to bike from [Flensburg](https://en.wikipedia.org/wiki/Flensburg) in Germany to [Skagen](https://en.wikipedia.org/wiki/Skagen) in Denmark along the [Jutland](https://en.wikipedia.org/wiki/Jutland) peninsula's west coast. It was an unforgettable journey.
 
-[YouTube video player](https://www.youtube-nocookie.com/embed/3go3v59pfEo?modestbranding=1)
+<iframe src="https://www.youtube-nocookie.com/embed/3go3v59pfEo?si=TUaUWIPzNmo3xjOt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 We traveled over 570 km in 10 days along the Danish national cycle route 1, also known as [Vestkystruten](https://en.wikipedia.org/wiki/Danish_National_Cycle_Route_1), capturing stunning views of Denmark. Our route included nights in public shelters and forests, swimming in the chilly North Sea, and exploring inland fjords.
 
-[Map of Denmark](https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2272668.8742977376!2d8.903950990226493!3d56.20199148672109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464b27b6ee945ffb%3A0x528743d0c3e092cd!2sDenmark!5e0!3m2!1sen!2scz!4v1730818049913!5m2!1sen!2scz)
+<iframe src="https://www.strava.com/activities/7581051625"></iframe>
 
 From coastal vistas to quaint towns, the journey had it all. Our destination, Skagen, offered a unique sight where the North Sea meets the Baltic Sea.

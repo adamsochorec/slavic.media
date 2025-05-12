@@ -21,14 +21,7 @@ flag: fi
 
 It wasn’t the Northern Lights or huskies. It was something subtler…:brDuring a snowshoeing trip, after a fun snowball fight, we all stopped. The guides asked for a minute of silence to appreciate the stillness in this wild and arctic environment.
 
-::photo
----
-alt: Group of people on snowshoes.
-flag: fi
-id: 2024-03-10-00620
-title: 2024 ⋅ Saariselkä, Finland ⋅ Timetravels
----
-::
+![Group of people on snowshoes.](https://cdn.slavic.media/img/2024-03-10-00620/public "2024 ⋅ Saariselkä, Finland ⋅ Timetravels")
 
 *I turned off my camera,*:br*laid down in the snow,*:br*and thought,*:b&#x72;*‘This place is truly magical.’*
 
