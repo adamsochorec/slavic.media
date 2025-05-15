@@ -44,7 +44,9 @@ const loadScripts = (scripts) => {
 
 // Function to load scripts that require consent
 const loadAfterConsentScripts = () => {
-  const scripts = [" https://www.googletagmanager.com/gtag/js?id=G-KGTECW9SN8"];
+  const scripts = [
+    `https://www.googletagmanager.com/gtag/js?id=${config.public.GOOGLE_ANALYTICS}`,
+  ];
   loadScripts(scripts);
 
   // Initialize Google Analytics
@@ -53,7 +55,7 @@ const loadAfterConsentScripts = () => {
     window.dataLayer.push(arguments);
   }
   gtag("js", new Date());
-  gtag("config", "G-KGTECW9SN8");
+  gtag("config", `${config.public.GOOGLE_ANALYTICS}`);
 };
 
 // Function to load the Chatway script
