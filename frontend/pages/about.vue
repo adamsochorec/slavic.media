@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Meta SEO
 const description =
-  "Creative & Production studio based in Denmark and Czechia. We tell stories with deep eye contact, magnificent shots and clean designs to help your project stand out from the noise.";
+  "Creative & Production studio based in Denmark (Kolding, Copenhagen) and Czechia (Prague). We tell stories through deep eye contact, magnificent shots, and clean design — helping your project stand out from the noise.";
 const title = "About";
 
 // SEO META
@@ -10,11 +10,11 @@ useSeoMeta({
   description: description,
   ogTitle: title,
   ogDescription: description,
-  ogImage: "https://cdn.slavic.media/img/thumbnail/sd",
+  ogImage: "https://cdn.slavic.media/img/IMG_1849/sd",
   ogUrl: "https://slavic.media/about",
   twitterTitle: title,
   twitterDescription: description,
-  twitterImage: "https://cdn.slavic.media/img/thumbnail/sd",
+  twitterImage: "https://cdn.slavic.media/img/IMG_1849/sd",
   twitterCard: "summary",
 });
 </script>
@@ -28,9 +28,7 @@ useSeoMeta({
       <hr class="semi" />
       <h1 class="docs reveal">Who <span class="gradient">We</span> Are</h1>
       <p id="about-company" class="reveal">
-        Creative & Production studio based in Denmark and Czechia. We tell
-        stories with deep eye contact, magnificent shots, and clean designs to
-        help your project stand out from the noise.
+        {{ description }}
       </p>
       <Employees />
       <p class="reveal">
