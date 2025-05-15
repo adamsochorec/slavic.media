@@ -6,15 +6,13 @@ import { useLoadMore } from "@/composables/useLoadMore";
 
 // Fetch documents
 const {
-  data: rawVideos,
+  data: videos,
   pending,
   error,
-} = await useFetch("https://api.slavic.media/video");
-
-// Sort videos by index
-const videos = computed(
-  () => rawVideos?.value?.sort((a, b) => b.index - a.index) || []
-);
+} = await useFetch("https://api.slavic.media/video", {
+  transform: (videos: any) =>
+    videos?.sort((a: any, b: any) => b.index - a.index) || [],
+});
 
 // Load more functionality
 const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(4, 4);

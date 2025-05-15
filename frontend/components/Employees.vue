@@ -13,7 +13,10 @@ const {
   data: employees,
   pending,
   error,
-} = await useFetch("https://api.slavic.media/employee");
+} = await useFetch("https://api.slavic.media/employee", {
+  transform: (employees: any) =>
+    employees?.sort((a: any, b: any) => b.index - a.index) || [],
+});
 
 let lightbox: any;
 let removeArrowNavigation: () => void;

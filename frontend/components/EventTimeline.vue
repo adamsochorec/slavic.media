@@ -1,25 +1,23 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted } from "vue";
 import { mmmyyyy } from "@/composables/useDateFormat";
 import { useLoadMore } from "@/composables/useLoadMore";
 
 // LOAD MORE START
 const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(6, 6);
 
-// Fetch documents
+// Fetch and sort events by date (descending order)
 const {
-  data: rawEvents,
+  data: events,
   pending,
   error,
-} = await useFetch("https://api.slavic.media/event/");
-
-// Sort events by date (descending order)
-const events = computed(
-  () =>
-    rawEvents?.value?.sort(
-      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-    ) || []
-);
+} = await useFetch("https://api.slavic.media/event/", {
+  transform: (events: any) =>
+    events?.sort(
+      (a: any, b: any) =>
+        new Date(b.date).getTime() - new Date(a.date).getTime()
+    ) || [],
+});
 </script>
 
 <template>

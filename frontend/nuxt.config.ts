@@ -72,6 +72,9 @@ export default defineNuxtConfig({
     output: {
       serverDir: ".output/server",
     },
+    prerender: {
+      crawlLinks: true,
+    },
   },
   primevue: {
     options: {
