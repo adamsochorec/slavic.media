@@ -56,7 +56,7 @@ export default defineNuxtConfig({
         {
           rel: "icon",
           type: "image/x-icon",
-          href: "https://cdn.slavic.media/img/Favicon-2/public",
+          href: "/favicon.ico",
         },
       ],
       charset: "utf-16",

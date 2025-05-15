@@ -9,7 +9,7 @@ const title = "Blog";
 
 // Content hydration
 const { data: documents = ref([]) } = await useAsyncData("blog", () =>
-  queryCollection("blog").all()
+  queryCollection("blog").order("date", "DESC").all()
 );
 
 // LOAD MORE

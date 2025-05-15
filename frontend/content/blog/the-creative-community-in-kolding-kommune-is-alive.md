@@ -11,7 +11,7 @@ keywords:
   - Pitstop
   - Volunteers
 author:
-  name: Gabriela
+  name: Gabriela S.
   id: gabriela
   linkedin: gabrielasochorcova
   department: Artistic Documentation

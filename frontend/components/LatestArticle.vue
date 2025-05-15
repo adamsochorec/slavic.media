@@ -1,19 +1,14 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref } from "vue";
 
-// Content hydration
-const { data: documents = ref([]) } = await useAsyncData("blog", () =>
-  queryCollection("blog").all()
-);
-
-// Bind the first document to the `article` property
-const article = computed(() =>
-  documents.value.length > 0 ? documents.value[0] : null
+// Fetch the first document from the blog collection
+const { data: article } = await useAsyncData("latest-article", () =>
+  queryCollection("blog").order("date", "DESC").first()
 );
 </script>
 
 <template>
-  <div>
+  <div v-if="article">
     <figure class="grid-container reveal">
       <NuxtLink class="gallery-item" :to="`/blog/${article.slug}`">
         <Icon
@@ -46,6 +41,10 @@ const article = computed(() =>
     </figure>
   </div>
 </template>
+
+<style scoped lang="postcss">
+/* Existing styles remain unchanged */
+</style>
 
 <style scoped lang="postcss">
 .gallery-item {
