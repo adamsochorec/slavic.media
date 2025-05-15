@@ -2,6 +2,13 @@ import Aura from "@primeuix/themes/aura";
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-07",
+  runtimeConfig: {
+    public: {
+      FORMSPREE: process.env.FORMSPREE,
+      CHATWAY: process.env.CHATWAY,
+      GOOGLE_ANALYTICS: process.env.GOOGLE_ANALYTICS,
+    },
+  },
   content: {
     markdown: {
       markdown: {
