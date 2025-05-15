@@ -1,18 +1,15 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, nextTick } from "vue";
-import slide from "@/composables/modules/slide";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import { useArrowNavigation } from "@/composables/useArrowNavigation";
 
-interface Slide {
-  _id: string;
-  log: string;
-}
-
-const isDataLoaded = ref(false);
-const slides = ref<Slide[]>([]);
-const { state, getAllSlides } = slide();
+// Fetch documents
+const {
+  data: slides,
+  pending,
+  error,
+} = await useFetch("https://api.slavic.media/slide");
 
 const updateImageSrc = (event: Event) => {
   const target = event.target as HTMLImageElement;
@@ -21,11 +18,7 @@ const updateImageSrc = (event: Event) => {
 
 let removeArrowNavigation: () => void;
 
-onMounted(async () => {
-  await getAllSlides();
-  slides.value = state.value.slides;
-  isDataLoaded.value = true;
-
+onMounted(() => {
   nextTick(() => {
     const swiper = new Swiper(".swiper-colour-grading", {
       loop: true,
@@ -55,13 +48,13 @@ onUnmounted(() => {
 <template>
   <section
     class="swiper swiper-colour-grading reveal"
-    v-if="isDataLoaded"
+    v-if="!pending && !error"
     aria-labelledby="image-compare-heading"
   >
     <h2 id="image-compare-heading" class="visually-hidden">
       Colour Grading Image Comparison Carousel
     </h2>
-    <div class="swiper-wrapper" v-if="isDataLoaded" aria-busy="false">
+    <div class="swiper-wrapper" aria-busy="false">
       <!-- Slide -->
       <figure
         class="swiper-slide"
@@ -97,7 +90,7 @@ onUnmounted(() => {
         </ImageCompare>
       </figure>
     </div>
-    <div class="swiper-pagination" v-if="isDataLoaded" aria-busy="false"></div>
+    <div class="swiper-pagination" aria-busy="false"></div>
   </section>
   <SkeletonServices v-else />
 </template>

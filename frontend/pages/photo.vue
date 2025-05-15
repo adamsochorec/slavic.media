@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, nextTick, watch, onBeforeUnmount } from "vue";
-import img from "@/composables/modules/img";
+import { ref, onMounted, nextTick, onBeforeUnmount, computed } from "vue";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 import { showRequestAProposal } from "@/composables/useRequestProposal";
@@ -10,10 +9,20 @@ const description =
   "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.";
 const title = "Photo";
 
-const isDataLoaded = ref<boolean>(false);
-const { state: imgState, getAllImgs } = img;
+// Fetch documents
+const {
+  data: rawImgState,
+  pending,
+  error,
+} = await useFetch("https://api.slavic.media/img");
+
+// Sort galleries by index
+const imgState = computed(
+  () => rawImgState?.value?.sort((a, b) => b.index - a.index) || []
+);
 
 // Further services matrix
+
 const videoServices = [
   {
     id: "commercial",
@@ -30,7 +39,7 @@ const videoServices = [
   },
   {
     id: "content",
-    title: "Engagning Content",
+    title: "Engaging Content",
     icon: "tiktok",
     description: "Social media reels that capture your brand’s essence.",
   },
@@ -51,11 +60,11 @@ async function initializeLightbox(): Promise<void> {
   // Custom SVGs for arrows
   const leftArrowSVGString = `
    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="pswp__button--arrow--left">
-	<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 12H4m0 0l6-6m-6 6l6 6" />
+    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 12H4m0 0l6-6m-6 6l6 6" />
 </svg>`;
   const rightArrowSVGString = `
    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="pswp__button--arrow--right">
-	<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12h16m0 0l-6-6m6 6l-6 6" />
+    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12h16m0 0l-6-6m6 6l-6 6" />
 </svg>`;
 
   lightbox = new PhotoSwipeLightbox({
@@ -77,7 +86,6 @@ async function initializeLightbox(): Promise<void> {
     arrowNextSVG: rightArrowSVGString,
     mainClass: "pswp--custom-icon-colors", // Optional custom class for styling
   });
-
   lightbox.on("uiRegister", function () {
     lightbox.pswp.ui.registerElement({
       name: "custom-caption",
@@ -112,9 +120,6 @@ async function initializeLightbox(): Promise<void> {
 
 onMounted(async () => {
   try {
-    await getAllImgs();
-    isDataLoaded.value = true;
-
     initializeLightbox();
 
     // Handle hash scrolling
@@ -128,7 +133,7 @@ onMounted(async () => {
       }
     });
   } catch (error) {
-    console.error("Error loading images:", error);
+    console.error("Error initializing lightbox:", error);
   }
 });
 
@@ -139,6 +144,7 @@ onBeforeUnmount(() => {
   }
 });
 </script>
+
 <template>
   <main style="margin-top: 120px">
     <Head>
@@ -146,13 +152,13 @@ onBeforeUnmount(() => {
       <Meta name="ogTitle" :content="title" />
       <Meta name="description" :content="description" />
       <Meta name="ogDescription" :content="description" />
-      <Meta name="ogImage" content="https.//cdn.slavic.media/img/photo/sd" />
+      <Meta name="ogImage" content="https://cdn.slavic.media/img/photo/sd" />
     </Head>
-    <!-- PAGE ABSTRACT START-->
+    <!-- PAGE ABSTRACT START -->
     <section class="wrapper-wide">
       <div
         class="grid-container caption-container"
-        v-if="isDataLoaded"
+        v-if="!pending && !error"
         aria-busy="false"
       >
         <div class="grid-item reveal">
@@ -170,11 +176,12 @@ onBeforeUnmount(() => {
         </div>
       </div>
     </section>
-    <!-- PAGE ABSTRACT START-->
-    <template v-for="(gallery, galleryKey) in imgState.img" :key="galleryKey">
+    <!-- PAGE ABSTRACT END -->
+
+    <template v-for="(gallery, galleryKey) in imgState" :key="galleryKey">
       <!-- GALLERY ABSTRACT START -->
       <article
-        v-if="isDataLoaded"
+        v-if="!pending && !error"
         aria-busy="false"
         class="wrapper-wide"
         id="photo"
@@ -203,9 +210,10 @@ onBeforeUnmount(() => {
         <br />
       </article>
       <!-- GALLERY ABSTRACT END -->
+
       <!-- GALLERY START -->
       <section
-        v-if="isDataLoaded"
+        v-if="!pending && !error"
         aria-busy="false"
         class="lightbox"
         :aria-labelledby="`gallery-heading-${galleryKey}`"
@@ -235,16 +243,19 @@ onBeforeUnmount(() => {
       </section>
       <!-- GALLERY END -->
     </template>
+
     <!-- LIGHTROOM PRESETS START -->
-    <section v-if="isDataLoaded" aria-busy="false">
+    <section v-if="!pending && !error" aria-busy="false">
       <LightroomPresets />
     </section>
     <!-- LIGHTROOM PRESETS END -->
+
     <hr class="semi" />
+
     <!-- FURTHER SERVICES START -->
     <section
       id="services"
-      v-if="isDataLoaded"
+      v-if="!pending && !error"
       class="wrapper-wide reveal"
       aria-labelledby="video-services-heading"
     >
@@ -254,6 +265,7 @@ onBeforeUnmount(() => {
       <FurtherServices :services="videoServices" swiperClass="video" />
     </section>
     <!-- FURTHER SERVICES END -->
+
     <!-- SKELETON START -->
     <div class="wrapper-wide" v-else aria-busy="true" aria-live="polite">
       <SkeletonServices />

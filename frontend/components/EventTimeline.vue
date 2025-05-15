@@ -1,19 +1,25 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import { mmmyyyy } from "@/composables/useDateFormat.ts";
-import event from "@/composables/modules/event";
+import { ref, onMounted, computed } from "vue";
+import { mmmyyyy } from "@/composables/useDateFormat";
 import { useLoadMore } from "@/composables/useLoadMore";
-
-const { state, getAllEvents } = event();
-const isDataLoaded = ref<boolean>(false);
 
 // LOAD MORE START
 const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(6, 6);
 
-onMounted(async () => {
-  await getAllEvents();
-  isDataLoaded.value = true;
-});
+// Fetch documents
+const {
+  data: rawEvents,
+  pending,
+  error,
+} = await useFetch("https://api.slavic.media/event/");
+
+// Sort events by date (descending order)
+const events = computed(
+  () =>
+    rawEvents?.value?.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    ) || []
+);
 </script>
 
 <template>
@@ -21,54 +27,10 @@ onMounted(async () => {
     <h2 class="docs reveal" style="font-size: var(--font-size-1)">
       Our <span class="gradient">Journey</span>
     </h2>
-    <!--  COMPANY TIMELINE START  -->
-    <div v-if="isDataLoaded">
-      <Timeline
-        align="alternate"
-        :value="state.events.slice(0, itemsToShow)"
-        aria-busy="false"
-        aria-labelledby="company-timeline"
-      >
-        <template #marker="slotProps">
-          <span class="flex h-8 items-center justify-center">
-            <span :class="`pi pi-${slotProps.item.icon}`"></span>
-          </span>
-        </template>
-        <template #content="slotProps">
-          <div>
-            <p class="reveal">
-              {{ mmmyyyy(slotProps.item.date) }}
-            </p>
-            <p class="reveal" style="font-size: var(--font-size-8)">
-              {{ slotProps.item.description }}
-            </p>
-          </div>
-        </template>
-      </Timeline>
-      <div class="flex-center">
-        <Btn
-          v-if="!allItemsShown"
-          tag="button"
-          label="Show more"
-          icon="plus-circle"
-          variant="secondary"
-          @click="loadMore(state.events.length)"
-        />
-        <Btn
-          v-else
-          label="Show less"
-          tag="button"
-          icon="minus-circle"
-          variant="secondary"
-          @click="loadLess"
-        />
-      </div>
-    </div>
-    <!--  COMPANY TIMELINE END  -->
 
-    <!--  COMPANY TIMELINE SKELETON START  -->
-    <div v-else v-for="n in 4" :key="n" aria-busy="true" aria-live="polite">
-      <ul style="list-style: none" class="m-0">
+    <!-- SKELETON START -->
+    <div v-if="pending || error" aria-busy="true" aria-live="polite">
+      <ul v-for="n in 4" :key="n" style="list-style: none" class="m-0">
         <li class="mb-3">
           <div class="flex">
             <Skeleton
@@ -96,6 +58,50 @@ onMounted(async () => {
         </li>
       </ul>
     </div>
-    <!--  COMPANY TIMELINE SKELETON END  -->
+    <!-- SKELETON END -->
+    <!-- COMPANY TIMELINE START -->
+    <div v-else>
+      <Timeline
+        align="alternate"
+        :value="events.slice(0, itemsToShow)"
+        aria-busy="false"
+        aria-labelledby="company-timeline"
+      >
+        <template #marker="slotProps">
+          <span class="flex h-8 items-center justify-center">
+            <span :class="`pi pi-${slotProps.item.icon}`"></span>
+          </span>
+        </template>
+        <template #content="slotProps">
+          <div>
+            <p class="reveal">
+              {{ mmmyyyy(slotProps.item.date) }}
+            </p>
+            <p class="reveal" style="font-size: var(--font-size-8)">
+              {{ slotProps.item.description }}
+            </p>
+          </div>
+        </template>
+      </Timeline>
+      <div class="flex-center">
+        <Btn
+          v-if="!allItemsShown"
+          tag="button"
+          label="Show more"
+          icon="plus-circle"
+          variant="secondary"
+          @click="loadMore(events.length)"
+        />
+        <Btn
+          v-else
+          label="Show less"
+          tag="button"
+          icon="minus-circle"
+          variant="secondary"
+          @click="loadLess"
+        />
+      </div>
+    </div>
+    <!-- COMPANY TIMELINE END -->
   </section>
 </template>

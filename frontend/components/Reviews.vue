@@ -2,32 +2,20 @@
 import { ref, nextTick, onUnmounted, onMounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
-import review from "@/composables/modules/review";
 import { useArrowNavigation } from "@/composables/useArrowNavigation";
 import { useSwiperAutoplay } from "@/composables/useSwiperAutoplay";
 
-interface Review {
-  _id: string;
-  name: string;
-  occupation: string;
-  img: string;
-  profileLink: string;
-  rating: number;
-  message: string;
-}
-const props = ref<Review[]>([]);
-
-// State management for reviews
-const { state, getAllReviews } = review();
-const isDataLoaded = ref(false);
+// Fetch documents
+const {
+  data: reviews,
+  pending,
+  error,
+} = await useFetch("https://api.slavic.media/review");
 
 let removeArrowNavigation: () => void;
 let removeSwiperAutoplay: () => void;
 
-onMounted(async () => {
-  await getAllReviews();
-  isDataLoaded.value = true;
-
+onMounted(() => {
   nextTick(() => {
     const swiper = new Swiper(".swiper-reviews", {
       loop: true,
@@ -114,6 +102,7 @@ onUnmounted(() => {
   if (removeSwiperAutoplay) removeSwiperAutoplay();
 });
 </script>
+
 <template>
   <section
     class="swiper swiper-reviews reveal"
@@ -121,10 +110,10 @@ onUnmounted(() => {
     role="region"
   >
     <h2 id="reviews-heading" class="visually-hidden">Customer Reviews</h2>
-    <div class="swiper-wrapper" v-if="isDataLoaded" aria-busy="false">
+    <div class="swiper-wrapper" v-if="!pending && !error" aria-busy="false">
       <!-- Slide -->
       <figure
-        v-for="review in state.reviews"
+        v-for="review in reviews"
         :key="review._id"
         class="swiper-slide"
         role="group"
@@ -165,7 +154,11 @@ onUnmounted(() => {
         </p>
       </figure>
     </div>
-    <div class="swiper-pagination" v-if="isDataLoaded" aria-busy="false"></div>
+    <div
+      class="swiper-pagination"
+      v-if="!pending && !error"
+      aria-busy="false"
+    ></div>
     <SkeletonSwiper v-else aria-busy="true" />
   </section>
 </template>

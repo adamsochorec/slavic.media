@@ -1,28 +1,21 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, nextTick } from "vue";
-import reel from "@/composables/modules/reel";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import { useArrowNavigation } from "@/composables/useArrowNavigation";
 import { useSwiperAutoplay } from "@/composables/useSwiperAutoplay";
 
-interface Reel {
-  _id: string;
-  platform: string;
-  url: string;
-  flag?: string;
-}
-
-const isDataLoaded = ref(false);
-const { state, getAllReels } = reel();
+// Fetch documents
+const {
+  data: reels,
+  pending,
+  error,
+} = await useFetch("https://api.slavic.media/reel/");
 
 let removeArrowNavigation: () => void;
 let removeSwiperAutoplay: () => void;
 
-onMounted(async () => {
-  await getAllReels();
-  isDataLoaded.value = true;
-
+onMounted(() => {
   nextTick(() => {
     const swiper = new Swiper(".swiper-reels", {
       loop: true,
@@ -72,6 +65,7 @@ onMounted(async () => {
       },
     });
 
+    // Initialize custom navigation and autoplay logic
     removeArrowNavigation = useArrowNavigation(swiper);
     removeSwiperAutoplay = useSwiperAutoplay(swiper, ".swiper-reels");
   });
@@ -94,14 +88,8 @@ onUnmounted(() => {
     role="region"
   >
     <h2 id="instagram-reels-heading" class="visually-hidden">Reels</h2>
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper" v-if="isDataLoaded" aria-busy="false">
-      <!-- Slide -->
-      <figure
-        v-for="(reel, index) in state.reels"
-        :key="index"
-        class="swiper-slide"
-      >
+    <div v-if="!pending && !error" class="swiper-wrapper" aria-busy="false">
+      <figure v-for="(reel, index) in reels" :key="index" class="swiper-slide">
         <a
           target="_blank"
           rel="noopener noreferrer nofollow"
@@ -131,9 +119,15 @@ onUnmounted(() => {
         </figcaption>
       </figure>
     </div>
-    <div class="swiper-pagination" v-if="isDataLoaded" aria-busy="false"></div>
+    <div
+      v-if="!pending && !error"
+      class="swiper-pagination"
+      aria-busy="false"
+    ></div>
 
-    <SkeletonSwiper v-else aria-busy="true" />
+    <div v-else aria-busy="true">
+      <SkeletonSwiper />
+    </div>
   </section>
 </template>
 

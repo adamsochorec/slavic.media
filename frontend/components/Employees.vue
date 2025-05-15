@@ -7,35 +7,18 @@ import "photoswipe/style.css";
 import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
 import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css";
 import { useArrowNavigation } from "@/composables/useArrowNavigation";
-import employee from "@/composables/modules/employee";
 
-interface Employee {
-  _id: string;
-  name: string;
-  flag: string;
-  email: string;
-  linkedin?: string;
-  github?: string;
-  department: string;
-  description: string;
-  originalWidth?: number;
-  originalHeight?: number;
-}
-const props = ref<Employee[]>([]);
+// Fetch documents
+const {
+  data: employees,
+  pending,
+  error,
+} = await useFetch("https://api.slavic.media/employee");
 
-// State management for employees
-const { state, getAllEmployees } = employee();
-const isDataLoaded = ref(false);
 let lightbox: any;
 let removeArrowNavigation: () => void;
 
-// Lifecycle hook to fetch employees and initialize Swiper and PhotoSwipe
-onMounted(async () => {
-  // Fetch all employees
-  await getAllEmployees();
-  isDataLoaded.value = true;
-
-  // Initialize Swiper and PhotoSwipe after the DOM is updated
+onMounted(() => {
   nextTick(() => {
     const swiper = new Swiper(".swiper-employees", {
       observer: true,
@@ -62,13 +45,13 @@ onMounted(async () => {
 
     // Custom SVGs for arrows
     const leftArrowSVGString = `
-   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="pswp__button--arrow--left">
-	<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 12H4m0 0l6-6m-6 6l6 6" />
-</svg>`;
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="pswp__button--arrow--left">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 12H4m0 0l6-6m-6 6l6 6" />
+      </svg>`;
     const rightArrowSVGString = `
-   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="pswp__button--arrow--right">
-	<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12h16m0 0l-6-6m6 6l-6 6" />
-</svg>`;
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="pswp__button--arrow--right">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12h16m0 0l-6-6m6 6l-6 6" />
+      </svg>`;
 
     lightbox = new PhotoSwipeLightbox({
       gallery: "#employeeGallery",
@@ -111,132 +94,116 @@ onUnmounted(() => {
   }
 });
 </script>
-
 <template>
-  <div>
-    <section
-      class="swiper swiper-employees reveal"
-      aria-labelledby="our-team-heading"
-      role="region"
+  <section
+    class="swiper swiper-employees reveal"
+    aria-labelledby="our-team-heading"
+    role="region"
+  >
+    <h2 id="our-team-heading" class="visually-hidden">Our Team</h2>
+    <!-- Swiper wrapper -->
+    <div
+      class="swiper-wrapper"
+      v-if="!pending && !error"
+      aria-busy="false"
+      id="employeeGallery"
     >
-      <h2 id="our-team-heading" class="visually-hidden">Our Team</h2>
-      <!-- Swiper wrapper -->
-      <div
-        class="swiper-wrapper"
-        v-if="isDataLoaded"
-        aria-busy="false"
-        id="employeeGallery"
+      <!-- Swiper slide for each employee -->
+      <figure
+        v-for="employee in employees"
+        :key="employee._id"
+        class="swiper-slide"
+        role="group"
+        :aria-labelledby="`employee-${employee._id}`"
       >
-        <!-- Swiper slide for each employee -->
-        <figure
-          v-for="employee in state.employees"
-          :key="employee._id"
-          class="swiper-slide"
-          role="group"
-          :aria-labelledby="`employee-${employee._id}`"
-        >
-          <!-- Slide content -->
-          <div class="reveal">
-            <Icon :name="`flag:${employee.flag}-4x3`" class="note flag" />
+        <!-- Slide content -->
+        <div class="reveal">
+          <Icon :name="`flag:${employee.flag}-4x3`" class="note flag" />
+          <a
+            :href="`https://cdn.slavic.media/img/${employee._id}/hd`"
+            data-pswp-width="1200"
+            data-pswp-height="900"
+            :data-cropped="true"
+            class="lightbox"
+          >
+            <img
+              :src="`https://cdn.slavic.media/img/${employee._id}/thumbnail`"
+              :data-src="`https://cdn.slavic.media/img/${employee._id}/sd`"
+              :alt="`Portrait of ${employee.name}`"
+              :title="`${employee.name}`"
+              class="employee-img"
+              @load="(event) => (event.target.src = event.target.dataset.src)"
+            />
+            <!-- Slide Caption -->
+
+            <span class="pswp-caption-content">
+              <h3>{{ employee.department }}</h3>
+              <h4 v-if="employee?.linkedin">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  :href="employee.linkedin"
+                  >{{ employee.name }}</a
+                >
+              </h4>
+              <h4 v-else>
+                {{ employee.name }}
+              </h4>
+              <p class="bio">
+                {{ employee.description }}
+              </p>
+              <div class="social-icons reveal">
+                <a
+                  :href="`mailto:${employee.email}`"
+                  :aria-label="`Send an email to ${employee.name} at ${employee.email}`"
+                >
+                  <i title="Email" class="pi pi-envelope"></i>
+                </a>
+                <a
+                  v-if="employee.linkedin"
+                  :href="`https://linkedin.com/in/${employee.linkedin}`"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  :aria-label="`View ${employee.name}'s LinkedIn profile`"
+                >
+                  <i title="LinkedIn" class="pi pi-linkedin"></i>
+                </a>
+                <a
+                  v-if="employee.github"
+                  :href="`https://github.com/${employee.github}`"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  :aria-label="`View ${employee.name}'s GitHub profile`"
+                >
+                  <i title="GitHub" class="pi pi-github"></i>
+                </a>
+              </div>
+            </span>
+          </a>
+        </div>
+        <!-- Employee profile section -->
+        <section class="profile">
+          <h3 class="reveal">{{ employee.department }}</h3>
+
+          <h4
+            :id="`employee-${employee._id}`"
+            class="reveal"
+            v-if="employee?.linkedin"
+          >
             <a
-              :href="`https://cdn.slavic.media/img/${employee._id}/hd`"
-              data-pswp-width="1200"
-              data-pswp-height="900"
-              :data-cropped="true"
-              class="lightbox"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              :href="employee.linkedin"
+              >{{ employee.name }}</a
             >
-              <img
-                :src="`https://cdn.slavic.media/img/${employee._id}/thumbnail`"
-                :data-src="`https://cdn.slavic.media/img/${employee._id}/sd`"
-                :alt="`Portrait of ${employee.name}`"
-                :title="`${employee.name}`"
-                class="employee-img"
-                @load="(event) => (event.target.src = event.target.dataset.src)"
-              />
-              <!-- Slide Caption -->
-
-              <span class="pswp-caption-content">
-                <h3>{{ employee.department }}</h3>
-                <h4 v-if="employee?.linkedin">
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    :href="employee.linkedin"
-                    >{{ employee.name }}</a
-                  >
-                </h4>
-                <h4 v-else>
-                  {{ employee.name }}
-                </h4>
-                <p class="bio">
-                  {{ employee.description }}
-                </p>
-                <div class="social-icons reveal">
-                  <a
-                    :href="`mailto:${employee.email}`"
-                    :aria-label="`Send an email to ${employee.name} at ${employee.email}`"
-                  >
-                    <i title="Email" class="pi pi-envelope"></i>
-                  </a>
-                  <a
-                    v-if="employee.linkedin"
-                    :href="`https://linkedin.com/in/${employee.linkedin}`"
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    :aria-label="`View ${employee.name}'s LinkedIn profile`"
-                  >
-                    <i title="LinkedIn" class="pi pi-linkedin"></i>
-                  </a>
-                  <a
-                    v-if="employee.github"
-                    :href="`https://github.com/${employee.github}`"
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    :aria-label="`View ${employee.name}'s GitHub profile`"
-                  >
-                    <i title="GitHub" class="pi pi-github"></i>
-                  </a>
-                </div>
-              </span>
-            </a>
-          </div>
-          <!-- Employee profile section -->
-          <section class="profile">
-            <h3 class="reveal">{{ employee.department }}</h3>
-
-            <h4
-              :id="`employee-${employee._id}`"
-              class="reveal"
-              v-if="employee?.linkedin"
-            >
-              <a
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                :href="employee.linkedin"
-                >{{ employee.name }}</a
-              >
-            </h4>
-            <h4 v-else>
-              {{ employee.name }}
-            </h4>
-          </section>
-        </figure>
-      </div>
-
-      <!-- Skeleton loader for loading state -->
-      <SkeletonSwiper
-        v-else
-        aria-busy="true"
-        aria-live="polite"
-      ></SkeletonSwiper>
-      <!-- Swiper pagination -->
-      <div
-        class="swiper-pagination"
-        v-if="isDataLoaded"
-        aria-busy="false"
-      ></div>
-    </section>
-  </div>
+          </h4>
+          <h4 v-else>
+            {{ employee.name }}
+          </h4>
+        </section>
+      </figure>
+    </div>
+  </section>
 </template>
 
 <style scoped lang="postcss">

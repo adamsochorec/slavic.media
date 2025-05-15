@@ -1,40 +1,23 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, computed } from "vue";
 import Lightgallery from "lightgallery/vue";
 import lgVideo from "lightgallery/plugins/video";
-import video from "@/composables/modules/video";
 import { useLoadMore } from "@/composables/useLoadMore";
 
-interface Client {
-  name: string;
-  url: string;
-}
-interface Video {
-  _id?: string;
-  index?: number;
-  flag: string;
-  title: string;
-  url: string;
-  year: string;
-  client?: Client;
-  description?: string;
-  category?: string;
-}
+// Fetch documents
+const {
+  data: rawVideos,
+  pending,
+  error,
+} = await useFetch("https://api.slavic.media/video");
 
-const { state: videoState, getAllVideos } = video();
-const isDataLoaded = ref(false);
+// Sort videos by index
+const videos = computed(
+  () => rawVideos?.value?.sort((a, b) => b.index - a.index) || []
+);
 
-// Load more
+// Load more functionality
 const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(4, 4);
-
-onMounted(async () => {
-  try {
-    await getAllVideos();
-    isDataLoaded.value = true;
-  } catch (error) {
-    console.error("Error loading videos:", error);
-  }
-});
 
 // Lightgallery plugins
 const plugins = [lgVideo];
@@ -42,7 +25,7 @@ const plugins = [lgVideo];
 
 <template>
   <lightgallery
-    v-if="isDataLoaded"
+    v-if="!pending && !error"
     id="video-gallery"
     class="grid-container"
     aria-label="Video Gallery"
@@ -56,7 +39,7 @@ const plugins = [lgVideo];
     hideScrollbar="true"
   >
     <a
-      v-for="video in videoState.videos.slice(0, itemsToShow)"
+      v-for="video in videos.slice(0, itemsToShow)"
       :key="video._id"
       class="video-card reveal"
       aria-labelledby="video-card-title"
@@ -80,14 +63,14 @@ const plugins = [lgVideo];
       <h3 class="title" id="video-card-title">{{ video.title }}</h3>
     </a>
   </lightgallery>
-  <div class="flex-center" v-if="isDataLoaded">
+  <div class="flex-center" v-if="!pending && !error">
     <Btn
       tag="button"
       v-if="!allItemsShown"
       label="Show more"
       icon="plus-circle"
       variant="secondary"
-      @click="loadMore(videoState.videos.length)"
+      @click="loadMore(videos.length)"
     />
     <Btn
       tag="button"
