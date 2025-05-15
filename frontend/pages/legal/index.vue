@@ -11,6 +11,20 @@ const { data: documents } = await useAsyncData("legal", () =>
   queryCollection("legal").all()
 );
 
+// SEO META
+useSeoMeta({
+  title: title,
+  description: description,
+  ogTitle: title,
+  ogDescription: description,
+  ogImage: "https://cdn.slavic.media/img/2024-12-08-01324-2/sd",
+  ogUrl: "https://slavic.media/legal",
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: "https://cdn.slavic.media/img/2024-12-08-01324-2/sd",
+  twitterCard: "summary",
+});
+
 // Progressive cover image
 const { thumbnailUrl, fullImageUrl, updateImgSrc } = useProgressiveImg(
   "2024-12-08-01324-2",
@@ -20,16 +34,6 @@ const { thumbnailUrl, fullImageUrl, updateImgSrc } = useProgressiveImg(
 
 <template>
   <main>
-    <Head>
-      <Title>{{ title }}</Title>
-      <Meta name="ogTitle" :content="title" />
-      <Meta name="description" :content="description" />
-      <Meta name="ogDescription" :content="description" />
-      <Meta
-        name="ogImage"
-        content="https://cdn.slavic.media/img/2024-12-08-01324-2/sd"
-      />
-    </Head>
     <section class="cover">
       <div class="filter"></div>
       <img

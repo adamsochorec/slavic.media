@@ -4,18 +4,24 @@ import { showRequestAProposal } from "@/composables/useRequestProposal";
 // Meta SEO
 const description =
   "Creative & Production studio based in Denmark and Czechia. We tell stories with deep eye contact, magnificent shots and clean designs to help your project stand out from the noise.";
+const title = "Home";
+
+// SEO META
+useSeoMeta({
+  title: title,
+  description: description,
+  ogTitle: title,
+  ogDescription: description,
+  ogImage: "https://cdn.slavic.media/img/thumbnail/sd",
+  ogUrl: "https://slavic.media",
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: "https://cdn.slavic.media/img/thumbnail/sd",
+  twitterCard: "summary",
+});
 </script>
 <template>
   <main class="homepage">
-    <Head>
-      <Meta name="ogTitle" content="Slavic Media" />
-      <Meta name="description" :content="description" />
-      <Meta name="ogDescription" :content="description" />
-      <Meta
-        name="ogImage"
-        content="https.//cdn.slavic.media/img/thumbnail/sd"
-      />
-    </Head>
     <!-- INTRO VIDEO START -->
     <HeroVideo :id="1039054657" alt="Showreel 24' | Slavic Media" :start="7" />
     <!-- INTRO VIDEO END -->

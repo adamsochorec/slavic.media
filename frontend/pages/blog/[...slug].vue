@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount } from "vue";
+import { onMounted, onBeforeUnmount, watchEffect } from "vue";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 
@@ -7,6 +7,22 @@ import "photoswipe/style.css";
 const slug = useRoute().params.slug;
 const { data: document } = await useAsyncData(`blog-${slug}`, () => {
   return queryCollection("blog").path(`/blog/${slug}`).first();
+});
+
+// SEO META (reactive)
+watchEffect(() => {
+  useSeoMeta({
+    title: document.value?.title,
+    description: document.value?.description,
+    ogTitle: document.value?.title,
+    ogDescription: document.value?.description,
+    ogImage: `https://cdn.slavic.media/img/${document.value?.thumbnail}/sd`,
+    ogUrl: `https://slavic.media/blog/${document.value?.slug}`,
+    twitterTitle: document.value?.title,
+    twitterDescription: document.value?.description,
+    twitterImage: `https://cdn.slavic.media/img/${document.value?.thumbnail}/sd`,
+    twitterCard: "summary",
+  });
 });
 
 // PhotoSwipe
@@ -55,16 +71,6 @@ onBeforeUnmount(() => {
 
 <template>
   <main style="margin-top: 120px">
-    <Head>
-      <Title>{{ document?.title }}</Title>
-      <Meta name="ogTitle" :content="document?.title" />
-      <Meta name="description" :content="document?.description" />
-      <Meta name="ogDescription" :content="document?.description" />
-      <Meta
-        name="ogImage"
-        :content="`https://cdn.slavic.media/img/${document.thumbnail}/sd`"
-      />
-    </Head>
     <section
       class="wrapper-wide content reveal"
       role="region"

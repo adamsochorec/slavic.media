@@ -1,6 +1,17 @@
 <script setup lang="ts">
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 
+// SEO META
+useSeoMeta({
+  title: "Error",
+  ogTitle: "Error",
+  ogImage: "https://cdn.slavic.media/img/thumbnail/sd",
+  ogUrl: "https://slavic.media",
+  twitterTitle: "Error",
+  twitterImage: "https://cdn.slavic.media/img/thumbnail/sd",
+  twitterCard: "summary",
+});
+
 defineProps({
   error: Object as () => NuxtError,
 });

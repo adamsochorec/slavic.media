@@ -4,7 +4,7 @@ import { useLoadMore } from "@/composables/useLoadMore";
 
 // Meta SEO
 const description =
-  "Slavic Media Blog shares behind-the-scenes insights, industry tips, and technical know-how from our industry professionals.";
+  "Slavic Media team shares behind-the-scenes insights, industry tips, and technical know-how from our industry professionals.";
 const title = "Blog";
 
 // Content hydration
@@ -12,22 +12,26 @@ const { data: documents = ref([]) } = await useAsyncData("blog", () =>
   queryCollection("blog").order("date", "DESC").all()
 );
 
+// SEO META
+useSeoMeta({
+  title: title,
+  description: description,
+  ogTitle: title,
+  ogDescription: description,
+  ogImage: "https://cdn.slavic.media/img/thumbnail/sd",
+  ogUrl: "https://slavic.media/blog",
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: "https://cdn.slavic.media/img/thumbnail/sd",
+  twitterCard: "summary",
+});
+
 // LOAD MORE
 const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(6, 6);
 </script>
 
 <template>
   <main style="margin-top: 120px">
-    <Head>
-      <Title>{{ title }}</Title>
-      <Meta name="ogTitle" :content="title" />
-      <Meta name="description" :content="description" />
-      <Meta name="ogDescription" :content="description" />
-      <Meta
-        name="ogImage"
-        content="https://cdn.slavic.media/img/thumbnail/sd"
-      />
-    </Head>
     <section class="wrapper-wide" role="region" aria-labelledby="blog-heading">
       <h1 id="blog-heading">Slavic Media <span class="gradient">Blog</span></h1>
       <LatestArticle

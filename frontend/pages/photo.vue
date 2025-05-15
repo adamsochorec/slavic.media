@@ -7,7 +7,21 @@ import { showRequestAProposal } from "@/composables/useRequestProposal";
 // Meta SEO
 const description =
   "Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour and emotion, that tell your story.";
-const title = "Photo";
+const title = "Photo Services";
+
+// SEO META
+useSeoMeta({
+  title: title,
+  description: description,
+  ogTitle: title,
+  ogDescription: description,
+  ogImage: "https://cdn.slavic.media/img/photo/sd",
+  ogUrl: "https://slavic.media",
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: "https://cdn.slavic.media/img/photo/sd",
+  twitterCard: "summary",
+});
 
 // Fetch documents
 const {
@@ -147,13 +161,6 @@ onBeforeUnmount(() => {
 
 <template>
   <main style="margin-top: 120px">
-    <Head>
-      <Title>{{ title }}</Title>
-      <Meta name="ogTitle" :content="title" />
-      <Meta name="description" :content="description" />
-      <Meta name="ogDescription" :content="description" />
-      <Meta name="ogImage" content="https://cdn.slavic.media/img/photo/sd" />
-    </Head>
     <!-- PAGE ABSTRACT START -->
     <section class="wrapper-wide">
       <div

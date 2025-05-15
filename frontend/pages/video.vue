@@ -2,8 +2,21 @@
 // Meta SEO
 const description =
   "From inspiring stories to cinematic visuals, each video project is crafted to captivate, impress, and showcase your vision with creative precision.";
-const title = "Video";
+const title = "Video Services";
 
+// SEO META
+useSeoMeta({
+  title: title,
+  description: description,
+  ogTitle: title,
+  ogDescription: description,
+  ogImage: "https://cdn.slavic.media/img/video/sd",
+  ogUrl: "https://slavic.media",
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: "https://cdn.slavic.media/img/video/sd",
+  twitterCard: "summary",
+});
 // Further services matrix
 const photoServices = [
   {
@@ -38,13 +51,6 @@ const photoServices = [
 </script>
 <template>
   <main style="margin-top: 120px">
-    <Head>
-      <Title>{{ title }}</Title>
-      <Meta name="ogTitle" :content="title" />
-      <Meta name="description" :content="description" />
-      <Meta name="ogDescription" :content="description" />
-      <Meta name="ogImage" content="https.//cdn.slavic.media/img/video/sd" />
-    </Head>
     <section class="wrapper-wide" aria-labelledby="video-services-heading">
       <!-- VIDEO PROJECTS START -->
       <div class="grid-container caption-container" aria-busy="false">

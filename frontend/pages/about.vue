@@ -3,20 +3,24 @@
 const description =
   "Creative & Production studio based in Denmark and Czechia. We tell stories with deep eye contact, magnificent shots and clean designs to help your project stand out from the noise.";
 const title = "About";
+
+// SEO META
+useSeoMeta({
+  title: title,
+  description: description,
+  ogTitle: title,
+  ogDescription: description,
+  ogImage: "https://cdn.slavic.media/img/thumbnail/sd",
+  ogUrl: "https://slavic.media/about",
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: "https://cdn.slavic.media/img/thumbnail/sd",
+  twitterCard: "summary",
+});
 </script>
 
 <template>
   <main aria-labelledby="about-company">
-    <Head>
-      <Title>{{ title }}</Title>
-      <Meta name="ogTitle" :content="title" />
-      <Meta name="description" :content="description" />
-      <Meta name="ogDescription" :content="description" />
-      <Meta
-        name="ogImage"
-        content="https.//cdn.slavic.media/img/thumbnail/sd"
-      />
-    </Head>
     <HeroVideo :id="1013776851" alt="Behind the Scenes | Slavic Media">
     </HeroVideo>
     <!--   ABOUT START -->

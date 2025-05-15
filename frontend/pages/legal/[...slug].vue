@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { watchEffect } from "vue";
 import { ddmmmyyyy } from "@/composables/useDateFormat";
 import { useProgressiveImg } from "@/composables/useProgressiveImg";
 
@@ -6,6 +7,22 @@ import { useProgressiveImg } from "@/composables/useProgressiveImg";
 const slug = useRoute().params.slug;
 const { data: document } = await useAsyncData(`legal-${slug}`, () => {
   return queryCollection("legal").path(`/legal/${slug}`).first();
+});
+
+// SEO META (reactive)
+watchEffect(() => {
+  useSeoMeta({
+    title: document.value?.title,
+    description: document.value?.description,
+    ogTitle: document.value?.title,
+    ogDescription: document.value?.description,
+    ogImage: "https://cdn.slavic.media/img/2024-12-08-01324-2/sd",
+    ogUrl: `https://slavic.media/legal/${document.value?.slug}`,
+    twitterTitle: document.value?.title,
+    twitterDescription: document.value?.description,
+    twitterImage: "https://cdn.slavic.media/img/2024-12-08-01324-2/sd",
+    twitterCard: "summary",
+  });
 });
 
 // Progressive cover image
@@ -16,16 +33,6 @@ const { thumbnailUrl, fullImageUrl, updateImgSrc } = useProgressiveImg(
 </script>
 <template>
   <main>
-    <Head>
-      <Title>{{ document?.title }}</Title>
-      <Meta name="ogTitle" :content="document?.title" />
-      <Meta name="description" :content="document?.description" />
-      <Meta name="ogDescription" :content="document?.description" />
-      <Meta
-        name="ogImage"
-        content="https://cdn.slavic.media/img/2024-12-08-01324-2/sd"
-      />
-    </Head>
     <section class="cover">
       <div class="filter"></div>
       <img
