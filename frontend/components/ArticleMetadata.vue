@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import { ddmmmyyyy } from "@/composables/useDateFormat";
+import { useProgressiveImg } from "@/composables/useProgressiveImg";
 
 interface Author {
   id: string;
@@ -22,6 +24,9 @@ const props = defineProps<Article>();
 function copyToClipboard(link: string) {
   navigator.clipboard.writeText(link);
 }
+
+const { thumbnailUrl, fullImageUrl, imgLoaded, updateImgSrc } =
+  useProgressiveImg(props.author.id, "/height=200");
 </script>
 <template>
   <div class="metadata-container reveal">
@@ -33,8 +38,10 @@ function copyToClipboard(link: string) {
       >
         <img
           class="avatar"
-          :src="`https://cdn.slavic.media/img/${author.id}/height=200`"
+          :src="thumbnailUrl"
+          :data-src="fullImageUrl"
           :alt="`${author.name}'s profile picture`"
+          @load="updateImgSrc"
         />
       </a>
       <div>

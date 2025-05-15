@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import { truncateText } from "@/composables/useTruncateText.ts";
+import { useProgressiveImg } from "@/composables/useProgressiveImg";
 
 interface GalleryCard {
   img: string;
@@ -12,6 +14,9 @@ interface GalleryCard {
   opacity?: number;
 }
 const props = defineProps<GalleryCard>();
+
+const { thumbnailUrl, fullImageUrl, imgLoaded, updateImgSrc } =
+  useProgressiveImg(props.img, "/sd");
 </script>
 
 <template>
@@ -20,9 +25,11 @@ const props = defineProps<GalleryCard>();
       <Icon v-if="flag" :name="`flag:${flag}-4x3`" class="note flag" />
       <img
         :style="`opacity:${opacity}`"
-        :src="`https://cdn.slavic.media/img/${img}/sd`"
+        :src="thumbnailUrl"
+        :data-src="fullImageUrl"
         :alt="alt"
         :title="title"
+        @load="updateImgSrc"
       />
       <figcaption class="gallery-item-caption">
         <i aria-hidden="true" :class="`bubble pi pi-${icon}`"></i>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ddmmmyyyy } from "@/composables/useDateFormat.ts";
+import { useProgressiveImg } from "@/composables/useProgressiveImg";
 
 interface Author {
   name: string;
@@ -20,6 +21,9 @@ interface Article {
 const props = defineProps<{
   article: Article;
 }>();
+
+const { thumbnailUrl, fullImageUrl, imgLoaded, updateImgSrc } =
+  useProgressiveImg(props.article.author.id, "/height=90");
 </script>
 
 <template>
@@ -34,8 +38,10 @@ const props = defineProps<{
       >
         <img
           class="avatar"
-          :src="`https://cdn.slavic.media/img/${article.author.id}/height=90`"
+          :src="thumbnailUrl"
+          :data-src="fullImageUrl"
           :alt="`${article.author.name}'s profile picture`"
+          @load="updateImgSrc"
         />
       </a>
       <div>

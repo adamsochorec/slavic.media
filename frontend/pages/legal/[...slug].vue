@@ -1,11 +1,18 @@
 <script setup lang="ts">
 import { ddmmmyyyy } from "@/composables/useDateFormat";
+import { useProgressiveImg } from "@/composables/useProgressiveImg";
 
 // Content hydration
 const slug = useRoute().params.slug;
 const { data: document } = await useAsyncData(`legal-${slug}`, () => {
   return queryCollection("legal").path(`/legal/${slug}`).first();
 });
+
+// Progressive cover image
+const { thumbnailUrl, fullImageUrl, updateImgSrc } = useProgressiveImg(
+  "2024-12-08-01324-2",
+  "/public"
+);
 </script>
 <template>
   <main>
@@ -21,7 +28,12 @@ const { data: document } = await useAsyncData(`legal-${slug}`, () => {
     </Head>
     <section class="cover">
       <div class="filter"></div>
-      <img :src="`https://cdn.slavic.media/img/2024-12-08-01324-2/public`" />
+      <img
+        :src="thumbnailUrl"
+        :data-src="fullImageUrl"
+        @load="updateImgSrc"
+        alt="Legal cover"
+      />
       <div class="title flex-center reveal">
         <h1
           class="reveal"

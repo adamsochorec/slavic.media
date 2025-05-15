@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { truncateText } from "@/composables/useTruncateText.ts";
+import { useProgressiveImg } from "@/composables/useProgressiveImg";
 
 // Fetch the first document from the blog collection
 const { data: article } = await useAsyncData("latest-article", () =>
   queryCollection("blog").order("date", "DESC").first()
 );
+
+const { thumbnailUrl, fullImageUrl, imgLoaded, updateImgSrc } =
+  useProgressiveImg(article.value?.thumbnail ?? "", "/height=600");
 </script>
 
 <template>
@@ -22,7 +26,10 @@ const { data: article } = await useAsyncData("latest-article", () =>
         </div>
 
         <img
-          :src="`https://cdn.slavic.media/img/${article.thumbnail}/fit=contain,height=600`"
+          :src="thumbnailUrl"
+          :data-src="fullImageUrl"
+          :alt="article.title"
+          @load="updateImgSrc"
         />
       </NuxtLink>
 
@@ -41,11 +48,6 @@ const { data: article } = await useAsyncData("latest-article", () =>
     </figure>
   </div>
 </template>
-
-<style scoped lang="postcss">
-/* Existing styles remain unchanged */
-</style>
-
 <style scoped lang="postcss">
 .gallery-item {
   position: relative;

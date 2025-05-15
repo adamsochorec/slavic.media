@@ -335,6 +335,10 @@ footer {
       }
     }
 
+    .logo {
+      display: none;
+    }
+
     .logo-links {
       gap: 0;
     }
@@ -368,7 +372,6 @@ footer {
           margin-left: 0;
         }
       }
-
       .logo {
         height: var(--grid-gap-2);
       }

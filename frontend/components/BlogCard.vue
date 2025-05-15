@@ -49,7 +49,6 @@ const props = defineProps<{
 
 <style lang="postcss" scoped>
 .blog-card {
-  display: grid;
   @media only screen and (max-width: 499px) {
     padding-bottom: var(--grid-gap-1);
     &:not(:last-child) {

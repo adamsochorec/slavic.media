@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useProgressiveImg } from "@/composables/useProgressiveImg";
+
 interface Img {
   _id: string;
   alt: string;
@@ -15,15 +17,15 @@ const emit = defineEmits<{
   (event: "update:originalHeight", value: number): void;
 }>();
 
+const { thumbnailUrl, fullImageUrl, imgLoaded, updateImgSrc } =
+  useProgressiveImg(_id, "/public");
+
 const updateDimensions = (event: Event) => {
   const target = event.target as HTMLImageElement;
   emit("update:originalWidth", target.naturalWidth);
   emit("update:originalHeight", target.naturalHeight);
-  target.src = target.dataset.src!;
+  updateImgSrc(event);
 };
-
-const fullImageUrl = `https://cdn.slavic.media/img/${_id}/public`;
-const thumbnailUrl = `https://cdn.slavic.media/img/${_id}/thumbnail`;
 </script>
 
 <template>

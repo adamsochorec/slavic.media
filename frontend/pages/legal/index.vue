@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useProgressiveImg } from "@/composables/useProgressiveImg";
+
 // Meta SEO
 const title = "Legal";
 const description =
@@ -7,6 +9,12 @@ const description =
 // Content hydration
 const { data: documents } = await useAsyncData("legal", () =>
   queryCollection("legal").all()
+);
+
+// Progressive cover image
+const { thumbnailUrl, fullImageUrl, updateImgSrc } = useProgressiveImg(
+  "2024-12-08-01324-2",
+  "/public"
 );
 </script>
 
@@ -19,12 +27,17 @@ const { data: documents } = await useAsyncData("legal", () =>
       <Meta name="ogDescription" :content="description" />
       <Meta
         name="ogImage"
-        content="https.//cdn.slavic.media/img/2024-12-08-01324-2/sd"
+        content="https://cdn.slavic.media/img/2024-12-08-01324-2/sd"
       />
     </Head>
     <section class="cover">
       <div class="filter"></div>
-      <img :src="`https://cdn.slavic.media/img/2024-12-08-01324-2/public`" />
+      <img
+        :src="thumbnailUrl"
+        :data-src="fullImageUrl"
+        @load="updateImgSrc"
+        alt="Legal cover"
+      />
       <div class="title reveal">
         <h1 class="reveal" role="heading" aria-level="1">Legal</h1>
       </div>
