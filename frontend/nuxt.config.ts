@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       FORMSPREE: process.env.FORMSPREE,
+      CHATWAY: process.env.CHATWAY,
     },
   },
   content: {

@@ -4,7 +4,6 @@ import { useRouter } from "vue-router";
 import eventBus from "@/composables/useEventBus";
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-import { useRuntimeConfig } from "#app";
 
 const isVisible = ref(false);
 const formIdentifier = ref<string>("");
