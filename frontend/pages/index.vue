@@ -7,7 +7,7 @@ const description =
 const title = "Home";
 
 // SEO META
-useSeoMeta({
+useServerSeoMeta({
   title: title,
   description: description,
   ogTitle: title,
