@@ -72,6 +72,12 @@ export default defineNuxtConfig({
     },
     prerender: {
       crawlLinks: true,
+      ignore: [
+        "/dominik-tószegi-07872a248/",
+        "/gabrielasochorcova",
+        "/adamsochorec",
+        "/marcelhajik",
+      ],
     },
   },
   primevue: {
