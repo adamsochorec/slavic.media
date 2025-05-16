@@ -11,18 +11,21 @@ const { data: document } = await useAsyncData(`legal-${slug}`, () => {
 
 // SEO META (reactive)
 watchEffect(() => {
-  useSeoMeta({
-    title: document.value?.title,
-    description: document.value?.description,
-    ogTitle: document.value?.title,
-    ogDescription: document.value?.description,
-    ogImage: "https://cdn.slavic.media/img/2024-12-08-01324-2/sd",
-    ogUrl: `https://slavic.media/legal/${document.value?.slug}`,
-    twitterTitle: document.value?.title,
-    twitterDescription: document.value?.description,
-    twitterImage: "https://cdn.slavic.media/img/2024-12-08-01324-2/sd",
-    twitterCard: "summary",
-  });
+  useSeoMeta(
+    {
+      title: document.value?.title,
+      description: document.value?.description,
+      ogTitle: document.value?.title,
+      ogDescription: document.value?.description,
+      ogImage: "https://cdn.slavic.media/img/2024-12-08-01324-2/thumbnail",
+      ogUrl: `https://slavic.media/legal/${document.value?.slug}`,
+      twitterTitle: document.value?.title,
+      twitterDescription: document.value?.description,
+      twitterImage: "https://cdn.slavic.media/img/2024-12-08-01324-2/thumbnail",
+      twitterCard: "summary",
+    },
+    { priority: 1 }
+  );
 });
 
 // Progressive cover image

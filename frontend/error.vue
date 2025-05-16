@@ -2,15 +2,18 @@
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 
 // SEO META
-useSeoMeta({
-  title: "Error",
-  ogTitle: "Error",
-  ogImage: "https://cdn.slavic.media/img/thumbnail/sd",
-  ogUrl: "https://slavic.media",
-  twitterTitle: "Error",
-  twitterImage: "https://cdn.slavic.media/img/thumbnail/sd",
-  twitterCard: "summary",
-});
+useSeoMeta(
+  {
+    title: "Error",
+    ogTitle: "Error",
+    ogImage: "https://cdn.slavic.media/img/thumbnail/thumbnail",
+    ogUrl: "https://slavic.media",
+    twitterTitle: "Error",
+    twitterImage: "https://cdn.slavic.media/img/thumbnail/thumbnail",
+    twitterCard: "summary",
+  },
+  { priority: 1 }
+);
 
 defineProps({
   error: Object as () => NuxtError,

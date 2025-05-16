@@ -10,18 +10,21 @@ const description =
 const title = "Photo Services";
 
 // SEO META
-useSeoMeta({
-  title: title,
-  description: description,
-  ogTitle: title,
-  ogDescription: description,
-  ogImage: "https://cdn.slavic.media/img/photo/sd",
-  ogUrl: "https://slavic.media",
-  twitterTitle: title,
-  twitterDescription: description,
-  twitterImage: "https://cdn.slavic.media/img/photo/sd",
-  twitterCard: "summary",
-});
+useSeoMeta(
+  {
+    title: title,
+    description: description,
+    ogTitle: title,
+    ogDescription: description,
+    ogImage: "https://cdn.slavic.media/img/photo/thumbnail",
+    ogUrl: "https://slavic.media",
+    twitterTitle: title,
+    twitterDescription: description,
+    twitterImage: "https://cdn.slavic.media/img/photo/thumbnail",
+    twitterCard: "summary",
+  },
+  { priority: 1 }
+);
 
 // Fetch documents
 const {

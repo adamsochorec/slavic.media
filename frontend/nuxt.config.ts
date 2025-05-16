@@ -10,17 +10,8 @@ export default defineNuxtConfig({
     },
   },
   content: {
-    markdown: {
-      markdown: {
-        tags: {
-          h1: "h1",
-          h2: "h2",
-          h3: "h3",
-          h4: "h4",
-          h5: "h5",
-          h6: "h6",
-        },
-      },
+    renderer: {
+      anchorLinks: { h2: false, h3: false, h4: false, h5: false, h6: false },
     },
     preview: {
       api: "https://api.nuxt.studio",
@@ -38,7 +29,13 @@ export default defineNuxtConfig({
       "postcss-custom-media": {},
     },
   },
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true,
+    },
+  },
   debug: true,
   modules: [
     "nuxt-swiper",

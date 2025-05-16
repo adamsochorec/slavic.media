@@ -13,18 +13,21 @@ const { data: documents = ref([]) } = await useAsyncData("blog", () =>
 );
 
 // SEO META
-useSeoMeta({
-  title: title,
-  description: description,
-  ogTitle: title,
-  ogDescription: description,
-  ogImage: "https://cdn.slavic.media/img/thumbnail/sd",
-  ogUrl: "https://slavic.media/blog",
-  twitterTitle: title,
-  twitterDescription: description,
-  twitterImage: "https://cdn.slavic.media/img/thumbnail/sd",
-  twitterCard: "summary",
-});
+useSeoMeta(
+  {
+    title: title,
+    description: description,
+    ogTitle: title,
+    ogDescription: description,
+    ogImage: "https://cdn.slavic.media/img/thumbnail/thumbnail",
+    ogUrl: "https://slavic.media/blog",
+    twitterTitle: title,
+    twitterDescription: description,
+    twitterImage: "https://cdn.slavic.media/img/thumbnail/thumbnail",
+    twitterCard: "summary",
+  },
+  { priority: 1 }
+);
 
 // LOAD MORE
 const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(6, 6);

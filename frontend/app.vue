@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
-import eventBus from "@/composables/useEventBus";
 
 useHead({
   titleTemplate: (titleChunk) => {

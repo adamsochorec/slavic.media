@@ -5,18 +5,21 @@ const description =
 const title = "Video Services";
 
 // SEO META
-useSeoMeta({
-  title: title,
-  description: description,
-  ogTitle: title,
-  ogDescription: description,
-  ogImage: "https://cdn.slavic.media/img/video/sd",
-  ogUrl: "https://slavic.media",
-  twitterTitle: title,
-  twitterDescription: description,
-  twitterImage: "https://cdn.slavic.media/img/video/sd",
-  twitterCard: "summary",
-});
+useSeoMeta(
+  {
+    title: title,
+    description: description,
+    ogTitle: title,
+    ogDescription: description,
+    ogImage: "https://cdn.slavic.media/img/video/thumbnail",
+    ogUrl: "https://slavic.media",
+    twitterTitle: title,
+    twitterDescription: description,
+    twitterImage: "https://cdn.slavic.media/img/video/thumbnail",
+    twitterCard: "summary",
+  },
+  { priority: 1 }
+);
 // Further services matrix
 const photoServices = [
   {

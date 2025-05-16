@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { showRequestAProposal } from "@/composables/useRequestProposal";
+import { useSeoMeta } from "nuxt/app";
 
 // Meta SEO
 const description =
@@ -7,16 +8,16 @@ const description =
 const title = "Home";
 
 // SEO META
-useServerSeoMeta({
+useSeoMeta({
   title: title,
   description: description,
   ogTitle: title,
   ogDescription: description,
-  ogImage: "https://cdn.slavic.media/img/thumbnail/sd",
+  ogImage: "https://cdn.slavic.media/img/thumbnail/thumbnail",
   ogUrl: "https://slavic.media",
   twitterTitle: title,
   twitterDescription: description,
-  twitterImage: "https://cdn.slavic.media/img/thumbnail/sd",
+  twitterImage: "https://cdn.slavic.media/img/thumbnail/thumbnail",
   twitterCard: "summary",
 });
 </script>

@@ -5,18 +5,21 @@ const description =
 const title = "About";
 
 // SEO META
-useSeoMeta({
-  title: title,
-  description: description,
-  ogTitle: title,
-  ogDescription: description,
-  ogImage: "https://cdn.slavic.media/img/IMG_1849/sd",
-  ogUrl: "https://slavic.media/about",
-  twitterTitle: title,
-  twitterDescription: description,
-  twitterImage: "https://cdn.slavic.media/img/IMG_1849/sd",
-  twitterCard: "summary",
-});
+useSeoMeta(
+  {
+    title: title,
+    description: description,
+    ogTitle: title,
+    ogDescription: description,
+    ogImage: "https://cdn.slavic.media/img/IMG_1849/thumbnail",
+    ogUrl: "https://slavic.media/about",
+    twitterTitle: title,
+    twitterDescription: description,
+    twitterImage: "https://cdn.slavic.media/img/IMG_1849/thumbnail",
+    twitterCard: "summary",
+  },
+  { priority: 1 }
+);
 </script>
 
 <template>
