@@ -8,24 +8,6 @@ useHead({
   },
 });
 
-// Reactive state for loader visibility
-const isLoading = ref(true);
-const router = useRouter();
-
-// Show loader until NuxtPage is ready
-onMounted(() => {
-  isLoading.value = false; // Hide loader once the page is mounted
-});
-
-// Handle page transitions
-router.beforeEach((to, from, next) => {
-  isLoading.value = true; // Show loader during navigation
-  next();
-});
-router.afterEach(() => {
-  isLoading.value = false; // Hide loader after navigation
-});
-
 // CONTENT REVEAL START
 function reveal() {
   const reveals = document.querySelectorAll<HTMLElement>(".reveal");
@@ -84,16 +66,21 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
-    <NavBar />
-    <Loader v-if="isLoading" />
-    <!-- Main Content -->
-    <div v-else>
-      <aside><Cookies /><RequestProposal /></aside>
-      <NuxtPage />
-      <hr class="semi bodyxfooter" role="separator" />
-      <Footer />
-    </div>
-  </div>
+  <NavBar />
+  <!-- Main Content -->
+  <aside><Cookies /><RequestProposal /></aside>
+  <NuxtPage />
+  <hr class="semi bodyxfooter" role="separator" />
+  <Footer />
 </template>
-<style scoped></style>
+<style lang="postcss">
+.page-enter-active,
+.page-leave-active {
+  transition: var(--transition-1);
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  filter: var(--blur-1);
+}
+</style>

@@ -20,10 +20,18 @@ const currentYear = new Date().getFullYear();
             ></b
           >
           <ul>
-            <li>Production</li>
-            <li>Colour&nbsp;Grading</li>
-            <li>Social&nbsp;Media&nbsp;Content</li>
-            <li>Sound&nbsp;Edit</li>
+            <li><NuxtLink to="/video">Production</NuxtLink></li>
+            <li>
+              <NuxtLink to="/video#colour-grading"
+                >Colour&nbsp;Grading</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink to="/video#content"
+                >Social&nbsp;Media&nbsp;Content</NuxtLink
+              >
+            </li>
+            <li><NuxtLink to="/video#sound-edit">Sound&nbsp;Edit</NuxtLink></li>
           </ul>
         </section>
         <section>
@@ -33,10 +41,20 @@ const currentYear = new Date().getFullYear();
             ></b
           >
           <ul>
-            <li>Portrait&nbsp;Photography</li>
-            <li>Still&nbsp;Photography</li>
-            <li>Aerial&nbsp;Photography</li>
-            <li>Outdoor&nbsp;Photography</li>
+            <li>
+              <NuxtLink to="/photo#portrait"
+                >Portrait&nbsp;Photography</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink to="/photo#still">Still&nbsp;Photography</NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/photo#drone">Aerial&nbsp;Photography</NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/photo#outdoor">Outdoor&nbsp;Photography</NuxtLink>
+            </li>
           </ul>
         </section>
       </header>

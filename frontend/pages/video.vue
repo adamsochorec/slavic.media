@@ -133,7 +133,6 @@ const photoServices = [
             @click="showRequestAProposal('content')"
           />
         </div>
-        <div id="content"></div>
       </div>
       <br />
       <Reels />

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { ddmmmyyyy } from "@/composables/useDateFormat";
 import { useProgressiveImg } from "@/composables/useProgressiveImg";
 
@@ -25,8 +25,18 @@ function copyToClipboard(link: string) {
   navigator.clipboard.writeText(link);
 }
 
-const { thumbnailUrl, fullImageUrl, imgLoaded, updateImgSrc } =
-  useProgressiveImg(props.author.id, "/height=200");
+const imgRef = ref<HTMLImageElement | null>(null);
+const {
+  thumbnailUrl,
+  fullImageUrl,
+  imgLoaded,
+  updateImgSrc,
+  checkIfAlreadyLoaded,
+} = useProgressiveImg(props.author.id, "/height=200");
+
+onMounted(() => {
+  checkIfAlreadyLoaded(imgRef.value);
+});
 </script>
 <template>
   <div class="metadata-container reveal">
@@ -37,6 +47,7 @@ const { thumbnailUrl, fullImageUrl, imgLoaded, updateImgSrc } =
         :href="`https://www.linkedin.com/in/${author.linkedin}`"
       >
         <img
+          ref="imgRef"
           class="avatar"
           :src="thumbnailUrl"
           :data-src="fullImageUrl"

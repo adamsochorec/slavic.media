@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
 import { useProgressiveImg } from "@/composables/useProgressiveImg";
 
 interface Img {
@@ -17,8 +18,15 @@ const emit = defineEmits<{
   (event: "update:originalHeight", value: number): void;
 }>();
 
-const { thumbnailUrl, fullImageUrl, imgLoaded, updateImgSrc } =
-  useProgressiveImg(_id, "/public");
+const {
+  thumbnailUrl,
+  fullImageUrl,
+  imgLoaded,
+  updateImgSrc,
+  checkIfAlreadyLoaded,
+} = useProgressiveImg(_id, "/public");
+
+const imgRef = ref<HTMLImageElement | null>(null);
 
 const updateDimensions = (event: Event) => {
   const target = event.target as HTMLImageElement;
@@ -26,6 +34,10 @@ const updateDimensions = (event: Event) => {
   emit("update:originalHeight", target.naturalHeight);
   updateImgSrc(event);
 };
+
+onMounted(() => {
+  checkIfAlreadyLoaded(imgRef.value);
+});
 </script>
 
 <template>
@@ -36,6 +48,7 @@ const updateDimensions = (event: Event) => {
     :data-pswp-height="originalHeight"
   >
     <img
+      ref="imgRef"
       class="reveal"
       :src="thumbnailUrl"
       :data-src="fullImageUrl"

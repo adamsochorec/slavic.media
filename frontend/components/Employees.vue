@@ -15,8 +15,15 @@ const {
   error,
 } = await useFetch("https://api.slavic.media/employee", {
   transform: (employees: any) =>
-    employees?.sort((a: any, b: any) => b.index - a.index) || [],
+    employees?.sort((a: any, b: any) => a.index - b.index) || [],
 });
+
+// Progressive IMG loading
+const checkIfAlreadyLoaded = (img: HTMLImageElement) => {
+  if (img && img.complete && img.src !== img.dataset.src) {
+    img.src = img.dataset.src!;
+  }
+};
 
 let lightbox: any;
 let removeArrowNavigation: () => void;
@@ -83,6 +90,12 @@ onMounted(() => {
 
     // Enable arrow navigation for Swiper
     removeArrowNavigation = useArrowNavigation(swiper);
+
+    document
+      .querySelectorAll<HTMLImageElement>(".employee-img")
+      .forEach((img) => {
+        checkIfAlreadyLoaded(img);
+      });
   });
 });
 
@@ -212,9 +225,6 @@ onUnmounted(() => {
 <style scoped lang="postcss">
 .swiper {
   margin: var(--grid-gap-3) 0;
-}
-.swiper-employees {
-  padding-bottom: calc(var(--grid-gap-2) * 2);
 }
 .bio {
   margin: var(--grid-gap-1) 0;

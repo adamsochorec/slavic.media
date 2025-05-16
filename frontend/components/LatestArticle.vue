@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
 import { truncateText } from "@/composables/useTruncateText.ts";
 import { useProgressiveImg } from "@/composables/useProgressiveImg";
 
@@ -7,8 +8,19 @@ const { data: article } = await useAsyncData("latest-article", () =>
   queryCollection("blog").order("date", "DESC").first()
 );
 
-const { thumbnailUrl, fullImageUrl, imgLoaded, updateImgSrc } =
-  useProgressiveImg(article.value?.thumbnail ?? "", "/height=600");
+const {
+  thumbnailUrl,
+  fullImageUrl,
+  imgLoaded,
+  updateImgSrc,
+  checkIfAlreadyLoaded,
+} = useProgressiveImg(article.value?.thumbnail ?? "", "/height=600");
+
+const imgRef = ref<HTMLImageElement | null>(null);
+
+onMounted(() => {
+  checkIfAlreadyLoaded(imgRef.value);
+});
 </script>
 
 <template>
@@ -26,6 +38,7 @@ const { thumbnailUrl, fullImageUrl, imgLoaded, updateImgSrc } =
         </div>
 
         <img
+          ref="imgRef"
           :src="thumbnailUrl"
           :data-src="fullImageUrl"
           :alt="article.title"

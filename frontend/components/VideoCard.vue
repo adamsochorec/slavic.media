@@ -37,7 +37,8 @@ const plugins = [lgVideo];
     hideScrollbar="true"
   >
     <a
-      v-for="video in videos.slice(0, itemsToShow)"
+      v-for="(video, idx) in videos"
+      v-show="idx < itemsToShow"
       :key="video._id"
       class="video-card reveal"
       aria-labelledby="video-card-title"

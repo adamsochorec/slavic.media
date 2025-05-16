@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
 import { ddmmmyyyy } from "@/composables/useDateFormat.ts";
 import { useProgressiveImg } from "@/composables/useProgressiveImg";
 
@@ -22,8 +23,19 @@ const props = defineProps<{
   article: Article;
 }>();
 
-const { thumbnailUrl, fullImageUrl, imgLoaded, updateImgSrc } =
-  useProgressiveImg(props.article.author.id, "/height=90");
+const {
+  thumbnailUrl,
+  fullImageUrl,
+  imgLoaded,
+  updateImgSrc,
+  checkIfAlreadyLoaded,
+} = useProgressiveImg(props.article.author.id, "/height=90");
+
+const imgRef = ref<HTMLImageElement | null>(null);
+
+onMounted(() => {
+  checkIfAlreadyLoaded(imgRef.value);
+});
 </script>
 
 <template>
@@ -37,6 +49,7 @@ const { thumbnailUrl, fullImageUrl, imgLoaded, updateImgSrc } =
         aria-label="Visit {{ article.author.name }}'s LinkedIn profile"
       >
         <img
+          ref="imgRef"
           class="avatar"
           :src="thumbnailUrl"
           :data-src="fullImageUrl"

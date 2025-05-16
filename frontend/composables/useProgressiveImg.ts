@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 export function useProgressiveImg(
   id: string,
@@ -17,10 +17,19 @@ export function useProgressiveImg(
     }
   };
 
+  // Handle cached images (if already loaded)
+  const checkIfAlreadyLoaded = (imgRef: HTMLImageElement | null) => {
+    if (imgRef && imgRef.complete && !imgLoaded.value) {
+      imgRef.src = fullImageUrl;
+      imgLoaded.value = true;
+    }
+  };
+
   return {
     thumbnailUrl,
     fullImageUrl,
     imgLoaded,
     updateImgSrc,
+    checkIfAlreadyLoaded,
   };
 }

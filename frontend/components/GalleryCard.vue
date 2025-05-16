@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { truncateText } from "@/composables/useTruncateText.ts";
 import { useProgressiveImg } from "@/composables/useProgressiveImg";
 
@@ -15,8 +15,19 @@ interface GalleryCard {
 }
 const props = defineProps<GalleryCard>();
 
-const { thumbnailUrl, fullImageUrl, imgLoaded, updateImgSrc } =
-  useProgressiveImg(props.img, "/sd");
+const {
+  thumbnailUrl,
+  fullImageUrl,
+  imgLoaded,
+  updateImgSrc,
+  checkIfAlreadyLoaded,
+} = useProgressiveImg(props.img, "/sd");
+
+const imgRef = ref<HTMLImageElement | null>(null);
+
+onMounted(() => {
+  checkIfAlreadyLoaded(imgRef.value);
+});
 </script>
 
 <template>
@@ -24,6 +35,7 @@ const { thumbnailUrl, fullImageUrl, imgLoaded, updateImgSrc } =
     <NuxtLink :to="url" :data-src="`//${url}`">
       <Icon v-if="flag" :name="`flag:${flag}-4x3`" class="note flag" />
       <img
+        ref="imgRef"
         :style="`opacity:${opacity}`"
         :src="thumbnailUrl"
         :data-src="fullImageUrl"

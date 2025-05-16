@@ -13,7 +13,16 @@ const {
 
 const updateImageSrc = (event: Event) => {
   const target = event.target as HTMLImageElement;
-  target.src = target.dataset.src!;
+  if (target.src !== target.dataset.src) {
+    target.src = target.dataset.src!;
+  }
+};
+
+// Helper to handle cached images
+const checkIfAlreadyLoaded = (imgRef: HTMLImageElement | null) => {
+  if (imgRef && imgRef.complete && imgRef.src !== imgRef.dataset.src) {
+    imgRef.src = imgRef.dataset.src!;
+  }
 };
 
 let removeArrowNavigation: () => void;
@@ -35,6 +44,13 @@ onMounted(() => {
     });
 
     removeArrowNavigation = useArrowNavigation(swiper);
+
+    // Check all images for cached state after mount
+    document
+      .querySelectorAll<HTMLImageElement>(".swiper-colour-grading img")
+      .forEach((img) => {
+        checkIfAlreadyLoaded(img);
+      });
   });
 });
 
