@@ -76,7 +76,7 @@ onMounted(() => {
 <style lang="postcss">
 .page-enter-active,
 .page-leave-active {
-  transition: var(--transition-1);
+  transition: var(--transition-2);
 }
 .page-enter-from,
 .page-leave-to {
