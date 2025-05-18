@@ -11,7 +11,7 @@ const { data: document } = await useAsyncData(`blog-${slug}`, () => {
 
 // SEO META (reactive)
 watchEffect(() => {
-  definePageMeta(
+  useSeoMeta(
     {
       title: document.value?.title,
       description: document.value?.description,

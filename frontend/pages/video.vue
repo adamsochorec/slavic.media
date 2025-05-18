@@ -5,7 +5,7 @@ const description =
 const title = "Video Services";
 
 // SEO META
-definePageMeta(
+useSeoMeta(
   {
     title: title,
     description: description,

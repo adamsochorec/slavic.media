@@ -8,7 +8,7 @@ const description =
 const title = "Home";
 
 // SEO META
-definePageMeta({
+useSeoMeta({
   title: title,
   description: description,
   ogTitle: title,

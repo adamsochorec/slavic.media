@@ -12,7 +12,7 @@ const { data: documents } = await useAsyncData("legal", () =>
 );
 
 // SEO META
-definePageMeta(
+useSeoMeta(
   {
     title: title,
     description: description,

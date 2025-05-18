@@ -2,7 +2,7 @@
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 
 // SEO META
-definePageMeta(
+useSeoMeta(
   {
     title: "Error",
     ogTitle: "Error",

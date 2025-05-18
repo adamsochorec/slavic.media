@@ -5,7 +5,7 @@ const description =
 const title = "About";
 
 // SEO META
-definePageMeta(
+useSeoMeta(
   {
     title: title,
     description: description,
