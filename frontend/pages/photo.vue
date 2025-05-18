@@ -10,7 +10,7 @@ const description =
 const title = "Photo Services";
 
 // SEO META
-useSeoMeta(
+definePageMeta(
   {
     title: title,
     description: description,

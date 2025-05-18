@@ -13,7 +13,7 @@ const { data: documents = ref([]) } = await useAsyncData("blog", () =>
 );
 
 // SEO META
-useSeoMeta(
+definePageMeta(
   {
     title: title,
     description: description,
