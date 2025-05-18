@@ -18,11 +18,11 @@ definePageMeta(
     description: description,
     ogTitle: title,
     ogDescription: description,
-    ogImage: "https://cdn.slavic.media/img/2024-12-08-01324-2/thumbnail",
+    ogImage: "https://cdn.slavic.media/img/2024-12-08-01324-2/sd",
     ogUrl: "https://slavic.media/legal",
     twitterTitle: title,
     twitterDescription: description,
-    twitterImage: "https://cdn.slavic.media/img/2024-12-08-01324-2/thumbnail",
+    twitterImage: "https://cdn.slavic.media/img/2024-12-08-01324-2/sd",
     twitterCard: "summary",
   },
   { priority: 1 }

@@ -11,17 +11,17 @@ const { data: document } = await useAsyncData(`blog-${slug}`, () => {
 
 // SEO META (reactive)
 watchEffect(() => {
-  useSeoMeta(
+  definePageMeta(
     {
       title: document.value?.title,
       description: document.value?.description,
       ogTitle: document.value?.title,
       ogDescription: document.value?.description,
-      ogImage: `https://cdn.slavic.media/img/${document.value?.thumbnail}/thumbnail`,
+      ogImage: `https://cdn.slavic.media/img/${document.value?.thumbnail}/sd`,
       ogUrl: `https://slavic.media/blog/${document.value?.slug}`,
       twitterTitle: document.value?.title,
       twitterDescription: document.value?.description,
-      twitterImage: `https://cdn.slavic.media/img/${document.value?.thumbnail}/thumbnail`,
+      twitterImage: `https://cdn.slavic.media/img/${document.value?.thumbnail}/sd`,
       twitterCard: "summary",
     },
     { priority: 1 }
