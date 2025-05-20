@@ -702,7 +702,11 @@ i.pi-arrow-right:hover {
   line-height: 0.65;
   margin: 10px 10px 10px 0;
 }
-.rendered-content h2 {
+.rendered-content h2,
+.rendered-content h3,
+.rendered-content h4,
+.rendered-content h5,
+.rendered-content h6 {
   font-size: var(--font-size-4);
 }
 .content h1,

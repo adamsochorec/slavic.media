@@ -39,10 +39,10 @@ According to my navigation app, I had about 20 minutes left on my walk. As I wal
 
 I noticed that these bunkers were spaced about every few hundred meters along the entire west coast. However, 'standing' might not be the right term to describe their condition. After more than half a century of neglect in the sand, these bunkers had sunken into the ground. Their exteriors were often covered in graffiti, and some even had additional metal constructions shaped like horses or giraffes. As I passed more and more bunkers, each with its unique design and level of deterioration, I had the idea to scan them using a 3D modeling app called [Polycam](https://poly.cam).
 
-<iframe title="Blåvand bunker | vzor 2" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/dd16bb89f8844760ab31396d495fd0ce/embed?dnt=1"></iframe> 
+<iframe title="Blåvand bunker | vzor 2" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/dd16bb89f8844760ab31396d495fd0ce/embed?autospin=1"></iframe> 
 
 
-<iframe title="Blåvand bunker | vzor 1" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/37e4150677634273954aa6e69434ec15/embed?dnt=1"></iframe>
+<iframe title="Blåvand bunker | vzor 1" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/37e4150677634273954aa6e69434ec15/embed?autospin=1"></iframe>
 
 While the app's scanning and processing options are not the most advanced, it is user-friendly and convenient to use. There are also several ways to use the app for free, such as creating user profiles and sharing scanned content.
 
