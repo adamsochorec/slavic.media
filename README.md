@@ -10,7 +10,7 @@ The previous PHP-based static website was outdated in terms of performance and s
 
 ## When?
 
-Developed between September and December 2024.
+Developed between September and December 2024, further developments and updates are on an ongoing basis.
 
 ## What?
 
@@ -18,7 +18,7 @@ A landing page for a creative multimedia studio, showcasing projects, industry-r
 
 ## How?
 
-Built using modern, lightweight frameworks within and beyond the MEVN stack: MongoDB, Express.js, Vue.js, and Node.js, all written in TypeScript. The site includes [Tailwind CSS](https://tailwindcss.com) and [PrimeVue](https://www.primevue.org) components, supplemented by a custom component library aligned with the company brand identity. Some pages are dynamically rendered from a database, while others remain static. Images and videos are served via [Vimeo](https://vimeo.com) and [Cloudflare](https://www.cloudflare.com) CDNs. API documentation is auto-generated with [Swagger.io](https://swagger.io).
+Built using modern, lightweight frameworks within and beyond the MEVN stack: MongoDB, Express.js, Vue.js (Nuxt), and Node.js, all written in TypeScript. The site includes [Tailwind CSS](https://tailwindcss.com) and [PrimeVue](https://www.primevue.org) components, supplemented by a custom component library aligned with the company brand identity. Some pages are dynamically rendered from a database, while others remain static. Images and videos are served via [Vimeo](https://vimeo.com) and [Cloudflare](https://www.cloudflare.com) CDNs. API documentation is auto-generated with [Swagger.io](https://swagger.io).
 
 ![Cover 1](https://github.com/user-attachments/assets/6155e6c6-2793-4161-af29-bc6317d47e4b)
 
@@ -27,7 +27,6 @@ Built using modern, lightweight frameworks within and beyond the MEVN stack: Mon
 | Frontend | [slavic.media](https://slavic.media)                              |
 | API      | [api.slavic.media](https://api.slavic.media/docs)                 |
 | CDN      | [cdn.slavic.media](https://cdn.slavic.media/img/thumbnail/public) |
-| Video    | [vimeo.com/slavicmedia](https://vimeo.com/slavicmedia)            |
 
 ## Documentation
 
@@ -37,9 +36,9 @@ To check out docs, visit [api.slavic.media/docs](https://api.slavic.media/docs/)
 
 ```sh
 cd frontend
-npm install ## Install Node
-npm run dev ## Compile and Hot-Reload for Development
-npm run build ## Type-Check, Compile and Minify for Production
+yarn install ## Install Node
+yarn dev ## Compile and Hot-Reload for Development
+yarn build ## Type-Check, Compile and Minify for Production
 ```
 
 ## Backend Setup
