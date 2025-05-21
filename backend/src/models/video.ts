@@ -12,7 +12,6 @@ interface Video extends Document {
   url: string;
   year: string;
   client: Client;
-  description?: string;
   category?: string;
 }
 
@@ -30,7 +29,6 @@ const videoSchema = new Schema<Video>({
     }),
     required: true,
   },
-  description: { type: String, maxlength: 1000 },
   category: { type: String, maxlength: 100 },
 });
 

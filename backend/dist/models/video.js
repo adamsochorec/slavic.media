@@ -49,7 +49,6 @@ const videoSchema = new mongoose_1.Schema({
         }),
         required: true,
     },
-    description: { type: String, maxlength: 1000 },
     category: { type: String, maxlength: 100 },
 });
 exports.videoSchema = videoSchema;
