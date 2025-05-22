@@ -16,7 +16,6 @@ author:
   name: Adam S.
   id: adam
   linkedin: adamsochorec
-  department: Creative Director
 date: 2024-10-16T00:00:00.000Z
 flag: dk
 ---

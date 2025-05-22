@@ -17,8 +17,7 @@ keywords:
 author:
   name: Adam S.
   id: adam
-  linkedin: adamsochorec
-  department: Creative Director
+  linkedin: adamsochorec 
 date: 2022-08-25T00:00:00.000Z
 flag: dk
 ---

@@ -5,7 +5,6 @@ author:
   name: Adam S.
   id: adam
   linkedin: adamsochorec
-  department: Creative Director
 date: 2025-04-27
 flag: cz
 keywords:

@@ -64,7 +64,6 @@ onMounted(() => {
         >
           <span> {{ author.name }}</span></a
         >
-        <p>{{ author?.department }}</p>
       </div>
     </div>
     <div class="metadata">

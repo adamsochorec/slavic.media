@@ -13,7 +13,6 @@ author:
   name: Marcel H.
   id: marcel
   linkedin: marcelhajik
-  department: Director of Photography
 linkedin: marcelhajik_story-startupstory-startup-activity-7256605680747319298-a7Zt?utm_source=share&utm_medium=member_desktop
 date: 2024-11-10T00:00:00.000Z
 ---

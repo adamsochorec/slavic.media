@@ -14,7 +14,6 @@ author:
   name: Marcel H.
   id: marcel
   linkedin: marcelhajik
-  department: Director of Photography
 date: 2024-10-23T00:00:00.000Z
 flag: fi
 ---

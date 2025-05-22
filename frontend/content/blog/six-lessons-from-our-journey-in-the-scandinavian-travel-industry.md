@@ -18,7 +18,6 @@ author:
   name: Adam S.
   id: adam
   linkedin: adamsochorec
-  department: Creative Director
 ---
 
 We launched the first project with Timetravels Ltd and Slavic Media in Swedish Lapland a year from now. Our collaboration quickly became one of the most impactful partnerships in Marcel Hájik's and my journey as content creators. From above the Arctic Circle to the fjords of Norway, here’s what we learned along the way.
