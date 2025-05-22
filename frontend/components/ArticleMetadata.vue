@@ -98,34 +98,35 @@ onMounted(() => {
   border-bottom: var(--border-1);
   font-size: var(--font-size-7);
   align-items: center;
-}
-.metadata {
-  border-left: var(--border-1);
-  border-right: var(--border-1);
-  margin: 0 var(--grid-gap-2);
-  padding: var(--grid-gap-1) var(--grid-gap-2);
 
-  .pi {
-    font-size: var(--font-size-7);
-  }
-}
-.link * {
-  margin-right: var(--grid-gap-1);
-}
-img {
-  height: var(--grid-gap-3);
-  width: auto;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-}
-.author {
-  display: flex;
-  gap: var(--grid-gap-1);
-  align-items: center;
-}
-@media only screen and (max-width: 350px) {
-  .metadata-container {
+  @media only screen and (max-width: 350px) {
     font-size: 10px;
+    justify-content: center;
+  }
+
+  .metadata {
+    border-left: var(--border-1);
+    border-right: var(--border-1);
+    margin: 0 var(--grid-gap-2);
+    padding: var(--grid-gap-1) var(--grid-gap-2);
+
+    .pi {
+      font-size: var(--font-size-7);
+    }
+  }
+  .link * {
+    margin-right: var(--grid-gap-1);
+  }
+  img {
+    height: var(--grid-gap-3);
+    width: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+  .author {
+    display: flex;
+    gap: var(--grid-gap-1);
+    align-items: center;
   }
 }
 @media only screen and (max-width: 400px) {

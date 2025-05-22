@@ -31,7 +31,6 @@ useSeoMeta(
     />
     <!--   ABOUT START -->
     <section class="wrapper-standard" role="region">
-      <hr class="semi" />
       <h1 class="docs reveal">Who <span class="gradient">We</span> Are</h1>
       <p id="about-company" class="reveal">
         {{ description }}

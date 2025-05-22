@@ -33,8 +33,6 @@ useSeoMeta({
     />
     <!-- INTRO VIDEO END -->
     <section class="wrapper-wide" id="company-intro">
-      <hr class="semi" role="separator" />
-
       <!-- SERVICES START -->
       <div
         class="grid-container caption-container reveal"

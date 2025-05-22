@@ -78,7 +78,7 @@ onMounted(() => {
     border-radius: 0;
 
     h3 {
-      font-size: var(--font-size-1);
+      font-size: var(--font-size-2);
     }
   }
 }
