@@ -63,7 +63,7 @@ const loadChatwayScript = () => {
   const chatwayScript = document.createElement("script");
   chatwayScript.id = "chatway";
   chatwayScript.async = true;
-  chatwayScript.src = `https://cdn.chatway.app/widget.js?id=${config.public.CHATWAY}`;
+  chatwayScript.src = `https://cdn.chatway.app/widget.js?id=eIN2tIZBFO8j`;
   document.head.appendChild(chatwayScript);
 };
 
@@ -167,7 +167,7 @@ onMounted(() => {
   border-radius: var(--border-radius-1);
   -webkit-backdrop-filter: var(--blur-1);
   backdrop-filter: var(--blur-1);
-  z-index: 9999999999;
+  z-index: 2147483008;
   padding: var(--grid-gap-2);
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;

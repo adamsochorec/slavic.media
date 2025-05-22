@@ -479,6 +479,11 @@ small a {
   backdrop-filter: var(--blur-1);
   background-color: var(--dark-grey-color-full) !important;
 }
+.fancybox__container,
+.lg-backdrop,
+.lg-outer.lg-zoom-from-image {
+  z-index: 2147483009 !important;
+}
 .lg-counter,
 .pswp__counter {
   font-family: var(--content-font) !important;

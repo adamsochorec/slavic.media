@@ -36,7 +36,7 @@ useSeoMeta(
       <p id="about-company" class="reveal">
         {{ description }}
       </p>
-      <Employees />
+      <client-only> <Employees /></client-only>
       <p class="reveal">
         Slavic Media is headquartered in Kolding, Denmark, with remote team
         members distributed across the kingdom and Czechia. We are bootstrapped

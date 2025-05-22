@@ -112,7 +112,7 @@ onUnmounted(() => {
               id="project"
             ></textarea>
           </div>
-          <input type="hidden" name="source" :value="content" />
+          <input type="hidden" name="source" :value="formIdentifier" />
           <p style="font-size: var(--font-size-7)">
             By submitting form you agree with our
             <NuxtLink to="/legal/privacy-policy">Privacy Policy</NuxtLink>.

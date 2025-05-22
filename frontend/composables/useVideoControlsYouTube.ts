@@ -13,6 +13,7 @@ export function useVideoControls() {
   const state = reactive({
     isPlaying: false,
     isMuted: true,
+    isReady: false, // Track if player is ready
   });
 
   let observer: IntersectionObserver | null = null;
@@ -33,6 +34,7 @@ export function useVideoControls() {
     player.value = new window.YT.Player(iframeRef.value, {
       events: {
         onReady: (event: any) => {
+          state.isReady = true;
           event.target.mute();
           state.isMuted = true;
           event.target.playVideo(); // Autoplay when ready
@@ -47,20 +49,28 @@ export function useVideoControls() {
   };
 
   const muteVideo = () => {
-    player.value?.mute();
-    state.isMuted = true;
+    if (state.isReady) {
+      player.value?.mute();
+      state.isMuted = true;
+    }
   };
   const unmuteVideo = () => {
-    player.value?.unMute();
-    state.isMuted = false;
+    if (state.isReady) {
+      player.value?.unMute();
+      state.isMuted = false;
+    }
   };
   const playVideo = () => {
-    player.value?.playVideo();
-    state.isPlaying = true;
+    if (state.isReady) {
+      player.value?.playVideo();
+      state.isPlaying = true;
+    }
   };
   const pauseVideo = () => {
-    player.value?.pauseVideo();
-    state.isPlaying = false;
+    if (state.isReady) {
+      player.value?.pauseVideo();
+      state.isPlaying = false;
+    }
   };
 
   onMounted(async () => {
@@ -71,7 +81,7 @@ export function useVideoControls() {
     observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (player.value) {
+          if (player.value && state.isReady) {
             if (entry.isIntersecting) {
               playVideo();
             } else {
