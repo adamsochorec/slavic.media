@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { useVideoControls } from "@/composables/useVideoControls";
+import { useVideoControls } from "@/composables/useVideoControlsYouTube";
 
 interface HeroVideo {
-  id: number;
+  vimeo: string;
+  youtube: string;
+  title: string;
   start?: number;
-  alt: string;
 }
 const props = defineProps<HeroVideo>();
 const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
@@ -16,31 +17,31 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
     <div class="video-container">
       <iframe
         ref="iframeRef"
-        :src="`https://player.vimeo.com/video/${id}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;muted=1&amp;autoplay=1&amp;loop=1&amp;controls=0#t=${start}s`"
-        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-        :title="alt"
+        id="youtube-player"
+        :src="`https://www.youtube-nocookie.com/embed/${youtube}?enablejsapi=1&autoplay=1&controls=0&disablekb=1&start=${
+          start ?? 0
+        }&loop=1&playlist=${youtube}`"
+        :title="title"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
       ></iframe>
     </div>
     <p id="video-description" class="visually-hidden">
-      {{ alt }}
+      {{ title }}
     </p>
     <a
       class="link"
       target="_blank"
       rel="noopener noreferrer nofollow"
-      :href="`https://vimeo.com/${id}?share=copy`"
+      :href="`https://vimeo.com/${vimeo}?share=copy`"
       v-tooltip.left="{ value: 'Watch on Vimeo', autoHide: true }"
       aria-label="Watch on Vimeo"
     >
       <i class="pi pi-vimeo"></i>
     </a>
     <section class="controls">
-      <button
-        v-if="state.isPlaying"
-        class="pi pi-pause-circle play"
-        @click="pauseVideo"
-      ></button>
-      <button v-else class="pi pi-play-circle play" @click="playVideo"></button>
       <button
         v-if="state.isMuted"
         class="pi pi-volume-off volume"

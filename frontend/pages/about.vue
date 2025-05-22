@@ -24,8 +24,11 @@ useSeoMeta(
 
 <template>
   <main aria-labelledby="about-company">
-    <HeroVideo :id="1013776851" alt="Behind the Scenes | Slavic Media">
-    </HeroVideo>
+    <HeroVideo
+      youtube="UQCIQ8smKDM"
+      vimeo="1013776851"
+      title="Behind the Scenes"
+    />
     <!--   ABOUT START -->
     <section class="wrapper-standard" role="region">
       <hr class="semi" />

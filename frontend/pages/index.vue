@@ -24,7 +24,12 @@ useSeoMeta({
 <template>
   <main class="homepage">
     <!-- INTRO VIDEO START -->
-    <HeroVideo :id="1039054657" alt="Showreel 24' | Slavic Media" :start="7" />
+    <HeroVideo
+      youtube="W4jcCCpsXyo"
+      vimeo="1039054657"
+      title="Showreel 24'"
+      start="7"
+    />
     <!-- INTRO VIDEO END -->
     <section class="wrapper-wide" id="company-intro">
       <hr class="semi" role="separator" />
