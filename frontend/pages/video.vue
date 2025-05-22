@@ -21,7 +21,7 @@ useSeoMeta(
   { priority: 1 }
 );
 // Further services matrix
-const photoServices = [
+const services = [
   {
     id: "portrait",
     title: "Colorful Portrait",
@@ -180,7 +180,16 @@ const photoServices = [
       <h3 class="docs" id="photo-services-heading">
         Discover our <span class="gradient">photo</span> services
       </h3>
-      <FurtherServices :services="photoServices" swiperClass="photo" />
+      <div class="gallery">
+        <LinkCard
+          v-for="service in services"
+          :key="service.id"
+          :url="`/photo#${service.id}`"
+          :title="service.title"
+          :icon="service.icon"
+          :description="service.description"
+        />
+      </div>
     </section>
     <!-- FURTHER SERVICES END -->
   </main>
@@ -204,6 +213,17 @@ h1 {
   }
   hr.hide {
     display: none;
+  }
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: var(--grid-gap-2);
+  padding-bottom: var(--grid-gap-3);
+  margin-bottom: -var(--grid-gap-3);
+
+  @media only screen and (min-width: 690px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>

@@ -14,7 +14,7 @@ const props = defineProps<LinkCard>();
     <figure class="card">
       <span :class="`pi pi-${icon} bubble`"></span>
       <h3>{{ title }}</h3>
-      <div class="description">{{ truncateText(description, 83) }}</div>
+      <div class="description">{{ truncateText(description, 100) }}</div>
     </figure>
   </NuxtLink>
 </template>
@@ -24,14 +24,21 @@ const props = defineProps<LinkCard>();
   background-color: rgb(var(--dark-grey-color));
   padding: var(--grid-gap-2);
   border-radius: var(--border-radius-1);
+  cursor: pointer;
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
-  cursor: pointer;
   -webkit-transition: var(--transition-1);
   -o-transition: var(--transition-1);
   transition: var(--transition-1);
-}
 
+  &:hover {
+    -webkit-box-shadow: var(--box-shadow-2);
+    box-shadow: var(--box-shadow-2);
+    -webkit-transition: var(--transition-1);
+    -o-transition: var(--transition-1);
+    transition: var(--transition-1);
+  }
+}
 h3 {
   font-size: var(--font-size-5);
 
