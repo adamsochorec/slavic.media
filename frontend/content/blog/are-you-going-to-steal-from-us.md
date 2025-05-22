@@ -19,10 +19,9 @@ date: 2024-11-10T00:00:00.000Z
 ---
 
 That’s one of the first things we heard when we introduced Slavic Media in Denmark. The name provoked uncomfortable reactions and raised eyebrows.
-
 :br
-
-> "Why associate yourself with a culture that has a negative reputation?" :br "Slavic, isn't that risky?"
+> "Why associate yourself with a culture that has a negative reputation?"
+:br "Slavic, isn't that risky?"
 
 ![Marcel H. & Adam S.](https://cdn.slavic.media/img/1728539251293/public "Marcel H. & Adam S.")
 

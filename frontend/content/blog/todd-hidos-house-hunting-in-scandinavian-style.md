@@ -42,4 +42,6 @@ Beforehand, I contacted the city planning department to gather information about
 
 ![Faded spots on walls hinting at previous frames.](https://cdn.slavic.media/img/2022-10-09-00956/public "2022 ⋅ Vaasa, Finland")
 
-With the owner's permission, my friend and fellow photographer [Samuli](https://www.instagram.com/samuliframes/) and I agreed to photograph the inside of the building at sunrise on an early autumn morning.:brWe were able to explore the interior of the building and photograph the bleached spots on the walls, likely left by previously hanging frames and paintings. Despite the building's impending demolition, we were able to document its beauty and history through our photography.
+With the owner's permission, my friend and fellow photographer [Samuli](https://www.instagram.com/samuliframes/) and I agreed to photograph the inside of the building at sunrise on an early autumn morning.
+:br
+We were able to explore the interior of the building and photograph the bleached spots on the walls, likely left by previously hanging frames and paintings. Despite the building's impending demolition, we were able to document its beauty and history through our photography.

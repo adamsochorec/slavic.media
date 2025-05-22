@@ -19,7 +19,9 @@ date: 2024-10-13T00:00:00.000Z
 flag: fi
 ---
 
-We all know the [solar maximum](https://en.wikipedia.org/wiki/Solar_maximum) is here — it’s no secret. But what does that really mean for the tourism industry?:brThe Northern Lights are always breathtaking, but this year’s solar maximum is taking things to a whole new level. For travellers, it’s a bucket-list opportunity.
+We all know the [solar maximum](https://en.wikipedia.org/wiki/Solar_maximum) is here — it’s no secret. But what does that really mean for the tourism industry?
+:br
+The Northern Lights are always breathtaking, but this year’s solar maximum is taking things to a whole new level. For travellers, it’s a bucket-list opportunity.
 
 :br
 

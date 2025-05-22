@@ -42,7 +42,7 @@ const plugins = [lgVideo];
       :key="video._id"
       class="video-card reveal"
       aria-labelledby="video-card-title"
-      :data-src="`//${video.url}?autoplay=true`"
+      :data-src="`//${video.url}?muted=0&amp;autoplay=1&amp`"
       :data-sub-html="`<figcaption class='gallery-desc metadata content-font'><b>${video.title}</b><br><span class='pi pi-info-circle mr-1'></span>${video.category}<i class='separator'></i><span class='pi pi-calendar mr-1'></span>${video.year}<i v-if='video.client' class='separator'></i><span v-if='video?.client'><span class='pi pi-users mr-1'></span>${video.client?.name}</span></figcaption>`"
     >
       <img
