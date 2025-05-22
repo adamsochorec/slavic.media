@@ -7,10 +7,10 @@ const props = defineProps<Label>();
 </script>
 <template>
   <figure class="chip">
-    <span :class="icon"></span>
     <span>
       {{ label }}
     </span>
+    <span :class="`pi pi-${icon}`"></span>
   </figure>
 </template>
 
@@ -26,11 +26,10 @@ const props = defineProps<Label>();
   align-items: center;
   justify-content: center;
   border: var(--border-1);
-  box-shadow: var(--box-shadow-1);
 
   .pi {
-    font-size: var(--font-size-6);
-    margin-right: var(--grid-gap-1);
+    font-size: var(--font-size-);
+    margin-left: var(--grid-gap-1);
   }
 }
 </style>

@@ -295,7 +295,6 @@ i a:hover,
 span a:hover,
 main li a:hover,
 p a:hover,
-a p:hover,
 .current:hover,
 .author span:hover {
   -webkit-box-shadow: inset 0 -30px 0 rgb(var(--secondary-color)),
@@ -577,7 +576,8 @@ small a {
 
 /* ICONS START */
 .iconify,
-i {
+i,
+span.pi {
   color: white;
   vertical-align: middle;
 }
@@ -755,6 +755,7 @@ iframe.spotify {
 @media only screen and (min-width: 310px) {
   .grid-container {
     display: grid;
+    gap: var(--grid-gap-2);
     grid-template-columns: 50% 50%;
   }
 }

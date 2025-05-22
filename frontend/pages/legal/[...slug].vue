@@ -53,7 +53,7 @@ const { thumbnailUrl, fullImageUrl, updateImgSrc } = useProgressiveImg(
         >
           {{ document?.title }}
         </h1>
-        <Label icon="pi pi-replay" :label="ddmmmyyyy(document.date)"></Label>
+        <Label icon="replay" :label="ddmmmyyyy(document.date)"></Label>
       </div>
     </section>
     <section

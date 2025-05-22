@@ -16,11 +16,11 @@ useSeoMeta(
     description: description,
     ogTitle: title,
     ogDescription: description,
-    ogImage: "https://cdn.slavic.media/img/photo/sd",
+    ogImage: "https://cdn.slavic.media/img/2021-05-28-01020-2/sd",
     ogUrl: "https://slavic.media",
     twitterTitle: title,
     twitterDescription: description,
-    twitterImage: "https://cdn.slavic.media/img/photo/sd",
+    twitterImage: "https://cdn.slavic.media/img/2021-05-28-01020-2/sd",
     twitterCard: "summary",
   },
   { priority: 1 }

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import FeatureCard from "@/components/FeatureCard.vue";
 import { showRequestAProposal } from "@/composables/useRequestProposal";
 import { useSeoMeta } from "nuxt/app";
 
@@ -65,20 +66,21 @@ useSeoMeta({
       <br />
       <!-- GALLERY START -->
       <div class="gallery">
-        <LinkCard
+        <FeatureCard
           url="/video"
           title="Video"
           icon="video"
-          description="From inspiring stories to cinematic visuals, each video project is
-            crafted to captivate, impress, and showcase your vision with
-            creative precision."
+          img="video"
+          class="black"
+          description="From inspiring stories to cinematic visuals."
         />
 
-        <LinkCard
+        <FeatureCard
           url="/photo"
           title="Photo"
           icon="camera"
-          description="Whether it’s a dynamic performance, a powerful portrait, or the vast outdoors, our photography captures authentic moments, rich in colour."
+          img="2021-05-28-01020-2"
+          description="Our photography captures authentic moments, rich in colour."
         />
       </div>
       <!-- GALLERY END -->
@@ -165,8 +167,9 @@ h3 {
 .gallery {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-gap: var(--grid-gap-3);
-  @media only screen and (min-width: 640px) {
+  grid-gap: var(--grid-gap-2);
+
+  @media only screen and (min-width: 700px) {
     grid-template-columns: repeat(2, 1fr);
   }
 }

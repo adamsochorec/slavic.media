@@ -224,7 +224,10 @@ onUnmounted(() => {
 
 <style scoped lang="postcss">
 .swiper {
-  margin: var(--grid-gap-3) 0;
+  margin: var(--grid-gap-2) 0 var(--grid-gap-2) 0;
+  border-top: var(--border-1);
+  border-bottom: var(--border-1);
+  padding: var(--grid-gap-3) 0;
 }
 .bio {
   margin: var(--grid-gap-1) 0;
