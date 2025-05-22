@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { truncateText } from "@/composables/useTruncateText.ts";
+import { useProgressiveImg } from "@/composables/useProgressiveImg";
 
 interface LinkCard {
   url: string;
@@ -8,14 +8,29 @@ interface LinkCard {
   description?: string;
 }
 const props = defineProps<LinkCard>();
+
+const imgRef = ref<HTMLImageElement | null>(null);
+const {
+  thumbnailUrl,
+  fullImageUrl,
+  imgLoaded,
+  updateImgSrc,
+  checkIfAlreadyLoaded,
+} = useProgressiveImg(props.img, "/hd");
+
+onMounted(() => {
+  checkIfAlreadyLoaded(imgRef.value);
+});
 </script>
 <template>
   <NuxtLink class="reveal" :to="url">
     <figure class="card">
-      <img :src="`https://cdn.slavic.media/img/${img}/hd`" />
+      <img ref="imgRef" :src="thumbnailUrl" @load="updateImgSrc" />
       <div class="content flex-center">
         <div class="caption reveal">
-          <h3>{{ title }} <span class="gradient">Services</span></h3>
+          <h3 class="logo-font">
+            {{ title }} <span class="gradient">Services</span>
+          </h3>
           <p>{{ description }}</p>
         </div>
         <NuxtLink class="reveal" :to="url">
@@ -45,13 +60,15 @@ const props = defineProps<LinkCard>();
     -o-transition: var(--transition-1);
     transition: var(--transition-1);
   }
-  &:hover {
-    img {
-      -webkit-filter: saturate(0);
-      filter: saturate(0);
-      -webkit-transition: var(--transition-1);
-      -o-transition: var(--transition-1);
-      transition: var(--transition-1);
+  @media only screen and (min-width: 700px) {
+    &:hover {
+      img {
+        -webkit-filter: saturate(0);
+        filter: saturate(0);
+        -webkit-transition: var(--transition-1);
+        -o-transition: var(--transition-1);
+        transition: var(--transition-1);
+      }
     }
   }
   @media only screen and (max-width: 700px) {
@@ -61,7 +78,7 @@ const props = defineProps<LinkCard>();
     border-radius: 0;
 
     h3 {
-      font-size: var(--font-size-2);
+      font-size: var(--font-size-1);
     }
   }
 }
@@ -86,6 +103,6 @@ p {
   margin: var(--grid-gap-1) 0;
 }
 .black .caption * {
-  color: rgb(var(--dark-grey-color));
+  color: rgb(var(--grey-color));
 }
 </style>
