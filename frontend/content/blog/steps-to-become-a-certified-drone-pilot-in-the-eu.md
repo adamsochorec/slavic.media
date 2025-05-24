@@ -29,6 +29,8 @@ Every drone (UAV or UAS) with a camera must be registered with your local aviati
 
 <iframe src="https://dronezoner.eu/JavaScript2024.html" frameborder="0" allowfullscreen></iframe>
 
+> [Aviation zones Denmark](https://dronezoner.eu/JavaScript2024.html)
+
 ## 2. Pilot License
 
 You’ll need a valid drone pilot license to fly legally. For drones under 500g, start with the A1/A3 competency test, which can be done online. This is an easy way to get started in drone piloting.
@@ -38,6 +40,8 @@ You’ll need a valid drone pilot license to fly legally. For drones under 500g,
 If your drone weighs more than 500g, you’ll need the A2 test, which covers more advanced topics (more in-depth legal, basics of meteorology and aerodynamics). While the test can still be done online, it requires supervision at a local test centre—like [Erhvervsakademi SydVest (Business Academy South West)](https://easv.dk), where both myself and colleague Marcel got certified for just an administration fee (60 DKK)!
 
 <iframe src="https://dronview.rlp.cz" frameborder="0" allowfullscreen></iframe>
+
+> [Aviation zones Czechia](https://dronview.rlp.cz)
 
 ## 4. Learn More
 

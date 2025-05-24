@@ -31,12 +31,10 @@ This project was also a chance to test a new skill set I developed after complet
 
 To generate an accurate 3D representation, the drone followed a meticulously planned flight pattern. Several flights were conducted across the property, each capturing a sequence of high-resolution images at predefined intervals. The flight path was structured in a cross-grid pattern, ensuring comprehensive coverage from multiple angles.
 
-<iframe title="Transformative Territories 90° | ArtMill" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/08fe03c50bc44675a95482d16d11146c/embed?autospin=1"></iframe>
+<iframe title="Transformative Territories 45° | ArtMill" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/6966310b27c444a18b93e19356725087/embed?autospin=1"></iframe>
 
 
 Images were taken at two key angles: 90° (straight-down, nadir view) and 45° (oblique view). This combination allowed us to capture both topographical details and structural depth, enhancing the overall accuracy of the 3D reconstruction.
-
-[Transformative Territories 90° | ArtMill](https://sketchfab.com/models/08fe03c50bc44675a95482d16d11146c/embed?autospin=1\&ui_theme=dark\&dnt=1)
 
 ## Processing & Results
 
@@ -48,4 +46,4 @@ The final model provides a detailed visual representation of the terrain, offeri
 
 :br
 
-Curious about how 3D mapping could add value to your project? Let's talk. Learn more about the [project](https://www.artmill.eu/transformative-territories).
+Curious about how 3D mapping could add value to your project? Let's talk. [Learn more](https://www.artmill.eu/transformative-territories) about the project.

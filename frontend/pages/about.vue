@@ -29,6 +29,8 @@ useSeoMeta(
       vimeo="1013776851"
       title="Behind the Scenes"
     />
+    <hr class="semi" role="separator" />
+
     <!--   ABOUT START -->
     <section class="wrapper-standard" role="region">
       <h1 class="docs reveal">Who <span class="gradient">We</span> Are</h1>

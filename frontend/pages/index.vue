@@ -31,6 +31,7 @@ useSeoMeta({
       title="Showreel 24'"
       start="7"
     />
+    <hr class="semi" role="separator" />
     <!-- INTRO VIDEO END -->
     <section class="wrapper-wide" id="company-intro">
       <!-- SERVICES START -->

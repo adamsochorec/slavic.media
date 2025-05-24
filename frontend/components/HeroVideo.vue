@@ -66,7 +66,6 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
   -ms-flex-pack: center;
   justify-content: center;
   text-align: center;
-  margin-bottom: var(--grid-gap-3);
 }
 .video-container {
   position: absolute;

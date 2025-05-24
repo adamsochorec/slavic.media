@@ -129,10 +129,10 @@ hr {
   }
 }
 hr:not(hr.semi) {
-  margin: 60px 0;
+  margin: 40px 0;
 }
 .semi {
-  margin: var(--grid-gap-3) 0;
+  margin: var(--grid-gap-2) 0;
   opacity: 0 !important;
 }
 #homepage hr.bodyxfooter {
@@ -250,7 +250,7 @@ ol {
   z-index: -9999999;
   font-size: 0.1px !important;
 }
-blockquote * {
+blockquote p {
   font-style: italic !important;
   border-left: 5px solid rgba(var(--primary-color), 0.4);
   padding-left: var(--grid-gap-1);
