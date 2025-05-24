@@ -11,11 +11,11 @@ useSeoMeta(
     description: description,
     ogTitle: title,
     ogDescription: description,
-    ogImage: "https://cdn.slavic.media/img/video/sd",
+    ogImage: "https://cdn.slavic.media/img/20240308_SLAVIC-MEDIA0204/sd",
     ogUrl: "https://slavic.media",
     twitterTitle: title,
     twitterDescription: description,
-    twitterImage: "https://cdn.slavic.media/img/video/sd",
+    twitterImage: "https://cdn.slavic.media/img/20240308_SLAVIC-MEDIA0204/sd",
     twitterCard: "summary",
   },
   { priority: 1 }

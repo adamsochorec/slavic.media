@@ -68,7 +68,7 @@ useSeoMeta({
           url="/video"
           title="Video"
           icon="video"
-          img="video"
+          img="20240308_SLAVIC-MEDIA0204"
           class="black"
           description="From inspiring stories to cinematic visuals."
         />
