@@ -10,6 +10,15 @@
     "postinstall": "nuxt prepare",
     "start": "nuxt start"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adamsochorec/slavic.media"
+  },
+  "keywords": [
+    "nuxt",
+    "vue",
+    "nodejs"
+  ],
   "dependencies": {
     "@fancyapps/ui": "^5.0.36",
     "@lottiefiles/dotlottie-vue": "^0.6.2",
