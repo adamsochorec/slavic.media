@@ -8,7 +8,7 @@
     "start": "npm run build && node dist/server.js",
     "dev": "tsc --watch",
     "start-dev": "npm run start-gendoc && node -r dotenv/config -r ts-node/register src/server.ts",
-    "test": "mocha --config .mocharc.json",
+    "test": "cross-env NODE_ENV=test mocha --recursive --exit",
     "test:watch": "mocha --watch --config .mocharc.json",
     "start-gendoc": "node swagger.js"
   },
@@ -58,6 +58,7 @@
     "@types/yamljs": "^0.2.34",
     "chai": "^4.5.0",
     "chai-http": "^4.4.0",
+    "cross-env": "^7.0.3",
     "mocha": "^10.4.0",
     "nodemon": "^3.1.7",
     "swagger-autogen": "^2.23.7",
