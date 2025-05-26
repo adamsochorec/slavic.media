@@ -102,7 +102,6 @@ form {
     }
   }
   input {
-    width: auto;
     height: 100%;
     padding: 10px;
     border-radius: var(--border-radius-1) 0 0 var(--border-radius-1);
