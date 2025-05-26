@@ -24,7 +24,7 @@ async function submitForm(e: Event) {
 
   loading.value = true;
   try {
-    const res = await fetch("/api/newsletter", {
+    const res = await fetch("https://api.slavic.media/newsletter", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ _id: email.value }),
