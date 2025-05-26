@@ -8,7 +8,19 @@ const router = Router();
 // Create document - POST
 router.post("/", (req: Request, res: Response) => {
   const data = req.body;
-  data.date = moment().tz("Europe/Prague").toDate();
+  // Get current time in Europe/Prague and convert to UTC by subtracting the offset
+  const cetMoment = moment.tz("Europe/Prague");
+  data.date = new Date(
+    Date.UTC(
+      cetMoment.year(),
+      cetMoment.month(),
+      cetMoment.date(),
+      cetMoment.hour(),
+      cetMoment.minute(),
+      cetMoment.second(),
+      cetMoment.millisecond()
+    )
+  );
   newsletterModel
     .create(data)
     .then((insertedData) => {
@@ -16,13 +28,13 @@ router.post("/", (req: Request, res: Response) => {
     })
     .catch((err) => {
       if (err.code === 11000) {
-        // Duplicate key error
         res.status(409).send({ message: "Email already subscribed." });
       } else {
         res.status(500).send({ message: err.message });
       }
     });
 });
+
 // Read all documents - GET
 router.get("/", (req: Request, res: Response) => {
   const fields =

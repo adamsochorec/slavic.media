@@ -1,15 +1,21 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { z } from "zod";
 
 const email = ref("");
 const loading = ref(false);
 const message = ref("");
 const error = ref("");
+const debug = ref("");
+const source = ref("");
 
 const emailSchema = z
   .string()
   .email({ message: "Please enter a valid email address." });
+
+onMounted(() => {
+  source.value = window.location.origin + window.location.pathname;
+});
 
 async function submitForm(e: Event) {
   e.preventDefault();
@@ -27,7 +33,7 @@ async function submitForm(e: Event) {
     const res = await fetch("https://api.slavic.media/newsletter", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ _id: email.value }),
+      body: JSON.stringify({ _id: email.value, source: source.value }),
     });
     if (!res.ok) {
       const text = await res.text();
@@ -40,13 +46,11 @@ async function submitForm(e: Event) {
     }
     message.value = "Thank you for subscribing!";
     email.value = "";
-  } catch (err: any) {
   } finally {
     loading.value = false;
   }
 }
 </script>
-
 <template>
   <div class="container">
     <form @submit="submitForm">
@@ -57,6 +61,7 @@ async function submitForm(e: Event) {
         :disabled="loading"
         required
       />
+      <input type="hidden" name="source" :value="source" />
       <Btn
         tag="button"
         variant="secondary"
@@ -80,7 +85,7 @@ async function submitForm(e: Event) {
 }
 .success,
 .error {
-  font-size: var(--font-size-7);
+  font-size: var(--font-size-6);
 }
 
 form {

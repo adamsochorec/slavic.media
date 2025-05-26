@@ -11,7 +11,9 @@ const router = (0, express_1.Router)();
 // Create document - POST
 router.post("/", (req, res) => {
     const data = req.body;
-    data.date = (0, moment_timezone_1.default)().tz("Europe/Prague").toDate();
+    // Get current time in Europe/Prague and convert to UTC by subtracting the offset
+    const cetMoment = moment_timezone_1.default.tz("Europe/Prague");
+    data.date = new Date(Date.UTC(cetMoment.year(), cetMoment.month(), cetMoment.date(), cetMoment.hour(), cetMoment.minute(), cetMoment.second(), cetMoment.millisecond()));
     newsletter_1.default
         .create(data)
         .then((insertedData) => {
@@ -19,7 +21,6 @@ router.post("/", (req, res) => {
     })
         .catch((err) => {
         if (err.code === 11000) {
-            // Duplicate key error
             res.status(409).send({ message: "Email already subscribed." });
         }
         else {
