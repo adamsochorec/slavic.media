@@ -92,18 +92,20 @@ form {
   display: flex;
   align-items: center;
   margin-top: 5px;
+
   .cta {
     margin-top: 0 !important;
-    border-radius: 0 var(--border-radius-2) var(--border-radius-2) 0;
-  }
-  .cta * {
-    font-size: 1em;
+    border-radius: 0 var(--border-radius-1) var(--border-radius-1) 0;
+
+    * {
+      font-size: 1em;
+    }
   }
   input {
     width: auto;
     height: 100%;
     padding: 10px;
-    border-radius: var(--border-radius-2) 0 0 var(--border-radius-2);
+    border-radius: var(--border-radius-1) 0 0 var(--border-radius-1);
     border-right: none;
     font-size: var(--font-size-7);
   }

@@ -59,7 +59,7 @@ const currentYear = new Date().getFullYear();
         </section>
         <section>
           <b>Subscribe</b>
-          <p>Get the latest news from Slavic Media</p>
+          <p class="newsletter">Get the latest news from Slavic Media.</p>
           <Newsletter />
         </section>
       </header>
@@ -295,7 +295,8 @@ footer {
   }
 
   .copyright,
-  .services li {
+  .services li,
+  .newsletter {
     color: rgba(255, 255, 255, 0.4);
   }
 
@@ -315,7 +316,8 @@ footer {
 
     b *,
     b {
-      font-weight: bold;
+      text-decoration: underline;
+      font-weight: 100;
     }
 
     ul {

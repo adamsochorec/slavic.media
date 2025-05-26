@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Btn {
-  label: string;
+  label?: string;
   icon?: string;
   variant?: "primary" | "secondary";
   type?: "button" | "submit" | "reset";
@@ -17,8 +17,7 @@ const emit = defineEmits(["click"]);
 <template>
   <template v-if="tag === 'button'">
     <button :class="['cta', variant]" :type="type" @click="$emit('click')">
-      <span v-if="icon" :class="`pi pi-${icon} mr-2`"></span>
-
+      <span :class="`pi pi-${icon} ${label ? 'mr-2' : ''}`"></span>
       {{ label }}
     </button>
   </template>
@@ -29,14 +28,14 @@ const emit = defineEmits(["click"]);
       :target="target"
       @click="$emit('click')"
     >
-      <span v-if="icon" :class="`pi pi-${icon} mr-2`"></span>
+      <span :class="`pi pi-${icon} ${label ? 'mr-2' : ''}`"></span>
 
       {{ label }}
     </a>
   </template>
   <template v-else-if="tag === 'NuxtLink'">
     <NuxtLink :class="['cta', variant]" :to="to" @click="$emit('click')">
-      <span v-if="icon" :class="`pi pi-${icon} mr-2`"></span>
+      <span :class="`pi pi-${icon} ${label ? 'mr-2' : ''}`"></span>
 
       {{ label }}
     </NuxtLink>
