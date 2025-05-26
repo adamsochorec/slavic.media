@@ -24,16 +24,23 @@ async function submitForm(e: Event) {
 
   loading.value = true;
   try {
-    const res = await fetch("https:///api.slavic.media/newsletter", {
+    const res = await fetch("/api/newsletter", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: email.value }),
+      body: JSON.stringify({ _id: email.value }),
     });
-    if (!res.ok) throw new Error("Failed to subscribe.");
+    if (!res.ok) {
+      const text = await res.text();
+      if (res.status === 409) {
+        error.value = "This email is already subscribed.";
+      } else {
+        error.value = "Subscription failed. Please try again.";
+      }
+      throw new Error("Failed to subscribe.");
+    }
     message.value = "Thank you for subscribing!";
     email.value = "";
-  } catch (err) {
-    error.value = "Subscription failed. Please try again.";
+  } catch (err: any) {
   } finally {
     loading.value = false;
   }
@@ -46,11 +53,18 @@ async function submitForm(e: Event) {
       <input
         v-model="email"
         type="email"
-        placeholder="email"
+        placeholder="Your email address"
         :disabled="loading"
         required
       />
-      <button type="submit" :disabled="loading">register</button>
+      <Btn
+        tag="button"
+        variant="secondary"
+        type="submit"
+        icon="envelope"
+        :disabled="loading"
+        >register</Btn
+      >
     </form>
     <p v-if="message" class="success">{{ message }}</p>
     <p v-if="error" class="error">{{ error }}</p>
@@ -62,6 +76,31 @@ async function submitForm(e: Event) {
   color: green;
 }
 .error {
-  color: red;
+  color: rgba(var(--primary-color), 1);
+}
+.success,
+.error {
+  font-size: var(--font-size-7);
+}
+
+form {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  .cta {
+    margin-top: 0 !important;
+    border-radius: 0 var(--border-radius-2) var(--border-radius-2) 0;
+  }
+  .cta * {
+    font-size: 1em;
+  }
+  input {
+    width: auto;
+    height: 100%;
+    padding: 10px;
+    border-radius: var(--border-radius-2) 0 0 var(--border-radius-2);
+    border-right: none;
+    font-size: var(--font-size-7);
+  }
 }
 </style>

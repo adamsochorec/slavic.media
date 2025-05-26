@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import FeatureCard from "@/components/FeatureCard.vue";
 import { showRequestAProposal } from "@/composables/useRequestProposal";
 import { useSeoMeta } from "nuxt/app";
 

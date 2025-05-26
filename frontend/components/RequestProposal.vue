@@ -143,49 +143,13 @@ onUnmounted(() => {
   border: var(--border-1);
   z-index: 9999999;
 }
-
 button {
   min-width: 100%;
   justify-content: center;
 }
-
 .input-item {
   margin-bottom: var(--grid-gap-2);
-
-  label,
-  input,
-  textarea {
-    font-family: var(--content-font);
-    font-optical-sizing: auto;
-    font-weight: 100;
-    font-style: normal;
-    color: white;
-    font-size: var(--font-size-6);
-  }
-  input,
-  textarea {
-    padding: var(--grid-gap-2);
-    border-radius: var(--border-radius-1);
-    background: rgba(var(--dark-grey-color), 1);
-    border: var(--border-1);
-    line-height: normal;
-    width: 100%;
-    -webkit-transition: var(--transition-1);
-    -o-transition: var(--transition-1);
-    transition: var(--transition-1);
-  }
-
-  input:focus,
-  textarea:focus {
-    outline: none;
-    -webkit-box-shadow: var(--box-shadow-2);
-    box-shadow: var(--box-shadow-2);
-    -webkit-transition: var(--transition-1);
-    -o-transition: var(--transition-1);
-    transition: var(--transition-1);
-  }
 }
-
 @media only screen and (max-width: 415px) {
   .fancybox__content {
     padding: var(--grid-gap-3) var(--grid-gap-1);

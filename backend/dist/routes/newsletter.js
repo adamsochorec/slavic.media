@@ -6,17 +6,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const newsletter_1 = __importDefault(require("../models/newsletter"));
 const validation_1 = require("../validation");
+const moment_timezone_1 = __importDefault(require("moment-timezone"));
 const router = (0, express_1.Router)();
 // Create document - POST
 router.post("/", (req, res) => {
     const data = req.body;
+    data.date = (0, moment_timezone_1.default)().tz("Europe/Prague").toDate();
     newsletter_1.default
         .create(data)
         .then((insertedData) => {
         res.status(201).send(insertedData);
     })
         .catch((err) => {
-        res.status(500).send({ message: err.message });
+        if (err.code === 11000) {
+            // Duplicate key error
+            res.status(409).send({ message: "Email already subscribed." });
+        }
+        else {
+            res.status(500).send({ message: err.message });
+        }
     });
 });
 // Read all documents - GET

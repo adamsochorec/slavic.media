@@ -57,6 +57,11 @@ const currentYear = new Date().getFullYear();
             </li>
           </ul>
         </section>
+        <section>
+          <b>Subscribe</b>
+          <p>Get the latest news from Slavic Media</p>
+          <Newsletter />
+        </section>
       </header>
       <hr class="quater" aria-hidden="true" />
 
@@ -308,15 +313,20 @@ footer {
     display: flex;
     gap: var(--grid-gap-3);
 
+    b *,
+    b {
+      font-weight: bold;
+    }
+
     ul {
       list-style: none;
       margin: 0;
     }
   }
-
   .links > *,
   .social-icons *,
   .services a,
+  .services b,
   .logo path {
     color: rgba(255, 255, 255, 0.6);
     fill: rgba(255, 255, 255, 0.6);
@@ -341,7 +351,7 @@ footer {
   }
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 520px) {
   footer {
     .services {
       display: block;

@@ -1,22 +1,28 @@
 import { Router, Request, Response } from "express";
 import newsletterModel from "../models/newsletter";
 import { verifyToken } from "../validation";
+import moment from "moment-timezone";
 
 const router = Router();
 
 // Create document - POST
 router.post("/", (req: Request, res: Response) => {
   const data = req.body;
+  data.date = moment().tz("Europe/Prague").toDate();
   newsletterModel
     .create(data)
     .then((insertedData) => {
       res.status(201).send(insertedData);
     })
     .catch((err) => {
-      res.status(500).send({ message: err.message });
+      if (err.code === 11000) {
+        // Duplicate key error
+        res.status(409).send({ message: "Email already subscribed." });
+      } else {
+        res.status(500).send({ message: err.message });
+      }
     });
 });
-
 // Read all documents - GET
 router.get("/", (req: Request, res: Response) => {
   const fields =

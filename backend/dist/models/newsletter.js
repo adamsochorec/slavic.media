@@ -36,6 +36,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
 const newsletterSchema = new mongoose_1.Schema({
     _id: { type: String, required: true, maxlength: 50 },
+    source: { type: String, required: true, maxlength: 100 },
+    firstName: { type: String, required: false, maxlength: 100 },
+    lastName: { type: String, required: false, maxlength: 100 },
     date: { type: Date, required: true, default: Date.now },
 });
 const newsletterrModel = mongoose_1.default.model("Newsletter", newsletterSchema);
