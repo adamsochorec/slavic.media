@@ -10,7 +10,7 @@ const props = defineProps<Label>();
     <span>
       {{ label }}
     </span>
-    <span :class="`pi pi-${icon}`"></span>
+    <span v-if="icon" :class="`pi pi-${icon}`"></span>
   </figure>
 </template>
 

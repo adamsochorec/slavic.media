@@ -310,7 +310,7 @@ p a:hover,
 
 /* TABLE START */
 table {
-  width: auto;
+  width: 100%;
   border-collapse: collapse;
   margin: var(--grid-gap-2) 0;
   border-spacing: 0;

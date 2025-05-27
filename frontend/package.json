@@ -28,6 +28,7 @@
     "@nuxthq/studio": "^2.2.1",
     "@nuxtjs/mdc": "^0.17.0",
     "@primeuix/themes": "^1.0.3",
+    "@primeuix/styles": "^1.1.1",
     "@primevue/forms": "^4.3.3",
     "@primevue/nuxt-module": "^4.3.4",
     "citty": "^0.1.6",
@@ -37,13 +38,12 @@
     "photoswipe": "^5.4.4",
     "photoswipe-dynamic-caption-plugin": "^1.2.7",
     "primeicons": "^7.0.0",
-    "sass-embedded": "^1.87.0",
     "swiper": "^11.2.6",
     "vue": "^3.5.13",
-    "vue-router": "^4.5.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "sass-embedded": "^1.87.0",
     "@iconify-json/flag": "^1.2.5",
     "@iconify-json/material-symbols": "^1.2.19",
     "@nuxtjs/tailwindcss": "^6.13.2",

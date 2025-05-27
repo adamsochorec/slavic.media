@@ -36,9 +36,9 @@ To check out docs, visit [api.slavic.media/docs](https://api.slavic.media/docs/)
 
 ```sh
 cd frontend
-yarn install ## Install Node
-yarn dev ## Compile and Hot-Reload for Development
-yarn build ## Type-Check, Compile and Minify for Production
+npm install ## Install Node
+npm run dev ## Compile and Hot-Reload for Development
+npm run build ## Type-Check, Compile and Minify for Production
 ```
 
 ## Backend Setup
