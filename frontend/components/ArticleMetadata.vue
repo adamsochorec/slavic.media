@@ -97,6 +97,8 @@ onMounted(() => {
   padding-bottom: var(--grid-gap-1);
   border-bottom: var(--border-1);
   font-size: var(--font-size-7);
+  color: white;
+
   align-items: center;
 
   @media only screen and (max-width: 350px) {

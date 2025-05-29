@@ -105,6 +105,8 @@ const plugins = [lgVideo];
   -webkit-transition: var(--transition-1);
   -o-transition: var(--transition-1);
   transition: var(--transition-1);
+  color: white;
+
   &:hover {
     img {
       -webkit-filter: saturate(0);

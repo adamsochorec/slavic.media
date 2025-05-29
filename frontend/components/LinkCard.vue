@@ -30,6 +30,7 @@ const props = defineProps<LinkCard>();
   -webkit-transition: var(--transition-1);
   -o-transition: var(--transition-1);
   transition: var(--transition-1);
+  color: white;
   border: var(--border-1);
 
   &:hover {

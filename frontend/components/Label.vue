@@ -23,6 +23,7 @@ const props = defineProps<Label>();
   padding: 1px var(--grid-gap-1);
   width: fit-content;
   display: flex;
+  color: white;
   align-items: center;
   justify-content: center;
   border: var(--border-1);
