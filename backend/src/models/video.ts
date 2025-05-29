@@ -1,9 +1,10 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-interface Client extends Document {
+interface Client {
   name?: string;
   url?: string;
 }
+
 interface Video extends Document {
   _id: string;
   index: number;
@@ -11,9 +12,17 @@ interface Video extends Document {
   title: string;
   url: string;
   year: string;
-  client: Client;
+  client?: Client;
   category?: string;
 }
+
+const clientSchema = new Schema<Client>(
+  {
+    name: { type: String, required: true, maxlength: 100 },
+    url: { type: String, required: true, maxlength: 200 },
+  },
+  { _id: false }
+);
 
 const videoSchema = new Schema<Video>({
   _id: { type: String, required: true, maxlength: 50 },
@@ -22,13 +31,7 @@ const videoSchema = new Schema<Video>({
   title: { type: String, required: true, maxlength: 200 },
   url: { type: String, required: true, maxlength: 100 },
   year: { type: String, required: true, maxlength: 4 },
-  client: {
-    type: new Schema<Client>({
-      name: { type: String, required: true, maxlength: 100 },
-      url: { type: String, required: true, maxlength: 200 },
-    }),
-    required: true,
-  },
+  client: { type: clientSchema, required: false },
   category: { type: String, maxlength: 100 },
 });
 

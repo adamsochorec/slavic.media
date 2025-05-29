@@ -35,6 +35,10 @@ var __importStar = (this && this.__importStar) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.videoSchema = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
+const clientSchema = new mongoose_1.Schema({
+    name: { type: String, required: true, maxlength: 100 },
+    url: { type: String, required: true, maxlength: 200 },
+}, { _id: false });
 const videoSchema = new mongoose_1.Schema({
     _id: { type: String, required: true, maxlength: 50 },
     index: { type: Number, required: true, unique: true },
@@ -42,13 +46,7 @@ const videoSchema = new mongoose_1.Schema({
     title: { type: String, required: true, maxlength: 200 },
     url: { type: String, required: true, maxlength: 100 },
     year: { type: String, required: true, maxlength: 4 },
-    client: {
-        type: new mongoose_1.Schema({
-            name: { type: String, required: true, maxlength: 100 },
-            url: { type: String, required: true, maxlength: 200 },
-        }),
-        required: true,
-    },
+    client: { type: clientSchema, required: false },
     category: { type: String, maxlength: 100 },
 });
 exports.videoSchema = videoSchema;
