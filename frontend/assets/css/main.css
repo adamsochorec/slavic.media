@@ -318,6 +318,7 @@ table {
   font-size: var(--font-size-7);
   border-radius: var(--border-radius-1);
   text-align: left;
+  color: white;
 }
 
 th,
