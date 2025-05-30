@@ -145,7 +145,7 @@ onMounted(() => {
         />
         <Btn
           tag="button"
-          label="Reject"
+          label="Reject non-essential"
           variant="secondary"
           :class="{ clicked: consentRejected }"
           @click="rejectCookies"
@@ -161,7 +161,7 @@ onMounted(() => {
   position: fixed;
   bottom: var(--grid-gap-2);
   right: var(--grid-gap-2);
-  max-width: 345px;
+  max-width: 400px;
   width: 100%;
   background-color: var(--dark-grey-color-full);
   border-radius: var(--border-radius-1);
