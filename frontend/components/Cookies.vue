@@ -145,7 +145,7 @@ onMounted(() => {
         />
         <Btn
           tag="button"
-          label="Reject non-essential"
+          label="Reject"
           variant="secondary"
           :class="{ clicked: consentRejected }"
           @click="rejectCookies"
