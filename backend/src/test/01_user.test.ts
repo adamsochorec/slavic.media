@@ -2,8 +2,6 @@ import { describe, it, beforeEach, afterEach, expect } from "vitest";
 import request from "supertest";
 import app from "../app";
 import User from "../models/user";
-import { beforeAll, afterAll, vi } from "vitest";
-vi.setConfig({ testTimeout: 30000 });
 
 const userData = {
   name: "Test User",
