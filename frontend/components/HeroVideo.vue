@@ -5,7 +5,7 @@ interface HeroVideo {
   vimeo: string;
   youtube: string;
   title: string;
-  start?: number;
+  start?: string;
 }
 const props = defineProps<HeroVideo>();
 const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =

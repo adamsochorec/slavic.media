@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
 import { useProgressiveImg } from "@/composables/useProgressiveImg";
 
 interface LinkCard {
@@ -33,9 +34,7 @@ onMounted(() => {
           </h3>
           <p>{{ description }}</p>
         </div>
-        <NuxtLink class="reveal" :to="url">
-          <Label icon="arrow-right" label="Learn more"></Label
-        ></NuxtLink>
+        <Label icon="arrow-right" label="Learn more" />
       </div>
     </figure>
   </NuxtLink>
