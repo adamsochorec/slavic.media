@@ -39,7 +39,7 @@ PS: Yes, I joined the snowball fight too! 😄
 ::video-swiper
 ---
 videos:
-  - src: player.vimeo.com/video/950575512
+  - src: player.vimeo.com/video/1088738906
     title: Finnish Lapland | Timetravels
 ---
 ::

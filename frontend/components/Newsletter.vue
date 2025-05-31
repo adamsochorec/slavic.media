@@ -96,14 +96,11 @@ form {
   .cta {
     margin-top: 0 !important;
     border-radius: 0 var(--border-radius-1) var(--border-radius-1) 0;
-
-    * {
-      font-size: 1em;
-    }
+    padding: 6.8px;
   }
   input {
     height: 100%;
-    padding: 10px;
+    padding: var(--grid-gap-1);
     border-radius: var(--border-radius-1) 0 0 var(--border-radius-1);
     border-right: none;
     font-size: var(--font-size-7);
