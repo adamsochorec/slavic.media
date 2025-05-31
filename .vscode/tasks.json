@@ -2,6 +2,20 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Run All",
+      "dependsOn": [
+        "Backend Dev",
+        "Backend Start Dev",
+        "Frontend Dev",
+        "Backend Test"
+      ],
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
       "label": "Backend Dev",
       "type": "shell",
       "command": "npm run dev",
@@ -24,22 +38,26 @@
       "problemMatcher": []
     },
     {
-      "label": "Frontend Dev",
+      "label": "Backend Test",
       "type": "shell",
-      "command": "npm run dev",
+      "command": "npm run vitest --ui",
       "options": {
-        "cwd": "${workspaceFolder}/frontend"
+        "cwd": "${workspaceFolder}/backend"
       },
-      "problemMatcher": []
-    },
-    {
-      "label": "Run All",
-      "dependsOn": ["Backend Dev", "Backend Start Dev", "Frontend Dev"],
       "problemMatcher": [],
       "group": {
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "label": "Frontend Dev",
+      "type": "shell",
+      "command": "npm run dev -- -o",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend"
+      },
+      "problemMatcher": []
     }
   ]
 }

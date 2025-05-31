@@ -1,16 +1,11 @@
-# This YAML file defines a GitHub Actions workflow for continuous integration and deployment of a Node.js application.
-
-# The name of the workflow
-name: Node.JS CI/CD
+name: API tests
 
 # This workflow gets triggered on every push to the specific branch
 on:
   push:
     branches: [main]
 
-# The jobs that this workflow will run
 jobs:
-  # The first job is to test the application
   test:
     name: Workflow
     runs-on: ubuntu-latest # The type of machine to run the job on
@@ -18,7 +13,7 @@ jobs:
     # This strategy runs the job on multiple versions of Node.js
     strategy:
       matrix:
-        node-version: [20.x] # The versions of Node.js to test against
+        node-version: [20.x]
 
     # The steps that the job will run
     steps:

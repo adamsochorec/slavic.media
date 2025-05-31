@@ -17,7 +17,13 @@
   "keywords": [
     "nuxt",
     "vue",
-    "nodejs"
+    "nodejs",
+    "typescript",
+    "javascript",
+    "tailwindcss",
+    "vite",
+    "sass",
+    "primevue"
   ],
   "dependencies": {
     "@fancyapps/ui": "^5.0.36",

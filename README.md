@@ -1,3 +1,5 @@
+[![API tests](https://github.com/adamsochorec/slavic.media/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/adamsochorec/slavic.media/actions/workflows/main.yml)
+
 # Slavic Media
 
 ## Who?
@@ -18,7 +20,8 @@ A landing page for a creative multimedia studio, showcasing projects, industry-r
 
 ## How?
 
-Built using modern, lightweight frameworks within and beyond the MEVN stack: MongoDB, Express.js, Vue.js (Nuxt), and Node.js, all written in TypeScript. The site includes [Tailwind CSS](https://tailwindcss.com) and [PrimeVue](https://www.primevue.org) components, supplemented by a custom component library aligned with the company brand identity. Some pages are dynamically rendered from a database, while others remain static. Images and videos are served via [Vimeo](https://vimeo.com) and [Cloudflare](https://www.cloudflare.com) CDNs. API documentation is auto-generated with [Swagger.io](https://swagger.io).
+Built using modern, lightweight frameworks within and beyond the MEVN stack: MongoDB, Express.js, **Nuxt (Vue 3)** for the frontend, with [Nuxt Content](https://content.nuxt.com/) and UI managed in [Nuxt Studio](https://studio.nuxt.com/). All code is written in TypeScript. The site includes [Tailwind CSS](https://tailwindcss.com) and [PrimeVue](https://www.primevue.org) components, supplemented by a custom component library aligned with the company brand identity. Some pages are dynamically rendered from a database, while others remain static. Images and videos are served via [Vimeo](https://vimeo.com) and [Cloudflare](https://www.cloudflare.com) CDNs. API documentation is auto-generated with [Swagger.io](https://swagger.io). Automated API testing is integrated using [Vitest](https://vitest.dev/).
+
 
 ![Cover 1](https://github.com/user-attachments/assets/6155e6c6-2793-4161-af29-bc6317d47e4b)
 
