@@ -35,7 +35,7 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
       class="link"
       target="_blank"
       rel="noopener noreferrer nofollow"
-      :href="`https://vimeo.com/${vimeo}?share=copy`"
+      :href="`https://vimeo.com/${vimeo}`"
       v-tooltip.left="{ value: 'Watch on Vimeo', autoHide: true }"
       aria-label="Watch on Vimeo"
     >
