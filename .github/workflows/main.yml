@@ -6,7 +6,7 @@ name: Node.JS CI/CD
 # This workflow gets triggered on every push to the specific branch
 on:
   push:
-    branches: [CI/CD]
+    branches: [main]
 
 # The jobs that this workflow will run
 jobs:
