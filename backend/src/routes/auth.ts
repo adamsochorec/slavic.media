@@ -12,54 +12,52 @@ const router = Router();
 const allowedDomain = "slavic.media";
 
 // User registration endpoint
-/* router.post(
-  "/register",
-  async (req: Request, res: Response) => {
-    try {
-      // Validate the user input (name, email, password)
-      // If the validation fails, return an error message
-      const { error } = registerValidation(req.body);
-      if (error) {
-        return res.status(400).json({ error: error.details[0].message });
-      }
 
-      // Extract the domain from the email address
-      const emailDomain = req.body.email.split("@")[1];
-      // Check if the domain matches the allowed domain
-      if (emailDomain !== allowedDomain) {
-        return res.status(400).json({ error: "Email domain not allowed" });
-      }
-
-      // Check if the email is already registered
-      // If the email is already registered, return an error message
-      const emailExist = await User.findOne({ email: req.body.email });
-      if (emailExist) {
-        return res.status(400).json({ error: "Email already exists" });
-      }
-
-      // Hash the password using bcrypt
-      // The salt is a random value that is used to create the hash
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
-      // Create a new user object and save it to the database
-      const userObject = new User({
-        name: req.body.name,
-        email: req.body.email,
-        password: hashedPassword,
-      });
-
-      // Save the user object to the database
-      // If the save is successful, return the user's id
-      const savedUser = await userObject.save();
-      res.json({ error: null, data: savedUser._id });
-    } catch (error) {
-      // If there is an error, return a server error message
-      res.status(500).json({ error: "Internal server error" });
+router.post("/register", async (req: Request, res: Response) => {
+  try {
+    // Validate the user input (name, email, password)
+    // If the validation fails, return an error message
+    const { error } = registerValidation(req.body);
+    if (error) {
+      return res.status(400).json({ error: error.details[0].message });
     }
+
+    // Extract the domain from the email address
+    const emailDomain = req.body.email.split("@")[1];
+    // Check if the domain matches the allowed domain
+    if (emailDomain !== allowedDomain) {
+      return res.status(400).json({ error: "Email domain not allowed" });
+    }
+
+    // Check if the email is already registered
+    // If the email is already registered, return an error message
+    const emailExist = await User.findOne({ email: req.body.email });
+    if (emailExist) {
+      return res.status(400).json({ error: "Email already exists" });
+    }
+
+    // Hash the password using bcrypt
+    // The salt is a random value that is used to create the hash
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
+    // Create a new user object and save it to the database
+    const userObject = new User({
+      name: req.body.name,
+      email: req.body.email,
+      password: hashedPassword,
+    });
+
+    // Save the user object to the database
+    // If the save is successful, return the user's id
+    const savedUser = await userObject.save();
+    res.json({ error: null, data: savedUser._id });
+  } catch (error) {
+    // If there is an error, return a server error message
+    res.status(500).json({ error: "Internal server error" });
   }
-);
- */
+});
+
 // User login endpoint
 router.post("/login", async (req: Request, res: Response) => {
   try {
