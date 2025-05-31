@@ -25,10 +25,10 @@
     "@nuxt/content": "^3.5.1",
     "@nuxt/fonts": "^0.11.1",
     "@nuxt/icon": "^1.12.0",
-    "@nuxthq/studio": "^2.2.1",
+    "@nuxthq/studio": "^1.0.10",
     "@nuxtjs/mdc": "^0.17.0",
-    "@primeuix/themes": "^1.0.3",
     "@primeuix/styles": "^1.1.1",
+    "@primeuix/themes": "^1.0.3",
     "@primevue/forms": "^4.3.3",
     "@primevue/nuxt-module": "^4.3.4",
     "citty": "^0.1.6",
@@ -43,11 +43,11 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
-    "sass-embedded": "^1.87.0",
     "@iconify-json/flag": "^1.2.5",
     "@iconify-json/material-symbols": "^1.2.19",
     "@nuxtjs/tailwindcss": "^6.13.2",
     "@types/node": "^22.15.14",
+    "sass-embedded": "^1.87.0",
     "sass-loader": "^16.0.5"
   }
 }
