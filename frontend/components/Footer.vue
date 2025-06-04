@@ -61,6 +61,11 @@ const currentYear = new Date().getFullYear();
           <b>Subscribe</b>
           <p class="newsletter">Get the latest news from Slavic Media.</p>
           <Newsletter />
+          <p class="newsletter">
+            By subscribing, you agree with our
+            <NuxtLink to="/legal/terms-of-service">Terms of Service</NuxtLink>
+            and <NuxtLink to="/legal/privacy-policy">Privacy Policy</NuxtLink>.
+          </p>
         </section>
       </header>
       <hr class="quater" aria-hidden="true" />

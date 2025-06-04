@@ -91,7 +91,7 @@ async function submitForm(e: Event) {
 form {
   display: flex;
   align-items: center;
-  margin-top: 5px;
+  margin: 5px 0;
 
   .cta {
     margin-top: 0 !important;
