@@ -36,6 +36,7 @@ const review_1 = __importDefault(require("./routes/review"));
 const event_1 = __importDefault(require("./routes/event"));
 const slide_1 = __importDefault(require("./routes/slide"));
 const reel_1 = __importDefault(require("./routes/reel"));
+const newsletter_1 = __importDefault(require("./routes/newsletter"));
 // Connect to MongoDB
 mongoose_1.default.set("strictQuery", false);
 mongoose_1.default
@@ -56,6 +57,7 @@ app.use("/review", review_1.default);
 app.use("/event", event_1.default);
 app.use("/reel", reel_1.default);
 app.use("/slide", slide_1.default);
+app.use("/newsletter", newsletter_1.default);
 // Serve static files from the 'dist' directory
 app.use(express_1.default.static(path_1.default.join(__dirname, "dist"), staticOptions));
 // Catch-all route to serve 'index.html' for any unmatched routes

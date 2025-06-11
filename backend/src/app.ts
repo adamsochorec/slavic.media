@@ -45,6 +45,7 @@ import reviewRoutes from "./routes/review";
 import eventRoutes from "./routes/event";
 import slideRoutes from "./routes/slide";
 import reelRoutes from "./routes/reel";
+import newsletterRoutes from "./routes/newsletter";
 
 // Connect to MongoDB
 mongoose.set("strictQuery", false);
@@ -71,6 +72,7 @@ app.use("/review", reviewRoutes);
 app.use("/event", eventRoutes);
 app.use("/reel", reelRoutes);
 app.use("/slide", slideRoutes);
+app.use("/newsletter", newsletterRoutes);
 
 // Serve static files from the 'dist' directory
 app.use(express.static(path.join(__dirname, "dist"), staticOptions));
