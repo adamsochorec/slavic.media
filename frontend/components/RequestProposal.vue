@@ -2,7 +2,6 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 import eventBus from "@/composables/useEventBus";
-import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 
@@ -17,7 +16,13 @@ const formsubmitEndpoint = `https://formsubmit.co/ajax/${config.public.FORM}`;
 
 const router = useRouter();
 
-onMounted(() => {
+let Fancybox: any;
+
+onMounted(async () => {
+  // Dynamically import Fancybox only on client
+  const pkg = await import("@fancyapps/ui");
+  Fancybox = pkg.Fancybox;
+
   eventBus.on("showRequestAProposal", (identifier: string) => {
     formIdentifier.value = identifier;
     isVisible.value = true;
@@ -30,6 +35,13 @@ onMounted(() => {
       isVisible.value = false;
     }
   });
+});
+
+onUnmounted(() => {
+  if (Fancybox) {
+    Fancybox.close();
+    isVisible.value = false;
+  }
 });
 
 onUnmounted(() => {
@@ -178,7 +190,7 @@ async function handleSubmit(e: Event) {
             src="https://lottie.host/fb6f1870-4331-43b6-9592-657a70f94a69/lubJi7Xgi4.lottie"
           />
           <h4 class="gradient">Success!</h4>
-          <p>We will get back to you as soon as possible</p>
+          <p>Our team will get back to you as soon as possible</p>
           <Btn
             tag="button"
             icon="arrow-right"
