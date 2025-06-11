@@ -175,7 +175,7 @@ async function handleSubmit(e: Event) {
             background="transparent"
             autoplay
             aria-label="Page not found animation."
-            src="https://lottie.host/66d21d0e-39bc-4fd7-a1e7-113e677bdbf6/QstZTUqBtp.lottie"
+            src="https://lottie.host/fb6f1870-4331-43b6-9592-657a70f94a69/lubJi7Xgi4.lottie"
           />
           <h4 class="gradient">Success!</h4>
           <p>We will get back to you as soon as possible</p>

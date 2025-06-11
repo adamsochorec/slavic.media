@@ -26,7 +26,6 @@ export default defineNuxtConfig({
   postcss: {
     plugins: {
       "postcss-nested": {},
-      "postcss-custom-media": {},
     },
   },
   devtools: {
