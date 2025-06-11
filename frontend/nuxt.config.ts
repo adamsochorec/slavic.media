@@ -4,9 +4,9 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-05-07",
   runtimeConfig: {
     public: {
-      FORM: process.env.NUXT_PUBLIC_FORM,
-      CHATWAY: process.env.NUXT_PUBLIC_CHATWAY,
-      GOOGLE_ANALYTICS: process.env.NUXT_PUBLIC_GOOGLE_ANALYTICS,
+      FORM: process.env.FORM,
+      CHATWAY: process.env.CHATWAY,
+      GOOGLE_ANALYTICS: process.env.GOOGLE_ANALYTICS,
     },
   },
   content: {

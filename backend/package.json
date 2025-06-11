@@ -1,5 +1,5 @@
 {
-  "name": "slavicmedia",
+  "name": "backend",
   "version": "1.0.0",
   "description": "MongoDB-ExpressJS-NodeJS Restful API",
   "main": "dist/server.js",
