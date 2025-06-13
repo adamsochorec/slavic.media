@@ -26,8 +26,8 @@ router.get("/", (req, res) => {
         : "";
     review_1.default
         .find({}, fields)
+        .sort({ _id: 1 })
         .then((data) => {
-        data.sort((a, b) => a.id - b.id);
         res.send(data);
     })
         .catch((err) => {

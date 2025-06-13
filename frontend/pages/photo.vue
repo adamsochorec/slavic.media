@@ -34,9 +34,7 @@ const {
 } = await useFetch("https://api.slavic.media/img");
 
 // Sort galleries by index
-const imgState = computed(
-  () => rawImgState?.value?.sort((a, b) => b.index - a.index) || []
-);
+const imgState = computed(() => rawImgState?.value || []);
 
 // Further services matrix
 const services = [

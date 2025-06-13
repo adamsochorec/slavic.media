@@ -13,10 +13,7 @@ const {
   data: employees,
   pending,
   error,
-} = await useFetch("https://api.slavic.media/employee", {
-  transform: (employees: any) =>
-    employees?.sort((a: any, b: any) => a.index - b.index) || [],
-});
+} = await useFetch("https://api.slavic.media/employee");
 
 // Progressive IMG loading
 const checkIfAlreadyLoaded = (img: HTMLImageElement) => {

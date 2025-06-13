@@ -25,8 +25,8 @@ router.get("/", (req: Request, res: Response) => {
       : "";
   employeeModel
     .find({}, fields)
+    .sort({ index: 1 })
     .then((data) => {
-      data.sort((a, b) => a.index - b.index);
       res.send(data);
     })
     .catch((err) => {

@@ -27,9 +27,8 @@ router.get("/", (req: Request, res: Response) => {
       : "";
   photoGalleryModel
     .find({}, fields)
+    .sort({ index: 1 })
     .then((data) => {
-      data.sort((a: any, b: any) => a.index - b.index);
-
       res.send(data);
     })
     .catch((err) => {
