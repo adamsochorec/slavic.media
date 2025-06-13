@@ -35,6 +35,23 @@ const videoSchema = new Schema<Video>({
   category: { type: String, maxlength: 100 },
 });
 
+// Auto-increment index before saving a new document
+videoSchema.pre("save", async function (next) {
+  if (this.isNew && (this.index === undefined || this.index === null)) {
+    const lastVideo = await mongoose
+      .model<Video>("Video")
+      .findOne({})
+      .sort({ index: -1 })
+      .select("index")
+      .exec();
+    this.index =
+      lastVideo && typeof lastVideo.index === "number"
+        ? lastVideo.index + 1
+        : 1;
+  }
+  next();
+});
+
 const Video = mongoose.model<Video>("Video", videoSchema);
 export { videoSchema };
 export default Video;

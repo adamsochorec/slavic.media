@@ -26,6 +26,7 @@ router.get("/", (req, res) => {
         : "";
     video_1.default
         .find({}, fields)
+        .sort({ index: -1 })
         .then((data) => {
         res.send(data);
     })

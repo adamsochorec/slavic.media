@@ -32,6 +32,15 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.videoSchema = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
@@ -50,5 +59,23 @@ const videoSchema = new mongoose_1.Schema({
     category: { type: String, maxlength: 100 },
 });
 exports.videoSchema = videoSchema;
+// Auto-increment index before saving a new document
+videoSchema.pre("save", function (next) {
+    return __awaiter(this, void 0, void 0, function* () {
+        if (this.isNew && (this.index === undefined || this.index === null)) {
+            const lastVideo = yield mongoose_1.default
+                .model("Video")
+                .findOne({})
+                .sort({ index: -1 })
+                .select("index")
+                .exec();
+            this.index =
+                lastVideo && typeof lastVideo.index === "number"
+                    ? lastVideo.index + 1
+                    : 1;
+        }
+        next();
+    });
+});
 const Video = mongoose_1.default.model("Video", videoSchema);
 exports.default = Video;

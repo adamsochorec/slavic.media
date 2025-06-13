@@ -93,8 +93,7 @@ router.post("/login", (req, res) => __awaiter(void 0, void 0, void 0, function* 
             id: user._id,
         }, process.env.TOKEN_SECRET || "your_default_secret", {
             expiresIn: process.env.JWT_EXPIRES_IN || "1h",
-        } // <-- Add this type assertion
-        );
+        });
         // Attach the authentication token to the header and return it in the response
         res.header("auth-token", token).json({
             error: null,

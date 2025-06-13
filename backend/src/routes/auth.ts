@@ -98,7 +98,7 @@ router.post("/login", async (req: Request, res: Response) => {
       process.env.TOKEN_SECRET || "your_default_secret",
       {
         expiresIn: process.env.JWT_EXPIRES_IN || "1h",
-      } as jwt.SignOptions // <-- Add this type assertion
+      } as jwt.SignOptions
     );
 
     // Attach the authentication token to the header and return it in the response
