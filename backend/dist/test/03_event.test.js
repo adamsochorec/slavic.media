@@ -17,86 +17,81 @@ const supertest_1 = __importDefault(require("supertest"));
 const app_1 = __importDefault(require("../app"));
 const auth_1 = require("../auth");
 const user_1 = __importDefault(require("../models/user"));
-const employee_1 = __importDefault(require("../models/employee"));
+const event_1 = __importDefault(require("../models/event"));
 let token;
-const employeeData = {
-    _id: "rasmus",
-    name: "Rasmus Sorensen",
-    index: 11,
-    department: "Engineering",
-    description: "A test employee",
-    flag: "dk",
-    email: "rasmus@slavic.media",
-    birthday: "1999-01-03",
-    linkedin: "https://linkedin.com/in/slavicmedia",
-    github: "https://github.com/slavicmedia",
+const eventData = {
+    date: "2023-04-30T22:00:00.000Z",
+    lat: 55.488265302135666,
+    lng: 9.482358325733468,
+    icon: "verified",
+    description: "Company establishment",
 };
 (0, vitest_1.beforeEach)(() => __awaiter(void 0, void 0, void 0, function* () {
     yield user_1.default.deleteMany({});
-    yield employee_1.default.deleteMany({});
+    yield event_1.default.deleteMany({});
 }));
 (0, vitest_1.afterEach)(() => __awaiter(void 0, void 0, void 0, function* () {
     yield user_1.default.deleteMany({});
-    yield employee_1.default.deleteMany({});
+    yield event_1.default.deleteMany({});
 }));
 (0, vitest_1.beforeAll)(() => __awaiter(void 0, void 0, void 0, function* () {
     token = yield (0, auth_1.registerAndLogin)();
 }));
-(0, vitest_1.describe)("Employee CRUD", () => {
-    let createdEmployeeId;
-    (0, vitest_1.it)("should create a new employee", () => __awaiter(void 0, void 0, void 0, function* () {
+(0, vitest_1.describe)("Event CRUD", () => {
+    let createdEventId;
+    (0, vitest_1.it)("should create a new event", () => __awaiter(void 0, void 0, void 0, function* () {
         const res = yield (0, supertest_1.default)(app_1.default)
-            .post("/employee")
+            .post("/event")
             .set("auth-token", token)
-            .send(employeeData);
+            .send(eventData);
         (0, vitest_1.expect)(res.statusCode).toBe(201);
-        (0, vitest_1.expect)(res.body._id).toBe(employeeData._id);
-        createdEmployeeId = res.body._id;
+        (0, vitest_1.expect)(res.body._id).toBeDefined();
+        createdEventId = res.body._id;
     }));
-    (0, vitest_1.it)("should get all employees", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default)
-            .post("/employee")
-            .set("auth-token", token)
-            .send(employeeData);
-        const res = yield (0, supertest_1.default)(app_1.default).get("/employee");
+    (0, vitest_1.it)("should get all events", () => __awaiter(void 0, void 0, void 0, function* () {
+        yield (0, supertest_1.default)(app_1.default).post("/event").set("auth-token", token).send(eventData);
+        const res = yield (0, supertest_1.default)(app_1.default).get("/event");
         (0, vitest_1.expect)(res.statusCode).toBe(200);
         (0, vitest_1.expect)(Array.isArray(res.body)).toBe(true);
         (0, vitest_1.expect)(res.body.length).toBeGreaterThan(0);
     }));
-    (0, vitest_1.it)("should get an employee by ID", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default)
-            .post("/employee")
+    (0, vitest_1.it)("should get an event by ID", () => __awaiter(void 0, void 0, void 0, function* () {
+        const createRes = yield (0, supertest_1.default)(app_1.default)
+            .post("/event")
             .set("auth-token", token)
-            .send(employeeData);
-        const res = yield (0, supertest_1.default)(app_1.default).get(`/employee/${employeeData._id}`);
+            .send(eventData);
+        const eventId = createRes.body._id;
+        const res = yield (0, supertest_1.default)(app_1.default).get(`/event/${eventId}`);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
-        (0, vitest_1.expect)(res.body._id).toBe(employeeData._id);
+        (0, vitest_1.expect)(res.body._id).toBe(eventId);
     }));
-    (0, vitest_1.it)("should update an employee", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default)
-            .post("/employee")
+    (0, vitest_1.it)("should update an event", () => __awaiter(void 0, void 0, void 0, function* () {
+        const createRes = yield (0, supertest_1.default)(app_1.default)
+            .post("/event")
             .set("auth-token", token)
-            .send(employeeData);
-        const updated = Object.assign(Object.assign({}, employeeData), { name: "Updated Name" });
+            .send(eventData);
+        const eventId = createRes.body._id;
+        const updated = Object.assign(Object.assign({}, eventData), { description: "Updated Description" });
         const res = yield (0, supertest_1.default)(app_1.default)
-            .put(`/employee/${employeeData._id}`)
+            .put(`/event/${eventId}`)
             .set("auth-token", token)
             .send(updated);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
-        (0, vitest_1.expect)(res.body.name).toBe("Updated Name");
+        (0, vitest_1.expect)(res.body.description).toBe("Updated Description");
     }));
-    (0, vitest_1.it)("should delete an employee", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default)
-            .post("/employee")
+    (0, vitest_1.it)("should delete an event", () => __awaiter(void 0, void 0, void 0, function* () {
+        const createRes = yield (0, supertest_1.default)(app_1.default)
+            .post("/event")
             .set("auth-token", token)
-            .send(employeeData);
+            .send(eventData);
+        const eventId = createRes.body._id;
         const res = yield (0, supertest_1.default)(app_1.default)
-            .delete(`/employee/${employeeData._id}`)
+            .delete(`/event/${eventId}`)
             .set("auth-token", token);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
         (0, vitest_1.expect)(res.body.message).toMatch(/deleted successfully/i);
         // Confirm deletion
-        const getRes = yield (0, supertest_1.default)(app_1.default).get(`/employee/${employeeData._id}`);
+        const getRes = yield (0, supertest_1.default)(app_1.default).get(`/event/${eventId}`);
         (0, vitest_1.expect)(getRes.body).toEqual({});
     }));
 });

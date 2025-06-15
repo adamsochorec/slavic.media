@@ -19,7 +19,7 @@ const auth_1 = require("../auth");
 const user_1 = __importDefault(require("../models/user"));
 const employee_1 = __importDefault(require("../models/employee"));
 let token;
-const employeeData = {
+const testData = {
     _id: "rasmus",
     name: "Rasmus Sorensen",
     index: 11,
@@ -43,21 +43,21 @@ const employeeData = {
     token = yield (0, auth_1.registerAndLogin)();
 }));
 (0, vitest_1.describe)("Employee CRUD", () => {
-    let createdEmployeeId;
+    let createdID;
     (0, vitest_1.it)("should create a new employee", () => __awaiter(void 0, void 0, void 0, function* () {
         const res = yield (0, supertest_1.default)(app_1.default)
             .post("/employee")
             .set("auth-token", token)
-            .send(employeeData);
+            .send(testData);
         (0, vitest_1.expect)(res.statusCode).toBe(201);
-        (0, vitest_1.expect)(res.body._id).toBe(employeeData._id);
-        createdEmployeeId = res.body._id;
+        (0, vitest_1.expect)(res.body._id).toBe(testData._id);
+        createdID = res.body._id;
     }));
     (0, vitest_1.it)("should get all employees", () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.default)
             .post("/employee")
             .set("auth-token", token)
-            .send(employeeData);
+            .send(testData);
         const res = yield (0, supertest_1.default)(app_1.default).get("/employee");
         (0, vitest_1.expect)(res.statusCode).toBe(200);
         (0, vitest_1.expect)(Array.isArray(res.body)).toBe(true);
@@ -67,19 +67,19 @@ const employeeData = {
         yield (0, supertest_1.default)(app_1.default)
             .post("/employee")
             .set("auth-token", token)
-            .send(employeeData);
-        const res = yield (0, supertest_1.default)(app_1.default).get(`/employee/${employeeData._id}`);
+            .send(testData);
+        const res = yield (0, supertest_1.default)(app_1.default).get(`/employee/${testData._id}`);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
-        (0, vitest_1.expect)(res.body._id).toBe(employeeData._id);
+        (0, vitest_1.expect)(res.body._id).toBe(testData._id);
     }));
     (0, vitest_1.it)("should update an employee", () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.default)
             .post("/employee")
             .set("auth-token", token)
-            .send(employeeData);
-        const updated = Object.assign(Object.assign({}, employeeData), { name: "Updated Name" });
+            .send(testData);
+        const updated = Object.assign(Object.assign({}, testData), { name: "Updated Name" });
         const res = yield (0, supertest_1.default)(app_1.default)
-            .put(`/employee/${employeeData._id}`)
+            .put(`/employee/${testData._id}`)
             .set("auth-token", token)
             .send(updated);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
@@ -89,14 +89,14 @@ const employeeData = {
         yield (0, supertest_1.default)(app_1.default)
             .post("/employee")
             .set("auth-token", token)
-            .send(employeeData);
+            .send(testData);
         const res = yield (0, supertest_1.default)(app_1.default)
-            .delete(`/employee/${employeeData._id}`)
+            .delete(`/employee/${testData._id}`)
             .set("auth-token", token);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
         (0, vitest_1.expect)(res.body.message).toMatch(/deleted successfully/i);
         // Confirm deletion
-        const getRes = yield (0, supertest_1.default)(app_1.default).get(`/employee/${employeeData._id}`);
+        const getRes = yield (0, supertest_1.default)(app_1.default).get(`/employee/${testData._id}`);
         (0, vitest_1.expect)(getRes.body).toEqual({});
     }));
 });

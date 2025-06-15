@@ -17,86 +17,75 @@ const supertest_1 = __importDefault(require("supertest"));
 const app_1 = __importDefault(require("../app"));
 const auth_1 = require("../auth");
 const user_1 = __importDefault(require("../models/user"));
-const employee_1 = __importDefault(require("../models/employee"));
+const video_1 = __importDefault(require("../models/video"));
 let token;
-const employeeData = {
-    _id: "rasmus",
-    name: "Rasmus Sorensen",
-    index: 11,
-    department: "Engineering",
-    description: "A test employee",
+const testData = {
+    _id: "arun-in-denmark",
+    index: 8,
     flag: "dk",
-    email: "rasmus@slavic.media",
-    birthday: "1999-01-03",
-    linkedin: "https://linkedin.com/in/slavicmedia",
-    github: "https://github.com/slavicmedia",
+    title: "Arun in Denmark Keynote",
+    url: "youtube.com/watch?v=84EQLc1oxio",
+    year: "2025",
+    client: {
+        name: "Arun in Denmark",
+        url: "youtube.com/channel/UC5HbR-mxiKW19Z9A1OjCM1Q",
+    },
+    category: "Vlog",
 };
 (0, vitest_1.beforeEach)(() => __awaiter(void 0, void 0, void 0, function* () {
     yield user_1.default.deleteMany({});
-    yield employee_1.default.deleteMany({});
+    yield video_1.default.deleteMany({});
 }));
 (0, vitest_1.afterEach)(() => __awaiter(void 0, void 0, void 0, function* () {
     yield user_1.default.deleteMany({});
-    yield employee_1.default.deleteMany({});
+    yield video_1.default.deleteMany({});
 }));
 (0, vitest_1.beforeAll)(() => __awaiter(void 0, void 0, void 0, function* () {
     token = yield (0, auth_1.registerAndLogin)();
 }));
-(0, vitest_1.describe)("Employee CRUD", () => {
-    let createdEmployeeId;
-    (0, vitest_1.it)("should create a new employee", () => __awaiter(void 0, void 0, void 0, function* () {
+(0, vitest_1.describe)("Video CRUD", () => {
+    let createdID;
+    (0, vitest_1.it)("should create a new video", () => __awaiter(void 0, void 0, void 0, function* () {
         const res = yield (0, supertest_1.default)(app_1.default)
-            .post("/employee")
+            .post("/video")
             .set("auth-token", token)
-            .send(employeeData);
+            .send(testData);
         (0, vitest_1.expect)(res.statusCode).toBe(201);
-        (0, vitest_1.expect)(res.body._id).toBe(employeeData._id);
-        createdEmployeeId = res.body._id;
+        (0, vitest_1.expect)(res.body._id).toBe(testData._id);
+        createdID = res.body._id;
     }));
-    (0, vitest_1.it)("should get all employees", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default)
-            .post("/employee")
-            .set("auth-token", token)
-            .send(employeeData);
-        const res = yield (0, supertest_1.default)(app_1.default).get("/employee");
+    (0, vitest_1.it)("should get all videos", () => __awaiter(void 0, void 0, void 0, function* () {
+        yield (0, supertest_1.default)(app_1.default).post("/video").set("auth-token", token).send(testData);
+        const res = yield (0, supertest_1.default)(app_1.default).get("/video");
         (0, vitest_1.expect)(res.statusCode).toBe(200);
         (0, vitest_1.expect)(Array.isArray(res.body)).toBe(true);
         (0, vitest_1.expect)(res.body.length).toBeGreaterThan(0);
     }));
-    (0, vitest_1.it)("should get an employee by ID", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default)
-            .post("/employee")
-            .set("auth-token", token)
-            .send(employeeData);
-        const res = yield (0, supertest_1.default)(app_1.default).get(`/employee/${employeeData._id}`);
+    (0, vitest_1.it)("should get an video by ID", () => __awaiter(void 0, void 0, void 0, function* () {
+        yield (0, supertest_1.default)(app_1.default).post("/video").set("auth-token", token).send(testData);
+        const res = yield (0, supertest_1.default)(app_1.default).get(`/video/${testData._id}`);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
-        (0, vitest_1.expect)(res.body._id).toBe(employeeData._id);
+        (0, vitest_1.expect)(res.body._id).toBe(testData._id);
     }));
-    (0, vitest_1.it)("should update an employee", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default)
-            .post("/employee")
-            .set("auth-token", token)
-            .send(employeeData);
-        const updated = Object.assign(Object.assign({}, employeeData), { name: "Updated Name" });
+    (0, vitest_1.it)("should update an video", () => __awaiter(void 0, void 0, void 0, function* () {
+        yield (0, supertest_1.default)(app_1.default).post("/video").set("auth-token", token).send(testData);
+        const updated = Object.assign(Object.assign({}, testData), { flag: "fi" });
         const res = yield (0, supertest_1.default)(app_1.default)
-            .put(`/employee/${employeeData._id}`)
+            .put(`/video/${testData._id}`)
             .set("auth-token", token)
             .send(updated);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
-        (0, vitest_1.expect)(res.body.name).toBe("Updated Name");
+        (0, vitest_1.expect)(res.body.flag).toBe("fi");
     }));
-    (0, vitest_1.it)("should delete an employee", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default)
-            .post("/employee")
-            .set("auth-token", token)
-            .send(employeeData);
+    (0, vitest_1.it)("should delete an video", () => __awaiter(void 0, void 0, void 0, function* () {
+        yield (0, supertest_1.default)(app_1.default).post("/video").set("auth-token", token).send(testData);
         const res = yield (0, supertest_1.default)(app_1.default)
-            .delete(`/employee/${employeeData._id}`)
+            .delete(`/video/${testData._id}`)
             .set("auth-token", token);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
         (0, vitest_1.expect)(res.body.message).toMatch(/deleted successfully/i);
         // Confirm deletion
-        const getRes = yield (0, supertest_1.default)(app_1.default).get(`/employee/${employeeData._id}`);
+        const getRes = yield (0, supertest_1.default)(app_1.default).get(`/video/${testData._id}`);
         (0, vitest_1.expect)(getRes.body).toEqual({});
     }));
 });
