@@ -1,4 +1,4 @@
-name: API tests
+name: Backend workflow
 
 # This workflow gets triggered on every push to the specific branch
 on:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    name: Workflow
+    name: API tests
     runs-on: ubuntu-latest # The type of machine to run the job on
 
     # This strategy runs the job on multiple versions of Node.js
