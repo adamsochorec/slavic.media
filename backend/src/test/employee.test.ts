@@ -9,15 +9,15 @@ let token: string;
 
 const testData = {
   _id: "rasmus",
-  name: "Rasmus Sorensen",
+  name: "Name",
   index: 11,
-  department: "Engineering",
-  description: "A test employee",
+  department: "Department",
+  description: "Description",
   flag: "dk",
   email: "rasmus@slavic.media",
-  birthday: "1999-01-03",
-  linkedin: "https://linkedin.com/in/slavicmedia",
-  github: "https://github.com/slavicmedia",
+  birthday: "2023-05-28",
+  linkedin: "https://linkedin.com/company/slavicmedia",
+  github: "https://github.com/",
 };
 
 beforeEach(async () => {
@@ -75,14 +75,14 @@ describe("Employee CRUD", () => {
       .set("auth-token", token)
       .send(testData);
 
-    const updated = { ...testData, name: "Updated Name" };
+    const updated = { ...testData, name: "Updated name" };
     const res = await request(app)
       .put(`/employee/${testData._id}`)
       .set("auth-token", token)
       .send(updated);
 
     expect(res.statusCode).toBe(200);
-    expect(res.body.name).toBe("Updated Name");
+    expect(res.body.name).toBe("Updated name");
   });
 
   it("should delete an employee", async () => {

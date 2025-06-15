@@ -21,9 +21,9 @@ const reel_1 = __importDefault(require("../models/reel"));
 let token;
 const testData = {
     _id: "DBqXwkhI8nH",
-    platform: "instagram",
+    platform: "Platform",
     flag: "no",
-    url: "instagram.com/reel/DBqXwkhI8nH",
+    url: "Url",
 };
 (0, vitest_1.beforeEach)(() => __awaiter(void 0, void 0, void 0, function* () {
     yield user_1.default.deleteMany({});
@@ -62,13 +62,13 @@ const testData = {
     }));
     (0, vitest_1.it)("should update an reel", () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.default).post("/reel").set("auth-token", token).send(testData);
-        const updated = Object.assign(Object.assign({}, testData), { platform: "tiktok" });
+        const updated = Object.assign(Object.assign({}, testData), { platform: "Updated platform" });
         const res = yield (0, supertest_1.default)(app_1.default)
             .put(`/reel/${testData._id}`)
             .set("auth-token", token)
             .send(updated);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
-        (0, vitest_1.expect)(res.body.platform).toBe("tiktok");
+        (0, vitest_1.expect)(res.body.platform).toBe("Updated platform");
     }));
     (0, vitest_1.it)("should delete an reel", () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.default).post("/reel").set("auth-token", token).send(testData);

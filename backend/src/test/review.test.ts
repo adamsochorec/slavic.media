@@ -9,12 +9,12 @@ let token: string;
 
 const testData = {
   _id: 0,
-  img: "a-/ALV-UjU0bBUSLZrfY0whwOy3uybp1XNy8_EVRWagirofxyijv5jTDmAs",
-  name: "Silvija V.",
-  occupation: "Marketing Specialist",
-  profileLink: "100164207852691879240/reviews?hl=en-GB",
+  img: "Img",
+  name: "Name",
+  occupation: "Occupation",
+  profileLink: "Profile link",
   rating: 5,
-  fullReview: "3WMUeYxiLsH4FANm8",
+  fullReview: "Full review",
   message: "Message",
 };
 

@@ -8,11 +8,11 @@ import Event from "../models/event";
 let token: string;
 
 const testData = {
-  date: "2023-04-30T22:00:00.000Z",
+  date: "2023-05-28",
   lat: 55.488265302135666,
   lng: 9.482358325733468,
-  icon: "verified",
-  description: "Company establishment",
+  icon: "icon",
+  description: "Description",
 };
 
 beforeEach(async () => {
@@ -69,14 +69,14 @@ describe("Event CRUD", () => {
       .send(testData);
 
     const eventId = createRes.body._id;
-    const updated = { ...testData, description: "Updated Description" };
+    const updated = { ...testData, description: "Updated description" };
     const res = await request(app)
       .put(`/event/${eventId}`)
       .set("auth-token", token)
       .send(updated);
 
     expect(res.statusCode).toBe(200);
-    expect(res.body.description).toBe("Updated Description");
+    expect(res.body.description).toBe("Updated description");
   });
 
   it("should delete an event", async () => {

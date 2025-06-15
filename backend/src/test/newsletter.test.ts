@@ -8,9 +8,9 @@ import Newsletter from "../models/newsletter";
 let token: string;
 
 const testData = {
-  _id: "adam.sochorec@icloud.com",
+  _id: "contact@slavic.media",
   source: "https://slavic.media/",
-  date: "2025-05-26T13:50:15.011Z",
+  date: "2023-05-28",
 };
 
 beforeEach(async () => {
@@ -68,14 +68,14 @@ describe("Newsletter CRUD", () => {
       .set("auth-token", token)
       .send(testData);
 
-    const updated = { ...testData, source: "localhost:3000" };
+    const updated = { ...testData, source: "Updated source" };
     const res = await request(app)
       .put(`/newsletter/${testData._id}`)
       .set("auth-token", token)
       .send(updated);
 
     expect(res.statusCode).toBe(200);
-    expect(res.body.source).toBe("localhost:3000");
+    expect(res.body.source).toBe("Updated source");
   });
 
   it("should delete an newsletter", async () => {

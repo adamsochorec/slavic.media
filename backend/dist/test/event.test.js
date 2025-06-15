@@ -20,11 +20,11 @@ const user_1 = __importDefault(require("../models/user"));
 const event_1 = __importDefault(require("../models/event"));
 let token;
 const testData = {
-    date: "2023-04-30T22:00:00.000Z",
+    date: "2023-05-28",
     lat: 55.488265302135666,
     lng: 9.482358325733468,
-    icon: "verified",
-    description: "Company establishment",
+    icon: "icon",
+    description: "Description",
 };
 (0, vitest_1.beforeEach)(() => __awaiter(void 0, void 0, void 0, function* () {
     yield user_1.default.deleteMany({});
@@ -71,13 +71,13 @@ const testData = {
             .set("auth-token", token)
             .send(testData);
         const eventId = createRes.body._id;
-        const updated = Object.assign(Object.assign({}, testData), { description: "Updated Description" });
+        const updated = Object.assign(Object.assign({}, testData), { description: "Updated description" });
         const res = yield (0, supertest_1.default)(app_1.default)
             .put(`/event/${eventId}`)
             .set("auth-token", token)
             .send(updated);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
-        (0, vitest_1.expect)(res.body.description).toBe("Updated Description");
+        (0, vitest_1.expect)(res.body.description).toBe("Updated description");
     }));
     (0, vitest_1.it)("should delete an event", () => __awaiter(void 0, void 0, void 0, function* () {
         const createRes = yield (0, supertest_1.default)(app_1.default)

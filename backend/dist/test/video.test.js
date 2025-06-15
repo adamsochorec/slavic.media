@@ -20,17 +20,17 @@ const user_1 = __importDefault(require("../models/user"));
 const video_1 = __importDefault(require("../models/video"));
 let token;
 const testData = {
-    _id: "arun-in-denmark",
+    _id: "video",
     index: 8,
     flag: "dk",
-    title: "Arun in Denmark Keynote",
-    url: "youtube.com/watch?v=84EQLc1oxio",
+    title: "Title",
+    url: "Url",
     year: "2025",
     client: {
-        name: "Arun in Denmark",
-        url: "youtube.com/channel/UC5HbR-mxiKW19Z9A1OjCM1Q",
+        name: "Client name",
+        url: "Client website",
     },
-    category: "Vlog",
+    category: "Category",
 };
 (0, vitest_1.beforeEach)(() => __awaiter(void 0, void 0, void 0, function* () {
     yield user_1.default.deleteMany({});
@@ -69,13 +69,13 @@ const testData = {
     }));
     (0, vitest_1.it)("should update an video", () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.default).post("/video").set("auth-token", token).send(testData);
-        const updated = Object.assign(Object.assign({}, testData), { flag: "fi" });
+        const updated = Object.assign(Object.assign({}, testData), { title: "Updated title" });
         const res = yield (0, supertest_1.default)(app_1.default)
             .put(`/video/${testData._id}`)
             .set("auth-token", token)
             .send(updated);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
-        (0, vitest_1.expect)(res.body.flag).toBe("fi");
+        (0, vitest_1.expect)(res.body.title).toBe("Updated title");
     }));
     (0, vitest_1.it)("should delete an video", () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.default).post("/video").set("auth-token", token).send(testData);

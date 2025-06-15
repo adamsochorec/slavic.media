@@ -96,13 +96,13 @@ const testData = {
     }));
     (0, vitest_1.it)("should update an img", () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.default).post("/img").set("auth-token", token).send(testData);
-        const updated = Object.assign(Object.assign({}, testData), { title: "Test" });
+        const updated = Object.assign(Object.assign({}, testData), { title: "Updated title" });
         const res = yield (0, supertest_1.default)(app_1.default)
             .put(`/img/${testData._id}`)
             .set("auth-token", token)
             .send(updated);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
-        (0, vitest_1.expect)(res.body.title).toBe("Test");
+        (0, vitest_1.expect)(res.body.title).toBe("Updated title");
     }));
     (0, vitest_1.it)("should delete an img", () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.default).post("/img").set("auth-token", token).send(testData);

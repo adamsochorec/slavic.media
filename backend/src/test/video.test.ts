@@ -8,17 +8,17 @@ import Video from "../models/video";
 let token: string;
 
 const testData = {
-  _id: "arun-in-denmark",
+  _id: "video",
   index: 8,
   flag: "dk",
-  title: "Arun in Denmark Keynote",
-  url: "youtube.com/watch?v=84EQLc1oxio",
+  title: "Title",
+  url: "Url",
   year: "2025",
   client: {
-    name: "Arun in Denmark",
-    url: "youtube.com/channel/UC5HbR-mxiKW19Z9A1OjCM1Q",
+    name: "Client name",
+    url: "Client website",
   },
-  category: "Vlog",
+  category: "Category",
 };
 
 beforeEach(async () => {
@@ -67,14 +67,14 @@ describe("Video CRUD", () => {
   it("should update an video", async () => {
     await request(app).post("/video").set("auth-token", token).send(testData);
 
-    const updated = { ...testData, flag: "fi" };
+    const updated = { ...testData, title: "Updated title" };
     const res = await request(app)
       .put(`/video/${testData._id}`)
       .set("auth-token", token)
       .send(updated);
 
     expect(res.statusCode).toBe(200);
-    expect(res.body.flag).toBe("fi");
+    expect(res.body.title).toBe("Updated title");
   });
 
   it("should delete an video", async () => {

@@ -21,15 +21,15 @@ const employee_1 = __importDefault(require("../models/employee"));
 let token;
 const testData = {
     _id: "rasmus",
-    name: "Rasmus Sorensen",
+    name: "Name",
     index: 11,
-    department: "Engineering",
-    description: "A test employee",
+    department: "Department",
+    description: "Description",
     flag: "dk",
     email: "rasmus@slavic.media",
-    birthday: "1999-01-03",
-    linkedin: "https://linkedin.com/in/slavicmedia",
-    github: "https://github.com/slavicmedia",
+    birthday: "2023-05-28",
+    linkedin: "https://linkedin.com/company/slavicmedia",
+    github: "https://github.com/",
 };
 (0, vitest_1.beforeEach)(() => __awaiter(void 0, void 0, void 0, function* () {
     yield user_1.default.deleteMany({});
@@ -77,13 +77,13 @@ const testData = {
             .post("/employee")
             .set("auth-token", token)
             .send(testData);
-        const updated = Object.assign(Object.assign({}, testData), { name: "Updated Name" });
+        const updated = Object.assign(Object.assign({}, testData), { name: "Updated name" });
         const res = yield (0, supertest_1.default)(app_1.default)
             .put(`/employee/${testData._id}`)
             .set("auth-token", token)
             .send(updated);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
-        (0, vitest_1.expect)(res.body.name).toBe("Updated Name");
+        (0, vitest_1.expect)(res.body.name).toBe("Updated name");
     }));
     (0, vitest_1.it)("should delete an employee", () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.default)

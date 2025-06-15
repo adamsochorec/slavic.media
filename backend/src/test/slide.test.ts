@@ -9,7 +9,7 @@ let token: string;
 
 const testData = {
   _id: "20240312_SLAVIC-MEDIA0583",
-  log: "S-Log",
+  log: "Log",
 };
 
 beforeEach(async () => {
@@ -58,14 +58,14 @@ describe("Slide CRUD", () => {
   it("should update an slide", async () => {
     await request(app).post("/slide").set("auth-token", token).send(testData);
 
-    const updated = { ...testData, log: "D-Log M" };
+    const updated = { ...testData, log: "Updated log" };
     const res = await request(app)
       .put(`/slide/${testData._id}`)
       .set("auth-token", token)
       .send(updated);
 
     expect(res.statusCode).toBe(200);
-    expect(res.body.log).toBe("D-Log M");
+    expect(res.body.log).toBe("Updated log");
   });
 
   it("should delete an slide", async () => {

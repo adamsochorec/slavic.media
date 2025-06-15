@@ -30,7 +30,7 @@ const swaggerDefinition = JSON.parse(fs_1.default.readFileSync(path_1.default.jo
 app.use("/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDefinition, swaggerOptions));
 const img_1 = __importDefault(require("./routes/img"));
 const video_1 = __importDefault(require("./routes/video"));
-const auth_1 = __importDefault(require("./routes/auth"));
+const user_1 = __importDefault(require("./routes/user"));
 const employee_1 = __importDefault(require("./routes/employee"));
 const review_1 = __importDefault(require("./routes/review"));
 const event_1 = __importDefault(require("./routes/event"));
@@ -51,7 +51,7 @@ app.get("/", (req, res) => {
 // Route handlers
 app.use("/img", img_1.default);
 app.use("/video", video_1.default);
-app.use("/user", auth_1.default);
+app.use("/user", user_1.default);
 app.use("/employee", employee_1.default);
 app.use("/review", review_1.default);
 app.use("/event", event_1.default);

@@ -20,9 +20,9 @@ const user_1 = __importDefault(require("../models/user"));
 const newsletter_1 = __importDefault(require("../models/newsletter"));
 let token;
 const testData = {
-    _id: "adam.sochorec@icloud.com",
+    _id: "contact@slavic.media",
     source: "https://slavic.media/",
-    date: "2025-05-26T13:50:15.011Z",
+    date: "2023-05-28",
 };
 (0, vitest_1.beforeEach)(() => __awaiter(void 0, void 0, void 0, function* () {
     yield user_1.default.deleteMany({});
@@ -70,13 +70,13 @@ const testData = {
             .post("/newsletter")
             .set("auth-token", token)
             .send(testData);
-        const updated = Object.assign(Object.assign({}, testData), { source: "localhost:3000" });
+        const updated = Object.assign(Object.assign({}, testData), { source: "Updated source" });
         const res = yield (0, supertest_1.default)(app_1.default)
             .put(`/newsletter/${testData._id}`)
             .set("auth-token", token)
             .send(updated);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
-        (0, vitest_1.expect)(res.body.source).toBe("localhost:3000");
+        (0, vitest_1.expect)(res.body.source).toBe("Updated source");
     }));
     (0, vitest_1.it)("should delete an newsletter", () => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, supertest_1.default)(app_1.default)

@@ -9,9 +9,9 @@ let token: string;
 
 const testData = {
   _id: "DBqXwkhI8nH",
-  platform: "instagram",
+  platform: "Platform",
   flag: "no",
-  url: "instagram.com/reel/DBqXwkhI8nH",
+  url: "Url",
 };
 
 beforeEach(async () => {
@@ -60,14 +60,14 @@ describe("Reel CRUD", () => {
   it("should update an reel", async () => {
     await request(app).post("/reel").set("auth-token", token).send(testData);
 
-    const updated = { ...testData, platform: "tiktok" };
+    const updated = { ...testData, platform: "Updated platform" };
     const res = await request(app)
       .put(`/reel/${testData._id}`)
       .set("auth-token", token)
       .send(updated);
 
     expect(res.statusCode).toBe(200);
-    expect(res.body.platform).toBe("tiktok");
+    expect(res.body.platform).toBe("Updated platform");
   });
 
   it("should delete an reel", async () => {

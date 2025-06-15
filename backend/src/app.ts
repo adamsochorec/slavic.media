@@ -39,7 +39,7 @@ app.use(
 
 import imageRoutes from "./routes/img";
 import videoRoutes from "./routes/video";
-import authRoutes from "./routes/auth";
+import userRoutes from "./routes/user";
 import employeeRoutes from "./routes/employee";
 import reviewRoutes from "./routes/review";
 import eventRoutes from "./routes/event";
@@ -66,7 +66,7 @@ app.get("/", (req: Request, res: Response) => {
 // Route handlers
 app.use("/img", imageRoutes);
 app.use("/video", videoRoutes);
-app.use("/user", authRoutes);
+app.use("/user", userRoutes);
 app.use("/employee", employeeRoutes);
 app.use("/review", reviewRoutes);
 app.use("/event", eventRoutes);

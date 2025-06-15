@@ -94,14 +94,14 @@ describe("Img CRUD", () => {
   it("should update an img", async () => {
     await request(app).post("/img").set("auth-token", token).send(testData);
 
-    const updated = { ...testData, title: "Test" };
+    const updated = { ...testData, title: "Updated title" };
     const res = await request(app)
       .put(`/img/${testData._id}`)
       .set("auth-token", token)
       .send(updated);
 
     expect(res.statusCode).toBe(200);
-    expect(res.body.title).toBe("Test");
+    expect(res.body.title).toBe("Updated title");
   });
 
   it("should delete an img", async () => {
