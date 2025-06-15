@@ -27,7 +27,7 @@ router.get("/", (req: Request, res: Response) => {
       : "";
   photoGalleryModel
     .find({}, fields)
-    .sort({ index: 1 })
+    .sort({ index: -1 })
     .then((data) => {
       res.send(data);
     })

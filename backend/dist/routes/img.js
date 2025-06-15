@@ -27,7 +27,7 @@ router.get("/", (req, res) => {
         : "";
     gallery_1.default
         .find({}, fields)
-        .sort({ index: 1 })
+        .sort({ index: -1 })
         .then((data) => {
         res.send(data);
     })
