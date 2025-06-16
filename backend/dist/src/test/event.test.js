@@ -16,69 +16,77 @@ const vitest_1 = require("vitest");
 const supertest_1 = __importDefault(require("supertest"));
 const app_1 = __importDefault(require("../app"));
 const auth_1 = require("../auth");
-const user_1 = __importDefault(require("../models/user"));
-const reel_1 = __importDefault(require("../models/reel"));
+const event_1 = __importDefault(require("../models/event"));
 let token;
 const testData = {
-    _id: "DBqXwkhI8nH",
-    platform: "Platform",
-    flag: "no",
-    url: "Url",
+    date: "2023-05-28",
+    lat: 55.488265302135666,
+    lng: 9.482358325733468,
+    icon: "icon",
+    description: "Description",
 };
 (0, vitest_1.beforeEach)(() => __awaiter(void 0, void 0, void 0, function* () {
-    yield user_1.default.deleteMany({});
-    yield reel_1.default.deleteMany({});
-}));
-(0, vitest_1.afterEach)(() => __awaiter(void 0, void 0, void 0, function* () {
-    yield user_1.default.deleteMany({});
-    yield reel_1.default.deleteMany({});
-}));
-(0, vitest_1.beforeAll)(() => __awaiter(void 0, void 0, void 0, function* () {
+    yield event_1.default.deleteMany({});
     token = yield (0, auth_1.registerAndLogin)();
 }));
-(0, vitest_1.describe)("Reel CRUD", () => {
+(0, vitest_1.afterEach)(() => __awaiter(void 0, void 0, void 0, function* () {
+    yield event_1.default.deleteMany({});
+}));
+(0, vitest_1.describe)("Event CRUD", () => {
     let createdID;
-    (0, vitest_1.it)("should create a new reel", () => __awaiter(void 0, void 0, void 0, function* () {
+    (0, vitest_1.it)("should create a new event", () => __awaiter(void 0, void 0, void 0, function* () {
         const res = yield (0, supertest_1.default)(app_1.default)
-            .post("/reel")
+            .post("/event")
             .set("auth-token", token)
             .send(testData);
         (0, vitest_1.expect)(res.statusCode).toBe(201);
-        (0, vitest_1.expect)(res.body._id).toBe(testData._id);
+        (0, vitest_1.expect)(res.body._id).toBeDefined();
         createdID = res.body._id;
     }));
-    (0, vitest_1.it)("should get all reels", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default).post("/reel").set("auth-token", token).send(testData);
-        const res = yield (0, supertest_1.default)(app_1.default).get("/reel");
+    (0, vitest_1.it)("should get all events", () => __awaiter(void 0, void 0, void 0, function* () {
+        yield (0, supertest_1.default)(app_1.default).post("/event").set("auth-token", token).send(testData);
+        const res = yield (0, supertest_1.default)(app_1.default).get("/event");
         (0, vitest_1.expect)(res.statusCode).toBe(200);
         (0, vitest_1.expect)(Array.isArray(res.body)).toBe(true);
         (0, vitest_1.expect)(res.body.length).toBeGreaterThan(0);
     }));
-    (0, vitest_1.it)("should get an reel by ID", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default).post("/reel").set("auth-token", token).send(testData);
-        const res = yield (0, supertest_1.default)(app_1.default).get(`/reel/${testData._id}`);
+    (0, vitest_1.it)("should get an event by ID", () => __awaiter(void 0, void 0, void 0, function* () {
+        const createRes = yield (0, supertest_1.default)(app_1.default)
+            .post("/event")
+            .set("auth-token", token)
+            .send(testData);
+        const eventId = createRes.body._id;
+        const res = yield (0, supertest_1.default)(app_1.default).get(`/event/${eventId}`);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
-        (0, vitest_1.expect)(res.body._id).toBe(testData._id);
+        (0, vitest_1.expect)(res.body._id).toBe(eventId);
     }));
-    (0, vitest_1.it)("should update an reel", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default).post("/reel").set("auth-token", token).send(testData);
-        const updated = Object.assign(Object.assign({}, testData), { platform: "Updated platform" });
+    (0, vitest_1.it)("should update an event", () => __awaiter(void 0, void 0, void 0, function* () {
+        const createRes = yield (0, supertest_1.default)(app_1.default)
+            .post("/event")
+            .set("auth-token", token)
+            .send(testData);
+        const eventId = createRes.body._id;
+        const updated = Object.assign(Object.assign({}, testData), { description: "Updated description" });
         const res = yield (0, supertest_1.default)(app_1.default)
-            .put(`/reel/${testData._id}`)
+            .put(`/event/${eventId}`)
             .set("auth-token", token)
             .send(updated);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
-        (0, vitest_1.expect)(res.body.platform).toBe("Updated platform");
+        (0, vitest_1.expect)(res.body.description).toBe("Updated description");
     }));
-    (0, vitest_1.it)("should delete an reel", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default).post("/reel").set("auth-token", token).send(testData);
+    (0, vitest_1.it)("should delete an event", () => __awaiter(void 0, void 0, void 0, function* () {
+        const createRes = yield (0, supertest_1.default)(app_1.default)
+            .post("/event")
+            .set("auth-token", token)
+            .send(testData);
+        const eventId = createRes.body._id;
         const res = yield (0, supertest_1.default)(app_1.default)
-            .delete(`/reel/${testData._id}`)
+            .delete(`/event/${eventId}`)
             .set("auth-token", token);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
         (0, vitest_1.expect)(res.body.message).toMatch(/deleted successfully/i);
         // Confirm deletion
-        const getRes = yield (0, supertest_1.default)(app_1.default).get(`/reel/${testData._id}`);
+        const getRes = yield (0, supertest_1.default)(app_1.default).get(`/event/${eventId}`);
         (0, vitest_1.expect)(getRes.body).toEqual({});
     }));
 });

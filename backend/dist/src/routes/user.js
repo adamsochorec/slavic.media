@@ -22,11 +22,16 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken")); // jsonwebtoken
 const router = (0, express_1.Router)();
 // Allowed email domain
 const allowedDomain = "slavic.media";
-// User registration endpoint
+// Restrict registration in production
 router.post("/register", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        // Validate the user input (name, email, password)
-        // If the validation fails, return an error message
+        // Only allow registration in non-production environments
+        if (process.env.NODE_ENV === "production") {
+            return res.status(403).json({
+                error: "Registration is disabled in production environment",
+            });
+        }
+        // Continue with existing registration logic for test environment
         const { error } = (0, validation_1.registerValidation)(req.body);
         if (error) {
             return res.status(400).json({ error: error.details[0].message });
@@ -63,6 +68,35 @@ router.post("/register", (req, res) => __awaiter(void 0, void 0, void 0, functio
         res.status(500).json({ error: "Internal server error" });
     }
 }));
+// Add admin seeding functionality
+const seedAdmin = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const adminEmail = process.env.ADMIN_EMAIL;
+        const adminPassword = process.env.ADMIN_PASSWORD;
+        const adminName = process.env.ADMIN_NAME;
+        if (!adminEmail || !adminPassword || !adminName) {
+            throw new Error("Admin credentials not provided in environment variables");
+        }
+        const adminExists = yield user_1.default.findOne({ email: adminEmail });
+        if (!adminExists) {
+            const salt = yield bcrypt_1.default.genSalt(10);
+            const hashedPassword = yield bcrypt_1.default.hash(adminPassword, salt);
+            yield user_1.default.create({
+                name: adminName,
+                email: adminEmail,
+                password: hashedPassword,
+            });
+            console.log("Admin account seeded successfully");
+        }
+    }
+    catch (error) {
+        console.error("Admin seeding failed:", error);
+    }
+});
+// Call seedAdmin when the app starts in production
+if (process.env.NODE_ENV === "production") {
+    seedAdmin();
+}
 // User login endpoint
 router.post("/login", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {

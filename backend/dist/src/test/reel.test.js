@@ -16,73 +16,64 @@ const vitest_1 = require("vitest");
 const supertest_1 = __importDefault(require("supertest"));
 const app_1 = __importDefault(require("../app"));
 const auth_1 = require("../auth");
-const user_1 = __importDefault(require("../models/user"));
-const review_1 = __importDefault(require("../models/review"));
+const reel_1 = __importDefault(require("../models/reel"));
 let token;
 const testData = {
-    _id: 0,
-    img: "Img",
-    name: "Name",
-    occupation: "Occupation",
-    profileLink: "Profile link",
-    rating: 5,
-    fullReview: "Full review",
-    message: "Message",
+    _id: "DBqXwkhI8nH",
+    platform: "Platform",
+    flag: "no",
+    url: "Url",
 };
 (0, vitest_1.beforeEach)(() => __awaiter(void 0, void 0, void 0, function* () {
-    yield user_1.default.deleteMany({});
-    yield review_1.default.deleteMany({});
-}));
-(0, vitest_1.afterEach)(() => __awaiter(void 0, void 0, void 0, function* () {
-    yield user_1.default.deleteMany({});
-    yield review_1.default.deleteMany({});
-}));
-(0, vitest_1.beforeAll)(() => __awaiter(void 0, void 0, void 0, function* () {
+    yield reel_1.default.deleteMany({});
     token = yield (0, auth_1.registerAndLogin)();
 }));
-(0, vitest_1.describe)("Review CRUD", () => {
+(0, vitest_1.afterEach)(() => __awaiter(void 0, void 0, void 0, function* () {
+    yield reel_1.default.deleteMany({});
+}));
+(0, vitest_1.describe)("Reel CRUD", () => {
     let createdID;
-    (0, vitest_1.it)("should create a new review", () => __awaiter(void 0, void 0, void 0, function* () {
+    (0, vitest_1.it)("should create a new reel", () => __awaiter(void 0, void 0, void 0, function* () {
         const res = yield (0, supertest_1.default)(app_1.default)
-            .post("/review")
+            .post("/reel")
             .set("auth-token", token)
             .send(testData);
         (0, vitest_1.expect)(res.statusCode).toBe(201);
         (0, vitest_1.expect)(res.body._id).toBe(testData._id);
         createdID = res.body._id;
     }));
-    (0, vitest_1.it)("should get all reviews", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default).post("/review").set("auth-token", token).send(testData);
-        const res = yield (0, supertest_1.default)(app_1.default).get("/review");
+    (0, vitest_1.it)("should get all reels", () => __awaiter(void 0, void 0, void 0, function* () {
+        yield (0, supertest_1.default)(app_1.default).post("/reel").set("auth-token", token).send(testData);
+        const res = yield (0, supertest_1.default)(app_1.default).get("/reel");
         (0, vitest_1.expect)(res.statusCode).toBe(200);
         (0, vitest_1.expect)(Array.isArray(res.body)).toBe(true);
         (0, vitest_1.expect)(res.body.length).toBeGreaterThan(0);
     }));
-    (0, vitest_1.it)("should get an review by ID", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default).post("/review").set("auth-token", token).send(testData);
-        const res = yield (0, supertest_1.default)(app_1.default).get(`/review/${testData._id}`);
+    (0, vitest_1.it)("should get an reel by ID", () => __awaiter(void 0, void 0, void 0, function* () {
+        yield (0, supertest_1.default)(app_1.default).post("/reel").set("auth-token", token).send(testData);
+        const res = yield (0, supertest_1.default)(app_1.default).get(`/reel/${testData._id}`);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
         (0, vitest_1.expect)(res.body._id).toBe(testData._id);
     }));
-    (0, vitest_1.it)("should update an review", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default).post("/review").set("auth-token", token).send(testData);
-        const updated = Object.assign(Object.assign({}, testData), { rating: 2 });
+    (0, vitest_1.it)("should update an reel", () => __awaiter(void 0, void 0, void 0, function* () {
+        yield (0, supertest_1.default)(app_1.default).post("/reel").set("auth-token", token).send(testData);
+        const updated = Object.assign(Object.assign({}, testData), { platform: "Updated platform" });
         const res = yield (0, supertest_1.default)(app_1.default)
-            .put(`/review/${testData._id}`)
+            .put(`/reel/${testData._id}`)
             .set("auth-token", token)
             .send(updated);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
-        (0, vitest_1.expect)(res.body.rating).toBe(2);
+        (0, vitest_1.expect)(res.body.platform).toBe("Updated platform");
     }));
-    (0, vitest_1.it)("should delete an review", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default).post("/review").set("auth-token", token).send(testData);
+    (0, vitest_1.it)("should delete an reel", () => __awaiter(void 0, void 0, void 0, function* () {
+        yield (0, supertest_1.default)(app_1.default).post("/reel").set("auth-token", token).send(testData);
         const res = yield (0, supertest_1.default)(app_1.default)
-            .delete(`/review/${testData._id}`)
+            .delete(`/reel/${testData._id}`)
             .set("auth-token", token);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
         (0, vitest_1.expect)(res.body.message).toMatch(/deleted successfully/i);
         // Confirm deletion
-        const getRes = yield (0, supertest_1.default)(app_1.default).get(`/review/${testData._id}`);
+        const getRes = yield (0, supertest_1.default)(app_1.default).get(`/reel/${testData._id}`);
         (0, vitest_1.expect)(getRes.body).toEqual({});
     }));
 });

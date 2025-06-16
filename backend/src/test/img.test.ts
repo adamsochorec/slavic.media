@@ -49,15 +49,11 @@ const testData = {
 };
 
 beforeEach(async () => {
-  await User.deleteMany({});
   await Img.deleteMany({});
+  token = await registerAndLogin();
 });
 afterEach(async () => {
-  await User.deleteMany({});
   await Img.deleteMany({});
-});
-beforeAll(async () => {
-  token = await registerAndLogin();
 });
 
 describe("Img CRUD", () => {

@@ -22,15 +22,11 @@ const testData = {
 };
 
 beforeEach(async () => {
-  await User.deleteMany({});
   await Video.deleteMany({});
+  token = await registerAndLogin();
 });
 afterEach(async () => {
-  await User.deleteMany({});
   await Video.deleteMany({});
-});
-beforeAll(async () => {
-  token = await registerAndLogin();
 });
 
 describe("Video CRUD", () => {

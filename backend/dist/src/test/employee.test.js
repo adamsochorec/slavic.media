@@ -16,67 +16,82 @@ const vitest_1 = require("vitest");
 const supertest_1 = __importDefault(require("supertest"));
 const app_1 = __importDefault(require("../app"));
 const auth_1 = require("../auth");
-const user_1 = __importDefault(require("../models/user"));
-const slide_1 = __importDefault(require("../models/slide"));
+const employee_1 = __importDefault(require("../models/employee"));
 let token;
 const testData = {
-    _id: "20240312_SLAVIC-MEDIA0583",
-    log: "S-Log",
+    _id: "rasmus",
+    name: "Name",
+    index: 11,
+    department: "Department",
+    description: "Description",
+    flag: "dk",
+    email: "rasmus@slavic.media",
+    birthday: "2023-05-28",
+    linkedin: "https://linkedin.com/company/slavicmedia",
+    github: "https://github.com/",
 };
 (0, vitest_1.beforeEach)(() => __awaiter(void 0, void 0, void 0, function* () {
-    yield user_1.default.deleteMany({});
-    yield slide_1.default.deleteMany({});
-}));
-(0, vitest_1.afterEach)(() => __awaiter(void 0, void 0, void 0, function* () {
-    yield user_1.default.deleteMany({});
-    yield slide_1.default.deleteMany({});
-}));
-(0, vitest_1.beforeAll)(() => __awaiter(void 0, void 0, void 0, function* () {
+    yield employee_1.default.deleteMany({});
     token = yield (0, auth_1.registerAndLogin)();
 }));
-(0, vitest_1.describe)("Slide CRUD", () => {
+(0, vitest_1.afterEach)(() => __awaiter(void 0, void 0, void 0, function* () {
+    yield employee_1.default.deleteMany({});
+}));
+(0, vitest_1.describe)("Employee CRUD", () => {
     let createdID;
-    (0, vitest_1.it)("should create a new slide", () => __awaiter(void 0, void 0, void 0, function* () {
+    (0, vitest_1.it)("should create a new employee", () => __awaiter(void 0, void 0, void 0, function* () {
         const res = yield (0, supertest_1.default)(app_1.default)
-            .post("/slide")
+            .post("/employee")
             .set("auth-token", token)
             .send(testData);
         (0, vitest_1.expect)(res.statusCode).toBe(201);
         (0, vitest_1.expect)(res.body._id).toBe(testData._id);
         createdID = res.body._id;
     }));
-    (0, vitest_1.it)("should get all slides", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default).post("/slide").set("auth-token", token).send(testData);
-        const res = yield (0, supertest_1.default)(app_1.default).get("/slide");
+    (0, vitest_1.it)("should get all employees", () => __awaiter(void 0, void 0, void 0, function* () {
+        yield (0, supertest_1.default)(app_1.default)
+            .post("/employee")
+            .set("auth-token", token)
+            .send(testData);
+        const res = yield (0, supertest_1.default)(app_1.default).get("/employee");
         (0, vitest_1.expect)(res.statusCode).toBe(200);
         (0, vitest_1.expect)(Array.isArray(res.body)).toBe(true);
         (0, vitest_1.expect)(res.body.length).toBeGreaterThan(0);
     }));
-    (0, vitest_1.it)("should get an slide by ID", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default).post("/slide").set("auth-token", token).send(testData);
-        const res = yield (0, supertest_1.default)(app_1.default).get(`/slide/${testData._id}`);
+    (0, vitest_1.it)("should get an employee by ID", () => __awaiter(void 0, void 0, void 0, function* () {
+        yield (0, supertest_1.default)(app_1.default)
+            .post("/employee")
+            .set("auth-token", token)
+            .send(testData);
+        const res = yield (0, supertest_1.default)(app_1.default).get(`/employee/${testData._id}`);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
         (0, vitest_1.expect)(res.body._id).toBe(testData._id);
     }));
-    (0, vitest_1.it)("should update an slide", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default).post("/slide").set("auth-token", token).send(testData);
-        const updated = Object.assign(Object.assign({}, testData), { log: "D-Log M" });
+    (0, vitest_1.it)("should update an employee", () => __awaiter(void 0, void 0, void 0, function* () {
+        yield (0, supertest_1.default)(app_1.default)
+            .post("/employee")
+            .set("auth-token", token)
+            .send(testData);
+        const updated = Object.assign(Object.assign({}, testData), { name: "Updated name" });
         const res = yield (0, supertest_1.default)(app_1.default)
-            .put(`/slide/${testData._id}`)
+            .put(`/employee/${testData._id}`)
             .set("auth-token", token)
             .send(updated);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
-        (0, vitest_1.expect)(res.body.log).toBe("D-Log M");
+        (0, vitest_1.expect)(res.body.name).toBe("Updated name");
     }));
-    (0, vitest_1.it)("should delete an slide", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(app_1.default).post("/slide").set("auth-token", token).send(testData);
+    (0, vitest_1.it)("should delete an employee", () => __awaiter(void 0, void 0, void 0, function* () {
+        yield (0, supertest_1.default)(app_1.default)
+            .post("/employee")
+            .set("auth-token", token)
+            .send(testData);
         const res = yield (0, supertest_1.default)(app_1.default)
-            .delete(`/slide/${testData._id}`)
+            .delete(`/employee/${testData._id}`)
             .set("auth-token", token);
         (0, vitest_1.expect)(res.statusCode).toBe(200);
         (0, vitest_1.expect)(res.body.message).toMatch(/deleted successfully/i);
         // Confirm deletion
-        const getRes = yield (0, supertest_1.default)(app_1.default).get(`/slide/${testData._id}`);
+        const getRes = yield (0, supertest_1.default)(app_1.default).get(`/employee/${testData._id}`);
         (0, vitest_1.expect)(getRes.body).toEqual({});
     }));
 });

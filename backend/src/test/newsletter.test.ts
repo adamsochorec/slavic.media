@@ -14,15 +14,11 @@ const testData = {
 };
 
 beforeEach(async () => {
-  await User.deleteMany({});
   await Newsletter.deleteMany({});
+  token = await registerAndLogin();
 });
 afterEach(async () => {
-  await User.deleteMany({});
   await Newsletter.deleteMany({});
-});
-beforeAll(async () => {
-  token = await registerAndLogin();
 });
 
 describe("Newsletter CRUD", () => {

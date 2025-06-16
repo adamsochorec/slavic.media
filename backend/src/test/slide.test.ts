@@ -13,15 +13,11 @@ const testData = {
 };
 
 beforeEach(async () => {
-  await User.deleteMany({});
   await Slide.deleteMany({});
+  token = await registerAndLogin();
 });
 afterEach(async () => {
-  await User.deleteMany({});
   await Slide.deleteMany({});
-});
-beforeAll(async () => {
-  token = await registerAndLogin();
 });
 
 describe("Slide CRUD", () => {

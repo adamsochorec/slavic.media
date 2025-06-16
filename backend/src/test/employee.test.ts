@@ -21,15 +21,11 @@ const testData = {
 };
 
 beforeEach(async () => {
-  await User.deleteMany({});
   await Employee.deleteMany({});
+  token = await registerAndLogin();
 });
 afterEach(async () => {
-  await User.deleteMany({});
   await Employee.deleteMany({});
-});
-beforeAll(async () => {
-  token = await registerAndLogin();
 });
 
 describe("Employee CRUD", () => {

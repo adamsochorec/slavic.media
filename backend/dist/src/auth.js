@@ -17,9 +17,9 @@ exports.registerAndLogin = registerAndLogin;
 const supertest_1 = __importDefault(require("supertest"));
 const app_1 = __importDefault(require("./app"));
 exports.testUser = {
-    name: "Test User",
-    email: "testuser@slavic.media",
-    password: "password123",
+    name: "Tester",
+    email: "test@slavic.media",
+    password: "chelyabinsk",
 };
 function registerAndLogin() {
     return __awaiter(this, arguments, void 0, function* (user = exports.testUser) {

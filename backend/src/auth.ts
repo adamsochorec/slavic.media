@@ -2,9 +2,9 @@ import request from "supertest";
 import app from "./app";
 
 export const testUser = {
-  name: "Test User",
-  email: "testuser@slavic.media",
-  password: "password123",
+  name: "Tester",
+  email: "test@slavic.media",
+  password: "chelyabinsk",
 };
 
 export async function registerAndLogin(user = testUser) {

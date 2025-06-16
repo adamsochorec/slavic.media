@@ -16,7 +16,6 @@ const vitest_1 = require("vitest");
 const supertest_1 = __importDefault(require("supertest"));
 const app_1 = __importDefault(require("../app"));
 const auth_1 = require("../auth");
-const user_1 = __importDefault(require("../models/user"));
 const slide_1 = __importDefault(require("../models/slide"));
 let token;
 const testData = {
@@ -24,15 +23,11 @@ const testData = {
     log: "Log",
 };
 (0, vitest_1.beforeEach)(() => __awaiter(void 0, void 0, void 0, function* () {
-    yield user_1.default.deleteMany({});
     yield slide_1.default.deleteMany({});
+    token = yield (0, auth_1.registerAndLogin)();
 }));
 (0, vitest_1.afterEach)(() => __awaiter(void 0, void 0, void 0, function* () {
-    yield user_1.default.deleteMany({});
     yield slide_1.default.deleteMany({});
-}));
-(0, vitest_1.beforeAll)(() => __awaiter(void 0, void 0, void 0, function* () {
-    token = yield (0, auth_1.registerAndLogin)();
 }));
 (0, vitest_1.describe)("Slide CRUD", () => {
     let createdID;

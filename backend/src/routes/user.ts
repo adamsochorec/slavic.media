@@ -11,17 +11,21 @@ const router = Router();
 // Allowed email domain
 const allowedDomain = "slavic.media";
 
-// User registration endpoint
-
+// Restrict registration in production
 router.post("/register", async (req: Request, res: Response) => {
   try {
-    // Validate the user input (name, email, password)
-    // If the validation fails, return an error message
+    // Only allow registration in non-production environments
+    if (process.env.NODE_ENV === "production") {
+      return res.status(403).json({
+        error: "Registration is disabled in production environment",
+      });
+    }
+
+    // Continue with existing registration logic for test environment
     const { error } = registerValidation(req.body);
     if (error) {
       return res.status(400).json({ error: error.details[0].message });
     }
-
     // Extract the domain from the email address
     const emailDomain = req.body.email.split("@")[1];
     // Check if the domain matches the allowed domain
@@ -58,6 +62,40 @@ router.post("/register", async (req: Request, res: Response) => {
   }
 });
 
+// Add admin seeding functionality
+const seedAdmin = async () => {
+  try {
+    const adminEmail = process.env.ADMIN_EMAIL;
+    const adminPassword = process.env.ADMIN_PASSWORD;
+    const adminName = process.env.ADMIN_NAME;
+
+    if (!adminEmail || !adminPassword || !adminName) {
+      throw new Error(
+        "Admin credentials not provided in environment variables"
+      );
+    }
+
+    const adminExists = await User.findOne({ email: adminEmail });
+    if (!adminExists) {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(adminPassword, salt);
+
+      await User.create({
+        name: adminName,
+        email: adminEmail,
+        password: hashedPassword,
+      });
+      console.log("Admin account seeded successfully");
+    }
+  } catch (error) {
+    console.error("Admin seeding failed:", error);
+  }
+};
+
+// Call seedAdmin when the app starts in production
+if (process.env.NODE_ENV === "production") {
+  seedAdmin();
+}
 // User login endpoint
 router.post("/login", async (req: Request, res: Response) => {
   try {
