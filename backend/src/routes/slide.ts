@@ -25,6 +25,7 @@ router.get("/", (req: Request, res: Response) => {
       : "";
   slideModel
     .find({}, fields)
+    .sort({ index: 1 })
     .then((data) => {
       res.send(data);
     })

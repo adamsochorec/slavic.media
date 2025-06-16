@@ -37,6 +37,7 @@ exports.SlideSchema = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
 exports.SlideSchema = new mongoose_1.Schema({
     _id: { type: String, required: true, maxlength: 50 },
+    index: { type: Number, required: true, maxlength: 2 },
     log: { type: String, required: true, maxlength: 50 },
 });
 const SlideModel = mongoose_1.default.model("Slide", exports.SlideSchema);
