@@ -11,13 +11,7 @@ const {
   data: events,
   pending,
   error,
-} = await useFetch("https://api.slavic.media/event/", {
-  transform: (events: any) =>
-    events?.sort(
-      (a: any, b: any) =>
-        new Date(b.date).getTime() - new Date(a.date).getTime()
-    ) || [],
-});
+} = await useFetch("https://api.slavic.media/event/");
 </script>
 
 <template>

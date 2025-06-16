@@ -25,6 +25,7 @@ router.get("/", (req: Request, res: Response) => {
       : "";
   eventModel
     .find({}, fields)
+    .sort({ date: -1 })
     .then((data) => {
       res.send(data);
     })
