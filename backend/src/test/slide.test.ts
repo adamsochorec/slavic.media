@@ -9,6 +9,7 @@ let token: string;
 
 const testData = {
   _id: "20240312_SLAVIC-MEDIA0583",
+  index: 1,
   log: "Log",
 };
 

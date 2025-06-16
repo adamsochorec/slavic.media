@@ -20,6 +20,7 @@ const slide_1 = __importDefault(require("../models/slide"));
 let token;
 const testData = {
     _id: "20240312_SLAVIC-MEDIA0583",
+    index: 1,
     log: "Log",
 };
 (0, vitest_1.beforeEach)(() => __awaiter(void 0, void 0, void 0, function* () {
