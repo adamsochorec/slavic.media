@@ -6,5 +6,6 @@ exports.default = (0, config_1.defineConfig)({
         environment: "node",
         setupFiles: ["./src/test/setup.ts"],
         globals: true,
+        fileParallelism: false,
     },
 });
