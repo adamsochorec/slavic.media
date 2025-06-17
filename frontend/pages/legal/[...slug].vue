@@ -2,7 +2,9 @@
 import { watchEffect } from "vue";
 import { ddmmmyyyy } from "@/composables/useDateFormat";
 import { useProgressiveImg } from "@/composables/useProgressiveImg";
+import { useMouseTracking } from "@/composables/useMouseTracking";
 
+const { containerRef } = useMouseTracking();
 // Content hydration
 const slug = useRoute().params.slug;
 const { data: document } = await useAsyncData(`legal-${slug}`, () => {
@@ -70,7 +72,7 @@ const { thumbnailUrl, fullImageUrl, updateImgSrc } = useProgressiveImg(
       <ContentRenderer :value="document" class="rendered-content reveal" />
       <hr />
 
-      <div class="gallery">
+      <div class="gallery" id="cards" ref="containerRef">
         <LinkCard
           v-if="data?.[0]"
           :url="data[0].path"
@@ -79,7 +81,7 @@ const { thumbnailUrl, fullImageUrl, updateImgSrc } = useProgressiveImg(
           :description="data[0].description"
         />
         <LinkCard
-          style="text-align: right"
+          class="right"
           v-if="data?.[1]"
           :url="data[1].path"
           :title="data[1].title"

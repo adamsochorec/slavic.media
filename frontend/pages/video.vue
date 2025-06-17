@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useMouseTracking } from "@/composables/useMouseTracking";
+
+const { containerRef } = useMouseTracking();
 // Meta SEO
 const description =
   "From inspiring stories to cinematic visuals, each video project is crafted to captivate, impress, and showcase your vision with creative precision.";
@@ -11,15 +14,16 @@ useSeoMeta(
     description: description,
     ogTitle: title,
     ogDescription: description,
-    ogImage: "https://cdn.slavic.media/img/20240308_SLAVIC-MEDIA0204/SD",
+    ogImage: "https://cdn.slavic.media/img/20240308_SLAVIC-MEDIA0204/sd",
     ogUrl: "https://slavic.media",
     twitterTitle: title,
     twitterDescription: description,
-    twitterImage: "https://cdn.slavic.media/img/20240308_SLAVIC-MEDIA0204/SD",
+    twitterImage: "https://cdn.slavic.media/img/20240308_SLAVIC-MEDIA0204/sd",
     twitterCard: "summary",
   },
   { priority: 1 }
 );
+
 // Further services matrix
 const services = [
   {
@@ -180,7 +184,7 @@ const services = [
       <h3 class="docs" id="photo-services-heading">
         Discover our <span class="gradient">photo</span> services
       </h3>
-      <div class="gallery">
+      <div class="gallery" id="cards" ref="containerRef">
         <LinkCard
           v-for="service in services"
           :key="service.id"

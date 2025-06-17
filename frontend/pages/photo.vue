@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick, onBeforeUnmount, computed } from "vue";
+import { useMouseTracking } from "@/composables/useMouseTracking";
+
+const { containerRef } = useMouseTracking();
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 import { showRequestAProposal } from "@/composables/useRequestProposal";
@@ -269,7 +272,7 @@ onBeforeUnmount(() => {
       <h3 class="docs" id="video-services-heading">
         Discover our <span class="gradient">video</span> services
       </h3>
-      <div class="gallery">
+      <div class="gallery" id="cards" ref="containerRef">
         <LinkCard
           v-for="service in services"
           :key="service.id"

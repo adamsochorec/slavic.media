@@ -54,11 +54,16 @@ onMounted(() => {
   -o-transition: var(--transition-1);
   transition: var(--transition-1);
 
+  &:hover {
+    outline: none;
+    border: none;
+  }
   img {
     -webkit-transition: var(--transition-1);
     -o-transition: var(--transition-1);
     transition: var(--transition-1);
   }
+
   @media only screen and (min-width: 700px) {
     &:hover {
       img {

@@ -10,8 +10,8 @@ interface LinkCard {
 const props = defineProps<LinkCard>();
 </script>
 <template>
-  <NuxtLink :to="url">
-    <figure class="card">
+  <NuxtLink :to="url" class="card">
+    <figure class="card-content">
       <span :class="`pi pi-${icon} bubble`"></span>
       <h3>{{ title }}</h3>
       <div class="description">{{ truncateText(description, 100) }}</div>
@@ -21,31 +21,18 @@ const props = defineProps<LinkCard>();
 <style lang="postcss" scoped>
 .card {
   height: 160px;
-  background-color: rgb(var(--dark-grey-color));
-  padding: var(--grid-gap-2);
-  border-radius: var(--border-radius-1);
-  cursor: pointer;
-  -webkit-box-shadow: var(--box-shadow-1);
-  box-shadow: var(--box-shadow-1);
-  -webkit-transition: var(--transition-1);
-  -o-transition: var(--transition-1);
-  transition: var(--transition-1);
-  color: white;
-  border: var(--border-1);
-
-  &:hover {
-    -webkit-box-shadow: var(--box-shadow-2);
-    box-shadow: var(--box-shadow-2);
-    -webkit-transition: var(--transition-1);
-    -o-transition: var(--transition-1);
-    transition: var(--transition-1);
-  }
+}
+.card.right > .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
 }
 h3 {
   font-size: var(--font-size-5);
+  margin-bottom: var(--grid-gap-1);
 
-  @media only screen and (min-width: 600px) {
-    margin-bottom: var(--grid-gap-1);
+  @media only screen and (min-width: 400px) {
   }
 }
 .description {
