@@ -57,7 +57,7 @@ Timetravels was our first major client, and our work felt valuable. This collabo
 videos:
   - src: player.vimeo.com/video/950575511
     title: Norwegian Fjords | Timetravels
-  - src: player.vimeo.com/video/950479131
+  - src: player.vimeo.com/video/1088738906
     title: Finnish Lapland | Timetravels
   - src: player.vimeo.com/video/942145699
     title: Swedish Lapland Fjords | Timetravels
