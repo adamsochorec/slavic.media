@@ -23,7 +23,7 @@ If you’re in the travel industry and haven’t started planning your winter vi
 :br
 With the 2024/25 winter season here, travel brands need a thoughtful content strategy. This season offers rare chances, like the once-in-a-decade [solar maximum](https://en.wikipedia.org/wiki/Solar_maximum) and record-breaking tourism expectations in Northern Scandinavia. Now is the time to create meaningful content that resonates.
 
-![Collage of tourists in Scandinavia.](https://cdn.slavic.media/img/IMG_4108/public "Nordic Tourism")
+![Collage of tourists in Scandinavia.](https://cdn.slavic.media/img/IMG_4108/4K "Nordic Tourism")
 
 ### I. Video, video, video...
 

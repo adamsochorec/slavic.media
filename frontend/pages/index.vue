@@ -13,11 +13,11 @@ useSeoMeta({
   description: description,
   ogTitle: title,
   ogDescription: description,
-  ogImage: "https://cdn.slavic.media/img/thumbnail/sd",
+  ogImage: "https://cdn.slavic.media/img/thumbnail/SD",
   ogUrl: "https://slavic.media",
   twitterTitle: title,
   twitterDescription: description,
-  twitterImage: "https://cdn.slavic.media/img/thumbnail/sd",
+  twitterImage: "https://cdn.slavic.media/img/thumbnail/SD",
   twitterCard: "summary",
 });
 </script>

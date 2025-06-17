@@ -17,11 +17,11 @@ watchEffect(() => {
       description: document.value?.description,
       ogTitle: document.value?.title,
       ogDescription: document.value?.description,
-      ogImage: `https://cdn.slavic.media/img/${document.value?.thumbnail}/sd`,
+      ogImage: `https://cdn.slavic.media/img/${document.value?.thumbnail}/SD`,
       ogUrl: `https://slavic.media/blog/${document.value?.slug}`,
       twitterTitle: document.value?.title,
       twitterDescription: document.value?.description,
-      twitterImage: `https://cdn.slavic.media/img/${document.value?.thumbnail}/sd`,
+      twitterImage: `https://cdn.slavic.media/img/${document.value?.thumbnail}/SD`,
       twitterCard: "summary",
     },
     { priority: 1 }

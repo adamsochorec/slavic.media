@@ -19,15 +19,15 @@ date: 2024-09-16T00:00:00.000Z
 
 We had the unique opportunity to be part of the “Friskabe” performance, directed by the talented [Kim Kim](https://www.kimkimyes.com) at [Sort/Hvid Theatre](https://sort-hvid.dk) in Copenhagen earlier this summer. After our previous collaboration at the [Roskilde Festival](https://www.roskilde-festival.dk), Kim invited us to capture and document this piece.
 
-![Kim Kim laying upside down on a bench.](https://cdn.slavic.media/img/2023-11-13-00043/public "2023 ⋅ Copenhagen, Denmark ⋅ Sort/Hvid")
+![Kim Kim laying upside down on a bench.](https://cdn.slavic.media/img/2023-11-13-00043/4K "2023 ⋅ Copenhagen, Denmark ⋅ Sort/Hvid")
 
 “Friskabe” is a fascinating adaptation of the book “The Ship,” where Kim masterfully connects his personal experiences with the story, performing a profound and unique dimension. Together with singer Henriette Sennenvaldt from the band ‌UNDER BYEN, they created a captivating musical and visual atmosphere that our cameras enthusiastically captured.
 
-![Elf lady holding knife on Kim Kim's throat.](https://cdn.slavic.media/img/2023-11-13-00267/public "2023 ⋅ Copenhagen, Denmark ⋅ Sort/Hvid")
+![Elf lady holding knife on Kim Kim's throat.](https://cdn.slavic.media/img/2023-11-13-00267/4K "2023 ⋅ Copenhagen, Denmark ⋅ Sort/Hvid")
 
 Our visual documentation was supported by unique props: a fountain made of wine glasses, a giant plaster cake (referring to the famous Danish artist [Michael Kvium](https://www.michaelkvium.com)), an enormous screen projection, a sandbox, a swing, and more.
 
-![Kim Kim covered by gravel holding a tombstone.](https://cdn.slavic.media/img/2023-11-13-00338/public "2023 ⋅ Copenhagen, Denmark ⋅ Sort/Hvid")
+![Kim Kim covered by gravel holding a tombstone.](https://cdn.slavic.media/img/2023-11-13-00338/4K "2023 ⋅ Copenhagen, Denmark ⋅ Sort/Hvid")
 
 Working in the theatre and capturing artistic works, especially autobiographical ones, is always a rewarding challenge. We are passionate about bringing unique stories to life through visual media, and this collaboration was truly inspiring. We look forward to documenting more new artistic visions!
 

@@ -24,7 +24,7 @@ const {
   imgLoaded,
   updateImgSrc,
   checkIfAlreadyLoaded,
-} = useProgressiveImg(_id, "/public");
+} = useProgressiveImg(_id, "/4K");
 
 const imgRef = ref<HTMLImageElement | null>(null);
 

@@ -2,7 +2,7 @@ import { ref, onMounted } from "vue";
 
 export function useProgressiveImg(
   id: string,
-  fullSuffix: string = "/public",
+  fullSuffix: string = "/HD",
   thumbnailSuffix: string = "/thumbnail"
 ) {
   const imgLoaded = ref(false);

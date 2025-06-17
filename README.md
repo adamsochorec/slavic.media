@@ -29,7 +29,7 @@ Built using modern, lightweight frameworks within and beyond the MEVN stack: Mon
 | -------- | ----------------------------------------------------------------- |
 | Frontend | [slavic.media](https://slavic.media)                              |
 | API      | [api.slavic.media](https://api.slavic.media/docs)                 |
-| CDN      | [cdn.slavic.media](https://cdn.slavic.media/img/thumbnail/public) |
+| CDN      | [cdn.slavic.media](https://cdn.slavic.media/img/thumbnail/HD) |
 
 ## Documentation
 

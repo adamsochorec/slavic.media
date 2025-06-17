@@ -17,7 +17,7 @@ const {
   imgLoaded,
   updateImgSrc,
   checkIfAlreadyLoaded,
-} = useProgressiveImg(props.img, "/hd");
+} = useProgressiveImg(props.img, "/HD");
 
 onMounted(() => {
   checkIfAlreadyLoaded(imgRef.value);

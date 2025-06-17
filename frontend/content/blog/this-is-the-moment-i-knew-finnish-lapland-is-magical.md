@@ -22,7 +22,7 @@ It wasn’t the Northern Lights or huskies. It was something subtler.
 :br
 During a snowshoeing trip, after a fun snowball fight, we all stopped. The guides asked for a minute of silence to appreciate the stillness in this wild and arctic environment.
 
-![Group of people on snowshoes.](https://cdn.slavic.media/img/2024-03-10-00620/public "2024 ⋅ Saariselkä, Finland ⋅ Timetravels")
+![Group of people on snowshoes.](https://cdn.slavic.media/img/2024-03-10-00620/4K "2024 ⋅ Saariselkä, Finland ⋅ Timetravels")
 
 *I turned off my camera,*
 :br

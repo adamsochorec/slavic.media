@@ -88,7 +88,7 @@ onUnmounted(() => {
 
             <img
               :src="`https://cdn.slavic.media/img/${slide._id}-2/thumbnail`"
-              :data-src="`https://cdn.slavic.media/img/${slide._id}-2/public`"
+              :data-src="`https://cdn.slavic.media/img/${slide._id}-2/HD`"
               :alt="`S-Log still ${slide._id}`"
               :title="`S-Log still ${slide._id}`"
               @load="updateImageSrc"
@@ -97,7 +97,7 @@ onUnmounted(() => {
           <template #right>
             <img
               :src="`https://cdn.slavic.media/img/${slide._id}/thumbnail`"
-              :data-src="`https://cdn.slavic.media/img/${slide._id}/public`"
+              :data-src="`https://cdn.slavic.media/img/${slide._id}/HD`"
               :alt="`Colour Graded still ${slide._id}`"
               :title="`Colour Graded still ${slide._id}`"
               @load="updateImageSrc"

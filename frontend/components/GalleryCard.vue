@@ -21,7 +21,7 @@ const {
   imgLoaded,
   updateImgSrc,
   checkIfAlreadyLoaded,
-} = useProgressiveImg(props.img, "/sd");
+} = useProgressiveImg(props.img, "/SD");
 
 const imgRef = ref<HTMLImageElement | null>(null);
 
@@ -138,11 +138,22 @@ onMounted(() => {
     font-size: var(--font-size-7);
     padding: 0;
     opacity: 0;
-    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-    transition: opacity 0.35s, -webkit-transform 0.35s;
-    -o-transition: opacity 0.35s, transform 0.35s;
-    transition: opacity 0.35s, transform 0.35s;
-    transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+    -webkit-transition:
+      opacity 0.35s,
+      -webkit-transform 0.35s;
+    transition:
+      opacity 0.35s,
+      -webkit-transform 0.35s;
+    -o-transition:
+      opacity 0.35s,
+      transform 0.35s;
+    transition:
+      opacity 0.35s,
+      transform 0.35s;
+    transition:
+      opacity 0.35s,
+      transform 0.35s,
+      -webkit-transform 0.35s;
     -webkit-transform: translate3d(10%, 0, 0);
     transform: translate3d(10%, 0, 0);
   }

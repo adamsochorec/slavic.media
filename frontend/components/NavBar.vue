@@ -148,7 +148,7 @@ function header() {
           <img
             class="logo"
             alt="Logo Slavic Media"
-            src="https://cdn.slavic.media/img/Primary-1/public"
+            src="https://cdn.slavic.media/img/Primary-1/HD"
           />
         </NuxtLink>
         <button
@@ -300,9 +300,15 @@ span.menuitem {
   bottom: 0;
   height: 2px;
   width: 0;
-  -webkit-transition: width 0s ease, background var(--transition-2);
-  -o-transition: width 0s ease, background var(--transition-2);
-  transition: width 0s ease, background var(--transition-2);
+  -webkit-transition:
+    width 0s ease,
+    background var(--transition-2);
+  -o-transition:
+    width 0s ease,
+    background var(--transition-2);
+  transition:
+    width 0s ease,
+    background var(--transition-2);
 }
 .menu-left a:after {
   content: "";

@@ -6,10 +6,10 @@ useSeoMeta(
   {
     title: "Error",
     ogTitle: "Error",
-    ogImage: "https://cdn.slavic.media/img/thumbnail/sd",
+    ogImage: "https://cdn.slavic.media/img/thumbnail/SD",
     ogUrl: "https://slavic.media",
     twitterTitle: "Error",
-    twitterImage: "https://cdn.slavic.media/img/thumbnail/sd",
+    twitterImage: "https://cdn.slavic.media/img/thumbnail/SD",
     twitterCard: "summary",
   },
   { priority: 1 }

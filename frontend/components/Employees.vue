@@ -133,7 +133,7 @@ onUnmounted(() => {
         <div class="reveal">
           <Icon :name="`flag:${employee.flag}-4x3`" class="note flag" />
           <a
-            :href="`https://cdn.slavic.media/img/${employee._id}/hd`"
+            :href="`https://cdn.slavic.media/img/${employee._id}/4K`"
             data-pswp-width="1200"
             data-pswp-height="900"
             :data-cropped="true"
@@ -141,7 +141,7 @@ onUnmounted(() => {
           >
             <img
               :src="`https://cdn.slavic.media/img/${employee._id}/thumbnail`"
-              :data-src="`https://cdn.slavic.media/img/${employee._id}/sd`"
+              :data-src="`https://cdn.slavic.media/img/${employee._id}/SD`"
               :alt="`Portrait of ${employee.name}`"
               :title="`${employee.name}`"
               class="employee-img"
