@@ -3,7 +3,7 @@
     <hr class="semi" />
     <div class="banner reveal">
       <img
-        src="https://cdn.slavic.media/img/lightroom-presets/fullHD"
+        src="https://cdn.slavic.media/img/lightroom-presets/4K"
         alt="Banner showcasing Slavic Media Lightroom Presets"
       />
       <div class="title reveal">
