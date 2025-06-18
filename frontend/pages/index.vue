@@ -67,18 +67,18 @@ useSeoMeta({
         <FeatureCard
           url="/video"
           title="Video"
-          icon="video"
+          gradient="Services"
           img="20240308_SLAVIC-MEDIA0204"
           class="black"
-          description="From inspiring stories to cinematic visuals."
+          description="From inspiring stories to cinematic visuals"
         />
 
         <FeatureCard
           url="/photo"
           title="Photo"
-          icon="camera"
+          gradient="Services"
           img="2021-05-28-01020-2"
-          description="Our photography captures authentic moments, rich in colour."
+          description="Our photography captures authentic moments, rich in colour"
         />
       </div>
       <!-- GALLERY END -->
@@ -116,13 +116,14 @@ useSeoMeta({
               href="https://g.page/r/CRTkzopg3plWEB0/review"
               target="_blank"
               rel="noopener noreferrer nofollow"
-              aria-label="Share your experience"
             />
           </div>
         </section>
       </section>
     </section>
     <!-- REVIEWS END -->
+
+    <LightroomPresets />
     <article class="wrapper-wide">
       <hr class="semi" />
       <h3 class="docs latest reveal">
@@ -141,7 +142,6 @@ useSeoMeta({
         />
       </div>
     </article>
-    <Presets />
   </main>
 </template>
 

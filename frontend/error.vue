@@ -54,7 +54,6 @@ defineProps({
         label="Return to the homepage"
         variant="primary"
         :to="'/'"
-        aria-label="Return to the homepage"
       />
     </section>
   </main>

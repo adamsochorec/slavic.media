@@ -3,46 +3,45 @@
     <hr class="semi" />
     <div class="banner reveal">
       <img
-        src="/lightroom-presets.png"
+        src="/lightroom-presets.jpg"
         alt="Banner showcasing Slavic Media Lightroom Presets"
       />
-      <div class="title">
+      <div class="title reveal">
         <h3>
-          Emulate the classic 35mm and 120 film looks with Slavic Media’s
-          signature LUTs
+          Emulate the classic 35mm and 120 film looks with
+          <span class="gradient">Slavic Media’s</span>
+          signature LUTs.
         </h3>
         <Btn
           tag="a"
-          href="https://store.slavic.media"
           icon="sparkles"
+          href="https://store.slavic.media"
           label="Transform Your Photos"
           variant="primary"
-          aria-label="Transform Your Photos"
         />
       </div>
     </div>
+    <FeatureCard
+      url="https://store.slavic.media"
+      title="Lightroom"
+      gradient="Presets"
+      img="lightroom-presets-2"
+      class="hide"
+      description="Emulate the classic 35mm and 120 film looks with Slavic Media’s signature LUTs"
+    />
   </section>
 </template>
 
 <style scoped>
 .banner {
-  height: var(--dimension-1);
-  width: 100vw;
-  object-fit: cover;
-  object-position: center;
-  position: relative;
-  background: #000;
-  align-items: center;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
 }
 img {
   position: relative;
   display: block;
   width: 100%;
   object-fit: cover;
+  object-position: 80% center;
 }
 .pi-sparkles::after {
   content: "  ";
@@ -58,11 +57,34 @@ img {
 }
 .title {
   position: absolute;
-  width: 39%;
-  padding-left: var(--homepage-padding);
-  padding-right: var(--homepage-padding);
+  padding: var(--homepage-padding);
 }
 h3 {
-  color: rgb(var(--dark-grey-color));
+  text-align: center;
+}
+
+@media only screen and (min-width: 650px) {
+  .banner {
+    height: var(--dimension-1);
+    width: 100vw;
+    position: relative;
+    align-items: start;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .hide {
+    display: none;
+  }
+  .title {
+    width: 39%;
+  }
+  h3 {
+    text-align: left;
+  }
+  .banner {
+    align-items: center;
+  }
 }
 </style>
