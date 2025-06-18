@@ -112,7 +112,24 @@ const services = [
           </div>
         </div>
         <br />
-        <ColourGrading></ColourGrading>
+        <ColourGrading
+          :custom-slides="[
+            {
+              _id: 'custom1',
+              leftImage: 'https://example.com/before1.jpg',
+              rightImage: 'https://example.com/after1.jpg',
+              leftAlt: 'Before editing',
+              rightAlt: 'After editing',
+            },
+            {
+              _id: 'custom2',
+              leftImage: 'https://example.com/before2.jpg',
+              rightImage: 'https://example.com/after2.jpg',
+            },
+          ]"
+          left-label="Original"
+          right-label="Enhanced"
+        />
       </section>
       <!-- COLOUR GRADING END-->
       <div id="content"></div>

@@ -6,6 +6,7 @@ interface LinkCard {
   url: string;
   img: string;
   title: string;
+  gradient: string;
   description?: string;
 }
 const props = defineProps<LinkCard>();
@@ -30,9 +31,9 @@ onMounted(() => {
       <div class="content flex-center">
         <div class="caption reveal">
           <h3 class="logo-font">
-            {{ title }} <span class="gradient">Services</span>
+            {{ title }} <span class="gradient">{{ gradient }}</span>
           </h3>
-          <p>{{ description }}</p>
+          <p>{{ description }}.</p>
         </div>
         <Label icon="arrow-right" label="Learn more" />
       </div>
