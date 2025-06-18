@@ -141,7 +141,7 @@ useSeoMeta({
         />
       </div>
     </article>
-    <LightroomPresets />
+    <Presets />
   </main>
 </template>
 
