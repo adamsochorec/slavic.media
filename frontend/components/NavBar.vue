@@ -145,11 +145,7 @@ function header() {
     <div class="container">
       <nav id="navigation" role="navigation" aria-label="Main Navigation">
         <NuxtLink to="/" aria-label="Home">
-          <img
-            class="logo"
-            alt="Logo Slavic Media"
-            src="https://cdn.slavic.media/img/Primary-1/HD"
-          />
+          <img class="logo" alt="Logo Slavic Media" src="/Primary-1.svg" />
         </NuxtLink>
         <button
           aria-label="Open mobile menu"
@@ -355,8 +351,6 @@ header {
   -ms-transform: translateY(0);
   transform: translateY(0);
   -webkit-transform: translateY(0);
-  -webkit-box-shadow: var(--box-shadow-1);
-  box-shadow: var(--box-shadow-1);
   z-index: 9;
   backdrop-filter: var(--blur-1); /* Standard syntax */
   -webkit-backdrop-filter: var(--blur-1); /* Chrome, Safari, Opera */
