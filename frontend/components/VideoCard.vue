@@ -28,7 +28,19 @@ const plugins = [lgVideo];
       speed: 500,
       plugins: plugins,
       download: false,
-      autoplay: true,
+      autoplay: false,
+      videojs: true,
+      videojsOptions: {
+        muted: false,
+      },
+      youTubePlayerParams: {
+        mute: 0,
+        autoplay: 0,
+      },
+      vimeoPlayerParams: {
+        muted: false,
+        autoplay: false,
+      },
     }"
     :showVimeoThumbnails="true"
     hideScrollbar="true"
