@@ -96,6 +96,7 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
 @media only screen and (max-width: 415px) {
   .video-container,
   .showcase {
+    height: 100dvh;
     height: 100vh;
   }
   .controls,

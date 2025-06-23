@@ -82,9 +82,11 @@ onMounted(() => {
     padding: var(--grid-gap-2);
   }
 }
-img:hover {
-  filter: saturate(0);
-  transition: var(--transition-1);
+@media only screen and (min-width: 700px) {
+  img:hover {
+    filter: saturate(0);
+    transition: var(--transition-1);
+  }
 }
 .latest a,
 .latest a:hover {
@@ -125,6 +127,8 @@ img {
   display: block;
   width: 100%;
   transition: var(--transition-1);
+  -webkit-animation: skeleton-loading 1s linear infinite alternate;
+  animation: skeleton-loading 1s linear infinite alternate;
 
   @media only screen and (max-width: 600px) {
     aspect-ratio: 16 / 10;

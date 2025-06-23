@@ -19,7 +19,8 @@
   --border-radius-2: 50px;
   --border-1: 0.5px solid rgba(255, 255, 255, 0.4);
   --transition-1: all.1s ease-in-out;
-  --transition-2: 0.35s ease-in-out,
+  --transition-2:
+    0.35s ease-in-out,
     -webkit-transform 0.5s cubic-bezier(0.694, 0.048, 0.335, 1);
   --nav-bar-top-position: 50px;
   --box-shadow-1: 0px 0px 10px rgba(0, 0, 0, 0.25);
@@ -30,7 +31,7 @@
   --grid-gap-1: 10px;
   --grid-gap-2: 15px;
   --grid-gap-3: 30px;
-  --dimension-1: 71vh;
+  --dimension-1: 71dvh;
   --dimension-2: 200px;
 }
 .logo-font {
