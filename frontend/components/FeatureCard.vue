@@ -27,12 +27,17 @@ onMounted(() => {
 <template>
   <NuxtLink class="reveal" :to="url">
     <figure class="card">
-      <img ref="imgRef" :src="thumbnailUrl" @load="updateImgSrc" />
+      <img
+        ref="imgRef"
+        :src="thumbnailUrl"
+        @load="updateImgSrc"
+        :alt="`${title} ${gradient} cover`"
+      />
       <div class="content flex-center">
         <div class="caption reveal">
-          <h3 class="logo-font">
+          <h2 class="logo-font">
             {{ title }} <span class="gradient">{{ gradient }}</span>
-          </h3>
+          </h2>
           <p>{{ description }}.</p>
         </div>
         <Label icon="arrow-right" label="Learn more" />
@@ -75,17 +80,15 @@ onMounted(() => {
         transition: var(--transition-1);
       }
     }
+    h2 {
+      font-size: var(--font-size-3);
+    }
   }
   @media only screen and (max-width: 700px) {
-    height: 71svh;
-    height: 71lvh;
+    height: var(--dimension-1);
     width: 100%;
     aspect-ratio: unset;
     border-radius: 0;
-
-    h3 {
-      font-size: var(--font-size-2);
-    }
   }
 }
 img {

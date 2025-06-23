@@ -31,6 +31,7 @@
     "@nuxt/content": "^3.5.1",
     "@nuxt/fonts": "^0.11.1",
     "@nuxt/icon": "^1.12.0",
+    "@nuxt/image": "^1.10.0",
     "@nuxthq/studio": "^1.0.10",
     "@nuxtjs/mdc": "^0.17.0",
     "@primeuix/styles": "^1.1.1",

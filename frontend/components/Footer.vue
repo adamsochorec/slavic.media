@@ -11,8 +11,8 @@ const currentYear = new Date().getFullYear();
   <footer aria-labelledby="footer-heading">
     <span id="footer-heading" class="sr-only">Footer</span>
     <section class="wrapper-wide">
-      <header class="services" aria-labelledby="services-heading">
-        <span id="services-heading" class="sr-only">Our Services</span>
+      <header class="services" aria-labelledby="services-footer-heading">
+        <span id="services-footer-heading" class="sr-only">Our Services</span>
         <section>
           <b
             ><NuxtLink to="/video" aria-label="Video Services"
@@ -61,11 +61,6 @@ const currentYear = new Date().getFullYear();
           <b>Subscribe</b>
           <p class="newsletter">Get the latest news from Slavic Media.</p>
           <Newsletter />
-          <p class="newsletter">
-            By subscribing, you agree with our
-            <NuxtLink to="/legal/terms-of-service">Terms of Service</NuxtLink>
-            and <NuxtLink to="/legal/privacy-policy">Privacy Policy</NuxtLink>.
-          </p>
         </section>
       </header>
       <hr class="quater" aria-hidden="true" />
@@ -136,7 +131,7 @@ const currentYear = new Date().getFullYear();
             <a
               href="https://store.slavic.media"
               aria-label="Visit Digital Assets Portal"
-              >Digital&nbsp;Assets&nbsp;Portal</a
+              >Store&nbsp;Portal</a
             >
             <a
               href="https://clients.slavic.media"
@@ -203,7 +198,7 @@ const currentYear = new Date().getFullYear();
         </nav>
       </header>
       <hr class="quater" aria-hidden="true" />
-      <header class="footer" role="contentinfo">
+      <header class="footer">
         <section class="copyright">
           <span
             >Copyright © {{ currentYear }} Slavic Media I/S. All rights
@@ -288,10 +283,6 @@ footer {
       border-left: var(--border-1);
       padding: 0 var(--grid-gap-1);
 
-      &:hover {
-        text-decoration: underline;
-      }
-
       &:nth-child(2) {
         border-left: none;
         padding-left: 0;
@@ -304,7 +295,6 @@ footer {
   .newsletter {
     color: rgba(255, 255, 255, 0.4);
   }
-
   .cookie {
     display: inline-flex;
     align-items: center;
@@ -314,17 +304,15 @@ footer {
       width: auto;
     }
   }
-
   .services {
     display: flex;
     gap: var(--grid-gap-3);
 
-    b *,
+    b a,
     b {
-      text-decoration: underline;
+      color: white;
       font-weight: 100;
     }
-
     ul {
       list-style: none;
       margin: 0;
@@ -333,10 +321,10 @@ footer {
   .links > *,
   .social-icons *,
   .services a,
-  .services b,
   .logo path {
     color: rgba(255, 255, 255, 0.6);
     fill: rgba(255, 255, 255, 0.6);
+    transition: var(--transition-1);
 
     &:hover {
       color: white;
@@ -401,7 +389,7 @@ footer {
       }
 
       .social-icons {
-        margin-top: var(--grid-gap-3);
+        margin-top: var(--grid-gap-2);
 
         > *:first-child {
           margin-left: 0;

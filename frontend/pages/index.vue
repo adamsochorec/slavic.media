@@ -37,10 +37,10 @@ useSeoMeta({
       <div
         class="grid-container caption-container reveal"
         role="region"
-        aria-labelledby="services-heading"
+        aria-labelledby="intro-heading"
       >
         <div class="grid-item">
-          <h1 id="services-heading">
+          <h1 id="intro-heading">
             Strategy, <span class="gradient">experience</span>, precision and
             hard work at your
             <span class="gradient">service</span>
@@ -72,7 +72,6 @@ useSeoMeta({
           class="black"
           description="From inspiring stories to cinematic visuals"
         />
-
         <FeatureCard
           url="/photo"
           title="Photo"
@@ -135,7 +134,7 @@ useSeoMeta({
         <Btn
           tag="NuxtLink"
           icon="plus-circle"
-          label="Read more"
+          label="More reading"
           variant="secondary"
           :to="'/blog'"
           class="reveal"

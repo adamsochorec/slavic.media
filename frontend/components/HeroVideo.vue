@@ -43,11 +43,17 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
     </a>
     <section class="controls">
       <button
+        aria-label="Volume up"
         v-if="state.isMuted"
         class="pi pi-volume-off volume"
         @click="unmuteVideo"
       ></button>
-      <button v-else class="pi pi-volume-up volume" @click="muteVideo"></button>
+      <button
+        v-else
+        aria-label="Volume down"
+        class="pi pi-volume-up volume"
+        @click="muteVideo"
+      ></button>
     </section>
   </section>
 </template>
@@ -58,8 +64,7 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
   right: var(--grid-gap-2);
 }
 .showcase {
-  height: 71svh;
-  height: 71lvh;
+  height: var(--dimension-1);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -73,7 +78,7 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
   top: 0;
   left: 0;
   width: 100%;
-  height: 71svh;
+  height: var(--dimension-1);
   overflow: hidden;
   background-position: center;
   background-size: cover;
@@ -97,8 +102,7 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
 @media only screen and (max-width: 415px) {
   .video-container,
   .showcase {
-    height: 100lvh;
-    height: 100svh;
+    height: 100dvh;
   }
   .controls,
   .link {

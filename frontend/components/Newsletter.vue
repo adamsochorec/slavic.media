@@ -81,7 +81,7 @@ async function submitForm(e: Event) {
   color: green;
 }
 .error {
-  color: rgba(var(--primary-color), 1);
+  color: rgb(var(--primary-color));
 }
 .success,
 .error {

@@ -32,7 +32,7 @@ useSeoMeta(
     <hr class="semi" role="separator" />
 
     <!--   ABOUT START -->
-    <section class="wrapper-standard" role="region">
+    <section class="wrapper-standard">
       <h1 class="docs reveal">Who <span class="gradient">We</span> Are</h1>
       <p id="about-company" class="reveal">
         {{ description }}

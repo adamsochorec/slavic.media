@@ -31,9 +31,6 @@ const props = defineProps<LinkCard>();
 h3 {
   font-size: var(--font-size-5);
   margin-bottom: var(--grid-gap-1);
-
-  @media only screen and (min-width: 400px) {
-  }
 }
 .description {
   font-size: var(--font-size-7);

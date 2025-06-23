@@ -26,7 +26,11 @@ onMounted(() => {
 <template>
   <div v-if="article">
     <figure class="grid-container reveal">
-      <NuxtLink class="gallery-item" :to="`/blog/${article.slug}`">
+      <NuxtLink
+        class="gallery-item"
+        :to="`/blog/${article.slug}`"
+        :aria-label="`${article.title}`"
+      >
         <Icon
           v-if="article.flag"
           :name="`flag:${article.flag}-4x3`"
@@ -54,7 +58,11 @@ onMounted(() => {
         </NuxtLink>
         <p>
           {{ truncateText(article.description, 200)
-          }}<NuxtLink :to="`/blog/${article.slug}`">more</NuxtLink>
+          }}<NuxtLink
+            :to="`/blog/${article.slug}`"
+            aria-label="More from Slavic Media Blog"
+            >more</NuxtLink
+          >
         </p>
         <BlogCardMetadata :article="article" />
       </div>

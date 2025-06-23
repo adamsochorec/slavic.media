@@ -15,7 +15,7 @@ const {
 </script>
 
 <template>
-  <section class="wrapper-standard" role="region">
+  <section class="wrapper-standard">
     <h2 class="docs reveal" style="font-size: var(--font-size-1)">
       Our <span class="gradient">Journey</span>
     </h2>

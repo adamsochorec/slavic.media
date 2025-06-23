@@ -121,11 +121,14 @@ onUnmounted(() => {
       >
         <div class="grid-container">
           <div class="grid-item">
-            <img
+            <NuxtImg
               class="customer-img"
               :alt="`Profile photo of ${review.name}`"
               :title="review.name"
               :src="`https://lh3.googleusercontent.com/${review.img}=w120-h120-p-rp-mo-br100`"
+              width="120"
+              height="120"
+              loading="lazy"
             />
           </div>
           <div class="grid-item">

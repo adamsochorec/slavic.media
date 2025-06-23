@@ -44,6 +44,7 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "@nuxt/devtools",
     "@nuxtjs/mdc",
+    "@nuxt/image",
   ],
   app: {
     baseURL: "/",
@@ -57,7 +58,7 @@ export default defineNuxtConfig({
         },
       ],
       charset: "utf-16",
-      viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+      viewport: "width=device-width, initial-scale=1",
       htmlAttrs: {
         lang: "en",
       },
