@@ -77,7 +77,8 @@ onMounted(() => {
     }
   }
   @media only screen and (max-width: 700px) {
-    height: var(--dimension-1);
+    height: 71svh;
+    height: 71lvh;
     width: 100%;
     aspect-ratio: unset;
     border-radius: 0;

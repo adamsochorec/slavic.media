@@ -716,7 +716,8 @@ i.pi-arrow-right:hover {
 /* HERO IMAGE START */
 .cover,
 .cover .filter {
-  height: var(--dimension-1);
+  height: 71svh;
+  height: 71lvh;
   width: 100vw;
 }
 .cover .filter {
@@ -725,7 +726,8 @@ i.pi-arrow-right:hover {
   z-index: 1;
 }
 .cover {
-  height: var(--dimension-1);
+  height: 71svh;
+  height: 71lvh;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -805,7 +807,8 @@ iframe.spotify {
   border-radius: var(--border-radius-2);
 }
 #map {
-  height: var(--dimension-1);
+  height: 71svh;
+  height: 71lvh;
 }
 .desc {
   font-size: var(--font-size-7);

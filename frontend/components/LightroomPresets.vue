@@ -65,7 +65,8 @@ h3 {
 
 @media only screen and (min-width: 650px) {
   .banner {
-    height: var(--dimension-1);
+    height: 71svh;
+    height: 71lvh;
     width: 100vw;
     position: relative;
     align-items: start;

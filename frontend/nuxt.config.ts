@@ -29,12 +29,12 @@ export default defineNuxtConfig({
     },
   },
   devtools: {
-    enabled: process.env.NODE_ENV !== "production",
+    enabled: process.env.NODE_ENV === "development",
     timeline: {
-      enabled: true,
+      enabled: process.env.NODE_ENV === "development",
     },
   },
-  debug: true,
+  debug: process.env.NODE_ENV === "development",
   modules: [
     "nuxt-swiper",
     "@nuxtjs/tailwindcss",

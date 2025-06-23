@@ -267,9 +267,8 @@ span.menuitem:hover {
 }
 .menu-left a:not(.menu-left ul a),
 span.menuitem {
-  display: inline-block;
-  position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
   position: relative;
   cursor: pointer;
   font-size: var(--font-size-6);

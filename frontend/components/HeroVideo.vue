@@ -58,7 +58,8 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
   right: var(--grid-gap-2);
 }
 .showcase {
-  height: var(--dimension-1);
+  height: 71svh;
+  height: 71lvh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -72,7 +73,7 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--dimension-1);
+  height: 71svh;
   overflow: hidden;
   background-position: center;
   background-size: cover;
@@ -96,8 +97,8 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
 @media only screen and (max-width: 415px) {
   .video-container,
   .showcase {
-    height: 100dvh;
-    height: 100vh;
+    height: 100lvh;
+    height: 100svh;
   }
   .controls,
   .link {
