@@ -87,7 +87,7 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
   iframe {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    width: 177.77777778sh;
+    width: 177.77777778vh;
     height: 56.25vw;
     min-width: 100%;
     min-height: 100%;

@@ -111,7 +111,7 @@ p {
   font-size: var(--font-size-7);
   margin: var(--grid-gap-1) 0;
 }
-.black .caption * {
+.black .caption *:not(h2 .gradient) {
   color: rgb(var(--grey-color));
 }
 </style>
