@@ -64,6 +64,7 @@ async function submitForm(e: Event) {
       <input type="hidden" name="source" :value="source" />
       <Btn
         tag="button"
+        aria-labelledby="register"
         variant="secondary"
         type="submit"
         icon="envelope"

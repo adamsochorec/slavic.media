@@ -59,7 +59,9 @@ const currentYear = new Date().getFullYear();
         </section>
         <section>
           <b>Subscribe</b>
-          <p class="newsletter">Get the latest news from Slavic Media.</p>
+          <p class="newsletter" id="register">
+            Get the latest news from Slavic Media.
+          </p>
           <Newsletter />
         </section>
       </header>

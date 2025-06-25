@@ -52,6 +52,7 @@ const plugins = [lgVideo];
       class="video-card reveal"
       aria-labelledby="video-card-title"
       :data-src="`//${video.url}`"
+      :href="`//${video.url}`"
       :data-sub-html="`<figcaption class='gallery-desc metadata content-font'><b>${video.title}</b><br><span class='pi pi-info-circle mr-1'></span>${video.category}<i class='separator'></i><span class='pi pi-calendar mr-1'></span>${video.year}<i v-if='video.client' class='separator'></i><span v-if='video?.client'><span class='pi pi-users mr-1'></span>${video.client?.name}</span></figcaption>`"
     >
       <img
@@ -68,7 +69,7 @@ const plugins = [lgVideo];
           {{ video.client.name }}
         </span>
       </figure>
-      <h3 class="title" id="video-card-title">{{ video.title }}</h3>
+      <h2 class="title" id="video-card-title">{{ video.title }}</h2>
     </a>
   </lightgallery>
   <div class="flex-center" v-if="!pending && !error">

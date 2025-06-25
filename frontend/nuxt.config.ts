@@ -9,6 +9,10 @@ export default defineNuxtConfig({
       GOOGLE_ANALYTICS: process.env.GOOGLE_ANALYTICS,
     },
   },
+  sourcemap: {
+    server: true,
+    client: true,
+  },
   content: {
     renderer: {
       anchorLinks: { h2: false, h3: false, h4: false, h5: false, h6: false },

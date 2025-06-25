@@ -87,7 +87,7 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
   iframe {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    width: 177.77777778vh;
+    width: 177.77777778sh;
     height: 56.25vw;
     min-width: 100%;
     min-height: 100%;
@@ -102,7 +102,8 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
 @media only screen and (max-width: 415px) {
   .video-container,
   .showcase {
-    height: 100dvh;
+    height: 100vh;
+    height: 100svh;
   }
   .controls,
   .link {

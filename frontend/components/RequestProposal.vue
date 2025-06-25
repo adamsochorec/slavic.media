@@ -164,7 +164,7 @@ async function handleSubmit(e: Event) {
             </p>
             <Btn
               tag="button"
-              label="Submit"
+              label="Submit proposal"
               icon="arrow-right"
               variant="primary"
               type="submit"

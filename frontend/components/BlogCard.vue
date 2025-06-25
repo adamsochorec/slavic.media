@@ -22,7 +22,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <article class="blog-card reveal" aria-labelledby="blog-card-title">
+  <article class="blog-card reveal" :aria-labelledby="article.slug">
     <figure>
       <GalleryCard
         :img="article.thumbnail"
@@ -39,7 +39,7 @@ const props = defineProps<{
     </figure>
     <header>
       <NuxtLink :to="`/blog/${article.slug}`">
-        <h3 class="title" id="blog-card-title">
+        <h3 class="title" :id="article.slug">
           {{ truncateText(article.title, 83) }}
         </h3>
       </NuxtLink>

@@ -61,7 +61,7 @@ onMounted(() => {
           }}<NuxtLink
             :to="`/blog/${article.slug}`"
             aria-label="More from Slavic Media Blog"
-            >more</NuxtLink
+            >continue reading</NuxtLink
           >
         </p>
         <BlogCardMetadata :article="article" />

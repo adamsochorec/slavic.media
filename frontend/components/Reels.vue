@@ -95,6 +95,7 @@ onUnmounted(() => {
           rel="noopener noreferrer nofollow"
           :href="`https://${reel.url}`"
           :class="`pi pi-${reel.platform} bubble`"
+          :aria-label="`Video on ${reel.platform}`"
         >
         </a>
         <Icon
@@ -109,7 +110,6 @@ onUnmounted(() => {
           muted
           preload="auto"
           playsinline
-          role="region"
           :src="`https://assets.slavic.media/video/${reel._id}.mp4`"
         >
           <track kind="captions" srclang="en" label="English captions" />

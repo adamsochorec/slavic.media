@@ -9,6 +9,8 @@
   left: 0;
   width: 100%;
   height: 100vh;
+  height: 100svh;
+
   -webkit-backdrop-filter: var(--blur-1);
   backdrop-filter: var(--blur-1);
   display: flex;
