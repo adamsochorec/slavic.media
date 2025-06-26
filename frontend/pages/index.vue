@@ -23,13 +23,16 @@ useSeoMeta({
 </script>
 <template>
   <main class="homepage">
+    <h1 class="visually-hidden">Slavic Media</h1>
     <!-- INTRO VIDEO START -->
-    <HeroVideo
-      youtube="W4jcCCpsXyo"
-      vimeo="1039054657"
-      title="Showreel 24'"
-      start="7"
-    />
+    <ClientOnly>
+      <HeroVideo
+        youtube="W4jcCCpsXyo"
+        vimeo="1039054657"
+        title="Showreel 24'"
+        start="7"
+      />
+    </ClientOnly>
     <hr class="semi" role="separator" />
     <!-- INTRO VIDEO END -->
     <section class="wrapper-wide" id="company-intro">
@@ -40,11 +43,11 @@ useSeoMeta({
         aria-labelledby="intro-heading"
       >
         <div class="grid-item">
-          <h1 id="intro-heading">
+          <h2 id="intro-heading">
             Strategy, <span class="gradient">experience</span>, precision and
             hard work at your
             <span class="gradient">service</span>
-          </h1>
+          </h2>
         </div>
         <div class="grid-item">
           <p>
@@ -88,11 +91,11 @@ useSeoMeta({
       <section aria-labelledby="reviews-heading">
         <div class="grid-container caption-container" id="reviews-caption">
           <div class="grid-item">
-            <h2 id="reviews-heading">
+            <h3 id="reviews-heading">
               <span class="gradient">Actions</span> speak louder
               <span class="gradient">than</span> any
               <span class="gradient"> words</span>
-            </h2>
+            </h3>
           </div>
           <div class="grid-item reveal">
             <p>
@@ -145,15 +148,15 @@ useSeoMeta({
 </template>
 
 <style lang="postcss" scoped>
-h1,
-h2 {
+h2,
+h3 {
   font-size: var(--font-size-3);
 
   @media only screen and (max-width: 415px) {
     font-size: var(--font-size-2);
   }
 }
-h3 {
+h4 {
   text-transform: capitalize;
 }
 .latest a,

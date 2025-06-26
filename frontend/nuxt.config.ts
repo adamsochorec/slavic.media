@@ -38,6 +38,11 @@ export default defineNuxtConfig({
       enabled: process.env.NODE_ENV === "development",
     },
   },
+  ssr: true,
+  experimental: {
+    payloadExtraction: false,
+    wasm: false,
+  },
   debug: process.env.NODE_ENV === "development",
   modules: [
     "nuxt-swiper",
@@ -61,7 +66,7 @@ export default defineNuxtConfig({
           href: "/favicon.ico",
         },
       ],
-      charset: "utf-16",
+      charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
       htmlAttrs: {
         lang: "en",
@@ -73,14 +78,33 @@ export default defineNuxtConfig({
     output: {
       serverDir: ".output/server",
     },
-    prerender: {
-      crawlLinks: true,
-      ignore: [
-        "/dominik-tószegi-07872a248/",
-        "/gabrielasochorcova",
-        "/adamsochorec",
-        "/marcelhajik",
-      ],
+    routeRules: {
+      "/**": {
+        headers: {
+          // HSTS Policy - Start with 1 year, can be increased later
+          "Strict-Transport-Security":
+            "max-age=31536000; includeSubDomains; preload",
+          // Additional security headers
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY",
+          "X-XSS-Protection": "1; mode=block",
+          "Referrer-Policy": "strict-origin-when-cross-origin",
+          // Remove any report-only CSP headers
+          "Content-Security-Policy-Report-Only": "",
+          // Fixed Content Security Policy
+          "Content-Security-Policy": [
+            "default-src 'self'",
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' *.youtube.com *.vimeo.com *.google.com *.googleapis.com *.gstatic.com *.googletagmanager.com *.chatway.app cdn.chatway.app *.vimeocdn.com",
+            "style-src 'self' 'unsafe-inline' *.googleapis.com *.gstatic.com cdn.jsdelivr.net",
+            "img-src 'self' data: blob: *.slavic.media *.youtube.com *.vimeo.com *.google.com *.googleapis.com *.gstatic.com *.googleusercontent.com cdn.jsdelivr.net *.vimeocdn.com *.ytimg.com",
+            "font-src 'self' data: *.googleapis.com *.gstatic.com cdn.jsdelivr.net",
+            "connect-src 'self' ws: wss: *.slavic.media *.youtube.com *.vimeo.com *.google.com *.googleapis.com *.googletagmanager.com *.chatway.app *.vimeocdn.com api.iconify.design localhost:*",
+            "frame-src 'self' *.youtube.com *.youtube-nocookie.com *.vimeo.com *.google.com sketchfab.com open.spotify.com dronezoner.eu dronview.rlp.cz about:",
+            "media-src 'self' *.slavic.media *.youtube.com *.vimeo.com *.vimeocdn.com",
+          ].join("; "),
+          "Permissions-Policy": "geolocation=(), microphone=(), camera=()",
+        },
+      },
     },
   },
   primevue: {

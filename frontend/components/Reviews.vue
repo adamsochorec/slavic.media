@@ -180,7 +180,7 @@ onUnmounted(() => {
 
   p {
     padding: 0;
-    font-size: var(--font-size-8);
+    font-size: var(--font-size-7);
   }
 
   .quotes {
@@ -219,7 +219,7 @@ onUnmounted(() => {
   }
 }
 .reviews-message {
-  height: 80px;
+  height: 100px;
   overflow: scroll;
   transition: max-height var(--transition-2);
 

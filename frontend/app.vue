@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import { useRouter } from "vue-router";
+import { onMounted, nextTick } from "vue";
 
 useHead({
   titleTemplate: (titleChunk) => {
@@ -15,7 +14,7 @@ function reveal() {
 
   reveals.forEach((reveal) => {
     const revealtop = reveal.getBoundingClientRect().top;
-    const revealpoint = 0; // Trigger as soon as the element is in the viewport
+    const revealpoint = 0;
 
     if (revealtop < windowHeight - revealpoint) {
       reveal.classList.add("active");
@@ -23,7 +22,10 @@ function reveal() {
   });
 }
 
-onMounted(() => {
+onMounted(async () => {
+  // Wait for hydration to complete
+  await nextTick();
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -33,7 +35,7 @@ onMounted(() => {
       });
     },
     {
-      threshold: 0.01, // Trigger as soon as a small part of the element is visible
+      threshold: 0.01,
     }
   );
 
@@ -47,16 +49,17 @@ onMounted(() => {
     });
   };
 
-  // Apply observers and reveal elements immediately on page load
+  // Apply observers after hydration
   applyObservers();
-  reveal(); // Ensure elements are revealed immediately on load
+  reveal();
 
   window.addEventListener("scroll", reveal);
 
   const mutationObserver = new MutationObserver(() => {
     applyObservers();
-    reveal(); // Re-check visibility when DOM changes
+    reveal();
   });
+
   mutationObserver.observe(document.body, {
     childList: true,
     subtree: true,
@@ -66,13 +69,20 @@ onMounted(() => {
 </script>
 
 <template>
-  <NavBar />
-  <!-- Main Content -->
-  <aside><Cookies /><RequestProposal /></aside>
-  <NuxtPage />
-  <hr class="semi bodyxfooter" role="separator" />
-  <Footer />
+  <div>
+    <NavBar />
+    <aside>
+      <ClientOnly>
+        <Cookies />
+        <RequestProposal />
+      </ClientOnly>
+    </aside>
+    <NuxtPage />
+    <hr class="semi bodyxfooter" role="separator" />
+    <Footer />
+  </div>
 </template>
+
 <style lang="postcss">
 .page-enter-active,
 .page-leave-active {

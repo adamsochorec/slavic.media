@@ -8,7 +8,7 @@ const currentYear = new Date().getFullYear();
 </script>
 
 <template>
-  <footer aria-labelledby="footer-heading">
+  <footer aria-labelledby="footer-heading" role="contentinfo">
     <span id="footer-heading" class="sr-only">Footer</span>
     <section class="wrapper-wide">
       <header class="services" aria-labelledby="services-footer-heading">

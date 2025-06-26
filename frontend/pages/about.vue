@@ -24,13 +24,14 @@ useSeoMeta(
 
 <template>
   <main aria-labelledby="about-company">
-    <HeroVideo
-      youtube="UQCIQ8smKDM"
-      vimeo="1013776851"
-      title="Behind the Scenes"
-    />
+    <ClientOnly>
+      <HeroVideo
+        youtube="UQCIQ8smKDM"
+        vimeo="1013776851"
+        title="Behind the Scenes"
+      />
+    </ClientOnly>
     <hr class="semi" role="separator" />
-
     <!--   ABOUT START -->
     <section class="wrapper-standard">
       <h1 class="docs reveal">Who <span class="gradient">We</span> Are</h1>
