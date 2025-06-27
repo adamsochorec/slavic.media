@@ -59,7 +59,6 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/",
     buildAssetsDir: "/_nuxt/",
-    keepalive: false,
     head: {
       link: [
         {
