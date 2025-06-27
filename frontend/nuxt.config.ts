@@ -43,6 +43,8 @@ export default defineNuxtConfig({
     payloadExtraction: false,
     wasm: false,
     writeEarlyHints: false,
+    inlineSSRStyles: false,
+    viewTransition: true,
   },
   debug: process.env.NODE_ENV === "development",
   modules: [
@@ -75,7 +77,36 @@ export default defineNuxtConfig({
     },
     pageTransition: { name: "page", mode: "out-in" },
   },
+  features: {
+    inlineStyles: false,
+  },
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            photoswipe: ["photoswipe/lightbox", "photoswipe/style.css"],
+            swiper: ["swiper"],
+          },
+        },
+      },
+    },
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all",
+        },
+      },
+    },
+  },
   nitro: {
+    compressPublicAssets: true,
+    minify: true,
     output: {
       serverDir: ".output/server",
     },

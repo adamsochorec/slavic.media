@@ -303,7 +303,7 @@ footer {
 
     img {
       height: 8px;
-      width: auto;
+      width: 17px;
     }
   }
   .services {

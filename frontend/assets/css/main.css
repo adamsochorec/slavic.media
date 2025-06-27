@@ -152,6 +152,13 @@ footer {
   transform: translateY(0);
   -webkit-transform: translateY(0);
 }
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}
 /* REVEAL END */
 
 /* HR / SEPARATORS START */

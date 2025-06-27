@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, watchEffect } from "vue";
-import PhotoSwipeLightbox from "photoswipe/lightbox";
-import "photoswipe/style.css";
-
 // Content hydration
 const slug = useRoute().params.slug;
 const { data: document } = await useAsyncData(`blog-${slug}`, () => {
@@ -26,49 +22,6 @@ watchEffect(() => {
     },
     { priority: 1 }
   );
-});
-
-// PhotoSwipe
-let lightbox: PhotoSwipeLightbox | null = null;
-// Custom SVGs for arrows
-const leftArrowSVGString = `
-   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="pswp__button--arrow--left">
-	<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 12H4m0 0l6-6m-6 6l6 6" />
-</svg>`;
-const rightArrowSVGString = `
-   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="pswp__button--arrow--right">
-	<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12h16m0 0l-6-6m6 6l-6 6" />
-</svg>`;
-
-onMounted(() => {
-  lightbox = new PhotoSwipeLightbox({
-    gallery: ".article-content",
-    children: "a.lightbox",
-    errorMsg: "The photo cannot be loaded",
-    secondaryZoomLevel: 1.5,
-    pswpModule: () => import("photoswipe"),
-    wheelToZoom: true,
-    padding: {
-      top: 0,
-      bottom: 40,
-      left: 0,
-      right: 0,
-    },
-    preload: [1, 4],
-    loop: false,
-    arrowPrevSVG: leftArrowSVGString,
-    arrowNextSVG: rightArrowSVGString,
-    mainClass: "pswp--custom-icon-colors",
-  });
-
-  lightbox.init();
-});
-
-onBeforeUnmount(() => {
-  if (lightbox) {
-    lightbox.destroy();
-    lightbox = null;
-  }
 });
 </script>
 
