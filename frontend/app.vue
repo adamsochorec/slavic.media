@@ -7,81 +7,90 @@ useHead({
   },
 });
 
-let intersectionObserver: IntersectionObserver | null = null;
-let mutationObserver: MutationObserver | null = null;
+// CONTENT REVEAL START
+function reveal() {
+  const reveals = document.querySelectorAll<HTMLElement>(".reveal");
+  const windowHeight = window.innerHeight;
+
+  reveals.forEach((reveal) => {
+    const revealtop = reveal.getBoundingClientRect().top;
+    const revealpoint = 0;
+
+    if (revealtop < windowHeight - revealpoint) {
+      reveal.classList.add("active");
+    }
+  });
+}
 
 onMounted(async () => {
+  // Wait for hydration to complete
   await nextTick();
 
-  // Single intersection observer with better performance
-  intersectionObserver = new IntersectionObserver(
+  const observer = new IntersectionObserver(
     (entries) => {
-      // Use requestAnimationFrame to batch DOM updates
-      requestAnimationFrame(() => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const target = entry.target as HTMLElement;
-            target.classList.add("active");
-
-            // Unobserve to prevent repeated triggers
-            intersectionObserver?.unobserve(target);
-          }
-        });
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
       });
     },
     {
       threshold: 0.01,
-      rootMargin: "50px 0px", // Start animation slightly before element is visible
     }
   );
-
-  // Debounced mutation observer
-  let mutationTimeout: NodeJS.Timeout;
-  mutationObserver = new MutationObserver(() => {
-    clearTimeout(mutationTimeout);
-    mutationTimeout = setTimeout(() => {
-      applyObservers();
-    }, 100); // Debounce by 100ms
-  });
 
   const applyObservers = () => {
     const reveals = document.querySelectorAll<HTMLElement>(
       ".reveal:not(.observed)"
     );
-
-    // Batch DOM operations
-    const fragment = document.createDocumentFragment();
     reveals.forEach((reveal) => {
-      intersectionObserver?.observe(reveal);
+      observer.observe(reveal);
       reveal.classList.add("observed");
     });
   };
 
+  // Apply observers after hydration
   applyObservers();
+  reveal();
+
+  window.addEventListener("scroll", reveal);
+
+  const mutationObserver = new MutationObserver(() => {
+    applyObservers();
+    reveal();
+  });
 
   mutationObserver.observe(document.body, {
     childList: true,
     subtree: true,
   });
 });
-
-// Cleanup on unmount
-onBeforeUnmount(() => {
-  intersectionObserver?.disconnect();
-  mutationObserver?.disconnect();
-});
-// OPTIMIZED CONTENT REVEAL END
+// CONTENT REVEAL END
 </script>
 
 <template>
   <div>
     <NavBar />
     <aside>
-      <Cookies />
-      <RequestProposal />
+      <ClientOnly>
+        <Cookies />
+        <RequestProposal />
+      </ClientOnly>
     </aside>
     <NuxtPage />
     <hr class="semi bodyxfooter" role="separator" />
     <Footer />
   </div>
 </template>
+
+<style lang="postcss">
+.page-enter-active,
+.page-leave-active {
+  transition: var(--transition-2);
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  filter: var(--blur-1);
+}
+</style>
