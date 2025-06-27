@@ -4,6 +4,15 @@ import Lightgallery from "lightgallery/vue";
 import lgVideo from "lightgallery/plugins/video";
 import { useLoadMore } from "@/composables/useLoadMore";
 
+useHead({
+  script: [
+    {
+      src: "https://player.vimeo.com/api/player.js",
+      async: true,
+    },
+  ],
+});
+
 // Fetch documents
 const {
   data: videos,

@@ -50,7 +50,7 @@ onMounted(() => {
         </header>
         <div>
           <p class="description" v-if="description">
-            {{ truncateText(description, 150) }}
+            {{ truncateText(description, 140) }}
           </p>
         </div>
       </figcaption>

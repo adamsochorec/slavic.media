@@ -42,6 +42,7 @@ export default defineNuxtConfig({
   experimental: {
     payloadExtraction: false,
     wasm: false,
+    writeEarlyHints: false,
   },
   debug: process.env.NODE_ENV === "development",
   modules: [
@@ -58,6 +59,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/",
     buildAssetsDir: "/_nuxt/",
+    keepalive: false,
     head: {
       link: [
         {
@@ -80,8 +82,8 @@ export default defineNuxtConfig({
     },
     routeRules: {
       "/**": {
+        prerender: false,
         headers: {
-          // HSTS Policy - Start with 1 year, can be increased later
           "Strict-Transport-Security":
             "max-age=31536000; includeSubDomains; preload",
           // Additional security headers
@@ -89,8 +91,6 @@ export default defineNuxtConfig({
           "X-Frame-Options": "DENY",
           "X-XSS-Protection": "1; mode=block",
           "Referrer-Policy": "strict-origin-when-cross-origin",
-          // Remove any report-only CSP headers
-          "Content-Security-Policy-Report-Only": "",
           // Fixed Content Security Policy
           "Content-Security-Policy": [
             "default-src 'self'",
@@ -99,7 +99,7 @@ export default defineNuxtConfig({
             "img-src 'self' data: blob: *.slavic.media *.youtube.com *.vimeo.com *.google.com *.googleapis.com *.gstatic.com *.googleusercontent.com cdn.jsdelivr.net *.vimeocdn.com *.ytimg.com",
             "font-src 'self' data: *.googleapis.com *.gstatic.com cdn.jsdelivr.net",
             "connect-src 'self' ws: wss: *.slavic.media *.youtube.com *.vimeo.com *.google.com *.googleapis.com *.googletagmanager.com *.chatway.app *.vimeocdn.com api.iconify.design localhost:*",
-            "frame-src 'self' *.youtube.com *.youtube-nocookie.com *.vimeo.com *.google.com sketchfab.com open.spotify.com dronezoner.eu dronview.rlp.cz about:",
+            "frame-src 'self' *.youtube.com *.youtube-nocookie.com *.vimeo.com *.google.com sketchfab.com *.chatway.app open.spotify.com dronezoner.eu dronview.rlp.cz about:",
             "media-src 'self' *.slavic.media *.youtube.com *.vimeo.com *.vimeocdn.com",
           ].join("; "),
           "Permissions-Policy": "geolocation=(), microphone=(), camera=()",
