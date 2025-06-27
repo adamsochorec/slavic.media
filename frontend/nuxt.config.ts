@@ -115,9 +115,6 @@ export default defineNuxtConfig({
         headers: {
           "Strict-Transport-Security":
             "max-age=31536000; includeSubDomains; preload",
-          "Cross-Origin-Opener-Policy": "same-origin",
-          "Cross-Origin-Embedder-Policy": "require-corp",
-          "Cross-Origin-Resource-Policy": "same-origin",
           // Additional security headers
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "DENY",
