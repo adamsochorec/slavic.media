@@ -115,6 +115,9 @@ export default defineNuxtConfig({
         headers: {
           "Strict-Transport-Security":
             "max-age=31536000; includeSubDomains; preload",
+          "Cross-Origin-Opener-Policy": "same-origin",
+          "Cross-Origin-Embedder-Policy": "require-corp",
+          "Cross-Origin-Resource-Policy": "same-origin",
           // Additional security headers
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "DENY",
@@ -130,6 +133,7 @@ export default defineNuxtConfig({
             "connect-src 'self' ws: wss: *.slavic.media *.youtube.com *.vimeo.com *.google.com *.googleapis.com *.googletagmanager.com *.chatway.app *.vimeocdn.com api.iconify.design localhost:*",
             "frame-src 'self' *.youtube.com *.youtube-nocookie.com *.vimeo.com *.google.com sketchfab.com *.chatway.app open.spotify.com dronezoner.eu dronview.rlp.cz about:",
             "media-src 'self' *.slavic.media *.youtube.com *.vimeo.com *.vimeocdn.com",
+            "frame-ancestors 'none'",
           ].join("; "),
           "Permissions-Policy": "geolocation=(), microphone=(), camera=()",
         },
