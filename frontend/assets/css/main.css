@@ -166,7 +166,7 @@ hr {
   border: var(--border-1);
   z-index: 3;
 
-  hr.quater {
+  .quater {
     margin: var(--grid-gap-3) 0 !important;
   }
 }
