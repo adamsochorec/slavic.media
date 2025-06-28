@@ -703,7 +703,7 @@ small a {
 /* ICONS START */
 .iconify,
 i,
-span.pi {
+.pi {
   color: white;
   vertical-align: middle;
 }
