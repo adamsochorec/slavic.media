@@ -26,7 +26,7 @@ router.get("/", (req, res) => {
         : "";
     review_1.default
         .find({}, fields)
-        .sort({ _id: 1 })
+        .sort({ _id: -1 })
         .then((data) => {
         res.send(data);
     })
