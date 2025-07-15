@@ -71,6 +71,16 @@ footer {
   --color-one: rgba(var(--secondary-color), 1);
   --color-two: rgba(var(--primary-color), 1);
   --color-three: rgba(255, 255, 255, 1);
+
+  background: -o-linear-gradient(
+      left,
+      var(--color-one),
+      var(--color-two),
+      var(--color-three),
+      var(--color-one)
+    )
+    0 0 / var(--bg-size) 100%;
+
   background: -webkit-gradient(
       linear,
       left top,
@@ -79,15 +89,6 @@ footer {
       color-stop(var(--color-two)),
       color-stop(var(--color-three)),
       to(var(--color-one))
-    )
-    0 0 / var(--bg-size) 100%;
-
-  background: -o-linear-gradient(
-      left,
-      var(--color-one),
-      var(--color-two),
-      var(--color-three),
-      var(--color-one)
     )
     0 0 / var(--bg-size) 100%;
 
@@ -154,7 +155,11 @@ footer {
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal {
+    -webkit-transition: none;
+    -o-transition: none;
     transition: none;
+    -webkit-transform: none;
+    -ms-transform: none;
     transform: none;
     opacity: 1;
   }
@@ -395,6 +400,42 @@ table tr:last-child td:last-child {
 
 /* FORM START */
 form {
+  input::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+    font-family: var(--content-font);
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    color: white;
+    font-size: var(--font-size-6);
+  }
+  input::-moz-placeholder,
+  textarea::-moz-placeholder {
+    font-family: var(--content-font);
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    color: white;
+    font-size: var(--font-size-6);
+  }
+  input:-ms-input-placeholder,
+  textarea:-ms-input-placeholder {
+    font-family: var(--content-font);
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    color: white;
+    font-size: var(--font-size-6);
+  }
+  input::-ms-input-placeholder,
+  textarea::-ms-input-placeholder {
+    font-family: var(--content-font);
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    color: white;
+    font-size: var(--font-size-6);
+  }
   input::-webkit-input-placeholder,
   textarea::-webkit-input-placeholder {
     font-family: var(--content-font);
