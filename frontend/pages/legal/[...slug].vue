@@ -24,11 +24,11 @@ watchEffect(() => {
       description: document.value?.description,
       ogTitle: document.value?.title,
       ogDescription: document.value?.description,
-      ogImage: "https://cdn.slavic.media/img/2024-12-08-01324-2/SD",
+      ogImage: "https://cdn.slavic.media/img/20250711_SLAVIC-MEDIA3230/SD",
       ogUrl: `https://slavic.media/legal/${document.value?.slug}`,
       twitterTitle: document.value?.title,
       twitterDescription: document.value?.description,
-      twitterImage: "https://cdn.slavic.media/img/2024-12-08-01324-2/SD",
+      twitterImage: "https://cdn.slavic.media/img/20250711_SLAVIC-MEDIA3230/SD",
       twitterCard: "summary",
     },
     { priority: 1 }
@@ -37,7 +37,7 @@ watchEffect(() => {
 
 // Progressive cover image
 const { thumbnailUrl, fullImageUrl, updateImgSrc } = useProgressiveImg(
-  "2024-12-08-01324-2",
+  "20250711_SLAVIC-MEDIA3230",
   "/4K"
 );
 </script>
