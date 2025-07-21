@@ -33,7 +33,7 @@
     "@nuxt/icon": "^1.12.0",
     "@nuxt/image": "^1.10.0",
     "@nuxthq/studio": "^1.0.10",
-    "@nuxtjs/mdc": "^0.17.0",
+    "@nuxtjs/mdc": "^0.17.2",
     "@primeuix/styles": "^1.1.1",
     "@primeuix/themes": "^1.0.3",
     "@primevue/forms": "^4.3.3",
