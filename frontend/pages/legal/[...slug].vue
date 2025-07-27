@@ -70,7 +70,6 @@ const { thumbnailUrl, fullImageUrl, updateImgSrc } = useProgressiveImg(
     >
       <hr class="semi" />
       <ContentRenderer :value="document" class="rendered-content reveal" />
-      <hr />
 
       <div class="gallery" id="cards" ref="containerRef">
         <LinkCard
