@@ -194,7 +194,9 @@ const services = [
           :description="service.description"
         />
       </div>
+      <hr class="semi" role="separator" />
     </section>
+
     <!-- FURTHER SERVICES END -->
   </main>
 </template>

@@ -922,6 +922,9 @@ iframe.spotify {
 /* ARTICLE END */
 
 /* CARD START */
+:root {
+  --spotlight: 400px;
+}
 .card {
   border-radius: var(--border-radius-1);
   cursor: pointer;
@@ -929,16 +932,18 @@ iframe.spotify {
   position: relative;
   background-color: rgba(255, 255, 255, 0.3);
 }
-#cards {
-  padding: var(--grid-gap-3) 0;
-}
+
 #cards:hover > .card::after {
   opacity: 1;
 }
 .card:hover::before {
   opacity: 1;
 }
-
+#cards {
+  padding: var(--spotlight);
+  margin: calc(-1 * var(--spotlight));
+  position: relative;
+}
 .card::before,
 .card::after {
   border-radius: inherit;
@@ -957,12 +962,12 @@ iframe.spotify {
 .card::after {
   background: -o-radial-gradient(
     var(--mouse-x) var(--mouse-y),
-    400px circle,
+    var(--spotlight) circle,
     rgba(var(--primary-color), 0.9) 0%,
     transparent 70%
   );
   background: radial-gradient(
-    400px circle at var(--mouse-x) var(--mouse-y),
+    var(--spotlight) circle at var(--mouse-x) var(--mouse-y),
     rgba(var(--primary-color), 0.9) 0%,
     transparent 70%
   );
