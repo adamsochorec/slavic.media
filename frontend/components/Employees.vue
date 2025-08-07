@@ -155,7 +155,7 @@ onUnmounted(() => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  :href="employee.linkedin"
+                  :href="`https://www.linkedin.com/in/${employee.linkedin}`"
                   >{{ employee.name }}</a
                 >
               </h4>
@@ -206,7 +206,7 @@ onUnmounted(() => {
             <a
               target="_blank"
               rel="noopener noreferrer nofollow"
-              :href="employee.linkedin"
+              :href="`https://linkedin.com/in/${employee.linkedin}`"
               >{{ employee.name }}</a
             >
           </h4>

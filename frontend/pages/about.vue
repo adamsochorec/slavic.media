@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Meta SEO
 const description =
-  "Creative & Production studio based in Denmark (Kolding, Copenhagen) and Czechia (Prague). We tell stories through deep eye contact, magnificent shots, and clean design — helping your project stand out from the noise.";
+  "Creative & Production studio based in Copenhagen and Prague. We tell stories through deep eye contact, magnificent shots, and clean design — helping your project stand out from the noise.";
 const title = "About";
 
 // SEO META
@@ -40,11 +40,11 @@ useSeoMeta(
       </p>
       <client-only> <Employees /></client-only>
       <p class="reveal">
-        Slavic Media is headquartered in Kolding, Denmark, with remote team
-        members distributed across the kingdom and Czechia. We are bootstrapped
-        (self-funded) and profitable.<br />
-        We’re always on the lookout to add kind, thoughtful, and exceptionally
-        talented individuals to our team.
+        We are bootstrapped (self-funded) and profitable and always on the
+        lookout to add kind, thoughtful, and exceptionally talented individuals
+        to our team. <a href="mailto:contact@slavic.media">Drop us a line</a> if
+        you're motivated by the intersection of individual freelance
+        professionals.
       </p>
 
       <iframe
@@ -56,11 +56,7 @@ useSeoMeta(
         allowfullscreen
         style="margin: var(--grid-gap-2) 0"
       ></iframe>
-      <p class="reveal">
-        <a href="mailto:contact@slavic.media">Drop us a line</a> if you're
-        motivated by the intersection of individual freelance professionals.
-      </p>
-      <br />
+      <hr class="semi" />
     </section>
     <!--   ABOUT END -->
     <EventTimeline />

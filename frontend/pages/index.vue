@@ -4,7 +4,7 @@ import { useSeoMeta } from "nuxt/app";
 
 // Meta SEO
 const description =
-  "Creative & Production studio based in Denmark (Kolding, Copenhagen) and Czechia (Prague). We tell stories through deep eye contact, magnificent shots, and clean design — helping your project stand out from the noise.";
+  "Creative & Production studio based in Copenhagen and Prague. We tell stories through deep eye contact, magnificent shots, and clean design — helping your project stand out from the noise.";
 const title = "Home";
 
 // SEO META

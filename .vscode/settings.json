@@ -1,4 +1,9 @@
 {
   "postman.settings.dotenv-detection-notification-visibility": false,
-  "liveServer.settings.port": 5501
+  "liveServer.settings.port": 5501,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#223303",
+    "titleBar.activeBackground": "#304704",
+    "titleBar.activeForeground": "#F5FDE5"
+  }
 }
