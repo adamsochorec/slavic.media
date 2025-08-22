@@ -82,7 +82,6 @@ h3 {
     position: absolute;
     left: 8px;
     z-index: 1;
-} 
   }
   h3 {
     text-align: left;
