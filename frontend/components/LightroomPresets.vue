@@ -68,7 +68,7 @@ h3 {
     height: var(--dimension-1);
     width: 100vw;
     position: relative;
-    align-items: start;
+    align-items: center;
     overflow: hidden;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -79,12 +79,13 @@ h3 {
   }
   .title {
     width: 39%;
+    position: absolute;
+    left: 8px;
+    z-index: 1;
+} 
   }
   h3 {
     text-align: left;
-  }
-  .banner {
-    align-items: center;
   }
 }
 </style>
