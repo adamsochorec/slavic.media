@@ -18,11 +18,11 @@ useSeoMeta(
     description: description,
     ogTitle: title,
     ogDescription: description,
-    ogImage: "https://cdn.slavic.media/img/20250711_SLAVIC-MEDIA3230/SD",
+    ogImage: "https://cdn.slavic.media/img/20250711_SLAVIC-MEDIA3231/SD",
     ogUrl: "https://slavic.media/legal",
     twitterTitle: title,
     twitterDescription: description,
-    twitterImage: "https://cdn.slavic.media/img/20250711_SLAVIC-MEDIA3230/SD",
+    twitterImage: "https://cdn.slavic.media/img/20250711_SLAVIC-MEDIA3231/SD",
     twitterCard: "summary",
   },
   { priority: 1 }
@@ -30,7 +30,7 @@ useSeoMeta(
 
 // Progressive cover image
 const { thumbnailUrl, fullImageUrl, updateImgSrc } = useProgressiveImg(
-  "20250711_SLAVIC-MEDIA3230",
+  "20250711_SLAVIC-MEDIA3231",
   "/4K"
 );
 </script>
