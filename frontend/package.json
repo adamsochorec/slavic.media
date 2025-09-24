@@ -42,7 +42,7 @@
     "better-sqlite3": "^11.10.0",
     "citty": "^0.1.6",
     "lightgallery": "^2.8.3",
-    "nuxt": "^3.17.2",
+    "nuxt": "^3.19.0",
     "nuxt-swiper": "^2.0.0",
     "photoswipe": "^5.4.4",
     "photoswipe-dynamic-caption-plugin": "^1.2.7",
