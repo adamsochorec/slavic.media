@@ -58,5 +58,10 @@
     "autoprefixer": "^10.4.21",
     "sass-embedded": "^1.87.0",
     "sass-loader": "^16.0.5"
+  },
+  "overrides": {
+    "tailwind-config-viewer": {
+      "koa": "^3.0.1"
+    }
   }
 }
