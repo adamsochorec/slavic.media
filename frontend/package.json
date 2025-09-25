@@ -62,6 +62,9 @@
   "overrides": {
     "tailwind-config-viewer": {
       "koa": "^3.0.1"
+    },
+    "prebuild-install": {
+      "tar-fs": "^3.1.1"
     }
   }
 }
