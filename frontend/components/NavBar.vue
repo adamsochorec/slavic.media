@@ -145,7 +145,12 @@ function header() {
     <div class="container">
       <nav id="navigation" role="navigation" aria-label="Main Navigation">
         <NuxtLink to="/" aria-label="Home">
-          <img class="logo" alt="Logo Slavic Media" src="/Primary-1.svg" />
+          <img
+            class="logo"
+            alt="Logo Slavic Media"
+            loading="eager"
+            src="/Primary-1.svg"
+          />
         </NuxtLink>
         <button
           aria-label="Open mobile menu"

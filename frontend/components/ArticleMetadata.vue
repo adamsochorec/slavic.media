@@ -53,6 +53,7 @@ onMounted(() => {
           :data-src="fullImageUrl"
           :alt="`${author.name}'s profile picture`"
           @load="updateImgSrc"
+          loading="lazy"
         />
       </a>
       <div>

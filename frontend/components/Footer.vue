@@ -227,6 +227,7 @@ const currentYear = new Date().getFullYear();
               src="../assets/cookies.svg"
               class="mr-1"
               alt="Cookie icon"
+              loading="lazy"
             />Cookies
           </button>
           <a

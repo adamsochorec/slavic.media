@@ -50,6 +50,7 @@ const { thumbnailUrl, fullImageUrl, updateImgSrc } = useProgressiveImg(
         :data-src="fullImageUrl"
         @load="updateImgSrc"
         alt="Legal cover"
+        loading="eager"
       />
       <div class="title flex-center reveal">
         <h1
