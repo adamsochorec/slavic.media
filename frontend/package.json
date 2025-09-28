@@ -38,6 +38,7 @@
     "@primeuix/themes": "^1.0.3",
     "@primevue/forms": "^4.3.3",
     "@primevue/nuxt-module": "^4.3.4",
+    "@vercel/speed-insights": "^1.2.0",
     "@vimeo/player": "^2.29.0",
     "better-sqlite3": "^11.10.0",
     "citty": "^0.1.6",
