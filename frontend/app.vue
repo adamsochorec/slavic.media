@@ -26,7 +26,6 @@ function reveal() {
 onMounted(async () => {
   // Wait for hydration to complete
   await nextTick();
-
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
