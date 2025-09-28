@@ -8,6 +8,6 @@
     "target": "es2017",
     "moduleResolution": "node",
     "strict": true,
-    "types": ["@nuxt/types"]
+    "types": []
   }
 }

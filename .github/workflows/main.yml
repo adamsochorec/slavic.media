@@ -49,7 +49,12 @@ jobs:
 
     # The steps that the job will run
     steps:
-      # This step deploys both frontend and backend to production
-      - name: Deploy frontend and backend to production
+      # Deploy backend to production
+      - name: Deploy backend to production
         run: |
-          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
+          curl -X POST "${{ secrets.BACKEND_DEPLOY_HOOK }}"
+
+      # Deploy frontend to production
+      - name: Deploy frontend to production
+        run: |
+          curl -X POST "${{ secrets.FRONTEND_DEPLOY_HOOK }}"
