@@ -73,6 +73,7 @@ h3 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    z-index: 1;
   }
   .hide {
     display: none;

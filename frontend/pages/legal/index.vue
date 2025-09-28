@@ -66,6 +66,7 @@ const { thumbnailUrl, fullImageUrl, updateImgSrc } = useProgressiveImg(
           }}</NuxtLink>
         </li>
       </ol>
+      <hr class="semi" />
     </section>
   </main>
 </template>
