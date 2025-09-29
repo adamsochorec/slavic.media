@@ -77,6 +77,7 @@ onMounted(async () => {
     </aside>
     <NuxtPage />
     <hr class="semi bodyxfooter" role="separator" />
+    <Footer />
   </div>
 </template>
 
