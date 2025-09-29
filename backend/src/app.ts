@@ -81,5 +81,4 @@ app.use(express.static(path.join(__dirname, "dist"), staticOptions));
 app.get("*", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
-
 export default app;

@@ -44,6 +44,7 @@ const { thumbnailUrl, fullImageUrl, updateImgSrc } = useProgressiveImg(
         :data-src="fullImageUrl"
         @load="updateImgSrc"
         alt="Legal cover"
+        loading="eager"
       />
       <div class="title reveal">
         <h1 class="reveal" role="heading" aria-level="1">Legal</h1>
@@ -66,6 +67,7 @@ const { thumbnailUrl, fullImageUrl, updateImgSrc } = useProgressiveImg(
           }}</NuxtLink>
         </li>
       </ol>
+      <hr class="semi" />
     </section>
   </main>
 </template>

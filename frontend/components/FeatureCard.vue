@@ -32,6 +32,7 @@ onMounted(() => {
         :src="thumbnailUrl"
         @load="updateImgSrc"
         :alt="`${title} ${gradient} cover`"
+        loading="lazy"
       />
       <div class="content flex-center">
         <div class="caption reveal">

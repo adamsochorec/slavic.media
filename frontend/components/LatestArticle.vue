@@ -47,6 +47,7 @@ onMounted(() => {
           :data-src="fullImageUrl"
           :alt="article.title"
           @load="updateImgSrc"
+          loading="lazy"
         />
       </NuxtLink>
 

@@ -942,7 +942,6 @@ iframe.spotify {
 #cards {
   padding: var(--spotlight);
   margin: calc(-1 * var(--spotlight));
-  position: relative;
 }
 .card::before,
 .card::after {

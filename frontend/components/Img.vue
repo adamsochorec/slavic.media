@@ -53,6 +53,7 @@ onMounted(() => {
       :src="thumbnailUrl"
       :data-src="fullImageUrl"
       :title="title"
+      loading="lazy"
       :alt="alt"
       @load="updateDimensions"
     />

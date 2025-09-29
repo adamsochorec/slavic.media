@@ -146,6 +146,7 @@ onUnmounted(() => {
               :title="`${employee.name}`"
               class="employee-img"
               @load="(event) => (event.target.src = event.target.dataset.src)"
+              loading="lazy"
             />
             <!-- Slide Caption -->
 

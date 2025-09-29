@@ -42,6 +42,7 @@ onMounted(() => {
         :alt="alt"
         :title="title"
         @load="updateImgSrc"
+        loading="lazy"
       />
       <figcaption class="caption">
         <i aria-hidden="true" :class="`bubble pi pi-${icon}`"></i>

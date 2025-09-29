@@ -40,12 +40,13 @@
     "@primeuix/styles": "^1.1.1",
     "@primeuix/themes": "^1.0.3",
     "@primevue/forms": "^4.3.3",
-    "@primevue/nuxt-module": "^4.3.9",
+    "@primevue/nuxt-module": "^4.3.4",
+    "@vercel/speed-insights": "^1.2.0",
     "@vimeo/player": "^2.29.0",
     "better-sqlite3": "^12.2.0",
     "citty": "^0.1.6",
     "lightgallery": "^2.8.3",
-    "nuxt": "^4.1.2",
+    "nuxt": "^3.19.0",
     "nuxt-swiper": "^2.0.0",
     "photoswipe": "^5.4.4",
     "photoswipe-dynamic-caption-plugin": "^1.2.7",
@@ -61,5 +62,13 @@
     "autoprefixer": "^10.4.21",
     "sass-embedded": "^1.87.0",
     "sass-loader": "^16.0.5"
+  },
+  "overrides": {
+    "tailwind-config-viewer": {
+      "koa": "^3.0.1"
+    },
+    "prebuild-install": {
+      "tar-fs": "^3.1.1"
+    }
   }
 }

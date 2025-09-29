@@ -1,4 +1,4 @@
-name: Backend workflow
+name: Test and Deploy
 
 # This workflow gets triggered on every push to the specific branch
 on:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    name: API tests
+    name: Backend tests
     runs-on: ubuntu-latest # The type of machine to run the job on
 
     # This strategy runs the job on multiple versions of Node.js
@@ -40,20 +40,21 @@ jobs:
           DBHOST: ${{ secrets.DBHOST }}
           TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
           JWT_EXPIRES_IN: ${{ secrets.JWT_EXPIRES_IN }}
-          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
-          SERVICE_ID: ${{ secrets.SERVICE_ID }}
 
-  # The second job is to deploy the application
+  # Deploy both frontend and backend only if backend tests pass
   deploy:
-    name: Deploy
-    needs: [test] # This job depends on the 'test' job
+    name: Deploy to Production
+    needs: [test] # This job depends on the backend tests passing
     runs-on: ubuntu-latest # The type of machine to run the job on
 
     # The steps that the job will run
     steps:
-      # This step deploys the application to production
-      - name: Deploy to production
-        uses: johnbeynon/render-deploy-action@v0.0.8
-        with:
-          service-id: ${{ secrets.SERVICE_ID }} # The ID of the service to deploy to
-          api-key: ${{ secrets.RENDER_API_KEY }} # The API key for the Render service
+      # Deploy backend to production
+      - name: Deploy backend to production
+        run: |
+          curl -X POST "${{ secrets.BACKEND_DEPLOY_HOOK }}"
+
+      # Deploy frontend to production
+      - name: Deploy frontend to production
+        run: |
+          curl -X POST "${{ secrets.FRONTEND_DEPLOY_HOOK }}"

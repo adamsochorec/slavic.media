@@ -5,6 +5,7 @@
       <img
         src="https://cdn.slavic.media/img/lightroom-presets/4K"
         alt="Banner showcasing Slavic Media Lightroom Presets"
+        loading="lazy"
       />
       <div class="title reveal">
         <h3>
@@ -73,6 +74,7 @@ h3 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    z-index: 1;
   }
   .hide {
     display: none;

@@ -91,6 +91,7 @@ onUnmounted(() => {
               :data-src="`https://cdn.slavic.media/img/${slide._id}-2/HD`"
               :alt="`S-Log still ${slide._id}`"
               :title="`S-Log still ${slide._id}`"
+              loading="lazy"
               @load="updateImageSrc"
             />
           </template>
@@ -100,6 +101,7 @@ onUnmounted(() => {
               :data-src="`https://cdn.slavic.media/img/${slide._id}/HD`"
               :alt="`Colour Graded still ${slide._id}`"
               :title="`Colour Graded still ${slide._id}`"
+              loading="lazy"
               @load="updateImageSrc"
             />
           </template>
