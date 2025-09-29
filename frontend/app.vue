@@ -72,7 +72,6 @@ onMounted(async () => {
   <div>
     <aside>
       <ClientOnly>
-        <Cookies />
         <RequestProposal />
       </ClientOnly>
     </aside>
