@@ -70,7 +70,6 @@ onMounted(async () => {
 
 <template>
   <div>
-    <NavBar />
     <aside>
       <ClientOnly>
         <Cookies />
