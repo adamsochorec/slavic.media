@@ -42,6 +42,7 @@ onMounted(() => {
   <figcaption>
     <header class="metadata gap-3">
       <a
+        v-if="article.author?.linkedin"
         target="_blank"
         rel="noopener noreferrer nofollow"
         :href="`https://www.linkedin.com/in/${article.author.linkedin}`"
@@ -58,16 +59,29 @@ onMounted(() => {
           loading="lazy"
         />
       </a>
+      <img
+        v-else
+        ref="imgRef"
+        class="avatar"
+        :src="thumbnailUrl"
+        :data-src="fullImageUrl"
+        :alt="`${article.author.name}'s profile picture`"
+        @load="updateImgSrc"
+        loading="lazy"
+      />
       <div>
         <a
+          v-if="article.author?.linkedin"
           target="_blank"
           rel="noopener noreferrer nofollow"
           class="author"
           :href="`https://www.linkedin.com/in/${article.author.linkedin}`"
           aria-label="Visit {{ article.author.name }}'s LinkedIn profile"
         >
-          <span>{{ article.author.name }}</span>
+          <span class="name">{{ article.author.name }}</span>
         </a>
+        <span v-else class="name">{{ article.author.name }}</span>
+
         <br class="hide" />
         <div class="submetadata">
           <span class="pi pi-calendar mr-1"></span>{{ ddmmmyyyy(article.date)
@@ -82,7 +96,7 @@ onMounted(() => {
 </template>
 
 <style lang="postcss" scoped>
-.author {
+.name {
   font-size: var(--font-size-7);
 }
 img {

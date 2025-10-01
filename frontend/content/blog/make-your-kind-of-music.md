@@ -4,7 +4,6 @@ slug: make-your-kind-of-music
 author:
   name: Adam S.
   id: adam
-  linkedin: adamsochorec
 date: 2025-02-18
 flag: dk
 keywords:

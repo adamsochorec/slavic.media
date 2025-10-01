@@ -40,7 +40,7 @@ onMounted(() => {
 </script>
 <template>
   <div class="metadata-container reveal">
-    <div class="author">
+    <div class="author" v-if="author?.linkedin">
       <a
         target="_blank"
         rel="noopener noreferrer nofollow"
@@ -56,16 +56,27 @@ onMounted(() => {
           loading="lazy"
         />
       </a>
-      <div>
-        <a
-          class="author"
-          target="_blank"
-          rel="noopener noreferrer nofollow"
-          :href="`https://www.linkedin.com/in/${author.linkedin}`"
-        >
-          <span> {{ author.name }}</span></a
-        >
-      </div>
+      <a
+        class="author"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        :href="`https://www.linkedin.com/in/${author.linkedin}`"
+      >
+        <span class="name">{{ author.name }}</span></a
+      >
+    </div>
+    <div class="author" v-else>
+      <img
+        ref="imgRef"
+        class="avatar"
+        :src="thumbnailUrl"
+        :data-src="fullImageUrl"
+        :alt="`${author.name}'s profile picture`"
+        @load="updateImgSrc"
+        loading="lazy"
+      />
+
+      <span>{{ author.name }}</span>
     </div>
     <div class="metadata">
       <span class="pi pi-calendar mr-1"></span>{{ ddmmmyyyy(metadata.date) }}

@@ -18,7 +18,6 @@ keywords:
 author:
   name: Adam S.
   id: adam
-  linkedin: adamsochorec
 date: 2022-04-10T00:00:00.000Z
 flag: dk
 ---

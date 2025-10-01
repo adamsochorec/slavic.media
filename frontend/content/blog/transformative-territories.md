@@ -4,7 +4,6 @@ slug: transformative-territories
 author:
   name: Adam S.
   id: adam
-  linkedin: adamsochorec
 date: 2025-04-27
 flag: cz
 keywords:
