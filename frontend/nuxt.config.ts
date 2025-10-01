@@ -125,7 +125,7 @@ export default defineNuxtConfig({
           "Content-Security-Policy": [
             "default-src 'self'",
             "script-src 'self' 'unsafe-inline' 'unsafe-eval' *.youtube.com *.vimeo.com *.google.com *.googleapis.com *.gstatic.com *.googletagmanager.com *.chatway.app cdn.chatway.app *.vimeocdn.com",
-            "style-src 'self' 'unsafe-inline' *.googleapis.com *.gstatic.com cdn.jsdelivr.net",
+            "style-src 'self' 'unsafe-inline' *.googleapis.com *.gstatic.com cdn.jsdelivr.net *.chatway.app",
             "img-src 'self' data: blob: *.slavic.media *.youtube.com *.vimeo.com *.google.com *.googleapis.com *.gstatic.com *.googleusercontent.com cdn.jsdelivr.net *.vimeocdn.com *.ytimg.com",
             "font-src 'self' data: *.googleapis.com *.gstatic.com cdn.jsdelivr.net",
             "connect-src 'self' ws: wss: *.slavic.media *.youtube.com *.vimeo.com *.google.com *.googleapis.com *.googletagmanager.com *.chatway.app *.vimeocdn.com api.iconify.design localhost:*",
