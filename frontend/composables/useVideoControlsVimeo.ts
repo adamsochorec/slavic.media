@@ -1,6 +1,6 @@
 import { ref, reactive, onMounted } from "vue";
 
-export function useVideoControls() {
+export function useVideoControlsVimeo() {
   const iframeRef = ref<HTMLIFrameElement | null>(null);
   const state = reactive({
     isPlaying: false,

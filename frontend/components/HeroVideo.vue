@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useVideoControls } from "@/composables/useVideoControlsYouTube";
+import { useVideoControlsYouTube } from "@/composables/useVideoControlsYouTube";
 
 interface HeroVideo {
   vimeo: string;
@@ -9,7 +9,7 @@ interface HeroVideo {
 }
 const props = defineProps<HeroVideo>();
 const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
-  useVideoControls();
+  useVideoControlsYouTube();
 </script>
 
 <template>

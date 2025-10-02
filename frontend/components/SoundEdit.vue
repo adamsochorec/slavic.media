@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useVideoControls } from "@/composables/useVideoControlsVimeo";
+import { useVideoControlsVimeo } from "@/composables/useVideoControlsVimeo";
 
 const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
-  useVideoControls();
+  useVideoControlsVimeo();
 </script>
 
 <template>

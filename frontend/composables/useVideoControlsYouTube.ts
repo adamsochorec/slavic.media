@@ -7,7 +7,7 @@ declare global {
   }
 }
 
-export function useVideoControls() {
+export function useVideoControlsYouTube() {
   const iframeRef = ref<HTMLIFrameElement | null>(null);
   const player = ref<any>(null);
   const state = reactive({
