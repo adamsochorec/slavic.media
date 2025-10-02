@@ -15,7 +15,7 @@ const allowedDomain = "slavic.media";
 router.post("/register", async (req: Request, res: Response) => {
   try {
     // Only allow registration in non-production environments
-    if (process.env.NODE_ENV !== "production") {
+    if (process.env.NODE_ENV === "production") {
       return res.status(403).json({
         error: "Registration is disabled in production environment",
       });
