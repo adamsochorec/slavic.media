@@ -3,7 +3,7 @@
   "buildCommand": "npm run generate",
   "devCommand": "nuxt dev",
   "outputDirectory": ".output/public",
-  "framework": "nuxt",
+  "framework": "vite",
   "env": {
     "NODE_ENV": "production"
   },
