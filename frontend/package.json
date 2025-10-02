@@ -26,7 +26,12 @@
     "primevue"
   ],
   "overrides": {
-    "vite": "^7.1.5"
+    "tailwind-config-viewer": {
+      "koa": "^3.0.1"
+    },
+    "prebuild-install": {
+      "tar-fs": "^3.1.1"
+    }
   },
   "dependencies": {
     "@fancyapps/ui": "^5.0.36",
@@ -35,6 +40,7 @@
     "@nuxt/fonts": "^0.11.1",
     "@nuxt/icon": "^1.12.0",
     "@nuxt/image": "^1.10.0",
+    "@nuxt/kit": "^4.1.2",
     "@nuxthq/studio": "^1.0.10",
     "@nuxtjs/mdc": "^0.17.2",
     "@primeuix/styles": "^1.1.1",
@@ -62,13 +68,5 @@
     "autoprefixer": "^10.4.21",
     "sass-embedded": "^1.87.0",
     "sass-loader": "^16.0.5"
-  },
-  "overrides": {
-    "tailwind-config-viewer": {
-      "koa": "^3.0.1"
-    },
-    "prebuild-install": {
-      "tar-fs": "^3.1.1"
-    }
   }
 }
