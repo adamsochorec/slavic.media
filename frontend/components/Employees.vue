@@ -168,6 +168,7 @@ onUnmounted(() => {
               </p>
               <div class="social-icons reveal">
                 <a
+                  v-if="employee.email"
                   :href="`mailto:${employee.email}`"
                   :aria-label="`Send an email to ${employee.name} at ${employee.email}`"
                 >
