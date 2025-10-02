@@ -23,7 +23,7 @@ const {
 // Load more functionality
 const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(4, 4);
 
-// Lightgallery plugins
+// Lightgallery plugin
 const plugins = [lgVideo];
 </script>
 
