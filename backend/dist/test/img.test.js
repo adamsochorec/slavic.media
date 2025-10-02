@@ -19,6 +19,7 @@ const auth_1 = require("../auth");
 const gallery_1 = __importDefault(require("../models/gallery"));
 let token;
 const testData = {
+    _id: "portrait",
     index: 3,
     title: "Colorful Portrait",
     columns: [

@@ -8,6 +8,7 @@ import Img from "../models/gallery";
 let token: string;
 
 const testData = {
+  _id: "portrait",
   index: 3,
   title: "Colorful Portrait",
   columns: [
