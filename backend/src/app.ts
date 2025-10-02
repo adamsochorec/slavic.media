@@ -7,7 +7,10 @@ import cors from "cors";
 import path from "path";
 import fs from "fs";
 
-require("dotenv-flow").config();
+// Only use dotenv-flow in development, not in production (like Vercel)
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv-flow").config();
+}
 
 const app = express();
 

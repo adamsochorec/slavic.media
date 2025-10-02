@@ -10,7 +10,10 @@ const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const cors_1 = __importDefault(require("cors"));
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
-require("dotenv-flow").config();
+// Only use dotenv-flow in development, not in production (like Vercel)
+if (process.env.NODE_ENV !== "production") {
+    require("dotenv-flow").config();
+}
 const app = (0, express_1.default)();
 // Serve static files with caching headers
 const staticOptions = {

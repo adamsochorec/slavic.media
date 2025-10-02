@@ -65,9 +65,19 @@ router.post("/register", async (req: Request, res: Response) => {
 // Add admin seeding functionality
 const seedAdmin = async () => {
   try {
+    console.log("NODE_ENV:", process.env.NODE_ENV);
+    console.log("Starting admin seeding process...");
+    
     const adminEmail = process.env.ADMIN_EMAIL;
     const adminPassword = process.env.ADMIN_PASSWORD;
     const adminName = process.env.ADMIN_NAME;
+
+    // Log availability of variables (without showing actual values)
+    console.log("Admin variables available:", {
+      email: !!adminEmail,
+      password: !!adminPassword,
+      name: !!adminName
+    });
 
     if (!adminEmail || !adminPassword || !adminName) {
       throw new Error(
@@ -86,6 +96,8 @@ const seedAdmin = async () => {
         password: hashedPassword,
       });
       console.log("Admin account seeded successfully");
+    } else {
+      console.log("Admin account already exists, skipping seed");
     }
   } catch (error) {
     console.error("Admin seeding failed:", error);
@@ -94,6 +106,7 @@ const seedAdmin = async () => {
 
 // Call seedAdmin when the app starts in production
 if (process.env.NODE_ENV === "production") {
+  console.log("Production environment detected, attempting to seed admin...");
   seedAdmin();
 }
 // User login endpoint
