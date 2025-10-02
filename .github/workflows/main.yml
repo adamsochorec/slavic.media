@@ -6,55 +6,102 @@ on:
     branches: [main]
 
 jobs:
+  # Check which parts of the repository have changed
+  changes:
+    name: Detect changes
+    runs-on: ubuntu-latest
+    # Define outputs from this job
+    outputs:
+      backend_changed: ${{ steps.check-changes.outputs.backend }}
+      frontend_changed: ${{ steps.check-changes.outputs.frontend }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Use paths-filter action to check changed files
+      - name: Check for file changes
+        uses: dorny/paths-filter@v2
+        id: check-changes
+        with:
+          # Define filters for backend and frontend changes
+          filters: |
+            backend:
+              - 'backend/**'
+            frontend:
+              - 'frontend/**'
+              - 'assets/**'
+
+  # Run backend tests only if backend has changes
   test:
     name: Backend tests
-    runs-on: ubuntu-latest # The type of machine to run the job on
+    needs: changes
+    if: needs.changes.outputs.backend_changed == 'true'
+    runs-on: ubuntu-latest
 
-    # This strategy runs the job on multiple versions of Node.js
+    outputs:
+      tests_passed: ${{ steps.set-result.outputs.tests_passed }}
+
     strategy:
       matrix:
         node-version: [20.x]
 
-    # The steps that the job will run
     steps:
-      # This step checks out a copy of your repository
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # This step sets up Node.js on the runner
       - name: Use Node.JS ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
-      # This step installs dependencies, builds the application, and runs tests
       - name: NPM install, build and test
+        id: run-tests
+        continue-on-error: true
         run: |
           cd backend
           npm install
           npm test
         env:
-          # Environment variables for the test script
           DBHOST: ${{ secrets.DBHOST }}
           TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
           JWT_EXPIRES_IN: ${{ secrets.JWT_EXPIRES_IN }}
 
-  # Deploy both frontend and backend only if backend tests pass
-  deploy:
-    name: Deploy to Production
-    needs: [test] # This job depends on the backend tests passing
-    runs-on: ubuntu-latest # The type of machine to run the job on
+      # Set output variable to track test success
+      - name: Set test result
+        id: set-result
+        run: |
+          if [ "${{ steps.run-tests.outcome }}" == "success" ]; then
+            echo "tests_passed=true" >> $GITHUB_OUTPUT
+          else
+            echo "tests_passed=false" >> $GITHUB_OUTPUT
+          fi
 
-    # The steps that the job will run
+  # Deploy backend if backend changed AND tests passed
+  deploy-backend:
+    name: Deploy Backend
+    needs: [changes, test]
+    if: |
+      needs.changes.outputs.backend_changed == 'true' && 
+      needs.test.outputs.tests_passed == 'true'
+    runs-on: ubuntu-latest
     steps:
-      # Deploy backend to production
       - name: Deploy backend to production
         run: |
           curl -X POST "${{ secrets.BACKEND_DEPLOY_HOOK }}"
 
-      # Deploy frontend to production
+  # Deploy frontend if frontend changed AND no backend changes OR backend tests passed
+  deploy-frontend:
+    name: Deploy Frontend
+    needs: [changes, test]
+    if: |
+      needs.changes.outputs.frontend_changed == 'true' && 
+      (needs.changes.outputs.backend_changed == 'false' || needs.test.outputs.tests_passed == 'true')
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy frontend to production
         run: |
           curl -X POST "${{ secrets.FRONTEND_DEPLOY_HOOK }}"
