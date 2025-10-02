@@ -15,7 +15,7 @@ const allowedDomain = "slavic.media";
 router.post("/register", async (req: Request, res: Response) => {
   try {
     // Only allow registration in non-production environments
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV !== "production") {
       return res.status(403).json({
         error: "Registration is disabled in production environment",
       });
@@ -67,7 +67,7 @@ const seedAdmin = async () => {
   try {
     console.log("NODE_ENV:", process.env.NODE_ENV);
     console.log("Starting admin seeding process...");
-    
+
     const adminEmail = process.env.ADMIN_EMAIL;
     const adminPassword = process.env.ADMIN_PASSWORD;
     const adminName = process.env.ADMIN_NAME;
@@ -76,7 +76,7 @@ const seedAdmin = async () => {
     console.log("Admin variables available:", {
       email: !!adminEmail,
       password: !!adminPassword,
-      name: !!adminName
+      name: !!adminName,
     });
 
     if (!adminEmail || !adminPassword || !adminName) {

@@ -26,7 +26,7 @@ const allowedDomain = "slavic.media";
 router.post("/register", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Only allow registration in non-production environments
-        if (process.env.NODE_ENV === "production") {
+        if (process.env.NODE_ENV !== "production") {
             return res.status(403).json({
                 error: "Registration is disabled in production environment",
             });
@@ -80,7 +80,7 @@ const seedAdmin = () => __awaiter(void 0, void 0, void 0, function* () {
         console.log("Admin variables available:", {
             email: !!adminEmail,
             password: !!adminPassword,
-            name: !!adminName
+            name: !!adminName,
         });
         if (!adminEmail || !adminPassword || !adminName) {
             throw new Error("Admin credentials not provided in environment variables");
