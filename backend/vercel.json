@@ -20,5 +20,5 @@
   },
   "buildCommand": "npm run build",
   "devCommand": "npm run start-dev",
-  "framework": "node"
+  "framework": "express"
 }
