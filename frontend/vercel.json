@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "devCommand": "npm run dev",
+  "buildCommand": "npm run generate",
+  "devCommand": "nuxt dev",
   "outputDirectory": ".output/public",
   "framework": "nuxt",
   "env": {
