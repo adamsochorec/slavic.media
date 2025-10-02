@@ -34,12 +34,12 @@ jobs:
               - 'assets/**'
 
   # Run backend tests only if backend has changes
-  test:
+  test-backend:
     name: Backend tests
     needs: changes
+    # Run this job only if backend files were changed
     if: needs.changes.outputs.backend_changed == 'true'
     runs-on: ubuntu-latest
-
     outputs:
       tests_passed: ${{ steps.set-result.outputs.tests_passed }}
 
@@ -83,23 +83,40 @@ jobs:
   # Deploy backend if backend changed AND tests passed
   deploy-backend:
     name: Deploy Backend
-    needs: [changes, test]
+    needs: [changes, test-backend]
+    # Only run if backend files changed and backend tests passed
     if: |
       needs.changes.outputs.backend_changed == 'true' && 
-      needs.test.outputs.tests_passed == 'true'
+      needs.test-backend.outputs.tests_passed == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Deploy backend to production
         run: |
           curl -X POST "${{ secrets.BACKEND_DEPLOY_HOOK }}"
 
-  # Deploy frontend if frontend changed AND no backend changes OR backend tests passed
-  deploy-frontend:
-    name: Deploy Frontend
-    needs: [changes, test]
+  # Deploy frontend only (when no backend changes or backend tests passed)
+  deploy-frontend-only:
+    name: Deploy Frontend (No Backend Changes)
+    needs: [changes]
+    # Only run if frontend files changed and no backend files changed
     if: |
       needs.changes.outputs.frontend_changed == 'true' && 
-      (needs.changes.outputs.backend_changed == 'false' || needs.test.outputs.tests_passed == 'true')
+      needs.changes.outputs.backend_changed != 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy frontend to production
+        run: |
+          curl -X POST "${{ secrets.FRONTEND_DEPLOY_HOOK }}"
+
+  # Deploy frontend when backend also changed and tests passed
+  deploy-frontend-with-backend:
+    name: Deploy Frontend (With Backend Changes)
+    needs: [changes, test-backend]
+    # Only run if both frontend and backend changed, and backend tests passed
+    if: |
+      needs.changes.outputs.frontend_changed == 'true' && 
+      needs.changes.outputs.backend_changed == 'true' &&
+      needs.test-backend.outputs.tests_passed == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Deploy frontend to production
