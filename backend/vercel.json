@@ -4,11 +4,7 @@
   "framework": "express",
   "functions": {
     "api/index.js": {
-      "includeFiles": [
-        "dist/**",
-        "dist/openapi.yaml",
-        "node_modules/swagger-ui-dist/**"
-      ]
+      "includeFiles": "{dist/**,dist/openapi.yaml,node_modules/swagger-ui-dist/**}"
     }
   },
   "routes": [
