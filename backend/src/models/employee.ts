@@ -20,7 +20,7 @@ const EmployeeSchema = new Schema({
   department: { type: String, required: true, maxlength: 100 },
   description: { type: String, required: true, maxlength: 500 },
   flag: { type: String, required: true, maxlength: 50 },
-  email: { type: String, maxlength: 100 },
+  email: { type: String, required: false, maxlength: 100 },
   birthday: { type: Date, required: true },
   linkedin: { type: String, maxlength: 100 },
   github: { type: String, maxlength: 100 },
