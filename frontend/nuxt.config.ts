@@ -17,14 +17,15 @@ export default defineNuxtConfig({
     renderer: {
       anchorLinks: { h2: false, h3: false, h4: false, h5: false, h6: false },
     },
-    preview: {
-      api: "https://api.nuxt.studio",
-      gitInfo: {
-        name: "slavic.media",
-        owner: "adamsochorec",
-        url: "https://github.com/adamsochorec/slavic.media",
-      },
-    },
+    // Preview disabled for static generation
+    // preview: {
+    //   api: "https://api.nuxt.studio",
+    //   gitInfo: {
+    //     name: "slavic.media",
+    //     owner: "adamsochorec",
+    //     url: "https://github.com/adamsochorec/slavic.media",
+    //   },
+    // },
   },
   css: ["/assets/css/main.css", "primeicons/primeicons.css"],
   postcss: {
