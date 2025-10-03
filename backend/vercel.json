@@ -1,32 +1,28 @@
 {
-  "builds": [
-    {
-      "src": "dist/server.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": [
-          "dist/**",
-          "node_modules/swagger-ui-dist/**",
-          "swagger.json"
-        ]
-      }
-    }
-  ],
-  "git": {
-    "deploymentEnabled": {
-      "main": false
+  "buildCommand": "npm run build",
+  "devCommand": "npm run start-dev",
+  "framework": "express",
+  "functions": {
+    "api/index.js": {
+      "includeFiles": [
+        "dist/**",
+        "dist/openapi.yaml",
+        "node_modules/swagger-ui-dist/**"
+      ]
     }
   },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/server.js"
+      "dest": "api/index.js"
     }
   ],
   "env": {
     "NODE_ENV": "production"
   },
-  "buildCommand": "npm run build",
-  "devCommand": "npm run start-dev",
-  "framework": "express"
+  "git": {
+    "deploymentEnabled": {
+      "main": false
+    }
+  }
 }

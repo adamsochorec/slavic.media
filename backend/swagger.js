@@ -8,10 +8,10 @@ const doc = {
   info: {
     title: "Slavic Media API",
     description: "MongoDB-ExpressJS-NodeJS Restful API",
-    version: "1.0.0"
+    version: "1.0.0",
   },
-  host: isProduction 
-    ? "apislavic-media-git-main-adamsochorecs-projects.vercel.app" 
+  host: isProduction
+    ? "apislavic-media-git-main-adamsochorecs-projects.vercel.app"
     : "localhost:4000",
   schemes: isProduction ? ["https"] : ["http"],
   securityDefinitions: {
@@ -19,8 +19,8 @@ const doc = {
       type: "apiKey",
       in: "header",
       name: "Authorization",
-      description: "Authentication token (Bearer)"
-    }
+      description: "Authentication token (Bearer)",
+    },
   },
 };
 
@@ -31,9 +31,12 @@ const endpointsFiles = [path.join(__dirname, "src", "app.ts")];
 // This allows us to use this script in the build process
 swaggerAutogen(outputFile, endpointsFiles, doc).then(() => {
   console.log("Swagger documentation generated");
-  
+
   // Only start server if not being called as part of build process
-  if (process.env.NODE_ENV !== 'production' && process.argv[1].includes('swagger.js')) {
+  if (
+    process.env.NODE_ENV !== "production" &&
+    process.argv[1].includes("swagger.js")
+  ) {
     try {
       require(path.join(__dirname, "dist", "server"));
     } catch (err) {
