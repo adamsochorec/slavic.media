@@ -4,7 +4,7 @@
   "description": "MongoDB-ExpressJS-NodeJS Restful API",
   "main": "dist/server.js",
   "scripts": {
-    "build": "tsc",
+    "build": "node swagger.js && tsc",
     "start": "npm run build && node dist/server.js",
     "dev": "tsc --watch",
     "start-dev": "npm run start-gendoc && node -r dotenv/config -r ts-node/register src/server.ts",

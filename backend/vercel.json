@@ -4,7 +4,11 @@
       "src": "dist/server.js",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["dist/**"]
+        "includeFiles": [
+          "dist/**",
+          "node_modules/swagger-ui-dist/**",
+          "swagger.json"
+        ]
       }
     }
   ],
