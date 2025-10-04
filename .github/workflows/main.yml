@@ -80,6 +80,26 @@ jobs:
             echo "tests_passed=false" >> $GITHUB_OUTPUT
           fi
 
+  slack-notification:
+    name: Send notification to Dev channel
+    needs: [changes, test-backend]
+    if: |
+      needs.changes.outputs.backend_changed == 'true' && 
+      needs.test-backend.outputs.tests_passed == 'false'
+    runs-on: ubuntu-latest
+    steps:
+      - name: slack notify
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+          payload: |
+            {
+            "text": "${{ needs.test-backend.outputs.tests_passed == 'true' && ':white_check_mark: *Job Passed!* ✅' || ':x: *Job Failed!* ❌' }}\n\n*Logs:* <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Click here to view workflow logs>"
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        if: always()
+
   # Deploy backend if backend changed AND tests passed
   deploy-backend:
     name: Deploy Backend
