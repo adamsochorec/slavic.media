@@ -8,11 +8,6 @@
       }
     }
   ],
-  "functions": {
-    "dist/server.js": {
-      "includeFiles": "{dist/**,dist/openapi.yaml,node_modules/swagger-ui-dist/**}"
-    }
-  },
   "git": {
     "deploymentEnabled": {
       "main": false
