@@ -11,6 +11,7 @@ interface Employee extends Document {
   birthday: Date;
   linkedin: string;
   github: string;
+  imdb: string;
 }
 
 const EmployeeSchema = new Schema({
@@ -24,6 +25,7 @@ const EmployeeSchema = new Schema({
   birthday: { type: Date, required: true },
   linkedin: { type: String, maxlength: 100 },
   github: { type: String, maxlength: 100 },
+  imdb: { type: String, maxlength: 100 },
 });
 
 // Auto-increment index before saving a new document

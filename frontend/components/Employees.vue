@@ -192,6 +192,15 @@ onUnmounted(() => {
                 >
                   <i title="GitHub" class="pi pi-github"></i>
                 </a>
+                <a
+                  v-if="employee.github"
+                  :href="`https://imdb.com/name/${employee.imdb}`"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  :aria-label="`View ${employee.name}'s IMDb profile`"
+                >
+                  <img class="imdb" src="/imdb.svg" />
+                </a>
               </div>
             </span>
           </a>
@@ -274,10 +283,16 @@ img {
   border-radius: var(--border-radius-1);
 }
 .social-icons {
+  display: flex;
+  align-items: center;
   > * {
     margin-right: var(--grid-gap-1);
   }
-
+  .imdb {
+    height: 1rem;
+    width: 1rem;
+    border-radius: unset;
+  }
   a:nth-last-child(1) {
     margin-right: 0;
   }
