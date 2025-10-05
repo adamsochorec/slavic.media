@@ -193,7 +193,7 @@ onUnmounted(() => {
                   <i title="GitHub" class="pi pi-github"></i>
                 </a>
                 <a
-                  v-if="employee.github"
+                  v-if="employee.imdb"
                   :href="`https://imdb.com/name/${employee.imdb}`"
                   target="_blank"
                   rel="noopener noreferrer nofollow"
