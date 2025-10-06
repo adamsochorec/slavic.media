@@ -51,9 +51,10 @@ const EmployeeSchema = new mongoose_1.Schema({
     description: { type: String, required: true, maxlength: 500 },
     flag: { type: String, required: true, maxlength: 50 },
     birthday: { type: Date, required: true },
-    linkedin: { type: String, maxlength: 100 },
-    github: { type: String, maxlength: 100 },
-    imdb: { type: String, maxlength: 100 },
+    email: { type: String, required: false, maxlength: 100 },
+    linkedin: { type: String, required: false, maxlength: 100 },
+    github: { type: String, required: false, maxlength: 100 },
+    imdb: { type: String, required: false, maxlength: 100 },
 });
 // Auto-increment index before saving a new document
 EmployeeSchema.pre("save", function (next) {
