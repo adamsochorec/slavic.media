@@ -55,7 +55,7 @@ useSeoMeta({
             eye contact, and the right light that can raise your message above
             the noise.
           </p>
-          <Btn
+          <Button
             tag="button"
             label="Request a proposal"
             icon="arrow-right"
@@ -110,7 +110,7 @@ useSeoMeta({
           <hr class="semi" />
           <Reviews />
           <div class="flex-center reveal">
-            <Btn
+            <Button
               tag="a"
               icon="share-alt"
               label="Share Your Experience"
@@ -134,7 +134,7 @@ useSeoMeta({
       </h3>
       <latestArticle></latestArticle>
       <div class="flex-center">
-        <Btn
+        <Button
           tag="NuxtLink"
           icon="plus-circle"
           label="More reading"

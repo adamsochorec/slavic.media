@@ -48,7 +48,7 @@ defineProps({
       >
         {{ error?.statusMessage }}
       </h1>
-      <Btn
+      <Button
         tag="NuxtLink"
         icon="home"
         label="Return to the homepage"

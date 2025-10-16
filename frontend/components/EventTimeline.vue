@@ -76,7 +76,7 @@ const {
         </template>
       </PrimeTimeline>
       <div class="flex-center">
-        <Btn
+        <Button
           v-if="!allItemsShown"
           tag="button"
           label="Show more"
@@ -84,7 +84,7 @@ const {
           variant="secondary"
           @click="loadMore(events.length)"
         />
-        <Btn
+        <Button
           v-else
           label="Show less"
           tag="button"

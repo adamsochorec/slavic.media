@@ -208,7 +208,7 @@ onBeforeUnmount(() => {
           </div>
           <div class="grid-item reveal">
             <p>{{ gallery.description }}</p>
-            <Btn
+            <Button
               tag="button"
               label="Request a proposal"
               icon="arrow-right"

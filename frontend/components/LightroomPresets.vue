@@ -13,7 +13,7 @@
           <span class="gradient">Slavic Media’s</span>
           signature LUTs.
         </h3>
-        <Btn
+        <Button
           tag="a"
           icon="sparkles"
           href="https://store.slavic.media"

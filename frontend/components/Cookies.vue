@@ -135,7 +135,7 @@ onMounted(() => {
         >.
       </p>
       <div class="grid-container">
-        <Btn
+        <Button
           tag="button"
           label="Accept all"
           variant="primary"
@@ -143,7 +143,7 @@ onMounted(() => {
           @click="acceptCookies"
           :aria-pressed="consentGiven.toString()"
         />
-        <Btn
+        <Button
           tag="button"
           label="Reject"
           variant="secondary"
@@ -217,7 +217,8 @@ button {
 .slide-leave-active {
   -webkit-transition: -webkit-transform var(--transition-2);
   -o-transition: transform var(--transition-2);
-  transition: transform var(--transition-2),
+  transition:
+    transform var(--transition-2),
     -webkit-transform var(--transition-2);
 }
 .slide-enter-from,

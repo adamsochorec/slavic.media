@@ -82,7 +82,7 @@ const plugins = [lgVideo];
     </a>
   </lightgallery>
   <div class="flex-center" v-if="!pending && !error">
-    <Btn
+    <Button
       tag="button"
       v-if="!allItemsShown"
       label="Show more"
@@ -90,7 +90,7 @@ const plugins = [lgVideo];
       variant="secondary"
       @click="loadMore(videos.length)"
     />
-    <Btn
+    <Button
       tag="button"
       v-else
       label="Show less"

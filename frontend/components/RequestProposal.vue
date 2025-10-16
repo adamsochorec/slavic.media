@@ -162,7 +162,7 @@ async function handleSubmit(e: Event) {
               By submitting form you agree with our
               <NuxtLink to="/legal/privacy-policy">Privacy Policy</NuxtLink>.
             </p>
-            <Btn
+            <Button
               tag="button"
               label="Submit proposal"
               icon="arrow-right"
@@ -191,7 +191,7 @@ async function handleSubmit(e: Event) {
           />
           <h4 class="gradient">Success!</h4>
           <p>Our team will get back to you as soon as possible</p>
-          <Btn
+          <Button
             tag="button"
             icon="arrow-right"
             label="Keep exploring"

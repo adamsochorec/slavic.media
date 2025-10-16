@@ -51,7 +51,7 @@ const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(2, 4);
         </figure>
       </div>
       <div class="flex-center">
-        <Btn
+        <Button
           tag="button"
           v-if="!allItemsShown"
           label="Show more"
@@ -59,7 +59,7 @@ const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(2, 4);
           variant="secondary"
           @click="loadMore(filteredDocuments.length)"
         />
-        <Btn
+        <Button
           tag="button"
           v-else
           label="Show less"

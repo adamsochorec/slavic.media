@@ -73,7 +73,7 @@ const services = [
             crafted to captivate, impress, and showcase your vision with
             creative precision.
           </p>
-          <Btn
+          <Button
             tag="button"
             label="Request a proposal"
             icon="arrow-right"
@@ -102,7 +102,7 @@ const services = [
               unlock its full potential, delivering rich, vibrant colours across
               the depth spectrum and natural skin tones.
             </p>
-            <Btn
+            <Button
               tag="button"
               label="Request a proposal"
               icon="arrow-right"
@@ -129,7 +129,7 @@ const services = [
             Social media reels that capture your brand’s essence—engaging,
             genuine, and designed to resonate with your audience.
           </p>
-          <Btn
+          <Button
             tag="button"
             label="Request a proposal"
             icon="arrow-right"
@@ -156,7 +156,7 @@ const services = [
             shooting), foley (reproduced sounds), Walla (crowd noises), SFX
             (sound effects), Music
           </p>
-          <Btn
+          <Button
             tag="button"
             label="Request a proposal"
             icon="arrow-right"

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-interface Btn {
+interface Button {
   label?: string;
   icon?: string;
   variant?: "primary" | "secondary";
@@ -10,7 +10,7 @@ interface Btn {
   target?: "_blank" | "_self" | "_parent" | "_top";
 }
 
-const props = defineProps<Btn>();
+const props = defineProps<Button>();
 const emit = defineEmits(["click"]);
 </script>
 

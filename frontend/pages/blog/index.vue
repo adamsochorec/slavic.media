@@ -60,7 +60,7 @@ const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(6, 6);
         </div>
       </section>
       <div class="flex-center">
-        <Btn
+        <Button
           tag="button"
           v-if="!allItemsShown"
           label="Show more"
@@ -68,7 +68,7 @@ const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(6, 6);
           variant="secondary"
           @click="loadMore(documents.length)"
         />
-        <Btn
+        <Button
           tag="button"
           v-else
           label="Show less"

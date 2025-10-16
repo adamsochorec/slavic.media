@@ -62,14 +62,14 @@ async function submitForm(e: Event) {
         required
       />
       <input type="hidden" name="source" :value="source" />
-      <Btn
+      <Button
         tag="button"
         aria-labelledby="register"
         variant="secondary"
         type="submit"
         icon="envelope"
         :disabled="loading"
-        >register</Btn
+        >register</Button
       >
     </form>
     <p v-if="message" class="success">{{ message }}</p>
