@@ -1,12 +1,12 @@
 <script setup lang="ts">
-interface Label {
+interface Badge {
   icon?: string;
   label: string;
 }
-const props = defineProps<Label>();
+const props = defineProps<Badge>();
 </script>
 <template>
-  <figure class="chip">
+  <figure class="badge">
     <span>
       {{ label }}
     </span>
@@ -15,7 +15,7 @@ const props = defineProps<Label>();
 </template>
 
 <style scoped lang="postcss">
-.chip {
+.badge {
   font-size: var(--font-size-8);
   background-color: rgba(var(--dark-grey-color), 0.3);
   border-radius: var(--border-radius-2);

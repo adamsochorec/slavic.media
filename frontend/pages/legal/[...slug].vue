@@ -61,7 +61,7 @@ const { thumbnailUrl, fullImageUrl, updateImgSrc } = useProgressiveImg(
         >
           {{ document?.title }}
         </h1>
-        <Label icon="replay" :label="ddmmmyyyy(document.date)"></Label>
+        <Badge icon="replay" :label="ddmmmyyyy(document.date)"></Badge>
       </div>
     </section>
     <section

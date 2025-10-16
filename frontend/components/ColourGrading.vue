@@ -79,12 +79,12 @@ onUnmounted(() => {
       >
         <PrimeImageCompare aria-label="Compare Images">
           <template #left>
-            <Label :label="slide.log" class="note"></Label>
-            <Label
+            <Badge :label="slide.log" class="note"></Badge>
+            <Badge
               label="Colour Graded"
               class="note"
               style="left: var(--grid-gap-1)"
-            ></Label>
+            ></Badge>
 
             <img
               :src="`https://cdn.slavic.media/img/${slide._id}-2/thumbnail`"

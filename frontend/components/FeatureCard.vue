@@ -41,7 +41,7 @@ onMounted(() => {
           </h2>
           <p>{{ description }}.</p>
         </div>
-        <Label icon="arrow-right" label="Learn more" />
+        <Badge icon="arrow-right" label="Learn more" />
       </div>
     </figure>
   </NuxtLink>
