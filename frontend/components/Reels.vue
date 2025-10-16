@@ -126,7 +126,7 @@ onUnmounted(() => {
     ></div>
 
     <div v-else aria-busy="true">
-      <SkeletonSwiper />
+      <PrimeSkeletonSwiper />
     </div>
   </section>
 </template>

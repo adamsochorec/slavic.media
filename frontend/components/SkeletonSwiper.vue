@@ -1,108 +1,108 @@
 <template>
   <div class="grid-container skeleton" aria-busy="true" aria-live="polite">
     <figure>
-      <Skeleton
+      <PrimeSkeleton
         style="background-color: rgb(var(--dark-grey-color))"
         borderRadius="10px"
         class="mb-2"
         width="100%"
         height="150px"
         aria-hidden="true"
-      ></Skeleton>
-      <Skeleton
+      ></PrimeSkeleton>
+      <PrimeSkeleton
         style="background-color: rgb(var(--dark-grey-color))"
         width="100%"
         height="10px"
         borderRadius="10px"
         class="mb-2"
         aria-hidden="true"
-      ></Skeleton>
-      <Skeleton
+      ></PrimeSkeleton>
+      <PrimeSkeleton
         style="background-color: rgb(var(--dark-grey-color))"
         width="70%"
         height="10px"
         class="mb-2"
         borderRadius="10px"
         aria-hidden="true"
-      ></Skeleton>
+      ></PrimeSkeleton>
     </figure>
     <figure class="second">
-      <Skeleton
+      <PrimeSkeleton
         style="background-color: rgb(var(--dark-grey-color))"
         borderRadius="10px"
         class="mb-2"
         width="100%"
         height="150px"
         aria-hidden="true"
-      ></Skeleton>
-      <Skeleton
+      ></PrimeSkeleton>
+      <PrimeSkeleton
         style="background-color: rgb(var(--dark-grey-color))"
         width="100%"
         height="10px"
         borderRadius="10px"
         class="mb-2"
         aria-hidden="true"
-      ></Skeleton>
-      <Skeleton
+      ></PrimeSkeleton>
+      <PrimeSkeleton
         style="background-color: rgb(var(--dark-grey-color))"
         width="70%"
         borderRadius="10px"
         height="10px"
         class="mb-2"
         aria-hidden="true"
-      ></Skeleton>
+      ></PrimeSkeleton>
     </figure>
     <figure class="third">
-      <Skeleton
+      <PrimeSkeleton
         style="background-color: rgb(var(--dark-grey-color))"
         borderRadius="10px"
         class="mb-2"
         width="100%"
         height="150px"
         aria-hidden="true"
-      ></Skeleton>
-      <Skeleton
+      ></PrimeSkeleton>
+      <PrimeSkeleton
         style="background-color: rgb(var(--dark-grey-color))"
         width="100%"
         height="10px"
         class="mb-2"
         borderRadius="10px"
         aria-hidden="true"
-      ></Skeleton>
-      <Skeleton
+      ></PrimeSkeleton>
+      <PrimeSkeleton
         style="background-color: rgb(var(--dark-grey-color))"
         width="70%"
         height="10px"
         class="mb-2"
         borderRadius="10px"
         aria-hidden="true"
-      ></Skeleton>
+      ></PrimeSkeleton>
     </figure>
     <figure class="fourth">
-      <Skeleton
+      <PrimeSkeleton
         style="background-color: rgb(var(--dark-grey-color))"
         borderRadius="10px"
         class="mb-2"
         width="100%"
         height="150px"
         aria-hidden="true"
-      ></Skeleton>
-      <Skeleton
+      ></PrimeSkeleton>
+      <PrimeSkeleton
         style="background-color: rgb(var(--dark-grey-color))"
         width="100%"
         borderRadius="10px"
         height="10px"
         class="mb-2"
         aria-hidden="true"
-      ></Skeleton>
-      <Skeleton
+      ></PrimeSkeleton>
+      <PrimeSkeleton
         style="background-color: rgb(var(--dark-grey-color))"
         width="70%"
         height="10px"
         borderRadius="10px"
         class="mb-2"
         aria-hidden="true"
-      ></Skeleton>
+      ></PrimeSkeleton>
     </figure>
   </div>
 </template>

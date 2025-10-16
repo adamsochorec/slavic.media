@@ -140,6 +140,11 @@ export default defineNuxtConfig({
     },
   },
   primevue: {
+    autoImport: false,
+    components: {
+      prefix: "Prime",
+      include: ["Timeline", "ImageCompare", "Tooltip", "Skeleton"],
+    },
     options: {
       ripple: false,
       theme: {

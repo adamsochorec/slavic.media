@@ -25,26 +25,26 @@ const {
       <ul v-for="n in 4" :key="n" style="list-style: none" class="m-0">
         <li class="mb-3">
           <div class="flex">
-            <Skeleton
+            <PrimeSkeleton
               shape="circle"
               size="4rem"
               class="mr-2"
               style="background-color: rgb(var(--dark-grey-color))"
-            ></Skeleton>
+            ></PrimeSkeleton>
             <div class="self-center" style="flex: 1">
-              <Skeleton
+              <PrimeSkeleton
                 style="background-color: rgb(var(--dark-grey-color))"
                 width="100%"
                 borderRadius="10px"
                 class="mb-2"
                 height="10px"
-              ></Skeleton>
-              <Skeleton
+              ></PrimeSkeleton>
+              <PrimeSkeleton
                 style="background-color: rgb(var(--dark-grey-color))"
                 width="75%"
                 height="10px"
                 borderRadius="10px"
-              ></Skeleton>
+              ></PrimeSkeleton>
             </div>
           </div>
         </li>
@@ -53,7 +53,7 @@ const {
     <!-- SKELETON END -->
     <!-- COMPANY TIMELINE START -->
     <div v-else>
-      <Timeline
+      <PrimeTimeline
         align="alternate"
         :value="events.slice(0, itemsToShow)"
         aria-busy="false"
@@ -74,7 +74,7 @@ const {
             </p>
           </div>
         </template>
-      </Timeline>
+      </PrimeTimeline>
       <div class="flex-center">
         <Btn
           v-if="!allItemsShown"

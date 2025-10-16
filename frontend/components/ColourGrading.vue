@@ -77,7 +77,7 @@ onUnmounted(() => {
         v-for="(slide, index) in slides"
         :key="index"
       >
-        <ImageCompare aria-label="Compare Images">
+        <PrimeImageCompare aria-label="Compare Images">
           <template #left>
             <Label :label="slide.log" class="note"></Label>
             <Label
@@ -105,12 +105,12 @@ onUnmounted(() => {
               @load="updateImageSrc"
             />
           </template>
-        </ImageCompare>
+        </PrimeImageCompare>
       </figure>
     </div>
     <div class="swiper-pagination" aria-busy="false"></div>
   </section>
-  <SkeletonServices v-else />
+  <PrimeSkeletonServices v-else />
 </template>
 
 <style scoped>
