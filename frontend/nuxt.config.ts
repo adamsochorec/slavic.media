@@ -143,7 +143,7 @@ export default defineNuxtConfig({
     autoImport: false,
     components: {
       prefix: "Prime",
-      include: ["Timeline", "ImageCompare", "Tooltip", "Skeleton"],
+      include: ["Tooltip", "Skeleton"],
     },
     options: {
       ripple: false,

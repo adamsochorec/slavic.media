@@ -2,6 +2,7 @@
 import { ref, onMounted } from "vue";
 import { mmmyyyy } from "@/composables/useDateFormat";
 import { useLoadMore } from "@/composables/useLoadMore";
+import PrimeTimeline from "primevue/timeline";
 
 // LOAD MORE START
 const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(6, 6);

@@ -3,6 +3,7 @@ import { ref, onMounted, onUnmounted, nextTick } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import { useArrowNavigation } from "@/composables/useArrowNavigation";
+import PrimeImageCompare from "primevue/imagecompare";
 
 // Fetch documents
 const {
@@ -110,7 +111,7 @@ onUnmounted(() => {
     </div>
     <div class="swiper-pagination" aria-busy="false"></div>
   </section>
-  <PrimeSkeletonServices v-else />
+  <SkeletonServices v-else />
 </template>
 
 <style scoped>
