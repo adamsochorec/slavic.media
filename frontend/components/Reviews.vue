@@ -162,7 +162,7 @@ onUnmounted(() => {
       v-if="!pending && !error"
       aria-busy="false"
     ></div>
-    <PrimeSkeletonSwiper v-else aria-busy="true" />
+    <SkeletonSwiper v-else aria-busy="true" />
   </section>
 </template>
 <style scoped lang="postcss">

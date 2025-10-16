@@ -99,7 +99,7 @@ const plugins = [lgVideo];
       @click="loadLess"
     />
   </div>
-  <PrimeSkeletonSwiper v-else aria-busy="true" />
+  <SkeletonSwiper v-else aria-busy="true" />
 </template>
 
 <style lang="postcss" scoped>

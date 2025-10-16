@@ -288,7 +288,7 @@ onBeforeUnmount(() => {
 
     <!-- SKELETON START -->
     <div class="wrapper-wide" v-else aria-busy="true" aria-live="polite">
-      <PrimeSkeletonServices />
+      <SkeletonServices />
     </div>
     <!-- SKELETON END -->
   </main>
