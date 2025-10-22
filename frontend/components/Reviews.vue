@@ -174,7 +174,7 @@ onUnmounted(() => {
     padding: var(--grid-gap-1);
     width: var(--dimension-2);
     border-radius: var(--border-radius-1);
-    background-color: rgb(var(--dark-grey-color));
+    background-color: oklch(var(--dark-grey-color));
     box-shadow: var(--box-shadow-1);
   }
 
@@ -185,7 +185,7 @@ onUnmounted(() => {
 
   .quotes {
     font-size: 32px;
-    color: white;
+    color: oklch(1 0 0);
     padding: 0;
     margin: 0;
   }

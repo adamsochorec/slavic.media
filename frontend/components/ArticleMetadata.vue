@@ -109,7 +109,7 @@ onMounted(() => {
   padding-bottom: var(--grid-gap-1);
   border-bottom: var(--border-1);
   font-size: var(--font-size-7);
-  color: white;
+  color: oklch(1 0 0);
 
   align-items: center;
 

@@ -261,14 +261,14 @@ header .container {
 header a,
 span.menuitem {
   text-decoration: none;
-  color: white;
+  color: oklch(1 0 0);
 }
 
 header a :focus,
 header a:hover,
 span.menuitem:focus,
 span.menuitem:hover {
-  color: white;
+  color: oklch(1 0 0);
 }
 .menu-left a:not(.menu-left ul a),
 span.menuitem {
@@ -281,7 +281,7 @@ span.menuitem {
 }
 .menu-left a:hover,
 .menuitem:hover {
-  background-color: rgba(var(--primary-color), 0.4);
+  background-color: oklch(var(--primary-color) / 40%);
 }
 .menu-left a,
 .menu-left a:hover,
@@ -427,7 +427,7 @@ ul.menu-left.collapse {
   height: 2px;
   border-radius: var(--border-radius-2);
   width: 100%;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: oklch(1 0 0);
   -webkit-transition: all 0.25s;
   -o-transition: all 0.25s;
   transition: all 0.25s;
@@ -479,7 +479,7 @@ header.transparent {
     position: absolute;
     -webkit-box-shadow: var(--box-shadow-1);
     box-shadow: var(--box-shadow-1);
-    background-color: rgba(var(--dark-grey-color));
+    background-color: oklch(var(--dark-grey-color));
     border-radius: 0 0 var(--border-radius-1) var(--border-radius-1);
   }
 }
@@ -503,7 +503,7 @@ header.transparent {
     margin-left: 20px;
   }
   .dropdown {
-    border-left: 2px solid rgba(255, 255, 255, 0.3);
+    border-left: 2px solid oklch(1 0 0 / 30%);
   }
 }
 @media only screen and (min-width: 1020px) {

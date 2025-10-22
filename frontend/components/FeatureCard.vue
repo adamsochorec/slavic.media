@@ -50,7 +50,7 @@ onMounted(() => {
 .card {
   position: relative;
   border-radius: var(--border-radius-1);
-  background: #000;
+  background: oklch(0 0 0);
   cursor: pointer;
   aspect-ratio: 1/1;
   height: 100%;
@@ -113,6 +113,6 @@ p {
   margin: var(--grid-gap-1) 0;
 }
 .black .caption *:not(h2 .gradient) {
-  color: rgb(var(--grey-color));
+  color: oklch(var(--grey-color));
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <figure class="container">
     <PrimeSkeleton
-      style="background-color: rgb(var(--dark-grey-color))"
+      style="background-color: oklch(var(--dark-grey-color))"
       height="300px"
       borderRadius="10px"
       class="mb-6"
@@ -9,7 +9,7 @@
     ></PrimeSkeleton>
     <figure>
       <PrimeSkeleton
-        style="background-color: rgb(var(--dark-grey-color))"
+        style="background-color: oklch(var(--dark-grey-color))"
         height="15px"
         width="100%"
         borderRadius="10px"
@@ -17,7 +17,7 @@
         aria-hidden="true"
       ></PrimeSkeleton>
       <PrimeSkeleton
-        style="background-color: rgb(var(--dark-grey-color))"
+        style="background-color: oklch(var(--dark-grey-color))"
         height="15px"
         width="70%"
         borderRadius="10px"
@@ -25,7 +25,7 @@
         aria-hidden="true"
       ></PrimeSkeleton>
       <PrimeSkeleton
-        style="background-color: rgb(var(--dark-grey-color))"
+        style="background-color: oklch(var(--dark-grey-color))"
         height="10px"
         width="100%"
         borderRadius="10px"
@@ -33,7 +33,7 @@
         aria-hidden="true"
       ></PrimeSkeleton>
       <PrimeSkeleton
-        style="background-color: rgb(var(--dark-grey-color))"
+        style="background-color: oklch(var(--dark-grey-color))"
         height="10px"
         width="100%"
         borderRadius="10px"
@@ -41,7 +41,7 @@
         aria-hidden="true"
       ></PrimeSkeleton>
       <PrimeSkeleton
-        style="background-color: rgb(var(--dark-grey-color))"
+        style="background-color: oklch(var(--dark-grey-color))"
         height="10px"
         width="80%"
         borderRadius="10px"
@@ -50,13 +50,13 @@
       ></PrimeSkeleton>
       <div class="flex">
         <PrimeSkeleton
-          style="background-color: rgb(var(--dark-grey-color))"
+          style="background-color: oklch(var(--dark-grey-color))"
           shape="circle"
           size="2rem"
           class="mr-2"
         ></PrimeSkeleton>
         <PrimeSkeleton
-          style="background-color: rgb(var(--dark-grey-color))"
+          style="background-color: oklch(var(--dark-grey-color))"
           height="10px"
           width="50%"
           borderRadius="10px"

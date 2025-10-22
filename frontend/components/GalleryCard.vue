@@ -63,7 +63,7 @@ onMounted(() => {
   position: relative;
   max-width: calc(100vw - var(--homepage-padding) * 2);
   border-radius: var(--border-radius-1);
-  background: #000;
+  background: oklch(0 0 0);
   cursor: pointer;
   aspect-ratio: 2/1;
   width: 100%;
@@ -167,7 +167,7 @@ onMounted(() => {
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
-    color: white;
+    color: oklch(1 0 0);
   }
 
   span {
@@ -177,7 +177,7 @@ onMounted(() => {
   }
 
   #videoplay {
-    fill: #ffffff;
+    fill: oklch(1 0 0);
     vertical-align: baseline;
     height: var(--grid-gap-2);
   }

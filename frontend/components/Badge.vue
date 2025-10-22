@@ -17,13 +17,13 @@ const props = defineProps<Badge>();
 <style scoped lang="postcss">
 .badge {
   font-size: var(--font-size-8);
-  background-color: rgba(var(--dark-grey-color), 0.3);
+  background-color: oklch(var(--dark-grey-color) / 30%);
   border-radius: var(--border-radius-2);
   backdrop-filter: var(--blur-1);
   padding: 1px var(--grid-gap-1);
   width: fit-content;
   display: flex;
-  color: white;
+  color: oklch(1 0 0);
   align-items: center;
   justify-content: center;
   border: var(--border-1);

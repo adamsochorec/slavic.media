@@ -2,7 +2,7 @@
   <div class="grid-container skeleton" aria-busy="true" aria-live="polite">
     <figure>
       <PrimeSkeleton
-        style="background-color: rgb(var(--dark-grey-color))"
+        style="background-color: oklch(var(--dark-grey-color))"
         borderRadius="10px"
         class="mb-2"
         width="100%"
@@ -10,7 +10,7 @@
         aria-hidden="true"
       ></PrimeSkeleton>
       <PrimeSkeleton
-        style="background-color: rgb(var(--dark-grey-color))"
+        style="background-color: oklch(var(--dark-grey-color))"
         width="100%"
         height="10px"
         borderRadius="10px"
@@ -18,7 +18,7 @@
         aria-hidden="true"
       ></PrimeSkeleton>
       <PrimeSkeleton
-        style="background-color: rgb(var(--dark-grey-color))"
+        style="background-color: oklch(var(--dark-grey-color))"
         width="70%"
         height="10px"
         class="mb-2"
@@ -28,7 +28,7 @@
     </figure>
     <figure class="second">
       <PrimeSkeleton
-        style="background-color: rgb(var(--dark-grey-color))"
+        style="background-color: oklch(var(--dark-grey-color))"
         borderRadius="10px"
         class="mb-2"
         width="100%"
@@ -36,7 +36,7 @@
         aria-hidden="true"
       ></PrimeSkeleton>
       <PrimeSkeleton
-        style="background-color: rgb(var(--dark-grey-color))"
+        style="background-color: oklch(var(--dark-grey-color))"
         width="100%"
         height="10px"
         borderRadius="10px"
@@ -44,7 +44,7 @@
         aria-hidden="true"
       ></PrimeSkeleton>
       <PrimeSkeleton
-        style="background-color: rgb(var(--dark-grey-color))"
+        style="background-color: oklch(var(--dark-grey-color))"
         width="70%"
         borderRadius="10px"
         height="10px"
@@ -54,7 +54,7 @@
     </figure>
     <figure class="third">
       <PrimeSkeleton
-        style="background-color: rgb(var(--dark-grey-color))"
+        style="background-color: oklch(var(--dark-grey-color))"
         borderRadius="10px"
         class="mb-2"
         width="100%"
@@ -62,7 +62,7 @@
         aria-hidden="true"
       ></PrimeSkeleton>
       <PrimeSkeleton
-        style="background-color: rgb(var(--dark-grey-color))"
+        style="background-color: oklch(var(--dark-grey-color))"
         width="100%"
         height="10px"
         class="mb-2"
@@ -70,7 +70,7 @@
         aria-hidden="true"
       ></PrimeSkeleton>
       <PrimeSkeleton
-        style="background-color: rgb(var(--dark-grey-color))"
+        style="background-color: oklch(var(--dark-grey-color))"
         width="70%"
         height="10px"
         class="mb-2"
@@ -80,7 +80,7 @@
     </figure>
     <figure class="fourth">
       <PrimeSkeleton
-        style="background-color: rgb(var(--dark-grey-color))"
+        style="background-color: oklch(var(--dark-grey-color))"
         borderRadius="10px"
         class="mb-2"
         width="100%"
@@ -88,7 +88,7 @@
         aria-hidden="true"
       ></PrimeSkeleton>
       <PrimeSkeleton
-        style="background-color: rgb(var(--dark-grey-color))"
+        style="background-color: oklch(var(--dark-grey-color))"
         width="100%"
         borderRadius="10px"
         height="10px"
@@ -96,7 +96,7 @@
         aria-hidden="true"
       ></PrimeSkeleton>
       <PrimeSkeleton
-        style="background-color: rgb(var(--dark-grey-color))"
+        style="background-color: oklch(var(--dark-grey-color))"
         width="70%"
         height="10px"
         borderRadius="10px"

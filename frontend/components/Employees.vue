@@ -311,15 +311,15 @@ img {
     border-radius: unset;
 
     .st0 {
-      fill: rgb(--grey-color);
+      fill: oklch(--grey-color);
       fill-rule: evenodd;
     }
     .st1 {
-      fill: rgba(255, 255, 255, 1);
+      fill: oklch(1 0 0);
     }
   }
   svg.imdb:hover .st1 {
-    fill: rgb(var(--primary-color));
+    fill: oklch(var(--primary-color));
   }
 
   a:nth-last-child(1) {

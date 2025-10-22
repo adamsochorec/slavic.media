@@ -30,18 +30,18 @@ const {
               shape="circle"
               size="4rem"
               class="mr-2"
-              style="background-color: rgb(var(--dark-grey-color))"
+              style="background-color: oklch(var(--dark-grey-color))"
             ></PrimeSkeleton>
             <div class="self-center" style="flex: 1">
               <PrimeSkeleton
-                style="background-color: rgb(var(--dark-grey-color))"
+                style="background-color: oklch(var(--dark-grey-color))"
                 width="100%"
                 borderRadius="10px"
                 class="mb-2"
                 height="10px"
               ></PrimeSkeleton>
               <PrimeSkeleton
-                style="background-color: rgb(var(--dark-grey-color))"
+                style="background-color: oklch(var(--dark-grey-color))"
                 width="75%"
                 height="10px"
                 borderRadius="10px"

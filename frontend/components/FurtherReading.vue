@@ -83,7 +83,7 @@ a:hover {
   grid-gap: var(--grid-gap-3);
   height: auto;
   border-radius: var(--border-radius-1);
-  color: white;
+  color: oklch(1 0 0);
 
   .grid-item:nth-child(odd) {
     margin-right: var(--grid-gap-2);

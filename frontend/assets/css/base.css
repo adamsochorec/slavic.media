@@ -1,10 +1,10 @@
 :root {
-  --primary-color: 199, 30, 30;
-  --secondary-color: 17, 69, 126;
-  --grey-color: 40, 40, 40;
-  --dark-grey-color: 26, 26, 26;
-  --dark-grey-color-full: #0000004d;
-  --light-grey-color: 152, 152, 152;
+  --primary-color: 0.533 0.2017 27.59;
+  --secondary-color: 0.3903 0.1101 254.24;
+  --grey-color: 0.2768 0 0;
+  --dark-grey-color: 0.2178 0 0;
+  --dark-grey-color-full: oklch(0 0 0 / 30.2%);
+  --light-grey-color: 0.6797 0 0;
   --logo-font: "Raleway", sans-serif;
   --content-font: "SF Pro", sans-serif;
   --font-size-1: clamp(2em, 5vw, 3em);
@@ -17,14 +17,14 @@
   --font-size-8: 0.7em;
   --border-radius-1: 10px;
   --border-radius-2: 50px;
-  --border-1: 0.5px solid rgba(255, 255, 255, 0.4);
+  --border-1: 0.5px solid oklch(1 0 0 / 40%);
   --transition-1: all.1s ease-in-out;
   --transition-2:
     0.35s ease-in-out,
     -webkit-transform 0.5s cubic-bezier(0.694, 0.048, 0.335, 1);
   --nav-bar-top-position: 50px;
-  --box-shadow-1: 0px 0px 10px rgba(0, 0, 0, 0.25);
-  --box-shadow-2: 0 0 var(--grid-gap-3) rgba(var(--secondary-color), 1);
+  --box-shadow-1: 0px 0px 10px oklch(0 0 0 / 25%);
+  --box-shadow-2: 0 0 var(--grid-gap-3) oklch(var(--secondary-color));
   --homepage-padding: 50px;
   --blur-1: blur(35px);
   --cta-margin: 20px 0 0 0;

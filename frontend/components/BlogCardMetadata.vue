@@ -112,7 +112,7 @@ img {
   display: flex;
   align-items: center;
   line-height: 1.2;
-  color: white;
+  color: oklch(1 0 0);
   margin-top: var(--grid-gap-1);
 }
 .submetadata,

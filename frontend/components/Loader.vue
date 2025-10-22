@@ -27,10 +27,10 @@
 
 .loader {
   animation: submit-loader 1s ease infinite;
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  border-bottom-color: rgb(var(--primary-color));
+  border: 2px solid oklch(1 0 0 / 80%);
+  border-bottom-color: oklch(var(--primary-color));
   border-radius: 50%;
-  border-top-color: rgb(var(--primary-color));
+  border-top-color: oklch(var(--primary-color));
   height: 18.5px;
   pointer-events: none;
   width: 18.5px;

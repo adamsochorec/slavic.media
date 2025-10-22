@@ -214,7 +214,7 @@ async function handleSubmit(e: Event) {
 </template>
 <style scoped lang="postcss">
 .fancybox__content {
-  background: rgba(0, 0, 0, 0.3);
+  background: oklch(0 0 0 / 30%);
   border-radius: var(--border-radius-1);
   border: var(--border-1);
   z-index: 9999999;

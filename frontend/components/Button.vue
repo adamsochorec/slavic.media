@@ -55,9 +55,9 @@ const emit = defineEmits(["click"]);
 <style lang="postcss">
 .cta {
   line-height: var(--grid-gap-2);
-  background-color: rgba(var(--secondary-color), 1);
+  background-color: oklch(var(--secondary-color));
   padding: var(--grid-gap-1) var(--grid-gap-2);
-  color: white;
+  color: oklch(1 0 0);
   border-radius: var(--border-radius-2);
   margin-top: var(--grid-gap-2) !important;
   max-width: fit-content;
@@ -68,7 +68,7 @@ const emit = defineEmits(["click"]);
   font-style: normal;
   box-shadow: var(--box-shadow-1);
   white-space: nowrap;
-  border: 2px solid rgba(var(--secondary-color), 1);
+  border: 2px solid oklch(var(--secondary-color));
   cursor: pointer;
   text-align: center;
   display: flex;
@@ -78,8 +78,8 @@ const emit = defineEmits(["click"]);
   transition: var(--transition-1);
 
   &:hover {
-    background-color: rgba(var(--secondary-color), 0.8);
-    border: 2px solid rgba(var(--secondary-color), 0.1);
+    background-color: oklch(var(--secondary-color) / 80%);
+    border: 2px solid oklch(var(--secondary-color) / 10%);
     text-decoration: none !important;
   }
 }
@@ -88,7 +88,7 @@ const emit = defineEmits(["click"]);
   background-color: transparent;
 
   &:hover {
-    background-color: rgba(var(--secondary-color), 0.8);
+    background-color: oklch(var(--secondary-color) / 80%);
   }
 }
 </style>

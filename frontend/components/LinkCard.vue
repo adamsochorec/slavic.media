@@ -36,9 +36,9 @@ h3 {
   font-size: var(--font-size-7);
 }
 .icon {
-  background: rgb(var(--grey-color));
+  background: oklch(var(--grey-color));
   padding: 10px;
-  border: 0.5px solid rgba(255, 255, 255, 0.4);
+  border: 0.5px solid oklch(1 0 0 / 40%);
   border-radius: var(--border-radius-2);
 }
 </style>

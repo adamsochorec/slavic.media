@@ -191,7 +191,7 @@ onMounted(() => {
   align-items: center;
   font-size: var(--font-size-4);
   font-family: var(--logo-font);
-  color: white;
+  color: oklch(1 0 0);
 }
 .info {
   margin: var(--grid-gap-1) 0;

@@ -82,7 +82,7 @@ async function submitForm(e: Event) {
   color: green;
 }
 .error {
-  color: rgb(var(--primary-color));
+  color: oklch(var(--primary-color));
 }
 .success,
 .error {

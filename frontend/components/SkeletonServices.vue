@@ -1,21 +1,21 @@
 <template>
   <div class="flex justify-between" aria-busy="true" aria-live="polite">
     <PrimeSkeleton
-      style="background-color: rgb(var(--dark-grey-color))"
+      style="background-color: oklch(var(--dark-grey-color))"
       width="24%"
       height="200px"
       borderRadius="10px"
       aria-hidden="true"
     ></PrimeSkeleton>
     <PrimeSkeleton
-      style="background-color: rgb(var(--dark-grey-color))"
+      style="background-color: oklch(var(--dark-grey-color))"
       width="48%"
       borderRadius="10px"
       height="200px"
       aria-hidden="true"
     ></PrimeSkeleton>
     <PrimeSkeleton
-      style="background-color: rgb(var(--dark-grey-color))"
+      style="background-color: oklch(var(--dark-grey-color))"
       width="24%"
       borderRadius="10px"
       height="200px"
@@ -24,14 +24,14 @@
   </div>
   <div class="flex justify-between mt-4" aria-busy="true" aria-live="polite">
     <PrimeSkeleton
-      style="background-color: rgb(var(--dark-grey-color))"
+      style="background-color: oklch(var(--dark-grey-color))"
       width="49%"
       height="200px"
       borderRadius="10px"
       aria-hidden="true"
     ></PrimeSkeleton>
     <PrimeSkeleton
-      style="background-color: rgb(var(--dark-grey-color))"
+      style="background-color: oklch(var(--dark-grey-color))"
       width="49%"
       height="200px"
       borderRadius="10px"

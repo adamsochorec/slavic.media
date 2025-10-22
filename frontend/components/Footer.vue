@@ -79,15 +79,15 @@ const currentYear = new Date().getFullYear();
             <g filter="url(#filter0_d_29_674)">
               <path
                 d="M728.169 771.315C677.925 751.777 624.688 741.85 571.208 741.85C545.246 741.85 519.187 744.185 493.396 748.906L492.399 749.1C492.399 749.1 513.786 677.031 499.747 629.707C473.225 540.362 240.253 390.919 240.253 390.919C240.253 390.919 93.9737 288.923 38.7417 222.158C-0.480371 174.712 11.8313 10.5483 11.8313 10.5483C62.0754 30.0864 115.312 40.0135 168.792 40.0135C194.754 40.0135 220.813 37.6777 246.604 32.9575L247.601 32.7628C247.601 32.7628 226.214 104.832 240.253 152.156C266.775 241.501 499.747 390.944 499.747 390.944C499.747 390.944 646.026 492.94 701.258 559.706C740.48 607.152 728.169 771.315 728.169 771.315Z"
-                fill="#C71E1E"
+                fill="oklch(0.533 0.2017 27.59)"
               />
               <path
                 d="M730 360.433V32.7388H375.007C375.007 32.7388 320.383 141.962 730 360.433Z"
-                fill="#C71E1E"
+                fill="oklch(0.533 0.2017 27.59)"
               />
               <path
                 d="M10.0015 421.406V749.1H364.995C364.995 749.1 419.619 639.877 10.0015 421.406Z"
-                fill="#C71E1E"
+                fill="oklch(0.533 0.2017 27.59)"
               />
             </g>
             <defs>
@@ -245,7 +245,7 @@ const currentYear = new Date().getFullYear();
 
 <style scoped lang="postcss">
 footer {
-  background-color: rgb(var(--dark-grey-color));
+  background-color: oklch(var(--dark-grey-color));
   padding: var(--grid-gap-3) 0;
   font-family: var(--content-font);
   font-size: var(--font-size-7);
@@ -296,7 +296,7 @@ footer {
   .copyright,
   .services li,
   .newsletter {
-    color: rgba(255, 255, 255, 0.4);
+    color: oklch(1 0 0 / 40%);
   }
   .cookie {
     display: inline-flex;
@@ -313,7 +313,7 @@ footer {
 
     b a,
     b {
-      color: white;
+      color: oklch(1 0 0);
       font-weight: 100;
     }
     ul {
@@ -325,18 +325,18 @@ footer {
   .social-icons *,
   .services a,
   .logo path {
-    color: rgba(255, 255, 255, 0.6);
-    fill: rgba(255, 255, 255, 0.6);
+    color: oklch(1 0 0 / 60%);
+    fill: oklch(1 0 0 / 60%);
     transition: var(--transition-1);
 
     &:hover {
-      color: white;
-      fill: white;
+      color: oklch(1 0 0);
+      fill: oklch(1 0 0);
       cursor: pointer;
     }
   }
   .logo:hover path {
-    fill: white;
+    fill: oklch(1 0 0);
   }
   .links > *,
   .social-icons *,
