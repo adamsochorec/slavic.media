@@ -114,13 +114,57 @@ jobs:
         run: |
           curl -X POST "${{ secrets.BACKEND_DEPLOY_HOOK }}"
 
-  # Deploy frontend only (when no backend changes or backend tests passed)
+  # Run frontend tests only if frontend has changes
+  test-frontend:
+    name: Frontend tests
+    needs: changes
+    # Run this job only if backend files were changed
+    if: needs.changes.outputs.frontend_changed == 'true'
+    runs-on: ubuntu-latest
+    outputs:
+      tests_passed: ${{ steps.set-result.outputs.tests_passed }}
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.JS ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: NPM install, build and test
+        id: run-tests
+        continue-on-error: true
+        run: |
+          cd frontend
+          npm install
+          npm test
+
+      # Set output variable to track test success
+      - name: Set test result
+        id: set-result
+        run: |
+          if [ "${{ steps.run-tests.outcome }}" == "success" ]; then
+            echo "tests_passed=true" >> $GITHUB_OUTPUT
+          else
+            echo "tests_passed=false" >> $GITHUB_OUTPUT
+          fi
+
+  # Deploy frontend only if tests passed (when no backend changes or backend tests passed)
   deploy-frontend-only:
     name: Deploy Frontend (No Backend Changes)
-    needs: [changes]
+    needs: [changes, test-frontend]
     # Only run if frontend files changed and no backend files changed
     if: |
       needs.changes.outputs.frontend_changed == 'true' && 
+      needs.test-frontend.outputs.tests_passed == 'true' &&
       needs.changes.outputs.backend_changed != 'true'
     runs-on: ubuntu-latest
     steps:
