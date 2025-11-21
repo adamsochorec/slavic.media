@@ -9,8 +9,7 @@
       />
       <div class="title reveal">
         <h3>
-          Emulate the classic 35mm and 120 film looks with
-          <span class="gradient">Slavic Media’s</span>
+          Emulate the classic <span class="gradient">35mm</span> and <span class="gradient">120 film</span> looks with our
           signature LUTs.
         </h3>
         <Button
@@ -28,7 +27,7 @@
       gradient="Presets"
       img="lightroom-presets-2"
       class="hide"
-      description="Emulate the classic 35mm and 120 film looks with Slavic Media’s signature LUTs"
+      description="Emulate the classic 35mm and 120 film looks with our signature LUTs"
     />
   </section>
 </template>
