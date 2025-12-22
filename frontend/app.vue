@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted, nextTick } from "vue";
-import { SpeedInsights } from "@vercel/speed-insights/nuxt";
 
 useHead({
   titleTemplate: (titleChunk) => {
@@ -80,7 +79,6 @@ onMounted(async () => {
     <NuxtPage />
     <hr class="semi bodyxfooter" role="separator" />
     <Footer />
-    <SpeedInsights />
   </div>
 </template>
 
