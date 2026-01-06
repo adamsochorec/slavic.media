@@ -10,8 +10,15 @@ const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const cors_1 = __importDefault(require("cors"));
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
-// Only use dotenv-flow in development, not in production (like Vercel)
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV === "test") {
+    require("dotenv-flow").config({ node_env: "test" });
+}
+else if (process.env.NODE_ENV === "production") {
+    // Production: use Vercel env vars, no .env file needed
+    // dotenv-flow is skipped
+}
+else {
+    // Development: default to .env.local
     require("dotenv-flow").config();
 }
 const app = (0, express_1.default)();
@@ -43,7 +50,7 @@ const newsletter_1 = __importDefault(require("./routes/newsletter"));
 // Connect to MongoDB
 mongoose_1.default.set("strictQuery", false);
 mongoose_1.default
-    .connect(process.env.DBHOST)
+    .connect(process.env.MONGODB_URI)
     .catch((error) => console.log("Error connecting to MongoDB:" + error));
 // Log successful MongoDB connection
 mongoose_1.default.connection.once("open", () => console.log("Connected successfully to MongoDB"));

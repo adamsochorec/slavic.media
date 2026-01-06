@@ -7,8 +7,13 @@ import cors from "cors";
 import path from "path";
 import fs from "fs";
 
-// Only use dotenv-flow in development, not in production (like Vercel)
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV === "test") {
+  require("dotenv-flow").config({ node_env: "test" });
+} else if (process.env.NODE_ENV === "production") {
+  // Production: use Vercel env vars, no .env file needed
+  // dotenv-flow is skipped
+} else {
+  // Development: default to .env.local
   require("dotenv-flow").config();
 }
 
@@ -53,7 +58,7 @@ import newsletterRoutes from "./routes/newsletter";
 // Connect to MongoDB
 mongoose.set("strictQuery", false);
 mongoose
-  .connect(process.env.DBHOST as string)
+  .connect(process.env.MONGODB_URI as string)
   .catch((error) => console.log("Error connecting to MongoDB:" + error));
 
 // Log successful MongoDB connection
