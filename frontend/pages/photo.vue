@@ -29,12 +29,15 @@ useSeoMeta(
   { priority: 1 }
 );
 
+// Access runtime config
+const config = useRuntimeConfig();
+
 // Fetch documents
 const {
   data: rawImgState,
   pending,
   error,
-} = await useFetch("https://api.slavic.media/img");
+} = await useFetch(`${config.public.API_URL}/img`);
 
 // Sort galleries by index
 const imgState = computed(() => rawImgState?.value || []);

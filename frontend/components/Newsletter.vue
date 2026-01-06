@@ -9,6 +9,9 @@ const error = ref("");
 const debug = ref("");
 const source = ref("");
 
+// Access runtime config
+const config = useRuntimeConfig();
+
 const emailSchema = z
   .string()
   .email({ message: "Please enter a valid email address." });
@@ -30,7 +33,7 @@ async function submitForm(e: Event) {
 
   loading.value = true;
   try {
-    const res = await fetch("https://api.slavic.media/newsletter", {
+    const res = await fetch(`${config.public.API_URL}/newsletter`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ _id: email.value, source: source.value }),

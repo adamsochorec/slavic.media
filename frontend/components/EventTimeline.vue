@@ -7,12 +7,15 @@ import PrimeTimeline from "primevue/timeline";
 // LOAD MORE START
 const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(6, 6);
 
+// Access runtime config
+const config = useRuntimeConfig();
+
 // Fetch and sort events by date (descending order)
 const {
   data: events,
   pending,
   error,
-} = await useFetch("https://api.slavic.media/event/");
+} = await useFetch(`${config.public.API_URL}/event/`);
 </script>
 
 <template>

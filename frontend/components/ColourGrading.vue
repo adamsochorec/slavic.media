@@ -5,12 +5,15 @@ import "swiper/swiper-bundle.css";
 import { useArrowNavigation } from "@/composables/useArrowNavigation";
 import PrimeImageCompare from "primevue/imagecompare";
 
+// Access runtime config
+const config = useRuntimeConfig();
+
 // Fetch documents
 const {
   data: slides,
   pending,
   error,
-} = await useFetch("https://api.slavic.media/slide");
+} = await useFetch(`${config.public.API_URL}/slide`);
 
 const updateImageSrc = (event: Event) => {
   const target = event.target as HTMLImageElement;

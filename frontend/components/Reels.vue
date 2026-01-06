@@ -5,12 +5,15 @@ import "swiper/swiper-bundle.css";
 import { useArrowNavigation } from "@/composables/useArrowNavigation";
 import { useSwiperAutoplay } from "@/composables/useSwiperAutoplay";
 
+// Access runtime config
+const config = useRuntimeConfig();
+
 // Fetch documents
 const {
   data: reels,
   pending,
   error,
-} = await useFetch("https://api.slavic.media/reel/");
+} = await useFetch(`${config.public.API_URL}/reel/`);
 
 let removeArrowNavigation: () => void;
 let removeSwiperAutoplay: () => void;

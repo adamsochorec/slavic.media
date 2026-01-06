@@ -8,12 +8,15 @@ import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
 import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css";
 import { useArrowNavigation } from "@/composables/useArrowNavigation";
 
+// Access runtime config
+const config = useRuntimeConfig();
+
 // Fetch documents
 const {
   data: employees,
   pending,
   error,
-} = await useFetch("https://api.slavic.media/employee");
+} = await useFetch(`${config.public.API_URL}/employee`);
 
 // Progressive IMG loading
 const checkIfAlreadyLoaded = (img: HTMLImageElement) => {

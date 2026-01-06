@@ -13,12 +13,15 @@ useHead({
   ],
 });
 
+// Access runtime config
+const config = useRuntimeConfig();
+
 // Fetch documents
 const {
   data: videos,
   pending,
   error,
-} = await useFetch("https://api.slavic.media/video");
+} = await useFetch(`${config.public.API_URL}/video`);
 
 // Load more functionality
 const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(4, 4);
