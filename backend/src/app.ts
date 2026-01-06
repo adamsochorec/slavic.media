@@ -10,13 +10,19 @@ import fs from "fs";
 if (process.env.NODE_ENV === "test") {
   require("dotenv-flow").config({ node_env: "test" });
 } else if (process.env.NODE_ENV === "production") {
-  // Production: use Vercel env vars, no .env file needed
-  // dotenv-flow is skipped
+  // Production: append database name to connection string if not present
+  if (process.env.MONGODB_URI && !process.env.MONGODB_URI.includes("/slavicmedia-")) {
+    process.env.MONGODB_URI = process.env.MONGODB_URI.replace(
+      "/?",
+      "/slavicmedia-prod?"
+    );
+  }
 } else {
   // Development: default to .env.local
   require("dotenv-flow").config();
 }
 
+// ...existing code...
 const app = express();
 
 // Serve static files with caching headers
