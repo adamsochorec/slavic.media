@@ -18,15 +18,16 @@ export default defineNuxtConfig({
     renderer: {
       anchorLinks: { h2: false, h3: false, h4: false, h5: false, h6: false },
     },
-    // Preview disabled for static generation
-    // preview: {
-    //   api: "https://api.nuxt.studio",
-    //   gitInfo: {
-    //     name: "slavic.media",
-    //     owner: "adamsochorec",
-    //     url: "https://github.com/adamsochorec/slavic.media",
-    //   },
-    // },
+  },
+  studio: {
+    repository: {
+      provider: "github",
+      owner: "adamsochorec",
+      repo: "slavic.media",
+      branch: "main",
+      rootDir: "frontend",
+      private: false,
+    },
   },
   css: ["/assets/css/main.css", "primeicons/primeicons.css"],
   postcss: {
@@ -60,6 +61,7 @@ export default defineNuxtConfig({
     "@nuxt/devtools",
     "@nuxtjs/mdc",
     "@nuxt/image",
+    "nuxt-studio",
   ],
   app: {
     baseURL: "/",
