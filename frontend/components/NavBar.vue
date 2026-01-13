@@ -16,7 +16,7 @@ interface MenuItem {
   subMenu?: SubMenuItem[];
 }
 const props = ref<MenuItem[]>([]);
-const isDevelopment = computed(() => process.dev);
+const isDevelopment = process.env.NODE_ENV === "development";
 const router = useRouter();
 const dropdowns = reactive<{ [key: string]: boolean }>({});
 const isMobile = ref(false);
