@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive, onMounted, computed } from "vue";
 import { useRouter } from "vue-router";
 
 interface SubMenuItem {
@@ -16,7 +16,7 @@ interface MenuItem {
   subMenu?: SubMenuItem[];
 }
 const props = ref<MenuItem[]>([]);
-
+const isDevelopment = computed(() => process.dev);
 const router = useRouter();
 const dropdowns = reactive<{ [key: string]: boolean }>({});
 const isMobile = ref(false);
@@ -144,13 +144,14 @@ function header() {
   <header class="logo-font">
     <div class="container">
       <nav id="navigation" role="navigation" aria-label="Main Navigation">
-        <NuxtLink to="/" aria-label="Home">
+        <NuxtLink to="/" aria-label="Home" class="logo-link">
           <img
             class="logo"
             alt="Logo Slavic Media"
             loading="eager"
             src="/Primary-1.svg"
           />
+          <Badge v-if="isDevelopment" icon="code" label="DEV" />
         </NuxtLink>
         <button
           aria-label="Open mobile menu"
@@ -263,7 +264,6 @@ span.menuitem {
   text-decoration: none;
   color: oklch(1 0 0);
 }
-
 header a :focus,
 header a:hover,
 span.menuitem:focus,
@@ -433,7 +433,6 @@ ul.menu-left.collapse {
   transition: all 0.25s;
   margin-top: 4px;
 }
-
 header.transparent {
   backdrop-filter: none; /* Standard syntax */
   -webkit-backdrop-filter: none; /* Chrome, Safari, Opera */
@@ -443,7 +442,6 @@ header.transparent {
   box-shadow: none;
   background-color: transparent;
 }
-
 /* HAMBURGER MENU END */
 @media only screen and (min-width: 538px) {
   header nav ul li a {
@@ -475,6 +473,16 @@ header.transparent {
   header .hamburger {
     display: none !important;
   }
+  header nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: var(--grid-gap-3);
+  }
+
   .dropdown {
     position: absolute;
     -webkit-box-shadow: var(--box-shadow-1);
@@ -504,6 +512,9 @@ header.transparent {
   }
   .dropdown {
     border-left: 2px solid oklch(1 0 0 / 30%);
+  }
+  .logo-link .badge {
+    display: none;
   }
 }
 @media only screen and (min-width: 1020px) {
