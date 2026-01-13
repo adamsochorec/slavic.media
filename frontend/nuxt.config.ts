@@ -8,6 +8,8 @@ export default defineNuxtConfig({
       CHATWAY: process.env.CHATWAY,
       GOOGLE_ANALYTICS: process.env.GOOGLE_ANALYTICS,
       API_URL: process.env.API_URL,
+      STUDIO_GITHUB_CLIENT_ID: process.env.STUDIO_GITHUB_CLIENT_ID,
+      STUDIO_GITHUB_CLIENT_SECRET: process.env.STUDIO_GITHUB_CLIENT_SECRET
     },
   },
   sourcemap: {
