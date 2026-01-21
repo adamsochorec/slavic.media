@@ -3,11 +3,6 @@ import Aura from "@primeuix/themes/aura";
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-07",
   runtimeConfig: {
-    // Private - server only
-    studioGithubClientId: process.env.STUDIO_GITHUB_CLIENT_ID,
-    studioGithubClientSecret: process.env.STUDIO_GITHUB_CLIENT_SECRET,
-    studioGithubToken: process.env.STUDIO_GITHUB_TOKEN,
-    // Public - exposed to client
     public: {
       FORM: process.env.FORM,
       CHATWAY: process.env.CHATWAY,
@@ -53,6 +48,7 @@ export default defineNuxtConfig({
     writeEarlyHints: false,
     inlineSSRStyles: false,
     viewTransition: true,
+
   },
   debug: process.env.NODE_ENV === "development",
   modules: [
@@ -116,7 +112,6 @@ export default defineNuxtConfig({
   nitro: {
     compressPublicAssets: true,
     minify: true,
-     /* 
      output: {
       serverDir: ".output/server",
     },
@@ -145,7 +140,7 @@ export default defineNuxtConfig({
           "Permissions-Policy": "geolocation=(), microphone=(), camera=()",
         },
       },
-    }, */
+    }, 
   },
   primevue: {
     autoImport: false,
