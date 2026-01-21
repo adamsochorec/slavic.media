@@ -47,8 +47,6 @@ export default defineNuxtConfig({
     wasm: false,
     writeEarlyHints: false,
     inlineSSRStyles: false,
-    viewTransition: true,
-
   },
   debug: process.env.NODE_ENV === "development",
   modules: [
@@ -80,7 +78,6 @@ export default defineNuxtConfig({
         lang: "en",
       },
     },
-    pageTransition: { name: "page", mode: "out-in" },
   },
   features: {
     inlineStyles: false,
