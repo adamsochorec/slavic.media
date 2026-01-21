@@ -3,13 +3,16 @@ import Aura from "@primeuix/themes/aura";
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-07",
   runtimeConfig: {
+    // Private - server only
+    studioGithubClientId: process.env.STUDIO_GITHUB_CLIENT_ID,
+    studioGithubClientSecret: process.env.STUDIO_GITHUB_CLIENT_SECRET,
+    studioGithubToken: process.env.STUDIO_GITHUB_TOKEN,
+    // Public - exposed to client
     public: {
       FORM: process.env.FORM,
       CHATWAY: process.env.CHATWAY,
       GOOGLE_ANALYTICS: process.env.GOOGLE_ANALYTICS,
       API_URL: process.env.API_URL,
-      STUDIO_GITHUB_CLIENT_ID: process.env.STUDIO_GITHUB_CLIENT_ID,
-      STUDIO_GITHUB_CLIENT_SECRET: process.env.STUDIO_GITHUB_CLIENT_SECRET
     },
   },
   sourcemap: {
@@ -17,13 +20,20 @@ export default defineNuxtConfig({
     client: true,
   },
     studio: {
+    auth: {
+      providers: {
+        github: {
+          clientId: process.env.STUDIO_GITHUB_CLIENT_ID,
+          clientSecret: process.env.STUDIO_GITHUB_CLIENT_SECRET,
+        },
+      },
+    },
     repository: {
       provider: "github",
       owner: "adamsochorec",
       repo: "slavic.media",
       branch: "main",
       rootDir: "frontend",
-      private: false,
     },
   },
   content: {
