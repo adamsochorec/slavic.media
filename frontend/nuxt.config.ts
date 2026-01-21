@@ -17,7 +17,6 @@ export default defineNuxtConfig({
     client: true,
   },
     studio: {
-    route: "/admin",
     repository: {
       provider: "github",
       owner: "adamsochorec",
