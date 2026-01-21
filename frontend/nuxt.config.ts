@@ -20,14 +20,6 @@ export default defineNuxtConfig({
     client: true,
   },
     studio: {
-    auth: {
-      providers: {
-        github: {
-          clientId: process.env.STUDIO_GITHUB_CLIENT_ID,
-          clientSecret: process.env.STUDIO_GITHUB_CLIENT_SECRET,
-        },
-      },
-    },
     repository: {
       provider: "github",
       owner: "adamsochorec",
@@ -124,10 +116,11 @@ export default defineNuxtConfig({
   nitro: {
     compressPublicAssets: true,
     minify: true,
-    output: {
+     /* 
+     output: {
       serverDir: ".output/server",
     },
-   /*  routeRules: {
+   routeRules: {
       "/**": {
         headers: {
           "Strict-Transport-Security":
