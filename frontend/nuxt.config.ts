@@ -43,12 +43,6 @@ export default defineNuxtConfig({
     },
   },
   ssr: true,
-  experimental: {
-    payloadExtraction: false,
-    wasm: false,
-    writeEarlyHints: false,
-    inlineSSRStyles: false,
-  },
   debug: process.env.NODE_ENV === "development",
   modules: [
     "nuxt-swiper",
@@ -109,10 +103,15 @@ export default defineNuxtConfig({
   nitro: {
     compressPublicAssets: true,
     minify: true,
-     output: {
+    prerender: {
+      crawlLinks: true,
+      failOnError: false,
+      routes: ["/sitemap.xml", "/robots.txt"],
+    },
+    output: {
       serverDir: ".output/server",
     },
-   routeRules: {
+    routeRules: {
       "/**": {
         headers: {
           "Strict-Transport-Security":
@@ -137,7 +136,7 @@ export default defineNuxtConfig({
           "Permissions-Policy": "geolocation=(), microphone=(), camera=()",
         },
       },
-    }, 
+    },
   },
   primevue: {
     autoImport: false,
