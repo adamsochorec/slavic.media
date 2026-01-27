@@ -1,18 +1,29 @@
 <script setup lang="ts">
-import { useVideoControlsVimeo } from "@/composables/useVideoControlsVimeo";
+import { useVideoControlsYouTube } from "@/composables/useVideoControlsYouTube";
 
 const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
-  useVideoControlsVimeo();
+  useVideoControlsYouTube();
 </script>
 
 <template>
   <section class="video-container">
     <iframe
       ref="iframeRef"
-      src="https://player.vimeo.com/video/1036355079?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;muted=1&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;app_id=58479"
-      frameborder="0"
-      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+      id="sound-edit"
+      src="https://www.youtube-nocookie.com/embed/eDV49Sz2lMI?mute=1&loop=1&playlist=eDV49Sz2lMI&autoplay=1"
       title="Sound Design"
+      frameborder="0"
+      allow="
+        accelerometer;
+        autoplay;
+        clipboard-write;
+        encrypted-media;
+        gyroscope;
+        picture-in-picture;
+        web-share;
+      "
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
     ></iframe>
     <section class="controls">
       <button
@@ -40,9 +51,11 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
   overflow: hidden;
 
   iframe {
-    width: 100%;
     height: 100%;
+    width: 100%;
     border: none;
+    border-radius: var(--border-radius-1);
+    aspect-ratio: 16/9;
   }
   .controls {
     bottom: var(--grid-gap-2);
