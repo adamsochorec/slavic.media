@@ -1,64 +1,36 @@
 <script setup lang="ts">
 import { useVideoControlsYouTube } from "@/composables/useVideoControlsYouTube";
 
-const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
-  useVideoControlsYouTube();
+const { iframeRef, state } = useVideoControlsYouTube();
 </script>
 
 <template>
-  <section class="video-container">
-    <iframe
-      ref="iframeRef"
-      id="sound-edit"
-      src="https://www.youtube-nocookie.com/embed/u3PwDCmAH_k?mute=1&loop=1&playlist=eDV49Sz2lMI&autoplay=1"
-      title="Sound Design"
-      frameborder="0"
-      allow="
-        accelerometer;
-        autoplay;
-        clipboard-write;
-        encrypted-media;
-        gyroscope;
-        picture-in-picture;
-        web-share;
-      "
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen
-    ></iframe>
-    <section class="controls">
-      <button
-        v-if="state.isPlaying"
-        class="pi pi-pause-circle play"
-        @click="pauseVideo"
-      ></button>
-      <button v-else class="pi pi-play-circle play" @click="playVideo"></button>
-      <button
-        v-if="state.isMuted"
-        class="pi pi-volume-off volume"
-        @click="unmuteVideo"
-      ></button>
-      <button v-else class="pi pi-volume-up volume" @click="muteVideo"></button>
-    </section>
-  </section>
+  <iframe
+    ref="iframeRef"
+    src="https://www.youtube-nocookie.com/embed/u3PwDCmAH_k?enablejsapi=1&mute=1&loop=1&playlist=u3PwDCmAH_k&autoplay=1"
+    title="Sound Design"
+    frameborder="0"
+    allow="
+      accelerometer;
+      autoplay;
+      clipboard-write;
+      encrypted-media;
+      gyroscope;
+      picture-in-picture;
+      web-share;
+    "
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
 </template>
 
 <style scoped lang="postcss">
-.video-container {
+iframe {
   position: relative;
   width: 100%;
   aspect-ratio: 16/9;
   border-radius: var(--border-radius-1);
   overflow: hidden;
-
-  iframe {
-    height: 100%;
-    width: 100%;
-    border: none;
-    border-radius: var(--border-radius-1);
-    aspect-ratio: 16/9;
-  }
-  .controls {
-    bottom: var(--grid-gap-2);
-  }
+  height: 100%;
 }
 </style>
