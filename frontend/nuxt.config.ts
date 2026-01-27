@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     server: true,
     client: true,
   },
+  /* ,
     studio: {
     repository: {
       provider: "github",
@@ -22,7 +23,7 @@ export default defineNuxtConfig({
       branch: "main",
       rootDir: "frontend",
     },
-  },
+  } */
   content: {
     renderer: {
       anchorLinks: { h2: false, h3: false, h4: false, h5: false, h6: false },
