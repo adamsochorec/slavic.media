@@ -33,6 +33,15 @@ const updateDimensions = (event: Event) => {
   emit("update:originalWidth", target.naturalWidth);
   emit("update:originalHeight", target.naturalHeight);
   updateImgSrc(event);
+
+  const linkElement = target.closest("a");
+  if (linkElement && target.naturalWidth && target.naturalHeight) {
+    linkElement.setAttribute("data-pswp-width", target.naturalWidth.toString());
+    linkElement.setAttribute(
+      "data-pswp-height",
+      target.naturalHeight.toString()
+    );
+  }
 };
 
 onMounted(() => {
@@ -41,17 +50,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <a
-    :href="fullImageUrl"
-    :title="title"
-    :data-pswp-width="originalWidth"
-    :data-pswp-height="originalHeight"
-  >
+  <a :href="fullImageUrl" :title="title">
     <img
       ref="imgRef"
       class="reveal"
       :src="thumbnailUrl"
-      :data-src="fullImageUrl"
+      :data-src="thumbnailUrl"
       :title="title"
       loading="lazy"
       :alt="alt"
