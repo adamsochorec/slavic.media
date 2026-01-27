@@ -114,11 +114,11 @@ export default defineNuxtConfig({
           // Fixed Content Security Policy
           "Content-Security-Policy": [
             "default-src 'self'",
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval' *.youtube.com *.vimeo.com *.google.com *.googleapis.com *.gstatic.com *.googletagmanager.com *.chatway.app cdn.chatway.app *.vimeocdn.com",
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' *.youtube.com *.vimeo.com *.google.com *.googleapis.com *.gstatic.com *.googletagmanager.com *.chatway.app cdn.chatway.app *.vimeocdn.com vercel.live",
             "style-src 'self' 'unsafe-inline' *.googleapis.com *.gstatic.com cdn.jsdelivr.net *.chatway.app",
             "img-src 'self' data: blob: *.slavic.media *.youtube.com *.vimeo.com *.google.com *.googleapis.com *.gstatic.com *.googleusercontent.com cdn.jsdelivr.net *.vimeocdn.com *.ytimg.com",
             "font-src 'self' data: *.googleapis.com *.gstatic.com cdn.jsdelivr.net",
-            "connect-src 'self' ws: wss: *.slavic.media *.youtube.com *.vimeo.com *.google.com *.googleapis.com *.googletagmanager.com *.chatway.app *.vimeocdn.com api.iconify.design localhost:*",
+            "connect-src 'self' ws: wss: *.slavic.media *.youtube.com *.youtube-nocookie.com *.vimeo.com *.google.com *.googleapis.com *.googletagmanager.com *.chatway.app *.vimeocdn.com api.iconify.design localhost:*",
             "frame-src 'self' *.youtube.com *.youtube-nocookie.com *.vimeo.com *.google.com sketchfab.com *.chatway.app open.spotify.com dronezoner.eu dronview.rlp.cz about:",
             "media-src 'self' *.slavic.media *.youtube.com *.vimeo.com *.vimeocdn.com",
             "frame-ancestors 'none'",
