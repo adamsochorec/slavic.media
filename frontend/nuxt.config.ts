@@ -93,6 +93,11 @@ export default defineNuxtConfig({
   nitro: {
     compressPublicAssets: true,
     minify: true,
+    prerender: {
+      crawlLinks: true,
+      failOnError: false,
+      routes: ["/sitemap.xml", "/robots.txt"],
+    },
     output: {
       serverDir: ".output/server",
     },
