@@ -74,6 +74,17 @@ const services = [
 
 let lightbox: PhotoSwipeLightbox | null = null;
 
+function updatePhotoSwipeData(): void {
+  // Update PhotoSwipe data attributes from actual image dimensions
+  document.querySelectorAll(".lightbox a").forEach((link) => {
+    const img = link.querySelector("img");
+    if (img && img.complete && img.naturalWidth) {
+      link.setAttribute("data-pswp-width", img.naturalWidth.toString());
+      link.setAttribute("data-pswp-height", img.naturalHeight.toString());
+    }
+  });
+}
+
 async function initializeLightbox(): Promise<void> {
   await nextTick();
 
