@@ -10,7 +10,7 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
     <iframe
       ref="iframeRef"
       id="sound-edit"
-      src="https://www.youtube-nocookie.com/embed/eDV49Sz2lMI?mute=1&loop=1&playlist=eDV49Sz2lMI&autoplay=1"
+      src="https://www.youtube-nocookie.com/embed/u3PwDCmAH_k?mute=1&loop=1&playlist=eDV49Sz2lMI&autoplay=1"
       title="Sound Design"
       frameborder="0"
       allow="
