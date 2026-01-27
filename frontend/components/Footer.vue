@@ -158,14 +158,6 @@ const currentYear = new Date().getFullYear();
         </div>
         <nav class="social-icons" aria-label="Follow us on social media">
           <a
-            href="https://vimeo.com/slavicmedia"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            aria-label="Vimeo"
-          >
-            <i class="pi pi-vimeo"></i>
-          </a>
-          <a
             href="https://linkedin.com/company/slavicmedia/"
             target="_blank"
             rel="noopener noreferrer nofollow"

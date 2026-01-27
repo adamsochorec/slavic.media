@@ -4,15 +4,6 @@ import Lightgallery from "lightgallery/vue";
 import lgVideo from "lightgallery/plugins/video";
 import { useLoadMore } from "@/composables/useLoadMore";
 
-useHead({
-  script: [
-    {
-      src: "https://player.vimeo.com/api/player.js",
-      async: true,
-    },
-  ],
-});
-
 // Access runtime config
 const config = useRuntimeConfig();
 
@@ -21,7 +12,10 @@ const {
   data: videos,
   pending,
   error,
-} = await useFetch(`${config.public.API_URL}/video`);
+} = await useFetch(`${config.public.API_URL}/video`, {
+  server: false,
+  immediate: true,
+});
 
 // Load more functionality
 const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(4, 4);
@@ -49,12 +43,7 @@ const plugins = [lgVideo];
         mute: 0,
         autoplay: 0,
       },
-      vimeoPlayerParams: {
-        muted: false,
-        autoplay: false,
-      },
     }"
-    :showVimeoThumbnails="true"
     hideScrollbar="true"
   >
     <a

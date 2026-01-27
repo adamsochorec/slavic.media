@@ -2,7 +2,6 @@
 import { useVideoControlsYouTube } from "@/composables/useVideoControlsYouTube";
 
 interface HeroVideo {
-  vimeo: string;
   youtube: string;
   title: string;
   start?: string;
@@ -23,7 +22,15 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
         }&loop=1&playlist=${youtube}`"
         :title="title"
         frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allow="
+          accelerometer;
+          autoplay;
+          clipboard-write;
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+          web-share;
+        "
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen
       ></iframe>
@@ -35,11 +42,11 @@ const { iframeRef, state, muteVideo, unmuteVideo, playVideo, pauseVideo } =
       class="link"
       target="_blank"
       rel="noopener noreferrer nofollow"
-      :href="`https://vimeo.com/${vimeo}`"
-      v-tooltip.left="{ value: 'Watch on Vimeo', autoHide: true }"
-      aria-label="Watch on Vimeo"
+      :href="`https://www.youtube.com/watch?v=${youtube}`"
+      v-tooltip.left="{ value: 'Watch on YouTube', autoHide: true }"
+      aria-label="Watch on Youtube"
     >
-      <i class="pi pi-vimeo"></i>
+      <i class="pi pi-youtube"></i>
     </a>
     <section class="controls">
       <button

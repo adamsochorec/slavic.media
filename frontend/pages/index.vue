@@ -26,12 +26,7 @@ useSeoMeta({
     <h1 class="visually-hidden">Slavic Media</h1>
     <!-- INTRO VIDEO START -->
     <ClientOnly>
-      <HeroVideo
-        youtube="W4jcCCpsXyo"
-        vimeo="1039054657"
-        title="Showreel 24'"
-        start="7"
-      />
+      <HeroVideo youtube="W4jcCCpsXyo" title="Showreel 24'" start="7" />
     </ClientOnly>
     <hr class="semi" role="separator" />
     <!-- INTRO VIDEO END -->

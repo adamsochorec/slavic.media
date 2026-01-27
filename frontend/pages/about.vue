@@ -25,11 +25,7 @@ useSeoMeta(
 <template>
   <main aria-labelledby="about-company">
     <ClientOnly>
-      <HeroVideo
-        youtube="UQCIQ8smKDM"
-        vimeo="1013776851"
-        title="Behind the Scenes"
-      />
+      <HeroVideo youtube="UQCIQ8smKDM" title="Behind the Scenes" />
     </ClientOnly>
     <hr class="semi" role="separator" />
     <!-- ABOUT START -->
