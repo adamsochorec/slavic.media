@@ -28,9 +28,6 @@ These cookies are essential for our services to work as intended. You may disabl
 | [**Cloudflare**](https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/) | Application security and content delivery network (CDN).                                                                     |
 | **\_\_cf\_bm**                                                                                                      | Bot manager manages incoming traffic that matches criteria associated with bots.                                             |
 | **\_cfuvid**                                                                                                        | Strictly necessary to support Cloudflare Rate Limiting products. Manages incoming traffic and visibility of request origins. |
-| [**Vimeo**](https://help.vimeo.com/hc/en-us/articles/26080940921361-Vimeo-Player-Cookies)                           | Provides video content delivery and analytics data.                                                                          |
-| **player**                                                                                                          | Stores preferences for player controls (i.e., volume, stream quality, captions).                                             |
-| **vuid**                                                                                                            | Vimeo-generated ID used for generating analytics information for the video owner.                                            |
 | [**Chatway**](https://chatway.app/privacy-policy)                                                                   | Communication between visitors and our team.                                                                                 |
 
 ## Non-essential Cookies
