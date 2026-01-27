@@ -36,5 +36,13 @@ Your audience wants to feel what your destination offers. Authenticity is everyt
 :br
 PS: Yes, I joined the snowball fight too! 😄
 
-
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eDV49Sz2lMI" title="Finnish Lapland | Timetravels" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+::YoutubeVideo
+---
+id: eDV49Sz2lMI
+title: Finnish Lapland | Timetravels
+controls: true
+loop: false
+autoplay: false
+muted: false
+---
+::
