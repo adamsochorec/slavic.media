@@ -14,15 +14,6 @@ export default defineNuxtConfig({
     server: true,
     client: true,
   },
-    studio: {
-    repository: {
-      provider: "github",
-      owner: "adamsochorec",
-      repo: "slavic.media",
-      branch: "main",
-      rootDir: "frontend",
-    },
-  },
   content: {
     renderer: {
       anchorLinks: { h2: false, h3: false, h4: false, h5: false, h6: false },
@@ -59,7 +50,6 @@ export default defineNuxtConfig({
     "@nuxt/devtools",
     "@nuxtjs/mdc",
     "@nuxt/image",
-    "nuxt-studio",
   ],
   app: {
     baseURL: "/",
