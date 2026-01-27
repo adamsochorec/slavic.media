@@ -542,11 +542,6 @@ img {
   height: 100%;
   width: 100%;
 }
-lite-vimeo {
-  border-radius: var(--border-radius-1);
-  aspect-ratio: 16/9;
-  width: 100%;
-}
 small a {
   color: oklch(1 0 0) !important;
 }
