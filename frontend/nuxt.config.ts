@@ -101,7 +101,7 @@ export default defineNuxtConfig({
     output: {
       serverDir: ".output/server",
     },
-    /* routeRules: {
+    routeRules: {
       "/**": {
         headers: {
           "Strict-Transport-Security":
@@ -126,7 +126,7 @@ export default defineNuxtConfig({
           "Permissions-Policy": "geolocation=(), microphone=(), camera=()",
         },
       },
-    }, */
+    },
   },
   primevue: {
     autoImport: false,
