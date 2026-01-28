@@ -23,7 +23,15 @@ flag: dk
 
 At some point, Marcel and I decided to bike from [Flensburg](https://en.wikipedia.org/wiki/Flensburg) in Germany to [Skagen](https://en.wikipedia.org/wiki/Skagen) in Denmark along the [Jutland](https://en.wikipedia.org/wiki/Jutland) peninsula's west coast. It was an unforgettable journey.
 
-<iframe src="https://www.youtube-nocookie.com/embed/3go3v59pfEo?si=TUaUWIPzNmo3xjOt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+::YoutubeVideo
+---
+id: 3go3v59pfEo
+title: How We Cycled Denmark from South to North
+controls: true
+loop: false
+autoplay: false
+---
+::
 
 We traveled over 570 km in 10 days along the Danish national cycle route 1, also known as [Vestkystruten](https://en.wikipedia.org/wiki/Danish_National_Cycle_Route_1), capturing stunning views of Denmark. Our route included nights in public shelters and forests, swimming in the chilly North Sea, and exploring inland fjords.
 
