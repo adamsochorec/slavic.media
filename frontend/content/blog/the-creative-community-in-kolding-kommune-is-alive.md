@@ -32,14 +32,13 @@ Our work enhanced the visitor experience by providing them with photos of their 
 
 Working in the theatre and capturing artistic works, especially autobiographical ones, is always a rewarding challenge. We are passionate about bringing unique stories to life through visual media, and this collaboration was truly inspiring. We look forward to documenting more new artistic visions!
 
-::video-swiper
+::YoutubeVideo
 ---
-videos:
-  - src: player.vimeo.com/video/942148434
-    title: Crowdfunding Campaign | Huset Fundament
-  - src: player.vimeo.com/video/967837294
-    title: Finnish Lapland | Timetravels
-  - src: player.vimeo.com/video/942145699
-    title: Huset Fundament
+id: XBqSmnszKrI
+title: Crowdfunding Campaign | Huset Fundament
+controls: true
+loop: false
+autoplay: false
+muted: false
 ---
 ::

@@ -28,7 +28,6 @@ useSeoMeta({
     <ClientOnly>
       <HeroVideo
         youtube="W4jcCCpsXyo"
-        vimeo="1039054657"
         title="Showreel 24'"
         start="7"
       />

@@ -157,13 +157,13 @@ const currentYear = new Date().getFullYear();
           </section>
         </div>
         <nav class="social-icons" aria-label="Follow us on social media">
-          <a
-            href="https://vimeo.com/slavicmedia"
+           <a
+            href="https://youtube.com/@slavicmedia"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            aria-label="Vimeo"
+            aria-label="YouTube"
           >
-            <i class="pi pi-vimeo"></i>
+            <i class="pi pi-youtube"></i>
           </a>
           <a
             href="https://linkedin.com/company/slavicmedia/"
@@ -172,14 +172,6 @@ const currentYear = new Date().getFullYear();
             aria-label="LinkedIn"
           >
             <i class="pi pi-linkedin"></i>
-          </a>
-          <a
-            href="https://youtube.com/@slavicmedia"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            aria-label="YouTube"
-          >
-            <i class="pi pi-youtube"></i>
           </a>
           <a
             href="https://instagram.com/slavic.media/"

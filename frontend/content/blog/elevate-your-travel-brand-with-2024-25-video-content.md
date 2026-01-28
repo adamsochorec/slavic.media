@@ -41,4 +41,14 @@ Here are ideas for travel brands to connect with their audience:
 
 **How?** Show transparency—give visual proof of your brand’s efforts, like eco-lodges or educating visitors on responsible travel. Crucial and aligned with global trends and traveller values.
 
-:video-swiper{:videos='[{"src":"player.vimeo.com/video/950575511","title":"Norwegian Fjords | Timetravels"},{"src":"player.vimeo.com/video/1088738906","title":"Finnish Lapland | Timetravels"},{"src":"player.vimeo.com/video/942145699","title":"Swedish Lapland Fjords | Timetravels"}]'}
+::video-swiper
+---
+videos:
+  - src: youtube-nocookie.com/embed/aJ4ygrO_MHU
+    title: Norwegian Fjords | Timetravels
+  - src: youtube-nocookie.com/embed/eDV49Sz2lMI
+    title: Finnish Lapland | Timetravels
+  - src: youtube-nocookie.com/embed/Nro_svpKDWE
+    title: Swedish Lapland Fjords | Timetravels
+---
+::

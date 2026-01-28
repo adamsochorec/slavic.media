@@ -27,7 +27,6 @@ useSeoMeta(
     <ClientOnly>
       <HeroVideo
         youtube="UQCIQ8smKDM"
-        vimeo="1013776851"
         title="Behind the Scenes"
       />
     </ClientOnly>

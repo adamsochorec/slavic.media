@@ -26,8 +26,15 @@ The Northern Lights are always breathtaking, but this year’s solar maximum is 
 
 >"This season will be talked about for a decade."*
 
-<iframe src="https://player.vimeo.com/video/1043711717?badge=0&amp;muted=1&amp;loop=1&amp;controls=0&amp;autoplay=1&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"  title="Aurora Timelapse"></iframe>
-
+::YoutubeVideo
+---
+id: lDAov0A8ejU
+title: Aurora Timelapse
+controls: false
+loop: true
+autoplay: true
+---
+::
 
 For the tourism industry, it’s a chance to create visuals that will set your brand apart. The content captured this season will elevate your marketing for years to come. Whether in travel, hospitality, or adventure tourism, this is a game-changer.
 
