@@ -19,6 +19,7 @@ interface Props {
   videos?: Video[];
   pending?: boolean;
   error?: Error | null;
+  itemsToShow?: number;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -27,8 +28,12 @@ const props = withDefaults(defineProps<Props>(), {
   error: null,
 });
 
-// Load more functionality
-const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(4, 4);
+const displayedVideos = computed(() => {
+  if (props.itemsToShow === undefined) {
+    return props.videos;
+  }
+  return props.videos.slice(0, props.itemsToShow);
+});
 
 // Lightgallery plugin
 const plugins = [lgVideo];
@@ -55,8 +60,7 @@ const plugins = [lgVideo];
     hideScrollbar="true"
   >
     <a
-      v-for="(video, idx) in videos"
-      v-show="idx < itemsToShow"
+      v-for="(video, idx) in displayedVideos"
       :key="video._id"
       class="video-card reveal"
       aria-labelledby="video-card-title"

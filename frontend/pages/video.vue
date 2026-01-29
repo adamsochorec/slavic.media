@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useMouseTracking } from "@/composables/useMouseTracking";
+import { useLoadMore } from "@/composables/useLoadMore";
 
 const { containerRef } = useMouseTracking();
 // Meta SEO
@@ -30,6 +31,8 @@ const {
   pending,
   error,
 } = await useFetch(`${config.public.API_URL}/video`);
+
+const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(4, 4);
 
 // Further services matrix
 const services = [
@@ -91,11 +94,32 @@ const services = [
         <br />
       </div>
       <VideoCard
+        v-if="!pending && !error"
         :videos="videos"
         :pending="pending"
         :error="error"
+        :items-to-show="itemsToShow"
         class="grid-container"
       />
+      <div class="flex-center" v-if="!pending && !error && videos.length > 4">
+        <Button
+          tag="button"
+          v-if="!allItemsShown"
+          label="Show more"
+          icon="plus-circle"
+          variant="secondary"
+          @click="loadMore(videos.length)"
+        />
+        <Button
+          tag="button"
+          v-else
+          label="Show less"
+          icon="minus-circle"
+          variant="secondary"
+          @click="loadLess"
+        />
+      </div>
+      <SkeletonSwiper v-else aria-busy="true" />
       <!-- VIDEO PROJECTS END -->
 
       <section aria-labelledby="colougrading-services-heading">
