@@ -98,11 +98,17 @@ Despite feeling like we had overcome all obstacles, the last one was the rain th
 ::video-swiper
 ---
 videos:
-  - src: player.vimeo.com/video/1010365595
+  - src: KMx9LR-wmHQ
     title: Expedition to the Åland Islands I.
-  - src: player.vimeo.com/video/1010365608
+    muted: false
+    autoplay: false
+  - src: LbeQCsRZAu0
     title: Expedition to the Åland Islands II.
-  - src: player.vimeo.com/video/1010365581
+    muted: false
+    autoplay: false
+  - src: lxSfkjfOMEs
     title: Expedition to the Åland Islands III.
+    muted: false
+    autoplay: false
 ---
 ::

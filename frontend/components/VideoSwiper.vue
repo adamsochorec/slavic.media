@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, nextTick } from "vue";
+import { onMounted, onUnmounted, nextTick } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import { useArrowNavigation } from "@/composables/useArrowNavigation";
@@ -8,6 +8,10 @@ import { useSwiperAutoplay } from "@/composables/useSwiperAutoplay";
 interface Video {
   src: string;
   title: string;
+  muted?: boolean;
+  autoplay?: boolean;
+  loop?: boolean;
+  controls?: boolean;
 }
 interface VideoSwiper {
   videos: Video[];
@@ -62,27 +66,19 @@ onMounted(() => {
     >
       <div class="swiper-wrapper" aria-busy="false">
         <figure
-          v-for="video in videos"
-          :key="video.url"
+          v-for="video in props.videos"
+          :key="video.src"
           class="swiper-slide"
           role="group"
         >
-          <iframe
-            :src="`https://${video.src}`"
-            frameborder="0"
-            allow="
-              accelerometer;
-              autoplay;
-              clipboard-write;
-              encrypted-media;
-              gyroscope;
-              picture-in-picture;
-              web-share;
-            "
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-            :title="`${video.title} | Slavic Media`"
-          ></iframe>
+          <YoutubeVideo
+            :id="video.src"
+            :title="video.title"
+            :muted="video.muted ?? true"
+            :autoplay="video.autoplay ?? true"
+            :loop="video.loop ?? true"
+            :controls="video.controls ?? true"
+          />
         </figure>
       </div>
       <div class="swiper-pagination" aria-busy="false"></div>

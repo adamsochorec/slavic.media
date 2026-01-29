@@ -37,10 +37,14 @@ const { iframeRef } = useVideoControlsYouTube();
     "
     referrerpolicy="strict-origin-when-cross-origin"
     allowfullscreen
-    style="
-      width: 100%;
-      aspect-ratio: 16/9;
-      border-radius: var(--border-radius-1);
-    "
+    class="youtube-iframe"
   ></iframe>
 </template>
+
+<style scoped lang="postcss">
+.youtube-iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: var(--border-radius-1);
+}
+</style>

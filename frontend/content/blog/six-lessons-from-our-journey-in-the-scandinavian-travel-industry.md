@@ -54,11 +54,17 @@ Timetravels was our first major client, and our work felt valuable. This collabo
 ::video-swiper
 ---
 videos:
-  - src: www.youtube-nocookie.com/embed/aJ4ygrO_MHU?si=EJbRwJk59Xmyqe7U
+  - src: aJ4ygrO_MHU
     title: Norwegian Fjords | Timetravels
-  - src: www.youtube-nocookie.com/embed/eDV49Sz2lMI?si=EJbRwJk59Xmyqe7U
+    muted: false
+    autoplay: false
+  - src: eDV49Sz2lMI
     title: Finnish Lapland | Timetravels
-  - src: www.youtube-nocookie.com/embed/Nro_svpKDWE?si=EJbRwJk59Xmyqe7U
+    muted: false
+    autoplay: false
+  - src: Nro_svpKDWE
     title: Swedish Lapland Fjords | Timetravels
+    muted: false
+    autoplay: false
 ---
 ::
