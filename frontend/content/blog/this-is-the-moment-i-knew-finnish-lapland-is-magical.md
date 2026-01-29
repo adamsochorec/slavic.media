@@ -36,13 +36,22 @@ Your audience wants to feel what your destination offers. Authenticity is everyt
 :br
 PS: Yes, I joined the snowball fight too! 😄
 
-::YoutubeVideo
+::VideoSwiper
 ---
-id: eDV49Sz2lMI
-title: Finnish Lapland | Timetravels
-controls: true
-loop: false
-autoplay: false
-muted: false
+videos:
+  - _id: "husky-farm-veskoniemi"
+    title: "Husky Farm Veskoniemi  | Timetravels"
+    url: "youtube.com/watch?v=ebdkUEyiI7Q"
+    category: "Commercial"
+    year: 2024
+    client:
+      name: "Timetravels"
+  - _id: "finnish-lapland"
+    title: "Finnish Lapland | Timetravels"
+    url: "youtube.com/watch?v=eDV49Sz2lMI"
+    category: "Commercial"
+    year: 2024
+    client:
+      name: "Timetravels"
 ---
 ::

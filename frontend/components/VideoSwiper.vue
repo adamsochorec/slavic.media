@@ -5,17 +5,19 @@ import "swiper/swiper-bundle.css";
 import { useArrowNavigation } from "@/composables/useArrowNavigation";
 import { useSwiperAutoplay } from "@/composables/useSwiperAutoplay";
 
-interface Video {
-  src: string;
+interface VideoCard {
+  _id: string;
   title: string;
-  muted?: boolean;
-  autoplay?: boolean;
-  loop?: boolean;
-  controls?: boolean;
+  url: string;
+  category: string;
+  year: number;
+  client?: { name: string } | null;
 }
+
 interface VideoSwiper {
-  videos: Video[];
+  videos: VideoCard[];
 }
+
 const props = defineProps<VideoSwiper>();
 
 onMounted(() => {
@@ -25,11 +27,6 @@ onMounted(() => {
       speed: 600,
       autoplay: { delay: 2000, pauseOnMouseEnter: true },
       spaceBetween: 15,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        dynamicBullets: false,
-      },
       observer: true,
       observeParents: true,
       breakpoints: {
@@ -65,30 +62,15 @@ onMounted(() => {
       role="region"
     >
       <div class="swiper-wrapper" aria-busy="false">
-        <figure
-          v-for="video in props.videos"
-          :key="video.src"
+        <div
+          v-for="video in videos"
+          :key="video._id"
           class="swiper-slide"
           role="group"
         >
-          <YoutubeVideo
-            :id="video.src"
-            :title="video.title"
-            :muted="video.muted ?? true"
-            :autoplay="video.autoplay ?? true"
-            :loop="video.loop ?? true"
-            :controls="video.controls ?? true"
-          />
-        </figure>
+          <VideoCard :videos="[video]" :pending="false" :error="false" />
+        </div>
       </div>
-      <div class="swiper-pagination" aria-busy="false"></div>
     </section>
   </div>
 </template>
-
-<style scoped lang="postcss">
-.swiper-video {
-  padding-bottom: calc(var(--grid-gap-2) * 2);
-  border-radius: 10px;
-}
-</style>

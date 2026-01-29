@@ -95,20 +95,29 @@ Our final task was to make it back to Mariehamn. We had no luck with hitchhiking
 
 Despite feeling like we had overcome all obstacles, the last one was the rain that lasted throughout the night. Marcel, who slept under the open sky in just a sleeping bag, was especially hard hit and was soaked in the morning. My [bivak bag](https://gobagguide.com/bivy-bag/) protected me from most of the rain, but some still got in. Andreas, who had wisely set up a modest tent using his tarp, was the driest of us in the morning. Unfortunately, the tarp tent did not cover his feet and the large open entrance allowed the rain to get in. On the final morning, we compared our level of wetness and said goodbye. Marcel travelled back to Denmark via Stockholm, while Andreas and I returned to Turku, Finland.
 
-::video-swiper
+::VideoSwiper
 ---
 videos:
-  - src: KMx9LR-wmHQ
-    title: Expedition to the Åland Islands I.
-    muted: false
-    autoplay: false
-  - src: LbeQCsRZAu0
-    title: Expedition to the Åland Islands II.
-    muted: false
-    autoplay: false
-  - src: lxSfkjfOMEs
-    title: Expedition to the Åland Islands III.
-    muted: false
-    autoplay: false
+  - _id: "expedition-to-the-aaland-islands-i"
+    title: "Expedition to the Åland Islands I."
+    url: "youtube.com/watch?v=KMx9LR-wmHQ"
+    category: "Travel"
+    year: 2022
+    client:
+      name: "Slavic Media"
+  - _id: "expedition-to-the-aaland-islands-ii"
+    title: "Expedition to the Åland Islands II."
+    url: "youtube.com/watch?v=LbeQCsRZAu0"
+    category: "Travel"
+    year: 2022
+    client:
+      name: "Slavic Media"
+  - _id: "expedition-to-the-aaland-islands-iii"
+    title: "Expedition to the Åland Islands III."
+    url: "youtube.com/watch?v=lxSfkjfOMEs"
+    category: "Travel"
+    year: 2022
+    client:
+      name: "Slavic Media"
 ---
 ::

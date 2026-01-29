@@ -4,20 +4,27 @@ import Lightgallery from "lightgallery/vue";
 import lgVideo from "lightgallery/plugins/video";
 import { useLoadMore } from "@/composables/useLoadMore";
 
-// Define props
-defineProps({
-  videos: {
-    type: Array,
-    required: true,
-  },
-  pending: {
-    type: Boolean,
-    default: false,
-  },
-  error: {
-    type: Boolean,
-    default: false,
-  },
+interface Video {
+  _id: string;
+  url: string;
+  title: string;
+  category: string;
+  year: number;
+  client?: {
+    name: string;
+  };
+}
+
+interface Props {
+  videos?: Video[];
+  pending?: boolean;
+  error?: Error | null;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  videos: () => [],
+  pending: false,
+  error: null,
 });
 
 // Load more functionality
@@ -29,9 +36,7 @@ const plugins = [lgVideo];
 
 <template>
   <lightgallery
-    v-if="!pending && !error"
     id="video-gallery"
-    class="grid-container"
     aria-label="Video Gallery"
     :settings="{
       speed: 500,
@@ -76,25 +81,6 @@ const plugins = [lgVideo];
       <h2 class="title" id="video-card-title">{{ video.title }}</h2>
     </a>
   </lightgallery>
-  <div class="flex-center" v-if="!pending && !error">
-    <Button
-      tag="button"
-      v-if="!allItemsShown"
-      label="Show more"
-      icon="plus-circle"
-      variant="secondary"
-      @click="loadMore(videos.length)"
-    />
-    <Button
-      tag="button"
-      v-else
-      label="Show less"
-      icon="minus-circle"
-      variant="secondary"
-      @click="loadLess"
-    />
-  </div>
-  <SkeletonSwiper v-else aria-busy="true" />
 </template>
 
 <style lang="postcss" scoped>
@@ -102,18 +88,6 @@ const plugins = [lgVideo];
 @import url("https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-zoom.css");
 @import url("https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-video.css");
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: var(--grid-gap-3);
-  margin: 0;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-
-  @media only screen and (max-width: 600px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
 .video-card {
   display: grid;
   -webkit-transition: var(--transition-1);
@@ -134,12 +108,6 @@ const plugins = [lgVideo];
       -webkit-transition: var(--transition-1);
       -o-transition: var(--transition-1);
       transition: var(--transition-1);
-    }
-  }
-  @media only screen and (max-width: 600px) {
-    padding-bottom: var(--grid-gap-1);
-    &:not(:last-child) {
-      border-bottom: var(--border-1);
     }
   }
 }

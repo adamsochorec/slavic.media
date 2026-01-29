@@ -51,20 +51,46 @@ From working with passionate guides to meeting people along our journey, this pa
 
 Timetravels was our first major client, and our work felt valuable. This collaboration strengthened our skills, built our portfolio, and allowed us to explore new depths of storytelling in the travel industry. We’re grateful for the chance to show our best, find out our limits and gain some sisu. Thank you for believing in Slavic Media power!
 
-::video-swiper
+:br
+
+::VideoSwiper
 ---
 videos:
-  - src: aJ4ygrO_MHU
-    title: Norwegian Fjords | Timetravels
-    muted: false
-    autoplay: false
-  - src: eDV49Sz2lMI
-    title: Finnish Lapland | Timetravels
-    muted: false
-    autoplay: false
-  - src: Nro_svpKDWE
-    title: Swedish Lapland Fjords | Timetravels
-    muted: false
-    autoplay: false
+  - _id: "lustrafjord"
+    title: "Lustrafjord | Timetravels"
+    url: "youtube.com/watch?v=SNErJEBQ25M"
+    category: "Documentary"
+    year: 2024
+    client:
+      name: "Luster Fjordhytter"
+  - _id: "norwegian-fjords"
+    title: "Norwegian Fjords | Timetravels"
+    url: "youtube.com/watch?v=aJ4ygrO_MHU"
+    category: "Commercial"
+    year: 2024
+    client:
+      name: "Timetravels"
+  - _id: "husky-farm-veskoniemi"
+    title: "Husky Farm Veskoniemi  | Timetravels"
+    url: "youtube.com/watch?v=ebdkUEyiI7Q"
+    category: "Commercial"
+    year: 2024
+    client:
+      name: "Timetravels"
+  - _id: "finnish-lapland"
+    title: "Finnish Lapland | Timetravels"
+    url: "youtube.com/watch?v=eDV49Sz2lMI"
+    category: "Commercial"
+    year: 2024
+    client:
+      name: "Timetravels"
+  - _id: "swedish-lapland"
+    title: "Swedish Lapland | Timetravels"
+    url: "youtube.com/watch?v=Nro_svpKDWE"
+    category: "Commercial"
+    year: 2024
+    client:
+      name: "Timetravels"
 ---
 ::
+

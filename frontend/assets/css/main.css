@@ -874,7 +874,7 @@ i.pi-arrow-right:hover {
   font-size: var(--font-size-4);
 }
 .content h1,
-.rendered-content h2,
+.rendered-content h2:not(#video-card-title),
 .rendered-content h3,
 .rendered-content h4,
 .rendered-content h5,

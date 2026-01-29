@@ -24,10 +24,7 @@ useSeoMeta(
   { priority: 1 },
 );
 
-// Access runtime config
 const config = useRuntimeConfig();
-
-// Fetch documents
 const {
   data: videos,
   pending,
@@ -93,8 +90,12 @@ const services = [
         </div>
         <br />
       </div>
-
-      <VideoCard :videos="videos" :pending="pending" :error="error" />
+      <VideoCard
+        :videos="videos"
+        :pending="pending"
+        :error="error"
+        class="grid-container"
+      />
       <!-- VIDEO PROJECTS END -->
 
       <section aria-labelledby="colougrading-services-heading">
@@ -242,6 +243,29 @@ h1 {
 
   @media only screen and (min-width: 690px) {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+<style lang="postcss">
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: var(--grid-gap-3);
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .video-card {
+    @media only screen and (max-width: 600px) {
+      padding-bottom: var(--grid-gap-1);
+      &:not(:last-child) {
+        border-bottom: var(--border-1);
+      }
+    }
   }
 }
 </style>
