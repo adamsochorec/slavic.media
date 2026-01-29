@@ -4,15 +4,21 @@ import Lightgallery from "lightgallery/vue";
 import lgVideo from "lightgallery/plugins/video";
 import { useLoadMore } from "@/composables/useLoadMore";
 
-// Access runtime config
-const config = useRuntimeConfig();
-
-// Fetch documents
-const {
-  data: videos,
-  pending,
-  error,
-} = await useFetch(`${config.public.API_URL}/video`);
+// Define props
+defineProps({
+  videos: {
+    type: Array,
+    required: true,
+  },
+  pending: {
+    type: Boolean,
+    default: false,
+  },
+  error: {
+    type: Boolean,
+    default: false,
+  },
+});
 
 // Load more functionality
 const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(4, 4);

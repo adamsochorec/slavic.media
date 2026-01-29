@@ -21,8 +21,18 @@ useSeoMeta(
     twitterImage: "https://cdn.slavic.media/img/20240308_SLAVIC-MEDIA0204/sd",
     twitterCard: "summary",
   },
-  { priority: 1 }
+  { priority: 1 },
 );
+
+// Access runtime config
+const config = useRuntimeConfig();
+
+// Fetch documents
+const {
+  data: videos,
+  pending,
+  error,
+} = await useFetch(`${config.public.API_URL}/video`);
 
 // Further services matrix
 const services = [
@@ -83,8 +93,10 @@ const services = [
         </div>
         <br />
       </div>
-      <VideoCard />
+
+      <VideoCard :videos="videos" :pending="pending" :error="error" />
       <!-- VIDEO PROJECTS END -->
+
       <section aria-labelledby="colougrading-services-heading">
         <div id="colour-grading"></div>
         <hr class="hide reveal" role="separator" />
