@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useMouseTracking } from "@/composables/useMouseTracking";
+import { useLoadMore } from "@/composables/useLoadMore";
 
 const { containerRef } = useMouseTracking();
 // Meta SEO
@@ -21,8 +22,17 @@ useSeoMeta(
     twitterImage: "https://cdn.slavic.media/img/20240308_SLAVIC-MEDIA0204/sd",
     twitterCard: "summary",
   },
-  { priority: 1 }
+  { priority: 1 },
 );
+
+const config = useRuntimeConfig();
+const {
+  data: videos,
+  pending,
+  error,
+} = await useFetch(`${config.public.API_URL}/video`);
+
+const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(4, 4);
 
 // Further services matrix
 const services = [
@@ -83,8 +93,35 @@ const services = [
         </div>
         <br />
       </div>
-      <VideoCard />
+      <VideoCard
+        v-if="!pending && !error"
+        :videos="videos"
+        :pending="pending"
+        :error="error"
+        :items-to-show="itemsToShow"
+        class="grid-container"
+      />
+      <div class="flex-center" v-if="!pending && !error && videos.length > 4">
+        <Button
+          tag="button"
+          v-if="!allItemsShown"
+          label="Show more"
+          icon="plus-circle"
+          variant="secondary"
+          @click="loadMore(videos.length)"
+        />
+        <Button
+          tag="button"
+          v-else
+          label="Show less"
+          icon="minus-circle"
+          variant="secondary"
+          @click="loadLess"
+        />
+      </div>
+      <SkeletonSwiper v-else aria-busy="true" />
       <!-- VIDEO PROJECTS END -->
+
       <section aria-labelledby="colougrading-services-heading">
         <div id="colour-grading"></div>
         <hr class="hide reveal" role="separator" />
@@ -230,6 +267,29 @@ h1 {
 
   @media only screen and (min-width: 690px) {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+<style lang="postcss">
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: var(--grid-gap-3);
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .video-card {
+    @media only screen and (max-width: 600px) {
+      padding-bottom: var(--grid-gap-1);
+      &:not(:last-child) {
+        border-bottom: var(--border-1);
+      }
+    }
   }
 }
 </style>
