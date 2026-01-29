@@ -8,6 +8,7 @@ export default defineNuxtConfig({
       CHATWAY: process.env.CHATWAY,
       GOOGLE_ANALYTICS: process.env.GOOGLE_ANALYTICS,
       API_URL: process.env.API_URL,
+      MAPY_API_KEY: process.env.MAPY_API_KEY,
     },
   },
   sourcemap: {
@@ -114,13 +115,14 @@ export default defineNuxtConfig({
           // Fixed Content Security Policy
           "Content-Security-Policy": [
             "default-src 'self'",
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval' *.youtube.com *.google.com *.googleapis.com *.gstatic.com *.googletagmanager.com *.chatway.app cdn.chatway.app vercel.live",
+            "worker-src blob:",
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' *.youtube.com *.google.com *.googleapis.com *.gstatic.com *.googletagmanager.com *.chatway.app cdn.chatway.app vercel.live static.cloudflareinsights.com",
             "style-src 'self' 'unsafe-inline' *.googleapis.com *.gstatic.com cdn.jsdelivr.net *.chatway.app",
-            "img-src 'self' data: blob: *.slavic.media *.youtube.com *.google.com *.googleapis.com *.gstatic.com *.googleusercontent.com cdn.jsdelivr.net *.ytimg.com",
+            "img-src 'self' data: blob: *.slavic.media *.youtube.com *.google.com *.googleapis.com *.gstatic.com *.googleusercontent.com cdn.jsdelivr.net *.ytimg.com *.mapy.cz *.mapy.com",
             "font-src 'self' data: *.googleapis.com *.gstatic.com cdn.jsdelivr.net",
-            "connect-src 'self' ws: wss: *.slavic.media *.youtube.com *.youtube-nocookie.com *.google.com *.googleapis.com *.googletagmanager.com *.chatway.app api.iconify.design *.cloudflare.com localhost:*",
-            "frame-src 'self' *.youtube.com *.youtube-nocookie.com *.google.com sketchfab.com *.chatway.app open.spotify.com dronezoner.eu dronemap.gov.cz about:",
-            "media-src 'self' *.slavic.media *.youtube.com",
+            "connect-src 'self' ws: wss: *.slavic.media *.youtube.com *.youtube-nocookie.com *.google.com *.googleapis.com *.googletagmanager.com *.chatway.app api.iconify.design *.cloudflare.com localhost:* *.mapy.cz *.mapy.com",
+            "frame-src 'self' *.youtube.com *.youtube-nocookie.com *.google.com *.mapy.cz sketchfab.com *.chatway.app open.spotify.com dronezoner.eu dronemap.gov.cz about: *.mapy.com",
+            "media-src 'self' *.slavic.media *.youtube.com *.mapy.cz",
             "frame-ancestors 'none'",
           ].join("; "),
           "Permissions-Policy": "geolocation=(), microphone=(), camera=()",

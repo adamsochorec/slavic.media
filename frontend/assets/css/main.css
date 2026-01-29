@@ -913,6 +913,17 @@ iframe.spotify {
   font-size: var(--font-size-7);
   text-align: center;
 }
+.maplibregl-popup-content {
+  background-color: var(--dark-grey-color-full) !important;
+  border-radius: var(--border-radius-1) !important;
+  -webkit-backdrop-filter: var(--blur-1);
+  backdrop-filter: var(--blur-1);
+  border: var(--border-1);
+}
+.maplibregl-popup-close-button {
+  top: var(--grid-gap-1) !important;
+  right: var(--grid-gap-1) !important;
+}
 /* ARTICLE END */
 
 /* CARD START */
