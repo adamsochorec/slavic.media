@@ -119,7 +119,7 @@ export default defineNuxtConfig({
             "img-src 'self' data: blob: *.slavic.media *.youtube.com *.google.com *.googleapis.com *.gstatic.com *.googleusercontent.com cdn.jsdelivr.net *.ytimg.com",
             "font-src 'self' data: *.googleapis.com *.gstatic.com cdn.jsdelivr.net",
             "connect-src 'self' ws: wss: *.slavic.media *.youtube.com *.youtube-nocookie.com *.google.com *.googleapis.com *.googletagmanager.com *.chatway.app api.iconify.design *.cloudflare.com localhost:*",
-            "frame-src 'self' *.youtube.com *.youtube-nocookie.com *.google.com sketchfab.com *.chatway.app open.spotify.com dronezoner.eu dronview.rlp.cz about:",
+            "frame-src 'self' *.youtube.com *.youtube-nocookie.com *.google.com sketchfab.com *.chatway.app open.spotify.com dronezoner.eu dronemap.gov.cz about:",
             "media-src 'self' *.slavic.media *.youtube.com",
             "frame-ancestors 'none'",
           ].join("; "),

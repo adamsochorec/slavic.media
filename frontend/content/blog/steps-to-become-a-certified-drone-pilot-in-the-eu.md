@@ -26,9 +26,9 @@ Have you ever wondered if there are any rules for flying drones? In the EU, flyi
 
 Every drone (UAV or UAS) with a camera must be registered with your local aviation authority and have valid liability insurance—just like your car!
 
-<iframe src="https://dronezoner.eu/JavaScript2024.html" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://dronezoner.eu/Dronezoner2026.html" frameborder="0" allowfullscreen></iframe>
 
-> [Aviation zones Denmark](https://dronezoner.eu/JavaScript2024.html)
+> [Aviation zones Denmark](https://dronezoner.eu/Dronezoner2026.html)
 
 ## 2. Pilot License
 
@@ -38,9 +38,9 @@ You’ll need a valid drone pilot license to fly legally. For drones under 500g,
 
 If your drone weighs more than 500g, you’ll need the A2 test, which covers more advanced topics (more in-depth legal, basics of meteorology and aerodynamics). While the test can still be done online, it requires supervision at a local test centre—like [Erhvervsakademi SydVest (Business Academy South West)](https://easv.dk), where both myself and colleague Marcel got certified for just an administration fee (60 DKK)!
 
-<iframe src="https://dronview.rlp.cz" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://dronemap.gov.cz/" frameborder="0" allowfullscreen></iframe>
 
-> [Aviation zones Czechia](https://dronview.rlp.cz)
+> [Aviation zones Czechia](https://dronemap.gov.cz/)
 
 ## 4. Learn More
 
