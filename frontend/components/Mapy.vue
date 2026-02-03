@@ -9,7 +9,7 @@ import { useSourceSwitchControl } from "@/composables/useSourceSwitchControl";
 const config = useRuntimeConfig();
 const { data: events } = await useFetch(`${config.public.API_URL}/event`);
 const mapContainer = ref<HTMLElement | null>(null);
-
+// testing
 onMounted(() => {
   if (!mapContainer.value) return;
 
@@ -71,9 +71,9 @@ onMounted(() => {
         .setPopup(
           new maplibregl.Popup().setHTML(
             `<strong>${mmmyyyy(
-              event.date,
-            )}</strong><p>${event.description}.</p>`,
-          ),
+              event.date
+            )}</strong><p>${event.description}.</p>`
+          )
         )
         .addTo(map);
     });
