@@ -19,11 +19,7 @@ const {
 </script>
 
 <template>
-  <section class="wrapper-standard" x>
-    <h2 class="docs reveal" style="font-size: var(--font-size-1)">
-      Our <span class="gradient">Journey</span>
-    </h2>
-
+  <section class="wrapper-standard">
     <!-- SKELETON START -->
     <div v-if="pending || error" aria-busy="true" aria-live="polite">
       <ul v-for="n in 4" :key="n" style="list-style: none" class="m-0">
