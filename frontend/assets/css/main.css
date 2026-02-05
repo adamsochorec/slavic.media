@@ -469,6 +469,42 @@ form {
     color: oklch(1 0 0);
     font-size: var(--font-size-6);
   }
+  input::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+    font-family: var(--content-font);
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    color: oklch(1 0 0);
+    font-size: var(--font-size-6);
+  }
+  input::-moz-placeholder,
+  textarea::-moz-placeholder {
+    font-family: var(--content-font);
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    color: oklch(1 0 0);
+    font-size: var(--font-size-6);
+  }
+  input:-ms-input-placeholder,
+  textarea:-ms-input-placeholder {
+    font-family: var(--content-font);
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    color: oklch(1 0 0);
+    font-size: var(--font-size-6);
+  }
+  input::-ms-input-placeholder,
+  textarea::-ms-input-placeholder {
+    font-family: var(--content-font);
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    color: oklch(1 0 0);
+    font-size: var(--font-size-6);
+  }
   label,
   input,
   textarea,
@@ -497,8 +533,8 @@ form {
   input:focus,
   textarea:focus {
     outline: none;
-    -webkit-box-shadow: var(--box-shadow-2);
-    box-shadow: var(--box-shadow-2);
+    -webkit-animation: var(--box-shadow-2);
+    animation: var(--box-shadow-2);
     -webkit-transition: var(--transition-1);
     -o-transition: var(--transition-1);
     transition: var(--transition-1);
