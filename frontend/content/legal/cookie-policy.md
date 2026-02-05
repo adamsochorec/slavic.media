@@ -25,16 +25,30 @@ These cookies are essential for our services to work as intended. You may disabl
 | **PHPSESSID**                                                                                                       | Provides a unique session identifier for Users.                                                                              |
 | **XSRF Token**                                                                                                      | Prevents Cross-site Request Forgery.                                                                                         |
 | [**New Relic**](https://newrelic.com/termsandconditions/privacy)                                                    | Monitors the application's performance and errors.                                                                           |
-| [**Cloudflare**](https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/) | Application security and content delivery network (CDN).                                                                     |
 | **\_\_cf\_bm**                                                                                                      | Bot manager manages incoming traffic that matches criteria associated with bots.                                             |
 | **\_cfuvid**                                                                                                        | Strictly necessary to support Cloudflare Rate Limiting products. Manages incoming traffic and visibility of request origins. |
-| [**Chatway**](https://chatway.app/privacy-policy)                                                                   | Communication between visitors and our team.                                                                                 |
+| **cookieConsent**                                                                                                   | Stores user's cookie consent preferences and timestamp.                                                                      |
+| **isWidgetVisible**                                                                                                 | Stores the visibility state of website widgets.                                                                              |
+| **showTextBubble**                                                                                                  | Manages display settings for chat bubble widget.                                                                             |
+| **content_checksum_blog**                                                                                           | Stores content integrity checksum for blog articles.                                                                         |
+| **content_checksum_legal**                                                                                          | Stores content integrity checksum for legal pages.                                                                           |
+| **content_collection_blog**                                                                                         | Stores blog content collection data for performance optimization.                                                            |
+| **content_collection_legal**                                                                                        | Stores legal content collection data for performance optimization.                                                           |
+| **yt-player-bandwidth**                                                                                              | Tracks video playback bandwidth and performance metrics.                                                                     |
+| **yt-player-user-settings**                                                                                          | Stores user-specific YouTube player preferences and settings.                                                                |
+| **yt.innertube::nextId**                                                                                             | Manages internal YouTube request sequencing.                                                                                 |
+| **yt.innertube::requests**                                                                                           | Caches YouTube API requests and responses.                                                                                   |
+| **ytidb::LAST_RESULT_ENTRY_KEY**                                                                                     | Tracks the last successful YouTube operation.                                                                               |
+| **browser_support**                                                                                                  | Stores browser compatibility information for Sketchfab embed.                                                               |
+| **userEvents**                                                                                                       | Tracks user interactions with embedded Sketchfab models.                                                                    |
 
 ## Non-essential Cookies
 
 These are third-party services that we use for purposes as described and their activation is of your choice:
 
-- [**Google Analytics**](https://policies.google.com/privacy): Measuring how users interact with our websites.
+| **Cookie**                                                                                  | **Description**                                                                      |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| _ga                                | Measuring how users interact with our websites.                                     |
 
 ## How do I control cookies?
 
