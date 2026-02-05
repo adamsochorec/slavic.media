@@ -100,21 +100,21 @@ Despite feeling like we had overcome all obstacles, the last one was the rain th
 videos:
   - _id: "expedition-to-the-aaland-islands-i"
     title: "Expedition to the Åland Islands I."
-    url: "youtube.com/watch?v=KMx9LR-wmHQ"
+    url: "youtube.com/watch?v=eGY9Oe2ZvSE"
     category: "Travel"
     year: 2022
     client:
       name: "Slavic Media"
   - _id: "expedition-to-the-aaland-islands-ii"
     title: "Expedition to the Åland Islands II."
-    url: "youtube.com/watch?v=LbeQCsRZAu0"
+    url: "youtube.com/watch?v=ofBKg1Fw0pc"
     category: "Travel"
     year: 2022
     client:
       name: "Slavic Media"
   - _id: "expedition-to-the-aaland-islands-iii"
     title: "Expedition to the Åland Islands III."
-    url: "youtube.com/watch?v=lxSfkjfOMEs"
+    url: "youtube.com/watch?v=iRhysio3AOg"
     category: "Travel"
     year: 2022
     client:
