@@ -36,6 +36,9 @@ onMounted(() => {
     },
   };
 
+  const isMobile = window.innerWidth < 768;
+  const zoom = isMobile ? 1 : 3;
+
   const map = new maplibregl.Map({
     container: mapContainer.value,
     style: {
@@ -50,7 +53,7 @@ onMounted(() => {
       ],
     },
     center: [17.586886934910057, 61.67435314125305],
-    zoom: 3,
+    zoom: zoom,
   });
 
   const sourceSwitchSources = [
@@ -60,7 +63,6 @@ onMounted(() => {
     { source: "aerial-tiles", label: "Aerial" },
   ];
 
-  map.addControl(useLogoControl(), "bottom-left");
   map.addControl(useSourceSwitchControl(sourceSwitchSources), "top-left");
   map.addControl(new maplibregl.NavigationControl());
 
