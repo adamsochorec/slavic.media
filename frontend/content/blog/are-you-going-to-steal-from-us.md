@@ -36,7 +36,7 @@ Slavic Media isn’t just a name. It’s a statement of pride. We stand against 
 
 :br
 
-Despite the challenges, we’ve stayed true to our identity. Slavic Media I/S is more than a brand—it’s rooted in integrity, respect for the environment, and quality, no matter the perceptions.
+Despite the challenges, we’ve stayed true to our identity. Slavic Media is more than a brand—it’s rooted in integrity, respect for the environment, and quality, no matter the perceptions.
 
 :br
 
