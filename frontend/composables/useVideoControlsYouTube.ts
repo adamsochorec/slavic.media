@@ -1,4 +1,5 @@
 import { ref, reactive, onMounted, onUnmounted } from "vue";
+import eventBus from "@/composables/useEventBus";
 
 declare global {
   interface Window {
@@ -73,6 +74,14 @@ export function useVideoControlsYouTube() {
     }
   };
 
+  const seekTo = (seconds: number) => {
+    if (state.isReady) {
+      player.value?.seekTo(seconds, true);
+      player.value?.playVideo();
+      state.isPlaying = true;
+    }
+  };
+
   onMounted(async () => {
     await loadYouTubeAPI();
     createPlayer();
@@ -92,11 +101,13 @@ export function useVideoControlsYouTube() {
       },
       {
         threshold: 0.01,
-      }
+      },
     );
     if (iframeRef.value) {
       observer.observe(iframeRef.value);
     }
+
+    eventBus.on("youtube:seek", (seconds: number) => seekTo(seconds));
   });
 
   onUnmounted(() => {
@@ -116,5 +127,6 @@ export function useVideoControlsYouTube() {
     unmuteVideo,
     playVideo,
     pauseVideo,
+    seekTo,
   };
 }
