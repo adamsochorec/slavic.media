@@ -1,6 +1,6 @@
 ---
 title: The Holy Trinity of Analogue Lenses
-thumbnail: 
+thumbnail: the-holy-trinity-of-analogue-lenses
 icon: camera
 length: 10
 slug: the-holy-trinity-of-analogue-lenses
@@ -19,7 +19,7 @@ author:
 date: 2026-02-25T00:00:00.000Z
 ---
 
-![](https://cdn.slavic.media/img//4K "")
+![Flektogon 35mm f/2.4, Helios 44-2 58mm f/2 and Orestor 100mm f/2.8](https://cdn.slavic.media/img/the-holy-trinity-of-analogue-lenses/4K "Flektogon 35mm f/2.4, Helios 44-2 58mm f/2 and Orestor 100mm f/2.8")
 
 It must be at least five years since I inherited a collection of analogue lenses (yes, *analogue* is the right term, unlike *vintage*) from the grandfather of a family friend. As the title and former lens owner might suggest, our subjects of focus are not from this century, but rather from the second half of the previous one. We will be taking a look at the marvelous and quirky *Flektogon 35mm f/2.4*, *Helios 44-2 58mm f/2*, and *Orestor 100mm f/2.8*.
 
