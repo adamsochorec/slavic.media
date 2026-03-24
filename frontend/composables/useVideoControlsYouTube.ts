@@ -8,7 +8,22 @@ declare global {
   }
 }
 
-export function useVideoControlsYouTube() {
+let ytApiPromise: Promise<void> | null = null;
+
+function loadYouTubeAPI(): Promise<void> {
+  if (window.YT && window.YT.Player) return Promise.resolve();
+  if (!ytApiPromise) {
+    ytApiPromise = new Promise<void>((resolve) => {
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.body.appendChild(tag);
+      window.onYouTubeIframeAPIReady = () => resolve();
+    });
+  }
+  return ytApiPromise;
+}
+
+export function useVideoControlsYouTube(videoId: string) {
   const iframeRef = ref<HTMLIFrameElement | null>(null);
   const player = ref<any>(null);
   const state = reactive({
@@ -18,17 +33,6 @@ export function useVideoControlsYouTube() {
   });
 
   let observer: IntersectionObserver | null = null;
-
-  // Load YouTube IFrame API
-  const loadYouTubeAPI = () => {
-    if (window.YT && window.YT.Player) return Promise.resolve();
-    return new Promise<void>((resolve) => {
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      document.body.appendChild(tag);
-      window.onYouTubeIframeAPIReady = () => resolve();
-    });
-  };
 
   const createPlayer = () => {
     if (!iframeRef.value) return;
@@ -107,7 +111,11 @@ export function useVideoControlsYouTube() {
       observer.observe(iframeRef.value);
     }
 
-    eventBus.on("youtube:seek", (seconds: number) => seekTo(seconds));
+    eventBus.on("youtube:seek", (data: { id: string; seconds: number }) => {
+      if (data.id === videoId) {
+        seekTo(data.seconds);
+      }
+    });
   });
 
   onUnmounted(() => {
