@@ -6,7 +6,7 @@ interface Img {
   _id: string;
   alt: string;
   title: string;
-  flag?: string;
+  flag: string;
   originalWidth?: number;
   originalHeight?: number;
 }
@@ -39,7 +39,7 @@ const updateDimensions = (event: Event) => {
     linkElement.setAttribute("data-pswp-width", target.naturalWidth.toString());
     linkElement.setAttribute(
       "data-pswp-height",
-      target.naturalHeight.toString(),
+      target.naturalHeight.toString()
     );
   }
 };
@@ -62,7 +62,7 @@ onMounted(() => {
       @load="updateDimensions"
     />
     <div class="hidden-caption-content">{{ title }}</div>
-    <Icon v-if="flag" :name="`flag:${flag}-4x3`" class="note flag" />
+    <Icon :name="`flag:${flag}-4x3`" class="note flag" />
   </a>
 </template>
 
