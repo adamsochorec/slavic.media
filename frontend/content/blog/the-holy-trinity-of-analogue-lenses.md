@@ -35,6 +35,8 @@ Each lens in this holy trinity has a very specific and unmistakable look. The mo
 
 :br
 
+<div class="overflow-table">
+
 | Parameter | Flektogon 35mm f/2.4 | Helios 44-2 58mm f/2 | Orestor 100mm f/2.8 |
 |------------|----------------------|----------------------|----------------------|
 | Manufacturer | Carl Zeiss Jena (DDR) | KMZ / Valdai (USSR) | Meyer-Optik Görlitz (DDR) |
@@ -51,6 +53,8 @@ Each lens in this holy trinity has a very specific and unmistakable look. The mo
 | Weight (approx.) | 230–250 g | 230–300 g | 280–320 g |
 | Focus Type | Manual | Manual | Manual |
 | Aperture Control | Manual / Auto (DDR electric versions exist) | Preset manual | Preset manual |
+
+</div>
 
 The best way to understand why this old junk is worth our attention is to take a look at some visual examples. In the demonstration video below, I tested the mentioned lenses with our main camera, the Sony A7 IV. Because the mount on all of these lenses is basically just a screw thread, I had to use an M42 to E-mount converter. There are no contacts for autofocus, exposure, or aperture—just a simple screw. The combination of a contemporary mirrorless camera, an external monitor, and analogue lenses is a particularly remarkable experience.
 
@@ -120,7 +124,7 @@ Even though the Orestor 100mm was manufactured in East Germany (DDR)—which was
 
 :br
 
-However, there is a certain quirk of the Orestor that we shall call a feature: its :VideoSeek{id="Roug9ph4H5A" seconds="6" autoscroll=true}[focus imperfection] when shooting wide open. Finding the right focus can be tricky. Even when you hit the focus range perfectly, it might feel like you just missed it due to the very soft aura right on the borderline between the focused object and the background - just like around the cheeks of the :VideoSeek{id="8m18ghC49XU" autoscroll=true}[model above].
+However, there is a certain quirk of the Orestor that we shall call a feature: its :VideoSeek{id="Roug9ph4H5A" seconds="59" autoscroll=true}[focus imperfection] when shooting wide open. Finding the right focus can be tricky. Even when you hit the focus range perfectly, it might feel like you just missed it due to the very soft aura right on the borderline between the focused object and the background - just like around the cheeks of the :VideoSeek{id="8m18ghC49XU" autoscroll=true}[model above].
 
 
 :hr

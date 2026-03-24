@@ -40,7 +40,6 @@ footer {
   font-optical-sizing: auto;
   font-weight: 100;
   font-style: normal;
-  overflow: hidden;
 }
 
 /* SKELETON ANIMATION START */
@@ -368,7 +367,12 @@ table {
   text-align: left;
   color: oklch(1 0 0);
 }
-
+.overflow-table {
+  overflow-x: auto;
+}
+.overflow-table table {
+  width: max-content;
+}
 th,
 td {
   border: var(--border-1);

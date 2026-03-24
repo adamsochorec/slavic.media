@@ -20,7 +20,7 @@ watchEffect(() => {
       twitterImage: `https://cdn.slavic.media/img/${document.value?.thumbnail}/SD`,
       twitterCard: "summary",
     },
-    { priority: 1 }
+    { priority: 1 },
   );
 });
 </script>
