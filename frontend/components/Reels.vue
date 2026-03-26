@@ -113,7 +113,7 @@ onUnmounted(() => {
           muted
           preload="auto"
           playsinline
-          :src="`https://assets.slavic.media/video/${reel._id}.mp4`"
+          :src="`https://customer-821liznl9775taxz.cloudflarestream.com/${reel._id}/manifest/video.m3u8`"
         >
           <track kind="captions" srclang="en" label="English captions" />
         </video>
