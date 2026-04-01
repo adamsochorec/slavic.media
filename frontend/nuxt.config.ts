@@ -1,12 +1,6 @@
 import Aura from "@primeuix/themes/aura";
-import { vite as vidstack } from "vidstack/plugins";
 
 export default defineNuxtConfig({
-  vue: {
-    compilerOptions: {
-      isCustomElement: (tag) => tag.startsWith("media-"),
-    },
-  },
   compatibilityDate: "2025-05-07",
   runtimeConfig: {
     public: {
@@ -74,7 +68,6 @@ export default defineNuxtConfig({
     inlineStyles: false,
   },
   vite: {
-    plugins: [vidstack()],
     build: {
       rollupOptions: {
         output: {

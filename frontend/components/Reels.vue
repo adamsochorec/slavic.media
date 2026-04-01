@@ -29,7 +29,10 @@ onMounted(() => {
         clickable: true,
         dynamicBullets: true,
       },
-      autoplay: false,
+      autoplay: {
+        delay: 3000,
+        pauseOnMouseEnter: true,
+      },
       lazyPreloadPrevNext: 1,
       observer: true,
       observeParents: true,
