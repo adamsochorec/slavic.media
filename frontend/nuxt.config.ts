@@ -107,7 +107,7 @@ export default defineNuxtConfig({
     output: {
       serverDir: ".output/server",
     },
-    /*  routeRules: {
+    routeRules: {
       "/**": {
         headers: {
           "Strict-Transport-Security":
@@ -125,15 +125,15 @@ export default defineNuxtConfig({
             "style-src 'self' 'unsafe-inline' *.googleapis.com *.gstatic.com cdn.jsdelivr.net *.chatway.app",
             "img-src 'self' data: blob: *.slavic.media *.youtube.com *.google.com *.googleapis.com *.gstatic.com *.googleusercontent.com cdn.jsdelivr.net *.ytimg.com *.mapy.cz *.mapy.com",
             "font-src 'self' data: *.googleapis.com *.gstatic.com cdn.jsdelivr.net",
-            "connect-src 'self' ws: wss: *.slavic.media *.youtube.com *.youtube-nocookie.com *.google.com *.googleapis.com *.googletagmanager.com *.chatway.app api.iconify.design *.cloudflare.com localhost:* *.mapy.cz *.mapy.com",
-            "frame-src 'self' *.youtube.com *.youtube-nocookie.com *.google.com *.mapy.cz sketchfab.com *.chatway.app open.spotify.com dronezoner.eu dronemap.gov.cz about: *.mapy.com *.cloudflarestream.co",
-            "media-src 'self' *.slavic.media *.youtube.com *.mapy.cz *.cloudflarestream.co",
+            "connect-src 'self' ws: wss: *.slavic.media *.youtube.com *.youtube-nocookie.com *.google.com *.googleapis.com *.googletagmanager.com *.chatway.app api.iconify.design *.cloudflare.com *.cloudflarestream.com localhost:* *.mapy.cz *.mapy.com",
+            "frame-src 'self' *.youtube.com *.youtube-nocookie.com *.google.com *.mapy.cz sketchfab.com *.chatway.app open.spotify.com dronezoner.eu dronemap.gov.cz about: *.mapy.com *.cloudflarestream.com",
+            "media-src 'self' *.slavic.media *.youtube.com *.mapy.cz *.cloudflarestream.com",
             "frame-ancestors 'none'",
           ].join("; "),
           "Permissions-Policy": "geolocation=(), microphone=(), camera=()",
         },
       },
-    }, */
+    },
   },
   primevue: {
     autoImport: false,
