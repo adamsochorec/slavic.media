@@ -29,10 +29,7 @@ onMounted(() => {
         clickable: true,
         dynamicBullets: true,
       },
-      autoplay: {
-        delay: 3000,
-        pauseOnMouseEnter: true,
-      },
+      autoplay: false,
       lazyPreloadPrevNext: 1,
       observer: true,
       observeParents: true,
@@ -129,11 +126,7 @@ onUnmounted(() => {
   padding-bottom: calc(var(--grid-gap-2) * 2);
 }
 .swiper-slide {
-  height: 350px;
-  width: var(--dimension-1);
-  border-radius: var(--border-radius-1);
-  box-shadow: var(--box-shadow-1);
-  animation: skeleton-loading 1s linear infinite alternate;
+  height: var(--dimension-3);
 }
 .swiper-pagination {
   margin-top: 40px;

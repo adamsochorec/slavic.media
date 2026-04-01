@@ -24,9 +24,11 @@ const props = defineProps<VideoPlayer>();
     <media-provider> </media-provider>
   </media-player>
 </template>
-<style scoped>
+<style scoped lang="postcss">
 .player {
   height: 100%;
-  width: 100%;
+  border-radius: var(--border-radius-1);
+  box-shadow: var(--box-shadow-1);
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 </style>

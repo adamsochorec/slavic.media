@@ -653,6 +653,9 @@ small a {
 /* SWIPER END */
 
 /* VIDEO CONTROLS START */
+.player video {
+  height: 100%;
+}
 .controls {
   left: var(--grid-gap-2);
   gap: var(--grid-gap-1);
