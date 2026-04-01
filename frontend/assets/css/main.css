@@ -655,6 +655,7 @@ small a {
 /* VIDEO CONTROLS START */
 .player video {
   height: 100%;
+  border-radius: var(--border-radius-1);
 }
 .controls {
   left: var(--grid-gap-2);

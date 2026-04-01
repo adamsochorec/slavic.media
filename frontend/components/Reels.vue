@@ -130,6 +130,7 @@ onUnmounted(() => {
 }
 .swiper-slide {
   height: var(--dimension-3);
+  border-radius: var(--border-radius-1);
 }
 .swiper-pagination {
   margin-top: 40px;

@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
 import "vidstack/bundle";
-import "vidstack/player/styles/default/theme.css";
-
 import "vidstack/player";
 
 interface VideoPlayer {
@@ -12,19 +10,35 @@ const props = defineProps<VideoPlayer>();
 
 const playerRef = ref<HTMLElement | null>(null);
 let observer: IntersectionObserver | null = null;
+let canPlay = false;
+let wantsPlay = false;
 
 onMounted(() => {
   const el = playerRef.value;
   if (!el) return;
+
+  el.addEventListener("can-play", () => {
+    canPlay = true;
+    (el as any).muted = true;
+    if (wantsPlay) {
+      (el as any).play?.();
+    }
+  });
 
   observer = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
         const player = entry.target as any;
         if (entry.isIntersecting) {
-          player.play?.();
+          wantsPlay = true;
+          if (canPlay) {
+            player.play?.();
+          }
         } else {
-          player.pause?.();
+          wantsPlay = false;
+          if (canPlay) {
+            player.pause?.();
+          }
         }
       }
     },
@@ -56,7 +70,6 @@ onUnmounted(() => {
 <style scoped lang="postcss">
 .player {
   height: 100%;
-  border-radius: var(--border-radius-1);
   box-shadow: var(--box-shadow-1);
   animation: skeleton-loading 1s linear infinite alternate;
 }
