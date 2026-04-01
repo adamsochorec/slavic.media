@@ -106,17 +106,7 @@ onUnmounted(() => {
           :name="`flag:${reel.flag}-4x3`"
           class="note flag"
         />
-        <video
-          class="video-offload"
-          loop
-          autoplay
-          muted
-          preload="auto"
-          playsinline
-          :src="`https://customer-821liznl9775taxz.cloudflarestream.com/${reel._id}/manifest/video.m3u8`"
-        >
-          <track kind="captions" srclang="en" label="English captions" />
-        </video>
+        <VideoPlayer class="reels" :id="reel._id" />
         <figcaption class="visually-hidden">
           Reel {{ index + 1 }} on {{ reel.platform }}. Click to view the reel.
         </figcaption>
@@ -137,14 +127,12 @@ onUnmounted(() => {
 <style scoped lang="postcss">
 .swiper-reels {
   padding-bottom: calc(var(--grid-gap-2) * 2);
-
-  video {
-    height: auto;
-    width: var(--dimension-2);
-    border-radius: var(--border-radius-1);
-    box-shadow: var(--box-shadow-1);
-    animation: skeleton-loading 1s linear infinite alternate;
-  }
+}
+.swiper-slide {
+  height: var(--dimension-3);
+  border-radius: var(--border-radius-1);
+  box-shadow: var(--box-shadow-1);
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 .swiper-pagination {
   margin-top: 40px;

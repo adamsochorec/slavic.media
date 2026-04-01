@@ -653,6 +653,10 @@ small a {
 /* SWIPER END */
 
 /* VIDEO CONTROLS START */
+.reels video {
+  height: 100%;
+  border-radius: var(--border-radius-1);
+}
 .controls {
   left: var(--grid-gap-2);
   gap: var(--grid-gap-1);
