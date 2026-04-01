@@ -106,7 +106,7 @@ onUnmounted(() => {
           :name="`flag:${reel.flag}-4x3`"
           class="note flag"
         />
-        <VideoPlayer class="video" :id="reel._id" />
+        <VideoPlayer class="reels" :id="reel._id" />
         <figcaption class="visually-hidden">
           Reel {{ index + 1 }} on {{ reel.platform }}. Click to view the reel.
         </figcaption>
@@ -131,6 +131,8 @@ onUnmounted(() => {
 .swiper-slide {
   height: var(--dimension-3);
   border-radius: var(--border-radius-1);
+  box-shadow: var(--box-shadow-1);
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 .swiper-pagination {
   margin-top: 40px;

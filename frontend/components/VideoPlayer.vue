@@ -56,7 +56,6 @@ onUnmounted(() => {
 <template>
   <media-player
     ref="playerRef"
-    class="player"
     :src="`https://customer-821liznl9775taxz.cloudflarestream.com/${id}/manifest/video.m3u8`"
     loop
     muted
@@ -67,10 +66,3 @@ onUnmounted(() => {
     <media-provider> </media-provider>
   </media-player>
 </template>
-<style scoped lang="postcss">
-.player {
-  height: 100%;
-  box-shadow: var(--box-shadow-1);
-  animation: skeleton-loading 1s linear infinite alternate;
-}
-</style>

@@ -653,7 +653,7 @@ small a {
 /* SWIPER END */
 
 /* VIDEO CONTROLS START */
-.player video {
+.reels video {
   height: 100%;
   border-radius: var(--border-radius-1);
 }
