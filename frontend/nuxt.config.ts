@@ -1,6 +1,11 @@
 import Aura from "@primeuix/themes/aura";
 
 export default defineNuxtConfig({
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag.startsWith("media-"),
+    },
+  },
   compatibilityDate: "2025-05-07",
   runtimeConfig: {
     public: {
