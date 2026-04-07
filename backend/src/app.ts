@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === "test") {
     );
   }
 } else {
-  // Development: default to .env.local.
+  // Development: default to .env.local
   require("dotenv-flow").config();
 }
 
