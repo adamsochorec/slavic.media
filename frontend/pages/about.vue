@@ -42,6 +42,7 @@ useSeoMeta(
         you're motivated by the intersection of individual freelance
         professionals.
       </p>
+
       <Mapy />
       <hr class="semi" />
     </section>
