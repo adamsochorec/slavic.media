@@ -157,7 +157,7 @@ const currentYear = new Date().getFullYear();
           </section>
         </div>
         <nav class="social-icons" aria-label="Follow us on social media">
-           <a
+          <a
             href="https://youtube.com/@slavicmedia"
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -195,7 +195,7 @@ const currentYear = new Date().getFullYear();
       <header class="footer">
         <section class="copyright">
           <span
-            >Copyright © {{ currentYear }} Slavic Media I/S. All rights
+            >Copyright © {{ currentYear }} Slavic Media. All rights
             reserved.</span
           >
         </section>
@@ -203,7 +203,7 @@ const currentYear = new Date().getFullYear();
           <span id="footer-links-heading" class="sr-only">Footer Links</span>
           <a
             aria-label="Download our Press Kit"
-            href="https://assets.slavic.media/press-kit.zip"
+            href="/press-kit.zip"
             title="Download Press Kit"
             >Press&nbsp;Kit</a
           >
@@ -222,13 +222,13 @@ const currentYear = new Date().getFullYear();
               loading="lazy"
             />Cookies
           </button>
-          <a
+          <!-- <a
             target="_blank"
             rel="noopener noreferrer nofollow"
             href="https://datacvr.virk.dk/enhed/virksomhed/44081512?fritekst=slavic%20media&sideIndex=0&size=10"
             aria-label="View VAT details for Slavic Media"
             >VAT:&nbsp;DK44081512</a
-          >
+          > -->
         </section>
       </header>
     </section>

@@ -9,7 +9,7 @@ const title = "Blog";
 
 // Content hydration
 const { data: documents = ref([]) } = await useAsyncData("blog", () =>
-  queryCollection("blog").order("date", "DESC").all()
+  queryCollection("blog").order("date", "DESC").all(),
 );
 
 // SEO META
@@ -26,7 +26,7 @@ useSeoMeta(
     twitterImage: "https://cdn.slavic.media/img/thumbnail/SD",
     twitterCard: "summary",
   },
-  { priority: 1 }
+  { priority: 1 },
 );
 
 // LOAD MORE
@@ -109,6 +109,13 @@ const { itemsToShow, allItemsShown, loadMore, loadLess } = useLoadMore(6, 6);
   }
   .unhide {
     display: none;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #blog-heading {
+    padding-bottom: var(--grid-gap-1);
+    border-bottom: var(--border-1);
+    margin-bottom: var(--grid-gap-2);
   }
 }
 @media only screen and (min-width: 700px) {
