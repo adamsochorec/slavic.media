@@ -1,0 +1,21 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-backend:
+    name: Deploy Backend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy backend to production
+        run: |
+          curl -X POST "${{ secrets.BACKEND_DEPLOY_HOOK }}"
+
+  deploy-frontend:
+    name: Deploy Frontend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy frontend to production
+        run: |
+          curl -X POST "${{ secrets.FRONTEND_DEPLOY_HOOK }}"
