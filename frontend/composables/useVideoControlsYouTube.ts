@@ -1,4 +1,5 @@
 import { ref, reactive, onMounted, onUnmounted } from "vue";
+import eventBus from "@/composables/useEventBus";
 
 declare global {
   interface Window {
@@ -7,7 +8,22 @@ declare global {
   }
 }
 
-export function useVideoControlsYouTube() {
+let ytApiPromise: Promise<void> | null = null;
+
+function loadYouTubeAPI(): Promise<void> {
+  if (window.YT && window.YT.Player) return Promise.resolve();
+  if (!ytApiPromise) {
+    ytApiPromise = new Promise<void>((resolve) => {
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.body.appendChild(tag);
+      window.onYouTubeIframeAPIReady = () => resolve();
+    });
+  }
+  return ytApiPromise;
+}
+
+export function useVideoControlsYouTube(videoId: string) {
   const iframeRef = ref<HTMLIFrameElement | null>(null);
   const player = ref<any>(null);
   const state = reactive({
@@ -17,17 +33,6 @@ export function useVideoControlsYouTube() {
   });
 
   let observer: IntersectionObserver | null = null;
-
-  // Load YouTube IFrame API
-  const loadYouTubeAPI = () => {
-    if (window.YT && window.YT.Player) return Promise.resolve();
-    return new Promise<void>((resolve) => {
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      document.body.appendChild(tag);
-      window.onYouTubeIframeAPIReady = () => resolve();
-    });
-  };
 
   const createPlayer = () => {
     if (!iframeRef.value) return;
@@ -73,6 +78,14 @@ export function useVideoControlsYouTube() {
     }
   };
 
+  const seekTo = (seconds: number) => {
+    if (state.isReady) {
+      player.value?.seekTo(seconds, true);
+      player.value?.playVideo();
+      state.isPlaying = true;
+    }
+  };
+
   onMounted(async () => {
     await loadYouTubeAPI();
     createPlayer();
@@ -92,11 +105,17 @@ export function useVideoControlsYouTube() {
       },
       {
         threshold: 0.01,
-      }
+      },
     );
     if (iframeRef.value) {
       observer.observe(iframeRef.value);
     }
+
+    eventBus.on("youtube:seek", (data: { id: string; seconds: number }) => {
+      if (data.id === videoId) {
+        seekTo(data.seconds);
+      }
+    });
   });
 
   onUnmounted(() => {
@@ -116,5 +135,6 @@ export function useVideoControlsYouTube() {
     unmuteVideo,
     playVideo,
     pauseVideo,
+    seekTo,
   };
 }
