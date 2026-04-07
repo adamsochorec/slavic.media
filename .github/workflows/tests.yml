@@ -1,10 +1,11 @@
-name: Backend Tests
+name: Tests
 
 on:
   push:
     branches: ['**']
     paths:
       - 'backend/**'
+      - 'frontend/**'
 
 jobs:
   test-backend:
@@ -36,3 +37,28 @@ jobs:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
           TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
           JWT_EXPIRES_IN: ${{ secrets.JWT_EXPIRES_IN }}
+
+  test-frontend:
+    name: Frontend tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.JS ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: NPM install, build and test
+        run: |
+          cd frontend
+          npm install
+          npm test
