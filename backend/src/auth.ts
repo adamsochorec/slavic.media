@@ -11,7 +11,7 @@ export async function registerAndLogin(user = testUser) {
   // Register user (ignore errors if already exists)
   await request(app).post("/user/register").send(user);
 
-  // Login and get token
+  // Login and get tokenss
   const res = await request(app).post("/user/login").send({
     email: user.email,
     password: user.password,
