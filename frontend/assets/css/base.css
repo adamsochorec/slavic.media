@@ -33,6 +33,7 @@
   --grid-gap-3: 30px;
   --dimension-1: 71svh;
   --dimension-2: 200px;
+  --dimension-3: 350px;
 }
 
 @keyframes pulse-shadow {

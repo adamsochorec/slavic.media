@@ -11,10 +11,13 @@ if (process.env.NODE_ENV === "test") {
   require("dotenv-flow").config({ node_env: "test" });
 } else if (process.env.NODE_ENV === "production") {
   // Production: append database name to connection string if not present
-  if (process.env.MONGODB_URI && !process.env.MONGODB_URI.includes("/slavicmedia-")) {
+  if (
+    process.env.MONGODB_URI &&
+    !process.env.MONGODB_URI.includes("/slavicmedia-")
+  ) {
     process.env.MONGODB_URI = process.env.MONGODB_URI.replace(
       "/?",
-      "/slavicmedia-prod?"
+      "/slavicmedia-prod?",
     );
   }
 } else {
@@ -43,12 +46,12 @@ const swaggerOptions = {
   customCss: ".swagger-ui .topbar { display: none !important; }",
 };
 const swaggerDefinition = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "..", "swagger.json"), "utf8")
+  fs.readFileSync(path.join(__dirname, "..", "swagger.json"), "utf8"),
 );
 app.use(
   "/docs",
   swaggerUi.serve,
-  swaggerUi.setup(swaggerDefinition, swaggerOptions)
+  swaggerUi.setup(swaggerDefinition, swaggerOptions),
 );
 
 import imageRoutes from "./routes/img";
@@ -69,7 +72,7 @@ mongoose
 
 // Log successful MongoDB connection
 mongoose.connection.once("open", () =>
-  console.log("Connected successfully to MongoDB")
+  console.log("Connected successfully to MongoDB"),
 );
 
 // Root route
