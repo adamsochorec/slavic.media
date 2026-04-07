@@ -157,7 +157,7 @@ const currentYear = new Date().getFullYear();
           </section>
         </div>
         <nav class="social-icons" aria-label="Follow us on social media">
-           <a
+          <a
             href="https://youtube.com/@slavicmedia"
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -203,7 +203,7 @@ const currentYear = new Date().getFullYear();
           <span id="footer-links-heading" class="sr-only">Footer Links</span>
           <a
             aria-label="Download our Press Kit"
-            href="https://assets.slavic.media/press-kit.zip"
+            href="/press-kit.zip"
             title="Download Press Kit"
             >Press&nbsp;Kit</a
           >
