@@ -8,14 +8,24 @@ jobs:
     name: Deploy Backend
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      
       - name: Deploy backend to production
         run: |
-          curl -X POST "${{ secrets.BACKEND_DEPLOY_HOOK }}"
+          npm install -g vercel
+          vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }} --scope=${{ secrets.VERCEL_ORG_ID }}
+        env:
+          VERCEL_PROJECT_ID: ${{ secrets.BACKEND_VERCEL_PROJECT_ID }}
 
   deploy-frontend:
     name: Deploy Frontend
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      
       - name: Deploy frontend to production
         run: |
-          curl -X POST "${{ secrets.FRONTEND_DEPLOY_HOOK }}"
+          npm install -g vercel
+          vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }} --scope=${{ secrets.VERCEL_ORG_ID }}
+        env:
+          VERCEL_PROJECT_ID: ${{ secrets.FRONTEND_VERCEL_PROJECT_ID }}
