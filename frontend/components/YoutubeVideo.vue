@@ -10,14 +10,25 @@ interface YoutubeVideoProps {
   controls?: boolean;
 }
 
-withDefaults(defineProps<YoutubeVideoProps>(), {
+const props = withDefaults(defineProps<YoutubeVideoProps>(), {
   muted: true,
   autoplay: true,
   loop: true,
   controls: true,
 });
 
-const { iframeRef } = useVideoControlsYouTube();
+import { onMounted } from "vue";
+const { iframeRef } = useVideoControlsYouTube(props.id);
+
+import eventBus from "@/composables/useEventBus";
+
+onMounted(() => {
+  eventBus.on("youtube:seek", (data: { id: string; seconds: number; autoscroll?: boolean }) => {
+    if (data.id === props.id && data.autoscroll && iframeRef.value) {
+      iframeRef.value.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  });
+});
 </script>
 
 <template>
