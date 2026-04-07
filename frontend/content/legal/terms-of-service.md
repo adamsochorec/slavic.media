@@ -3,7 +3,7 @@ slug: terms-of-service
 date: 2025-05-12
 ---
 
-By purchasing from Slavic Media I/S, you agree to these Terms of Service and the accompanying Digital Product License. If you disagree with any part of these terms, please refrain from making any purchases.
+By purchasing from Slavic Media, you agree to these Terms of Service and the accompanying Digital Product License. If you disagree with any part of these terms, please refrain from making any purchases.
 
 
 ## General Payment and Refunds
@@ -15,7 +15,7 @@ By purchasing from Slavic Media I/S, you agree to these Terms of Service and the
    Payment is due at the time of purchase via the accepted payment methods specified on our website. Transactions must be completed before access to digital products is granted.
 
 3. **Refunds**:  
-   At Slavic Media I/S, we maintain a strict no-refund policy for our Lightroom presets once they have been downloaded. This policy is common among digital product providers due to the nature of digital goods, which cannot be returned once accessed.
+   At Slavic Media, we maintain a strict no-refund policy for our Lightroom presets once they have been downloaded. This policy is common among digital product providers due to the nature of digital goods, which cannot be returned once accessed.
 
 
 ## Contact Information
