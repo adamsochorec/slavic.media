@@ -3,7 +3,7 @@ name: Test and Deploy
 # This workflow gets triggered on every push to the specific branch
 on:
   push:
-    branches: [main]
+    branches: ['**']
 
 jobs:
   # Check which parts of the repository have changed
