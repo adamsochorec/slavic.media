@@ -368,7 +368,12 @@ table {
   text-align: left;
   color: oklch(1 0 0);
 }
-
+.overflow-table {
+  overflow-x: auto;
+}
+.overflow-table table {
+  width: max-content;
+}
 th,
 td {
   border: var(--border-1);
@@ -648,6 +653,10 @@ small a {
 /* SWIPER END */
 
 /* VIDEO CONTROLS START */
+.reels video {
+  height: 100%;
+  border-radius: var(--border-radius-1);
+}
 .controls {
   left: var(--grid-gap-2);
   gap: var(--grid-gap-1);
