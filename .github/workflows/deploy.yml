@@ -24,7 +24,6 @@ jobs:
 
       - name: Deploy to Vercel production
         run: vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
-        working-directory: backend
 
   deploy-frontend:
     name: Deploy Frontend
@@ -46,4 +45,3 @@ jobs:
 
       - name: Deploy to Vercel production
         run: vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
-        working-directory: frontend
