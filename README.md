@@ -1,4 +1,4 @@
-[![API tests](https://github.com/adamsochorec/slavic.media/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/adamsochorec/slavic.media/actions/workflows/main.yml)
+[![Tests](https://github.com/adamsochorec/slavic.media/actions/workflows/tests.yml/badge.svg)](https://github.com/adamsochorec/slavic.media/actions/workflows/tests.yml)
 
 # Slavic Media
 
