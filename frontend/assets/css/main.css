@@ -619,7 +619,6 @@ small a {
   vertical-align: middle;
   width: 100%;
   background-color: oklch(var(--dark-grey-color));
-  border-radius: var(--border-radius-1);
 }
 .column:nth-child(2) {
   padding-left: var(--grid-gap-1);
@@ -655,7 +654,7 @@ small a {
 /* VIDEO CONTROLS START */
 .reels video {
   height: 100%;
-  border-radius: var(--border-radius-1);
+  border-radius: 0;
 }
 .controls {
   left: var(--grid-gap-2);
@@ -940,7 +939,11 @@ i.pi-arrow-right:hover {
 .rendered-content img,
 .rendered-content iframe,
 #map {
-  border-radius: var(--border-radius-1);
+  margin: var(--grid-gap-2) 0;
+}
+.rendered-content iframe,
+#map {
+  border-radius: 0;
   margin: var(--grid-gap-2) 0;
 }
 .rendered-content iframe {

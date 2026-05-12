@@ -116,7 +116,7 @@ const plugins = [lgVideo];
   }
 }
 img {
-  border-radius: var(--border-radius-1);
+  border-radius: 0;
   -o-object-fit: cover;
   object-fit: cover;
   aspect-ratio: 16/9;

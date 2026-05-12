@@ -119,7 +119,7 @@ onUnmounted(() => {
 
 <style scoped>
 .swiper {
-  border-radius: var(--border-radius-1);
+  border-radius: 0;
   -webkit-box-shadow: var(--box-shadow-1);
   box-shadow: var(--box-shadow-1);
   aspect-ratio: 16/9;

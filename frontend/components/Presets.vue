@@ -36,7 +36,7 @@ img.product {
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
-  border-radius: var(--border-radius-1);
+  border-radius: 0;
 }
 .swiper {
   width: 100%;
