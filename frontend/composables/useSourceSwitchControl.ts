@@ -5,7 +5,7 @@ interface Source {
   label: string;
 }
 
-export function useSourceSwitchControl(sources: Source[]) {
+export function useSourceSwitchControl(sources: Source[], defaultSource: string) {
   class SourceSwitchControl implements IControl {
     private _map: Map | undefined;
     private _container: HTMLElement | undefined;
@@ -21,7 +21,7 @@ export function useSourceSwitchControl(sources: Source[]) {
         const option = document.createElement("option");
         option.value = item.source;
         option.innerHTML = item.label;
-        if (item.source === "winter-tiles") {
+        if (item.source === defaultSource) {
           option.selected = true;
         }
         select.appendChild(option);

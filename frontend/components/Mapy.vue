@@ -38,6 +38,7 @@ onMounted(() => {
 
   const isMobile = window.innerWidth < 768;
   const zoom = isMobile ? 1 : 3;
+  const defaultSource = "outdoor-tiles";
 
   const map = new maplibregl.Map({
     container: mapContainer.value,
@@ -48,7 +49,7 @@ onMounted(() => {
         {
           id: "tiles",
           type: "raster",
-          source: "basic-tiles",
+          source: defaultSource,
         },
       ],
     },
@@ -63,7 +64,7 @@ onMounted(() => {
     { source: "aerial-tiles", label: "Aerial" },
   ];
 
-  map.addControl(useSourceSwitchControl(sourceSwitchSources), "top-left");
+  map.addControl(useSourceSwitchControl(sourceSwitchSources, defaultSource), "top-left");
   map.addControl(new maplibregl.NavigationControl());
 
   if (events.value) {
