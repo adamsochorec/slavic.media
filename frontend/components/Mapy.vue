@@ -14,22 +14,22 @@ onMounted(() => {
   if (!mapContainer.value) return;
 
   const mapSources = {
-    "basic-tiles": {
+    basic: {
       type: "raster",
       url: `https://api.mapy.cz/v1/maptiles/basic/tiles.json?apikey=${config.public.MAPY_API_KEY}`,
       tileSize: 180,
     },
-    "outdoor-tiles": {
+    outdoor: {
       type: "raster",
       url: `https://api.mapy.cz/v1/maptiles/outdoor/tiles.json?apikey=${config.public.MAPY_API_KEY}`,
       tileSize: 180,
     },
-    "winter-tiles": {
+    winter: {
       type: "raster",
       url: `https://api.mapy.cz/v1/maptiles/winter/tiles.json?apikey=${config.public.MAPY_API_KEY}`,
       tileSize: 180,
     },
-    "aerial-tiles": {
+    aerial: {
       type: "raster",
       url: `https://api.mapy.cz/v1/maptiles/aerial/tiles.json?apikey=${config.public.MAPY_API_KEY}`,
       tileSize: 180,
@@ -38,7 +38,7 @@ onMounted(() => {
 
   const isMobile = window.innerWidth < 768;
   const zoom = isMobile ? 1 : 3;
-  const defaultSource = "outdoor-tiles";
+  const defaultSource = "outdoor";
 
   const map = new maplibregl.Map({
     container: mapContainer.value,
@@ -58,10 +58,10 @@ onMounted(() => {
   });
 
   const sourceSwitchSources = [
-    { source: "basic-tiles", label: "Basic" },
-    { source: "outdoor-tiles", label: "Outdoor" },
-    { source: "winter-tiles", label: "Winter" },
-    { source: "aerial-tiles", label: "Aerial" },
+    { source: "basic", label: "Basic" },
+    { source: "outdoor", label: "Outdoor" },
+    { source: "winter", label: "Winter" },
+    { source: "aerial", label: "Aerial" },
   ];
 
   map.addControl(
