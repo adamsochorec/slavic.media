@@ -48,7 +48,7 @@ onMounted(() => {
         {
           id: "tiles",
           type: "raster",
-          source: "outdoor-tiles",
+          source: "basic-tiles",
         },
       ],
     },
