@@ -39,7 +39,7 @@ const menuItems = ref([
   {
     title: "For clients",
     icon: "pi pi-download",
-    path: "https://clients.slavic.media",
+    path: "https://slavicmedia.pixieset.com",
     external: true,
   },
   {

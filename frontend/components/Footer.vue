@@ -136,7 +136,7 @@ const currentYear = new Date().getFullYear();
               >Store&nbsp;Portal</a
             >
             <a
-              href="https://clients.slavic.media"
+              href="https://slavicmedia.pixieset.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit Client Portal"
