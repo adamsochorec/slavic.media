@@ -3,7 +3,7 @@ slug: digital-image-license
 date: 2025-05-12
 ---
 
-This license grants the purchaser a non-exclusive, non-transferable right to use any digital products purchased through [store.slavic.media](https://store.slavic.media) and [clients.slavic.media](https://clients.slavic.media). The license covers all forms of digital content available for purchase, including but not limited to images, software tools, and educational materials.
+This license grants the purchaser a non-exclusive, non-transferable right to use any digital products purchased through [store.slavic.media](https://store.slavic.media) and [slavicmedia.pixieset.com](https://slavicmedia.pixieset.com). The license covers all forms of digital content available for purchase, including but not limited to images, software tools, and educational materials.
 
 
 ## Usage Restrictions
