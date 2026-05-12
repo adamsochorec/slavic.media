@@ -5,7 +5,10 @@ interface Source {
   label: string;
 }
 
-export function useSourceSwitchControl(sources: Source[], defaultSource: string) {
+export function useSourceSwitchControl(
+  sources: Source[],
+  defaultSource: string,
+) {
   class SourceSwitchControl implements IControl {
     private _map: Map | undefined;
     private _container: HTMLElement | undefined;

@@ -64,7 +64,10 @@ onMounted(() => {
     { source: "aerial-tiles", label: "Aerial" },
   ];
 
-  map.addControl(useSourceSwitchControl(sourceSwitchSources, defaultSource), "top-left");
+  map.addControl(
+    useSourceSwitchControl(sourceSwitchSources, defaultSource),
+    "top-left",
+  );
   map.addControl(new maplibregl.NavigationControl());
 
   if (events.value) {
