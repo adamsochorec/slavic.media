@@ -525,7 +525,7 @@ form {
   input,
   textarea {
     padding: var(--grid-gap-2);
-    border-radius: var(--border-radius-1);
+    border-radius: 0;
     background: oklch(var(--dark-grey-color));
     border: var(--border-1);
     line-height: normal;
@@ -963,7 +963,7 @@ iframe.spotify {
 }
 .maplibregl-popup-content {
   background-color: var(--dark-grey-color-full) !important;
-  border-radius: var(--border-radius-1) !important;
+  border-radius: 0 !important;
   -webkit-backdrop-filter: var(--blur-1);
   backdrop-filter: var(--blur-1);
   border: var(--border-1);

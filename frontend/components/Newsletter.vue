@@ -105,7 +105,7 @@ form {
   input {
     height: 100%;
     padding: var(--grid-gap-1);
-    border-radius: var(--border-radius-1) 0 0 var(--border-radius-1);
+    border-radius: 0;
     border-right: none;
     font-size: var(--font-size-7);
   }
