@@ -315,7 +315,7 @@ img {
   aspect-ratio: 4 / 3;
   -o-object-fit: cover;
   object-fit: cover;
-  border-radius: var(--border-radius-1);
+  border-radius: 0;
 }
 .social-icons {
   display: flex;

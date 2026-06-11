@@ -364,7 +364,7 @@ table {
   border-spacing: 0;
   border-collapse: separate;
   font-size: var(--font-size-7);
-  border-radius: var(--border-radius-1);
+  border-radius: 0;
   text-align: left;
   color: oklch(1 0 0);
 }
@@ -387,16 +387,16 @@ tr:nth-child(even) {
   background-color: oklch(var(--dark-grey-color));
 }
 table th:first-child {
-  border-top-left-radius: var(--border-radius-1);
+  border-top-left-radius: 0;
 }
 table th:last-child {
-  border-top-right-radius: var(--border-radius-1);
+  border-top-right-radius: 0;
 }
 table tr:last-child td:first-child {
-  border-bottom-left-radius: var(--border-radius-1);
+  border-bottom-left-radius: 0;
 }
 table tr:last-child td:last-child {
-  border-bottom-right-radius: var(--border-radius-1);
+  border-bottom-right-radius: 0;
 }
 /* TABLE END */
 
@@ -525,7 +525,7 @@ form {
   input,
   textarea {
     padding: var(--grid-gap-2);
-    border-radius: var(--border-radius-1);
+    border-radius: 0;
     background: oklch(var(--dark-grey-color));
     border: var(--border-1);
     line-height: normal;
@@ -619,7 +619,6 @@ small a {
   vertical-align: middle;
   width: 100%;
   background-color: oklch(var(--dark-grey-color));
-  border-radius: var(--border-radius-1);
 }
 .column:nth-child(2) {
   padding-left: var(--grid-gap-1);
@@ -655,7 +654,7 @@ small a {
 /* VIDEO CONTROLS START */
 .reels video {
   height: 100%;
-  border-radius: var(--border-radius-1);
+  border-radius: 0;
 }
 .controls {
   left: var(--grid-gap-2);
@@ -940,7 +939,11 @@ i.pi-arrow-right:hover {
 .rendered-content img,
 .rendered-content iframe,
 #map {
-  border-radius: var(--border-radius-1);
+  margin: var(--grid-gap-2) 0;
+}
+.rendered-content iframe,
+#map {
+  border-radius: 0;
   margin: var(--grid-gap-2) 0;
 }
 .rendered-content iframe {
@@ -960,7 +963,7 @@ iframe.spotify {
 }
 .maplibregl-popup-content {
   background-color: var(--dark-grey-color-full) !important;
-  border-radius: var(--border-radius-1) !important;
+  border-radius: 0 !important;
   -webkit-backdrop-filter: var(--blur-1);
   backdrop-filter: var(--blur-1);
   border: var(--border-1);

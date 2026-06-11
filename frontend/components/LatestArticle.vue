@@ -5,7 +5,7 @@ import { useProgressiveImg } from "@/composables/useProgressiveImg";
 
 // Fetch the first document from the blog collection
 const { data: article } = await useAsyncData("latest-article", () =>
-  queryCollection("blog").order("date", "DESC").first()
+  queryCollection("blog").order("date", "DESC").first(),
 );
 
 const {
@@ -129,7 +129,7 @@ h4 {
   }
 }
 img {
-  border-radius: var(--border-radius-1);
+  border-radius: 0;
   height: 300px;
   object-fit: cover;
   position: relative;
