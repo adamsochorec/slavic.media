@@ -7,7 +7,7 @@ const { iframeRef, state } = useVideoControlsYouTube();
 <template>
   <iframe
     ref="iframeRef"
-    src="https://www.youtube-nocookie.com/embed/u3PwDCmAH_k?enablejsapi=1&mute=1&loop=1&playlist=u3PwDCmAH_k&autoplay=1"
+    src="https://www.youtube-nocookie.com/embed/mnOeia-d0Sw?enablejsapi=1&mute=1&loop=1&playlist=mnOeia-d0Sw&autoplay=1"
     title="Sound Design"
     frameborder="0"
     allow="

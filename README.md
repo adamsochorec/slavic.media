@@ -16,7 +16,7 @@ Developed between September and December 2024, further developments and updates 
 
 ## What?
 
-A landing page for a creative multimedia studio, showcasing projects, industry-related knowledge, tips, and case studies. It also serves as a repository for client projects, mounted on platforms like [`clients.slavic.media`](https://clients.slavic.media) and [`store.slavic.media`](https://store.slavic.media) for digital product sales. Additionally, it functions as a lead-generation tool, establishing credibility and connecting with potential customers.
+A landing page for a creative multimedia studio, showcasing projects, industry-related knowledge, tips, and case studies. It also serves as a repository for client projects, mounted on platforms like [`slavicmedia.pixieset.com`](https://slavicmedia.pixieset.com) and [`store.slavic.media`](https://store.slavic.media) for digital product sales. Additionally, it functions as a lead-generation tool, establishing credibility and connecting with potential customers.
 
 ## How?
 
