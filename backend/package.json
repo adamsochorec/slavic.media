@@ -38,7 +38,7 @@
     "dotenv": "^16.4.5",
     "dotenv-flow": "^4.1.0",
     "express": "^4.22.2",
-    "joi": "^17.12.1",
+    "joi": "^18.2.1",
     "jsonwebtoken": "^9.0.2",
     "moment-timezone": "^0.6.0",
     "mongoose": "^6.13.9",
