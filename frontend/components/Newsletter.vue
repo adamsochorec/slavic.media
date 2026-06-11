@@ -91,15 +91,14 @@ async function submitForm(e: Event) {
 .error {
   font-size: var(--font-size-6);
 }
-
 form {
   display: flex;
   align-items: center;
+  gap: var(--grid-gap-1);
   margin: 5px 0;
-
   .cta {
     margin-top: 0 !important;
-    border-radius: 0 var(--border-radius-1) var(--border-radius-1) 0;
+    border-radius: 0;
     padding: 6.8px;
   }
   input {
