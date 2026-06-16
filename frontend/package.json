@@ -53,7 +53,7 @@
     "lightgallery": "^2.8.3",
     "maplibre-gl": "^5.10.0",
     "media-icons": "^1.1.5",
-    "nuxt": "^4.2.2",
+    "nuxt": "^4.4.7",
     "nuxt-swiper": "^2.0.0",
     "photoswipe": "^5.4.4",
     "photoswipe-dynamic-caption-plugin": "^1.2.7",
