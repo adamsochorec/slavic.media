@@ -291,7 +291,7 @@ h4 {
   font-size: var(--font-size-6);
   font-family: var(--content-font);
   font-optical-sizing: auto;
-  font-weight: 100;
+  font-weight: 200;
   font-style: normal;
 
   @media only screen and (max-width: 430px) {
