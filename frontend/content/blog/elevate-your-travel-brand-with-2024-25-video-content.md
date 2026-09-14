@@ -12,7 +12,7 @@ keywords:
   - Tourism
   - Video production
 author:
-  name: Marcel H.
+  name: Marcel Hájik
   id: marcel
   linkedin: marcelhajik
 date: 2024-11-03T00:00:00.000Z

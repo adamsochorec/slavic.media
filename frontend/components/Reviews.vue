@@ -74,7 +74,7 @@ onMounted(() => {
     starContainers.forEach((starContainer) => {
       const rating = parseInt(
         starContainer.getAttribute("data-rating") || "0",
-        10
+        10,
       );
       showStars(starContainer, rating);
     });
@@ -91,7 +91,7 @@ onMounted(() => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (swiperElement) {
@@ -170,13 +170,13 @@ onUnmounted(() => {
 </template>
 <style scoped lang="postcss">
 .swiper-reviews {
-  border-radius: var(--border-radius-1);
+  border-radius: 0;
   padding-bottom: calc(var(--grid-gap-2) * 2);
 
   .swiper-slide {
     padding: var(--grid-gap-1);
     width: var(--dimension-2);
-    border-radius: var(--border-radius-1);
+    border-radius: 0;
     background-color: oklch(var(--dark-grey-color));
     box-shadow: var(--box-shadow-1);
   }

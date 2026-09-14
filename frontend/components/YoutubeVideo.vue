@@ -23,11 +23,14 @@ const { iframeRef } = useVideoControlsYouTube(props.id);
 import eventBus from "@/composables/useEventBus";
 
 onMounted(() => {
-  eventBus.on("youtube:seek", (data: { id: string; seconds: number; autoscroll?: boolean }) => {
-    if (data.id === props.id && data.autoscroll && iframeRef.value) {
-      iframeRef.value.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  });
+  eventBus.on(
+    "youtube:seek",
+    (data: { id: string; seconds: number; autoscroll?: boolean }) => {
+      if (data.id === props.id && data.autoscroll && iframeRef.value) {
+        iframeRef.value.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    },
+  );
 });
 </script>
 
@@ -56,6 +59,6 @@ onMounted(() => {
 .youtube-iframe {
   width: 100%;
   aspect-ratio: 16/9;
-  border-radius: var(--border-radius-1);
+  border-radius: 0;
 }
 </style>

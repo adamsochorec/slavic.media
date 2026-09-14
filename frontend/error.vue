@@ -12,7 +12,7 @@ useSeoMeta(
     twitterImage: "https://cdn.slavic.media/img/thumbnail/SD",
     twitterCard: "summary",
   },
-  { priority: 1 }
+  { priority: 1 },
 );
 
 defineProps({
@@ -40,7 +40,7 @@ defineProps({
         style="
           font-family: var(--content-font);
           font-optical-sizing: auto;
-          font-weight: 100;
+          font-weight: 200;
           font-style: normal;
         "
         id="error-heading"

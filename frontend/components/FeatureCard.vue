@@ -49,7 +49,7 @@ onMounted(() => {
 <style lang="postcss" scoped>
 .card {
   position: relative;
-  border-radius: var(--border-radius-1);
+  border-radius: 0;
   background: oklch(0 0 0);
   cursor: pointer;
   aspect-ratio: 1/1;

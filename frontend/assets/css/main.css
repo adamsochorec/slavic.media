@@ -38,7 +38,7 @@ footer {
   flex-direction: column;
   font-family: var(--content-font);
   font-optical-sizing: auto;
-  font-weight: 100;
+  font-weight: 200;
   font-style: normal;
   overflow: hidden;
 }
@@ -263,9 +263,11 @@ p {
   flex-direction: column;
   font-size: var(--font-size-6);
   line-height: 1.5;
-  font-family: "SF Pro", sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Icons",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-optical-sizing: auto;
-  font-weight: 100;
+  font-weight: 200;
   font-style: normal;
   letter-spacing: var(--letter-spacing-1);
 }
@@ -364,7 +366,7 @@ table {
   border-spacing: 0;
   border-collapse: separate;
   font-size: var(--font-size-7);
-  border-radius: var(--border-radius-1);
+  border-radius: 0;
   text-align: left;
   color: oklch(1 0 0);
 }
@@ -387,16 +389,16 @@ tr:nth-child(even) {
   background-color: oklch(var(--dark-grey-color));
 }
 table th:first-child {
-  border-top-left-radius: var(--border-radius-1);
+  border-top-left-radius: 0;
 }
 table th:last-child {
-  border-top-right-radius: var(--border-radius-1);
+  border-top-right-radius: 0;
 }
 table tr:last-child td:first-child {
-  border-bottom-left-radius: var(--border-radius-1);
+  border-bottom-left-radius: 0;
 }
 table tr:last-child td:last-child {
-  border-bottom-right-radius: var(--border-radius-1);
+  border-bottom-right-radius: 0;
 }
 /* TABLE END */
 
@@ -406,7 +408,7 @@ form {
   textarea::-webkit-input-placeholder {
     font-family: var(--content-font);
     font-optical-sizing: auto;
-    font-weight: 100;
+    font-weight: 200;
     font-style: normal;
     color: oklch(1 0 0);
     font-size: var(--font-size-6);
@@ -415,7 +417,7 @@ form {
   textarea::-moz-placeholder {
     font-family: var(--content-font);
     font-optical-sizing: auto;
-    font-weight: 100;
+    font-weight: 200;
     font-style: normal;
     color: oklch(1 0 0);
     font-size: var(--font-size-6);
@@ -424,7 +426,7 @@ form {
   textarea:-ms-input-placeholder {
     font-family: var(--content-font);
     font-optical-sizing: auto;
-    font-weight: 100;
+    font-weight: 200;
     font-style: normal;
     color: oklch(1 0 0);
     font-size: var(--font-size-6);
@@ -433,7 +435,7 @@ form {
   textarea::-ms-input-placeholder {
     font-family: var(--content-font);
     font-optical-sizing: auto;
-    font-weight: 100;
+    font-weight: 200;
     font-style: normal;
     color: oklch(1 0 0);
     font-size: var(--font-size-6);
@@ -442,7 +444,7 @@ form {
   textarea::-webkit-input-placeholder {
     font-family: var(--content-font);
     font-optical-sizing: auto;
-    font-weight: 100;
+    font-weight: 200;
     font-style: normal;
     color: oklch(1 0 0);
     font-size: var(--font-size-6);
@@ -451,7 +453,7 @@ form {
   textarea::-moz-placeholder {
     font-family: var(--content-font);
     font-optical-sizing: auto;
-    font-weight: 100;
+    font-weight: 200;
     font-style: normal;
     color: oklch(1 0 0);
     font-size: var(--font-size-6);
@@ -460,7 +462,7 @@ form {
   textarea:-ms-input-placeholder {
     font-family: var(--content-font);
     font-optical-sizing: auto;
-    font-weight: 100;
+    font-weight: 200;
     font-style: normal;
     color: oklch(1 0 0);
     font-size: var(--font-size-6);
@@ -469,7 +471,7 @@ form {
   textarea::-ms-input-placeholder {
     font-family: var(--content-font);
     font-optical-sizing: auto;
-    font-weight: 100;
+    font-weight: 200;
     font-style: normal;
     color: oklch(1 0 0);
     font-size: var(--font-size-6);
@@ -478,7 +480,7 @@ form {
   textarea::-webkit-input-placeholder {
     font-family: var(--content-font);
     font-optical-sizing: auto;
-    font-weight: 100;
+    font-weight: 200;
     font-style: normal;
     color: oklch(1 0 0);
     font-size: var(--font-size-6);
@@ -487,7 +489,7 @@ form {
   textarea::-moz-placeholder {
     font-family: var(--content-font);
     font-optical-sizing: auto;
-    font-weight: 100;
+    font-weight: 200;
     font-style: normal;
     color: oklch(1 0 0);
     font-size: var(--font-size-6);
@@ -496,7 +498,7 @@ form {
   textarea:-ms-input-placeholder {
     font-family: var(--content-font);
     font-optical-sizing: auto;
-    font-weight: 100;
+    font-weight: 200;
     font-style: normal;
     color: oklch(1 0 0);
     font-size: var(--font-size-6);
@@ -505,7 +507,7 @@ form {
   textarea::-ms-input-placeholder {
     font-family: var(--content-font);
     font-optical-sizing: auto;
-    font-weight: 100;
+    font-weight: 200;
     font-style: normal;
     color: oklch(1 0 0);
     font-size: var(--font-size-6);
@@ -517,7 +519,7 @@ form {
   textarea::placeholder {
     font-family: var(--content-font);
     font-optical-sizing: auto;
-    font-weight: 100;
+    font-weight: 200;
     font-style: normal;
     color: oklch(1 0 0);
     font-size: var(--font-size-6);
@@ -525,7 +527,7 @@ form {
   input,
   textarea {
     padding: var(--grid-gap-2);
-    border-radius: var(--border-radius-1);
+    border-radius: 0;
     background: oklch(var(--dark-grey-color));
     border: var(--border-1);
     line-height: normal;
@@ -619,7 +621,6 @@ small a {
   vertical-align: middle;
   width: 100%;
   background-color: oklch(var(--dark-grey-color));
-  border-radius: var(--border-radius-1);
 }
 .column:nth-child(2) {
   padding-left: var(--grid-gap-1);
@@ -655,7 +656,7 @@ small a {
 /* VIDEO CONTROLS START */
 .reels video {
   height: 100%;
-  border-radius: var(--border-radius-1);
+  border-radius: 0;
 }
 .controls {
   left: var(--grid-gap-2);
@@ -737,7 +738,7 @@ small a {
   z-index: 9999999999 !important;
   font-family: var(--content-font);
   font-optical-sizing: auto;
-  font-weight: 100;
+  font-weight: 200;
   font-style: normal;
 }
 .pswp__bg {
@@ -852,7 +853,7 @@ i.pi-arrow-right:hover {
   font-weight: bold;
   font-family: var(--content-font);
   font-optical-sizing: auto;
-  font-weight: 100;
+  font-weight: 200;
   font-style: normal;
 }
 .location-name {
@@ -940,7 +941,11 @@ i.pi-arrow-right:hover {
 .rendered-content img,
 .rendered-content iframe,
 #map {
-  border-radius: var(--border-radius-1);
+  margin: var(--grid-gap-2) 0;
+}
+.rendered-content iframe,
+#map {
+  border-radius: 0;
   margin: var(--grid-gap-2) 0;
 }
 .rendered-content iframe {
@@ -960,7 +965,7 @@ iframe.spotify {
 }
 .maplibregl-popup-content {
   background-color: var(--dark-grey-color-full) !important;
-  border-radius: var(--border-radius-1) !important;
+  border-radius: 0 !important;
   -webkit-backdrop-filter: var(--blur-1);
   backdrop-filter: var(--blur-1);
   border: var(--border-1);

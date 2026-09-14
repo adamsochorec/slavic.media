@@ -11,7 +11,7 @@ keywords:
   - Finland
   - Winter Travel
 author:
-  name: Marcel H.
+  name: Marcel Hájik
   id: marcel
   linkedin: marcelhajik
 date: 2024-10-23T00:00:00.000Z

@@ -15,7 +15,7 @@ keywords:
   - Baltic Sea
   - Travel Vlogs
 author:
-  name: Adam S.
+  name: Adam Sochorec
   id: adam
 date: 2022-08-25T00:00:00.000Z
 flag: dk

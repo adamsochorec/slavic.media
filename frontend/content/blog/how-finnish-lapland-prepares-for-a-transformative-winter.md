@@ -11,7 +11,7 @@ keywords:
   - Northern Scandinavia
   - Travel Marketing
 author:
-  name: Marcel H.
+  name: Marcel Hájik
   id: marcel
   linkedin: marcelhajik
 date: 2024-10-20T00:00:00.000Z

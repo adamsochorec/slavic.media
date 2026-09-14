@@ -29,7 +29,7 @@ iframe {
   position: relative;
   width: 100%;
   aspect-ratio: 16/9;
-  border-radius: var(--border-radius-1);
+  border-radius: 0;
   overflow: hidden;
   height: 100%;
 }

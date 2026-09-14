@@ -5,7 +5,7 @@ import { useProgressiveImg } from "@/composables/useProgressiveImg";
 
 // Fetch the first document from the blog collection
 const { data: article } = await useAsyncData("latest-article", () =>
-  queryCollection("blog").order("date", "DESC").first()
+  queryCollection("blog").order("date", "DESC").first(),
 );
 
 const {
@@ -118,7 +118,9 @@ a > :hover,
     grid-template-columns: 1fr;
   }
 }
-
+p {
+  font-size: var(--font-size-7);
+}
 h4 {
   font-size: var(--font-size-4);
   margin: 0 0 var(--grid-gap-2) 0;
@@ -129,7 +131,7 @@ h4 {
   }
 }
 img {
-  border-radius: var(--border-radius-1);
+  border-radius: 0;
   height: 300px;
   object-fit: cover;
   position: relative;

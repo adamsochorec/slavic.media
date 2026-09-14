@@ -291,7 +291,7 @@ h4 {
   font-size: var(--font-size-6);
   font-family: var(--content-font);
   font-optical-sizing: auto;
-  font-weight: 100;
+  font-weight: 200;
   font-style: normal;
 
   @media only screen and (max-width: 430px) {
@@ -315,7 +315,7 @@ img {
   aspect-ratio: 4 / 3;
   -o-object-fit: cover;
   object-fit: cover;
-  border-radius: var(--border-radius-1);
+  border-radius: 0;
 }
 .social-icons {
   display: flex;
