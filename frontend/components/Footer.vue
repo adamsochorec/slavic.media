@@ -242,7 +242,7 @@ footer {
   font-family: var(--content-font);
   font-size: var(--font-size-7);
   font-optical-sizing: auto;
-  font-weight: 100;
+  font-weight: 200;
   font-style: normal;
   line-height: 2;
 

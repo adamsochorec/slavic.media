@@ -6,7 +6,9 @@
   --dark-grey-color-full: oklch(0 0 0 / 30.2%);
   --light-grey-color: 0.6797 0 0;
   --logo-font: "Raleway", sans-serif;
-  --content-font: "SF Pro", sans-serif;
+  --content-font:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Icons",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-size-1: clamp(2em, 5vw, 3em);
   --font-size-2: clamp(1.5em, 4vw, 2.5em);
   --font-size-3: clamp(1.25em, 3vw, 2em);
@@ -58,8 +60,10 @@
   font-style: normal;
 }
 .content-font {
-  font-family: "SF Pro", sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Icons",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-optical-sizing: auto;
-  font-weight: 100;
+  font-weight: 200;
   font-style: normal;
 }

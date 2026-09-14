@@ -118,7 +118,9 @@ a > :hover,
     grid-template-columns: 1fr;
   }
 }
-
+p {
+  font-size: var(--font-size-7);
+}
 h4 {
   font-size: var(--font-size-4);
   margin: 0 0 var(--grid-gap-2) 0;
