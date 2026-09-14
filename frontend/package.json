@@ -40,7 +40,7 @@
     "@nuxt/content": "^3.7.0",
     "@nuxt/fonts": "^0.11.1",
     "@nuxt/icon": "^1.12.0",
-    "@nuxt/image": "^1.10.0",
+    "@nuxt/image": "^2.1.0",
     "@nuxt/kit": "^4.2.2",
     "@nuxtjs/mdc": "^0.17.2",
     "@primeuix/styles": "^1.1.1",
