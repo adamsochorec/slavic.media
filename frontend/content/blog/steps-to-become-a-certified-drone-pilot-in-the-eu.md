@@ -14,7 +14,7 @@ keywords:
   - Drone pilot
   - Pilot certificate
 author:
-  name: Adam S.
+  name: Adam Sochorec
   id: adam
 date: 2024-10-21T00:00:00.000Z
 flag: cz

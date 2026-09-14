@@ -11,7 +11,7 @@ keywords:
   - Bushcraft
   - Hiking
 author:
-  name: Adam S.
+  name: Adam Sochorec
   id: adam
 date: 2022-10-15T00:00:00.000Z
 flag: ax

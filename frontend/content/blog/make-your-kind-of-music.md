@@ -2,7 +2,7 @@
 title: Make Your Kind of Music
 slug: make-your-kind-of-music
 author:
-  name: Adam S.
+  name: Adam Sochorec
   id: adam
 date: 2025-02-18
 flag: dk

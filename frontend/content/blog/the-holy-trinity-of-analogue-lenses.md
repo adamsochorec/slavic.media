@@ -14,7 +14,7 @@ keywords:
   - Marco
   - Anamorphic lens
 author:
-  name: Adam S.
+  name: Adam Sochorec
   id: adam
 date: 2026-03-24T00:00:00.000Z
 ---

@@ -16,7 +16,7 @@ keywords:
   - 3D Scanning
   - Polycam
 author:
-  name: Adam S.
+  name: Adam Sochorec
   id: adam
 date: 2022-04-10T00:00:00.000Z
 flag: dk

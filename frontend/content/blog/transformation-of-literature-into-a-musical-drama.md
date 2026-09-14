@@ -11,7 +11,7 @@ keywords:
   - Kim Kim
   - Client Work
 author:
-  name: Gabriela S.
+  name: Gabriela Sochorcová
   id: gabriela
   linkedin: gabrielasochorcova
 date: 2024-09-16T00:00:00.000Z

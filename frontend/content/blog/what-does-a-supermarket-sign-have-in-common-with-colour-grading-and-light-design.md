@@ -14,7 +14,7 @@ keywords:
   - Colour science
   - Post production
 author:
-  name: Adam S.
+  name: Adam Sochorec
   id: adam
 date: 2024-10-18T00:00:00.000Z
 flag: cz
