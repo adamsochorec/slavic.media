@@ -15,7 +15,7 @@ thumbnail: IMG_0556
 icon: map
 length: 10
 author:
-  name: Adam S.
+  name: Adam Sochorec
   id: adam
 ---
 

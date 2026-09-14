@@ -2,7 +2,7 @@
 title: Transformative Territories
 slug: transformative-territories
 author:
-  name: Adam S.
+  name: Adam Sochorec
   id: adam
 date: 2025-04-27
 flag: cz

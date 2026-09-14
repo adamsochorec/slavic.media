@@ -10,7 +10,7 @@ keywords:
   - Denmark
   - Branding
 author:
-  name: Marcel H.
+  name: Marcel Hájik
   id: marcel
   linkedin: marcelhajik
 linkedin: marcelhajik_story-startupstory-startup-activity-7256605680747319298-a7Zt?utm_source=share&utm_medium=member_desktop
@@ -22,7 +22,7 @@ That’s one of the first things we heard when we introduced Slavic Media in Den
 > "Why associate yourself with a culture that has a negative reputation?"
 :br "Slavic, isn't that risky?"
 
-![Marcel H. & Adam S.](https://cdn.slavic.media/img/1728539251293/4K "Marcel H. & Adam S.")
+![Marcel Hájik & Adam Sochorec](https://cdn.slavic.media/img/1728539251293/4K "Marcel Hájik & Adam Sochorec")
 
 For us, Slavic Media was a celebration of our roots—Czechia and Slovakia. It represents authenticity, hard work, honesty, and a deep respect for nature—values we proudly uphold. But not everyone saw it that way…
 

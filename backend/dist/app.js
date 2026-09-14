@@ -15,7 +15,8 @@ if (process.env.NODE_ENV === "test") {
 }
 else if (process.env.NODE_ENV === "production") {
     // Production: append database name to connection string if not present
-    if (process.env.MONGODB_URI && !process.env.MONGODB_URI.includes("/slavicmedia-")) {
+    if (process.env.MONGODB_URI &&
+        !process.env.MONGODB_URI.includes("/slavicmedia-")) {
         process.env.MONGODB_URI = process.env.MONGODB_URI.replace("/?", "/slavicmedia-prod?");
     }
 }

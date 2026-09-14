@@ -12,7 +12,7 @@ keywords:
   - Sámi People
   - Aurora
 author:
-  name: Adam S.
+  name: Adam Sochorec
   id: adam
 date: 2022-09-07T00:00:00.000Z
 flag: se
