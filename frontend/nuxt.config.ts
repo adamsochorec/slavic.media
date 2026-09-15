@@ -76,9 +76,9 @@ export default defineNuxtConfig({
     build: {
       rollupOptions: {
         output: {
-          manualChunks: {
-            photoswipe: ["photoswipe/lightbox", "photoswipe/style.css"],
-            swiper: ["swiper"],
+          manualChunks: (id) => {
+            if (id.includes("photoswipe")) return "photoswipe";
+            if (id.includes("swiper")) return "swiper";
           },
         },
       },
